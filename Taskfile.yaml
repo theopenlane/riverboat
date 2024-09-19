@@ -31,8 +31,6 @@ tasks:
   go:test:
     desc: runs and outputs results of created go tests
     aliases: [test]
-    env:
-      TEST_DB_URL: "docker://postgres:16-alpine"
     cmds:
       - go test -v ./...
 
