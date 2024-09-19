@@ -50,6 +50,10 @@ in `pkg/jobs`.
 1. This should insert the job successfully, it should be processed by `river`
    and the email should be added to `fixtures/email`
 
+## Adding Jobs
+
+1. New jobs can be added to the `pkg/jobs` directory.
+
 ## Contributing
 
 See the [contributing](.github/CONTRIBUTING.md) guide for more information.

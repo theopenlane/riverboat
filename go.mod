@@ -16,6 +16,7 @@ require (
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.11.4
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/cobra v1.8.1
+	github.com/stretchr/testify v1.9.0
 	github.com/theopenlane/newman v0.1.1
 	github.com/theopenlane/utils v0.2.1-0.20240919000452-a82f4bd8166b
 )
@@ -46,7 +47,6 @@ require (
 	github.com/riverqueue/river/rivertype v0.11.4 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
-	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	go.uber.org/goleak v1.3.0 // indirect
 	golang.org/x/crypto v0.27.0 // indirect

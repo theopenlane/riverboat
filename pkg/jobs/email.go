@@ -2,7 +2,6 @@ package jobs
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
@@ -43,11 +42,11 @@ type EmailConfig struct {
 // validateEmailConfig validates the email configuration settings
 func (w *EmailWorker) validateEmailConfig() error {
 	if w.DevMode && w.TestDir == "" {
-		return fmt.Errorf("missing test directory") // nolint:goerr113
+		return ErrMissingTestDir
 	}
 
 	if !w.DevMode && w.Token == "" {
-		return fmt.Errorf("missing token") // nolint:goerr113
+		return ErrMissingToken
 	}
 
 	return nil
