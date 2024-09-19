@@ -1,0 +1,14 @@
+services:
+  api:
+    image: riverboat:dev
+    depends_on:
+      - postgres
+    command:
+      - serve
+      - --debug
+      - --pretty
+    environment:
+      - RIVERBOAT_JOBQUEUE_DATABASEHOST=postgres://postgres:password@postgres:5432/jobs?sslmode=disable
+    restart: unless-stopped
+    networks:
+      - default

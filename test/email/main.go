@@ -5,6 +5,7 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/newman"
+
 	"github.com/theopenlane/riverboat/test/common"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
@@ -19,7 +20,7 @@ func main() {
 	msg := newman.NewEmailMessageWithOptions(
 		newman.WithSubject("test subject"),
 		newman.WithText("body"),
-		newman.WithTo([]string{"meow@example.com"}),
+		newman.WithTo([]string{"meowfunk@example.com"}),
 	)
 
 	_, err := client.Insert(context.Background(), jobs.EmailArgs{
@@ -28,4 +29,6 @@ func main() {
 	if err != nil {
 		log.Fatal().Err(err).Msg("error inserting email job")
 	}
+
+	log.Info().Msg("email job successfully inserted")
 }

@@ -19,12 +19,7 @@ go.work
 
 # local dev created files
 *.db
-core
-openlane-cli
-server.crt
-server.key
-private_key.pem
-public_key.pem
+riverboat
 
 # emails tests 
 emails/*

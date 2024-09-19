@@ -3,6 +3,10 @@ version: "3"
 includes:
   config:
     taskfile: ./configgen/Taskfile.yaml
+  docker:
+    taskfile: ./docker/Taskfile.yaml
+    dir: ./docker
+    aliases: [compose]
 
 env: 
   GOFLAGS: -buildvcs=false
@@ -58,6 +62,31 @@ tasks:
       - task: go:fmt
       - task: go:lint
       - task: go:test
+
+  go:build:
+    desc: Runs go build for the riverboat server
+    cmds:
+      - go build -mod=mod -o riverboat
+
+  go:build:ci:
+    desc: Runs go build for the riverboat server
+    cmds:
+      - go build -mod=mod -a -o bin/riverboat
+
+  run:
+    dotenv: ["{{.ENV}}/.env-dev"]
+    desc: runs the riverboat server in dev mode, assumes all other dependencies (postgres) are running
+    cmds:
+      - go run main.go serve --debug --pretty
+      
+  run-dev:
+    dotenv: ["{{.ENV}}/.env-dev"]
+    desc: runs the riverboat server in dev mode with dependencies in docker
+    cmds:
+      - task: docker:postgres
+      - task: docker:ui:up
+      - 'open "http://localhost:8082"'
+      - task: run
 
   precommit-full:
     desc: Lint the project against all files

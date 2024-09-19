@@ -1,0 +1,9 @@
+services:
+  ui:
+    image: ghcr.io/riverqueue/riverui:latest
+    ports:
+      - 8082:8080
+    environment:
+      - DATABASE_URL=postgres://postgres:password@host.docker.internal:5432/jobs?sslmode=disable
+    networks:
+      - default
