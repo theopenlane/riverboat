@@ -58,6 +58,8 @@ func Start(ctx context.Context, c Config) error {
 		log.Fatal().Err(err).Msg("failed to create river client")
 	}
 
+	log.Info().Msg(startBlock)
+
 	// run the client
 	if err := client.Start(ctx); err != nil {
 		log.Fatal().Err(err).Msg("failed to start river client")
@@ -162,3 +164,15 @@ func createQueueConfig(queues []Queue) map[string]river.QueueConfig {
 
 	return qc
 }
+
+var startBlock = `
+          $$\                                $$\                            $$\
+          \__|                               $$ |                           $$ |
+ $$$$$$\  $$\ $$\    $$\  $$$$$$\   $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\ $$$$$$\
+$$  __$$\ $$ |\$$\  $$  |$$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\  \____$$\\_$$  _|
+$$ |  \__|$$ | \$$\$$  / $$$$$$$$ |$$ |  \__|$$ |  $$ |$$ /  $$ | $$$$$$$ | $$ |
+$$ |      $$ |  \$$$  /  $$   ____|$$ |      $$ |  $$ |$$ |  $$ |$$  __$$ | $$ |$$\
+$$ |      $$ |   \$  /   \$$$$$$$\ $$ |      $$$$$$$  |\$$$$$$  |\$$$$$$$ | \$$$$  |
+\__|      \__|    \_/     \_______|\__|      \_______/  \______/  \_______|  \____/
+
+`
