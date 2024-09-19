@@ -10,9 +10,8 @@ import (
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
-// the main function here will insert an email job into the river
+// the main function here will insert an database job into the river
 // this will be picked up by the river server and processed
-// assuming the server is run in the default setup, the email will be written to a file (fixtures/email)
 func main() {
 	client := common.NewInsertOnlyRiverClient()
 

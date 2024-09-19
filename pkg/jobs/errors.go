@@ -20,12 +20,12 @@ type MissingRequiredArgError struct {
 	Job string `json:"job"`
 }
 
-// Error returns the InvalidEmailConfigError in string format
+// Error returns the MissingRequiredArgError in string format
 func (e *MissingRequiredArgError) Error() string {
 	return fmt.Sprintf("%s is required for the %s job", e.Arg, e.Job)
 }
 
-// newMissingRequiredArg returns an error for a missing required field
+// newMissingRequiredArg returns an error for a missing required argument
 func newMissingRequiredArg(field, job string) *MissingRequiredArgError {
 	return &MissingRequiredArgError{
 		Arg: field,
