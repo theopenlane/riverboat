@@ -13,3 +13,7 @@ data:
   RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshInterval | default "10m" }}
   RIVERBOAT_JOBQUEUE_DATABASEHOST: {{ .Values.riverboat.jobQueue.databaseHost | default "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable" }}
   RIVERBOAT_JOBQUEUE_QUEUES: {{ .Values.riverboat.jobQueue.queues }}
+  RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.enabled | default true }}
+  RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.baseUrl | default "http://localhost:1337" }}
+  RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.endpoint | default "query" }}
+  RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_DEBUG: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.debug | default false }}

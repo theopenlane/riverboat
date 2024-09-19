@@ -2,6 +2,7 @@ package river
 
 import (
 	"github.com/riverqueue/river"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
@@ -12,6 +13,13 @@ func createWorkers(c Workers) (*river.Workers, error) {
 
 	if err := river.AddWorkerSafely(workers, &jobs.EmailWorker{
 		EmailConfig: c.EmailWorker.EmailConfig,
+	},
+	); err != nil {
+		return nil, err
+	}
+
+	if err := river.AddWorkerSafely(workers, &jobs.DatabaseWorker{
+		Config: c.DatabaseWorker.Config,
 	},
 	); err != nil {
 		return nil, err

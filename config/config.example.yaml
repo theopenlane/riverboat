@@ -2,6 +2,12 @@ jobQueue:
     databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     queues: null
     workers:
+        databaseWorker:
+            config:
+                baseUrl: http://localhost:1337
+                debug: false
+                enabled: true
+                endpoint: query
         emailWorker:
             devMode: true
             fromEmail: no-reply@example.com

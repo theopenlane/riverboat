@@ -31,8 +31,13 @@ type Logger struct {
 	Pretty bool `koanf:"-" json:"-"`
 }
 
+// Workers that will be enabled on the server
 type Workers struct {
+	// EmailWorker configuration for sending emails
 	EmailWorker jobs.EmailWorker `koanf:"emailWorker" json:"emailWorker"`
+
+	// DatabaseWorker configuration for creating databases using openlane/dbx
+	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseWorker" json:"databaseWorker"`
 
 	// add more workers here
 }

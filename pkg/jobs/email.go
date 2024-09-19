@@ -42,11 +42,11 @@ type EmailConfig struct {
 // validateEmailConfig validates the email configuration settings
 func (w *EmailWorker) validateEmailConfig() error {
 	if w.DevMode && w.TestDir == "" {
-		return ErrMissingTestDir
+		return newMissingRequiredArg("test directory", EmailArgs{}.Kind())
 	}
 
 	if !w.DevMode && w.Token == "" {
-		return ErrMissingToken
+		return newMissingRequiredArg("token", EmailArgs{}.Kind())
 	}
 
 	return nil
