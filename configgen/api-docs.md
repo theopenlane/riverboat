@@ -7,7 +7,7 @@
 |**refreshInterval**|`integer`|||
 |[**jobQueue**](#jobqueue)|`object`|Config is the configuration for the river server<br/>||
 
-**Additional Properties:** not allowed
+**Additional Properties:** not allowed  
 <a name="jobqueue"></a>
 ## jobQueue: object
 
@@ -22,7 +22,7 @@ Config is the configuration for the river server
 |[**queues**](#jobqueuequeues)|`array`|||
 |[**workers**](#jobqueueworkers)|`object`|Workers that will be enabled on the server<br/>||
 
-**Additional Properties:** not allowed
+**Additional Properties:** not allowed  
 <a name="jobqueuequeues"></a>
 ### jobQueue\.queues: array
 
@@ -41,7 +41,7 @@ Workers that will be enabled on the server
 |[**emailWorker**](#jobqueueworkersemailworker)|`object`|||
 |[**databaseWorker**](#jobqueueworkersdatabaseworker)|`object`|||
 
-**Additional Properties:** not allowed
+**Additional Properties:** not allowed  
 <a name="jobqueueworkersemailworker"></a>
 #### jobQueue\.workers\.emailWorker: object
 
@@ -54,7 +54,7 @@ Workers that will be enabled on the server
 |**token**|`string`|the token to use for the email provider<br/>||
 |**fromEmail**|`string`|||
 
-**Additional Properties:** not allowed
+**Additional Properties:** not allowed  
 <a name="jobqueueworkersdatabaseworker"></a>
 #### jobQueue\.workers\.databaseWorker: object
 
@@ -64,7 +64,7 @@ Workers that will be enabled on the server
 |----|----|-----------|--------|
 |[**config**](#jobqueueworkersdatabaseworkerconfig)|`object`|||
 
-**Additional Properties:** not allowed
+**Additional Properties:** not allowed  
 <a name="jobqueueworkersdatabaseworkerconfig"></a>
 ##### jobQueue\.workers\.databaseWorker\.config: object
 
@@ -77,5 +77,5 @@ Workers that will be enabled on the server
 |**endpoint**|`string`|Endpoint for the graphql api<br/>||
 |**debug**|`boolean`|Enable debug mode<br/>||
 
-**Additional Properties:** not allowed
+**Additional Properties:** not allowed  
 
