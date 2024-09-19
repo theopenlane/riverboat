@@ -4,6 +4,9 @@ includes:
   config:
     taskfile: ./configgen/Taskfile.yaml
 
+env: 
+  GOFLAGS: -buildvcs=false
+
 tasks:
   default:
     silent: true
