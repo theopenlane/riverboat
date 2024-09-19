@@ -13,8 +13,6 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/riverqueue/river/riverdriver/riverpgxv5"
 	"github.com/rs/zerolog/log"
-
-	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
 const (
@@ -163,21 +161,4 @@ func createQueueConfig(queues []Queue) map[string]river.QueueConfig {
 	}
 
 	return qc
-}
-
-// createWorkers creates a new workers instance
-func createWorkers(c Workers) (*river.Workers, error) {
-	// create workers
-	workers := river.NewWorkers()
-
-	if err := river.AddWorkerSafely(workers, &jobs.EmailWorker{
-		EmailConfig: c.EmailWorker.EmailConfig,
-	},
-	); err != nil {
-		return nil, err
-	}
-
-	// add more workers here
-
-	return workers, nil
 }
