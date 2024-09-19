@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/theopenlane/riverboat/config/config.-config",
+  "$defs": {
+    "[]river.Queue": {
+      "items": {
+        "$ref": "#/$defs/river.Queue"
+      },
+      "type": "array"
+    },
+    "jobs.EmailWorker": {
+      "properties": {
+        "devMode": {
+          "type": "boolean",
+          "description": "enable dev mode"
+        },
+        "testDir": {
+          "type": "string",
+          "description": "the directory to use for dev mode"
+        },
+        "token": {
+          "type": "string",
+          "description": "the token to use for the email provider"
+        },
+        "fromEmail": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "river.Config": {
+      "properties": {
+        "databaseHost": {
+          "type": "string",
+          "description": "DatabaseHost for connecting to the postgres database"
+        },
+        "queues": {
+          "$ref": "#/$defs/[]river.Queue",
+          "description": "Queues to be enabled on the server, if not provided, a default queue is created"
+        },
+        "workers": {
+          "$ref": "#/$defs/river.Workers",
+          "description": "Workers to be enabled on the server"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Config is the configuration for the river server"
+    },
+    "river.Queue": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the queue"
+        },
+        "maxWorkers": {
+          "type": "integer",
+          "description": "MaxWorkers allotted for the queue"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Queue is the configuration for a queue"
+    },
+    "river.Workers": {
+      "properties": {
+        "emailWorker": {
+          "$ref": "#/$defs/jobs.EmailWorker"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    }
+  },
+  "properties": {
+    "refreshInterval": {
+      "type": "integer"
+    },
+    "jobQueue": {
+      "$ref": "#/$defs/river.Config"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object"
+}

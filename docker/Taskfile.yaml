@@ -1,0 +1,49 @@
+version: "3"
+
+tasks:
+  build:
+    dir: ..
+    desc: builds the riverboat docker image
+    cmds:
+      - "docker build -f docker/Dockerfile . -t riverboat:dev"
+
+  riverboat:ui::up:
+    dir: ..
+    desc: runs the riverboat ui
+    aliases: ['ui:up']
+    cmds:
+      - "docker compose -f ./docker/docker-compose-ui.yml -p riverboat-ui up -d"
+
+  riverboat:ui:down:
+    dir: ..
+    aliases: ['ui:down']
+    desc: brings the riverboat ui environment down
+    cmds:
+      - "docker compose -p riverboat-ui down"
+
+  riverboat:
+    dir: ..
+    aliases: [up]
+    desc: brings up the compose environment for the riverboat server
+    deps: [build]
+    cmds:
+      - "docker compose -f ./docker/docker-compose-pg.yml -f ./docker/docker-compose.yml -p riverboat up -d"
+
+  riverboat:down:
+    dir: ..
+    aliases: [down]
+    desc: brings the riverboat compose environment down
+    cmds:
+      - "docker compose -p riverboat down"
+
+  postgres:
+    dir: ..
+    desc: brings up the compose environment for postgres development
+    cmds:
+      - "docker compose -f ./docker/docker-compose-pg.yml -p postgres up -d"
+
+  postgres:down:
+    dir: ..
+    desc: brings the postgres compose environment down
+    cmds:
+      - docker compose -p postgres down
