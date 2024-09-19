@@ -11,7 +11,6 @@ type Config struct {
 	DatabaseHost string `koanf:"databaseHost" json:"databaseHost" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 	// Queues to be enabled on the server, if not provided, a default queue is created
 	Queues []Queue `koanf:"queues" json:"queues" default:""`
-
 	// Workers to be enabled on the server
 	Workers Workers `koanf:"workers" json:"workers"`
 }

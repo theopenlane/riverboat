@@ -149,7 +149,7 @@ func createQueueConfig(queues []Queue) map[string]river.QueueConfig {
 		river.QueueDefault: {MaxWorkers: defaultMaxWorkers},
 	}
 
-	// if no queues are defined, create a default queue
+	// if no queues are defined, just use the default queue
 	if len(queues) == 0 {
 		log.Debug().Msg("using default queues")
 
