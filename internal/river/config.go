@@ -20,7 +20,7 @@ type Config struct {
 type Queue struct {
 	// Name of the queue
 	Name string `koanf:"name" json:"name" default:"default"`
-	// MaxWorkers alloted for the queue
+	// MaxWorkers allotted for the queue
 	MaxWorkers int `koanf:"maxWorkers" json:"maxWorkers" default:"100"`
 }
 

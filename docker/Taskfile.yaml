@@ -10,13 +10,13 @@ tasks:
   riverboat:ui::up:
     dir: ..
     desc: runs the riverboat ui
-    aliases: [ui:up]
+    aliases: ['ui:up']
     cmds:
       - "docker compose -f ./docker/docker-compose-ui.yml -p riverboat-ui up -d"
 
   riverboat:ui:down:
     dir: ..
-    aliases: [ui:down]
+    aliases: ['ui:down']
     desc: brings the riverboat ui environment down
     cmds:
       - "docker compose -p riverboat-ui down"

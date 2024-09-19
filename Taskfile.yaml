@@ -8,7 +8,7 @@ includes:
     dir: ./docker
     aliases: [compose]
 
-env: 
+env:
   GOFLAGS: -buildvcs=false
 
 tasks:
@@ -76,7 +76,7 @@ tasks:
     desc: runs the riverboat server in dev mode, assumes all other dependencies (postgres) are running
     cmds:
       - go run main.go serve --debug --pretty
-      
+
   run-dev:
     dotenv: ["{{.ENV}}/.env-dev"]
     desc: runs the riverboat server in dev mode with dependencies in docker

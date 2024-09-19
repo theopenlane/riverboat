@@ -21,7 +21,7 @@ go.work
 *.db
 riverboat
 
-# emails tests 
+# emails tests
 emails/*
 fixtures/emails/*
 

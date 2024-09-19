@@ -56,7 +56,7 @@
         },
         "maxWorkers": {
           "type": "integer",
-          "description": "MaxWorkers alloted for the queue"
+          "description": "MaxWorkers allotted for the queue"
         }
       },
       "additionalProperties": false,
