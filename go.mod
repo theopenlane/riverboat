@@ -18,7 +18,7 @@ require (
 	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.9.0
 	github.com/theopenlane/newman v0.1.1
-	github.com/theopenlane/utils v0.2.1-0.20240919000452-a82f4bd8166b
+	github.com/theopenlane/utils v0.2.1
 )
 
 require (
