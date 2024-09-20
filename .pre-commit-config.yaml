@@ -5,8 +5,8 @@ repos:
     rev: v4.6.0
     hooks:
       - id: trailing-whitespace
+        exclude: configgen/api-docs.md
       - id: detect-private-key
-        exclude: providers/gmail/gmail_test.go
   - repo: https://github.com/google/yamlfmt
     rev: v0.13.0
     hooks:

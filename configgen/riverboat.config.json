@@ -8,6 +8,38 @@
       },
       "type": "array"
     },
+    "dbxclient.Config": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable the dbx client"
+        },
+        "baseUrl": {
+          "type": "string",
+          "description": "Base URL for the dbx service"
+        },
+        "endpoint": {
+          "type": "string",
+          "description": "Endpoint for the graphql api"
+        },
+        "debug": {
+          "type": "boolean",
+          "description": "Enable debug mode"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "jobs.DatabaseWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/dbxclient.Config",
+          "description": "the database configuration"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "jobs.EmailWorker": {
       "properties": {
         "devMode": {
@@ -66,11 +98,17 @@
     "river.Workers": {
       "properties": {
         "emailWorker": {
-          "$ref": "#/$defs/jobs.EmailWorker"
+          "$ref": "#/$defs/jobs.EmailWorker",
+          "description": "EmailWorker configuration for sending emails"
+        },
+        "databaseWorker": {
+          "$ref": "#/$defs/jobs.DatabaseWorker",
+          "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "Workers that will be enabled on the server"
     }
   },
   "properties": {

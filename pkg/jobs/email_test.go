@@ -49,7 +49,7 @@ func (suite *TestSuite) TestEmailWorker() {
 				},
 			},
 			msg:           emailWithoutFrom,
-			expectedError: jobs.ErrMissingTestDir.Error(),
+			expectedError: "test directory is required for the email job",
 		},
 		{
 			name: "missing from email",
@@ -81,7 +81,7 @@ func (suite *TestSuite) TestEmailWorker() {
 				},
 			},
 			msg:           emailWithoutFrom,
-			expectedError: jobs.ErrMissingToken.Error(),
+			expectedError: "token is required for the email job",
 		},
 	}
 
