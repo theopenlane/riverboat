@@ -129,6 +129,7 @@ steps:
                 - "${IMAGE_REPO}"
               extra_tags:
                 - "${IMAGE_TAG}"
+                - "latest"
           - theopenlane/container-build#v1.0.0:
               dockerfile: docker/Dockerfile
               push: true
