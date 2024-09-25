@@ -22,3 +22,6 @@ local-development:
 jobs:
   - changed-files:
       - any-glob-to-any-file: pkg/jobs/**
+client:
+  - changed-files:
+      - any-glob-to-any-file: pkg/riverqueue/**
