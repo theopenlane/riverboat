@@ -1,7 +1,9 @@
 env:
   APP_NAME: ${BUILDKITE_PIPELINE_SLUG}
   IMAGE_REPO: ghcr.io/theopenlane/${APP_NAME}
+  IMAGE_TAG: ${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_COMMIT:0:8}
   SONAR_HOST: "https://sonarcloud.io"
+
 steps:
   - group: ":test_tube: Tests"
     key: "tests"
@@ -93,6 +95,11 @@ steps:
         key: "docker-pr-build"
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
+        matrix:
+          setup:
+            platform:
+              - amd64
+              - arm64
         commands: |
           #!/bin/bash
           ls
@@ -102,9 +109,11 @@ steps:
                 - "${IMAGE_REPO}"
               extra_tags:
                 - "${IMAGE_TAG}"
-          - theopenlane/container-build#v1.0.0:
+              tag_prefix: "{{matrix.platform}}-"
+          - theopenlane/container-build#v1.1.0:
               dockerfile: docker/Dockerfile
               push: false
+              platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
           - equinixmetal-buildkite/trivy#v1.18.5:
@@ -115,6 +124,11 @@ steps:
       - label: ":docker: docker build and publish"
         key: "docker-build"
         cancel_on_build_failing: true
+        matrix:
+          setup:
+            platform:
+              - amd64
+              - arm64
         if: build.branch == "main"
         commands: |
           #!/bin/bash
@@ -129,9 +143,12 @@ steps:
                 - "${IMAGE_REPO}"
               extra_tags:
                 - "${IMAGE_TAG}"
-          - theopenlane/container-build#v1.0.0:
+                - latest
+              tag_prefix: "{{matrix.platform}}-"
+          - theopenlane/container-build#v1.1.0:
               dockerfile: docker/Dockerfile
               push: true
+              platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
           - equinixmetal-buildkite/trivy#v1.18.5:
@@ -142,6 +159,11 @@ steps:
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
         if: build.tag != null
+        matrix:
+          setup:
+            platform:
+              - amd64
+              - arm64
         commands: |
           #!/bin/bash
         plugins:
@@ -154,9 +176,11 @@ steps:
                 - "${IMAGE_REPO}"
               extra_tags:
                 - "${BUILDKITE_TAG}"
-          - theopenlane/container-build#v1.0.0:
+              tag_prefix: "{{matrix.platform}}-"
+          - theopenlane/container-build#v1.1.0:
               dockerfile: docker/Dockerfile
               push: true
+              platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
           - equinixmetal-buildkite/trivy#v1.18.5:

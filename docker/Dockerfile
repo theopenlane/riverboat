@@ -1,9 +1,12 @@
-FROM golang:1.23.1 AS builder
+FROM --platform=$BUILDPLATFORM golang:1.23.1 AS builder
+
+ARG TARGETOS
+ARG TARGETARCH
 
 WORKDIR /go/src/app
 COPY . .
 
-RUN CGO_ENABLED=1 GOOS=linux go build -o /go/bin/riverboat -a -ldflags '-linkmode external -extldflags "-static"' .
+RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /go/bin/riverboat .
 
 FROM gcr.io/distroless/static:nonroot
 
