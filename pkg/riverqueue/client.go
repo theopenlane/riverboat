@@ -269,3 +269,14 @@ func (c *Client) TruncateRiverTables(ctx context.Context) error {
 
 	return nil
 }
+
+// Healthcheck pings the DB to check if the connection is working
+func Healthcheck(client *Client) func(ctx context.Context) error {
+	return func(ctx context.Context) error {
+		if err := client.GetPool().Ping(ctx); err != nil {
+			return fmt.Errorf("db connection failed: %w", err)
+		}
+
+		return nil
+	}
+}
