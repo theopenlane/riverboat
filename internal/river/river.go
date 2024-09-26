@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/riverqueue/river"
-	"github.com/riverqueue/river/riverdriver/riverpgxv5"
 	"github.com/rs/zerolog/log"
+
+	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
 const (
@@ -21,17 +21,6 @@ const (
 
 // Start the river server with the given configuration
 func Start(ctx context.Context, c Config) error {
-	// Create a new database connection pool
-	dbPool, err := pgxpool.New(ctx, c.DatabaseHost)
-	if err != nil {
-		log.Fatal().Err(err).Msg("failed to connect to database")
-	}
-
-	// Run migrations on startup
-	if err := runMigrations(ctx, dbPool); err != nil {
-		log.Fatal().Err(err).Msg("failed to run migrations")
-	}
-
 	// Create workers based on the configuration
 	worker, err := createWorkers(c.Workers)
 	if err != nil {
@@ -46,22 +35,25 @@ func Start(ctx context.Context, c Config) error {
 	log.Debug().Interface("queues", queues).Msg("queues created")
 
 	// create a new river client
-	client, err := river.NewClient(
-		riverpgxv5.New(dbPool),
-		&river.Config{
-			Workers: worker,
-			Queues:  queues,
-			Logger:  createLogger(c.Logger),
-		},
+	client, err := riverqueue.New(
+		ctx,
+		riverqueue.WithConnectionURI(c.DatabaseHost),
+		riverqueue.WithRunMigrations(true),
+		riverqueue.WithLogger(createLogger(c.Logger)),
+		riverqueue.WithWorkers(worker),
+		riverqueue.WithQueues(queues),
 	)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to create river client")
 	}
 
+	// get the underlying river client
+	rc := client.GetRiverClient()
+
 	log.Info().Msg(startBlock)
 
 	// run the client
-	if err := client.Start(ctx); err != nil {
+	if err := rc.Start(ctx); err != nil {
 		log.Fatal().Err(err).Msg("failed to start river client")
 	}
 
@@ -91,7 +83,7 @@ func Start(ctx context.Context, c Config) error {
 			}
 		}()
 
-		err := client.Stop(softStopCtx)
+		err := rc.Stop(softStopCtx)
 
 		if err != nil && !errors.Is(err, context.DeadlineExceeded) && !errors.Is(err, context.Canceled) {
 			panic(err)
@@ -110,14 +102,14 @@ func Start(ctx context.Context, c Config) error {
 		// always work. However, in the case of a bug where a job blocks despite
 		// being cancelled, it may be necessary to either ignore River's stop
 		// result (what's shown here) or have a supervisor kill the process.
-		err = client.StopAndCancel(hardStopCtx)
+		err = rc.StopAndCancel(hardStopCtx)
 		if err != nil && errors.Is(err, context.DeadlineExceeded) {
 			log.Info().Msg("hard stop timeout; ignoring stop procedure and exiting unsafely")
 		} else if err != nil {
 			log.Panic().Err(err).Msg("hard stop failed")
 		}
 	}()
-	<-client.Stopped()
+	<-rc.Stopped()
 
 	return nil
 }
