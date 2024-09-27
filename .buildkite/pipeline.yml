@@ -104,10 +104,6 @@ steps:
           #!/bin/bash
           ls
         plugins:
-          - docker-login#v3.0.0:
-              username: openlane-bender
-              password-env: SECRET_GHCR_PUBLISH_TOKEN
-              server: ghcr.io
           - theopenlane/docker-metadata#v1.0.0:
               images:
                 - "${IMAGE_REPO}"
@@ -116,7 +112,7 @@ steps:
               tag_prefix: "{{matrix.platform}}-"
           - theopenlane/container-build#v1.1.0:
               dockerfile: docker/Dockerfile
-              push: true
+              push: false
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
