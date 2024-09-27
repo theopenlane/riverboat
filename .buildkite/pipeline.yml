@@ -104,6 +104,10 @@ steps:
           #!/bin/bash
           ls
         plugins:
+          - docker-login#v3.0.0:
+              username: openlane-bender
+              password-env: SECRET_GHCR_PUBLISH_TOKEN
+              server: ghcr.io
           - theopenlane/docker-metadata#v1.0.0:
               images:
                 - "${IMAGE_REPO}"
