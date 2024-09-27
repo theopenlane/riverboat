@@ -103,6 +103,7 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 	// run migrations if the flag is set
 	if c.config.RunMigrations {
 		log.Info().Msg("running migrations")
+
 		if err := RunMigrations(ctx, c.pool); err != nil {
 			log.Error().Err(err).Msg("error running migrations")
 			return nil, err
