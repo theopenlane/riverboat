@@ -49,6 +49,16 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|[**email**](#jobqueueworkersemailworkeremail)|`object`|||
+
+**Additional Properties:** not allowed  
+<a name="jobqueueworkersemailworkeremail"></a>
+##### jobQueue\.workers\.emailWorker\.email: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
 |**devMode**|`boolean`|enable dev mode<br/>||
 |**testDir**|`string`|the directory to use for dev mode<br/>||
 |**token**|`string`|the token to use for the email provider<br/>||

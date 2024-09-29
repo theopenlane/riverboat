@@ -9,8 +9,9 @@ jobQueue:
                 enabled: true
                 endpoint: query
         emailWorker:
-            devMode: true
-            fromEmail: no-reply@example.com
-            testDir: fixtures/email
-            token: ""
+            email:
+                devMode: true
+                fromEmail: no-reply@example.com
+                testDir: fixtures/email
+                token: ""
 refreshInterval: 600000000000

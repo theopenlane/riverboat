@@ -13,6 +13,10 @@ data:
   RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshInterval | default "10m" }}
   RIVERBOAT_JOBQUEUE_DATABASEHOST: {{ .Values.riverboat.jobQueue.databaseHost | default "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable" }}
   RIVERBOAT_JOBQUEUE_QUEUES: {{ .Values.riverboat.jobQueue.queues }}
+  RIVERBOAT_JOBQUEUE_WORKERS_EMAILWORKER_DEVMODE: {{ .Values.riverboat.jobQueue.workers.emailWorker.devMode | default true }}
+  RIVERBOAT_JOBQUEUE_WORKERS_EMAILWORKER_TESTDIR: {{ .Values.riverboat.jobQueue.workers.emailWorker.testDir | default "fixtures/email" }}
+  RIVERBOAT_JOBQUEUE_WORKERS_EMAILWORKER_TOKEN: {{ .Values.riverboat.jobQueue.workers.emailWorker.token }}
+  RIVERBOAT_JOBQUEUE_WORKERS_EMAILWORKER_FROMEMAIL: {{ .Values.riverboat.jobQueue.workers.emailWorker.fromEmail | default "no-reply@example.com" }}
   RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.enabled | default true }}
   RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.baseUrl | default "http://localhost:1337" }}
   RIVERBOAT_JOBQUEUE_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.jobQueue.workers.databaseWorker.config.endpoint | default "query" }}
