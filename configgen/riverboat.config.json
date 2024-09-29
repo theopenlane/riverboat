@@ -40,7 +40,7 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "jobs.EmailWorker": {
+    "jobs.EmailConfig": {
       "properties": {
         "devMode": {
           "type": "boolean",
@@ -56,6 +56,16 @@
         },
         "fromEmail": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "jobs.EmailWorker": {
+      "properties": {
+        "email": {
+          "$ref": "#/$defs/jobs.EmailConfig",
+          "description": "the email configuration"
         }
       },
       "additionalProperties": false,

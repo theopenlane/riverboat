@@ -24,7 +24,7 @@ func (EmailArgs) Kind() string { return "email" }
 type EmailWorker struct {
 	river.WorkerDefaults[EmailArgs]
 
-	EmailConfig
+	EmailConfig `koanf:"email" json:"email" jsonschema:"description=the email configuration"`
 }
 
 // EmailConfig contains the configuration for the email worker
