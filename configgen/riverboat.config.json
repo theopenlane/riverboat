@@ -63,7 +63,7 @@
     },
     "jobs.EmailWorker": {
       "properties": {
-        "email": {
+        "config": {
           "$ref": "#/$defs/jobs.EmailConfig",
           "description": "the email configuration"
         }
@@ -125,7 +125,7 @@
     "refreshInterval": {
       "type": "integer"
     },
-    "jobQueue": {
+    "river": {
       "$ref": "#/$defs/river.Config"
     }
   },

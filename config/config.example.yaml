@@ -1,4 +1,5 @@
-jobQueue:
+refreshInterval: 600000000000
+river:
     databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     queues: null
     workers:
@@ -9,9 +10,8 @@ jobQueue:
                 enabled: true
                 endpoint: query
         emailWorker:
-            email:
+            config:
                 devMode: true
                 fromEmail: no-reply@example.com
                 testDir: fixtures/email
                 token: ""
-refreshInterval: 600000000000

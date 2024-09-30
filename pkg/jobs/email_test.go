@@ -32,7 +32,7 @@ func (suite *TestSuite) TestEmailWorker() {
 		{
 			name: "happy path, dev mode",
 			worker: &jobs.EmailWorker{
-				EmailConfig: jobs.EmailConfig{
+				Config: jobs.EmailConfig{
 					DevMode:   true,
 					TestDir:   "test",
 					FromEmail: "robin@scherbatsky.net",
@@ -43,7 +43,7 @@ func (suite *TestSuite) TestEmailWorker() {
 		{
 			name: "missing test directory",
 			worker: &jobs.EmailWorker{
-				EmailConfig: jobs.EmailConfig{
+				Config: jobs.EmailConfig{
 					DevMode:   true,
 					FromEmail: "robin@scherbatsky.net",
 				},
@@ -54,7 +54,7 @@ func (suite *TestSuite) TestEmailWorker() {
 		{
 			name: "missing from email",
 			worker: &jobs.EmailWorker{
-				EmailConfig: jobs.EmailConfig{
+				Config: jobs.EmailConfig{
 					DevMode: true,
 					TestDir: "test",
 				},
@@ -65,7 +65,7 @@ func (suite *TestSuite) TestEmailWorker() {
 		{
 			name: "happy path, missing from email but in message",
 			worker: &jobs.EmailWorker{
-				EmailConfig: jobs.EmailConfig{
+				Config: jobs.EmailConfig{
 					DevMode: true,
 					TestDir: "test",
 				},
@@ -75,7 +75,7 @@ func (suite *TestSuite) TestEmailWorker() {
 		{
 			name: "missing token",
 			worker: &jobs.EmailWorker{
-				EmailConfig: jobs.EmailConfig{
+				Config: jobs.EmailConfig{
 					DevMode:   false,
 					FromEmail: "robin@scherbatsky.net",
 				},

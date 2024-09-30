@@ -30,8 +30,8 @@ func serve(ctx context.Context) error {
 	so := serveropts.NewServerOptions(serverOpts, k.String("config"))
 
 	// pass the logger options to the job queue
-	so.Config.Settings.JobQueue.Logger.Debug = k.Bool(debugFlag)
-	so.Config.Settings.JobQueue.Logger.Pretty = k.Bool(prettyFlag)
+	so.Config.Settings.River.Logger.Debug = k.Bool(debugFlag)
+	so.Config.Settings.River.Logger.Pretty = k.Bool(prettyFlag)
 
-	return river.Start(ctx, so.Config.Settings.JobQueue)
+	return river.Start(ctx, so.Config.Settings.River)
 }
