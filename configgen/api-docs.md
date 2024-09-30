@@ -5,11 +5,11 @@
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**refreshInterval**|`integer`|||
-|[**jobQueue**](#jobqueue)|`object`|Config is the configuration for the river server<br/>||
+|[**river**](#river)|`object`|Config is the configuration for the river server<br/>||
 
 **Additional Properties:** not allowed  
-<a name="jobqueue"></a>
-## jobQueue: object
+<a name="river"></a>
+## river: object
 
 Config is the configuration for the river server
 
@@ -19,17 +19,17 @@ Config is the configuration for the river server
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**databaseHost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
-|[**queues**](#jobqueuequeues)|`array`|||
-|[**workers**](#jobqueueworkers)|`object`|Workers that will be enabled on the server<br/>||
+|[**queues**](#riverqueues)|`array`|||
+|[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
 
 **Additional Properties:** not allowed  
-<a name="jobqueuequeues"></a>
-### jobQueue\.queues: array
+<a name="riverqueues"></a>
+### river\.queues: array
 
 **Items**
 
-<a name="jobqueueworkers"></a>
-### jobQueue\.workers: object
+<a name="riverworkers"></a>
+### river\.workers: object
 
 Workers that will be enabled on the server
 
@@ -38,22 +38,22 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**emailWorker**](#jobqueueworkersemailworker)|`object`|||
-|[**databaseWorker**](#jobqueueworkersdatabaseworker)|`object`|||
+|[**emailWorker**](#riverworkersemailworker)|`object`|||
+|[**databaseWorker**](#riverworkersdatabaseworker)|`object`|||
 
 **Additional Properties:** not allowed  
-<a name="jobqueueworkersemailworker"></a>
-#### jobQueue\.workers\.emailWorker: object
+<a name="riverworkersemailworker"></a>
+#### river\.workers\.emailWorker: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**email**](#jobqueueworkersemailworkeremail)|`object`|||
+|[**config**](#riverworkersemailworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
-<a name="jobqueueworkersemailworkeremail"></a>
-##### jobQueue\.workers\.emailWorker\.email: object
+<a name="riverworkersemailworkerconfig"></a>
+##### river\.workers\.emailWorker\.config: object
 
 **Properties**
 
@@ -65,18 +65,18 @@ Workers that will be enabled on the server
 |**fromEmail**|`string`|||
 
 **Additional Properties:** not allowed  
-<a name="jobqueueworkersdatabaseworker"></a>
-#### jobQueue\.workers\.databaseWorker: object
+<a name="riverworkersdatabaseworker"></a>
+#### river\.workers\.databaseWorker: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#jobqueueworkersdatabaseworkerconfig)|`object`|||
+|[**config**](#riverworkersdatabaseworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
-<a name="jobqueueworkersdatabaseworkerconfig"></a>
-##### jobQueue\.workers\.databaseWorker\.config: object
+<a name="riverworkersdatabaseworkerconfig"></a>
+##### river\.workers\.databaseWorker\.config: object
 
 **Properties**
 

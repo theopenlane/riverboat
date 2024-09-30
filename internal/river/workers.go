@@ -12,7 +12,7 @@ func createWorkers(c Workers) (*river.Workers, error) {
 	workers := river.NewWorkers()
 
 	if err := river.AddWorkerSafely(workers, &jobs.EmailWorker{
-		EmailConfig: c.EmailWorker.EmailConfig,
+		Config: c.EmailWorker.Config,
 	},
 	); err != nil {
 		return nil, err

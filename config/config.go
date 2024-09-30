@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"strings"
 	"time"
 
@@ -23,8 +22,8 @@ var (
 type Config struct {
 	// RefreshInterval determines how often to reload the config
 	RefreshInterval time.Duration `json:"refreshInterval" koanf:"refreshInterval" default:"10m"`
-	// JobQueue is the configuration for the job queue
-	JobQueue river.Config `koanf:"jobQueue" json:"jobQueue"`
+	// River is the configuration for the job queue
+	River river.Config `koanf:"river" json:"river"`
 }
 
 // Load is responsible for loading the configuration from a YAML file and environment variables.
@@ -44,18 +43,23 @@ func Load(cfgFile *string) (*Config, error) {
 
 	// parse yaml config
 	if err := k.Load(file.Provider(*cfgFile), yaml.Parser()); err != nil {
-		fmt.Println("failed to load config file", err)
-	} else {
-		// unmarshal the config
-		if err := k.Unmarshal("", &conf); err != nil {
-			panic(err)
-		}
+		panic(err)
+	}
+
+	// unmarshal the config
+	if err := k.Unmarshal("", &conf); err != nil {
+		panic(err)
 	}
 
 	// load env vars
-	if err := k.Load(env.Provider(envPrefix, ".", func(s string) string {
-		return strings.ReplaceAll(strings.ToLower(
-			strings.TrimPrefix(s, envPrefix)), "_", ".")
+	if err := k.Load(env.ProviderWithValue(envPrefix, ".", func(s string, v string) (string, interface{}) {
+		key := strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, envPrefix)), "_", ".")
+
+		if strings.Contains(v, ",") {
+			return key, strings.Split(v, ",")
+		}
+
+		return key, v
 	}), nil); err != nil {
 		panic(err)
 	}

@@ -21,6 +21,7 @@ func main() {
 		newman.WithSubject("test subject"),
 		newman.WithText("body"),
 		newman.WithTo([]string{"meowfunk@example.com"}),
+		newman.WithFrom("no-reply@mail.theopenlane.io"),
 	)
 
 	_, err := client.Insert(context.Background(), jobs.EmailArgs{
