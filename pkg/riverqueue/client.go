@@ -58,7 +58,7 @@ type JobClient interface {
 // Config settings for the river client
 type Config struct {
 	// ConnectionURI is the connection URI for the database
-	ConnectionURI string `koanf:"connectionURI" json:"connectionURI" default:""`
+	ConnectionURI string `koanf:"connectionURI" json:"connectionURI" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 	// RunMigrations is a flag to determine if migrations should be run
 	RunMigrations bool `koanf:"runMigrations" json:"runMigrations" default:"false"`
 	// RiverConf is the river configuration
