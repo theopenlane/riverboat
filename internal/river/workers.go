@@ -25,6 +25,10 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		return nil, err
 	}
 
+	if err := river.AddWorkerSafely(workers, &jobs.DomainWorker{}); err != nil {
+		return nil, err
+	}
+
 	// add more workers here
 
 	return workers, nil
