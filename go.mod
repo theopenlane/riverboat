@@ -111,7 +111,7 @@ require (
 	github.com/projectdiscovery/retryabledns v1.0.58 // indirect
 	github.com/projectdiscovery/retryablehttp-go v1.0.53 // indirect
 	github.com/projectdiscovery/utils v0.0.84 // indirect
-	github.com/quic-go/quic-go v0.37.7 // indirect
+	github.com/quic-go/quic-go v0.47.0 // indirect
 	github.com/redis/go-redis/v9 v9.6.1 // indirect
 	github.com/refraction-networking/utls v1.5.4 // indirect
 	github.com/resend/resend-go/v2 v2.11.0 // indirect
