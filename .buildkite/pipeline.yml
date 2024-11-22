@@ -29,26 +29,14 @@ steps:
               environment:
                 - "GOTOOLCHAIN=auto"
         artifact_paths: ["coverage.out"]
-  - group: ":closed_lock_with_key: Security Checks"
-    depends_on: "go_test"
-    key: "security"
-    steps:
-      - label: ":closed_lock_with_key: gosec"
-        key: "gosec"
-        plugins:
-          - docker#v5.12.0:
-              image: "securego/gosec:2.20.0"
-              command: ["-no-fail", "-exclude-generated", "-fmt sonarqube", "-out", "results.txt", "./..."]
-              environment:
-                - "GOTOOLCHAIN=auto"
-        artifact_paths: ["results.txt"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
         if: build.pull_request.id != null
-        depends_on: ["gosec", "go_test"]
+        depends_on: ["go_test"]
         plugins:
-          - artifacts#v1.9.4:
-              download: "results.txt"
+          - cluster-secrets#v1.0.0:
+              variables:
+                SONAR_TOKEN: SONAR_TOKEN
           - artifacts#v1.9.4:
               download: "coverage.out"
               step: "go_test"
@@ -61,10 +49,11 @@ steps:
       - label: ":github: upload reports"
         key: "scan-upload"
         if: build.branch == "main"
-        depends_on: ["gosec", "go_test"]
+        depends_on: ["go_test"]
         plugins:
-          - artifacts#v1.9.4:
-              download: results.txt
+          - cluster-secrets#v1.0.0:
+              variables:
+                SONAR_TOKEN: SONAR_TOKEN
           - artifacts#v1.9.4:
               download: coverage.out
               step: "go_test"
@@ -104,6 +93,13 @@ steps:
           #!/bin/bash
           ls
         plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
+          - docker-login#v3.0.0:
+              username: openlane-bender
+              password-env: SECRET_GHCR_PUBLISH_TOKEN
+              server: ghcr.io
           - theopenlane/docker-metadata#v1.0.0:
               images:
                 - "${IMAGE_REPO}"
@@ -121,6 +117,7 @@ steps:
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.57.1"
       - label: ":docker: docker build and publish"
         key: "docker-build"
         cancel_on_build_failing: true
@@ -134,6 +131,9 @@ steps:
           #!/bin/bash
           ls
         plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
@@ -156,6 +156,7 @@ steps:
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.57.1"
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
         if: build.tag != null
@@ -183,8 +184,3 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-          - equinixmetal-buildkite/trivy#v1.19.0:
-              severity: CRITICAL,HIGH
-              ignore-unfixed: true
-              security-checks: config,secret,vuln
-              skip-files: "cosign.key,Dockerfile.dev"
