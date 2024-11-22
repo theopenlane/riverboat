@@ -3,7 +3,6 @@ env:
   IMAGE_REPO: ghcr.io/theopenlane/${APP_NAME}
   IMAGE_TAG: ${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_COMMIT:0:8}
   SONAR_HOST: "https://sonarcloud.io"
-  BUILDPLATFORM: "linux/amd64"
 
 steps:
   - group: ":test_tube: Tests"
@@ -113,6 +112,7 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+                - BUILDPLATFORM="linux/amd64"
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -152,6 +152,7 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+                - BUILDPLATFORM="linux/amd64"
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -185,3 +186,4 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+                - BUILDPLATFORM="linux/amd64"
