@@ -17,7 +17,7 @@ require (
 	github.com/riverqueue/river/rivertype v0.14.2
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/cobra v1.8.1
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	github.com/theopenlane/dbx v0.1.2
 	github.com/theopenlane/newman v0.1.1
 	github.com/theopenlane/utils v0.4.0
