@@ -92,7 +92,9 @@ steps:
             platform:
               - amd64
               - arm64
-        commands:
+        commands: |
+          #!/bin/bash
+          ls
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
