@@ -115,7 +115,6 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-                - BUILDPLATFORM="linux/amd64"
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -155,7 +154,6 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-                - BUILDPLATFORM="linux/amd64"
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -189,4 +187,3 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-                - BUILDPLATFORM="linux/amd64"
