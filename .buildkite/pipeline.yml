@@ -92,9 +92,7 @@ steps:
             platform:
               - amd64
               - arm64
-        commands: |
-          #!/bin/bash
-          ls
+        commands:
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
@@ -171,6 +169,9 @@ steps:
         commands: |
           #!/bin/bash
         plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
