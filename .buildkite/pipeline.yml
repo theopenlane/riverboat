@@ -1,6 +1,3 @@
-agents:
-  queue: "riverboat-test"
-
 env:
   APP_NAME: ${BUILDKITE_PIPELINE_SLUG}
   IMAGE_REPO: ghcr.io/theopenlane/${APP_NAME}
