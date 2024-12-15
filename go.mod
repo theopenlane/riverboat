@@ -20,7 +20,7 @@ require (
 	github.com/stretchr/testify v1.10.0
 	github.com/theopenlane/dbx v0.1.2
 	github.com/theopenlane/newman v0.1.2
-	github.com/theopenlane/utils v0.4.0
+	github.com/theopenlane/utils v0.4.2
 )
 
 require (
