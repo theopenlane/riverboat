@@ -3,7 +3,7 @@ module github.com/theopenlane/riverboat
 go 1.23.3
 
 require (
-	github.com/invopop/jsonschema v0.12.0
+	github.com/invopop/jsonschema v0.13.0
 	github.com/invopop/yaml v0.3.1
 	github.com/jackc/pgx/v5 v5.7.1
 	github.com/knadh/koanf/parsers/yaml v0.1.0
