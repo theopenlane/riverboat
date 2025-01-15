@@ -106,7 +106,7 @@ steps:
               extra_tags:
                 - "${IMAGE_TAG}"
               tag_prefix: "{{matrix.platform}}-"
-          - theopenlane/container-build#v1.1.0:
+          - theopenlane/container-build#v1.1.1:
               dockerfile: docker/Dockerfile
               push: false
               platforms: linux/{{matrix.platform}}
@@ -145,7 +145,7 @@ steps:
                 - "${IMAGE_TAG}"
                 - latest
               tag_prefix: "{{matrix.platform}}-"
-          - theopenlane/container-build#v1.1.0:
+          - theopenlane/container-build#v1.1.1:
               dockerfile: docker/Dockerfile
               push: true
               platforms: linux/{{matrix.platform}}
@@ -181,7 +181,7 @@ steps:
               extra_tags:
                 - "${BUILDKITE_TAG}"
               tag_prefix: "{{matrix.platform}}-"
-          - theopenlane/container-build#v1.1.0:
+          - theopenlane/container-build#v1.1.1:
               dockerfile: docker/Dockerfile
               push: true
               platforms: linux/{{matrix.platform}}
