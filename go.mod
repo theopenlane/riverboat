@@ -12,9 +12,9 @@ require (
 	github.com/knadh/koanf/providers/posflag v0.1.0
 	github.com/knadh/koanf/v2 v2.1.2
 	github.com/mcuadros/go-defaults v1.2.0
-	github.com/riverqueue/river v0.15.0
-	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.15.0
-	github.com/riverqueue/river/rivertype v0.15.0
+	github.com/riverqueue/river v0.16.0
+	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.16.0
+	github.com/riverqueue/river/rivertype v0.16.0
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.10.0
@@ -53,8 +53,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/redis/go-redis/v9 v9.7.0 // indirect
 	github.com/resend/resend-go/v2 v2.13.0 // indirect
-	github.com/riverqueue/river/riverdriver v0.15.0 // indirect
-	github.com/riverqueue/river/rivershared v0.15.0 // indirect
+	github.com/riverqueue/river/riverdriver v0.16.0 // indirect
+	github.com/riverqueue/river/rivershared v0.16.0 // indirect
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
