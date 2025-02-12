@@ -25,10 +25,11 @@ type OnboardingArgs struct {
 // Kind satisfies the river.Job interface
 func (OnboardingArgs) Kind() string { return "onboarding" }
 
+// OnboardingWorker is a worker to create tasks for the organization after signup
 type OnboardingWorker struct {
 	river.WorkerDefaults[OnboardingArgs]
 
-	Config OnboardingConfig `koanf:"config" json:"config" jsonschema:"description=the email configuration"`
+	Config OnboardingConfig `koanf:"config" json:"config" jsonschema:"description=the onboarding configuration"`
 }
 
 // OnboardingConfig contains the configuration for the onboarding worker
@@ -39,6 +40,7 @@ type OnboardingConfig struct {
 	APIBaseURL url.URL `json:"apiBaseURL"`
 }
 
+// Task is the fields that need to be configured for task creation
 type Task struct {
 	Title       string         `json:"title"`
 	Description string         `json:"description"`
@@ -93,6 +95,7 @@ func (w *OnboardingWorker) Work(ctx context.Context, job *river.Job[OnboardingAr
 		taskInput = append(taskInput, &t)
 	}
 
+	// create all the tasks
 	_, err = client.CreateBulkTask(ctx, taskInput)
 	if err != nil {
 		log.Error().Err(err).Msg("error creating onboarding tasks")
