@@ -71,6 +71,38 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "jobs.OnboardingConfig": {
+      "properties": {
+        "StarterTasks": {
+          "$ref": "#/$defs/map[string]string"
+        },
+        "APIToken": {
+          "type": "string"
+        },
+        "APIBaseURL": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "jobs.OnboardingWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.OnboardingConfig",
+          "description": "the email configuration"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "map[string]string": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
     "river.Config": {
       "properties": {
         "databaseHost": {
@@ -114,6 +146,10 @@
         "databaseWorker": {
           "$ref": "#/$defs/jobs.DatabaseWorker",
           "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
+        },
+        "onboardingWorker": {
+          "$ref": "#/$defs/jobs.OnboardingWorker",
+          "description": "OnboardingWorker configuration for onboarding new users"
         }
       },
       "additionalProperties": false,

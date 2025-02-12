@@ -40,10 +40,10 @@ tasks:
     dir: ..
     desc: brings up the compose environment for postgres development
     cmds:
-      - "docker compose -f ./docker/docker-compose-pg.yml -p postgres up -d"
+      - "docker compose -f ./docker/docker-compose-pg.yml -p postgres-riverboat up -d"
 
   postgres:down:
     dir: ..
     desc: brings the postgres compose environment down
     cmds:
-      - docker compose -p postgres down
+      - docker compose -p postgres-riverboat down

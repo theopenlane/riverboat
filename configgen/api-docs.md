@@ -40,6 +40,7 @@ Workers that will be enabled on the server
 |----|----|-----------|--------|
 |[**emailWorker**](#riverworkersemailworker)|`object`|||
 |[**databaseWorker**](#riverworkersdatabaseworker)|`object`|||
+|[**onboardingWorker**](#riverworkersonboardingworker)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -88,4 +89,34 @@ Workers that will be enabled on the server
 |**debug**|`boolean`|Enable debug mode<br/>||
 
 **Additional Properties:** not allowed  
+<a name="riverworkersonboardingworker"></a>
+#### river\.workers\.onboardingWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersonboardingworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersonboardingworkerconfig"></a>
+##### river\.workers\.onboardingWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**StarterTasks**](#riverworkersonboardingworkerconfigstartertasks)|`object`|||
+|**APIToken**|`string`|||
+|**APIBaseURL**|`string`|Format: `"uri"`<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersonboardingworkerconfigstartertasks"></a>
+###### river\.workers\.onboardingWorker\.config\.StarterTasks: object
+
+**Additional Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+
 

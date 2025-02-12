@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	devDatabaseHost = "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"
+	devDatabaseHost = "postgres://postgres:password@0.0.0.0:5434/jobs?sslmode=disable"
 )
 
 func NewInsertOnlyRiverClient() *river.Client[pgx.Tx] {
