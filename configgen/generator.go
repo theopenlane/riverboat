@@ -88,10 +88,10 @@ func generateSchema(appName string, c schemaConfig, structure interface{}) {
 	genJSONSchema(s, c)
 
 	// generate yaml schema with default
-	genYAMLSchema(s, c)
+	genYAMLSchema(c)
 
 	// generate environment variables
-	configMapSchema := genEnvVarSchema(s, c)
+	configMapSchema := genEnvVarSchema(c)
 
 	// Get the configmap header
 	genConfigMapSchema(configMapSchema, c)
@@ -113,7 +113,7 @@ func genJSONSchema(s interface{}, c schemaConfig) {
 	}
 }
 
-func genYAMLSchema(s interface{}, c schemaConfig) {
+func genYAMLSchema(c schemaConfig) {
 	yamlConfig := &config.Config{}
 	defaults.SetDefaults(yamlConfig)
 
@@ -128,7 +128,7 @@ func genYAMLSchema(s interface{}, c schemaConfig) {
 	}
 }
 
-func genEnvVarSchema(s interface{}, c schemaConfig) string {
+func genEnvVarSchema(c schemaConfig) string {
 	cp := envparse.Config{
 		FieldTagName: koanfTagName,
 		Skipper:      skipper,
@@ -155,7 +155,7 @@ func genEnvVarSchema(s interface{}, c schemaConfig) string {
 			switch k.Type.Kind() {
 			case reflect.String, reflect.Int64:
 				defaultVal = "\"" + defaultVal + "\"" // add quotes to the string
-			case reflect.Slice:
+			case reflect.Slice, reflect.Array:
 				defaultVal = strings.Replace(defaultVal, "[", "", 1)
 				defaultVal = strings.Replace(defaultVal, "]", "", 1)
 				defaultVal = "\"" + defaultVal + "\"" // add quotes to the string
