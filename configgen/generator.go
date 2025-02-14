@@ -38,6 +38,8 @@ const (
 // any external packages must use the jsonschema description tags to add comments
 var includedPackages = []string{
 	"internal/river",
+	"pkg/jobs",
+	"pkg/riverqueue",
 }
 
 // schemaConfig represents the configuration for the schema generator

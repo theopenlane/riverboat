@@ -30,7 +30,7 @@ type OnboardingWorker struct {
 	river.WorkerDefaults[OnboardingArgs]
 
 	// Config is the configuration for the onboarding worker which includes the tasks to create and the url for the API
-	Config OnboardingConfig `koanf:"config" json:"config" jsonschema:"description=the onboarding configuration"`
+	Config OnboardingConfig `koanf:"config" json:"config" jsonschema:"description=the configuration for the onboarding worker"`
 }
 
 // OnboardingConfig contains the configuration for the onboarding worker

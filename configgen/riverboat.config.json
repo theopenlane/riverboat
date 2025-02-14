@@ -44,7 +44,8 @@
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "DatabaseWorker is a worker to create a dedicated database for an organization"
     },
     "jobs.EmailConfig": {
       "properties": {
@@ -61,11 +62,13 @@
           "description": "the token to use for the email provider"
         },
         "fromEmail": {
-          "type": "string"
+          "type": "string",
+          "description": "FromEmail is the email address to use as the sender"
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "EmailConfig contains the configuration for the email worker"
     },
     "jobs.EmailWorker": {
       "properties": {
@@ -75,7 +78,8 @@
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
     "jobs.OnboardingConfig": {
       "properties": {
@@ -90,17 +94,19 @@
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "OnboardingConfig contains the configuration for the onboarding worker"
     },
     "jobs.OnboardingWorker": {
       "properties": {
         "config": {
           "$ref": "#/$defs/jobs.OnboardingConfig",
-          "description": "the onboarding configuration"
+          "description": "the configuration for the onboarding worker"
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "OnboardingWorker is a worker to create tasks for the organization after signup"
     },
     "jobs.Task": {
       "properties": {
@@ -118,7 +124,8 @@
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "description": "Task is the fields that need to be configured for task creation"
     },
     "map[string]interface {}": {
       "type": "object"
