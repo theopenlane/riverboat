@@ -2,6 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/theopenlane/riverboat/config/config.-config",
   "$defs": {
+    "[]jobs.Task": {
+      "items": {
+        "$ref": "#/$defs/jobs.Task"
+      },
+      "type": "array"
+    },
     "[]river.Queue": {
       "items": {
         "$ref": "#/$defs/river.Queue"
@@ -74,14 +80,13 @@
     "jobs.OnboardingConfig": {
       "properties": {
         "StarterTasks": {
-          "$ref": "#/$defs/map[string]string"
-        },
-        "APIToken": {
-          "type": "string"
+          "$ref": "#/$defs/[]jobs.Task",
+          "description": "the tasks to create for the organization after signup"
         },
         "APIBaseURL": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "the base URL for the Openlane API"
         }
       },
       "additionalProperties": false,
@@ -91,16 +96,31 @@
       "properties": {
         "config": {
           "$ref": "#/$defs/jobs.OnboardingConfig",
-          "description": "the email configuration"
+          "description": "the onboarding configuration"
         }
       },
       "additionalProperties": false,
       "type": "object"
     },
-    "map[string]string": {
-      "additionalProperties": {
-        "type": "string"
+    "jobs.Task": {
+      "properties": {
+        "Title": {
+          "type": "string",
+          "description": "the title of the task to be created"
+        },
+        "Description": {
+          "type": "string",
+          "description": "a short description of the task to be created"
+        },
+        "Details": {
+          "$ref": "#/$defs/map[string]interface {}",
+          "description": "the steps the user needs to take to complete the task"
+        }
       },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "map[string]interface {}": {
       "type": "object"
     },
     "river.Config": {
@@ -149,7 +169,7 @@
         },
         "onboardingWorker": {
           "$ref": "#/$defs/jobs.OnboardingWorker",
-          "description": "OnboardingWorker configuration for onboarding new users"
+          "description": "OnboardingWorker configuration for onboarding new organizations in openlane-core"
         }
       },
       "additionalProperties": false,

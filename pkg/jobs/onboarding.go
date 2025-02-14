@@ -29,22 +29,26 @@ func (OnboardingArgs) Kind() string { return "onboarding" }
 type OnboardingWorker struct {
 	river.WorkerDefaults[OnboardingArgs]
 
+	// Config is the configuration for the onboarding worker which includes the tasks to create and the url for the API
 	Config OnboardingConfig `koanf:"config" json:"config" jsonschema:"description=the onboarding configuration"`
 }
 
 // OnboardingConfig contains the configuration for the onboarding worker
 type OnboardingConfig struct {
 	// StarterTasks are the tasks to create for the organization after signup
-	StarterTasks []Task `json:"starterTasks"`
+	StarterTasks []Task `json:"starterTasks" jsonschema:"description=the tasks to create for the organization after signup"`
 	// APIBaseURL is the base URL for the Openlane API
-	APIBaseURL url.URL `json:"apiBaseURL"`
+	APIBaseURL url.URL `json:"apiBaseURL" jsonschema:"description=the base URL for the Openlane API"`
 }
 
 // Task is the fields that need to be configured for task creation
 type Task struct {
-	Title       string         `json:"title"`
-	Description string         `json:"description"`
-	Details     map[string]any `json:"details"`
+	// Title is the title of the task, e.g. "Review or Upload Policies"
+	Title string `json:"title" jsonschema:"description=the title of the task to be created"`
+	// Description is the description of the task, e.g. "Get started by reviewing or uploading your policies"
+	Description string `json:"description" jsonschema:"description=a short description of the task to be created"`
+	// Details are the steps the user needs to take to complete the task
+	Details map[string]any `json:"details" jsonschema:"description=the steps the user needs to take to complete the task"`
 }
 
 // validateOnboardingConfig validates the subscription configuration settings

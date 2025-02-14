@@ -106,17 +106,13 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**StarterTasks**](#riverworkersonboardingworkerconfigstartertasks)|`object`|||
-|**APIToken**|`string`|||
-|**APIBaseURL**|`string`|Format: `"uri"`<br/>||
+|[**StarterTasks**](#riverworkersonboardingworkerconfigstartertasks)|`array`|||
+|**APIBaseURL**|`string`|the base URL for the Openlane API<br/>Format: `"uri"`<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersonboardingworkerconfigstartertasks"></a>
-###### river\.workers\.onboardingWorker\.config\.StarterTasks: object
+###### river\.workers\.onboardingWorker\.config\.StarterTasks: array
 
-**Additional Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
+**Items**
 
 
