@@ -2,12 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/theopenlane/riverboat/config/config.-config",
   "$defs": {
-    "[]jobs.Task": {
-      "items": {
-        "$ref": "#/$defs/jobs.Task"
-      },
-      "type": "array"
-    },
     "[]river.Queue": {
       "items": {
         "$ref": "#/$defs/river.Queue"
@@ -81,55 +75,6 @@
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
-    "jobs.OnboardingConfig": {
-      "properties": {
-        "StarterTasks": {
-          "$ref": "#/$defs/[]jobs.Task",
-          "description": "the tasks to create for the organization after signup"
-        },
-        "APIBaseURL": {
-          "type": "string",
-          "format": "uri",
-          "description": "the base URL for the Openlane API"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "OnboardingConfig contains the configuration for the onboarding worker"
-    },
-    "jobs.OnboardingWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/jobs.OnboardingConfig",
-          "description": "the configuration for the onboarding worker"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "OnboardingWorker is a worker to create tasks for the organization after signup"
-    },
-    "jobs.Task": {
-      "properties": {
-        "Title": {
-          "type": "string",
-          "description": "the title of the task to be created"
-        },
-        "Description": {
-          "type": "string",
-          "description": "a short description of the task to be created"
-        },
-        "Details": {
-          "$ref": "#/$defs/map[string]interface {}",
-          "description": "the steps the user needs to take to complete the task"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "Task is the fields that need to be configured for task creation"
-    },
-    "map[string]interface {}": {
-      "type": "object"
-    },
     "river.Config": {
       "properties": {
         "databaseHost": {
@@ -173,10 +118,6 @@
         "databaseWorker": {
           "$ref": "#/$defs/jobs.DatabaseWorker",
           "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
-        },
-        "onboardingWorker": {
-          "$ref": "#/$defs/jobs.OnboardingWorker",
-          "description": "OnboardingWorker configuration for onboarding new organizations in openlane-core"
         }
       },
       "additionalProperties": false,

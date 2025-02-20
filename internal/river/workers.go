@@ -25,13 +25,6 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		return nil, err
 	}
 
-	if err := river.AddWorkerSafely(workers, &jobs.OnboardingWorker{
-		Config: c.OnboardingWorker.Config,
-	},
-	); err != nil {
-		return nil, err
-	}
-
 	// add more workers here
 
 	return workers, nil

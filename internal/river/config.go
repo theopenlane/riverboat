@@ -39,8 +39,5 @@ type Workers struct {
 	// DatabaseWorker configuration for creating databases using openlane/dbx
 	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseWorker" json:"databaseWorker"`
 
-	// OnboardingWorker configuration for onboarding new organizations in openlane-core
-	OnboardingWorker jobs.OnboardingWorker `koanf:"onboardingWorker" json:"onboardingWorker"`
-
 	// add more workers here
 }

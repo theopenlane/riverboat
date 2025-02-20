@@ -15,18 +15,3 @@ river:
                 fromEmail: no-reply@example.com
                 testDir: fixtures/email
                 token: ""
-        onboardingWorker:
-            config:
-                apiBaseURL:
-                    ForceQuery: false
-                    Fragment: ""
-                    Host: ""
-                    OmitHost: false
-                    Opaque: ""
-                    Path: ""
-                    RawFragment: ""
-                    RawPath: ""
-                    RawQuery: ""
-                    Scheme: ""
-                    User: null
-                starterTasks: null
