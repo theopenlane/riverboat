@@ -1,6 +1,8 @@
 module github.com/theopenlane/riverboat
 
-go 1.23.5
+go 1.23.6
+
+toolchain go1.24.0
 
 require (
 	github.com/Yamashou/gqlgenc v0.30.3
@@ -19,23 +21,24 @@ require (
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/theopenlane/core v0.6.24
+	github.com/theopenlane/core v0.7.0
 	github.com/theopenlane/dbx v0.1.2
 	github.com/theopenlane/newman v0.1.2
 	github.com/theopenlane/utils v0.4.3
 )
 
 require (
-	ariga.io/atlas v0.26.1 // indirect
+	ariga.io/atlas v0.31.1-0.20250212144724-069be8033e83 // indirect
 	entgo.io/contrib v0.6.0 // indirect
-	entgo.io/ent v0.14.1 // indirect
-	github.com/99designs/gqlgen v0.17.64 // indirect
+	entgo.io/ent v0.14.2 // indirect
+	github.com/99designs/gqlgen v0.17.66 // indirect
 	github.com/XSAM/otelsql v0.36.0 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.2.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
+	github.com/bmatcuk/doublestar v1.3.4 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
@@ -91,7 +94,7 @@ require (
 	github.com/theopenlane/echox v0.2.1 // indirect
 	github.com/theopenlane/entx v0.4.3 // indirect
 	github.com/theopenlane/httpsling v0.2.2 // indirect
-	github.com/theopenlane/iam v0.7.5 // indirect
+	github.com/theopenlane/iam v0.8.1 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
@@ -104,6 +107,7 @@ require (
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/zclconf/go-cty v1.15.0 // indirect
+	github.com/zclconf/go-cty-yaml v1.1.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/otel v1.34.0 // indirect
 	go.opentelemetry.io/otel/metric v1.34.0 // indirect
@@ -112,12 +116,12 @@ require (
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/exp v0.0.0-20241210194714-1829a127f884 // indirect
 	golang.org/x/mod v0.23.0 // indirect
-	golang.org/x/net v0.34.0 // indirect
+	golang.org/x/net v0.35.0 // indirect
 	golang.org/x/oauth2 v0.26.0 // indirect
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
-	golang.org/x/time v0.9.0 // indirect
-	golang.org/x/tools v0.29.0 // indirect
+	golang.org/x/time v0.10.0 // indirect
+	golang.org/x/tools v0.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
