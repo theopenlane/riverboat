@@ -19,7 +19,7 @@ require (
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
 	github.com/theopenlane/dbx v0.1.2
-	github.com/theopenlane/newman v0.1.2
+	github.com/theopenlane/newman v0.1.3
 	github.com/theopenlane/utils v0.4.3
 )
 
@@ -52,7 +52,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/redis/go-redis/v9 v9.7.0 // indirect
-	github.com/resend/resend-go/v2 v2.13.0 // indirect
+	github.com/resend/resend-go/v2 v2.15.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.18.0 // indirect
 	github.com/riverqueue/river/rivershared v0.18.0 // indirect
 	github.com/sosodev/duration v1.3.1 // indirect
@@ -73,7 +73,7 @@ require (
 	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/net v0.34.0 // indirect
-	golang.org/x/oauth2 v0.26.0 // indirect
+	golang.org/x/oauth2 v0.27.0 // indirect
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
