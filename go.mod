@@ -15,7 +15,7 @@ require (
 	github.com/riverqueue/river v0.19.0
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.19.0
 	github.com/riverqueue/river/rivertype v0.19.0
-	github.com/rs/zerolog v1.33.0
+	github.com/rs/zerolog v1.34.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
 	github.com/theopenlane/dbx v0.1.3
