@@ -5,7 +5,7 @@ go 1.24.1
 require (
 	github.com/invopop/jsonschema v0.13.0
 	github.com/invopop/yaml v0.3.1
-	github.com/jackc/pgx/v5 v5.7.2
+	github.com/jackc/pgx/v5 v5.7.4
 	github.com/knadh/koanf/parsers/yaml v0.1.0
 	github.com/knadh/koanf/providers/env v1.0.0
 	github.com/knadh/koanf/providers/file v1.1.2
@@ -19,7 +19,7 @@ require (
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/newman v0.1.3
+	github.com/theopenlane/newman v0.1.4
 	github.com/theopenlane/utils v0.4.4
 )
 
@@ -52,7 +52,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/redis/go-redis/v9 v9.7.1 // indirect
-	github.com/resend/resend-go/v2 v2.15.0 // indirect
+	github.com/resend/resend-go/v2 v2.17.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.19.0 // indirect
 	github.com/riverqueue/river/rivershared v0.19.0 // indirect
 	github.com/sosodev/duration v1.3.1 // indirect
@@ -71,7 +71,7 @@ require (
 	go.uber.org/goleak v1.3.0 // indirect
 	golang.org/x/crypto v0.36.0 // indirect
 	golang.org/x/net v0.36.0 // indirect
-	golang.org/x/oauth2 v0.27.0 // indirect
+	golang.org/x/oauth2 v0.28.0 // indirect
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
