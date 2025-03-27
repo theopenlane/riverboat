@@ -21,7 +21,7 @@ tasks:
   go:lint:
     desc: runs golangci-lint, the most annoying opinionated linter ever
     cmds:
-      - golangci-lint run --config=.golangci.yaml --verbose --fast --fix
+      - golangci-lint run --config=.golangci.yaml --verbose --fix
 
   go:fmt:
     desc: format all go code

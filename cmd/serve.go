@@ -12,7 +12,7 @@ import (
 var serveCmd = &cobra.Command{
 	Use:   "serve",
 	Short: "start the riverboat server",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *cobra.Command, _ []string) {
 		err := serve(cmd.Context())
 		cobra.CheckErr(err)
 	},
