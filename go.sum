@@ -105,8 +105,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 h1:Jamvg5psRIccs7FGNTlIRMkT8wgtp5eCXdBlqhYGL6U=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/redis/go-redis/v9 v9.7.1 h1:4LhKRCIduqXqtvCUlaq9c8bdHOkICjDMrr1+Zb3osAc=
-github.com/redis/go-redis/v9 v9.7.1/go.mod h1:f6zhXITC7JUJIlPEiBOTXxJgPLdZcA93GewI7inzyWw=
+github.com/redis/go-redis/v9 v9.7.3 h1:YpPyAayJV+XErNsatSElgRZZVCwXX9QzkKYNvO7x0wM=
+github.com/redis/go-redis/v9 v9.7.3/go.mod h1:bGUrSggJ9X9GUmZpZNEOQKaANxSGgOEBRltRTZHSvrA=
 github.com/resend/resend-go/v2 v2.17.0 h1:vychSeuonMeNpHpi09VvjUkRwLEzolB1TtV0fBXGHB4=
 github.com/resend/resend-go/v2 v2.17.0/go.mod h1:3YCb8c8+pLiqhtRFXTyFwlLvfjQtluxOr9HEh2BwCkQ=
 github.com/riverqueue/river v0.19.0 h1:WRh/NXhp+WEEY0HpCYgr4wSRllugYBt30HtyQ3jlz08=
@@ -157,8 +157,8 @@ github.com/theopenlane/iam v0.7.0 h1:g4if/ebJLgDYUIhxbR2yLCzZ2aZNjXGV/3zR2i1Ma5c
 github.com/theopenlane/iam v0.7.0/go.mod h1:BrkXGeQ1A4+4G/wijd72tmVkFr+YHGCMRGWCYr5795Y=
 github.com/theopenlane/newman v0.1.4 h1:LO1BuARRhMti904AWT0JvG7daGE9opzS7ivmjt5YC84=
 github.com/theopenlane/newman v0.1.4/go.mod h1:teuFLhRs7E1mgdAmt84t5D2wA4eHBWlg/Dlbb2xGkew=
-github.com/theopenlane/utils v0.4.4 h1:4Xb2T+4bjMtf4OL73bWQ1a8zllTt43ryVflRzVaUgmU=
-github.com/theopenlane/utils v0.4.4/go.mod h1:lNzPjqQoDM5565s5FRqkmBGO77twAkY3Hxgd38ESo6I=
+github.com/theopenlane/utils v0.4.5 h1:afS6VqnaNGHHZZ08b9roSEkfJls7fqx8QbJFi6B3f4w=
+github.com/theopenlane/utils v0.4.5/go.mod h1:aX2LvjiXj++v15Kigsqngx5I4cJLXT+Hb86F/4LJfb4=
 github.com/tidwall/gjson v1.14.2/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
 github.com/tidwall/gjson v1.18.0 h1:FIDeeyB800efLX89e5a8Y0BNH+LOngJyGrIWxG2FKQY=
 github.com/tidwall/gjson v1.18.0/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
