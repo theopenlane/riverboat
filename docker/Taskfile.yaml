@@ -7,7 +7,7 @@ tasks:
     cmds:
       - "docker build -f docker/Dockerfile . -t riverboat:dev"
 
-  riverboat:ui::up:
+  riverboat:ui:up:
     dir: ..
     desc: runs the riverboat ui
     aliases: ['ui:up']
