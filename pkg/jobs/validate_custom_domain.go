@@ -33,7 +33,7 @@ type ValidateCustomDomainConfig struct {
 // Work satisfies the river.Worker interface for the validate custom domain worker
 // it validates a custom domain for an organization
 // todo(acookin): implement this
-func (w *ValidateCustomDomainWorker) Work(ctx context.Context, job *river.Job[ValidateCustomDomainArgs]) error {
+func (w *ValidateCustomDomainWorker) Work(_ context.Context, job *river.Job[ValidateCustomDomainArgs]) error {
 	log.Info().Str("custom_domain_id", job.Args.CustomDomainID).Msg("creating custom domain")
 
 	return nil

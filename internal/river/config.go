@@ -39,5 +39,14 @@ type Workers struct {
 	// DatabaseWorker configuration for creating databases using openlane/dbx
 	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseWorker" json:"databaseWorker"`
 
+	// CreateCustomDomainWorker configuration for creating custom domains
+	CreateCustomDomainWorker jobs.CreateCustomDomainWorker `koanf:"createCustomDomainWorker" json:"createCustomDomainWorker"`
+
+	// ValidateCustomDomainWorker configuration for validating custom domains
+	ValidateCustomDomainWorker jobs.ValidateCustomDomainWorker `koanf:"validateCustomDomainWorker" json:"validateCustomDomainWorker"`
+
+	// DeleteCustomDomainWorker configuration for deleting custom domains
+	DeleteCustomDomainWorker jobs.DeleteCustomDomainWorker `koanf:"deleteCustomDomainWorker" json:"deleteCustomDomainWorker"`
+
 	// add more workers here
 }

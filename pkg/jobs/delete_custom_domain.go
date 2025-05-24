@@ -32,7 +32,7 @@ type DeleteCustomDomainConfig struct {
 // Work satisfies the river.Worker interface for the delete custom domain worker
 // it deletes a custom domain for an organization
 // todo(acookin): implement this
-func (w *DeleteCustomDomainWorker) Work(ctx context.Context, job *river.Job[DeleteCustomDomainArgs]) error {
+func (w *DeleteCustomDomainWorker) Work(_ context.Context, job *river.Job[DeleteCustomDomainArgs]) error {
 	log.Info().Str("custom_domain_id", job.Args.CustomDomainID).Msg("creating custom domain")
 
 	return nil

@@ -5,6 +5,7 @@ import (
 
 	"github.com/riverqueue/river"
 	"github.com/stretchr/testify/require"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 

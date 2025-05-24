@@ -3,15 +3,24 @@ river:
     databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     queues: null
     workers:
+        createCustomDomainWorker:
+            Config:
+                cloudflareApiKey: ""
         databaseWorker:
             config:
                 baseUrl: http://localhost:1337
                 debug: false
                 enabled: true
                 endpoint: query
+        deleteCustomDomainWorker:
+            Config:
+                cloudflareApiKey: ""
         emailWorker:
             config:
                 devMode: true
                 fromEmail: no-reply@example.com
                 testDir: fixtures/email
                 token: ""
+        validateCustomDomainWorker:
+            Config:
+                cloudflareApiKey: ""

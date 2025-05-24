@@ -32,7 +32,7 @@ type CreateCustomDomainConfig struct {
 // Work satisfies the river.Worker interface for the create custom domain worker
 // it creates a custom domain for an organization
 // todo(acookin): implement this
-func (w *CreateCustomDomainWorker) Work(ctx context.Context, job *river.Job[CreateCustomDomainArgs]) error {
+func (w *CreateCustomDomainWorker) Work(_ context.Context, job *river.Job[CreateCustomDomainArgs]) error {
 	log.Info().Str("custom_domain_id", job.Args.CustomDomainID).Msg("creating custom domain")
 
 	return nil
