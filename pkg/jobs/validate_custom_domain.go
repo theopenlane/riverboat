@@ -22,14 +22,10 @@ func (ValidateCustomDomainArgs) Kind() string { return "validate_custom_domain" 
 type ValidateCustomDomainWorker struct {
 	river.WorkerDefaults[ValidateCustomDomainArgs]
 
-	Config ValidateCustomDomainConfig
+	Config CustomDomainConfig
 }
 
 // ValidateCustomDomainConfig contains the configuration for the worker
-type ValidateCustomDomainConfig struct {
-	CloudflareAPIKey string `koanf:"cloudflareApiKey" json:"cloudflareApiKey" jsonschema:"required description=the cloudflare api key"`
-}
-
 // Work satisfies the river.Worker interface for the validate custom domain worker
 // it validates a custom domain for an organization
 // todo(acookin): implement this

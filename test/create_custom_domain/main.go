@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 
 	"github.com/rs/zerolog/log"
 
@@ -14,9 +15,17 @@ import (
 func main() {
 	client := common.NewInsertOnlyRiverClient()
 
-	_, err := client.Insert(context.Background(), jobs.CreateCustomDomainArgs{
-		CustomDomainID: "test-domain-123",
-	}, nil)
+	// Parse command line arguments
+	customDomainID := flag.String("custom-domain-id", "", "ID of the custom domain")
+	flag.Parse()
+
+	_, err := client.Insert(
+		context.Background(),
+		jobs.CreateCustomDomainArgs{
+			CustomDomainID: *customDomainID,
+		},
+		nil,
+	)
 	if err != nil {
 		log.Fatal().Err(err).Msg("error inserting create_custom_domain job")
 	}

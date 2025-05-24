@@ -30,25 +30,43 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "jobs.CreateCustomDomainConfig": {
+    "jobs.CloudflareCustomHostnameConfig": {
       "properties": {
         "cloudflareApiKey": {
           "type": "string"
         }
       },
       "additionalProperties": false,
-      "type": "object",
-      "description": "CreateCustomDomainConfig contains the configuration for the worker"
+      "type": "object"
     },
     "jobs.CreateCustomDomainWorker": {
       "properties": {
         "Config": {
-          "$ref": "#/$defs/jobs.CreateCustomDomainConfig"
+          "$ref": "#/$defs/jobs.CustomDomainConfig"
         }
       },
       "additionalProperties": false,
       "type": "object",
       "description": "CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system"
+    },
+    "jobs.CustomDomainConfig": {
+      "properties": {
+        "cloudflareApiKey": {
+          "type": "string"
+        },
+        "openLaneAPIHost": {
+          "type": "string"
+        },
+        "openLaneAPIToken": {
+          "type": "string"
+        },
+        "databaseHost": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "CustomDomainConfig contains the configuration for the custom domain workers"
     },
     "jobs.DatabaseWorker": {
       "properties": {
@@ -61,20 +79,20 @@
       "type": "object",
       "description": "DatabaseWorker is a worker to create a dedicated database for an organization"
     },
-    "jobs.DeleteCustomDomainConfig": {
+    "jobs.DeleteCloudflareCustomHostnameWorker": {
       "properties": {
-        "cloudflareApiKey": {
-          "type": "string"
+        "Config": {
+          "$ref": "#/$defs/jobs.CloudflareCustomHostnameConfig"
         }
       },
       "additionalProperties": false,
       "type": "object",
-      "description": "DeleteCustomDomainConfig contains the configuration for the example worker"
+      "description": "DeleteCloudflareCustomHostnameWorker delete the custom hostname from cloudflare and updates the records in our system"
     },
     "jobs.DeleteCustomDomainWorker": {
       "properties": {
         "Config": {
-          "$ref": "#/$defs/jobs.DeleteCustomDomainConfig"
+          "$ref": "#/$defs/jobs.CustomDomainConfig"
         }
       },
       "additionalProperties": false,
@@ -115,20 +133,10 @@
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
-    "jobs.ValidateCustomDomainConfig": {
-      "properties": {
-        "cloudflareApiKey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "ValidateCustomDomainConfig contains the configuration for the worker"
-    },
     "jobs.ValidateCustomDomainWorker": {
       "properties": {
         "Config": {
-          "$ref": "#/$defs/jobs.ValidateCustomDomainConfig"
+          "$ref": "#/$defs/jobs.CustomDomainConfig"
         }
       },
       "additionalProperties": false,
@@ -190,6 +198,10 @@
         "deleteCustomDomainWorker": {
           "$ref": "#/$defs/jobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
+        },
+        "deleteCloudflareCustomHostnameWorker": {
+          "$ref": "#/$defs/jobs.DeleteCloudflareCustomHostnameWorker",
+          "description": "DeleteCloudflareCustomHostnameWorker configuration for deleting cloudflare custom hostnames"
         }
       },
       "additionalProperties": false,
