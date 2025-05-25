@@ -30,6 +30,26 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "jobs.CreateCustomDomainConfig": {
+      "properties": {
+        "cloudflareApiKey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "CreateCustomDomainConfig contains the configuration for the worker"
+    },
+    "jobs.CreateCustomDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/jobs.CreateCustomDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system"
+    },
     "jobs.DatabaseWorker": {
       "properties": {
         "config": {
@@ -40,6 +60,26 @@
       "additionalProperties": false,
       "type": "object",
       "description": "DatabaseWorker is a worker to create a dedicated database for an organization"
+    },
+    "jobs.DeleteCustomDomainConfig": {
+      "properties": {
+        "cloudflareApiKey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "DeleteCustomDomainConfig contains the configuration for the example worker"
+    },
+    "jobs.DeleteCustomDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/jobs.DeleteCustomDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates the records in our system"
     },
     "jobs.EmailConfig": {
       "properties": {
@@ -74,6 +114,26 @@
       "additionalProperties": false,
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
+    },
+    "jobs.ValidateCustomDomainConfig": {
+      "properties": {
+        "cloudflareApiKey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "ValidateCustomDomainConfig contains the configuration for the worker"
+    },
+    "jobs.ValidateCustomDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/jobs.ValidateCustomDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the status in our system"
     },
     "river.Config": {
       "properties": {
@@ -118,6 +178,18 @@
         "databaseWorker": {
           "$ref": "#/$defs/jobs.DatabaseWorker",
           "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
+        },
+        "createCustomDomainWorker": {
+          "$ref": "#/$defs/jobs.CreateCustomDomainWorker",
+          "description": "CreateCustomDomainWorker configuration for creating custom domains"
+        },
+        "validateCustomDomainWorker": {
+          "$ref": "#/$defs/jobs.ValidateCustomDomainWorker",
+          "description": "ValidateCustomDomainWorker configuration for validating custom domains"
+        },
+        "deleteCustomDomainWorker": {
+          "$ref": "#/$defs/jobs.DeleteCustomDomainWorker",
+          "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
         }
       },
       "additionalProperties": false,
