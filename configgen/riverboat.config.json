@@ -30,15 +30,6 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "jobs.CloudflareCustomHostnameConfig": {
-      "properties": {
-        "cloudflareApiKey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
     "jobs.CreateCustomDomainWorker": {
       "properties": {
         "Config": {
@@ -54,10 +45,10 @@
         "cloudflareApiKey": {
           "type": "string"
         },
-        "openLaneAPIHost": {
+        "openlaneAPIHost": {
           "type": "string"
         },
-        "openLaneAPIToken": {
+        "openlaneAPIToken": {
           "type": "string"
         },
         "databaseHost": {
@@ -78,16 +69,6 @@
       "additionalProperties": false,
       "type": "object",
       "description": "DatabaseWorker is a worker to create a dedicated database for an organization"
-    },
-    "jobs.DeleteCloudflareCustomHostnameWorker": {
-      "properties": {
-        "Config": {
-          "$ref": "#/$defs/jobs.CloudflareCustomHostnameConfig"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "DeleteCloudflareCustomHostnameWorker delete the custom hostname from cloudflare and updates the records in our system"
     },
     "jobs.DeleteCustomDomainWorker": {
       "properties": {
@@ -198,10 +179,6 @@
         "deleteCustomDomainWorker": {
           "$ref": "#/$defs/jobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
-        },
-        "deleteCloudflareCustomHostnameWorker": {
-          "$ref": "#/$defs/jobs.DeleteCloudflareCustomHostnameWorker",
-          "description": "DeleteCloudflareCustomHostnameWorker configuration for deleting cloudflare custom hostnames"
         }
       },
       "additionalProperties": false,

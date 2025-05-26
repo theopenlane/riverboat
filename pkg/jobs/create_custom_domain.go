@@ -17,6 +17,7 @@ import (
 )
 
 var (
+	// ErrDomainVerificationAlreadyExists is returned when a custom domain already has a verification member
 	ErrDomainVerificationAlreadyExists = errors.New("custom domain already has a verification member")
 )
 
@@ -41,16 +42,22 @@ type CreateCustomDomainWorker struct {
 	riverClient riverqueue.JobClient
 }
 
+// WithCloudflareClient sets the Cloudflare client for the worker
+// and returns the worker for method chaining
 func (w *CreateCustomDomainWorker) WithCloudflareClient(cl intcloudflare.Client) *CreateCustomDomainWorker {
 	w.cfClient = cl
 	return w
 }
 
+// WithOpenlaneClient sets the Openlane client for the worker
+// and returns the worker for method chaining
 func (w *CreateCustomDomainWorker) WithOpenlaneClient(cl olclient.OpenlaneClient) *CreateCustomDomainWorker {
 	w.olClient = cl
 	return w
 }
 
+// WithRiverClient sets the River client for the worker
+// and returns the worker for method chaining
 func (w *CreateCustomDomainWorker) WithRiverClient(cl riverqueue.JobClient) *CreateCustomDomainWorker {
 	w.riverClient = cl
 	return w
@@ -93,7 +100,7 @@ func (w *CreateCustomDomainWorker) Work(ctx context.Context, job *river.Job[Crea
 		return err
 	}
 
-	log.Info().Str("custom_domain", customDomain.GetCustomDomain().ID).Msg("got custom domain")
+	log.Debug().Str("custom_domain", customDomain.GetCustomDomain().ID).Msg("got custom domain")
 
 	if customDomain.CustomDomain.DNSVerificationID != nil && *customDomain.CustomDomain.DNSVerificationID != "" {
 		return ErrDomainVerificationAlreadyExists
@@ -104,7 +111,7 @@ func (w *CreateCustomDomainWorker) Work(ctx context.Context, job *river.Job[Crea
 		return err
 	}
 
-	log.Info().Str("mappable_domain", mappableDomain.GetMappableDomain().ID).Msg("got mappable domain")
+	log.Debug().Str("mappable_domain", mappableDomain.GetMappableDomain().ID).Msg("got mappable domain")
 
 	res, err := w.cfClient.CustomHostnames().New(ctx, custom_hostnames.CustomHostnameNewParams{
 		ZoneID:   cloudflare.F(mappableDomain.MappableDomain.ZoneID),
@@ -121,7 +128,7 @@ func (w *CreateCustomDomainWorker) Work(ctx context.Context, job *river.Job[Crea
 		return err
 	}
 
-	log.Info().Str("cloudflare_id", res.ID).Msg("created custom hostname")
+	log.Debug().Str("cloudflare_id", res.ID).Msg("created custom hostname")
 
 	dnsVerificationID := ""
 
@@ -151,7 +158,7 @@ func (w *CreateCustomDomainWorker) Work(ctx context.Context, job *river.Job[Crea
 		return err
 	}
 
-	log.Info().Str("dns_verification", createVerificationRes.GetCreateDNSVerification().DNSVerification.ID).Msg("created dns verification")
+	log.Debug().Str("dns_verification", createVerificationRes.GetCreateDNSVerification().DNSVerification.ID).Msg("created dns verification")
 
 	dnsVerificationID = createVerificationRes.CreateDNSVerification.DNSVerification.ID
 

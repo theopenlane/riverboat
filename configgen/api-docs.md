@@ -43,7 +43,6 @@ Workers that will be enabled on the server
 |[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system<br/>||
 |[**validateCustomDomainWorker**](#riverworkersvalidatecustomdomainworker)|`object`|ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the status in our system<br/>||
 |[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates the records in our system<br/>||
-|[**deleteCloudflareCustomHostnameWorker**](#riverworkersdeletecloudflarecustomhostnameworker)|`object`|DeleteCloudflareCustomHostnameWorker delete the custom hostname from cloudflare and updates the records in our system<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -125,8 +124,8 @@ CustomDomainConfig contains the configuration for the custom domain workers
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
-|**openLaneAPIHost**|`string`|||
-|**openLaneAPIToken**|`string`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
 
 **Additional Properties:** not allowed  
@@ -154,8 +153,8 @@ CustomDomainConfig contains the configuration for the custom domain workers
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
-|**openLaneAPIHost**|`string`|||
-|**openLaneAPIToken**|`string`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
 
 **Additional Properties:** not allowed  
@@ -183,32 +182,9 @@ CustomDomainConfig contains the configuration for the custom domain workers
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
-|**openLaneAPIHost**|`string`|||
-|**openLaneAPIToken**|`string`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
-
-**Additional Properties:** not allowed  
-<a name="riverworkersdeletecloudflarecustomhostnameworker"></a>
-#### river\.workers\.deleteCloudflareCustomHostnameWorker: object
-
-DeleteCloudflareCustomHostnameWorker delete the custom hostname from cloudflare and updates the records in our system
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**Config**](#riverworkersdeletecloudflarecustomhostnameworkerconfig)|`object`|||
-
-**Additional Properties:** not allowed  
-<a name="riverworkersdeletecloudflarecustomhostnameworkerconfig"></a>
-##### river\.workers\.deleteCloudflareCustomHostnameWorker\.Config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**cloudflareApiKey**|`string`|||
 
 **Additional Properties:** not allowed  
 

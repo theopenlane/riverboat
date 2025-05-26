@@ -7,23 +7,20 @@ river:
             Config:
                 cloudflareApiKey: ""
                 databaseHost: ""
-                openLaneAPIHost: ""
-                openLaneAPIToken: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         databaseWorker:
             config:
                 baseUrl: http://localhost:1337
                 debug: false
                 enabled: true
                 endpoint: query
-        deleteCloudflareCustomHostnameWorker:
-            Config:
-                cloudflareApiKey: ""
         deleteCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""
                 databaseHost: ""
-                openLaneAPIHost: ""
-                openLaneAPIToken: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         emailWorker:
             config:
                 devMode: true
@@ -34,5 +31,5 @@ river:
             Config:
                 cloudflareApiKey: ""
                 databaseHost: ""
-                openLaneAPIHost: ""
-                openLaneAPIToken: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""

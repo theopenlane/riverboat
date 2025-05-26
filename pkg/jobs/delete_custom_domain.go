@@ -38,11 +38,15 @@ type DeleteCustomDomainWorker struct {
 	olClient olclient.OpenlaneClient
 }
 
+// WithCloudflareClient sets the Cloudflare client for the worker
+// and returns the worker for method chaining
 func (w *DeleteCustomDomainWorker) WithCloudflareClient(cl intcloudflare.Client) *DeleteCustomDomainWorker {
 	w.cfClient = cl
 	return w
 }
 
+// WithOpenlaneClient sets the Openlane client for the worker
+// and returns the worker for method chaining
 func (w *DeleteCustomDomainWorker) WithOpenlaneClient(cl olclient.OpenlaneClient) *DeleteCustomDomainWorker {
 	w.olClient = cl
 	return w
