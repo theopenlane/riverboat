@@ -6,6 +6,9 @@ river:
         createCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""
+                databaseHost: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         databaseWorker:
             config:
                 baseUrl: http://localhost:1337
@@ -15,6 +18,9 @@ river:
         deleteCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""
+                databaseHost: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         emailWorker:
             config:
                 devMode: true
@@ -27,3 +33,6 @@ river:
         validateCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""
+                databaseHost: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""

@@ -111,13 +111,13 @@ CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates an
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|CreateCustomDomainConfig contains the configuration for the worker<br/>||
+|[**Config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|CustomDomainConfig contains the configuration for the custom domain workers<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkerscreatecustomdomainworkerconfig"></a>
 ##### river\.workers\.createCustomDomainWorker\.Config: object
 
-CreateCustomDomainConfig contains the configuration for the worker
+CustomDomainConfig contains the configuration for the custom domain workers
 
 
 **Properties**
@@ -125,6 +125,9 @@ CreateCustomDomainConfig contains the configuration for the worker
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**databaseHost**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworker"></a>
@@ -137,13 +140,13 @@ ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the s
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|ValidateCustomDomainConfig contains the configuration for the worker<br/>||
+|[**Config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|CustomDomainConfig contains the configuration for the custom domain workers<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworkerconfig"></a>
 ##### river\.workers\.validateCustomDomainWorker\.Config: object
 
-ValidateCustomDomainConfig contains the configuration for the worker
+CustomDomainConfig contains the configuration for the custom domain workers
 
 
 **Properties**
@@ -151,6 +154,9 @@ ValidateCustomDomainConfig contains the configuration for the worker
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**databaseHost**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworker"></a>
@@ -163,13 +169,13 @@ DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates 
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|DeleteCustomDomainConfig contains the configuration for the example worker<br/>||
+|[**Config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|CustomDomainConfig contains the configuration for the custom domain workers<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworkerconfig"></a>
 ##### river\.workers\.deleteCustomDomainWorker\.Config: object
 
-DeleteCustomDomainConfig contains the configuration for the example worker
+CustomDomainConfig contains the configuration for the custom domain workers
 
 
 **Properties**
@@ -177,6 +183,9 @@ DeleteCustomDomainConfig contains the configuration for the example worker
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**databaseHost**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersscheduledjobworker"></a>

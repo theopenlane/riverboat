@@ -1,0 +1,23 @@
+all: false
+dir: "{{.InterfaceDir}}/mocks"
+filename: mocks.go
+force-file-write: true
+formatter: goimports
+log-level: info
+structname: "{{.Mock}}{{.InterfaceName}}"
+pkgname: mocks
+recursive: false
+require-template-schema-exists: true
+template: testify
+template-schema: "{{.Template}}.schema.json"
+packages:
+  github.com/theopenlane/riverboat/internal/cloudflare:
+    config:
+      all: true
+  github.com/theopenlane/riverboat/pkg/riverqueue:
+    config:
+      all: true
+  github.com/theopenlane/core/pkg/openlaneclient:
+    config:
+      dir: internal/olclient/mocks
+      all: true

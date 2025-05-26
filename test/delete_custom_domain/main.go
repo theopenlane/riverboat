@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 
 	"github.com/rs/zerolog/log"
 
@@ -14,8 +15,18 @@ import (
 func main() {
 	client := common.NewInsertOnlyRiverClient()
 
+	// Parse command line arguments
+	customDomainID := flag.String("custom-domain-id", "", "ID of the custom domain")
+	dnsVerificationID := flag.String("dns-verification-id", "", "ID of the DNS verification")
+	cfCustomHostnameID := flag.String("cf-hostname-id", "", "ID of the Cloudflare custom hostname")
+	cfZoneID := flag.String("cf-zone-id", "", "ID of the Cloudflare zone")
+	flag.Parse()
+
 	_, err := client.Insert(context.Background(), jobs.DeleteCustomDomainArgs{
-		CustomDomainID: "test-domain-123",
+		CustomDomainID:             *customDomainID,
+		DNSVerificationID:          *dnsVerificationID,
+		CloudflareCustomHostnameID: *cfCustomHostnameID,
+		CloudflareZoneID:           *cfZoneID,
 	}, nil)
 	if err != nil {
 		log.Fatal().Err(err).Msg("error inserting delete_custom_domain job")
