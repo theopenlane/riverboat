@@ -12,7 +12,7 @@ import (
 func (suite *TestSuite) TestValidateCustomDomainWorker() {
 	t := suite.T()
 	worker := &jobs.ValidateCustomDomainWorker{
-		Config: jobs.ValidateCustomDomainConfig{
+		Config: jobs.CustomDomainConfig{
 			CloudflareAPIKey: "test",
 		},
 	}
