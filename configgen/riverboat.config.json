@@ -114,7 +114,6 @@
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
-<<<<<<< HEAD
     "jobs.ScheduledJobConfig": {
       "properties": {
         "databaseHost": {
@@ -136,29 +135,6 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "jobs.ValidateCustomDomainConfig": {
-      "properties": {
-        "cloudflareApiKey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "ValidateCustomDomainConfig contains the configuration for the worker"
-    },
-||||||| 5fa9e7b
-    "jobs.ValidateCustomDomainConfig": {
-      "properties": {
-        "cloudflareApiKey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "ValidateCustomDomainConfig contains the configuration for the worker"
-    },
-=======
->>>>>>> origin/main
     "jobs.ValidateCustomDomainWorker": {
       "properties": {
         "Config": {
