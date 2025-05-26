@@ -15,6 +15,8 @@ type CustomHostnamesService interface {
 	New(context.Context, custom_hostnames.CustomHostnameNewParams, ...option.RequestOption) (*custom_hostnames.CustomHostnameNewResponse, error)
 	// Delete removes a custom hostname from Cloudflare using the provided hostname ID and parameters.
 	Delete(context.Context, string, custom_hostnames.CustomHostnameDeleteParams, ...option.RequestOption) (*custom_hostnames.CustomHostnameDeleteResponse, error)
+	// Get retrieves a custom hostname from Cloudflare using the provided hostname ID and parameters.
+	Get(context.Context, string, custom_hostnames.CustomHostnameGetParams, ...option.RequestOption) (*custom_hostnames.CustomHostnameGetResponse, error)
 }
 
 // Client defines the interface for the Cloudflare client.

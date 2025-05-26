@@ -107,6 +107,73 @@ func (_c *MockCustomHostnamesService_Delete_Call) RunAndReturn(run func(context1
 	return _c
 }
 
+// Get provides a mock function for the type MockCustomHostnamesService
+func (_mock *MockCustomHostnamesService) Get(context1 context.Context, s string, customHostnameGetParams custom_hostnames.CustomHostnameGetParams, vs ...option.RequestOption) (*custom_hostnames.CustomHostnameGetResponse, error) {
+	var tmpRet mock.Arguments
+	if len(vs) > 0 {
+		tmpRet = _mock.Called(context1, s, customHostnameGetParams, vs)
+	} else {
+		tmpRet = _mock.Called(context1, s, customHostnameGetParams)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for Get")
+	}
+
+	var r0 *custom_hostnames.CustomHostnameGetResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, custom_hostnames.CustomHostnameGetParams, ...option.RequestOption) (*custom_hostnames.CustomHostnameGetResponse, error)); ok {
+		return returnFunc(context1, s, customHostnameGetParams, vs...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, custom_hostnames.CustomHostnameGetParams, ...option.RequestOption) *custom_hostnames.CustomHostnameGetResponse); ok {
+		r0 = returnFunc(context1, s, customHostnameGetParams, vs...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*custom_hostnames.CustomHostnameGetResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, custom_hostnames.CustomHostnameGetParams, ...option.RequestOption) error); ok {
+		r1 = returnFunc(context1, s, customHostnameGetParams, vs...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockCustomHostnamesService_Get_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Get'
+type MockCustomHostnamesService_Get_Call struct {
+	*mock.Call
+}
+
+// Get is a helper method to define mock.On call
+//   - context1
+//   - s
+//   - customHostnameGetParams
+//   - vs
+func (_e *MockCustomHostnamesService_Expecter) Get(context1 interface{}, s interface{}, customHostnameGetParams interface{}, vs ...interface{}) *MockCustomHostnamesService_Get_Call {
+	return &MockCustomHostnamesService_Get_Call{Call: _e.mock.On("Get",
+		append([]interface{}{context1, s, customHostnameGetParams}, vs...)...)}
+}
+
+func (_c *MockCustomHostnamesService_Get_Call) Run(run func(context1 context.Context, s string, customHostnameGetParams custom_hostnames.CustomHostnameGetParams, vs ...option.RequestOption)) *MockCustomHostnamesService_Get_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		variadicArgs := args[3].([]option.RequestOption)
+		run(args[0].(context.Context), args[1].(string), args[2].(custom_hostnames.CustomHostnameGetParams), variadicArgs...)
+	})
+	return _c
+}
+
+func (_c *MockCustomHostnamesService_Get_Call) Return(customHostnameGetResponse *custom_hostnames.CustomHostnameGetResponse, err error) *MockCustomHostnamesService_Get_Call {
+	_c.Call.Return(customHostnameGetResponse, err)
+	return _c
+}
+
+func (_c *MockCustomHostnamesService_Get_Call) RunAndReturn(run func(context1 context.Context, s string, customHostnameGetParams custom_hostnames.CustomHostnameGetParams, vs ...option.RequestOption) (*custom_hostnames.CustomHostnameGetResponse, error)) *MockCustomHostnamesService_Get_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // New provides a mock function for the type MockCustomHostnamesService
 func (_mock *MockCustomHostnamesService) New(context1 context.Context, customHostnameNewParams custom_hostnames.CustomHostnameNewParams, vs ...option.RequestOption) (*custom_hostnames.CustomHostnameNewResponse, error) {
 	var tmpRet mock.Arguments
