@@ -43,6 +43,7 @@ Workers that will be enabled on the server
 |[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system<br/>||
 |[**validateCustomDomainWorker**](#riverworkersvalidatecustomdomainworker)|`object`|ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the status in our system<br/>||
 |[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates the records in our system<br/>||
+|[**scheduledJobWorker**](#riverworkersscheduledjobworker)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -176,6 +177,29 @@ DeleteCustomDomainConfig contains the configuration for the example worker
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**cloudflareApiKey**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersscheduledjobworker"></a>
+#### river\.workers\.scheduledJobWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersscheduledjobworkerconfig)|`object`|ScheduledJobConfig contains the configuration for the scheduling job worker<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersscheduledjobworkerconfig"></a>
+##### river\.workers\.scheduledJobWorker\.config: object
+
+ScheduledJobConfig contains the configuration for the scheduling job worker
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**databaseHost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
 
 **Additional Properties:** not allowed  
 

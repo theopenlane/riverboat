@@ -115,6 +115,27 @@
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
+    "jobs.ScheduledJobConfig": {
+      "properties": {
+        "databaseHost": {
+          "type": "string",
+          "description": "DatabaseHost for connecting to the postgres database"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "ScheduledJobConfig contains the configuration for the scheduling job worker"
+    },
+    "jobs.ScheduledJobWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.ScheduledJobConfig",
+          "description": "the scheduled job worker configuration"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "jobs.ValidateCustomDomainConfig": {
       "properties": {
         "cloudflareApiKey": {
@@ -190,6 +211,10 @@
         "deleteCustomDomainWorker": {
           "$ref": "#/$defs/jobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
+        },
+        "scheduledJobWorker": {
+          "$ref": "#/$defs/jobs.ScheduledJobWorker",
+          "description": "ScheduledJobWorker configuration for running and scheduling jobs for execution agents"
         }
       },
       "additionalProperties": false,

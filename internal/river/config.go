@@ -48,5 +48,8 @@ type Workers struct {
 	// DeleteCustomDomainWorker configuration for deleting custom domains
 	DeleteCustomDomainWorker jobs.DeleteCustomDomainWorker `koanf:"deleteCustomDomainWorker" json:"deleteCustomDomainWorker"`
 
+	// ScheduledJobWorker configuration for running and scheduling jobs for execution agents
+	ScheduledJobWorker jobs.ScheduledJobWorker `koanf:"scheduledJobWorker" json:"scheduledJobWorker"`
+
 	// add more workers here
 }
