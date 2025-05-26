@@ -12,8 +12,8 @@ import (
 type CustomDomainConfig struct {
 	CloudflareAPIKey string `koanf:"cloudflareApiKey" json:"cloudflareApiKey" jsonschema:"required description=the cloudflare api key"`
 
-	OpenLaneAPIHost  string `koanf:"openLaneAPIHost" json:"openLaneAPIHost" jsonschema:"required description=the open lane api host"`
-	OpenLaneAPIToken string `koanf:"openLaneAPIToken" json:"openLaneAPIToken" jsonschema:"required description=the open lane api token"`
+	OpenlaneAPIHost  string `koanf:"openlaneAPIHost" json:"openlaneAPIHost" jsonschema:"required description=the openlane api host"`
+	OpenlaneAPIToken string `koanf:"openlaneAPIToken" json:"openlaneAPIToken" jsonschema:"required description=the openlane api token"`
 
 	DatabaseHost string `koanf:"databaseHost" json:"databaseHost" jsonschema:"required description=the database host"`
 }
