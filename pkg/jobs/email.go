@@ -25,6 +25,8 @@ type EmailWorker struct {
 	river.WorkerDefaults[EmailArgs]
 
 	Config EmailConfig `koanf:"config" json:"config" jsonschema:"description=the email configuration"`
+
+	client newman.EmailSender
 }
 
 // EmailConfig contains the configuration for the email worker
@@ -49,6 +51,25 @@ func (w *EmailWorker) validateEmailConfig() error {
 		return newMissingRequiredArg("token", EmailArgs{}.Kind())
 	}
 
+	// create the resend client only one
+	if w.client == nil {
+		// set the options for the resend client
+		opts := []resend.Option{}
+
+		if w.Config.DevMode {
+			log.Debug().Str("directory", w.Config.TestDir).Msg("running in dev mode")
+
+			opts = append(opts, resend.WithDevMode(w.Config.TestDir))
+		}
+
+		client, err := resend.New(w.Config.Token, opts...)
+		if err != nil {
+			return err
+		}
+
+		w.client = client
+	}
+
 	return nil
 }
 
@@ -64,25 +85,10 @@ func (w *EmailWorker) Work(ctx context.Context, job *river.Job[EmailArgs]) error
 		Str("subject", job.Args.Message.Subject).
 		Msg("sending email")
 
-	// set the options for the resend client
-	opts := []resend.Option{}
-
-	if w.Config.DevMode {
-		log.Debug().Str("directory", w.Config.TestDir).Msg("running in dev mode")
-
-		opts = append(opts, resend.WithDevMode(w.Config.TestDir))
-	}
-
 	// if the from email is not set on the message, use the default from the worker config
 	if job.Args.Message.From == "" {
 		job.Args.Message.From = w.Config.FromEmail
 	}
 
-	// create the resend client
-	client, err := resend.New(w.Config.Token, opts...)
-	if err != nil {
-		return err
-	}
-
-	return client.SendEmailWithContext(ctx, &job.Args.Message)
+	return w.client.SendEmailWithContext(ctx, &job.Args.Message)
 }
