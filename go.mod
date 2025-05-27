@@ -24,7 +24,7 @@ require (
 	github.com/samber/lo v1.50.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/theopenlane/core v0.14.5-0.20250525221605-9dabb9ac2421
+	github.com/theopenlane/core v0.14.5-0.20250526225036-f7edfb8c40c2
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.1.5
 	github.com/theopenlane/utils v0.4.5
@@ -60,6 +60,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/go-tpm v0.9.5 // indirect
 	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/hashicorp/hcl/v2 v2.23.0 // indirect
