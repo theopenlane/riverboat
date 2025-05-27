@@ -2,11 +2,14 @@ package jobs
 
 import (
 	"context"
+	"database/sql"
+	"encoding/json"
 	"time"
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/riverqueue/river"
+	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/core/pkg/models"
 	"github.com/theopenlane/utils/ulids"
 	"golang.org/x/sync/errgroup"
@@ -125,16 +128,41 @@ func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 	for rows.Next() {
 		var job controlScheduledJob
 		var scheduledJob scheduledJob
+		var cadence sql.NullString
+		var cronStr sql.NullString
+
+		var displayID, title, description, jobType sql.NullString
+		var script string
 
 		err := rows.Scan(
-			&job.ID, &job.JobID, &job.Configuration, &job.Cadence, &job.Cron,
-			&scheduledJob.ID, &scheduledJob.DisplayID, &scheduledJob.Title,
-			&scheduledJob.Description, &scheduledJob.JobType, &scheduledJob.Script,
-			&scheduledJob.Configuration, &scheduledJob.CreatedAt,
+			&job.ID, &job.JobID, &job.Configuration, &cadence, &cronStr,
+			&scheduledJob.ID, &displayID, &title, &description, &jobType,
+			&script, &scheduledJob.Configuration, &scheduledJob.CreatedAt,
 		)
 		if err != nil {
 			return nil, err
 		}
+
+		// we have valid cadence JSON, unmarshal it directly to the struct
+		if cadence.Valid && cadence.String != "" {
+			if err := json.Unmarshal([]byte(cadence.String), &job.Cadence); err != nil {
+				log.Error().Err(err).
+					Str("control_job_id", job.ID).
+					Str("cadence", cadence.String).
+					Msg("failed to unmarshal cadence")
+			}
+		}
+
+		// we have a valid cron string
+		if cronStr.Valid && cronStr.String != "" {
+			job.Cron = models.Cron(cronStr.String)
+		}
+
+		if jobType.Valid {
+			scheduledJob.JobType = jobType.String
+		}
+
+		scheduledJob.Script = script
 
 		job.Job = &scheduledJob
 		jobs = append(jobs, job)
@@ -156,11 +184,12 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 		nextRun, err = job.Cron.Next(now)
 
 	} else {
-
+		log.Info().Msg("no cadence skipping")
 		return nil
 	}
 
 	if err != nil {
+		log.Error().Err(err).Msg("could not get the next run date")
 		return err
 	}
 
