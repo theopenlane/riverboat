@@ -8,18 +8,20 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/riverqueue/river"
+	"github.com/theopenlane/core/pkg/models"
 	"github.com/theopenlane/utils/ulids"
 	"golang.org/x/sync/errgroup"
 )
 
-type ScheduledJobArgs struct {
-}
+type ScheduledJobArgs struct{}
 
 func (ScheduledJobArgs) Kind() string { return "scheduled_jobs" }
 
 // ScheduledJobConfig contains the configuration for the scheduling job worker
 type ScheduledJobConfig struct {
 	// DatabaseHost for connecting to the postgres database
+	// This is for the core server database which can potentially be different from
+	// river queue's
 	DatabaseHost string `koanf:"databaseHost" json:"databaseHost" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 }
 
@@ -52,26 +54,6 @@ func (s *ScheduledJobWorker) validateConnection() error {
 	return s.dbPool.Ping(ctx)
 }
 
-type ScheduledJob struct {
-	ID            string          `json:"id"`
-	DisplayID     string          `json:"display_id"`
-	Title         string          `json:"title"`
-	Description   string          `json:"description"`
-	JobType       string          `json:"job_type"`
-	Script        string          `json:"script"`
-	Configuration json.RawMessage `json:"configuration"`
-	CreatedAt     time.Time       `json:"created_at"`
-}
-
-type ControlScheduledJob struct {
-	ID            string          `json:"id"`
-	JobID         string          `json:"job_id"`
-	Configuration json.RawMessage `json:"configuration"`
-	Cadence       json.RawMessage `json:"cadence"`
-	Cron          string          `json:"cron"`
-	Job           *ScheduledJob   `json:"job"`
-}
-
 type Run struct {
 	ID             string    `json:"id"`
 	JobRunnerID    string    `json:"job_runner_id"`
@@ -88,7 +70,7 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[ScheduledJ
 	const batchSize = 5
 	var (
 		offset  = 0
-		allJobs []ControlScheduledJob
+		allJobs []controlScheduledJob
 		g       = new(errgroup.Group)
 	)
 
@@ -139,11 +121,11 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[ScheduledJ
 	return g.Wait()
 }
 
-func scanBatch(rows pgx.Rows) ([]ControlScheduledJob, error) {
-	var jobs []ControlScheduledJob
+func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
+	var jobs []controlScheduledJob
 	for rows.Next() {
-		var job ControlScheduledJob
-		var scheduledJob ScheduledJob
+		var job controlScheduledJob
+		var scheduledJob scheduledJob
 
 		err := rows.Scan(
 			&job.ID, &job.JobID, &job.Configuration, &job.Cadence, &job.Cron,
@@ -161,23 +143,77 @@ func scanBatch(rows pgx.Rows) ([]ControlScheduledJob, error) {
 	return jobs, rows.Err()
 }
 
-func (s *ScheduledJobWorker) processJob(ctx context.Context, job ControlScheduledJob) error {
+func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlScheduledJob) error {
+	now := time.Now()
+	var nextRun time.Time
+	var err error
+
+	if !job.Cadence.IsZero() {
+
+		nextRun, err = job.Cadence.Next(now)
+
+	} else if job.Cron.String() != "" {
+
+		nextRun, err = job.Cron.Next(now)
+
+	} else {
+
+		return nil
+	}
+
+	if err != nil {
+		return err
+	}
+
+	// if <= 10 mins, we want to schedule the job so the agents can
+	// fetch those and run internally on their own
+	// This would allow the agents have their own internal cache
+	// and won't have to ping home every minute but will do every 10 minutes.
+	//
+	// The agents will have the list of jobs that will run over the next 10 minutes
+	// and execute them if any at the right time
+	//
+	const scheduleBuffer = 10 * time.Minute
+	if nextRun.IsZero() || nextRun.Sub(now) > scheduleBuffer {
+		return nil
+	}
+
 	run := &Run{
 		ID:             ulids.New().String(),
 		Status:         "PENDING",
 		ScheduledJobID: job.ID,
-		CreatedAt:      time.Now(),
+		CreatedAt:      now,
 	}
 
 	query := `
 		INSERT INTO scheduled_job_runs (id, status, scheduled_job_id, created_at)
 		VALUES ($1, $2, $3, $4)
 	`
-	_, err := s.dbPool.Exec(ctx, query,
+	_, err = s.dbPool.Exec(ctx, query,
 		run.ID,
 		run.Status,
 		run.ScheduledJobID,
 		run.CreatedAt,
 	)
 	return err
+}
+
+type scheduledJob struct {
+	ID            string          `json:"id"`
+	DisplayID     string          `json:"display_id"`
+	Title         string          `json:"title"`
+	Description   string          `json:"description"`
+	JobType       string          `json:"job_type"`
+	Script        string          `json:"script"`
+	Configuration json.RawMessage `json:"configuration"`
+	CreatedAt     time.Time       `json:"created_at"`
+}
+
+type controlScheduledJob struct {
+	ID            string                  `json:"id"`
+	JobID         string                  `json:"job_id"`
+	Configuration models.JobConfiguration `json:"configuration"`
+	Cadence       models.JobCadence       `json:"cadence"`
+	Cron          models.Cron             `json:"cron"`
+	Job           *scheduledJob           `json:"job"`
 }
