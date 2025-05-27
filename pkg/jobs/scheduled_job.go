@@ -2,7 +2,6 @@ package jobs
 
 import (
 	"context"
-	"encoding/json"
 	"time"
 
 	"github.com/jackc/pgx/v5"
@@ -199,14 +198,14 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 }
 
 type scheduledJob struct {
-	ID            string          `json:"id"`
-	DisplayID     string          `json:"display_id"`
-	Title         string          `json:"title"`
-	Description   string          `json:"description"`
-	JobType       string          `json:"job_type"`
-	Script        string          `json:"script"`
-	Configuration json.RawMessage `json:"configuration"`
-	CreatedAt     time.Time       `json:"created_at"`
+	ID            string                  `json:"id"`
+	DisplayID     string                  `json:"display_id"`
+	Title         string                  `json:"title"`
+	Description   string                  `json:"description"`
+	JobType       string                  `json:"job_type"`
+	Script        string                  `json:"script"`
+	Configuration models.JobConfiguration `json:"configuration"`
+	CreatedAt     time.Time               `json:"created_at"`
 }
 
 type controlScheduledJob struct {

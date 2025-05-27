@@ -79,6 +79,10 @@ type Client struct {
 // ensure the client implements the JobClient interface
 var _ JobClient = &Client{}
 
+type ScheduledJobArgs struct{}
+
+func (ScheduledJobArgs) Kind() string { return "scheduled_jobs" }
+
 // New creates a new river client with the options provided
 func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 	// Initialize the Client struct
@@ -109,6 +113,16 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 			return nil, err
 		}
 	}
+
+	c.config.RiverConf.PeriodicJobs = append(c.config.RiverConf.PeriodicJobs,
+		river.NewPeriodicJob(
+			river.PeriodicInterval(1*time.Minute),
+			func() (river.JobArgs, *river.InsertOpts) {
+				return ScheduledJobArgs{}, nil
+			},
+			&river.PeriodicJobOpts{RunOnStart: true},
+		),
+	)
 
 	// create a new river client with the given connection URI
 	c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
