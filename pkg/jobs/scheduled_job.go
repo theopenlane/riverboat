@@ -15,9 +15,10 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-type scheduledJobArgs struct{}
+// ScheduledJobArgs represents the arguments for the scheduled job worker
+type ScheduledJobArgs struct{}
 
-func (scheduledJobArgs) Kind() string { return "scheduled_jobs" }
+func (ScheduledJobArgs) Kind() string { return "scheduled_jobs" }
 
 // ScheduledJobConfig contains the configuration for the scheduling job worker
 type ScheduledJobConfig struct {
@@ -27,9 +28,12 @@ type ScheduledJobConfig struct {
 	DatabaseHost string `koanf:"databaseHost" json:"databaseHost" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 }
 
+// maxConcurrentJobs is the maximum number of jobs that can be processed concurrently
+const maxConcurrentJobs = 10
+
 // ScheduledJobWorker is a queue worker that schedules job that can be executed by agents
 type ScheduledJobWorker struct {
-	river.WorkerDefaults[scheduledJobArgs]
+	river.WorkerDefaults[ScheduledJobArgs]
 
 	Config ScheduledJobConfig `koanf:"config" json:"config" jsonschema:"description=the scheduled job worker configuration"`
 
@@ -37,9 +41,7 @@ type ScheduledJobWorker struct {
 }
 
 func (s *ScheduledJobWorker) validateConnection() error {
-
 	if s.dbPool == nil {
-
 		ctx, cancelFn := context.WithTimeout(context.Background(), time.Second)
 		defer cancelFn()
 
@@ -58,19 +60,19 @@ func (s *ScheduledJobWorker) validateConnection() error {
 }
 
 // Work evaluates the available jobs and marks them as ready to be executed by agents if needed
-func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[scheduledJobArgs]) error {
+func (s *ScheduledJobWorker) Work(ctx context.Context, _ *river.Job[ScheduledJobArgs]) error {
 	if err := s.validateConnection(); err != nil {
 		return err
 	}
 
 	const batchSize = 5
+
 	var (
-		offset  = 0
-		allJobs []controlScheduledJob
-		g       = new(errgroup.Group)
+		offset = 0
+		g      = new(errgroup.Group)
 	)
 
-	g.SetLimit(10)
+	g.SetLimit(maxConcurrentJobs)
 
 	for {
 		query := `
@@ -92,25 +94,27 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[scheduledJ
 
 		jobs, err := scanBatch(rows)
 		rows.Close()
+
 		if err != nil {
 			return err
 		}
 
 		for _, scheduledJob := range jobs {
 			job := scheduledJob
+
 			g.Go(func() error {
 				if err := s.processJob(ctx, job); err != nil {
 					return err
 				}
+
 				return nil
 			})
 		}
 
-		allJobs = append(allJobs, jobs...)
-
 		if len(jobs) < batchSize {
 			break
 		}
+
 		offset += batchSize
 	}
 
@@ -126,13 +130,18 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[scheduledJ
 
 func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 	var jobs []controlScheduledJob
+
 	for rows.Next() {
 		var job controlScheduledJob
+
 		var scheduledJob scheduledJob
+
 		var cadence sql.NullString
+
 		var cronStr sql.NullString
 
 		var displayID, title, description, jobType sql.NullString
+
 		var runnerID, script string
 
 		err := rows.Scan(
@@ -170,19 +179,23 @@ func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 		job.Job = &scheduledJob
 		jobs = append(jobs, job)
 	}
+
 	return jobs, rows.Err()
 }
 
 func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlScheduledJob) error {
 	now := time.Now()
+
 	var nextRun time.Time
+
 	var err error
 
-	if !job.Cadence.IsZero() {
+	switch {
+	case !job.Cadence.IsZero():
 		nextRun, err = job.Cadence.Next(now)
-	} else if job.Cron.String() != "" {
+	case job.Cron.String() != "":
 		nextRun, err = job.Cron.Next(now)
-	} else {
+	default:
 		log.Info().Msg("no cadence skipping")
 		return nil
 	}
@@ -206,6 +219,7 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 	}
 
 	var existingCount int
+
 	checkQuery := `
 		SELECT COUNT(*) 
 		FROM scheduled_job_runs 
@@ -213,6 +227,7 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 		AND expected_execution_time = $2 
 		AND status = 'PENDING'
 	`
+
 	err = s.dbPool.QueryRow(ctx, checkQuery, job.ID, nextRun).Scan(&existingCount)
 	if err != nil {
 		return err
@@ -223,6 +238,7 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 			Str("job_id", job.ID).
 			Time("expected_execution_time", nextRun).
 			Msg("skipping job creation, run already exists")
+
 		return nil
 	}
 
@@ -252,6 +268,7 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 		run.ExpectedExecutionTime,
 		run.Script,
 	)
+
 	return err
 }
 
@@ -261,6 +278,7 @@ func (s *ScheduledJobWorker) cleanupOldRuns(ctx context.Context) error {
 		WHERE expected_execution_time < NOW()
 	`
 	_, err := s.dbPool.Exec(ctx, query)
+
 	return err
 }
 
