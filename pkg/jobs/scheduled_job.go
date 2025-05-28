@@ -15,9 +15,9 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-type ScheduledJobArgs struct{}
+type scheduledJobArgs struct{}
 
-func (ScheduledJobArgs) Kind() string { return "scheduled_jobs" }
+func (scheduledJobArgs) Kind() string { return "scheduled_jobs" }
 
 // ScheduledJobConfig contains the configuration for the scheduling job worker
 type ScheduledJobConfig struct {
@@ -27,8 +27,9 @@ type ScheduledJobConfig struct {
 	DatabaseHost string `koanf:"databaseHost" json:"databaseHost" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 }
 
+// ScheduledJobWorker is a queue worker that schedules job that can be executed by agents
 type ScheduledJobWorker struct {
-	river.WorkerDefaults[ScheduledJobArgs]
+	river.WorkerDefaults[scheduledJobArgs]
 
 	Config ScheduledJobConfig `koanf:"config" json:"config" jsonschema:"description=the scheduled job worker configuration"`
 
@@ -56,17 +57,8 @@ func (s *ScheduledJobWorker) validateConnection() error {
 	return s.dbPool.Ping(ctx)
 }
 
-type Run struct {
-	ID                    string    `json:"id"`
-	JobRunnerID           string    `json:"job_runner_id"`
-	Status                string    `json:"status"`
-	ScheduledJobID        string    `json:"scheduled_job_id"`
-	CreatedAt             time.Time `json:"created_at"`
-	ExpectedExecutionTime time.Time `json:"expected_execution_time"`
-	Script                string    `json:"script"`
-}
-
-func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[ScheduledJobArgs]) error {
+// Work evaluates the available jobs and marks them as ready to be executed by agents if needed
+func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[scheduledJobArgs]) error {
 	if err := s.validateConnection(); err != nil {
 		return err
 	}
@@ -234,7 +226,7 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 		return nil
 	}
 
-	run := &Run{
+	run := &run{
 		ID:                    ulids.New().String(),
 		Status:                "PENDING",
 		ScheduledJobID:        job.ID,
@@ -291,4 +283,14 @@ type controlScheduledJob struct {
 	Cadence       models.JobCadence       `json:"cadence,omitempty"`
 	Cron          models.Cron             `json:"cron,omitempty"`
 	Job           *scheduledJob           `json:"job,omitempty"`
+}
+
+type run struct {
+	ID                    string    `json:"id"`
+	JobRunnerID           string    `json:"job_runner_id"`
+	Status                string    `json:"status"`
+	ScheduledJobID        string    `json:"scheduled_job_id"`
+	CreatedAt             time.Time `json:"created_at"`
+	ExpectedExecutionTime time.Time `json:"expected_execution_time"`
+	Script                string    `json:"script"`
 }
