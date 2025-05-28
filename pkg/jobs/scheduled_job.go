@@ -122,7 +122,14 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[ScheduledJ
 		offset += batchSize
 	}
 
-	return g.Wait()
+	if err := g.Wait(); err != nil {
+		return err
+	}
+
+	// prevent the "runs" table from being bloated
+	// any item that should have been scheduled should be removed.
+	// The reulsts would be in the "job results". but the logs not needed here
+	return s.cleanupOldRuns(ctx)
 }
 
 func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
@@ -253,6 +260,15 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 		run.ExpectedExecutionTime,
 		run.Script,
 	)
+	return err
+}
+
+func (s *ScheduledJobWorker) cleanupOldRuns(ctx context.Context) error {
+	query := `
+		DELETE FROM scheduled_job_runs 
+		WHERE expected_execution_time < NOW()
+	`
+	_, err := s.dbPool.Exec(ctx, query)
 	return err
 }
 
