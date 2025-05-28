@@ -57,11 +57,13 @@ func (s *ScheduledJobWorker) validateConnection() error {
 }
 
 type Run struct {
-	ID             string    `json:"id"`
-	JobRunnerID    string    `json:"job_runner_id"`
-	Status         string    `json:"status"`
-	ScheduledJobID string    `json:"scheduled_job_id"`
-	CreatedAt      time.Time `json:"created_at"`
+	ID                    string    `json:"id"`
+	JobRunnerID           string    `json:"job_runner_id"`
+	Status                string    `json:"status"`
+	ScheduledJobID        string    `json:"scheduled_job_id"`
+	CreatedAt             time.Time `json:"created_at"`
+	ExpectedExecutionTime time.Time `json:"expected_execution_time"`
+	Script                string    `json:"script"`
 }
 
 func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[ScheduledJobArgs]) error {
@@ -83,7 +85,7 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, job *river.Job[ScheduledJ
 			SELECT 
 				csj.id, csj.job_id, csj.configuration, csj.cadence, csj.cron,
 				sj.id, sj.display_id, sj.title, sj.description, sj.job_type, 
-				sj.script, sj.configuration, sj.created_at
+				sj.script, sj.configuration, sj.created_at, csj.job_runner_id
 			FROM control_scheduled_jobs csj
 			JOIN scheduled_jobs sj ON sj.id = csj.job_id
 			WHERE csj.deleted_at IS NULL AND sj.deleted_at IS NULL
@@ -132,12 +134,13 @@ func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 		var cronStr sql.NullString
 
 		var displayID, title, description, jobType sql.NullString
-		var script string
+		var runnerID, script string
 
 		err := rows.Scan(
 			&job.ID, &job.JobID, &job.Configuration, &cadence, &cronStr,
 			&scheduledJob.ID, &displayID, &title, &description, &jobType,
 			&script, &scheduledJob.Configuration, &scheduledJob.CreatedAt,
+			&runnerID,
 		)
 		if err != nil {
 			return nil, err
@@ -163,6 +166,7 @@ func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 		}
 
 		scheduledJob.Script = script
+		job.JobRunnerID = runnerID
 
 		job.Job = &scheduledJob
 		jobs = append(jobs, job)
@@ -176,13 +180,9 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 	var err error
 
 	if !job.Cadence.IsZero() {
-
 		nextRun, err = job.Cadence.Next(now)
-
 	} else if job.Cron.String() != "" {
-
 		nextRun, err = job.Cron.Next(now)
-
 	} else {
 		log.Info().Msg("no cadence skipping")
 		return nil
@@ -206,22 +206,52 @@ func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlSchedule
 		return nil
 	}
 
+	var existingCount int
+	checkQuery := `
+		SELECT COUNT(*) 
+		FROM scheduled_job_runs 
+		WHERE scheduled_job_id = $1 
+		AND expected_execution_time = $2 
+		AND status = 'PENDING'
+	`
+	err = s.dbPool.QueryRow(ctx, checkQuery, job.ID, nextRun).Scan(&existingCount)
+	if err != nil {
+		return err
+	}
+
+	if existingCount > 0 {
+		log.Info().
+			Str("job_id", job.ID).
+			Time("expected_execution_time", nextRun).
+			Msg("skipping job creation, run already exists")
+		return nil
+	}
+
 	run := &Run{
-		ID:             ulids.New().String(),
-		Status:         "PENDING",
-		ScheduledJobID: job.ID,
-		CreatedAt:      now,
+		ID:                    ulids.New().String(),
+		Status:                "PENDING",
+		ScheduledJobID:        job.ID,
+		CreatedAt:             now,
+		JobRunnerID:           job.JobRunnerID,
+		Script:                job.Job.Script,
+		ExpectedExecutionTime: nextRun,
 	}
 
 	query := `
-		INSERT INTO scheduled_job_runs (id, status, scheduled_job_id, created_at)
-		VALUES ($1, $2, $3, $4)
+		INSERT INTO scheduled_job_runs (
+			id, status, scheduled_job_id, created_at, 
+			job_runner_id, expected_execution_time, script
+		)
+		VALUES ($1, $2, $3, $4, $5, $6, $7)
 	`
 	_, err = s.dbPool.Exec(ctx, query,
 		run.ID,
 		run.Status,
 		run.ScheduledJobID,
 		run.CreatedAt,
+		run.JobRunnerID,
+		run.ExpectedExecutionTime,
+		run.Script,
 	)
 	return err
 }
@@ -238,10 +268,11 @@ type scheduledJob struct {
 }
 
 type controlScheduledJob struct {
-	ID            string                  `json:"id"`
-	JobID         string                  `json:"job_id"`
-	Configuration models.JobConfiguration `json:"configuration"`
-	Cadence       models.JobCadence       `json:"cadence"`
-	Cron          models.Cron             `json:"cron"`
-	Job           *scheduledJob           `json:"job"`
+	ID            string                  `json:"id,omitempty"`
+	JobID         string                  `json:"job_id,omitempty"`
+	JobRunnerID   string                  `json:"job_runner_id,omitempty"`
+	Configuration models.JobConfiguration `json:"configuration,omitempty"`
+	Cadence       models.JobCadence       `json:"cadence,omitempty"`
+	Cron          models.Cron             `json:"cron,omitempty"`
+	Job           *scheduledJob           `json:"job,omitempty"`
 }
