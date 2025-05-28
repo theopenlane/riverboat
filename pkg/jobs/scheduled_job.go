@@ -1,15 +1,18 @@
 package jobs
 
 import (
+	"bytes"
 	"context"
 	"database/sql"
 	"encoding/json"
+	"text/template"
 	"time"
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/core/pkg/enums"
 	"github.com/theopenlane/core/pkg/models"
 	"github.com/theopenlane/utils/ulids"
 	"golang.org/x/sync/errgroup"
@@ -78,8 +81,7 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, _ *river.Job[ScheduledJob
 		query := `
 			SELECT 
 				csj.id, csj.job_id, csj.configuration, csj.cadence, csj.cron,
-				sj.id, sj.display_id, sj.title, sj.description, sj.job_type, 
-				sj.script, sj.configuration, sj.created_at, csj.job_runner_id
+				sj.id, sj.job_type, sj.script, sj.created_at, csj.job_runner_id
 			FROM control_scheduled_jobs csj
 			JOIN scheduled_jobs sj ON sj.id = csj.job_id
 			WHERE csj.deleted_at IS NULL AND sj.deleted_at IS NULL
@@ -103,11 +105,7 @@ func (s *ScheduledJobWorker) Work(ctx context.Context, _ *river.Job[ScheduledJob
 			job := scheduledJob
 
 			g.Go(func() error {
-				if err := s.processJob(ctx, job); err != nil {
-					return err
-				}
-
-				return nil
+				return s.processJob(ctx, job)
 			})
 		}
 
@@ -140,14 +138,11 @@ func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 
 		var cronStr sql.NullString
 
-		var displayID, title, description, jobType sql.NullString
-
-		var runnerID, script string
+		var jobType, runnerID, script string
 
 		err := rows.Scan(
 			&job.ID, &job.JobID, &job.Configuration, &cadence, &cronStr,
-			&scheduledJob.ID, &displayID, &title, &description, &jobType,
-			&script, &scheduledJob.Configuration, &scheduledJob.CreatedAt,
+			&scheduledJob.ID, &jobType, &script, &scheduledJob.CreatedAt,
 			&runnerID,
 		)
 		if err != nil {
@@ -169,18 +164,43 @@ func scanBatch(rows pgx.Rows) ([]controlScheduledJob, error) {
 			job.Cron = models.Cron(cronStr.String)
 		}
 
-		if jobType.Valid {
-			scheduledJob.JobType = jobType.String
+		templatedScript, err := parseConfigIntoScript(enums.JobType(jobType), job.Configuration, script)
+		if err != nil {
+			return jobs, err
 		}
 
-		scheduledJob.Script = script
+		scheduledJob.Script = templatedScript
 		job.JobRunnerID = runnerID
+		scheduledJob.JobType = jobType
 
 		job.Job = &scheduledJob
 		jobs = append(jobs, job)
 	}
 
 	return jobs, rows.Err()
+}
+
+func parseConfigIntoScript(jobType enums.JobType, cfg models.JobConfiguration, script string) (string, error) {
+	tmpl, err := template.New("script").Parse(script)
+	if err != nil {
+		return "", err
+	}
+
+	var buf bytes.Buffer
+
+	switch jobType {
+	case enums.JobTypeSsl:
+		if err := tmpl.Execute(&buf, cfg.SSL); err != nil {
+			return "", err
+		}
+
+		return buf.String(), nil
+
+	default:
+		// return as-is for now.
+		// TODO: when we support "others" job type, make sure to parse the entire cfg object here
+		return script, nil
+	}
 }
 
 func (s *ScheduledJobWorker) processJob(ctx context.Context, job controlScheduledJob) error {
