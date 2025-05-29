@@ -1,6 +1,10 @@
 package river
 
-import "github.com/theopenlane/riverboat/pkg/jobs"
+import (
+	"github.com/theopenlane/core/pkg/corejobs"
+
+	"github.com/theopenlane/riverboat/pkg/jobs"
+)
 
 // Config is the configuration for the river server
 type Config struct {
@@ -40,13 +44,13 @@ type Workers struct {
 	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseWorker" json:"databaseWorker"`
 
 	// CreateCustomDomainWorker configuration for creating custom domains
-	CreateCustomDomainWorker jobs.CreateCustomDomainWorker `koanf:"createCustomDomainWorker" json:"createCustomDomainWorker"`
+	CreateCustomDomainWorker corejobs.CreateCustomDomainWorker `koanf:"createCustomDomainWorker" json:"createCustomDomainWorker"`
 
 	// ValidateCustomDomainWorker configuration for validating custom domains
-	ValidateCustomDomainWorker jobs.ValidateCustomDomainWorker `koanf:"validateCustomDomainWorker" json:"validateCustomDomainWorker"`
+	ValidateCustomDomainWorker corejobs.ValidateCustomDomainWorker `koanf:"validateCustomDomainWorker" json:"validateCustomDomainWorker"`
 
 	// DeleteCustomDomainWorker configuration for deleting custom domains
-	DeleteCustomDomainWorker jobs.DeleteCustomDomainWorker `koanf:"deleteCustomDomainWorker" json:"deleteCustomDomainWorker"`
+	DeleteCustomDomainWorker corejobs.DeleteCustomDomainWorker `koanf:"deleteCustomDomainWorker" json:"deleteCustomDomainWorker"`
 
 	// add more workers here
 }

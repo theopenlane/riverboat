@@ -3,6 +3,8 @@ package river
 import (
 	"github.com/riverqueue/river"
 
+	"github.com/theopenlane/core/pkg/corejobs"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
@@ -25,21 +27,21 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		return nil, err
 	}
 
-	if err := river.AddWorkerSafely(workers, &jobs.CreateCustomDomainWorker{
+	if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{
 		Config: c.CreateCustomDomainWorker.Config,
 	},
 	); err != nil {
 		return nil, err
 	}
 
-	if err := river.AddWorkerSafely(workers, &jobs.ValidateCustomDomainWorker{
+	if err := river.AddWorkerSafely(workers, &corejobs.ValidateCustomDomainWorker{
 		Config: c.ValidateCustomDomainWorker.Config,
 	},
 	); err != nil {
 		return nil, err
 	}
 
-	if err := river.AddWorkerSafely(workers, &jobs.DeleteCustomDomainWorker{
+	if err := river.AddWorkerSafely(workers, &corejobs.DeleteCustomDomainWorker{
 		Config: c.DeleteCustomDomainWorker.Config,
 	},
 	); err != nil {
