@@ -24,7 +24,7 @@ require (
 	github.com/samber/lo v1.50.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/theopenlane/core v0.14.5-0.20250525221605-9dabb9ac2421
+	github.com/theopenlane/core v0.14.5-0.20250526192737-80a9e9b4a989
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.1.5
 	github.com/theopenlane/utils v0.4.5

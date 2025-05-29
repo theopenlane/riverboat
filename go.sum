@@ -236,6 +236,8 @@ github.com/theopenlane/core v0.14.5-0.20250525160811-b21ea4a523cf h1:zcM/J9bP0Ja
 github.com/theopenlane/core v0.14.5-0.20250525160811-b21ea4a523cf/go.mod h1:vmP84x7Jbom247coSQhL+yhP8L+TV073/csWabub12w=
 github.com/theopenlane/core v0.14.5-0.20250525221605-9dabb9ac2421 h1:P53WK7nKxQDCFq1NjSIRDOPI8VVOQ+9b75SN6PdQ8QM=
 github.com/theopenlane/core v0.14.5-0.20250525221605-9dabb9ac2421/go.mod h1:vmP84x7Jbom247coSQhL+yhP8L+TV073/csWabub12w=
+github.com/theopenlane/core v0.14.5-0.20250526192737-80a9e9b4a989 h1:+Tt3q+B7Ikgwapm2GvOb8Upyp+4iIbMS4ZyHZBo4hPw=
+github.com/theopenlane/core v0.14.5-0.20250526192737-80a9e9b4a989/go.mod h1:vmP84x7Jbom247coSQhL+yhP8L+TV073/csWabub12w=
 github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
 github.com/theopenlane/dbx v0.1.3/go.mod h1:/bcz8oKFK3qrakLw0yHCAFY6fGnTOC3CntM0jMj3GDk=
 github.com/theopenlane/echox v0.2.4 h1:bocz1Dfs7d2fkNa8foQqdmeTtkMTQNwe1v20bIGIDps=
