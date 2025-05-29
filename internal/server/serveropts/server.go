@@ -5,11 +5,15 @@ import (
 	serverconfig "github.com/theopenlane/riverboat/internal/server/config"
 )
 
+// ServerOptions holds the configuration and provider for the server
 type ServerOptions struct {
+	// ConfigProvider is the provider for the server configuration
 	ConfigProvider serverconfig.Provider
-	Config         serverconfig.Config
+	// Config holds the server configuration settings
+	Config serverconfig.Config
 }
 
+// NewServerOptions creates a new ServerOptions instance with the provided options and configuration location
 func NewServerOptions(opts []ServerOption, cfgLoc string) *ServerOptions {
 	// load koanf config
 	c, err := config.Load(&cfgLoc)

@@ -63,10 +63,8 @@ func (w *DatabaseWorker) Work(ctx context.Context, job *river.Job[DatabaseArgs])
 		Msg("creating database")
 
 	client := w.Config.NewDefaultClient()
-
 	if _, err := client.CreateDatabase(ctx, input); err != nil {
 		log.Error().Err(err).Msg("failed to create database")
-
 		return err
 	}
 

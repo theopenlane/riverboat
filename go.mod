@@ -5,9 +5,6 @@ go 1.24.3
 replace github.com/theopenlane/core => ../core-more
 
 require (
-	github.com/99designs/gqlgen v0.17.73
-	github.com/Yamashou/gqlgenc v0.32.1
-	github.com/cloudflare/cloudflare-go/v4 v4.4.0
 	github.com/invopop/jsonschema v0.13.0
 	github.com/invopop/yaml v0.3.1
 	github.com/jackc/pgx/v5 v5.7.5
@@ -33,7 +30,9 @@ require (
 	ariga.io/atlas v0.31.1-0.20250212144724-069be8033e83 // indirect
 	entgo.io/contrib v0.6.0 // indirect
 	entgo.io/ent v0.14.4 // indirect
+	github.com/99designs/gqlgen v0.17.73 // indirect
 	github.com/XSAM/otelsql v0.38.0 // indirect
+	github.com/Yamashou/gqlgenc v0.32.1 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.2.1 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
@@ -42,6 +41,7 @@ require (
 	github.com/bmatcuk/doublestar v1.3.4 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/cloudflare/cloudflare-go/v4 v4.4.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect

@@ -11,13 +11,6 @@ require-template-schema-exists: true
 template: testify
 template-schema: "{{.Template}}.schema.json"
 packages:
-  github.com/theopenlane/riverboat/internal/cloudflare:
-    config:
-      all: true
   github.com/theopenlane/riverboat/pkg/riverqueue:
     config:
-      all: true
-  github.com/theopenlane/core/pkg/openlaneclient:
-    config:
-      dir: internal/olclient/mocks
       all: true

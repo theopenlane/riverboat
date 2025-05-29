@@ -1,8 +1,10 @@
 version: "2"
 run:
-  allow-serial-runners: true
+  allow-parallel-runners: true
+  tests: false
 linters:
   enable:
+    - wsl
     - bodyclose
     - err113
     - gocritic
@@ -12,29 +14,22 @@ linters:
     - mnd
     - noctx
     - revive
-    - staticcheck
     - whitespace
-    - wsl
   exclusions:
     generated: lax
+    warn-unused: true
     presets:
-      - comments
-      - common-false-positives
       - legacy
-      - std-error-handling
     paths:
-      - .buildkite/*
-      - .github/*
-      - docker/*
-      - third_party$
-      - builtin$
-      - examples$
+      - test/*
+      - pkg/riverqueue/generate/generate.go
 issues:
   fix: true
 formatters:
   enable:
     - gofmt
     - goimports
+    - gofumpt
   settings:
     gofumpt:
       extra-rules: true
@@ -43,10 +38,4 @@ formatters:
         - github.com/theopenlane/riverboat
   exclusions:
     generated: lax
-    paths:
-      - .buildkite/*
-      - .github/*
-      - docker/*
-      - third_party$
-      - builtin$
-      - examples$
+    warn-unused: true

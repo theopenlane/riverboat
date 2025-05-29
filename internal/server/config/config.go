@@ -10,10 +10,10 @@ type Config struct {
 	Settings config.Config
 }
 
-// Ensure that *Config implements ConfigProvider interface.
+// Ensure that *Config implements ConfigProvider interface
 var _ Provider = &Config{}
 
-// GetConfig implements ConfigProvider.
+// Get implements ConfigProvider
 func (c *Config) Get() (*Config, error) {
 	return c, nil
 }
