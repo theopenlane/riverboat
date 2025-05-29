@@ -1,3 +1,4 @@
+// Package main generates the JSON schema and YAML schema for the riverboat configuration
 package main
 
 import (

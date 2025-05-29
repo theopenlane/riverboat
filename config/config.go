@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	DefaultConfigFilePath = "./config/.config.yaml"
+	defaultConfigFilePath = "./config/.config.yaml"
 	envPrefix             = "RIVERBOAT_"
 )
 
@@ -34,7 +34,7 @@ func Load(cfgFile *string) (*Config, error) {
 	k := koanf.New(".")
 
 	if cfgFile == nil || *cfgFile == "" {
-		*cfgFile = DefaultConfigFilePath
+		*cfgFile = defaultConfigFilePath
 	}
 
 	// load defaults
@@ -52,7 +52,7 @@ func Load(cfgFile *string) (*Config, error) {
 	}
 
 	// load env vars
-	if err := k.Load(env.ProviderWithValue(envPrefix, ".", func(s string, v string) (string, interface{}) {
+	if err := k.Load(env.ProviderWithValue(envPrefix, ".", func(s, v string) (string, interface{}) {
 		key := strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, envPrefix)), "_", ".")
 
 		if strings.Contains(v, ",") {

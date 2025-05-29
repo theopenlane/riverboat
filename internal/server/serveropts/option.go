@@ -4,6 +4,7 @@ import (
 	"github.com/theopenlane/riverboat/internal/server/config"
 )
 
+// ServerOption holds the configuration and provider for the server
 type ServerOption interface {
 	apply(*ServerOptions)
 }

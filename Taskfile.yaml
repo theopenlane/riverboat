@@ -21,7 +21,7 @@ tasks:
   go:lint:
     desc: runs golangci-lint, the most annoying opinionated linter ever
     cmds:
-      - golangci-lint run --config=.golangci.yaml --verbose --fix
+      - golangci-lint run --verbose --fix
 
   go:fmt:
     desc: format all go code
@@ -92,3 +92,9 @@ tasks:
       - pre-commit install && pre-commit install-hooks
       - pre-commit autoupdate
       - pre-commit run --show-diff-on-failure --color=always --all-files
+
+  generate:
+    desc: generate mocks
+    dir: pkg/riverqueue/generate
+    cmds:
+      - go generate ./...

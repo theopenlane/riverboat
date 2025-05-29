@@ -39,7 +39,7 @@ func NewProviderWithRefresh(cfgProvider Provider) (*ProviderWithRefresh, error) 
 	return cfgRefresh, nil
 }
 
-// GetConfig retrieves the current echo server configuration; it acquires a read lock to ensure thread safety and returns the `config` field
+// Get retrieves the current echo server configuration; it acquires a read lock to ensure thread safety and returns the `config` field
 func (s *ProviderWithRefresh) Get() (*Config, error) {
 	s.RLock()
 	defer s.RUnlock()
