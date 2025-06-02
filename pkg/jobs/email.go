@@ -9,6 +9,10 @@ import (
 	"github.com/theopenlane/newman/providers/resend"
 )
 
+const (
+	maxEmailAttempts = 2
+)
+
 // EmailArgs for the email worker to process the job
 type EmailArgs struct {
 	// Message is the email message to send
@@ -17,6 +21,13 @@ type EmailArgs struct {
 
 // Kind satisfies the river.Job interface
 func (EmailArgs) Kind() string { return "email" }
+
+// InsertOpts provides the default configuration when processing this job.
+// Here we want to retry sending an email a maxium of 3 times
+// This can be overridden on inserting the job
+func (EmailArgs) InsertOpts() river.InsertOpts {
+	return river.InsertOpts{MaxAttempts: maxEmailAttempts}
+}
 
 // EmailWorker is a worker to send emails using the resend email provider
 // the config defaults to dev mode, which will write the email to a file using the mock provider

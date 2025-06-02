@@ -8,6 +8,51 @@
       },
       "type": "array"
     },
+    "corejobs.CreateCustomDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.CustomDomainConfig": {
+      "properties": {
+        "cloudflareApiKey": {
+          "type": "string"
+        },
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "databaseHost": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.DeleteCustomDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ValidateCustomDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "dbxclient.Config": {
       "properties": {
         "enabled": {
@@ -30,35 +75,6 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "jobs.CreateCustomDomainWorker": {
-      "properties": {
-        "Config": {
-          "$ref": "#/$defs/jobs.CustomDomainConfig"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system"
-    },
-    "jobs.CustomDomainConfig": {
-      "properties": {
-        "cloudflareApiKey": {
-          "type": "string"
-        },
-        "openlaneAPIHost": {
-          "type": "string"
-        },
-        "openlaneAPIToken": {
-          "type": "string"
-        },
-        "databaseHost": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "CustomDomainConfig contains the configuration for the custom domain workers"
-    },
     "jobs.DatabaseWorker": {
       "properties": {
         "config": {
@@ -69,16 +85,6 @@
       "additionalProperties": false,
       "type": "object",
       "description": "DatabaseWorker is a worker to create a dedicated database for an organization"
-    },
-    "jobs.DeleteCustomDomainWorker": {
-      "properties": {
-        "Config": {
-          "$ref": "#/$defs/jobs.CustomDomainConfig"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates the records in our system"
     },
     "jobs.EmailConfig": {
       "properties": {
@@ -113,16 +119,6 @@
       "additionalProperties": false,
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
-    },
-    "jobs.ValidateCustomDomainWorker": {
-      "properties": {
-        "Config": {
-          "$ref": "#/$defs/jobs.CustomDomainConfig"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "description": "ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the status in our system"
     },
     "river.Config": {
       "properties": {
@@ -169,15 +165,15 @@
           "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
         },
         "createCustomDomainWorker": {
-          "$ref": "#/$defs/jobs.CreateCustomDomainWorker",
+          "$ref": "#/$defs/corejobs.CreateCustomDomainWorker",
           "description": "CreateCustomDomainWorker configuration for creating custom domains"
         },
         "validateCustomDomainWorker": {
-          "$ref": "#/$defs/jobs.ValidateCustomDomainWorker",
+          "$ref": "#/$defs/corejobs.ValidateCustomDomainWorker",
           "description": "ValidateCustomDomainWorker configuration for validating custom domains"
         },
         "deleteCustomDomainWorker": {
-          "$ref": "#/$defs/jobs.DeleteCustomDomainWorker",
+          "$ref": "#/$defs/corejobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
         }
       },
