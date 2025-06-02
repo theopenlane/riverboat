@@ -40,9 +40,9 @@ Workers that will be enabled on the server
 |----|----|-----------|--------|
 |[**emailWorker**](#riverworkersemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
 |[**databaseWorker**](#riverworkersdatabaseworker)|`object`|DatabaseWorker is a worker to create a dedicated database for an organization<br/>||
-|[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system<br/>||
-|[**validateCustomDomainWorker**](#riverworkersvalidatecustomdomainworker)|`object`|ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the status in our system<br/>||
-|[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates the records in our system<br/>||
+|[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|||
+|[**validateCustomDomainWorker**](#riverworkersvalidatecustomdomainworker)|`object`|||
+|[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -103,21 +103,15 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 <a name="riverworkerscreatecustomdomainworker"></a>
 #### river\.workers\.createCustomDomainWorker: object
 
-CreateCustomDomainWorker creates a custom hostname in cloudflare, and creates and updates the records in our system
-
-
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|CustomDomainConfig contains the configuration for the custom domain workers<br/>||
+|[**Config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkerscreatecustomdomainworkerconfig"></a>
 ##### river\.workers\.createCustomDomainWorker\.Config: object
-
-CustomDomainConfig contains the configuration for the custom domain workers
-
 
 **Properties**
 
@@ -132,21 +126,15 @@ CustomDomainConfig contains the configuration for the custom domain workers
 <a name="riverworkersvalidatecustomdomainworker"></a>
 #### river\.workers\.validateCustomDomainWorker: object
 
-ValidateCustomDomainWorker checks cloudflare custom domain(s), and updates the status in our system
-
-
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|CustomDomainConfig contains the configuration for the custom domain workers<br/>||
+|[**Config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworkerconfig"></a>
 ##### river\.workers\.validateCustomDomainWorker\.Config: object
-
-CustomDomainConfig contains the configuration for the custom domain workers
-
 
 **Properties**
 
@@ -161,21 +149,15 @@ CustomDomainConfig contains the configuration for the custom domain workers
 <a name="riverworkersdeletecustomdomainworker"></a>
 #### river\.workers\.deleteCustomDomainWorker: object
 
-DeleteCustomDomainWorker delete the custom hostname from cloudflare and updates the records in our system
-
-
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|CustomDomainConfig contains the configuration for the custom domain workers<br/>||
+|[**Config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworkerconfig"></a>
 ##### river\.workers\.deleteCustomDomainWorker\.Config: object
-
-CustomDomainConfig contains the configuration for the custom domain workers
-
 
 **Properties**
 

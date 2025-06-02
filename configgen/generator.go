@@ -30,7 +30,7 @@ const (
 	yamlConfigPath = "./config/config.example.yaml"
 	envConfigPath  = "./config/.env.example"
 	configMapPath  = "./config/configmap.yaml"
-	ownerReadWrite = 0600
+	ownerReadWrite = 0o600
 	repoRoot       = "github.com/theopenlane/%s/"
 )
 
