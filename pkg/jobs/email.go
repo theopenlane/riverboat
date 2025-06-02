@@ -18,6 +18,13 @@ type EmailArgs struct {
 // Kind satisfies the river.Job interface
 func (EmailArgs) Kind() string { return "email" }
 
+// InsertOpts provides the default configuration when processing this job.
+// Here we want to retry sending an email a maxium of 3 times
+// This can be overriden on inserting the job
+func (EmailArgs) InsertOpts() river.InsertOpts {
+	return river.InsertOpts{MaxAttempts: 2}
+}
+
 // EmailWorker is a worker to send emails using the resend email provider
 // the config defaults to dev mode, which will write the email to a file using the mock provider
 // a token is required to send emails using the actual resend provider
