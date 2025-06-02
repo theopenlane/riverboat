@@ -18,9 +18,9 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/theopenlane/core v0.15.5
+	github.com/theopenlane/core v0.15.6
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/newman v0.1.5
+	github.com/theopenlane/newman v0.1.6
 	github.com/theopenlane/utils v0.4.5
 )
 
@@ -28,7 +28,7 @@ require (
 	ariga.io/atlas v0.31.1-0.20250212144724-069be8033e83 // indirect
 	entgo.io/contrib v0.6.0 // indirect
 	entgo.io/ent v0.14.4 // indirect
-	github.com/99designs/gqlgen v0.17.73 // indirect
+	github.com/99designs/gqlgen v0.17.74 // indirect
 	github.com/XSAM/otelsql v0.38.0 // indirect
 	github.com/Yamashou/gqlgenc v0.32.1 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
@@ -83,7 +83,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/redis/go-redis/v9 v9.9.0 // indirect
-	github.com/resend/resend-go/v2 v2.19.0 // indirect
+	github.com/resend/resend-go/v2 v2.20.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.22.0 // indirect
 	github.com/riverqueue/river/rivershared v0.22.0 // indirect
 	github.com/samber/lo v1.50.0 // indirect
