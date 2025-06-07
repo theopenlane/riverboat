@@ -21,7 +21,7 @@ require (
 	github.com/theopenlane/core v0.16.1
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.1.6
-	github.com/theopenlane/utils v0.4.5
+	github.com/theopenlane/utils v0.4.6
 )
 
 require (
