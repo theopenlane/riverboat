@@ -8,7 +8,7 @@ COPY . .
 
 RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /go/bin/riverboat .
 
-FROM gcr.io/distroless/static:nonroot
+FROM cgr.dev/chainguard/bash:latest
 
 # `nonroot` coming from distroless
 USER 65532:65532
