@@ -9,6 +9,7 @@ import (
 	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/v2"
 	"github.com/mcuadros/go-defaults"
+	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/riverboat/internal/river"
 )
@@ -43,12 +44,12 @@ func Load(cfgFile *string) (*Config, error) {
 
 	// parse yaml config
 	if err := k.Load(file.Provider(*cfgFile), yaml.Parser()); err != nil {
-		panic(err)
+		log.Warn().Err(err).Msg("failed to load config file - ensure the .config.yaml is present and valid or use environment variables to set the configuration")
 	}
 
 	// unmarshal the config
 	if err := k.Unmarshal("", &conf); err != nil {
-		panic(err)
+		log.Fatal().Err(err).Msg("failed to unmarshal config file")
 	}
 
 	// load env vars
@@ -61,12 +62,12 @@ func Load(cfgFile *string) (*Config, error) {
 
 		return key, v
 	}), nil); err != nil {
-		panic(err)
+		log.Warn().Err(err).Msg("failed to load env vars, some settings may not be applied")
 	}
 
 	// unmarshal the env vars
 	if err := k.Unmarshal("", &conf); err != nil {
-		panic(err)
+		log.Fatal().Err(err).Msg("failed to unmarshal env vars")
 	}
 
 	return conf, nil
