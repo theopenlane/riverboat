@@ -27,6 +27,10 @@ river:
                 fromEmail: no-reply@example.com
                 testDir: fixtures/email
                 token: ""
+        exportContentWorker:
+            config:
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         validateCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""

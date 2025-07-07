@@ -44,6 +44,28 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.ExportContentWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.ExportWorkerConfig",
+          "description": "the configuration for exporting"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ExportWorkerConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ValidateCustomDomainWorker": {
       "properties": {
         "Config": {
@@ -175,6 +197,9 @@
         "deleteCustomDomainWorker": {
           "$ref": "#/$defs/corejobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
+        },
+        "exportContentWorker": {
+          "$ref": "#/$defs/corejobs.ExportContentWorker"
         }
       },
       "additionalProperties": false,
