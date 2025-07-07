@@ -18,7 +18,7 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/theopenlane/core v0.16.2
+	github.com/theopenlane/core v0.21.1
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.1.6
 	github.com/theopenlane/utils v0.4.7
