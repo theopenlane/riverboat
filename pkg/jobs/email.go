@@ -2,6 +2,7 @@ package jobs
 
 import (
 	"context"
+	"time"
 
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
@@ -10,7 +11,9 @@ import (
 )
 
 const (
-	maxEmailAttempts = 2
+	maxEmailAttempts         = 2
+	emailJobSnoozeDuration   = time.Second * 30
+	emailRetryPolicyDuration = time.Minute
 )
 
 // EmailArgs for the email worker to process the job
@@ -101,5 +104,20 @@ func (w *EmailWorker) Work(ctx context.Context, job *river.Job[EmailArgs]) error
 		job.Args.Message.From = w.Config.FromEmail
 	}
 
-	return w.client.SendEmailWithContext(ctx, &job.Args.Message)
+	err := w.client.SendEmailWithContext(ctx, &job.Args.Message)
+	if newman.IsRetryableError(err) {
+		return river.JobSnooze(emailJobSnoozeDuration)
+	}
+
+	return err
+}
+
+// NextRetry always schedules the next retry for 30 seconds from now.
+// In the case where we run into another error while processing the delivery of the email
+// wait another 1 minute before retrying inside of almost immediately
+//
+// This might allow the email provider or others recover from the failure - if needed as against
+// hammering the next request immediately
+func (w *EmailWorker) NextRetry(_ *river.Job[EmailArgs]) time.Time {
+	return time.Now().Add(emailRetryPolicyDuration)
 }
