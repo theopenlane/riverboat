@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	maxEmailAttempts         = 2
+	maxEmailAttempts         = 5
 	emailJobSnoozeDuration   = time.Second * 30
 	emailRetryPolicyDuration = time.Minute
 )
