@@ -6,7 +6,6 @@ import (
 )
 
 func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
-
 	deleteExportJobs := river.NewPeriodicJob(
 		river.PeriodicInterval(c.DeleteExportContentWorker.Config.CutoffDuration),
 		func() (river.JobArgs, *river.InsertOpts) {
