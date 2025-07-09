@@ -55,6 +55,13 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		return nil, err
 	}
 
+	if err := river.AddWorkerSafely(workers, &corejobs.DeleteExportContentWorker{
+		Config: c.DeleteExportContentWorker.Config,
+	},
+	); err != nil {
+		return nil, err
+	}
+
 	// add more workers here
 
 	return workers, nil

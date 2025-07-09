@@ -54,5 +54,7 @@ type Workers struct {
 
 	ExportContentWorker corejobs.ExportContentWorker `koanf:"exportContentWorker" json:"exportContentWorker"`
 
+	DeleteExportContentWorker corejobs.DeleteExportContentWorker `koanf:"deleteExportContentWorker" json:"deleteExportContentWorker"`
+
 	// add more workers here
 }

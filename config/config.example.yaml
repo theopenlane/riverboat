@@ -21,6 +21,11 @@ river:
                 databaseHost: ""
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+        deleteExportContentWorker:
+            config:
+                cutoffDuration: 0
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         emailWorker:
             config:
                 devMode: true

@@ -44,6 +44,31 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.DeleteExportContentWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.DeleteExportWorkerConfig",
+          "description": "the configuration for deleting exports"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.DeleteExportWorkerConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "cutoffDuration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ExportContentWorker": {
       "properties": {
         "config": {
@@ -200,6 +225,9 @@
         },
         "exportContentWorker": {
           "$ref": "#/$defs/corejobs.ExportContentWorker"
+        },
+        "deleteExportContentWorker": {
+          "$ref": "#/$defs/corejobs.DeleteExportContentWorker"
         }
       },
       "additionalProperties": false,
