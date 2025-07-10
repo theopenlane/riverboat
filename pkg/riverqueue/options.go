@@ -68,3 +68,10 @@ func WithRiverConfig(conf river.Config) Option {
 		c.config.RiverConf = conf
 	}
 }
+
+// WithPeriodicJobs sets the periodic job schedules
+func WithPeriodicJobs(jobs []*river.PeriodicJob) Option {
+	return func(c *Client) {
+		c.config.RiverConf.PeriodicJobs = jobs
+	}
+}

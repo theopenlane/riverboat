@@ -27,6 +27,11 @@ func Start(ctx context.Context, c Config) error {
 		log.Fatal().Err(err).Msg("failed to create workers")
 	}
 
+	periodicJobs, err := createPeriodicJobs(c.Workers)
+	if err != nil {
+		log.Fatal().Err(err).Msg("failed to create periodic jobs schedules")
+	}
+
 	log.Debug().Msg("workers created")
 
 	// create queues
@@ -42,6 +47,7 @@ func Start(ctx context.Context, c Config) error {
 		riverqueue.WithLogger(createLogger(c.Logger)),
 		riverqueue.WithWorkers(worker),
 		riverqueue.WithQueues(queues),
+		riverqueue.WithPeriodicJobs(periodicJobs),
 	)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to create river client")
