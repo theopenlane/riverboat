@@ -43,6 +43,8 @@ Workers that will be enabled on the server
 |[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|||
 |[**validateCustomDomainWorker**](#riverworkersvalidatecustomdomainworker)|`object`|||
 |[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|||
+|[**exportContentWorker**](#riverworkersexportcontentworker)|`object`|||
+|[**deleteExportContentWorker**](#riverworkersdeleteexportcontentworker)|`object`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -167,6 +169,49 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersexportcontentworker"></a>
+#### river\.workers\.exportContentWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersexportcontentworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersexportcontentworkerconfig"></a>
+##### river\.workers\.exportContentWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersdeleteexportcontentworker"></a>
+#### river\.workers\.deleteExportContentWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersdeleteexportcontentworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+<a name="riverworkersdeleteexportcontentworkerconfig"></a>
+##### river\.workers\.deleteExportContentWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`||no|
+|**openlaneAPIToken**|`string`||no|
+|**cutoffDuration**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 

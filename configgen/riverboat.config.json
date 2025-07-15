@@ -67,7 +67,10 @@
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "required": [
+        "cutoffDuration"
+      ]
     },
     "corejobs.ExportContentWorker": {
       "properties": {
@@ -224,10 +227,12 @@
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
         },
         "exportContentWorker": {
-          "$ref": "#/$defs/corejobs.ExportContentWorker"
+          "$ref": "#/$defs/corejobs.ExportContentWorker",
+          "description": "ExportContentWorker configuration for exporting content"
         },
         "deleteExportContentWorker": {
-          "$ref": "#/$defs/corejobs.DeleteExportContentWorker"
+          "$ref": "#/$defs/corejobs.DeleteExportContentWorker",
+          "description": "DeleteExportContentWorker configuration for batch deleting exports and clogging object storage"
         }
       },
       "additionalProperties": false,
