@@ -44,6 +44,56 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.DeleteExportContentWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.DeleteExportWorkerConfig",
+          "description": "the configuration for deleting exports"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.DeleteExportWorkerConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "cutoffDuration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "cutoffDuration"
+      ]
+    },
+    "corejobs.ExportContentWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.ExportWorkerConfig",
+          "description": "the configuration for exporting"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ExportWorkerConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ValidateCustomDomainWorker": {
       "properties": {
         "Config": {
@@ -175,6 +225,14 @@
         "deleteCustomDomainWorker": {
           "$ref": "#/$defs/corejobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
+        },
+        "exportContentWorker": {
+          "$ref": "#/$defs/corejobs.ExportContentWorker",
+          "description": "ExportContentWorker configuration for exporting content"
+        },
+        "deleteExportContentWorker": {
+          "$ref": "#/$defs/corejobs.DeleteExportContentWorker",
+          "description": "DeleteExportContentWorker configuration for batch deleting exports and clogging object storage"
         }
       },
       "additionalProperties": false,

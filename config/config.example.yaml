@@ -21,12 +21,21 @@ river:
                 databaseHost: ""
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+        deleteExportContentWorker:
+            config:
+                cutoffDuration: 0
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         emailWorker:
             config:
                 devMode: true
                 fromEmail: no-reply@example.com
                 testDir: fixtures/email
                 token: ""
+        exportContentWorker:
+            config:
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         validateCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""

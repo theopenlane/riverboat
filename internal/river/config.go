@@ -52,5 +52,11 @@ type Workers struct {
 	// DeleteCustomDomainWorker configuration for deleting custom domains
 	DeleteCustomDomainWorker corejobs.DeleteCustomDomainWorker `koanf:"deleteCustomDomainWorker" json:"deleteCustomDomainWorker"`
 
+	// ExportContentWorker configuration for exporting content
+	ExportContentWorker corejobs.ExportContentWorker `koanf:"exportContentWorker" json:"exportContentWorker"`
+
+	// DeleteExportContentWorker configuration for batch deleting exports and clogging object storage
+	DeleteExportContentWorker corejobs.DeleteExportContentWorker `koanf:"deleteExportContentWorker" json:"deleteExportContentWorker"`
+
 	// add more workers here
 }
