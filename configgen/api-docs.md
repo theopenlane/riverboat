@@ -8,6 +8,41 @@
 |[**river**](#river)|`object`|Config is the configuration for the river server<br/>||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "river": {
+        "queues": [
+            {}
+        ],
+        "workers": {
+            "emailWorker": {
+                "config": {}
+            },
+            "databaseWorker": {
+                "config": {}
+            },
+            "createCustomDomainWorker": {
+                "config": {}
+            },
+            "validateCustomDomainWorker": {
+                "Config": {}
+            },
+            "deleteCustomDomainWorker": {
+                "config": {}
+            },
+            "exportContentWorker": {
+                "config": {}
+            },
+            "deleteExportContentWorker": {
+                "config": {}
+            }
+        }
+    }
+}
+```
+
 <a name="river"></a>
 ## river: object
 
@@ -23,10 +58,51 @@ Config is the configuration for the river server
 |[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "queues": [
+        {}
+    ],
+    "workers": {
+        "emailWorker": {
+            "config": {}
+        },
+        "databaseWorker": {
+            "config": {}
+        },
+        "createCustomDomainWorker": {
+            "config": {}
+        },
+        "validateCustomDomainWorker": {
+            "Config": {}
+        },
+        "deleteCustomDomainWorker": {
+            "config": {}
+        },
+        "exportContentWorker": {
+            "config": {}
+        },
+        "deleteExportContentWorker": {
+            "config": {}
+        }
+    }
+}
+```
+
 <a name="riverqueues"></a>
 ### river\.queues: array
 
 **Items**
+
+**Example**
+
+```json
+[
+    {}
+]
+```
 
 <a name="riverworkers"></a>
 ### river\.workers: object
@@ -47,6 +123,34 @@ Workers that will be enabled on the server
 |[**deleteExportContentWorker**](#riverworkersdeleteexportcontentworker)|`object`|||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "emailWorker": {
+        "config": {}
+    },
+    "databaseWorker": {
+        "config": {}
+    },
+    "createCustomDomainWorker": {
+        "config": {}
+    },
+    "validateCustomDomainWorker": {
+        "Config": {}
+    },
+    "deleteCustomDomainWorker": {
+        "config": {}
+    },
+    "exportContentWorker": {
+        "config": {}
+    },
+    "deleteExportContentWorker": {
+        "config": {}
+    }
+}
+```
+
 <a name="riverworkersemailworker"></a>
 #### river\.workers\.emailWorker: object
 
@@ -60,6 +164,14 @@ EmailWorker is a worker to send emails using the resend email provider the confi
 |[**config**](#riverworkersemailworkerconfig)|`object`|EmailConfig contains the configuration for the email worker<br/>||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
 <a name="riverworkersemailworkerconfig"></a>
 ##### river\.workers\.emailWorker\.config: object
 
@@ -89,6 +201,14 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |[**config**](#riverworkersdatabaseworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
 <a name="riverworkersdatabaseworkerconfig"></a>
 ##### river\.workers\.databaseWorker\.config: object
 
@@ -109,16 +229,25 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|||
+|[**config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
 <a name="riverworkerscreatecustomdomainworkerconfig"></a>
-##### river\.workers\.createCustomDomainWorker\.Config: object
+##### river\.workers\.createCustomDomainWorker\.config: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|**enabled**|`boolean`|||
 |**cloudflareApiKey**|`string`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
@@ -135,6 +264,14 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |[**Config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "Config": {}
+}
+```
+
 <a name="riverworkersvalidatecustomdomainworkerconfig"></a>
 ##### river\.workers\.validateCustomDomainWorker\.Config: object
 
@@ -142,6 +279,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|**enabled**|`boolean`|||
 |**cloudflareApiKey**|`string`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
@@ -155,16 +293,25 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|||
+|[**config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
 <a name="riverworkersdeletecustomdomainworkerconfig"></a>
-##### river\.workers\.deleteCustomDomainWorker\.Config: object
+##### river\.workers\.deleteCustomDomainWorker\.config: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|**enabled**|`boolean`|||
 |**cloudflareApiKey**|`string`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
@@ -181,6 +328,14 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |[**config**](#riverworkersexportcontentworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
 <a name="riverworkersexportcontentworkerconfig"></a>
 ##### river\.workers\.exportContentWorker\.config: object
 
@@ -188,6 +343,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|**enabled**|`boolean`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
 
@@ -202,6 +358,14 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |[**config**](#riverworkersdeleteexportcontentworkerconfig)|`object`||yes|
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
 <a name="riverworkersdeleteexportcontentworkerconfig"></a>
 ##### river\.workers\.deleteExportContentWorker\.config: object
 
@@ -209,6 +373,8 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|**enabled**|`boolean`||no|
+|**interval**|`integer`||yes|
 |**openlaneAPIHost**|`string`||no|
 |**openlaneAPIToken**|`string`||no|
 |**cutoffDuration**|`integer`||yes|

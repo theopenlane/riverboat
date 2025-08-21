@@ -1,15 +1,26 @@
 package river
 
 import (
+	"time"
+
 	"github.com/riverqueue/river"
 	"github.com/theopenlane/core/pkg/corejobs"
 )
 
+// minInterval prevents spamming from a bag config
+var minInterval = 1 * time.Minute
+
 func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 	jobs := []*river.PeriodicJob{}
+
 	if c.DeleteExportContentWorker.Config.Enabled {
+		interval := c.DeleteExportContentWorker.Config.Interval
+		if interval < minInterval {
+			interval = minInterval
+		}
+
 		deleteExportJobs := river.NewPeriodicJob(
-			river.PeriodicInterval(c.DeleteExportContentWorker.Config.Interval),
+			river.PeriodicInterval(interval),
 			func() (river.JobArgs, *river.InsertOpts) {
 				return corejobs.DeleteExportContentArgs{}, nil
 			},

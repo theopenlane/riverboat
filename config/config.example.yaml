@@ -4,9 +4,10 @@ river:
     queues: null
     workers:
         createCustomDomainWorker:
-            Config:
+            config:
                 cloudflareApiKey: ""
                 databaseHost: ""
+                enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
         databaseWorker:
@@ -16,14 +17,17 @@ river:
                 enabled: true
                 endpoint: query
         deleteCustomDomainWorker:
-            Config:
+            config:
                 cloudflareApiKey: ""
                 databaseHost: ""
+                enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
         deleteExportContentWorker:
             config:
                 cutoffDuration: 0
+                enabled: false
+                interval: 0
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
         emailWorker:
@@ -34,11 +38,13 @@ river:
                 token: ""
         exportContentWorker:
             config:
+                enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
         validateCustomDomainWorker:
             Config:
                 cloudflareApiKey: ""
                 databaseHost: ""
+                enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
