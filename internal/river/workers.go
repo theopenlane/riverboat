@@ -2,6 +2,7 @@ package river
 
 import (
 	"github.com/riverqueue/river"
+	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/core/pkg/corejobs"
 
@@ -20,46 +21,61 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		return nil, err
 	}
 
-	if err := river.AddWorkerSafely(workers, &jobs.DatabaseWorker{
-		Config: c.DatabaseWorker.Config,
-	},
-	); err != nil {
-		return nil, err
+	log.Info().Msg("email worker enabled")
+
+	if c.CreateCustomDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{
+			Config: c.CreateCustomDomainWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("create custom domain worker enabled")
 	}
 
-	if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{
-		Config: c.CreateCustomDomainWorker.Config,
-	},
-	); err != nil {
-		return nil, err
+	if c.ValidateCustomDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.ValidateCustomDomainWorker{
+			Config: c.ValidateCustomDomainWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("validate custom domain worker enabled")
 	}
 
-	if err := river.AddWorkerSafely(workers, &corejobs.ValidateCustomDomainWorker{
-		Config: c.ValidateCustomDomainWorker.Config,
-	},
-	); err != nil {
-		return nil, err
+	if c.DeleteCustomDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.DeleteCustomDomainWorker{
+			Config: c.DeleteCustomDomainWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("delete custom domain worker enabled")
 	}
 
-	if err := river.AddWorkerSafely(workers, &corejobs.DeleteCustomDomainWorker{
-		Config: c.DeleteCustomDomainWorker.Config,
-	},
-	); err != nil {
-		return nil, err
+	if c.ExportContentWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.ExportContentWorker{
+			Config: c.ExportContentWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("export content worker enabled")
 	}
 
-	if err := river.AddWorkerSafely(workers, &corejobs.ExportContentWorker{
-		Config: c.ExportContentWorker.Config,
-	},
-	); err != nil {
-		return nil, err
-	}
+	if c.DeleteExportContentWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.DeleteExportContentWorker{
+			Config: c.DeleteExportContentWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
 
-	if err := river.AddWorkerSafely(workers, &corejobs.DeleteExportContentWorker{
-		Config: c.DeleteExportContentWorker.Config,
-	},
-	); err != nil {
-		return nil, err
+		log.Info().Msg("delete export content worker enabled")
 	}
 
 	// add more workers here

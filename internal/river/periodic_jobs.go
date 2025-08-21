@@ -6,13 +6,17 @@ import (
 )
 
 func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
-	deleteExportJobs := river.NewPeriodicJob(
-		river.PeriodicInterval(c.DeleteExportContentWorker.Config.CutoffDuration),
-		func() (river.JobArgs, *river.InsertOpts) {
-			return corejobs.DeleteExportContentArgs{}, nil
-		},
-		&river.PeriodicJobOpts{RunOnStart: true},
-	)
+	jobs := []*river.PeriodicJob{}
+	if c.DeleteExportContentWorker.Config.Enabled {
+		deleteExportJobs := river.NewPeriodicJob(
+			river.PeriodicInterval(c.DeleteExportContentWorker.Config.Interval),
+			func() (river.JobArgs, *river.InsertOpts) {
+				return corejobs.DeleteExportContentArgs{}, nil
+			},
+			&river.PeriodicJobOpts{RunOnStart: true},
+		)
+		jobs = append(jobs, deleteExportJobs)
+	}
 
-	return []*river.PeriodicJob{deleteExportJobs}, nil
+	return jobs, nil
 }
