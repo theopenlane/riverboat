@@ -12,9 +12,9 @@ require (
 	github.com/knadh/koanf/providers/posflag v1.0.1
 	github.com/knadh/koanf/v2 v2.2.2
 	github.com/mcuadros/go-defaults v1.2.0
-	github.com/riverqueue/river v0.23.1
-	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.23.1
-	github.com/riverqueue/river/rivertype v0.23.1
+	github.com/riverqueue/river v0.24.0
+	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.24.0
+	github.com/riverqueue/river/rivertype v0.24.0
 	github.com/rs/zerolog v1.34.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
@@ -107,8 +107,8 @@ require (
 	github.com/pterm/pterm v0.12.81 // indirect
 	github.com/redis/go-redis/v9 v9.12.1 // indirect
 	github.com/resend/resend-go/v2 v2.21.0 // indirect
-	github.com/riverqueue/river/riverdriver v0.23.1 // indirect
-	github.com/riverqueue/river/rivershared v0.23.1 // indirect
+	github.com/riverqueue/river/riverdriver v0.24.0 // indirect
+	github.com/riverqueue/river/rivershared v0.24.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d // indirect
@@ -156,5 +156,4 @@ require (
 	golang.org/x/time v0.12.0 // indirect
 	golang.org/x/tools v0.36.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	modernc.org/sqlite v1.38.0 // indirect
 )
