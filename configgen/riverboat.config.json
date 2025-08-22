@@ -10,8 +10,9 @@
     },
     "corejobs.CreateCustomDomainWorker": {
       "properties": {
-        "Config": {
-          "$ref": "#/$defs/corejobs.CustomDomainConfig"
+        "config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig",
+          "description": "the configuration for custom domain creation"
         }
       },
       "additionalProperties": false,
@@ -19,6 +20,9 @@
     },
     "corejobs.CustomDomainConfig": {
       "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
         "cloudflareApiKey": {
           "type": "string"
         },
@@ -37,8 +41,9 @@
     },
     "corejobs.DeleteCustomDomainWorker": {
       "properties": {
-        "Config": {
-          "$ref": "#/$defs/corejobs.CustomDomainConfig"
+        "config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig",
+          "description": "the configuration for custom domain deletion"
         }
       },
       "additionalProperties": false,
@@ -56,6 +61,12 @@
     },
     "corejobs.DeleteExportWorkerConfig": {
       "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "interval": {
+          "type": "integer"
+        },
         "openlaneAPIHost": {
           "type": "string"
         },
@@ -69,6 +80,7 @@
       "additionalProperties": false,
       "type": "object",
       "required": [
+        "interval",
         "cutoffDuration"
       ]
     },
@@ -84,6 +96,9 @@
     },
     "corejobs.ExportWorkerConfig": {
       "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
         "openlaneAPIHost": {
           "type": "string"
         },

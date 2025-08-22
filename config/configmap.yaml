@@ -21,8 +21,21 @@ data:
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.river.workers.databaseWorker.config.baseUrl | default "http://localhost:1337" }}
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.river.workers.databaseWorker.config.endpoint | default "query" }}
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_DEBUG: {{ .Values.riverboat.river.workers.databaseWorker.config.debug | default false }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.cloudflareApiKey }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.databaseHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.cloudflareApiKey }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.databaseHost }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportContentWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_INTERVAL: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.interval }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_CUTOFFDURATION: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.cutoffDuration }}
