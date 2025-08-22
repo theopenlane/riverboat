@@ -18,7 +18,7 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/theopenlane/core v0.28.1
+	github.com/theopenlane/core v0.28.4
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.2.0
 	github.com/theopenlane/utils v0.4.8
@@ -119,7 +119,7 @@ require (
 	github.com/stoewer/go-strcase v1.3.1 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
 	github.com/theopenlane/echox v0.2.4 // indirect
-	github.com/theopenlane/entx v0.12.1 // indirect
+	github.com/theopenlane/entx v0.13.2 // indirect
 	github.com/theopenlane/httpsling v0.2.2 // indirect
 	github.com/theopenlane/iam v0.15.4 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
