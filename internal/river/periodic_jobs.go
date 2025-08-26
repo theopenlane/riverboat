@@ -28,6 +28,21 @@ func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 		)
 		jobs = append(jobs, deleteExportJobs)
 	}
+	if c.ValidateCustomDomainWorker.Config.Enabled {
+		interval := c.ValidateCustomDomainWorker.Config.ValidateInterval
+		if interval < minInterval {
+			interval = minInterval
+		}
+
+		validateCustomDomainJobs := river.NewPeriodicJob(
+			river.PeriodicInterval(interval),
+			func() (river.JobArgs, *river.InsertOpts) {
+				return corejobs.ValidateCustomDomainArgs{}, nil
+			},
+			&river.PeriodicJobOpts{RunOnStart: true},
+		)
+		jobs = append(jobs, validateCustomDomainJobs)
+	}
 
 	return jobs, nil
 }
