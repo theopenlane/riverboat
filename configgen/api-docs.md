@@ -56,7 +56,7 @@ Config is the configuration for the river server
 |**databaseHost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
 |[**queues**](#riverqueues)|`array`|||
 |[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
-|**maxRetries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
+|**defaultMaxRetries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
 
 **Additional Properties:** not allowed  
 **Example**

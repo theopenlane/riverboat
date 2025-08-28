@@ -207,7 +207,7 @@
           "$ref": "#/$defs/river.Workers",
           "description": "Workers to be enabled on the server"
         },
-        "maxRetries": {
+        "defaultMaxRetries": {
           "type": "integer",
           "description": "DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
         }

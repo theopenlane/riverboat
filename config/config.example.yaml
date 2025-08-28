@@ -1,7 +1,7 @@
 refreshInterval: 600000000000
 river:
     databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
-    maxRetries: 10
+    defaultMaxRetries: 10
     queues: null
     workers:
         createCustomDomainWorker:
