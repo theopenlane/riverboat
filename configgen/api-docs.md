@@ -27,7 +27,7 @@
                 "config": {}
             },
             "validateCustomDomainWorker": {
-                "Config": {}
+                "config": {}
             },
             "deleteCustomDomainWorker": {
                 "config": {}
@@ -56,6 +56,7 @@ Config is the configuration for the river server
 |**databaseHost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
 |[**queues**](#riverqueues)|`array`|||
 |[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
+|**maxRetries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -76,7 +77,7 @@ Config is the configuration for the river server
             "config": {}
         },
         "validateCustomDomainWorker": {
-            "Config": {}
+            "config": {}
         },
         "deleteCustomDomainWorker": {
             "config": {}
@@ -137,7 +138,7 @@ Workers that will be enabled on the server
         "config": {}
     },
     "validateCustomDomainWorker": {
-        "Config": {}
+        "config": {}
     },
     "deleteCustomDomainWorker": {
         "config": {}
@@ -182,6 +183,7 @@ EmailConfig contains the configuration for the email worker
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|**enabled**|`boolean`|enable or disable the email worker<br/>||
 |**devMode**|`boolean`|enable dev mode<br/>||
 |**testDir**|`string`|the directory to use for dev mode<br/>||
 |**token**|`string`|the token to use for the email provider<br/>||
@@ -252,6 +254,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
+|**validateInterval**|`integer`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworker"></a>
@@ -261,19 +264,19 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|||
+|[**config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
 
 ```json
 {
-    "Config": {}
+    "config": {}
 }
 ```
 
 <a name="riverworkersvalidatecustomdomainworkerconfig"></a>
-##### river\.workers\.validateCustomDomainWorker\.Config: object
+##### river\.workers\.validateCustomDomainWorker\.config: object
 
 **Properties**
 
@@ -284,6 +287,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
+|**validateInterval**|`integer`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworker"></a>
@@ -316,6 +320,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
 |**databaseHost**|`string`|||
+|**validateInterval**|`integer`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersexportcontentworker"></a>

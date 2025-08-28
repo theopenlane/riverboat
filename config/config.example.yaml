@@ -1,6 +1,7 @@
 refreshInterval: 600000000000
 river:
     databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
+    maxRetries: 10
     queues: null
     workers:
         createCustomDomainWorker:
@@ -10,6 +11,7 @@ river:
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+                validateInterval: 0
         databaseWorker:
             config:
                 baseUrl: http://localhost:1337
@@ -23,6 +25,7 @@ river:
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+                validateInterval: 0
         deleteExportContentWorker:
             config:
                 cutoffDuration: 0
@@ -33,6 +36,7 @@ river:
         emailWorker:
             config:
                 devMode: true
+                enabled: false
                 fromEmail: no-reply@example.com
                 testDir: fixtures/email
                 token: ""
@@ -42,9 +46,10 @@ river:
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
         validateCustomDomainWorker:
-            Config:
+            config:
                 cloudflareApiKey: ""
                 databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+                validateInterval: 0

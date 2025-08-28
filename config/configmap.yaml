@@ -13,6 +13,7 @@ data:
   RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshInterval | default "10m" }}
   RIVERBOAT_RIVER_DATABASEHOST: {{ .Values.riverboat.river.databaseHost | default "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable" }}
   RIVERBOAT_RIVER_QUEUES: {{ .Values.riverboat.river.queues }}
+  RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.emailWorker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.emailWorker.config.devMode | default true }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TESTDIR: {{ .Values.riverboat.river.workers.emailWorker.config.testDir | default "fixtures/email" }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.emailWorker.config.token }}
@@ -26,11 +27,19 @@ data:
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.databaseHost }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.cloudflareApiKey }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.databaseHost }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.validateInterval }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.cloudflareApiKey }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.databaseHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.validateInterval }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportContentWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIToken }}
@@ -39,3 +48,4 @@ data:
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_CUTOFFDURATION: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.cutoffDuration }}
+  RIVERBOAT_RIVER_MAXRETRIES: {{ .Values.riverboat.river.maxRetries | default 10 }}

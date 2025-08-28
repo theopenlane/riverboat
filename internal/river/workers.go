@@ -14,14 +14,16 @@ func createWorkers(c Workers) (*river.Workers, error) {
 	// create workers
 	workers := river.NewWorkers()
 
-	if err := river.AddWorkerSafely(workers, &jobs.EmailWorker{
-		Config: c.EmailWorker.Config,
-	},
-	); err != nil {
-		return nil, err
-	}
+	if c.EmailWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &jobs.EmailWorker{
+			Config: c.EmailWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
 
-	log.Info().Msg("email worker enabled")
+		log.Info().Msg("email worker enabled")
+	}
 
 	if c.CreateCustomDomainWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{

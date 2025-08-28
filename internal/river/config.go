@@ -17,6 +17,8 @@ type Config struct {
 	Queues []Queue `koanf:"queues" json:"queues" default:""`
 	// Workers to be enabled on the server
 	Workers Workers `koanf:"workers" json:"workers"`
+	// DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job
+	DefaultMaxRetries int `koanf:"maxRetries" json:"maxRetries" default:"10"`
 }
 
 // Queue is the configuration for a queue
