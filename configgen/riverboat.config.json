@@ -34,6 +34,9 @@
         },
         "databaseHost": {
           "type": "string"
+        },
+        "validateInterval": {
+          "type": "integer"
         }
       },
       "additionalProperties": false,
@@ -111,8 +114,9 @@
     },
     "corejobs.ValidateCustomDomainWorker": {
       "properties": {
-        "Config": {
-          "$ref": "#/$defs/corejobs.CustomDomainConfig"
+        "config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig",
+          "description": "the configuration for custom domain validation"
         }
       },
       "additionalProperties": false,
@@ -153,6 +157,10 @@
     },
     "jobs.EmailConfig": {
       "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "enable or disable the email worker"
+        },
         "devMode": {
           "type": "boolean",
           "description": "enable dev mode"
@@ -198,6 +206,10 @@
         "workers": {
           "$ref": "#/$defs/river.Workers",
           "description": "Workers to be enabled on the server"
+        },
+        "defaultMaxRetries": {
+          "type": "integer",
+          "description": "DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
         }
       },
       "additionalProperties": false,

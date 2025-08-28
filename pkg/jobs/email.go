@@ -26,7 +26,7 @@ type EmailArgs struct {
 func (EmailArgs) Kind() string { return "email" }
 
 // InsertOpts provides the default configuration when processing this job.
-// Here we want to retry sending an email a maxium of 3 times
+// Here we want to retry sending an email a maximum of 3 times
 // This can be overridden on inserting the job
 func (EmailArgs) InsertOpts() river.InsertOpts {
 	return river.InsertOpts{MaxAttempts: maxEmailAttempts}
@@ -45,6 +45,8 @@ type EmailWorker struct {
 
 // EmailConfig contains the configuration for the email worker
 type EmailConfig struct {
+	// Enabled is a flag to enable or disable the email worker
+	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"description=enable or disable the email worker" default:"false"`
 	// DevMode is a flag to enable dev mode
 	DevMode bool `koanf:"devMode" json:"devMode" jsonschema:"description=enable dev mode" default:"true"`
 	// TestDir is the directory to use for dev mode
