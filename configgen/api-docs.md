@@ -231,7 +231,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkerscreatecustomdomainworkerconfig)|`object`|||
+|[**config**](#riverworkerscreatecustomdomainworkerconfig)|`object`||yes|
 
 **Additional Properties:** not allowed  
 **Example**
@@ -249,12 +249,12 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
-|**cloudflareApiKey**|`string`|||
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
-|**databaseHost**|`string`|||
-|**validateInterval**|`integer`|||
+|**enabled**|`boolean`||no|
+|**cloudflareApiKey**|`string`||no|
+|**openlaneAPIHost**|`string`||no|
+|**openlaneAPIToken**|`string`||no|
+|**databaseHost**|`string`||no|
+|**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworker"></a>
@@ -264,7 +264,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`|||
+|[**config**](#riverworkersvalidatecustomdomainworkerconfig)|`object`||yes|
 
 **Additional Properties:** not allowed  
 **Example**
@@ -282,12 +282,12 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
-|**cloudflareApiKey**|`string`|||
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
-|**databaseHost**|`string`|||
-|**validateInterval**|`integer`|||
+|**enabled**|`boolean`||no|
+|**cloudflareApiKey**|`string`||no|
+|**openlaneAPIHost**|`string`||no|
+|**openlaneAPIToken**|`string`||no|
+|**databaseHost**|`string`||no|
+|**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworker"></a>
@@ -297,7 +297,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkersdeletecustomdomainworkerconfig)|`object`|||
+|[**config**](#riverworkersdeletecustomdomainworkerconfig)|`object`||yes|
 
 **Additional Properties:** not allowed  
 **Example**
@@ -315,12 +315,12 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
-|**cloudflareApiKey**|`string`|||
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
-|**databaseHost**|`string`|||
-|**validateInterval**|`integer`|||
+|**enabled**|`boolean`||no|
+|**cloudflareApiKey**|`string`||no|
+|**openlaneAPIHost**|`string`||no|
+|**openlaneAPIToken**|`string`||no|
+|**databaseHost**|`string`||no|
+|**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersexportcontentworker"></a>

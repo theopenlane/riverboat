@@ -211,16 +211,32 @@ type MockJobClient_Insert_Call struct {
 }
 
 // Insert is a helper method to define mock.On call
-//   - ctx
-//   - args
-//   - opts
+//   - ctx context.Context
+//   - args river.JobArgs
+//   - opts *river.InsertOpts
 func (_e *MockJobClient_Expecter) Insert(ctx interface{}, args interface{}, opts interface{}) *MockJobClient_Insert_Call {
 	return &MockJobClient_Insert_Call{Call: _e.mock.On("Insert", ctx, args, opts)}
 }
 
 func (_c *MockJobClient_Insert_Call) Run(run func(ctx context.Context, args river.JobArgs, opts *river.InsertOpts)) *MockJobClient_Insert_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].(river.JobArgs), args[2].(*river.InsertOpts))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 river.JobArgs
+		if args[1] != nil {
+			arg1 = args[1].(river.JobArgs)
+		}
+		var arg2 *river.InsertOpts
+		if args[2] != nil {
+			arg2 = args[2].(*river.InsertOpts)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+		)
 	})
 	return _c
 }
@@ -269,15 +285,26 @@ type MockJobClient_InsertMany_Call struct {
 }
 
 // InsertMany is a helper method to define mock.On call
-//   - ctx
-//   - params
+//   - ctx context.Context
+//   - params []river.InsertManyParams
 func (_e *MockJobClient_Expecter) InsertMany(ctx interface{}, params interface{}) *MockJobClient_InsertMany_Call {
 	return &MockJobClient_InsertMany_Call{Call: _e.mock.On("InsertMany", ctx, params)}
 }
 
 func (_c *MockJobClient_InsertMany_Call) Run(run func(ctx context.Context, params []river.InsertManyParams)) *MockJobClient_InsertMany_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].([]river.InsertManyParams))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []river.InsertManyParams
+		if args[1] != nil {
+			arg1 = args[1].([]river.InsertManyParams)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -324,15 +351,26 @@ type MockJobClient_InsertManyFast_Call struct {
 }
 
 // InsertManyFast is a helper method to define mock.On call
-//   - ctx
-//   - params
+//   - ctx context.Context
+//   - params []river.InsertManyParams
 func (_e *MockJobClient_Expecter) InsertManyFast(ctx interface{}, params interface{}) *MockJobClient_InsertManyFast_Call {
 	return &MockJobClient_InsertManyFast_Call{Call: _e.mock.On("InsertManyFast", ctx, params)}
 }
 
 func (_c *MockJobClient_InsertManyFast_Call) Run(run func(ctx context.Context, params []river.InsertManyParams)) *MockJobClient_InsertManyFast_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].([]river.InsertManyParams))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []river.InsertManyParams
+		if args[1] != nil {
+			arg1 = args[1].([]river.InsertManyParams)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -379,16 +417,32 @@ type MockJobClient_InsertManyFastTx_Call struct {
 }
 
 // InsertManyFastTx is a helper method to define mock.On call
-//   - ctx
-//   - tx
-//   - params
+//   - ctx context.Context
+//   - tx pgx.Tx
+//   - params []river.InsertManyParams
 func (_e *MockJobClient_Expecter) InsertManyFastTx(ctx interface{}, tx interface{}, params interface{}) *MockJobClient_InsertManyFastTx_Call {
 	return &MockJobClient_InsertManyFastTx_Call{Call: _e.mock.On("InsertManyFastTx", ctx, tx, params)}
 }
 
 func (_c *MockJobClient_InsertManyFastTx_Call) Run(run func(ctx context.Context, tx pgx.Tx, params []river.InsertManyParams)) *MockJobClient_InsertManyFastTx_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].(pgx.Tx), args[2].([]river.InsertManyParams))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 pgx.Tx
+		if args[1] != nil {
+			arg1 = args[1].(pgx.Tx)
+		}
+		var arg2 []river.InsertManyParams
+		if args[2] != nil {
+			arg2 = args[2].([]river.InsertManyParams)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+		)
 	})
 	return _c
 }
@@ -437,16 +491,32 @@ type MockJobClient_InsertManyTx_Call struct {
 }
 
 // InsertManyTx is a helper method to define mock.On call
-//   - ctx
-//   - tx
-//   - params
+//   - ctx context.Context
+//   - tx pgx.Tx
+//   - params []river.InsertManyParams
 func (_e *MockJobClient_Expecter) InsertManyTx(ctx interface{}, tx interface{}, params interface{}) *MockJobClient_InsertManyTx_Call {
 	return &MockJobClient_InsertManyTx_Call{Call: _e.mock.On("InsertManyTx", ctx, tx, params)}
 }
 
 func (_c *MockJobClient_InsertManyTx_Call) Run(run func(ctx context.Context, tx pgx.Tx, params []river.InsertManyParams)) *MockJobClient_InsertManyTx_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].(pgx.Tx), args[2].([]river.InsertManyParams))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 pgx.Tx
+		if args[1] != nil {
+			arg1 = args[1].(pgx.Tx)
+		}
+		var arg2 []river.InsertManyParams
+		if args[2] != nil {
+			arg2 = args[2].([]river.InsertManyParams)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+		)
 	})
 	return _c
 }
@@ -495,17 +565,38 @@ type MockJobClient_InsertTx_Call struct {
 }
 
 // InsertTx is a helper method to define mock.On call
-//   - ctx
-//   - tx
-//   - args
-//   - opts
+//   - ctx context.Context
+//   - tx pgx.Tx
+//   - args river.JobArgs
+//   - opts *river.InsertOpts
 func (_e *MockJobClient_Expecter) InsertTx(ctx interface{}, tx interface{}, args interface{}, opts interface{}) *MockJobClient_InsertTx_Call {
 	return &MockJobClient_InsertTx_Call{Call: _e.mock.On("InsertTx", ctx, tx, args, opts)}
 }
 
 func (_c *MockJobClient_InsertTx_Call) Run(run func(ctx context.Context, tx pgx.Tx, args river.JobArgs, opts *river.InsertOpts)) *MockJobClient_InsertTx_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].(pgx.Tx), args[2].(river.JobArgs), args[3].(*river.InsertOpts))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 pgx.Tx
+		if args[1] != nil {
+			arg1 = args[1].(pgx.Tx)
+		}
+		var arg2 river.JobArgs
+		if args[2] != nil {
+			arg2 = args[2].(river.JobArgs)
+		}
+		var arg3 *river.InsertOpts
+		if args[3] != nil {
+			arg3 = args[3].(*river.InsertOpts)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+		)
 	})
 	return _c
 }
@@ -554,15 +645,26 @@ type MockJobClient_JobCancel_Call struct {
 }
 
 // JobCancel is a helper method to define mock.On call
-//   - ctx
-//   - jobID
+//   - ctx context.Context
+//   - jobID int64
 func (_e *MockJobClient_Expecter) JobCancel(ctx interface{}, jobID interface{}) *MockJobClient_JobCancel_Call {
 	return &MockJobClient_JobCancel_Call{Call: _e.mock.On("JobCancel", ctx, jobID)}
 }
 
 func (_c *MockJobClient_JobCancel_Call) Run(run func(ctx context.Context, jobID int64)) *MockJobClient_JobCancel_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].(int64))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 int64
+		if args[1] != nil {
+			arg1 = args[1].(int64)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -611,16 +713,32 @@ type MockJobClient_JobCancelTx_Call struct {
 }
 
 // JobCancelTx is a helper method to define mock.On call
-//   - ctx
-//   - tx
-//   - jobID
+//   - ctx context.Context
+//   - tx pgx.Tx
+//   - jobID int64
 func (_e *MockJobClient_Expecter) JobCancelTx(ctx interface{}, tx interface{}, jobID interface{}) *MockJobClient_JobCancelTx_Call {
 	return &MockJobClient_JobCancelTx_Call{Call: _e.mock.On("JobCancelTx", ctx, tx, jobID)}
 }
 
 func (_c *MockJobClient_JobCancelTx_Call) Run(run func(ctx context.Context, tx pgx.Tx, jobID int64)) *MockJobClient_JobCancelTx_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context), args[1].(pgx.Tx), args[2].(int64))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 pgx.Tx
+		if args[1] != nil {
+			arg1 = args[1].(pgx.Tx)
+		}
+		var arg2 int64
+		if args[2] != nil {
+			arg2 = args[2].(int64)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+		)
 	})
 	return _c
 }
@@ -658,14 +776,20 @@ type MockJobClient_TruncateRiverTables_Call struct {
 }
 
 // TruncateRiverTables is a helper method to define mock.On call
-//   - ctx
+//   - ctx context.Context
 func (_e *MockJobClient_Expecter) TruncateRiverTables(ctx interface{}) *MockJobClient_TruncateRiverTables_Call {
 	return &MockJobClient_TruncateRiverTables_Call{Call: _e.mock.On("TruncateRiverTables", ctx)}
 }
 
 func (_c *MockJobClient_TruncateRiverTables_Call) Run(run func(ctx context.Context)) *MockJobClient_TruncateRiverTables_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(context.Context))
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
