@@ -25,7 +25,7 @@ getting things running.
 
 ### Dependencies
 
-- Go 1.24+
+- Go 1.25.1+
 - Docker (used for running Postgres and the river-ui)
 - [task](https://taskfile.dev/)
 
@@ -48,6 +48,7 @@ in `pkg/jobs`.
    ```bash
    go run test/email/main.go
    ```
+
 1. This should insert the job successfully, it should be processed by `river`
    and the email should be added to `fixtures/email`
 
@@ -57,6 +58,7 @@ in `pkg/jobs`.
    the [upstream docs](https://riverqueue.com/docs#job-args-and-workers) for
    implementation details. The following is a stem job that could be copied to
    get you started.
+
    ```go
    package jobs
 
@@ -103,9 +105,11 @@ in `pkg/jobs`.
 1. If there are configuration settings, add the worker to `pkg/river/config.go`
    `Workers` struct, this will allow the config variables to be set via the
    `koanf` config setup. Once added you will need to regenerate the config:
+
    ```bash
    task config:generate
    ```
+
 1. Register the worker by adding the `river.AddWorkerSafely` to the
    `pkg/river/workers.go` `createWorkers` function.
 1. Add a `test` job to `test/` directory by creating a new directory with a
