@@ -20,7 +20,7 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core v0.30.12
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/newman v0.2.0
+	github.com/theopenlane/newman v0.2.1
 	github.com/theopenlane/utils v0.5.0
 )
 
@@ -85,7 +85,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/redis/go-redis/v9 v9.13.0 // indirect
-	github.com/resend/resend-go/v2 v2.21.0 // indirect
+	github.com/resend/resend-go/v2 v2.23.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.24.0 // indirect
 	github.com/riverqueue/river/rivershared v0.24.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
