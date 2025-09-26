@@ -80,6 +80,17 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("delete export content worker enabled")
 	}
 
+	if c.WatermarkDocWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.WatermarkDocWorker{
+			Config: c.WatermarkDocWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("watermark doc worker enabled")
+	}
+
 	// add more workers here
 
 	return workers, nil

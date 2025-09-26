@@ -53,3 +53,8 @@ river:
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
                 validateInterval: 0
+        watermarkDocWorker:
+            config:
+                enabled: false
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
