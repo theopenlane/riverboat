@@ -60,5 +60,7 @@ type Workers struct {
 	// DeleteExportContentWorker configuration for batch deleting exports and clogging object storage
 	DeleteExportContentWorker corejobs.DeleteExportContentWorker `koanf:"deleteExportContentWorker" json:"deleteExportContentWorker"`
 
+	// WatermarkDocWorker configuration for watermarking documents
+	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkDocWorker" json:"watermarkDocWorker"`
 	// add more workers here
 }

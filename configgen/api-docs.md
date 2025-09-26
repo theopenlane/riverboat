@@ -37,6 +37,9 @@
             },
             "deleteExportContentWorker": {
                 "config": {}
+            },
+            "watermarkDocWorker": {
+                "config": {}
             }
         }
     }
@@ -87,6 +90,9 @@ Config is the configuration for the river server
         },
         "deleteExportContentWorker": {
             "config": {}
+        },
+        "watermarkDocWorker": {
+            "config": {}
         }
     }
 }
@@ -122,6 +128,7 @@ Workers that will be enabled on the server
 |[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|||
 |[**exportContentWorker**](#riverworkersexportcontentworker)|`object`|||
 |[**deleteExportContentWorker**](#riverworkersdeleteexportcontentworker)|`object`|||
+|[**watermarkDocWorker**](#riverworkerswatermarkdocworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -147,6 +154,9 @@ Workers that will be enabled on the server
         "config": {}
     },
     "deleteExportContentWorker": {
+        "config": {}
+    },
+    "watermarkDocWorker": {
         "config": {}
     }
 }
@@ -383,6 +393,36 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIHost**|`string`||no|
 |**openlaneAPIToken**|`string`||no|
 |**cutoffDuration**|`integer`||yes|
+
+**Additional Properties:** not allowed  
+<a name="riverworkerswatermarkdocworker"></a>
+#### river\.workers\.watermarkDocWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkerswatermarkdocworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkerswatermarkdocworkerconfig"></a>
+##### river\.workers\.watermarkDocWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
 
 **Additional Properties:** not allowed  
 

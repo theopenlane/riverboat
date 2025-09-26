@@ -125,6 +125,31 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.WatermarkDocWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.WatermarkWorkerConfig",
+          "description": "the configuration for watermarking"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.WatermarkWorkerConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "dbxclient.Config": {
       "properties": {
         "enabled": {
@@ -263,6 +288,10 @@
         "deleteExportContentWorker": {
           "$ref": "#/$defs/corejobs.DeleteExportContentWorker",
           "description": "DeleteExportContentWorker configuration for batch deleting exports and clogging object storage"
+        },
+        "watermarkDocWorker": {
+          "$ref": "#/$defs/corejobs.WatermarkDocWorker",
+          "description": "WatermarkDocWorker configuration for watermarking documents"
         }
       },
       "additionalProperties": false,
