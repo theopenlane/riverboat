@@ -119,10 +119,6 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 
 	// Setup otel metrics middleware if enabled
 	if c.config.EnableMetrics {
-		// Import and use the otel middleware from riverqueue
-		// This is a placeholder; you may need to adjust import path and usage
-		// Example: github.com/riverqueue/riverqueueotel
-		// import "github.com/riverqueue/riverqueueotel"
 		mw := river.NewOtelMiddleware(river.OtelMiddlewareConfig{
 			DurationUnit:          c.config.MetricsDurationUnit,
 			EnableSemanticMetrics: c.config.EnableSemanticMetrics,
