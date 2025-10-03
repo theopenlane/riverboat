@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/knadh/koanf/parsers/yaml"
-	"github.com/knadh/koanf/providers/env"
+	"github.com/knadh/koanf/providers/env/v2"
 	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/v2"
 	"github.com/mcuadros/go-defaults"
@@ -53,15 +53,17 @@ func Load(cfgFile *string) (*Config, error) {
 	}
 
 	// load env vars
-	if err := k.Load(env.ProviderWithValue(envPrefix, ".", func(s, v string) (string, interface{}) {
-		key := strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, envPrefix)), "_", ".")
+	if err := k.Load(env.Provider(".", env.Opt{
+		Prefix: envPrefix,
+		TransformFunc: func(s, v string) (string, interface{}) {
+			key := strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, envPrefix)), "_", ".")
 
-		if strings.Contains(v, ",") {
-			return key, strings.Split(v, ",")
-		}
+			if strings.Contains(v, ",") {
+				return key, strings.Split(v, ",")
+			}
 
-		return key, v
-	}), nil); err != nil {
+			return key, v
+		}}), nil); err != nil {
 		log.Warn().Err(err).Msg("failed to load env vars, some settings may not be applied")
 	}
 
