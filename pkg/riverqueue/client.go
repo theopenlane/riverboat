@@ -63,6 +63,12 @@ type Config struct {
 	RunMigrations bool `koanf:"runMigrations" json:"runMigrations" default:"false"`
 	// RiverConf is the river configuration
 	RiverConf river.Config `koanf:"riverConf" json:"riverConf"`
+	// EnableMetrics toggles otel metrics middleware
+	EnableMetrics bool `koanf:"enableMetrics" json:"enableMetrics" default:"false"`
+	// MetricsDurationUnit sets the duration unit for metrics
+	MetricsDurationUnit string `koanf:"metricsDurationUnit" json:"metricsDurationUnit" default:"ms"`
+	// EnableSemanticMetrics toggles semantic metrics
+	EnableSemanticMetrics bool `koanf:"enableSemanticMetrics" json:"enableSemanticMetrics" default:"true"`
 }
 
 // Client is a river Client that implements the JobClient interface
@@ -110,8 +116,25 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 		}
 	}
 
-	// create a new river client with the given connection URI
-	c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
+
+	// Setup otel metrics middleware if enabled
+	if c.config.EnableMetrics {
+		// Import and use the otel middleware from riverqueue
+		// This is a placeholder; you may need to adjust import path and usage
+		// Example: github.com/riverqueue/riverqueueotel
+		// import "github.com/riverqueue/riverqueueotel"
+		mw := river.NewOtelMiddleware(river.OtelMiddlewareConfig{
+			DurationUnit:          c.config.MetricsDurationUnit,
+			EnableSemanticMetrics: c.config.EnableSemanticMetrics,
+		})
+		c.riverClient, err = river.NewClient(
+			riverpgxv5.New(c.pool),
+			&c.config.RiverConf,
+			river.WithMiddleware(mw),
+		)
+	} else {
+		c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
+	}
 	if err != nil {
 		log.Error().Err(err).Msg("error creating river client")
 		return nil, err

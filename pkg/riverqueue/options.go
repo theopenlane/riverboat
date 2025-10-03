@@ -9,6 +9,14 @@ import (
 
 // Option is a function that configures a client
 type Option func(*Client)
+// WithMetrics configures otel metrics middleware for the client
+func WithMetrics(enable bool, durationUnit string, enableSemantic bool) Option {
+	return func(c *Client) {
+		c.config.EnableMetrics = enable
+		c.config.MetricsDurationUnit = durationUnit
+		c.config.EnableSemanticMetrics = enableSemantic
+	}
+}
 
 // WithConnectionURI sets the connection URI for the client
 func WithConnectionURI(uri string) Option {
