@@ -10,6 +10,7 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/riverqueue/river/riverdriver/riverpgxv5"
 	"github.com/riverqueue/river/rivertype"
+	"github.com/riverqueue/rivercontrib/otelriver"
 	"github.com/rs/zerolog/log"
 )
 
@@ -63,6 +64,18 @@ type Config struct {
 	RunMigrations bool `koanf:"runMigrations" json:"runMigrations" default:"false"`
 	// RiverConf is the river configuration
 	RiverConf river.Config `koanf:"riverConf" json:"riverConf"`
+
+	Metrics MetricsConfig `koanf:"metrics" json:"metrics"`
+}
+
+// MetricsConfig is the configuration for metrics
+type MetricsConfig struct {
+	// Enable toggles otel metrics middleware
+	EnableMetrics bool `koanf:"enableMetrics" json:"enableMetrics" default:"false"`
+	// DurationUnit sets the duration unit for metrics
+	MetricsDurationUnit string `koanf:"metricsDurationUnit" json:"metricsDurationUnit" default:"ms"`
+	// EnableSemanticMetrics toggles semantic metrics
+	EnableSemanticMetrics bool `koanf:"enableSemanticMetrics" json:"enableSemanticMetrics" default:"true"`
 }
 
 // Client is a river Client that implements the JobClient interface
@@ -110,7 +123,16 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 		}
 	}
 
-	// create a new river client with the given connection URI
+	// Conditionally add OpenTelemetry metrics middleware
+	if c.config.Metrics.EnableMetrics {
+		c.config.RiverConf.Middleware = append(
+			c.config.RiverConf.Middleware,
+			otelriver.NewMiddleware(&otelriver.MiddlewareConfig{
+				DurationUnit:          c.config.Metrics.MetricsDurationUnit,
+				EnableSemanticMetrics: c.config.Metrics.EnableSemanticMetrics,
+			}),
+		)
+	}
 	c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
 	if err != nil {
 		log.Error().Err(err).Msg("error creating river client")
