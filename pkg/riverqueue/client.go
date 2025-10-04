@@ -63,14 +63,19 @@ type Config struct {
 	RunMigrations bool `koanf:"runMigrations" json:"runMigrations" default:"false"`
 	// RiverConf is the river configuration
 	RiverConf river.Config `koanf:"riverConf" json:"riverConf"`
-	// EnableMetrics toggles otel metrics middleware
+	// Metrics configuration settings to enable and configure the metrics middleware
+	Metrics MetricsConfig `koanf:"metrics" json:"metrics"`
+}
+
+// MetricsConfig allows the configuration of the metrics middleware
+type MetricsConfig struct {
+	// Enable toggles otel metrics middleware
 	EnableMetrics bool `koanf:"enableMetrics" json:"enableMetrics" default:"false"`
-	// MetricsDurationUnit sets the duration unit for metrics
+	// DurationUnit sets the duration unit for metrics
 	MetricsDurationUnit string `koanf:"metricsDurationUnit" json:"metricsDurationUnit" default:"ms"`
 	// EnableSemanticMetrics toggles semantic metrics
 	EnableSemanticMetrics bool `koanf:"enableSemanticMetrics" json:"enableSemanticMetrics" default:"true"`
 }
-
 // Client is a river Client that implements the JobClient interface
 type Client struct {
 	config Config
@@ -117,20 +122,16 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 	}
 
 
-	// Setup otel metrics middleware if enabled
-	if c.config.EnableMetrics {
-		mw := river.NewOtelMiddleware(river.OtelMiddlewareConfig{
-			DurationUnit:          c.config.MetricsDurationUnit,
-			EnableSemanticMetrics: c.config.EnableSemanticMetrics,
-		})
-		c.riverClient, err = river.NewClient(
-			riverpgxv5.New(c.pool),
-			&c.config.RiverConf,
-			river.WithMiddleware(mw),
-		)
-	} else {
-		c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
+	// Setup otel metrics if enabled
+	opts = []river.ClientOption{}
+	if c.config.Metrics.EnableMetrics {
+		opts = append(opts, river.WithOtelMetrics(
+			c.config.Metrics.EnableMetrics,
+			c.config.Metrics.MetricsDurationUnit,
+			c.config.Metrics.EnableSemanticMetrics,
+		))
 	}
+	c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf, opts...)
 	if err != nil {
 		log.Error().Err(err).Msg("error creating river client")
 		return nil, err
