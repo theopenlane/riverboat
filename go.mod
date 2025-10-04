@@ -18,7 +18,7 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/spf13/cobra v1.10.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core v0.37.1
+	github.com/theopenlane/core v0.37.3
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.2.1
 	github.com/theopenlane/utils v0.5.1
@@ -98,7 +98,7 @@ require (
 	github.com/natefinch/wrap v0.2.0 // indirect
 	github.com/oklog/ulid/v2 v2.1.1 // indirect
 	github.com/openfga/api/proto v0.0.0-20250909172242-b4b2a12f5c67 // indirect
-	github.com/openfga/go-sdk v0.7.1 // indirect
+	github.com/openfga/go-sdk v0.7.2 // indirect
 	github.com/openfga/language/pkg/go v0.2.0-beta.2.0.20250428093642-7aeebe78bbfe // indirect
 	github.com/openfga/openfga v1.10.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
