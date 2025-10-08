@@ -71,16 +71,3 @@ func (w *DatabaseWorker) Work(ctx context.Context, job *river.Job[DatabaseArgs])
 	return nil
 }
 
-// RegisterSlackJob registers the Slack job.
-func RegisterSlackJob() {
-	RegisterJob("slack", func(ctx context.Context, params map[string]interface{}) error {
-		channel, _ := params["channel"].(string)
-		message, _ := params["message"].(string)
-		devMode, _ := params["dev_mode"].(bool)
-		return SendSlackMessage(ctx, SlackJobArgs{
-			Channel: channel,
-			Message: message,
-			DevMode: devMode,
-		})
-	})
-}

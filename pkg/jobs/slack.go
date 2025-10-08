@@ -9,23 +9,17 @@ import (
 	slack "github.com/slack-go/slack"
 )
 
-// SlackJobArgs holds arguments for sending a Slack message.
-type SlackJobArgs struct {
-	Channel string // Channel name or ID
-	Message string // Message text
-	DevMode bool   // If true, mock the request
-}
 
 // SendSlackMessage sends a message to a Slack channel using a Slack App.
-func SendSlackMessage(ctx context.Context, args SlackJobArgs) error {
+func SendSlackMessage(ctx context.Context, args SlackArgs) error {
 	if args.DevMode {
 		fmt.Printf("[DEV MODE] Would send to channel '%s': %s\n", args.Channel, args.Message)
 		return nil
 	}
 
-	token := os.Getenv("SLACK_BOT_TOKEN")
-	if token == "" {
-		return fmt.Errorf("SLACK_BOT_TOKEN environment variable not set")
+	token, ok := ctx.Value("slack_token").(string)
+	if !ok || token == "" {
+		return fmt.Errorf("Slack token not provided in context")
 	}
 
 	client := slack.New(token)
