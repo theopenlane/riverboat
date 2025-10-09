@@ -3,11 +3,22 @@ package jobs
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	slack "github.com/slack-go/slack"
 )
+// slackConversationsLimit is the maximum number of conversations to fetch from Slack.
+const slackConversationsLimit = 1000
 
+// errChannelNotFound is the error returned when a channel is not found.
+var errChannelNotFound = errors.New("channel not found")
+
+// errCouldNotFindChannel is the error returned when a channel could not be found.
+var errCouldNotFindChannel = errors.New("could not find channel")
+
+// errSlackTokenMissing is the error returned when the Slack token is missing.
+var errSlackTokenMissing = errors.New("slack token is missing")
 
 // SendSlackMessage sends a message to a Slack channel using a Slack App.
 func SendSlackMessage(ctx context.Context, args SlackArgs) error {
@@ -16,9 +27,9 @@ func SendSlackMessage(ctx context.Context, args SlackArgs) error {
 		return nil
 	}
 
-	token, ok := ctx.Value("slack_token").(string)
+	token, ok := ctx.Value(slackTokenKey).(string)
 	if !ok || token == "" {
-		return fmt.Errorf("Slack token not provided in context")
+		return errSlackTokenMissing
 	}
 
 	client := slack.New(token)
@@ -28,7 +39,7 @@ func SendSlackMessage(ctx context.Context, args SlackArgs) error {
 	if !isChannelID(args.Channel) {
 		ch, err := findChannelByName(client, args.Channel)
 		if err != nil {
-			return fmt.Errorf("could not find channel '%s': %w", args.Channel, err)
+			return errCouldNotFindChannel
 		}
 		channelID = ch.ID
 	}
@@ -50,7 +61,7 @@ func findChannelByName(client *slack.Client, name string) (*slack.Channel, error
     params := &slack.GetConversationsParameters{
         Types:           []string{"public_channel", "private_channel"},
         ExcludeArchived: true,
-        Limit:           1000,
+        Limit:           slackConversationsLimit,
     }
     channels, _, err := client.GetConversations(params)
     if err != nil {
@@ -61,5 +72,5 @@ func findChannelByName(client *slack.Client, name string) (*slack.Channel, error
             return &ch, nil
         }
     }
-    return nil, fmt.Errorf("channel '%s' not found", name)
+    return nil, fmt.Errorf("channel '%s' not found: %w", name, errChannelNotFound)
 }

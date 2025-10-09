@@ -2,9 +2,17 @@ package jobs
 
 import (
 	"context"
+
 	"github.com/riverqueue/river"
 )
 
+// contextKey is a custom type for context keys.
+type contextKey string
+
+const slackTokenKey contextKey = "slack_token"
+
+
+// SlackArgs holds the arguments for a Slack message job.
 type SlackArgs struct {
 	// Channel can be a name or ID
 	Channel string `json:"channel"`
@@ -14,12 +22,10 @@ type SlackArgs struct {
 	DevMode bool   `json:"dev_mode"`
 }
 
-// river.Job interface implementation
+// Kind returns the job kind for SlackArgs.
 func (SlackArgs) Kind() string { return "slack" }
 
-// SlackWorker is a worker to send Slack messages
-// Config contains the configuration for the Slack worker
-
+// SlackWorker sends messages to Slack.
 type SlackWorker struct {
 	river.WorkerDefaults[SlackArgs]
 
@@ -35,10 +41,11 @@ func (w *SlackWorker) Work(ctx context.Context, job *river.Job[SlackArgs]) error
 	if w.Config.Token == "" && !args.DevMode {
 		return newMissingRequiredArg("token", job.Args.Kind())
 	}
-	ctx = context.WithValue(ctx, "slack_token", w.Config.Token)
+	ctx = context.WithValue(ctx, slackTokenKey, w.Config.Token)
 	return SendSlackMessage(ctx, args)
 }
 
+// SlackConfig configures the Slack worker.
 type SlackConfig struct {
 	// Enabled tells the server whether or not to register the worker, if disabled jobs of this type cannot be inserted
 	Enabled bool   `koanf:"enabled" json:"enabled" jsonschema:"description=enable or disable the slack worker" default:"false"`
