@@ -4,13 +4,15 @@ import (
 	"context"
 
 	"github.com/riverqueue/river"
+	slack "github.com/slack-go/slack"
 )
 
 // contextKey is a custom type for context keys.
-type contextKey string
+type contextKey struct {
+	name string
+}
 
-const slackTokenKey contextKey = "slack_token"
-
+var slackTokenKey  = &contextKey{"slack_token"}
 
 // SlackArgs holds the arguments for a Slack message job.
 type SlackArgs struct {
@@ -35,6 +37,9 @@ type SlackWorker struct {
 // It sends a Slack message using the Slack App
 func (w *SlackWorker) Work(ctx context.Context, job *river.Job[SlackArgs]) error {
 	args := job.Args
+	slackClient := &Slack{
+		client: slack.New(w.Config.Token),
+	}
 	if !args.DevMode {
 		args.DevMode = w.Config.DevMode
 	}
@@ -42,9 +47,9 @@ func (w *SlackWorker) Work(ctx context.Context, job *river.Job[SlackArgs]) error
 		return newMissingRequiredArg("token", job.Args.Kind())
 	}
 	ctx = context.WithValue(ctx, slackTokenKey, w.Config.Token)
-	return SendSlackMessage(ctx, args)
-}
 
+	return slackClient.SendSlackMessage(ctx, args)
+}
 // SlackConfig configures the Slack worker.
 type SlackConfig struct {
 	// Enabled tells the server whether or not to register the worker, if disabled jobs of this type cannot be inserted

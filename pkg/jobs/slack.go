@@ -8,6 +8,10 @@ import (
 
 	slack "github.com/slack-go/slack"
 )
+// Slack holds the address of client for sending a Slack message.
+type Slack struct {
+	client *slack.Client
+}
 // slackConversationsLimit is the maximum number of conversations to fetch from Slack.
 const slackConversationsLimit = 1000
 
@@ -21,30 +25,29 @@ var errCouldNotFindChannel = errors.New("could not find channel")
 var errSlackTokenMissing = errors.New("slack token is missing")
 
 // SendSlackMessage sends a message to a Slack channel using a Slack App.
-func SendSlackMessage(ctx context.Context, args SlackArgs) error {
+func (s *Slack) SendSlackMessage(ctx context.Context, args SlackArgs) error {
 	if args.DevMode {
 		fmt.Printf("[DEV MODE] Would send to channel '%s': %s\n", args.Channel, args.Message)
 		return nil
 	}
 
-	token, ok := ctx.Value(slackTokenKey).(string)
+	token, ok := ctx.Value(slackTokenKey.name).(string)
 	if !ok || token == "" {
 		return errSlackTokenMissing
 	}
 
-	client := slack.New(token)
 	channelID := args.Channel
 
 	// If channel is not an ID, try to resolve name
 	if !isChannelID(args.Channel) {
-		ch, err := findChannelByName(client, args.Channel)
+		ch, err := s.findChannelByName(args.Channel)
 		if err != nil {
 			return errCouldNotFindChannel
 		}
 		channelID = ch.ID
 	}
 
-	_, _, err := client.PostMessage(channelID, slack.MsgOptionText(args.Message, false))
+	_, _, err := s.client.PostMessage(channelID, slack.MsgOptionText(args.Message, false))
 	if err != nil {
 		return fmt.Errorf("failed to send Slack message: %w", err)
 	}
@@ -57,13 +60,13 @@ func isChannelID(s string) bool {
 }
 
 // findChannelByName looks up a channel by name.
-func findChannelByName(client *slack.Client, name string) (*slack.Channel, error) {
+func (s *Slack) findChannelByName( name string) (*slack.Channel, error) {
     params := &slack.GetConversationsParameters{
         Types:           []string{"public_channel", "private_channel"},
         ExcludeArchived: true,
         Limit:           slackConversationsLimit,
     }
-    channels, _, err := client.GetConversations(params)
+    channels, _, err := s.client.GetConversations(params)
     if err != nil {
         return nil, err
     }
