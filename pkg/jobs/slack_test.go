@@ -7,7 +7,7 @@ import (
 
 func TestSendSlackMessage_DevMode(t *testing.T) {
 	ctx := context.Background()
-	args := SlackJobArgs{
+	args := SlackArgs{
 		Channel: "general",
 		Message: "Hello from dev mode!",
 		DevMode: true,

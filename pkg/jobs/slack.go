@@ -4,7 +4,6 @@ package jobs
 import (
 	"context"
 	"fmt"
-	"os"
 
 	slack "github.com/slack-go/slack"
 )
@@ -48,14 +47,19 @@ func isChannelID(s string) bool {
 
 // findChannelByName looks up a channel by name.
 func findChannelByName(client *slack.Client, name string) (*slack.Channel, error) {
-	channels, err := client.GetChannels(false)
-	if err != nil {
-		return nil, err
-	}
-	for _, ch := range channels {
-		if ch.Name == name {
-			return &ch, nil
-		}
-	}
-	return nil, fmt.Errorf("channel '%s' not found", name)
+    params := &slack.GetConversationsParameters{
+        Types:           []string{"public_channel", "private_channel"},
+        ExcludeArchived: true,
+        Limit:           1000,
+    }
+    channels, _, err := client.GetConversations(params)
+    if err != nil {
+        return nil, err
+    }
+    for _, ch := range channels {
+        if ch.Name == name {
+            return &ch, nil
+        }
+    }
+    return nil, fmt.Errorf("channel '%s' not found", name)
 }
