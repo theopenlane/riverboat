@@ -1,23 +1,24 @@
+
 package main
 
 import (
 	"context"
-	"log"
-
-	"github.com/riverqueue/river"
+	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/riverboat/test/common"
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
 func main() {
-	// Inserting a Slack job into the queue
+	client := common.NewInsertOnlyRiverClient()
 	args := jobs.SlackArgs{
 		Channel: "general", // or channel ID
 		Message: "Hello from riverboat test job!",
-		DevMode: true, // set to true in dev mode, please change it in prod.
+		DevMode: true, // set to true in dev mode, change in prod
 	}
-	job := river.NewJob(args)
-	if err := river.Insert(context.Background(), job); err != nil {
-		log.Fatalf("failed to insert slack job: %v", err)
+	_, err := client.Insert(context.Background(), args, nil)
+	if err != nil {
+		log.Fatal().Err(err).Msg("error inserting slack job")
 	}
-	log.Println("Inserted slack job!")
+
+	log.Info().Msg("slack job successfully inserted")
 }
