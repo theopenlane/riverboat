@@ -2,16 +2,17 @@
 package jobs
 
 import (
-	"context"
 	"errors"
 	"fmt"
 
 	slack "github.com/slack-go/slack"
 )
+
 // Slack holds the address of client for sending a Slack message.
 type Slack struct {
 	client *slack.Client
 }
+
 // slackConversationsLimit is the maximum number of conversations to fetch from Slack.
 const slackConversationsLimit = 1000
 
@@ -22,7 +23,7 @@ var errChannelNotFound = errors.New("channel not found")
 var errCouldNotFindChannel = errors.New("could not find channel")
 
 // SendSlackMessage sends a message to a Slack channel using a Slack App.
-func (s *Slack) SendSlackMessage(ctx context.Context, args SlackArgs) error {
+func (s *Slack) SendSlackMessage(args SlackArgs) error {
 	if args.DevMode {
 		fmt.Printf("[DEV MODE] Would send to channel '%s': %s\n", args.Channel, args.Message)
 		return nil
@@ -52,20 +53,20 @@ func isChannelID(s string) bool {
 }
 
 // findChannelByName looks up a channel by name.
-func (s *Slack) findChannelByName( name string) (*slack.Channel, error) {
-    params := &slack.GetConversationsParameters{
-        Types:           []string{"public_channel", "private_channel"},
-        ExcludeArchived: true,
-        Limit:           slackConversationsLimit,
-    }
-    channels, _, err := s.client.GetConversations(params)
-    if err != nil {
-        return nil, err
-    }
-    for _, ch := range channels {
-        if ch.Name == name {
-            return &ch, nil
-        }
-    }
-    return nil, fmt.Errorf("channel '%s' not found: %w", name, errChannelNotFound)
+func (s *Slack) findChannelByName(name string) (*slack.Channel, error) {
+	params := &slack.GetConversationsParameters{
+		Types:           []string{"public_channel", "private_channel"},
+		ExcludeArchived: true,
+		Limit:           slackConversationsLimit,
+	}
+	channels, _, err := s.client.GetConversations(params)
+	if err != nil {
+		return nil, err
+	}
+	for _, ch := range channels {
+		if ch.Name == name {
+			return &ch, nil
+		}
+	}
+	return nil, fmt.Errorf("channel '%s' not found: %w", name, errChannelNotFound)
 }
