@@ -21,19 +21,11 @@ var errChannelNotFound = errors.New("channel not found")
 // errCouldNotFindChannel is the error returned when a channel could not be found.
 var errCouldNotFindChannel = errors.New("could not find channel")
 
-// errSlackTokenMissing is the error returned when the Slack token is missing.
-var errSlackTokenMissing = errors.New("slack token is missing")
-
 // SendSlackMessage sends a message to a Slack channel using a Slack App.
 func (s *Slack) SendSlackMessage(ctx context.Context, args SlackArgs) error {
 	if args.DevMode {
 		fmt.Printf("[DEV MODE] Would send to channel '%s': %s\n", args.Channel, args.Message)
 		return nil
-	}
-
-	token, ok := ctx.Value(slackTokenKey.name).(string)
-	if !ok || token == "" {
-		return errSlackTokenMissing
 	}
 
 	channelID := args.Channel
