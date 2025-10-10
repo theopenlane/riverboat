@@ -62,5 +62,7 @@ type Workers struct {
 
 	// WatermarkDocWorker configuration for watermarking documents
 	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkDocWorker" json:"watermarkDocWorker"`
+    // SlackWorker configuration for sending Slack messages
+    SlackWorker jobs.SlackWorker `koanf:"slackWorker" json:"slackWorker"`
 	// add more workers here
 }

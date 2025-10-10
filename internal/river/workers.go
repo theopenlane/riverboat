@@ -25,6 +25,15 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("email worker enabled")
 	}
 
+    if c.SlackWorker.Config.Enabled {
+        if err := river.AddWorkerSafely(workers, &jobs.SlackWorker{
+            Config: c.SlackWorker.Config,
+        }); err != nil {
+            return nil, err
+        }
+        log.Info().Msg("slack worker enabled")
+    }
+
 	if c.CreateCustomDomainWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{
 			Config: c.CreateCustomDomainWorker.Config,
