@@ -41,7 +41,7 @@ func (w *SlackWorker) Work(ctx context.Context, job *river.Job[SlackArgs]) error
 		return newMissingRequiredArg("token", job.Args.Kind())
 	}
 
-	return slackClient.SendSlackMessage(ctx, args)
+	return slackClient.SendSlackMessage(args)
 }
 
 // SlackConfig configures the Slack worker.
