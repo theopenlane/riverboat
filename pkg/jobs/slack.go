@@ -2,6 +2,7 @@
 package jobs
 
 import (
+	"context"
 	"errors"
 	"fmt"
 
@@ -23,7 +24,7 @@ var errChannelNotFound = errors.New("channel not found")
 var errCouldNotFindChannel = errors.New("could not find channel")
 
 // SendSlackMessage sends a message to a Slack channel using a Slack App.
-func (s *Slack) SendSlackMessage(args SlackArgs) error {
+func (s *Slack) SendSlackMessage(ctx context.Context, args SlackArgs) error {
 	if args.DevMode {
 		fmt.Printf("[DEV MODE] Would send to channel '%s': %s\n", args.Channel, args.Message)
 		return nil
@@ -40,7 +41,7 @@ func (s *Slack) SendSlackMessage(args SlackArgs) error {
 		channelID = ch.ID
 	}
 
-	_, _, err := s.client.PostMessage(channelID, slack.MsgOptionText(args.Message, false))
+	_, _, err := s.client.PostMessageContext(ctx, channelID, slack.MsgOptionText(args.Message, false))
 	if err != nil {
 		return fmt.Errorf("failed to send Slack message: %w", err)
 	}

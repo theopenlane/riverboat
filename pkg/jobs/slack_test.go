@@ -1,6 +1,7 @@
 package jobs
 
 import (
+	"context"
 	"testing"
 
 	slack "github.com/slack-go/slack"
@@ -8,13 +9,14 @@ import (
 
 func TestSendSlackMessage_DevMode(t *testing.T) {
 	slackClient := &Slack{}
+	ctx := context.Background()
 	slackClient.client = slack.New("slack_token")
 	args := SlackArgs{
 		Channel: "general",
 		Message: "Hello from dev mode!",
 		DevMode: true,
 	}
-	if err := slackClient.SendSlackMessage(args); err != nil {
+	if err := slackClient.SendSlackMessage(ctx, args); err != nil {
 		t.Fatalf("expected no error in dev mode, got: %v", err)
 	}
 }
