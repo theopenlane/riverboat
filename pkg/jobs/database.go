@@ -70,3 +70,4 @@ func (w *DatabaseWorker) Work(ctx context.Context, job *river.Job[DatabaseArgs])
 
 	return nil
 }
+
