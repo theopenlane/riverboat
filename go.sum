@@ -428,8 +428,8 @@ github.com/stripe/stripe-go/v83 v83.0.2 h1:WpSTqY/M72/dqi3Srq3AFqYVp9vD32giSSmSv
 github.com/stripe/stripe-go/v83 v83.0.2/go.mod h1:nRyDcLrJtwPPQUnKAFs9Bt1NnQvNhNiF6V19XHmPISE=
 github.com/subosito/gotenv v1.6.0 h1:9NlTDc1FTs4qu0DDq7AEtTPNw6SVm7uBMsUCUjABIf8=
 github.com/subosito/gotenv v1.6.0/go.mod h1:Dk4QP5c2W3ibzajGcXpNraDfq2IrhjMIvMSWPKKo0FU=
-github.com/theopenlane/core v0.41.0 h1:5Tq4SgW/BjGes7wcrEsWys2ixp5SLmkiSuamkev1Ypw=
-github.com/theopenlane/core v0.41.0/go.mod h1:7c8aSbgCZZyeGpdpre2IgYeYOe/JspgD++mkGvyz1KU=
+github.com/theopenlane/core v0.41.1 h1:22ODWWpzUn1s5BQwdIBLXbj1iwDOCk2u+juvGpOAmbQ=
+github.com/theopenlane/core v0.41.1/go.mod h1:TVq79aL4PVnBai/U6q9yl4EwzYBMPoiwOUo/bExgulw=
 github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
 github.com/theopenlane/dbx v0.1.3/go.mod h1:/bcz8oKFK3qrakLw0yHCAFY6fGnTOC3CntM0jMj3GDk=
 github.com/theopenlane/echox v0.2.4 h1:bocz1Dfs7d2fkNa8foQqdmeTtkMTQNwe1v20bIGIDps=
