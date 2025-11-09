@@ -12,6 +12,14 @@ river:
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
                 validateInterval: 0
+        createPirschDomainWorker:
+            config:
+                databaseHost: ""
+                enabled: false
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
+                pirschClientID: ""
+                pirschClientSecret: ""
         databaseWorker:
             config:
                 baseUrl: http://localhost:1337
@@ -33,6 +41,14 @@ river:
                 interval: 0
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+        deletePirschDomainWorker:
+            config:
+                databaseHost: ""
+                enabled: false
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
+                pirschClientID: ""
+                pirschClientSecret: ""
         emailWorker:
             config:
                 devMode: true
@@ -45,6 +61,11 @@ river:
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+        slackWorker:
+            config:
+                devMode: true
+                enabled: false
+                token: ""
         validateCustomDomainWorker:
             config:
                 cloudflareApiKey: ""

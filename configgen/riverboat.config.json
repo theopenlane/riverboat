@@ -18,18 +18,28 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.CreatePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CustomDomainConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
-        "cloudflareApiKey": {
-          "type": "string"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareApiKey": {
           "type": "string"
         },
         "databaseHost": {
@@ -67,17 +77,17 @@
     },
     "corejobs.DeleteExportWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
-        "interval": {
-          "type": "integer"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
           "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "interval": {
+          "type": "integer"
         },
         "cutoffDuration": {
           "type": "integer"
@@ -89,6 +99,16 @@
         "interval",
         "cutoffDuration"
       ]
+    },
+    "corejobs.DeletePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
     },
     "corejobs.ExportContentWorker": {
       "properties": {
@@ -102,13 +122,37 @@
     },
     "corejobs.ExportWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.PirschDomainConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "pirschClientID": {
+          "type": "string"
+        },
+        "pirschClientSecret": {
+          "type": "string"
+        },
+        "databaseHost": {
           "type": "string"
         }
       },
@@ -221,6 +265,36 @@
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
+    "jobs.SlackConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "enable or disable the slack worker"
+        },
+        "devMode": {
+          "type": "boolean",
+          "description": "enable dev mode"
+        },
+        "token": {
+          "type": "string",
+          "description": "the token to use for the slack app"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "SlackConfig configures the Slack worker."
+    },
+    "jobs.SlackWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.SlackConfig",
+          "description": "the slack configuration"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "SlackWorker sends messages to Slack."
+    },
     "river.Config": {
       "properties": {
         "databaseHost": {
@@ -292,6 +366,18 @@
         "watermarkDocWorker": {
           "$ref": "#/$defs/corejobs.WatermarkDocWorker",
           "description": "WatermarkDocWorker configuration for watermarking documents"
+        },
+        "slackWorker": {
+          "$ref": "#/$defs/jobs.SlackWorker",
+          "description": "SlackWorker configuration for sending Slack messages"
+        },
+        "createPirschDomainWorker": {
+          "$ref": "#/$defs/corejobs.CreatePirschDomainWorker",
+          "description": "CreatePirschDomainWorker configuration for creating Pirsch domains"
+        },
+        "deletePirschDomainWorker": {
+          "$ref": "#/$defs/corejobs.DeletePirschDomainWorker",
+          "description": "DeletePirschDomainWorker configuration for deleting Pirsch domains"
         }
       },
       "additionalProperties": false,

@@ -102,7 +102,7 @@ in `pkg/jobs`.
 1. Add a test for the new job, see `email_test.go` as an example. There are
    additional helper functions that can be used, see
    [river test helpers](https://riverqueue.com/docs/testing) for details.
-1. If there are configuration settings, add the worker to `pkg/river/config.go`
+1. If there are configuration settings, add the worker to `internal/river/config.go`
    `Workers` struct, this will allow the config variables to be set via the
    `koanf` config setup. Once added you will need to regenerate the config:
 
@@ -111,7 +111,7 @@ in `pkg/jobs`.
    ```
 
 1. Register the worker by adding the `river.AddWorkerSafely` to the
-   `pkg/river/workers.go` `createWorkers` function.
+   `internal/river/workers.go` `createWorkers` function.
 1. Add a `test` job to `test/` directory by creating a new directory with a
    `main.go` function that will insert the job into the queue.
 

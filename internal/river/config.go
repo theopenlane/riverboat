@@ -62,7 +62,12 @@ type Workers struct {
 
 	// WatermarkDocWorker configuration for watermarking documents
 	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkDocWorker" json:"watermarkDocWorker"`
-    // SlackWorker configuration for sending Slack messages
-    SlackWorker jobs.SlackWorker `koanf:"slackWorker" json:"slackWorker"`
+	// SlackWorker configuration for sending Slack messages
+	SlackWorker jobs.SlackWorker `koanf:"slackWorker" json:"slackWorker"`
+
+	// CreatePirschDomainWorker configuration for creating Pirsch domains
+	CreatePirschDomainWorker corejobs.CreatePirschDomainWorker `koanf:"createPirschDomainWorker" json:"createPirschDomainWorker"`
+	// DeletePirschDomainWorker configuration for deleting Pirsch domains
+	DeletePirschDomainWorker corejobs.DeletePirschDomainWorker `koanf:"deletePirschDomainWorker" json:"deletePirschDomainWorker"`
 	// add more workers here
 }
