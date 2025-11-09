@@ -18,6 +18,16 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.CreatePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CustomDomainConfig": {
       "properties": {
         "openlaneAPIHost": {
@@ -30,9 +40,6 @@
           "type": "boolean"
         },
         "cloudflareApiKey": {
-          "type": "string"
-        },
-        "databaseHost": {
           "type": "string"
         },
         "validateInterval": {
@@ -90,6 +97,16 @@
         "cutoffDuration"
       ]
     },
+    "corejobs.DeletePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ExportContentWorker": {
       "properties": {
         "config": {
@@ -110,6 +127,27 @@
         },
         "enabled": {
           "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.PirschDomainConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "pirschClientID": {
+          "type": "string"
+        },
+        "pirschClientSecret": {
+          "type": "string"
         }
       },
       "additionalProperties": false,
@@ -137,14 +175,14 @@
     },
     "corejobs.WatermarkWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
           "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
@@ -330,6 +368,14 @@
         "slackWorker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
+        },
+        "createPirschDomainWorker": {
+          "$ref": "#/$defs/corejobs.CreatePirschDomainWorker",
+          "description": "CreatePirschDomainWorker configuration for creating Pirsch domains"
+        },
+        "deletePirschDomainWorker": {
+          "$ref": "#/$defs/corejobs.DeletePirschDomainWorker",
+          "description": "DeletePirschDomainWorker configuration for deleting Pirsch domains"
         }
       },
       "additionalProperties": false,

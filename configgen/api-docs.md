@@ -43,6 +43,12 @@
             },
             "slackWorker": {
                 "config": {}
+            },
+            "createPirschDomainWorker": {
+                "config": {}
+            },
+            "deletePirschDomainWorker": {
+                "config": {}
             }
         },
         "metrics": {}
@@ -101,6 +107,12 @@ Config is the configuration for the river server
         },
         "slackWorker": {
             "config": {}
+        },
+        "createPirschDomainWorker": {
+            "config": {}
+        },
+        "deletePirschDomainWorker": {
+            "config": {}
         }
     },
     "metrics": {}
@@ -139,6 +151,8 @@ Workers that will be enabled on the server
 |[**deleteExportContentWorker**](#riverworkersdeleteexportcontentworker)|`object`|||
 |[**watermarkDocWorker**](#riverworkerswatermarkdocworker)|`object`|||
 |[**slackWorker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
+|[**createPirschDomainWorker**](#riverworkerscreatepirschdomainworker)|`object`|||
+|[**deletePirschDomainWorker**](#riverworkersdeletepirschdomainworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -170,6 +184,12 @@ Workers that will be enabled on the server
         "config": {}
     },
     "slackWorker": {
+        "config": {}
+    },
+    "createPirschDomainWorker": {
+        "config": {}
+    },
+    "deletePirschDomainWorker": {
         "config": {}
     }
 }
@@ -276,7 +296,6 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -309,7 +328,6 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -342,7 +360,6 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -433,9 +450,9 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersslackworker"></a>
@@ -472,6 +489,70 @@ SlackConfig configures the Slack worker.
 |**enabled**|`boolean`|enable or disable the slack worker<br/>||
 |**devMode**|`boolean`|enable dev mode<br/>||
 |**token**|`string`|the token to use for the slack app<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscreatepirschdomainworker"></a>
+#### river\.workers\.createPirschDomainWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkerscreatepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkerscreatepirschdomainworkerconfig"></a>
+##### river\.workers\.createPirschDomainWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschClientID**|`string`|||
+|**pirschClientSecret**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersdeletepirschdomainworker"></a>
+#### river\.workers\.deletePirschDomainWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersdeletepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkersdeletepirschdomainworkerconfig"></a>
+##### river\.workers\.deletePirschDomainWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschClientID**|`string`|||
+|**pirschClientSecret**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>
