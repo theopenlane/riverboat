@@ -40,8 +40,12 @@
             },
             "watermarkDocWorker": {
                 "config": {}
+            },
+            "slackWorker": {
+                "config": {}
             }
-        }
+        },
+        "metrics": {}
     }
 }
 ```
@@ -60,6 +64,7 @@ Config is the configuration for the river server
 |[**queues**](#riverqueues)|`array`|||
 |[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
 |**defaultMaxRetries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
+|[**metrics**](#rivermetrics)|`object`|MetricsConfig is the configuration for metrics<br/>||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -93,8 +98,12 @@ Config is the configuration for the river server
         },
         "watermarkDocWorker": {
             "config": {}
+        },
+        "slackWorker": {
+            "config": {}
         }
-    }
+    },
+    "metrics": {}
 }
 ```
 
@@ -129,6 +138,7 @@ Workers that will be enabled on the server
 |[**exportContentWorker**](#riverworkersexportcontentworker)|`object`|||
 |[**deleteExportContentWorker**](#riverworkersdeleteexportcontentworker)|`object`|||
 |[**watermarkDocWorker**](#riverworkerswatermarkdocworker)|`object`|||
+|[**slackWorker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -157,6 +167,9 @@ Workers that will be enabled on the server
         "config": {}
     },
     "watermarkDocWorker": {
+        "config": {}
+    },
+    "slackWorker": {
         "config": {}
     }
 }
@@ -259,10 +272,10 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`||no|
-|**cloudflareApiKey**|`string`||no|
 |**openlaneAPIHost**|`string`||no|
 |**openlaneAPIToken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareApiKey**|`string`||no|
 |**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
@@ -292,10 +305,10 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`||no|
-|**cloudflareApiKey**|`string`||no|
 |**openlaneAPIHost**|`string`||no|
 |**openlaneAPIToken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareApiKey**|`string`||no|
 |**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
@@ -325,10 +338,10 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`||no|
-|**cloudflareApiKey**|`string`||no|
 |**openlaneAPIHost**|`string`||no|
 |**openlaneAPIToken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareApiKey**|`string`||no|
 |**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
@@ -358,9 +371,9 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeleteexportcontentworker"></a>
@@ -388,10 +401,10 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`||no|
-|**interval**|`integer`||yes|
 |**openlaneAPIHost**|`string`||no|
 |**openlaneAPIToken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**interval**|`integer`||yes|
 |**cutoffDuration**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -423,6 +436,57 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**enabled**|`boolean`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersslackworker"></a>
+#### river\.workers\.slackWorker: object
+
+SlackWorker sends messages to Slack.
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersslackworkerconfig)|`object`|SlackConfig configures the Slack worker.<br/>||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkersslackworkerconfig"></a>
+##### river\.workers\.slackWorker\.config: object
+
+SlackConfig configures the Slack worker.
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|enable or disable the slack worker<br/>||
+|**devMode**|`boolean`|enable dev mode<br/>||
+|**token**|`string`|the token to use for the slack app<br/>||
+
+**Additional Properties:** not allowed  
+<a name="rivermetrics"></a>
+### river\.metrics: object
+
+MetricsConfig is the configuration for metrics
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enableMetrics**|`boolean`|Enable toggles otel metrics middleware<br/>||
+|**metricsDurationUnit**|`string`|DurationUnit sets the duration unit for metrics<br/>||
+|**enableSemanticMetrics**|`boolean`|EnableSemanticMetrics toggles semantic metrics<br/>||
 
 **Additional Properties:** not allowed  
 
