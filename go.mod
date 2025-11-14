@@ -1,6 +1,6 @@
 module github.com/theopenlane/riverboat
 
-go 1.25.1
+go 1.25.4
 
 require (
 	github.com/invopop/jsonschema v0.13.0

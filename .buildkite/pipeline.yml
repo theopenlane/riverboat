@@ -10,6 +10,9 @@ steps:
     steps:
       - label: ":golangci-lint: lint :lint-roller:"
         key: "lint"
+        if_changed:
+          - "**.go"
+          - .golangci.yaml
         cancel_on_build_failing: true
         plugins:
           - docker#v5.13.0:
@@ -20,6 +23,9 @@ steps:
                 - "GOTOOLCHAIN=auto"
       - label: ":golang: go test"
         key: "go_test"
+        if_changed:
+          - go.{mod,sum}
+          - "**.go"
         cancel_on_build_failing: true
         plugins:
           - docker#v5.13.0:
@@ -32,6 +38,9 @@ steps:
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
         if: build.pull_request.id != null
+        if_changed:
+          - go.{mod,sum}
+          - "**.go"
         depends_on: ["go_test"]
         plugins:
           - cluster-secrets#v1.0.0:
@@ -48,6 +57,9 @@ steps:
                 - "SONAR_SCANNER_OPTS=-Dsonar.pullrequest.branch=$BUILDKITE_BRANCH -Dsonar.pullrequest.base=$BUILDKITE_PULL_REQUEST_BASE_BRANCH -Dsonar.pullrequest.key=$BUILDKITE_PULL_REQUEST"
       - label: ":github: upload reports"
         key: "scan-upload"
+        if_changed:
+          - go.{mod,sum}
+          - "**.go"
         if: build.branch == "main"
         depends_on: ["go_test"]
         plugins:
@@ -84,6 +96,9 @@ steps:
         key: "docker-pr-build"
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
+        if_changed:
+          - go.{mod,sum}
+          - "**.go"
         matrix:
           setup:
             platform:
