@@ -49,6 +49,7 @@ func Start(ctx context.Context, c Config) error {
 		riverqueue.WithQueues(queues),
 		riverqueue.WithPeriodicJobs(periodicJobs),
 		riverqueue.WithMaxRetries(c.DefaultMaxRetries),
+		riverqueue.WithMetrics(&c.Metrics),
 	)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to create river client")

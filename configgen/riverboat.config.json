@@ -20,16 +20,16 @@
     },
     "corejobs.CustomDomainConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
-        "cloudflareApiKey": {
-          "type": "string"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareApiKey": {
           "type": "string"
         },
         "databaseHost": {
@@ -67,17 +67,17 @@
     },
     "corejobs.DeleteExportWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
-        "interval": {
-          "type": "integer"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
           "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "interval": {
+          "type": "integer"
         },
         "cutoffDuration": {
           "type": "integer"
@@ -102,14 +102,14 @@
     },
     "corejobs.ExportWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
           "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
@@ -221,6 +221,36 @@
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
     },
+    "jobs.SlackConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "enable or disable the slack worker"
+        },
+        "devMode": {
+          "type": "boolean",
+          "description": "enable dev mode"
+        },
+        "token": {
+          "type": "string",
+          "description": "the token to use for the slack app"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "SlackConfig configures the Slack worker."
+    },
+    "jobs.SlackWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.SlackConfig",
+          "description": "the slack configuration"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "SlackWorker sends messages to Slack."
+    },
     "river.Config": {
       "properties": {
         "databaseHost": {
@@ -238,6 +268,10 @@
         "defaultMaxRetries": {
           "type": "integer",
           "description": "DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
+        },
+        "metrics": {
+          "$ref": "#/$defs/riverqueue.MetricsConfig",
+          "description": "Metrics enables or disables metrics collection"
         }
       },
       "additionalProperties": false,
@@ -292,11 +326,34 @@
         "watermarkDocWorker": {
           "$ref": "#/$defs/corejobs.WatermarkDocWorker",
           "description": "WatermarkDocWorker configuration for watermarking documents"
+        },
+        "slackWorker": {
+          "$ref": "#/$defs/jobs.SlackWorker",
+          "description": "SlackWorker configuration for sending Slack messages"
         }
       },
       "additionalProperties": false,
       "type": "object",
       "description": "Workers that will be enabled on the server"
+    },
+    "riverqueue.MetricsConfig": {
+      "properties": {
+        "enableMetrics": {
+          "type": "boolean",
+          "description": "Enable toggles otel metrics middleware"
+        },
+        "metricsDurationUnit": {
+          "type": "string",
+          "description": "DurationUnit sets the duration unit for metrics"
+        },
+        "enableSemanticMetrics": {
+          "type": "boolean",
+          "description": "EnableSemanticMetrics toggles semantic metrics"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "MetricsConfig is the configuration for metrics"
     }
   },
   "properties": {
