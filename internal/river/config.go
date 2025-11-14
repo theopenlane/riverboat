@@ -4,6 +4,7 @@ import (
 	"github.com/theopenlane/core/pkg/corejobs"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
+	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
 // Config is the configuration for the river server
@@ -19,6 +20,8 @@ type Config struct {
 	Workers Workers `koanf:"workers" json:"workers"`
 	// DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job
 	DefaultMaxRetries int `koanf:"defaultMaxRetries" json:"defaultMaxRetries" default:"10"`
+	// Metrics enables or disables metrics collection
+	Metrics riverqueue.MetricsConfig `koanf:"metrics" json:"metrics"`
 }
 
 // Queue is the configuration for a queue
@@ -62,7 +65,7 @@ type Workers struct {
 
 	// WatermarkDocWorker configuration for watermarking documents
 	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkDocWorker" json:"watermarkDocWorker"`
-    // SlackWorker configuration for sending Slack messages
-    SlackWorker jobs.SlackWorker `koanf:"slackWorker" json:"slackWorker"`
+	// SlackWorker configuration for sending Slack messages
+	SlackWorker jobs.SlackWorker `koanf:"slackWorker" json:"slackWorker"`
 	// add more workers here
 }

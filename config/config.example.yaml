@@ -2,6 +2,10 @@ refreshInterval: 600000000000
 river:
     databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     defaultMaxRetries: 10
+    metrics:
+        enableMetrics: false
+        enableSemanticMetrics: true
+        metricsDurationUnit: ms
     queues: null
     workers:
         createCustomDomainWorker:
@@ -45,6 +49,11 @@ river:
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+        slackWorker:
+            config:
+                devMode: true
+                enabled: false
+                token: ""
         validateCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
