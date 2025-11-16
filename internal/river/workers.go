@@ -36,111 +36,12 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		log.Info().Msg("slack worker enabled")
 	}
 
-	if w.CreateCustomDomainWorker.Config.Enabled {
-		customDomainConfig := &corejobs.CreateCustomDomainWorker{
-			Config: w.CreateCustomDomainWorker.Config,
-		}
-
-		// set Openlane config defaults if not set
-		if customDomainConfig.Config.OpenlaneAPIHost == "" {
-			customDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if customDomainConfig.Config.OpenlaneAPIToken == "" {
-			customDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		customDomainConfig.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, customDomainConfig); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("create custom domain worker enabled")
+	if err := createCustomDomainWorkers(w, insertOnlyClient, workers); err != nil {
+		return nil, err
 	}
 
-	if w.ValidateCustomDomainWorker.Config.Enabled {
-		validateCustomDomainConfig := &corejobs.ValidateCustomDomainWorker{
-			Config: w.ValidateCustomDomainWorker.Config,
-		}
-
-		// set Openlane config defaults if not set
-		if validateCustomDomainConfig.Config.OpenlaneAPIHost == "" {
-			validateCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if validateCustomDomainConfig.Config.OpenlaneAPIToken == "" {
-			validateCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, validateCustomDomainConfig); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("validate custom domain worker enabled")
-	}
-
-	if w.DeleteCustomDomainWorker.Config.Enabled {
-		deleteCustomDomainConfig := &corejobs.DeleteCustomDomainWorker{
-			Config: w.DeleteCustomDomainWorker.Config,
-		}
-
-		// set Openlane config defaults if not set
-		if deleteCustomDomainConfig.Config.OpenlaneAPIHost == "" {
-			deleteCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if deleteCustomDomainConfig.Config.OpenlaneAPIToken == "" {
-			deleteCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, deleteCustomDomainConfig); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("delete custom domain worker enabled")
-	}
-
-	if w.ExportContentWorker.Config.Enabled {
-		exportContentConfig := &corejobs.ExportContentWorker{
-			Config: w.ExportContentWorker.Config,
-		}
-
-		// set Openlane config defaults if not set
-		if exportContentConfig.Config.OpenlaneAPIHost == "" {
-			exportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if exportContentConfig.Config.OpenlaneAPIToken == "" {
-			exportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, exportContentConfig); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("export content worker enabled")
-	}
-
-	if w.DeleteExportContentWorker.Config.Enabled {
-		deleteExportContentConfig := &corejobs.DeleteExportContentWorker{
-			Config: w.DeleteExportContentWorker.Config,
-		}
-
-		// set Openlane config defaults if not set
-		if deleteExportContentConfig.Config.OpenlaneAPIHost == "" {
-			deleteExportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if deleteExportContentConfig.Config.OpenlaneAPIToken == "" {
-			deleteExportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, deleteExportContentConfig); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("delete export content worker enabled")
+	if err := createExportWorkers(w, insertOnlyClient, workers); err != nil {
+		return nil, err
 	}
 
 	if w.WatermarkDocWorker.Config.Enabled {
@@ -164,6 +65,131 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		log.Info().Msg("watermark doc worker enabled")
 	}
 
+	if err := createPirschDomainWorkers(w, insertOnlyClient, workers); err != nil {
+		return nil, err
+	}
+
+	// add more workers here
+
+	return workers, nil
+}
+
+func createExportWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+	if w.ExportContentWorker.Config.Enabled {
+		exportContentConfig := &corejobs.ExportContentWorker{
+			Config: w.ExportContentWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if exportContentConfig.Config.OpenlaneAPIHost == "" {
+			exportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if exportContentConfig.Config.OpenlaneAPIToken == "" {
+			exportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, exportContentConfig); err != nil {
+			return err
+		}
+
+		log.Info().Msg("export content worker enabled")
+	}
+
+	if w.DeleteExportContentWorker.Config.Enabled {
+		deleteExportContentConfig := &corejobs.DeleteExportContentWorker{
+			Config: w.DeleteExportContentWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if deleteExportContentConfig.Config.OpenlaneAPIHost == "" {
+			deleteExportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if deleteExportContentConfig.Config.OpenlaneAPIToken == "" {
+			deleteExportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, deleteExportContentConfig); err != nil {
+			return err
+		}
+
+		log.Info().Msg("delete export content worker enabled")
+	}
+
+	return nil
+}
+
+func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+	if w.CreateCustomDomainWorker.Config.Enabled {
+		customDomainConfig := &corejobs.CreateCustomDomainWorker{
+			Config: w.CreateCustomDomainWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if customDomainConfig.Config.OpenlaneAPIHost == "" {
+			customDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if customDomainConfig.Config.OpenlaneAPIToken == "" {
+			customDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		customDomainConfig.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, customDomainConfig); err != nil {
+			return err
+		}
+
+		log.Info().Msg("create custom domain worker enabled")
+	}
+
+	if w.ValidateCustomDomainWorker.Config.Enabled {
+		validateCustomDomainConfig := &corejobs.ValidateCustomDomainWorker{
+			Config: w.ValidateCustomDomainWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if validateCustomDomainConfig.Config.OpenlaneAPIHost == "" {
+			validateCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if validateCustomDomainConfig.Config.OpenlaneAPIToken == "" {
+			validateCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, validateCustomDomainConfig); err != nil {
+			return err
+		}
+
+		log.Info().Msg("validate custom domain worker enabled")
+	}
+
+	if w.DeleteCustomDomainWorker.Config.Enabled {
+		deleteCustomDomainConfig := &corejobs.DeleteCustomDomainWorker{
+			Config: w.DeleteCustomDomainWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if deleteCustomDomainConfig.Config.OpenlaneAPIHost == "" {
+			deleteCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if deleteCustomDomainConfig.Config.OpenlaneAPIToken == "" {
+			deleteCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, deleteCustomDomainConfig); err != nil {
+			return err
+		}
+
+		log.Info().Msg("delete custom domain worker enabled")
+	}
+
+	return nil
+}
+
+func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreatePirschDomainWorker.Config.Enabled {
 		pirschDomainConfig := &corejobs.CreatePirschDomainWorker{
 			Config: w.CreatePirschDomainWorker.Config,
@@ -181,7 +207,7 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		pirschDomainConfig.WithRiverClient(insertOnlyClient)
 
 		if err := river.AddWorkerSafely(workers, pirschDomainConfig); err != nil {
-			return nil, err
+			return err
 		}
 
 		log.Info().Msg("create pirsch domain worker enabled")
@@ -192,13 +218,11 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 			Config: w.DeletePirschDomainWorker.Config,
 		},
 		); err != nil {
-			return nil, err
+			return err
 		}
 
 		log.Info().Msg("delete pirsch domain worker enabled")
 	}
 
-	// add more workers here
-
-	return workers, nil
+	return nil
 }

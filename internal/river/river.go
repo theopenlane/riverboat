@@ -30,17 +30,17 @@ func Start(ctx context.Context, c Config) error {
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to create insert-only river client")
 	}
-	defer insertOnlyClient.Close()
+	defer insertOnlyClient.Close() // nolint:errcheck
 
 	// Create workers based on the configuration
 	worker, err := createWorkers(c.Workers, insertOnlyClient)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create workers")
+		log.Error().Err(err).Msg("failed to create workers")
 	}
 
 	periodicJobs, err := createPeriodicJobs(c.Workers)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create periodic jobs schedules")
+		log.Error().Err(err).Msg("failed to create periodic jobs schedules")
 	}
 
 	log.Debug().Msg("workers created")
@@ -62,7 +62,7 @@ func Start(ctx context.Context, c Config) error {
 		riverqueue.WithMaxRetries(c.DefaultMaxRetries),
 	)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create river client")
+		log.Error().Err(err).Msg("failed to create river client")
 	}
 
 	// get the underlying river client
@@ -72,7 +72,7 @@ func Start(ctx context.Context, c Config) error {
 
 	// run the client
 	if err := rc.Start(ctx); err != nil {
-		log.Fatal().Err(err).Msg("failed to start river client")
+		log.Error().Err(err).Msg("failed to start river client")
 	}
 
 	sigintOrTerm := make(chan os.Signal, 1)
