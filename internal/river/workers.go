@@ -104,6 +104,31 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		log.Info().Msg("watermark doc worker enabled")
 	}
 
+	if w.CreatePirschDomainWorker.Config.Enabled {
+		pirschDomainConfig := &corejobs.CreatePirschDomainWorker{
+			Config: w.CreatePirschDomainWorker.Config,
+		}
+
+		pirschDomainConfig.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, pirschDomainConfig); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("create pirsch domain worker enabled")
+	}
+
+	if w.DeletePirschDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.DeletePirschDomainWorker{
+			Config: w.DeletePirschDomainWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("delete pirsch domain worker enabled")
+	}
+
 	// add more workers here
 
 	return workers, nil
