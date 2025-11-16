@@ -13,6 +13,8 @@ data:
   RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshInterval | default "10m" }}
   RIVERBOAT_RIVER_DATABASEHOST: {{ .Values.riverboat.river.databaseHost | default "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable" }}
   RIVERBOAT_RIVER_QUEUES: {{ .Values.riverboat.river.queues }}
+  RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.openlaneConfig.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.openlaneConfig.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.emailWorker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.emailWorker.config.devMode | default true }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TESTDIR: {{ .Values.riverboat.river.workers.emailWorker.config.testDir | default "fixtures/email" }}
@@ -22,25 +24,32 @@ data:
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.river.workers.databaseWorker.config.baseUrl | default "http://localhost:1337" }}
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.river.workers.databaseWorker.config.endpoint | default "query" }}
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_DEBUG: {{ .Values.riverboat.river.workers.databaseWorker.config.debug | default false }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.cloudflareApiKey }}
-  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.databaseHost }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.cloudflareApiKey }}
-  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.databaseHost }}
   RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.cloudflareApiKey }}
-  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.databaseHost }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportContentWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_INTERVAL: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.interval }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_CUTOFFDURATION: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.cutoffDuration }}
-  RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackWorker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackWorker.config.devMode | default true }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackWorker.config.token }}

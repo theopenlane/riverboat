@@ -1,20 +1,24 @@
-FROM --platform=$BUILDPLATFORM golang:1.25.3 AS builder
+# FROM --platform=$BUILDPLATFORM golang:1.25.3 AS builder
 
-ARG TARGETOS
-ARG TARGETARCH
+# ARG TARGETOS
+# ARG TARGETARCH
 
-WORKDIR /go/src/app
-COPY . .
+# WORKDIR /go/src/app
+# COPY . .
+# COPY ../core ../core
 
-RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /go/bin/riverboat .
+# RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /go/bin/riverboat .
 
 FROM cgr.dev/chainguard/bash:latest
 
 # `nonroot` coming from distroless
 USER 65532:65532
 
-# Copy the binary
-COPY --from=builder /go/bin/riverboat /bin/riverboat
+# # Copy the binary
+# COPY --from=builder /go/bin/riverboat /bin/riverboat
+
+# Copy the binary that was built
+COPY riverboat /bin/riverboat
 
 # Run the server on container startup
 ENTRYPOINT [ "/bin/riverboat" ]

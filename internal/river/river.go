@@ -21,8 +21,15 @@ const (
 
 // Start the river server with the given configuration
 func Start(ctx context.Context, c Config) error {
+	logger := createLogger(c.Logger)
+
+	insertOnlyClient, err := riverqueue.New(
+		ctx, riverqueue.WithConnectionURI(c.DatabaseHost),
+		riverqueue.WithLogger(logger),
+	)
+
 	// Create workers based on the configuration
-	worker, err := createWorkers(c.Workers)
+	worker, err := createWorkers(c.Workers, insertOnlyClient)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to create workers")
 	}
@@ -44,12 +51,11 @@ func Start(ctx context.Context, c Config) error {
 		ctx,
 		riverqueue.WithConnectionURI(c.DatabaseHost),
 		riverqueue.WithRunMigrations(true),
-		riverqueue.WithLogger(createLogger(c.Logger)),
+		riverqueue.WithLogger(logger),
 		riverqueue.WithWorkers(worker),
 		riverqueue.WithQueues(queues),
 		riverqueue.WithPeriodicJobs(periodicJobs),
 		riverqueue.WithMaxRetries(c.DefaultMaxRetries),
-		riverqueue.WithMetrics(&c.Metrics),
 	)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to create river client")

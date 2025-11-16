@@ -11,7 +11,6 @@ river:
         createCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
-                databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
@@ -25,7 +24,6 @@ river:
         deleteCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
-                databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
@@ -49,6 +47,9 @@ river:
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
+        openlaneConfig:
+            openlaneAPIHost: ""
+            openlaneAPIToken: ""
         slackWorker:
             config:
                 devMode: true
@@ -57,7 +58,6 @@ river:
         validateCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
-                databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""

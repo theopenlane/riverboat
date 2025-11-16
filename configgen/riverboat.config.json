@@ -32,9 +32,6 @@
         "cloudflareApiKey": {
           "type": "string"
         },
-        "databaseHost": {
-          "type": "string"
-        },
         "validateInterval": {
           "type": "integer"
         }
@@ -115,6 +112,18 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.OpenlaneConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ValidateCustomDomainWorker": {
       "properties": {
         "config": {
@@ -137,14 +146,14 @@
     },
     "corejobs.WatermarkWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
           "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
@@ -295,6 +304,10 @@
     },
     "river.Workers": {
       "properties": {
+        "openlaneConfig": {
+          "$ref": "#/$defs/corejobs.OpenlaneConfig",
+          "description": "OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers\nif a worker needs specific configuration, it can be set in the worker's config"
+        },
         "emailWorker": {
           "$ref": "#/$defs/jobs.EmailWorker",
           "description": "EmailWorker configuration for sending emails"

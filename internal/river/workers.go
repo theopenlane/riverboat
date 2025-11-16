@@ -7,16 +7,17 @@ import (
 	"github.com/theopenlane/core/pkg/corejobs"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
+	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
 // createWorkers creates a new workers instance
-func createWorkers(c Workers) (*river.Workers, error) {
+func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Workers, error) {
 	// create workers
 	workers := river.NewWorkers()
 
-	if c.EmailWorker.Config.Enabled {
+	if w.EmailWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &jobs.EmailWorker{
-			Config: c.EmailWorker.Config,
+			Config: w.EmailWorker.Config,
 		},
 		); err != nil {
 			return nil, err
@@ -25,29 +26,32 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("email worker enabled")
 	}
 
-    if c.SlackWorker.Config.Enabled {
-        if err := river.AddWorkerSafely(workers, &jobs.SlackWorker{
-            Config: c.SlackWorker.Config,
-        }); err != nil {
-            return nil, err
-        }
-        log.Info().Msg("slack worker enabled")
-    }
+	if w.SlackWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &jobs.SlackWorker{
+			Config: w.SlackWorker.Config,
+		}); err != nil {
+			return nil, err
+		}
+		log.Info().Msg("slack worker enabled")
+	}
 
-	if c.CreateCustomDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{
-			Config: c.CreateCustomDomainWorker.Config,
-		},
-		); err != nil {
+	if w.CreateCustomDomainWorker.Config.Enabled {
+		customDomainConfig := &corejobs.CreateCustomDomainWorker{
+			Config: w.CreateCustomDomainWorker.Config,
+		}
+
+		customDomainConfig.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, customDomainConfig); err != nil {
 			return nil, err
 		}
 
 		log.Info().Msg("create custom domain worker enabled")
 	}
 
-	if c.ValidateCustomDomainWorker.Config.Enabled {
+	if w.ValidateCustomDomainWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.ValidateCustomDomainWorker{
-			Config: c.ValidateCustomDomainWorker.Config,
+			Config: w.ValidateCustomDomainWorker.Config,
 		},
 		); err != nil {
 			return nil, err
@@ -56,9 +60,9 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("validate custom domain worker enabled")
 	}
 
-	if c.DeleteCustomDomainWorker.Config.Enabled {
+	if w.DeleteCustomDomainWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.DeleteCustomDomainWorker{
-			Config: c.DeleteCustomDomainWorker.Config,
+			Config: w.DeleteCustomDomainWorker.Config,
 		},
 		); err != nil {
 			return nil, err
@@ -67,9 +71,9 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("delete custom domain worker enabled")
 	}
 
-	if c.ExportContentWorker.Config.Enabled {
+	if w.ExportContentWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.ExportContentWorker{
-			Config: c.ExportContentWorker.Config,
+			Config: w.ExportContentWorker.Config,
 		},
 		); err != nil {
 			return nil, err
@@ -78,9 +82,9 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("export content worker enabled")
 	}
 
-	if c.DeleteExportContentWorker.Config.Enabled {
+	if w.DeleteExportContentWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.DeleteExportContentWorker{
-			Config: c.DeleteExportContentWorker.Config,
+			Config: w.DeleteExportContentWorker.Config,
 		},
 		); err != nil {
 			return nil, err
@@ -89,9 +93,9 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("delete export content worker enabled")
 	}
 
-	if c.WatermarkDocWorker.Config.Enabled {
+	if w.WatermarkDocWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.WatermarkDocWorker{
-			Config: c.WatermarkDocWorker.Config,
+			Config: w.WatermarkDocWorker.Config,
 		},
 		); err != nil {
 			return nil, err

@@ -17,6 +17,7 @@
             {}
         ],
         "workers": {
+            "openlaneConfig": {},
             "emailWorker": {
                 "config": {}
             },
@@ -75,6 +76,7 @@ Config is the configuration for the river server
         {}
     ],
     "workers": {
+        "openlaneConfig": {},
         "emailWorker": {
             "config": {}
         },
@@ -130,6 +132,7 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
+|[**openlaneConfig**](#riverworkersopenlaneconfig)|`object`|||
 |[**emailWorker**](#riverworkersemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
 |[**databaseWorker**](#riverworkersdatabaseworker)|`object`|DatabaseWorker is a worker to create a dedicated database for an organization<br/>||
 |[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|||
@@ -145,6 +148,7 @@ Workers that will be enabled on the server
 
 ```json
 {
+    "openlaneConfig": {},
     "emailWorker": {
         "config": {}
     },
@@ -175,6 +179,17 @@ Workers that will be enabled on the server
 }
 ```
 
+<a name="riverworkersopenlaneconfig"></a>
+#### river\.workers\.openlaneConfig: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+
+**Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
 #### river\.workers\.emailWorker: object
 
@@ -276,7 +291,6 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -309,7 +323,6 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -342,7 +355,6 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
@@ -433,9 +445,9 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersslackworker"></a>

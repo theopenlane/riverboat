@@ -42,6 +42,10 @@ type Logger struct {
 
 // Workers that will be enabled on the server
 type Workers struct {
+	// OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers
+	// if a worker needs specific configuration, it can be set in the worker's config
+	OpenlaneConfig corejobs.OpenlaneConfig `koanf:"openlaneConfig" json:"openlaneConfig"`
+
 	// EmailWorker configuration for sending emails
 	EmailWorker jobs.EmailWorker `koanf:"emailWorker" json:"emailWorker"`
 
