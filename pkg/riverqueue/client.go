@@ -133,6 +133,7 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 			}),
 		)
 	}
+
 	c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
 	if err != nil {
 		log.Error().Err(err).Msg("error creating river client")

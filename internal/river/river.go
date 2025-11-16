@@ -127,6 +127,7 @@ func Start(ctx context.Context, c Config) error {
 			log.Panic().Err(err).Msg("hard stop failed")
 		}
 	}()
+
 	<-rc.Stopped()
 
 	return nil

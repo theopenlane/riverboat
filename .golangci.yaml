@@ -4,7 +4,7 @@ run:
   tests: false
 linters:
   enable:
-    - wsl
+    - wsl_v5
     - bodyclose
     - err113
     - gocritic
@@ -15,6 +15,11 @@ linters:
     - noctx
     - revive
     - whitespace
+  settings:
+    wsl_v5:
+      allow-first-in-block: true
+      allow-whole-block: false
+      branch-max-lines: 2
   exclusions:
     generated: lax
     warn-unused: true

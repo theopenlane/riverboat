@@ -31,12 +31,14 @@ type SlackWorker struct {
 // It sends a Slack message using the Slack App
 func (w *SlackWorker) Work(ctx context.Context, job *river.Job[SlackArgs]) error {
 	args := job.Args
+
 	slackClient := &Slack{
 		client: slack.New(w.Config.Token),
 	}
 	if !args.DevMode {
 		args.DevMode = w.Config.DevMode
 	}
+
 	if w.Config.Token == "" && !args.DevMode {
 		return newMissingRequiredArg("token", job.Args.Kind())
 	}
