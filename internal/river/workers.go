@@ -5,6 +5,7 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/core/pkg/corejobs"
+	"github.com/theopenlane/core/pkg/objects/resolver"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
@@ -25,14 +26,14 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		log.Info().Msg("email worker enabled")
 	}
 
-    if c.SlackWorker.Config.Enabled {
-        if err := river.AddWorkerSafely(workers, &jobs.SlackWorker{
-            Config: c.SlackWorker.Config,
-        }); err != nil {
-            return nil, err
-        }
-        log.Info().Msg("slack worker enabled")
-    }
+	if c.SlackWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &jobs.SlackWorker{
+			Config: c.SlackWorker.Config,
+		}); err != nil {
+			return nil, err
+		}
+		log.Info().Msg("slack worker enabled")
+	}
 
 	if c.CreateCustomDomainWorker.Config.Enabled {
 		if err := river.AddWorkerSafely(workers, &corejobs.CreateCustomDomainWorker{
@@ -98,6 +99,22 @@ func createWorkers(c Workers) (*river.Workers, error) {
 		}
 
 		log.Info().Msg("watermark doc worker enabled")
+	}
+
+	if c.CacheTrustCenterDataWorker.Config.Enabled {
+		worker := &corejobs.CacheTrustCenterDataWorker{
+			Config: c.CacheTrustCenterDataWorker.Config,
+		}
+		storageService := resolver.NewServiceFromConfig(c.CacheTrustCenterDataWorker.Config.ObjectStorage)
+		worker.WithStorageService(storageService)
+		if err := river.AddWorkerSafely(workers, &corejobs.CacheTrustCenterDataWorker{
+			Config: c.CacheTrustCenterDataWorker.Config,
+		},
+		); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("cache trust center data worker enabled")
 	}
 
 	// add more workers here

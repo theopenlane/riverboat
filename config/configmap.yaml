@@ -22,28 +22,104 @@ data:
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.river.workers.databaseWorker.config.baseUrl | default "http://localhost:1337" }}
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.river.workers.databaseWorker.config.endpoint | default "query" }}
   RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_DEBUG: {{ .Values.riverboat.river.workers.databaseWorker.config.debug | default false }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.cloudflareApiKey }}
-  RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.databaseHost }}
   RIVERBOAT_RIVER_WORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.createCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.cloudflareApiKey }}
-  RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.databaseHost }}
   RIVERBOAT_RIVER_WORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.validateCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.cloudflareApiKey }}
-  RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_DATABASEHOST: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.databaseHost }}
   RIVERBOAT_RIVER_WORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.workers.deleteCustomDomainWorker.config.validateInterval }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportContentWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportContentWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.openlaneAPIToken }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_INTERVAL: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.interval }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_CUTOFFDURATION: {{ .Values.riverboat.river.workers.deleteExportContentWorker.config.cutoffDuration }}
-  RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.openlaneAPIHost }}
   RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_WATERMARKDOCWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.watermarkDocWorker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackWorker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackWorker.config.devMode | default true }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackWorker.config.token }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.openlaneAPIHost }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.openlaneAPIToken }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.enabled | default true }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_KEYS: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.keys | default "uploadFile" }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_MAXSIZEMB: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.maxSizeMB }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_MAXMEMORYMB: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.maxMemoryMB }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_DEVMODE: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.devMode | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_ENSUREAVAILABLE: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.ensureAvailable | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_REGION: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.region }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_BUCKET: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.bucket }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_ENDPOINT: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.endpoint }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_PROXYPRESIGNENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.proxyPresignEnabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_BASEURL: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.baseURL | default "http://localhost:17608/v1/files" }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.credentials.accessKeyID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.credentials.secretAccessKey }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_CREDENTIALS_PROJECTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.credentials.projectID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.credentials.accountID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_S3_CREDENTIALS_APITOKEN: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.s3.credentials.apiToken }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_ENSUREAVAILABLE: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.ensureAvailable | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_REGION: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.region }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_BUCKET: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.bucket }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_ENDPOINT: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.endpoint }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_PROXYPRESIGNENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.proxyPresignEnabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_BASEURL: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.baseURL | default "http://localhost:17608/v1/files" }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.credentials.accessKeyID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.credentials.secretAccessKey }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_CREDENTIALS_PROJECTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.credentials.projectID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.credentials.accountID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_CLOUDFLARER2_CREDENTIALS_APITOKEN: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.cloudflareR2.credentials.apiToken }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_ENSUREAVAILABLE: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.ensureAvailable | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_REGION: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.region }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_BUCKET: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.bucket }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_ENDPOINT: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.endpoint }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_PROXYPRESIGNENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.proxyPresignEnabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_BASEURL: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.baseURL | default "http://localhost:17608/v1/files" }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.credentials.accessKeyID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.credentials.secretAccessKey }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_CREDENTIALS_PROJECTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.credentials.projectID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.credentials.accountID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_GCS_CREDENTIALS_APITOKEN: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.gcs.credentials.apiToken }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_ENSUREAVAILABLE: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.ensureAvailable | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_REGION: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.region }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_BUCKET: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.bucket }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_ENDPOINT: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.endpoint }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_PROXYPRESIGNENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.proxyPresignEnabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_BASEURL: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.baseURL | default "http://localhost:17608/v1/files" }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.credentials.accessKeyID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.credentials.secretAccessKey }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_CREDENTIALS_PROJECTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.credentials.projectID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.credentials.accountID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DISK_CREDENTIALS_APITOKEN: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.disk.credentials.apiToken }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_ENSUREAVAILABLE: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.ensureAvailable | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_REGION: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.region }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_BUCKET: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.bucket }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_ENDPOINT: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.endpoint }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_PROXYPRESIGNENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.proxyPresignEnabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_BASEURL: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.baseURL | default "http://localhost:17608/v1/files" }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.credentials.accessKeyID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.credentials.secretAccessKey }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_CREDENTIALS_PROJECTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.credentials.projectID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.credentials.accountID }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_OBJECTSTORAGE_PROVIDERS_DATABASE_CREDENTIALS_APITOKEN: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.objectStorage.providers.database.credentials.apiToken }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_CACHETRUSTCENTERDATAWORKER_CONFIG_CACHEINTERVAL: {{ .Values.riverboat.river.workers.cacheTrustCenterDataWorker.config.cacheInterval }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultMaxRetries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enableMetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsDurationUnit | default "ms" }}

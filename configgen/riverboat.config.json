@@ -8,6 +8,47 @@
       },
       "type": "array"
     },
+    "[]string": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "corejobs.CacheTrustCenterDataConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "objectStorage": {
+          "$ref": "#/$defs/storage.ProviderConfig",
+          "description": "the object storage configuration"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cacheInterval": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "cacheInterval"
+      ]
+    },
+    "corejobs.CacheTrustCenterDataWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CacheTrustCenterDataConfig",
+          "description": "the configuration for caching trust center data"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CreateCustomDomainWorker": {
       "properties": {
         "config": {
@@ -30,9 +71,6 @@
           "type": "boolean"
         },
         "cloudflareApiKey": {
-          "type": "string"
-        },
-        "databaseHost": {
           "type": "string"
         },
         "validateInterval": {
@@ -137,14 +175,14 @@
     },
     "corejobs.WatermarkWorkerConfig": {
       "properties": {
-        "enabled": {
-          "type": "boolean"
-        },
         "openlaneAPIHost": {
           "type": "string"
         },
         "openlaneAPIToken": {
           "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
@@ -330,6 +368,9 @@
         "slackWorker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
+        },
+        "cacheTrustCenterDataWorker": {
+          "$ref": "#/$defs/corejobs.CacheTrustCenterDataWorker"
         }
       },
       "additionalProperties": false,
@@ -354,6 +395,102 @@
       "additionalProperties": false,
       "type": "object",
       "description": "MetricsConfig is the configuration for metrics"
+    },
+    "storage.ProviderConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "keys": {
+          "$ref": "#/$defs/[]string"
+        },
+        "maxSizeMB": {
+          "type": "integer"
+        },
+        "maxMemoryMB": {
+          "type": "integer"
+        },
+        "devMode": {
+          "type": "boolean"
+        },
+        "providers": {
+          "$ref": "#/$defs/storage.Providers"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "storage.ProviderConfigs": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "ensureAvailable": {
+          "type": "boolean"
+        },
+        "region": {
+          "type": "string"
+        },
+        "bucket": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "proxyPresignEnabled": {
+          "type": "boolean"
+        },
+        "baseURL": {
+          "type": "string"
+        },
+        "credentials": {
+          "$ref": "#/$defs/storage.ProviderCredentials"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "storage.ProviderCredentials": {
+      "properties": {
+        "accessKeyID": {
+          "type": "string"
+        },
+        "secretAccessKey": {
+          "type": "string"
+        },
+        "projectID": {
+          "type": "string"
+        },
+        "accountID": {
+          "type": "string"
+        },
+        "apiToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "storage.Providers": {
+      "properties": {
+        "s3": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "cloudflareR2": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "gcs": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "disk": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "database": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
     }
   },
   "properties": {

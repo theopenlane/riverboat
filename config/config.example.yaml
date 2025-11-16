@@ -8,10 +8,93 @@ river:
         metricsDurationUnit: ms
     queues: null
     workers:
+        cacheTrustCenterDataWorker:
+            config:
+                cacheInterval: 0
+                enabled: false
+                objectStorage:
+                    devMode: false
+                    enabled: true
+                    keys:
+                        - uploadFile
+                    maxMemoryMB: 0
+                    maxSizeMB: 0
+                    providers:
+                        cloudflareR2:
+                            baseURL: http://localhost:17608/v1/files
+                            bucket: ""
+                            credentials:
+                                accessKeyID: ""
+                                accountID: ""
+                                apiToken: ""
+                                projectID: ""
+                                secretAccessKey: ""
+                            enabled: false
+                            endpoint: ""
+                            ensureAvailable: false
+                            proxyPresignEnabled: false
+                            region: ""
+                        database:
+                            baseURL: http://localhost:17608/v1/files
+                            bucket: ""
+                            credentials:
+                                accessKeyID: ""
+                                accountID: ""
+                                apiToken: ""
+                                projectID: ""
+                                secretAccessKey: ""
+                            enabled: false
+                            endpoint: ""
+                            ensureAvailable: false
+                            proxyPresignEnabled: false
+                            region: ""
+                        disk:
+                            baseURL: http://localhost:17608/v1/files
+                            bucket: ""
+                            credentials:
+                                accessKeyID: ""
+                                accountID: ""
+                                apiToken: ""
+                                projectID: ""
+                                secretAccessKey: ""
+                            enabled: false
+                            endpoint: ""
+                            ensureAvailable: false
+                            proxyPresignEnabled: false
+                            region: ""
+                        gcs:
+                            baseURL: http://localhost:17608/v1/files
+                            bucket: ""
+                            credentials:
+                                accessKeyID: ""
+                                accountID: ""
+                                apiToken: ""
+                                projectID: ""
+                                secretAccessKey: ""
+                            enabled: false
+                            endpoint: ""
+                            ensureAvailable: false
+                            proxyPresignEnabled: false
+                            region: ""
+                        s3:
+                            baseURL: http://localhost:17608/v1/files
+                            bucket: ""
+                            credentials:
+                                accessKeyID: ""
+                                accountID: ""
+                                apiToken: ""
+                                projectID: ""
+                                secretAccessKey: ""
+                            enabled: false
+                            endpoint: ""
+                            ensureAvailable: false
+                            proxyPresignEnabled: false
+                            region: ""
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
         createCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
-                databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
@@ -25,7 +108,6 @@ river:
         deleteCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
-                databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
@@ -57,7 +139,6 @@ river:
         validateCustomDomainWorker:
             config:
                 cloudflareApiKey: ""
-                databaseHost: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""

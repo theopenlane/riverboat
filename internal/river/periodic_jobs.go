@@ -45,5 +45,21 @@ func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 		jobs = append(jobs, validateCustomDomainJobs)
 	}
 
+	if c.CacheTrustCenterDataWorker.Config.Enabled {
+		interval := c.CacheTrustCenterDataWorker.Config.CacheInterval
+		if interval < minInterval {
+			interval = minInterval
+		}
+
+		cacheTrustCenterDataJobs := river.NewPeriodicJob(
+			river.PeriodicInterval(interval),
+			func() (river.JobArgs, *river.InsertOpts) {
+				return corejobs.CacheTrustCenterDataArgs{}, nil
+			},
+			&river.PeriodicJobOpts{RunOnStart: true},
+		)
+		jobs = append(jobs, cacheTrustCenterDataJobs)
+	}
+
 	return jobs, nil
 }
