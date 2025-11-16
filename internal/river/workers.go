@@ -32,12 +32,22 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		}); err != nil {
 			return nil, err
 		}
+
 		log.Info().Msg("slack worker enabled")
 	}
 
 	if w.CreateCustomDomainWorker.Config.Enabled {
 		customDomainConfig := &corejobs.CreateCustomDomainWorker{
 			Config: w.CreateCustomDomainWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if customDomainConfig.Config.OpenlaneAPIHost == "" {
+			customDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if customDomainConfig.Config.OpenlaneAPIToken == "" {
+			customDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
 		}
 
 		customDomainConfig.WithRiverClient(insertOnlyClient)
@@ -50,10 +60,20 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	}
 
 	if w.ValidateCustomDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.ValidateCustomDomainWorker{
+		validateCustomDomainConfig := &corejobs.ValidateCustomDomainWorker{
 			Config: w.ValidateCustomDomainWorker.Config,
-		},
-		); err != nil {
+		}
+
+		// set Openlane config defaults if not set
+		if validateCustomDomainConfig.Config.OpenlaneAPIHost == "" {
+			validateCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if validateCustomDomainConfig.Config.OpenlaneAPIToken == "" {
+			validateCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, validateCustomDomainConfig); err != nil {
 			return nil, err
 		}
 
@@ -61,10 +81,20 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	}
 
 	if w.DeleteCustomDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.DeleteCustomDomainWorker{
+		deleteCustomDomainConfig := &corejobs.DeleteCustomDomainWorker{
 			Config: w.DeleteCustomDomainWorker.Config,
-		},
-		); err != nil {
+		}
+
+		// set Openlane config defaults if not set
+		if deleteCustomDomainConfig.Config.OpenlaneAPIHost == "" {
+			deleteCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if deleteCustomDomainConfig.Config.OpenlaneAPIToken == "" {
+			deleteCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, deleteCustomDomainConfig); err != nil {
 			return nil, err
 		}
 
@@ -72,10 +102,20 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	}
 
 	if w.ExportContentWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.ExportContentWorker{
+		exportContentConfig := &corejobs.ExportContentWorker{
 			Config: w.ExportContentWorker.Config,
-		},
-		); err != nil {
+		}
+
+		// set Openlane config defaults if not set
+		if exportContentConfig.Config.OpenlaneAPIHost == "" {
+			exportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if exportContentConfig.Config.OpenlaneAPIToken == "" {
+			exportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, exportContentConfig); err != nil {
 			return nil, err
 		}
 
@@ -83,10 +123,20 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	}
 
 	if w.DeleteExportContentWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.DeleteExportContentWorker{
+		deleteExportContentConfig := &corejobs.DeleteExportContentWorker{
 			Config: w.DeleteExportContentWorker.Config,
-		},
-		); err != nil {
+		}
+
+		// set Openlane config defaults if not set
+		if deleteExportContentConfig.Config.OpenlaneAPIHost == "" {
+			deleteExportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if deleteExportContentConfig.Config.OpenlaneAPIToken == "" {
+			deleteExportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, deleteExportContentConfig); err != nil {
 			return nil, err
 		}
 
@@ -94,10 +144,20 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	}
 
 	if w.WatermarkDocWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.WatermarkDocWorker{
+		watermarkDocConfig := &corejobs.WatermarkDocWorker{
 			Config: w.WatermarkDocWorker.Config,
-		},
-		); err != nil {
+		}
+
+		// set Openlane config defaults if not set
+		if watermarkDocConfig.Config.OpenlaneAPIHost == "" {
+			watermarkDocConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if watermarkDocConfig.Config.OpenlaneAPIToken == "" {
+			watermarkDocConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, watermarkDocConfig); err != nil {
 			return nil, err
 		}
 
@@ -107,6 +167,15 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	if w.CreatePirschDomainWorker.Config.Enabled {
 		pirschDomainConfig := &corejobs.CreatePirschDomainWorker{
 			Config: w.CreatePirschDomainWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if pirschDomainConfig.Config.OpenlaneAPIHost == "" {
+			pirschDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if pirschDomainConfig.Config.OpenlaneAPIToken == "" {
+			pirschDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
 		}
 
 		pirschDomainConfig.WithRiverClient(insertOnlyClient)

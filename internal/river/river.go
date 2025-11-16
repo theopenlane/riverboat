@@ -27,6 +27,10 @@ func Start(ctx context.Context, c Config) error {
 		ctx, riverqueue.WithConnectionURI(c.DatabaseHost),
 		riverqueue.WithLogger(logger),
 	)
+	if err != nil {
+		log.Fatal().Err(err).Msg("failed to create insert-only river client")
+	}
+	defer insertOnlyClient.Close()
 
 	// Create workers based on the configuration
 	worker, err := createWorkers(c.Workers, insertOnlyClient)
