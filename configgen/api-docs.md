@@ -206,8 +206,8 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -307,11 +307,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`||no|
-|**openlaneAPIToken**|`string`||no|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
 |**enabled**|`boolean`||no|
-|**cloudflareApiKey**|`string`||no|
-|**validateInterval**|`integer`||yes|
+|**cloudflareapikey**|`string`||no|
+|**validateinterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworker"></a>
@@ -339,11 +339,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`||no|
-|**openlaneAPIToken**|`string`||no|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
 |**enabled**|`boolean`||no|
-|**cloudflareApiKey**|`string`||no|
-|**validateInterval**|`integer`||yes|
+|**cloudflareapikey**|`string`||no|
+|**validateinterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworker"></a>
@@ -371,11 +371,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`||no|
-|**openlaneAPIToken**|`string`||no|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
 |**enabled**|`boolean`||no|
-|**cloudflareApiKey**|`string`||no|
-|**validateInterval**|`integer`||yes|
+|**cloudflareapikey**|`string`||no|
+|**validateinterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersexportcontentworker"></a>
@@ -403,8 +403,8 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
 |**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
@@ -433,11 +433,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`||no|
-|**openlaneAPIToken**|`string`||no|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**interval**|`integer`||yes|
-|**cutoffDuration**|`integer`||yes|
+|**cutoffduration**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkerswatermarkdocworker"></a>
@@ -465,8 +465,8 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
 |**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
@@ -495,11 +495,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
 |**enabled**|`boolean`|||
-|**pirschClientID**|`string`|||
-|**pirschClientSecret**|`string`|||
+|**pirschclientid**|`string`|||
+|**pirschclientsecret**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletepirschdomainworker"></a>
@@ -527,11 +527,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneAPIHost**|`string`|||
-|**openlaneAPIToken**|`string`|||
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
 |**enabled**|`boolean`|||
-|**pirschClientID**|`string`|||
-|**pirschClientSecret**|`string`|||
+|**pirschclientid**|`string`|||
+|**pirschclientsecret**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersslackworker"></a>

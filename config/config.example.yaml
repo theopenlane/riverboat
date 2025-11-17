@@ -10,18 +10,18 @@ river:
     workers:
         createcustomdomainworker:
             config:
-                cloudflareApiKey: ""
+                cloudflareapikey: ""
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
-                validateInterval: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                validateinterval: 0
         createpirschdomainworker:
             config:
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
-                pirschClientID: ""
-                pirschClientSecret: ""
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                pirschclientid: ""
+                pirschclientsecret: ""
         databaseworker:
             config:
                 baseUrl: http://localhost:1337
@@ -30,25 +30,25 @@ river:
                 endpoint: query
         deletecustomdomainworker:
             config:
-                cloudflareApiKey: ""
+                cloudflareapikey: ""
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
-                validateInterval: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                validateinterval: 0
         deleteexportcontentworker:
             config:
-                cutoffDuration: 0
+                cutoffduration: 0
                 enabled: false
                 interval: 0
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
+                openlaneapihost: ""
+                openlaneapitoken: ""
         deletepirschdomainworker:
             config:
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
-                pirschClientID: ""
-                pirschClientSecret: ""
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                pirschclientid: ""
+                pirschclientsecret: ""
         emailworker:
             config:
                 devmode: true
@@ -59,11 +59,11 @@ river:
         exportcontentworker:
             config:
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
+                openlaneapihost: ""
+                openlaneapitoken: ""
         openlaneconfig:
-            openlaneAPIHost: ""
-            openlaneAPIToken: ""
+            openlaneapihost: ""
+            openlaneapitoken: ""
         slackworker:
             config:
                 devmode: true
@@ -71,13 +71,13 @@ river:
                 token: ""
         validatecustomdomainworker:
             config:
-                cloudflareApiKey: ""
+                cloudflareapikey: ""
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
-                validateInterval: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                validateinterval: 0
         watermarkdocworker:
             config:
                 enabled: false
-                openlaneAPIHost: ""
-                openlaneAPIToken: ""
+                openlaneapihost: ""
+                openlaneapitoken: ""

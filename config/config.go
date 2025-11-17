@@ -38,18 +38,9 @@ func Load(cfgFile *string) (*Config, error) {
 		*cfgFile = defaultConfigFilePath
 	}
 
-	// load defaults
-	conf := &Config{}
-	defaults.SetDefaults(conf)
-
 	// parse yaml config
 	if err := k.Load(file.Provider(*cfgFile), yaml.Parser()); err != nil {
 		log.Warn().Err(err).Msg("failed to load config file - ensure the .config.yaml is present and valid or use environment variables to set the configuration")
-	}
-
-	// unmarshal the config
-	if err := k.Unmarshal("", &conf); err != nil {
-		log.Fatal().Err(err).Msg("failed to unmarshal config file")
 	}
 
 	// load env vars
@@ -68,7 +59,11 @@ func Load(cfgFile *string) (*Config, error) {
 		log.Warn().Err(err).Msg("failed to load env vars, some settings may not be applied")
 	}
 
-	// unmarshal the env vars
+	// create the config with defaults
+	conf := &Config{}
+	defaults.SetDefaults(conf)
+
+	// unmarshal into the config struct
 	if err := k.Unmarshal("", &conf); err != nil {
 		log.Fatal().Err(err).Msg("failed to unmarshal env vars")
 	}

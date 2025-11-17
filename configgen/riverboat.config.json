@@ -30,26 +30,26 @@
     },
     "corejobs.CustomDomainConfig": {
       "properties": {
-        "openlaneAPIHost": {
+        "openlaneapihost": {
           "type": "string"
         },
-        "openlaneAPIToken": {
+        "openlaneapitoken": {
           "type": "string"
         },
         "enabled": {
           "type": "boolean"
         },
-        "cloudflareApiKey": {
+        "cloudflareapikey": {
           "type": "string"
         },
-        "validateInterval": {
+        "validateinterval": {
           "type": "integer"
         }
       },
       "additionalProperties": false,
       "type": "object",
       "required": [
-        "validateInterval"
+        "validateinterval"
       ]
     },
     "corejobs.DeleteCustomDomainWorker": {
@@ -74,10 +74,10 @@
     },
     "corejobs.DeleteExportWorkerConfig": {
       "properties": {
-        "openlaneAPIHost": {
+        "openlaneapihost": {
           "type": "string"
         },
-        "openlaneAPIToken": {
+        "openlaneapitoken": {
           "type": "string"
         },
         "enabled": {
@@ -86,7 +86,7 @@
         "interval": {
           "type": "integer"
         },
-        "cutoffDuration": {
+        "cutoffduration": {
           "type": "integer"
         }
       },
@@ -94,7 +94,7 @@
       "type": "object",
       "required": [
         "interval",
-        "cutoffDuration"
+        "cutoffduration"
       ]
     },
     "corejobs.DeletePirschDomainWorker": {
@@ -119,10 +119,10 @@
     },
     "corejobs.ExportWorkerConfig": {
       "properties": {
-        "openlaneAPIHost": {
+        "openlaneapihost": {
           "type": "string"
         },
-        "openlaneAPIToken": {
+        "openlaneapitoken": {
           "type": "string"
         },
         "enabled": {
@@ -134,10 +134,10 @@
     },
     "corejobs.OpenlaneConfig": {
       "properties": {
-        "openlaneAPIHost": {
+        "openlaneapihost": {
           "type": "string"
         },
-        "openlaneAPIToken": {
+        "openlaneapitoken": {
           "type": "string"
         }
       },
@@ -146,19 +146,19 @@
     },
     "corejobs.PirschDomainConfig": {
       "properties": {
-        "openlaneAPIHost": {
+        "openlaneapihost": {
           "type": "string"
         },
-        "openlaneAPIToken": {
+        "openlaneapitoken": {
           "type": "string"
         },
         "enabled": {
           "type": "boolean"
         },
-        "pirschClientID": {
+        "pirschclientid": {
           "type": "string"
         },
-        "pirschClientSecret": {
+        "pirschclientsecret": {
           "type": "string"
         }
       },
@@ -187,10 +187,10 @@
     },
     "corejobs.WatermarkWorkerConfig": {
       "properties": {
-        "openlaneAPIHost": {
+        "openlaneapihost": {
           "type": "string"
         },
-        "openlaneAPIToken": {
+        "openlaneapitoken": {
           "type": "string"
         },
         "enabled": {
