@@ -38,6 +38,7 @@ func (s *Slack) SendSlackMessage(ctx context.Context, args SlackArgs) error {
 		if err != nil {
 			return errCouldNotFindChannel
 		}
+
 		channelID = ch.ID
 	}
 
@@ -45,6 +46,7 @@ func (s *Slack) SendSlackMessage(ctx context.Context, args SlackArgs) error {
 	if err != nil {
 		return fmt.Errorf("failed to send Slack message: %w", err)
 	}
+
 	return nil
 }
 
@@ -60,14 +62,17 @@ func (s *Slack) findChannelByName(name string) (*slack.Channel, error) {
 		ExcludeArchived: true,
 		Limit:           slackConversationsLimit,
 	}
+
 	channels, _, err := s.client.GetConversations(params)
 	if err != nil {
 		return nil, err
 	}
+
 	for _, ch := range channels {
 		if ch.Name == name {
 			return &ch, nil
 		}
 	}
+
 	return nil, fmt.Errorf("channel '%s' not found: %w", name, errChannelNotFound)
 }

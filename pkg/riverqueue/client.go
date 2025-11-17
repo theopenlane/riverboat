@@ -59,11 +59,11 @@ type JobClient interface {
 // Config settings for the river client
 type Config struct {
 	// ConnectionURI is the connection URI for the database
-	ConnectionURI string `koanf:"connectionURI" json:"connectionURI" sensitive:"true" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
+	ConnectionURI string `koanf:"connectionuri" json:"connectionuri" sensitive:"true" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 	// RunMigrations is a flag to determine if migrations should be run
-	RunMigrations bool `koanf:"runMigrations" json:"runMigrations" default:"false"`
+	RunMigrations bool `koanf:"runmigrations" json:"runmigrations" default:"false"`
 	// RiverConf is the river configuration
-	RiverConf river.Config `koanf:"riverConf" json:"riverConf"`
+	RiverConf river.Config `koanf:"riverconf" json:"riverconf"`
 
 	Metrics MetricsConfig `koanf:"metrics" json:"metrics"`
 }
@@ -71,11 +71,11 @@ type Config struct {
 // MetricsConfig is the configuration for metrics
 type MetricsConfig struct {
 	// Enable toggles otel metrics middleware
-	EnableMetrics bool `koanf:"enableMetrics" json:"enableMetrics" default:"false"`
+	EnableMetrics bool `koanf:"enablemetrics" json:"enablemetrics" default:"false"`
 	// DurationUnit sets the duration unit for metrics
-	MetricsDurationUnit string `koanf:"metricsDurationUnit" json:"metricsDurationUnit" default:"ms"`
+	MetricsDurationUnit string `koanf:"metricsdurationunit" json:"metricsdurationunit" default:"ms"`
 	// EnableSemanticMetrics toggles semantic metrics
-	EnableSemanticMetrics bool `koanf:"enableSemanticMetrics" json:"enableSemanticMetrics" default:"true"`
+	EnableSemanticMetrics bool `koanf:"enablesemanticmetrics" json:"enablesemanticmetrics" default:"true"`
 }
 
 // Client is a river Client that implements the JobClient interface
@@ -133,6 +133,7 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 			}),
 		)
 	}
+
 	c.riverClient, err = river.NewClient(riverpgxv5.New(c.pool), &c.config.RiverConf)
 	if err != nil {
 		log.Error().Err(err).Msg("error creating river client")

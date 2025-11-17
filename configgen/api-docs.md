@@ -17,31 +17,38 @@
             {}
         ],
         "workers": {
-            "emailWorker": {
+            "openlaneconfig": {},
+            "emailworker": {
                 "config": {}
             },
-            "databaseWorker": {
+            "databaseworker": {
                 "config": {}
             },
-            "createCustomDomainWorker": {
+            "createcustomdomainworker": {
                 "config": {}
             },
-            "validateCustomDomainWorker": {
+            "validatecustomdomainworker": {
                 "config": {}
             },
-            "deleteCustomDomainWorker": {
+            "deletecustomdomainworker": {
                 "config": {}
             },
-            "exportContentWorker": {
+            "exportcontentworker": {
                 "config": {}
             },
-            "deleteExportContentWorker": {
+            "deleteexportcontentworker": {
                 "config": {}
             },
-            "watermarkDocWorker": {
+            "watermarkdocworker": {
                 "config": {}
             },
-            "slackWorker": {
+            "createpirschdomainworker": {
+                "config": {}
+            },
+            "deletepirschdomainworker": {
+                "config": {}
+            },
+            "slackworker": {
                 "config": {}
             }
         },
@@ -60,10 +67,10 @@ Config is the configuration for the river server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**databaseHost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
+|**databasehost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
 |[**queues**](#riverqueues)|`array`|||
 |[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
-|**defaultMaxRetries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
+|**defaultmaxretries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
 |[**metrics**](#rivermetrics)|`object`|MetricsConfig is the configuration for metrics<br/>||
 
 **Additional Properties:** not allowed  
@@ -75,31 +82,38 @@ Config is the configuration for the river server
         {}
     ],
     "workers": {
-        "emailWorker": {
+        "openlaneconfig": {},
+        "emailworker": {
             "config": {}
         },
-        "databaseWorker": {
+        "databaseworker": {
             "config": {}
         },
-        "createCustomDomainWorker": {
+        "createcustomdomainworker": {
             "config": {}
         },
-        "validateCustomDomainWorker": {
+        "validatecustomdomainworker": {
             "config": {}
         },
-        "deleteCustomDomainWorker": {
+        "deletecustomdomainworker": {
             "config": {}
         },
-        "exportContentWorker": {
+        "exportcontentworker": {
             "config": {}
         },
-        "deleteExportContentWorker": {
+        "deleteexportcontentworker": {
             "config": {}
         },
-        "watermarkDocWorker": {
+        "watermarkdocworker": {
             "config": {}
         },
-        "slackWorker": {
+        "createpirschdomainworker": {
+            "config": {}
+        },
+        "deletepirschdomainworker": {
+            "config": {}
+        },
+        "slackworker": {
             "config": {}
         }
     },
@@ -130,53 +144,74 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**emailWorker**](#riverworkersemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
-|[**databaseWorker**](#riverworkersdatabaseworker)|`object`|DatabaseWorker is a worker to create a dedicated database for an organization<br/>||
-|[**createCustomDomainWorker**](#riverworkerscreatecustomdomainworker)|`object`|||
-|[**validateCustomDomainWorker**](#riverworkersvalidatecustomdomainworker)|`object`|||
-|[**deleteCustomDomainWorker**](#riverworkersdeletecustomdomainworker)|`object`|||
-|[**exportContentWorker**](#riverworkersexportcontentworker)|`object`|||
-|[**deleteExportContentWorker**](#riverworkersdeleteexportcontentworker)|`object`|||
-|[**watermarkDocWorker**](#riverworkerswatermarkdocworker)|`object`|||
-|[**slackWorker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
+|[**openlaneconfig**](#riverworkersopenlaneconfig)|`object`|||
+|[**emailworker**](#riverworkersemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
+|[**databaseworker**](#riverworkersdatabaseworker)|`object`|DatabaseWorker is a worker to create a dedicated database for an organization<br/>||
+|[**createcustomdomainworker**](#riverworkerscreatecustomdomainworker)|`object`|||
+|[**validatecustomdomainworker**](#riverworkersvalidatecustomdomainworker)|`object`|||
+|[**deletecustomdomainworker**](#riverworkersdeletecustomdomainworker)|`object`|||
+|[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|||
+|[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|||
+|[**watermarkdocworker**](#riverworkerswatermarkdocworker)|`object`|||
+|[**createpirschdomainworker**](#riverworkerscreatepirschdomainworker)|`object`|||
+|[**deletepirschdomainworker**](#riverworkersdeletepirschdomainworker)|`object`|||
+|[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
 
 **Additional Properties:** not allowed  
 **Example**
 
 ```json
 {
-    "emailWorker": {
+    "openlaneconfig": {},
+    "emailworker": {
         "config": {}
     },
-    "databaseWorker": {
+    "databaseworker": {
         "config": {}
     },
-    "createCustomDomainWorker": {
+    "createcustomdomainworker": {
         "config": {}
     },
-    "validateCustomDomainWorker": {
+    "validatecustomdomainworker": {
         "config": {}
     },
-    "deleteCustomDomainWorker": {
+    "deletecustomdomainworker": {
         "config": {}
     },
-    "exportContentWorker": {
+    "exportcontentworker": {
         "config": {}
     },
-    "deleteExportContentWorker": {
+    "deleteexportcontentworker": {
         "config": {}
     },
-    "watermarkDocWorker": {
+    "watermarkdocworker": {
         "config": {}
     },
-    "slackWorker": {
+    "createpirschdomainworker": {
+        "config": {}
+    },
+    "deletepirschdomainworker": {
+        "config": {}
+    },
+    "slackworker": {
         "config": {}
     }
 }
 ```
 
+<a name="riverworkersopenlaneconfig"></a>
+#### river\.workers\.openlaneconfig: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+
+**Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
-#### river\.workers\.emailWorker: object
+#### river\.workers\.emailworker: object
 
 EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider
 
@@ -197,7 +232,7 @@ EmailWorker is a worker to send emails using the resend email provider the confi
 ```
 
 <a name="riverworkersemailworkerconfig"></a>
-##### river\.workers\.emailWorker\.config: object
+##### river\.workers\.emailworker\.config: object
 
 EmailConfig contains the configuration for the email worker
 
@@ -207,14 +242,14 @@ EmailConfig contains the configuration for the email worker
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**enabled**|`boolean`|enable or disable the email worker<br/>||
-|**devMode**|`boolean`|enable dev mode<br/>||
-|**testDir**|`string`|the directory to use for dev mode<br/>||
+|**devmode**|`boolean`|enable dev mode<br/>||
+|**testdir**|`string`|the directory to use for dev mode<br/>||
 |**token**|`string`|the token to use for the email provider<br/>||
-|**fromEmail**|`string`|FromEmail is the email address to use as the sender<br/>||
+|**fromemail**|`string`|FromEmail is the email address to use as the sender<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdatabaseworker"></a>
-#### river\.workers\.databaseWorker: object
+#### river\.workers\.databaseworker: object
 
 DatabaseWorker is a worker to create a dedicated database for an organization
 
@@ -235,7 +270,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkersdatabaseworkerconfig"></a>
-##### river\.workers\.databaseWorker\.config: object
+##### river\.workers\.databaseworker\.config: object
 
 **Properties**
 
@@ -248,7 +283,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 **Additional Properties:** not allowed  
 <a name="riverworkerscreatecustomdomainworker"></a>
-#### river\.workers\.createCustomDomainWorker: object
+#### river\.workers\.createcustomdomainworker: object
 
 **Properties**
 
@@ -266,7 +301,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkerscreatecustomdomainworkerconfig"></a>
-##### river\.workers\.createCustomDomainWorker\.config: object
+##### river\.workers\.createcustomdomainworker\.config: object
 
 **Properties**
 
@@ -276,12 +311,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersvalidatecustomdomainworker"></a>
-#### river\.workers\.validateCustomDomainWorker: object
+#### river\.workers\.validatecustomdomainworker: object
 
 **Properties**
 
@@ -299,7 +333,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkersvalidatecustomdomainworkerconfig"></a>
-##### river\.workers\.validateCustomDomainWorker\.config: object
+##### river\.workers\.validatecustomdomainworker\.config: object
 
 **Properties**
 
@@ -309,12 +343,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeletecustomdomainworker"></a>
-#### river\.workers\.deleteCustomDomainWorker: object
+#### river\.workers\.deletecustomdomainworker: object
 
 **Properties**
 
@@ -332,7 +365,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkersdeletecustomdomainworkerconfig"></a>
-##### river\.workers\.deleteCustomDomainWorker\.config: object
+##### river\.workers\.deletecustomdomainworker\.config: object
 
 **Properties**
 
@@ -342,12 +375,11 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 |**openlaneAPIToken**|`string`||no|
 |**enabled**|`boolean`||no|
 |**cloudflareApiKey**|`string`||no|
-|**databaseHost**|`string`||no|
 |**validateInterval**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="riverworkersexportcontentworker"></a>
-#### river\.workers\.exportContentWorker: object
+#### river\.workers\.exportcontentworker: object
 
 **Properties**
 
@@ -365,7 +397,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkersexportcontentworkerconfig"></a>
-##### river\.workers\.exportContentWorker\.config: object
+##### river\.workers\.exportcontentworker\.config: object
 
 **Properties**
 
@@ -377,7 +409,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeleteexportcontentworker"></a>
-#### river\.workers\.deleteExportContentWorker: object
+#### river\.workers\.deleteexportcontentworker: object
 
 **Properties**
 
@@ -395,7 +427,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkersdeleteexportcontentworkerconfig"></a>
-##### river\.workers\.deleteExportContentWorker\.config: object
+##### river\.workers\.deleteexportcontentworker\.config: object
 
 **Properties**
 
@@ -409,7 +441,7 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 **Additional Properties:** not allowed  
 <a name="riverworkerswatermarkdocworker"></a>
-#### river\.workers\.watermarkDocWorker: object
+#### river\.workers\.watermarkdocworker: object
 
 **Properties**
 
@@ -427,19 +459,83 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 ```
 
 <a name="riverworkerswatermarkdocworkerconfig"></a>
-##### river\.workers\.watermarkDocWorker\.config: object
+##### river\.workers\.watermarkdocworker\.config: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enabled**|`boolean`|||
 |**openlaneAPIHost**|`string`|||
 |**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscreatepirschdomainworker"></a>
+#### river\.workers\.createpirschdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkerscreatepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkerscreatepirschdomainworkerconfig"></a>
+##### river\.workers\.createpirschdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschClientID**|`string`|||
+|**pirschClientSecret**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersdeletepirschdomainworker"></a>
+#### river\.workers\.deletepirschdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersdeletepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkersdeletepirschdomainworkerconfig"></a>
+##### river\.workers\.deletepirschdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneAPIHost**|`string`|||
+|**openlaneAPIToken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschClientID**|`string`|||
+|**pirschClientSecret**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersslackworker"></a>
-#### river\.workers\.slackWorker: object
+#### river\.workers\.slackworker: object
 
 SlackWorker sends messages to Slack.
 
@@ -460,7 +556,7 @@ SlackWorker sends messages to Slack.
 ```
 
 <a name="riverworkersslackworkerconfig"></a>
-##### river\.workers\.slackWorker\.config: object
+##### river\.workers\.slackworker\.config: object
 
 SlackConfig configures the Slack worker.
 
@@ -470,7 +566,7 @@ SlackConfig configures the Slack worker.
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**enabled**|`boolean`|enable or disable the slack worker<br/>||
-|**devMode**|`boolean`|enable dev mode<br/>||
+|**devmode**|`boolean`|enable dev mode<br/>||
 |**token**|`string`|the token to use for the slack app<br/>||
 
 **Additional Properties:** not allowed  
@@ -484,9 +580,9 @@ MetricsConfig is the configuration for metrics
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enableMetrics**|`boolean`|Enable toggles otel metrics middleware<br/>||
-|**metricsDurationUnit**|`string`|DurationUnit sets the duration unit for metrics<br/>||
-|**enableSemanticMetrics**|`boolean`|EnableSemanticMetrics toggles semantic metrics<br/>||
+|**enablemetrics**|`boolean`|Enable toggles otel metrics middleware<br/>||
+|**metricsdurationunit**|`string`|DurationUnit sets the duration unit for metrics<br/>||
+|**enablesemanticmetrics**|`boolean`|EnableSemanticMetrics toggles semantic metrics<br/>||
 
 **Additional Properties:** not allowed  
 

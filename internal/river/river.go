@@ -21,15 +21,26 @@ const (
 
 // Start the river server with the given configuration
 func Start(ctx context.Context, c Config) error {
-	// Create workers based on the configuration
-	worker, err := createWorkers(c.Workers)
+	logger := createLogger(c.Logger)
+
+	insertOnlyClient, err := riverqueue.New(
+		ctx, riverqueue.WithConnectionURI(c.DatabaseHost),
+		riverqueue.WithLogger(logger),
+	)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create workers")
+		log.Fatal().Err(err).Msg("failed to create insert-only river client")
+	}
+	defer insertOnlyClient.Close() // nolint:errcheck
+
+	// Create workers based on the configuration
+	worker, err := createWorkers(c.Workers, insertOnlyClient)
+	if err != nil {
+		log.Error().Err(err).Msg("failed to create workers")
 	}
 
 	periodicJobs, err := createPeriodicJobs(c.Workers)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create periodic jobs schedules")
+		log.Error().Err(err).Msg("failed to create periodic jobs schedules")
 	}
 
 	log.Debug().Msg("workers created")
@@ -44,15 +55,14 @@ func Start(ctx context.Context, c Config) error {
 		ctx,
 		riverqueue.WithConnectionURI(c.DatabaseHost),
 		riverqueue.WithRunMigrations(true),
-		riverqueue.WithLogger(createLogger(c.Logger)),
+		riverqueue.WithLogger(logger),
 		riverqueue.WithWorkers(worker),
 		riverqueue.WithQueues(queues),
 		riverqueue.WithPeriodicJobs(periodicJobs),
 		riverqueue.WithMaxRetries(c.DefaultMaxRetries),
-		riverqueue.WithMetrics(&c.Metrics),
 	)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create river client")
+		log.Error().Err(err).Msg("failed to create river client")
 	}
 
 	// get the underlying river client
@@ -62,7 +72,7 @@ func Start(ctx context.Context, c Config) error {
 
 	// run the client
 	if err := rc.Start(ctx); err != nil {
-		log.Fatal().Err(err).Msg("failed to start river client")
+		log.Error().Err(err).Msg("failed to start river client")
 	}
 
 	sigintOrTerm := make(chan os.Signal, 1)
@@ -117,6 +127,7 @@ func Start(ctx context.Context, c Config) error {
 			log.Panic().Err(err).Msg("hard stop failed")
 		}
 	}()
+
 	<-rc.Stopped()
 
 	return nil

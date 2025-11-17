@@ -63,7 +63,8 @@ func Load(cfgFile *string) (*Config, error) {
 			}
 
 			return key, v
-		}}), nil); err != nil {
+		},
+	}), nil); err != nil {
 		log.Warn().Err(err).Msg("failed to load env vars, some settings may not be applied")
 	}
 

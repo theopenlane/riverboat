@@ -31,12 +31,14 @@ type SlackWorker struct {
 // It sends a Slack message using the Slack App
 func (w *SlackWorker) Work(ctx context.Context, job *river.Job[SlackArgs]) error {
 	args := job.Args
+
 	slackClient := &Slack{
 		client: slack.New(w.Config.Token),
 	}
 	if !args.DevMode {
 		args.DevMode = w.Config.DevMode
 	}
+
 	if w.Config.Token == "" && !args.DevMode {
 		return newMissingRequiredArg("token", job.Args.Kind())
 	}
@@ -49,7 +51,7 @@ type SlackConfig struct {
 	// Enabled tells the server whether or not to register the worker, if disabled jobs of this type cannot be inserted
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"description=enable or disable the slack worker" default:"false"`
 	// DevMode mocks the request, this can be overwritten on the individual job args
-	DevMode bool `koanf:"devMode" json:"devMode" jsonschema:"description=enable dev mode" default:"true"`
+	DevMode bool `koanf:"devmode" json:"devmode" jsonschema:"description=enable dev mode" default:"true"`
 	// Token is the slack API token to connect to the slack instance
 	Token string `koanf:"token" json:"token" jsonschema:"description=the token to use for the slack app"`
 }
