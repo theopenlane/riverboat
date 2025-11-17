@@ -20,10 +20,10 @@ require (
 	github.com/slack-go/slack v0.17.3
 	github.com/spf13/cobra v1.10.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core v0.45.16
+	github.com/theopenlane/core v0.46.0
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/newman v0.2.1
-	github.com/theopenlane/utils v0.5.2
+	github.com/theopenlane/utils v0.6.1
 )
 
 require (
@@ -130,8 +130,8 @@ require (
 	github.com/oklog/ulid/v2 v2.1.1 // indirect
 	github.com/openfga/api/proto v0.0.0-20250909173124-0ac19aac54f2 // indirect
 	github.com/openfga/go-sdk v0.7.3 // indirect
-	github.com/openfga/language/pkg/go v0.2.0-beta.2.0.20251003203216-7c0d09a1cc5a // indirect
-	github.com/openfga/openfga v1.10.3 // indirect
+	github.com/openfga/language/pkg/go v0.2.0-beta.2.0.20251027165255-0f8f255e5f6c // indirect
+	github.com/openfga/openfga v1.11.0 // indirect
 	github.com/pdfcpu/pdfcpu v0.11.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -164,17 +164,17 @@ require (
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/theopenlane/echox v0.2.4 // indirect
 	github.com/theopenlane/eddy v0.1.0 // indirect
-	github.com/theopenlane/emailtemplates v0.2.6 // indirect
-	github.com/theopenlane/entx v0.15.1 // indirect
+	github.com/theopenlane/emailtemplates v0.3.0 // indirect
+	github.com/theopenlane/entx v0.16.0 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
-	github.com/theopenlane/iam v0.21.0 // indirect
+	github.com/theopenlane/iam v0.22.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
 	github.com/tmc/langchaingo v0.1.14 // indirect
 	github.com/urfave/cli/v2 v2.27.7 // indirect
-	github.com/urfave/cli/v3 v3.6.0 // indirect
+	github.com/urfave/cli/v3 v3.6.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	github.com/vektah/gqlparser/v2 v2.5.31 // indirect
@@ -213,9 +213,9 @@ require (
 	golang.org/x/tools v0.39.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	gonum.org/v1/gonum v0.16.0 // indirect
-	google.golang.org/api v0.253.0 // indirect
+	google.golang.org/api v0.255.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20251022142026-3a174f9686a8 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251022142026-3a174f9686a8 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20251029180050-ab9386a59fda // indirect
 	google.golang.org/grpc v1.76.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
