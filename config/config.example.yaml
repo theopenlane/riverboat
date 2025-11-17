@@ -1,68 +1,82 @@
 refreshInterval: 600000000000
 river:
-    databaseHost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
-    defaultMaxRetries: 10
+    databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
+    defaultmaxretries: 10
     metrics:
-        enableMetrics: false
-        enableSemanticMetrics: true
-        metricsDurationUnit: ms
+        enablemetrics: false
+        enablesemanticmetrics: true
+        metricsdurationunit: ms
     queues: null
     workers:
-        createCustomDomainWorker:
+        createcustomdomainworker:
             config:
                 cloudflareApiKey: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
                 validateInterval: 0
-        databaseWorker:
+        createpirschdomainworker:
+            config:
+                enabled: false
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
+                pirschClientID: ""
+                pirschClientSecret: ""
+        databaseworker:
             config:
                 baseUrl: http://localhost:1337
                 debug: false
                 enabled: true
                 endpoint: query
-        deleteCustomDomainWorker:
+        deletecustomdomainworker:
             config:
                 cloudflareApiKey: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
                 validateInterval: 0
-        deleteExportContentWorker:
+        deleteexportcontentworker:
             config:
                 cutoffDuration: 0
                 enabled: false
                 interval: 0
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
-        emailWorker:
-            config:
-                devMode: true
-                enabled: false
-                fromEmail: no-reply@example.com
-                testDir: fixtures/email
-                token: ""
-        exportContentWorker:
+        deletepirschdomainworker:
             config:
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
-        openlaneConfig:
+                pirschClientID: ""
+                pirschClientSecret: ""
+        emailworker:
+            config:
+                devmode: true
+                enabled: false
+                fromemail: no-reply@example.com
+                testdir: fixtures/email
+                token: ""
+        exportcontentworker:
+            config:
+                enabled: false
+                openlaneAPIHost: ""
+                openlaneAPIToken: ""
+        openlaneconfig:
             openlaneAPIHost: ""
             openlaneAPIToken: ""
-        slackWorker:
+        slackworker:
             config:
-                devMode: true
+                devmode: true
                 enabled: false
                 token: ""
-        validateCustomDomainWorker:
+        validatecustomdomainworker:
             config:
                 cloudflareApiKey: ""
                 enabled: false
                 openlaneAPIHost: ""
                 openlaneAPIToken: ""
                 validateInterval: 0
-        watermarkDocWorker:
+        watermarkdocworker:
             config:
                 enabled: false
                 openlaneAPIHost: ""

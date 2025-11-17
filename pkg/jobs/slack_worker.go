@@ -51,7 +51,7 @@ type SlackConfig struct {
 	// Enabled tells the server whether or not to register the worker, if disabled jobs of this type cannot be inserted
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"description=enable or disable the slack worker" default:"false"`
 	// DevMode mocks the request, this can be overwritten on the individual job args
-	DevMode bool `koanf:"devMode" json:"devMode" jsonschema:"description=enable dev mode" default:"true"`
+	DevMode bool `koanf:"devmode" json:"devmode" jsonschema:"description=enable dev mode" default:"true"`
 	// Token is the slack API token to connect to the slack instance
 	Token string `koanf:"token" json:"token" jsonschema:"description=the token to use for the slack app"`
 }

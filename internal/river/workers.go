@@ -40,7 +40,7 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		return nil, err
 	}
 
-	if err := createExportWorkers(w, insertOnlyClient, workers); err != nil {
+	if err := createExportWorkers(w, workers); err != nil {
 		return nil, err
 	}
 
@@ -74,7 +74,7 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 	return workers, nil
 }
 
-func createExportWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+func createExportWorkers(w Workers, workers *river.Workers) error {
 	if w.ExportContentWorker.Config.Enabled {
 		exportContentConfig := &corejobs.ExportContentWorker{
 			Config: w.ExportContentWorker.Config,

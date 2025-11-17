@@ -18,6 +18,16 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.CreatePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CustomDomainConfig": {
       "properties": {
         "openlaneAPIHost": {
@@ -87,6 +97,16 @@
         "cutoffDuration"
       ]
     },
+    "corejobs.DeletePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ExportContentWorker": {
       "properties": {
         "config": {
@@ -118,6 +138,27 @@
           "type": "string"
         },
         "openlaneAPIToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.PirschDomainConfig": {
+      "properties": {
+        "openlaneAPIHost": {
+          "type": "string"
+        },
+        "openlaneAPIToken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "pirschClientID": {
+          "type": "string"
+        },
+        "pirschClientSecret": {
           "type": "string"
         }
       },
@@ -198,11 +239,11 @@
           "type": "boolean",
           "description": "enable or disable the email worker"
         },
-        "devMode": {
+        "devmode": {
           "type": "boolean",
           "description": "enable dev mode"
         },
-        "testDir": {
+        "testdir": {
           "type": "string",
           "description": "the directory to use for dev mode"
         },
@@ -210,7 +251,7 @@
           "type": "string",
           "description": "the token to use for the email provider"
         },
-        "fromEmail": {
+        "fromemail": {
           "type": "string",
           "description": "FromEmail is the email address to use as the sender"
         }
@@ -236,7 +277,7 @@
           "type": "boolean",
           "description": "enable or disable the slack worker"
         },
-        "devMode": {
+        "devmode": {
           "type": "boolean",
           "description": "enable dev mode"
         },
@@ -262,7 +303,7 @@
     },
     "river.Config": {
       "properties": {
-        "databaseHost": {
+        "databasehost": {
           "type": "string",
           "description": "DatabaseHost for connecting to the postgres database"
         },
@@ -274,7 +315,7 @@
           "$ref": "#/$defs/river.Workers",
           "description": "Workers to be enabled on the server"
         },
-        "defaultMaxRetries": {
+        "defaultmaxretries": {
           "type": "integer",
           "description": "DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
         },
@@ -293,7 +334,7 @@
           "type": "string",
           "description": "Name of the queue"
         },
-        "maxWorkers": {
+        "maxworkers": {
           "type": "integer",
           "description": "MaxWorkers allotted for the queue"
         }
@@ -304,43 +345,51 @@
     },
     "river.Workers": {
       "properties": {
-        "openlaneConfig": {
+        "openlaneconfig": {
           "$ref": "#/$defs/corejobs.OpenlaneConfig",
           "description": "OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers\nif a worker needs specific configuration, it can be set in the worker's config"
         },
-        "emailWorker": {
+        "emailworker": {
           "$ref": "#/$defs/jobs.EmailWorker",
           "description": "EmailWorker configuration for sending emails"
         },
-        "databaseWorker": {
+        "databaseworker": {
           "$ref": "#/$defs/jobs.DatabaseWorker",
           "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
         },
-        "createCustomDomainWorker": {
+        "createcustomdomainworker": {
           "$ref": "#/$defs/corejobs.CreateCustomDomainWorker",
           "description": "CreateCustomDomainWorker configuration for creating custom domains"
         },
-        "validateCustomDomainWorker": {
+        "validatecustomdomainworker": {
           "$ref": "#/$defs/corejobs.ValidateCustomDomainWorker",
           "description": "ValidateCustomDomainWorker configuration for validating custom domains"
         },
-        "deleteCustomDomainWorker": {
+        "deletecustomdomainworker": {
           "$ref": "#/$defs/corejobs.DeleteCustomDomainWorker",
           "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
         },
-        "exportContentWorker": {
+        "exportcontentworker": {
           "$ref": "#/$defs/corejobs.ExportContentWorker",
           "description": "ExportContentWorker configuration for exporting content"
         },
-        "deleteExportContentWorker": {
+        "deleteexportcontentworker": {
           "$ref": "#/$defs/corejobs.DeleteExportContentWorker",
           "description": "DeleteExportContentWorker configuration for batch deleting exports and clogging object storage"
         },
-        "watermarkDocWorker": {
+        "watermarkdocworker": {
           "$ref": "#/$defs/corejobs.WatermarkDocWorker",
           "description": "WatermarkDocWorker configuration for watermarking documents"
         },
-        "slackWorker": {
+        "createpirschdomainworker": {
+          "$ref": "#/$defs/corejobs.CreatePirschDomainWorker",
+          "description": "CreatePirschDomainWorker configuration for creating Pirsch domains"
+        },
+        "deletepirschdomainworker": {
+          "$ref": "#/$defs/corejobs.DeletePirschDomainWorker",
+          "description": "DeletePirschDomainWorker configuration for deleting Pirsch domains"
+        },
+        "slackworker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
         }
@@ -351,15 +400,15 @@
     },
     "riverqueue.MetricsConfig": {
       "properties": {
-        "enableMetrics": {
+        "enablemetrics": {
           "type": "boolean",
           "description": "Enable toggles otel metrics middleware"
         },
-        "metricsDurationUnit": {
+        "metricsdurationunit": {
           "type": "string",
           "description": "DurationUnit sets the duration unit for metrics"
         },
-        "enableSemanticMetrics": {
+        "enablesemanticmetrics": {
           "type": "boolean",
           "description": "EnableSemanticMetrics toggles semantic metrics"
         }

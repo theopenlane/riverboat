@@ -88,7 +88,7 @@ in `pkg/jobs`.
    // ExampleConfig contains the configuration for the example worker
    type ExampleConfig struct {
       // DevMode is a flag to enable dev mode so we don't actually send millions of carrier pigeons
-      DevMode bool `koanf:"devMode" json:"devMode" jsonschema:"description=enable dev mode" default:"true"`
+      DevMode bool `koanf:"devmode" json:"devmode" jsonschema:"description=enable dev mode" default:"true"`
    }
 
    // Work satisfies the river.Worker interface for the example worker

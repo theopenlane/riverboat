@@ -48,13 +48,13 @@ type EmailConfig struct {
 	// Enabled is a flag to enable or disable the email worker
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"description=enable or disable the email worker" default:"false"`
 	// DevMode is a flag to enable dev mode
-	DevMode bool `koanf:"devMode" json:"devMode" jsonschema:"description=enable dev mode" default:"true"`
+	DevMode bool `koanf:"devmode" json:"devmode" jsonschema:"description=enable dev mode" default:"true"`
 	// TestDir is the directory to use for dev mode
-	TestDir string `koanf:"testDir" json:"testDir" jsonschema:"description=the directory to use for dev mode" default:"fixtures/email"`
+	TestDir string `koanf:"testdir" json:"testdir" jsonschema:"description=the directory to use for dev mode" default:"fixtures/email"`
 	// Token is the token to use for the email provider
 	Token string `koanf:"token" json:"token" jsonschema:"description=the token to use for the email provider"`
 	// FromEmail is the email address to use as the sender
-	FromEmail string `koanf:"fromEmail" json:"fromEmail" jsonschema:"required description=the email address to use as the sender" default:"no-reply@example.com"`
+	FromEmail string `koanf:"fromemail" json:"fromemail" jsonschema:"required description=the email address to use as the sender" default:"no-reply@example.com"`
 }
 
 // validateEmailConfig validates the email configuration settings

@@ -13,13 +13,13 @@ type Config struct {
 	Logger Logger `koanf:"-" json:"-"`
 
 	// DatabaseHost for connecting to the postgres database
-	DatabaseHost string `koanf:"databaseHost" json:"databaseHost" sensitive:"true" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
+	DatabaseHost string `koanf:"databasehost" json:"databasehost" sensitive:"true" default:"postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable"`
 	// Queues to be enabled on the server, if not provided, a default queue is created
 	Queues []Queue `koanf:"queues" json:"queues" default:""`
 	// Workers to be enabled on the server
 	Workers Workers `koanf:"workers" json:"workers"`
 	// DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job
-	DefaultMaxRetries int `koanf:"defaultMaxRetries" json:"defaultMaxRetries" default:"10"`
+	DefaultMaxRetries int `koanf:"defaultmaxretries" json:"defaultmaxretries" default:"10"`
 	// Metrics enables or disables metrics collection
 	Metrics riverqueue.MetricsConfig `koanf:"metrics" json:"metrics"`
 }
@@ -29,7 +29,7 @@ type Queue struct {
 	// Name of the queue
 	Name string `koanf:"name" json:"name" default:"default"`
 	// MaxWorkers allotted for the queue
-	MaxWorkers int `koanf:"maxWorkers" json:"maxWorkers" default:"100"`
+	MaxWorkers int `koanf:"maxworkers" json:"maxworkers" default:"100"`
 }
 
 // Logger is the configuration for the logger used in the river server
@@ -44,40 +44,40 @@ type Logger struct {
 type Workers struct {
 	// OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers
 	// if a worker needs specific configuration, it can be set in the worker's config
-	OpenlaneConfig corejobs.OpenlaneConfig `koanf:"openlaneConfig" json:"openlaneConfig"`
+	OpenlaneConfig corejobs.OpenlaneConfig `koanf:"openlaneconfig" json:"openlaneconfig"`
 
 	// EmailWorker configuration for sending emails
-	EmailWorker jobs.EmailWorker `koanf:"emailWorker" json:"emailWorker"`
+	EmailWorker jobs.EmailWorker `koanf:"emailworker" json:"emailworker"`
 
 	// DatabaseWorker configuration for creating databases using openlane/dbx
-	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseWorker" json:"databaseWorker"`
+	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseworker" json:"databaseworker"`
 
 	// CreateCustomDomainWorker configuration for creating custom domains
-	CreateCustomDomainWorker corejobs.CreateCustomDomainWorker `koanf:"createCustomDomainWorker" json:"createCustomDomainWorker"`
+	CreateCustomDomainWorker corejobs.CreateCustomDomainWorker `koanf:"createcustomdomainworker" json:"createcustomdomainworker"`
 
 	// ValidateCustomDomainWorker configuration for validating custom domains
-	ValidateCustomDomainWorker corejobs.ValidateCustomDomainWorker `koanf:"validateCustomDomainWorker" json:"validateCustomDomainWorker"`
+	ValidateCustomDomainWorker corejobs.ValidateCustomDomainWorker `koanf:"validatecustomdomainworker" json:"validatecustomdomainworker"`
 
 	// DeleteCustomDomainWorker configuration for deleting custom domains
-	DeleteCustomDomainWorker corejobs.DeleteCustomDomainWorker `koanf:"deleteCustomDomainWorker" json:"deleteCustomDomainWorker"`
+	DeleteCustomDomainWorker corejobs.DeleteCustomDomainWorker `koanf:"deletecustomdomainworker" json:"deletecustomdomainworker"`
 
 	// ExportContentWorker configuration for exporting content
-	ExportContentWorker corejobs.ExportContentWorker `koanf:"exportContentWorker" json:"exportContentWorker"`
+	ExportContentWorker corejobs.ExportContentWorker `koanf:"exportcontentworker" json:"exportcontentworker"`
 
 	// DeleteExportContentWorker configuration for batch deleting exports and clogging object storage
-	DeleteExportContentWorker corejobs.DeleteExportContentWorker `koanf:"deleteExportContentWorker" json:"deleteExportContentWorker"`
+	DeleteExportContentWorker corejobs.DeleteExportContentWorker `koanf:"deleteexportcontentworker" json:"deleteexportcontentworker"`
 
 	// WatermarkDocWorker configuration for watermarking documents
-	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkDocWorker" json:"watermarkDocWorker"`
+	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkdocworker" json:"watermarkdocworker"`
 
 	// CreatePirschDomainWorker configuration for creating Pirsch domains
-	CreatePirschDomainWorker corejobs.CreatePirschDomainWorker `koanf:"createPirschDomainWorker" json:"createPirschDomainWorker"`
+	CreatePirschDomainWorker corejobs.CreatePirschDomainWorker `koanf:"createpirschdomainworker" json:"createpirschdomainworker"`
 
 	// DeletePirschDomainWorker configuration for deleting Pirsch domains
-	DeletePirschDomainWorker corejobs.DeletePirschDomainWorker `koanf:"deletePirschDomainWorker" json:"deletePirschDomainWorker"`
+	DeletePirschDomainWorker corejobs.DeletePirschDomainWorker `koanf:"deletepirschdomainworker" json:"deletepirschdomainworker"`
 
 	// SlackWorker configuration for sending Slack messages
-	SlackWorker jobs.SlackWorker `koanf:"slackWorker" json:"slackWorker"`
+	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
 
 	// add more workers here
 }
