@@ -28,7 +28,7 @@ func Start(ctx context.Context, c Config) error {
 		log.Info().Msg("setting up OpenTelemetry metrics exporter for river")
 
 		if err := setupMetricsExporter(); err != nil {
-			log.Error().Err(err).Msg("failed to setup OpenTelemetry metrics exporter")
+			log.Error().Err(err).Msg("failed to setup otel metrics exporter")
 		}
 	}
 
