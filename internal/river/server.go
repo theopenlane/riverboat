@@ -45,8 +45,10 @@ func registerMetricsServer(ctx context.Context) error {
 
 	// Setup HTTP server
 	srv := &http.Server{
-		Addr:    fmt.Sprintf(":%s", metricsPort),
-		Handler: r,
+		Addr:         fmt.Sprintf(":%s", metricsPort),
+		Handler:      r,
+		ReadTimeout:  15 * time.Second, // nolint: mnd
+		WriteTimeout: 15 * time.Second, // nolint: mnd
 	}
 
 	go func() {
