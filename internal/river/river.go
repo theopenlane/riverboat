@@ -23,6 +23,15 @@ const (
 func Start(ctx context.Context, c Config) error {
 	logger := createLogger(c.Logger)
 
+	// setup metrics exporting for river
+	if c.Metrics.EnableMetrics {
+		log.Info().Msg("setting up OpenTelemetry metrics exporter for river")
+
+		if err := setupMetricsExporter(); err != nil {
+			log.Error().Err(err).Msg("failed to setup otel metrics exporter")
+		}
+	}
+
 	insertOnlyClient, err := riverqueue.New(
 		ctx, riverqueue.WithConnectionURI(c.DatabaseHost),
 		riverqueue.WithLogger(logger),
@@ -60,6 +69,7 @@ func Start(ctx context.Context, c Config) error {
 		riverqueue.WithQueues(queues),
 		riverqueue.WithPeriodicJobs(periodicJobs),
 		riverqueue.WithMaxRetries(c.DefaultMaxRetries),
+		riverqueue.WithMetrics(&c.Metrics),
 	)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create river client")
@@ -74,6 +84,13 @@ func Start(ctx context.Context, c Config) error {
 	if err := rc.Start(ctx); err != nil {
 		log.Error().Err(err).Msg("failed to start river client")
 	}
+
+	// start the metrics server
+	go func() {
+		if err := registerMetricsServer(ctx); err != nil {
+			log.Error().Err(err).Msg("failed to start metrics server")
+		}
+	}()
 
 	sigintOrTerm := make(chan os.Signal, 1)
 	signal.Notify(sigintOrTerm, syscall.SIGINT, syscall.SIGTERM)
