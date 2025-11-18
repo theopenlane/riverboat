@@ -64,7 +64,7 @@ type Config struct {
 	RunMigrations bool `koanf:"runmigrations" json:"runmigrations" default:"false"`
 	// RiverConf is the river configuration
 	RiverConf river.Config `koanf:"riverconf" json:"riverconf"`
-
+	// Metrics is the metrics configuration
 	Metrics MetricsConfig `koanf:"metrics" json:"metrics"`
 }
 
@@ -125,6 +125,8 @@ func New(ctx context.Context, opts ...Option) (c *Client, err error) {
 
 	// Conditionally add OpenTelemetry metrics middleware
 	if c.config.Metrics.EnableMetrics {
+		log.Info().Msg("enabling otel metrics middleware for river client")
+
 		c.config.RiverConf.Middleware = append(
 			c.config.RiverConf.Middleware,
 			otelriver.NewMiddleware(&otelriver.MiddlewareConfig{
