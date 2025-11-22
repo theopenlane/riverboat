@@ -76,6 +76,9 @@ type Workers struct {
 	// DeletePirschDomainWorker configuration for deleting Pirsch domains
 	DeletePirschDomainWorker corejobs.DeletePirschDomainWorker `koanf:"deletepirschdomainworker" json:"deletepirschdomainworker"`
 
+	// UpdatePirschDomainWorker configuration for updating Pirsch domains
+	UpdatePirschDomainWorker corejobs.UpdatePirschDomainWorker `koanf:"updatepirschdomainworker" json:"updatepirschdomainworker"`
+
 	// SlackWorker configuration for sending Slack messages
 	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
 
