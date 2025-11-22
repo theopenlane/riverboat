@@ -48,6 +48,9 @@
             "deletepirschdomainworker": {
                 "config": {}
             },
+            "updatepirschdomainworker": {
+                "config": {}
+            },
             "slackworker": {
                 "config": {}
             }
@@ -113,6 +116,9 @@ Config is the configuration for the river server
         "deletepirschdomainworker": {
             "config": {}
         },
+        "updatepirschdomainworker": {
+            "config": {}
+        },
         "slackworker": {
             "config": {}
         }
@@ -155,6 +161,7 @@ Workers that will be enabled on the server
 |[**watermarkdocworker**](#riverworkerswatermarkdocworker)|`object`|||
 |[**createpirschdomainworker**](#riverworkerscreatepirschdomainworker)|`object`|||
 |[**deletepirschdomainworker**](#riverworkersdeletepirschdomainworker)|`object`|||
+|[**updatepirschdomainworker**](#riverworkersupdatepirschdomainworker)|`object`|||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
 
 **Additional Properties:** not allowed  
@@ -191,6 +198,9 @@ Workers that will be enabled on the server
         "config": {}
     },
     "deletepirschdomainworker": {
+        "config": {}
+    },
+    "updatepirschdomainworker": {
         "config": {}
     },
     "slackworker": {
@@ -522,6 +532,38 @@ DatabaseWorker is a worker to create a dedicated database for an organization
 
 <a name="riverworkersdeletepirschdomainworkerconfig"></a>
 ##### river\.workers\.deletepirschdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschclientid**|`string`|||
+|**pirschclientsecret**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersupdatepirschdomainworker"></a>
+#### river\.workers\.updatepirschdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersupdatepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkersupdatepirschdomainworkerconfig"></a>
+##### river\.workers\.updatepirschdomainworker\.config: object
 
 **Properties**
 

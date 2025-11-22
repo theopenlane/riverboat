@@ -69,6 +69,13 @@ river:
                 devmode: true
                 enabled: false
                 token: ""
+        updatepirschdomainworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                pirschclientid: ""
+                pirschclientsecret: ""
         validatecustomdomainworker:
             config:
                 cloudflareapikey: ""

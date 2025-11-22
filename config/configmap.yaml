@@ -60,6 +60,11 @@ data:
   RIVERBOAT_RIVER_WORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deletepirschdomainworker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTID: {{ .Values.riverboat.river.workers.deletepirschdomainworker.config.pirschclientid }}
   RIVERBOAT_RIVER_WORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTSECRET: {{ .Values.riverboat.river.workers.deletepirschdomainworker.config.pirschclientsecret }}
+  RIVERBOAT_RIVER_WORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.updatepirschdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.updatepirschdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.updatepirschdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTID: {{ .Values.riverboat.river.workers.updatepirschdomainworker.config.pirschclientid }}
+  RIVERBOAT_RIVER_WORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTSECRET: {{ .Values.riverboat.river.workers.updatepirschdomainworker.config.pirschclientsecret }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackworker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackworker.config.devmode | default true }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}

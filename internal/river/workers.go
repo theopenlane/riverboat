@@ -224,5 +224,16 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 		log.Info().Msg("delete pirsch domain worker enabled")
 	}
 
+	if w.UpdatePirschDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.UpdatePirschDomainWorker{
+			Config: w.UpdatePirschDomainWorker.Config,
+		},
+		); err != nil {
+			return err
+		}
+
+		log.Info().Msg("update pirsch domain worker enabled")
+	}
+
 	return nil
 }
