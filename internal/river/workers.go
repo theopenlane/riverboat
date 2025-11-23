@@ -69,6 +69,9 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		return nil, err
 	}
 
+	if err := createPreviewDomainWorkers(w, insertOnlyClient, workers); err != nil {
+		return nil, err
+	}
 	// add more workers here
 
 	return workers, nil
@@ -233,6 +236,44 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 		}
 
 		log.Info().Msg("update pirsch domain worker enabled")
+	}
+
+	return nil
+}
+
+func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+	if w.CreatePreviewDomainWorker.Config.Enabled {
+		previewDomainConfig := &corejobs.CreatePreviewDomainWorker{
+			Config: w.CreatePreviewDomainWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if previewDomainConfig.Config.OpenlaneAPIHost == "" {
+			previewDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if previewDomainConfig.Config.OpenlaneAPIToken == "" {
+			previewDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		previewDomainConfig.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, previewDomainConfig); err != nil {
+			return err
+		}
+
+		log.Info().Msg("create preview domain worker enabled")
+	}
+
+	if w.DeletePreviewDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.DeletePreviewDomainWorker{
+			Config: w.DeletePreviewDomainWorker.Config,
+		},
+		); err != nil {
+			return err
+		}
+
+		log.Info().Msg("delete preview domain worker enabled")
 	}
 
 	return nil

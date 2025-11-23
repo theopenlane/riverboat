@@ -82,5 +82,10 @@ type Workers struct {
 	// SlackWorker configuration for sending Slack messages
 	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
 
+	// PreviewDomainWorkers
+	CreatePreviewDomainWorker   corejobs.CreatePreviewDomainWorker   `koanf:"createpreviewdomainworker" json:"createpreviewdomainworker"`
+	DeletePreviewDomainWorker   corejobs.DeletePreviewDomainWorker   `koanf:"deletepreviewdomainworker" json:"deletepreviewdomainworker"`
+	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
+
 	// add more workers here
 }

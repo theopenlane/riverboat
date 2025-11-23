@@ -22,6 +22,12 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+        createpreviewdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
         databaseworker:
             config:
                 baseUrl: http://localhost:1337
@@ -49,6 +55,12 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+        deletepreviewdomainworker:
+            Config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
         emailworker:
             config:
                 devmode: true
@@ -83,6 +95,14 @@ river:
                 openlaneapihost: ""
                 openlaneapitoken: ""
                 validateinterval: 0
+        validatepreviewdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                maxsnoozes: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                snoozeduration: 0
         watermarkdocworker:
             config:
                 enabled: false
