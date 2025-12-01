@@ -31,6 +31,8 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.38.0
 )
 
+replace github.com/theopenlane/core => ../core
+
 require (
 	ariga.io/atlas v0.38.0 // indirect
 	ariga.io/entcache v0.1.0 // indirect
@@ -56,6 +58,25 @@ require (
 	github.com/antlr4-go/antlr/v4 v4.13.1 // indirect
 	github.com/apapsch/go-jsonmerge/v2 v2.0.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.40.0 // indirect
+	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.3 // indirect
+	github.com/aws/aws-sdk-go-v2/config v1.32.2 // indirect
+	github.com/aws/aws-sdk-go-v2/credentials v1.19.2 // indirect
+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.18.14 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.4.14 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.7.14 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.4 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/v4a v1.4.14 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.13.3 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.9.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.14 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.19.14 // indirect
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.92.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/signin v1.0.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sso v1.30.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.35.10 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sts v1.41.2 // indirect
+	github.com/aws/smithy-go v1.23.2 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -91,7 +112,7 @@ require (
 	github.com/go-webauthn/x v0.1.26 // indirect
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
-	github.com/goccy/go-yaml v1.18.0 // indirect
+	github.com/goccy/go-yaml v1.19.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.0 // indirect
 	github.com/golang/groupcache v0.0.0-20241129210726-2c02b8208cf8 // indirect
 	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a // indirect
@@ -200,7 +221,7 @@ require (
 	github.com/vektah/gqlparser/v2 v2.5.31 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
-	github.com/windmill-labs/windmill-go-client v1.585.0 // indirect
+	github.com/windmill-labs/windmill-go-client v1.586.0 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect

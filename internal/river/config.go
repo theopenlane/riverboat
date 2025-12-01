@@ -82,5 +82,8 @@ type Workers struct {
 	// SlackWorker configuration for sending Slack messages
 	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
 
+	// Worker configuration for clearing trust center cached items when changes are detected
+	ClearTrustCenterCacheWorker corejobs.ClearTrustCenterCacheWorker `koanf:"clearTrustCenterCacheWorker" json:"clearTrustCenterCacheWorker"`
+
 	// add more workers here
 }

@@ -8,6 +8,35 @@
       },
       "type": "array"
     },
+    "[]string": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "corejobs.ClearTrustCenterCacheWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorkerConfig",
+          "description": "the configuration for clearing trust center cache"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ClearTrustCenterCacheWorkerConfig": {
+      "properties": {
+        "objectstorage": {
+          "$ref": "#/$defs/storage.ProviderConfig",
+          "description": "the object storage configuration for R2"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CreateCustomDomainWorker": {
       "properties": {
         "config": {
@@ -406,6 +435,10 @@
         "slackworker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
+        },
+        "clearTrustCenterCacheWorker": {
+          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker",
+          "description": "Worker configuration for clearing trust center cached items when changes are detected"
         }
       },
       "additionalProperties": false,
@@ -430,6 +463,102 @@
       "additionalProperties": false,
       "type": "object",
       "description": "MetricsConfig is the configuration for metrics"
+    },
+    "storage.ProviderConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "keys": {
+          "$ref": "#/$defs/[]string"
+        },
+        "maxsizemb": {
+          "type": "integer"
+        },
+        "maxmemorymb": {
+          "type": "integer"
+        },
+        "devmode": {
+          "type": "boolean"
+        },
+        "providers": {
+          "$ref": "#/$defs/storage.Providers"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "storage.ProviderConfigs": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "ensureavailable": {
+          "type": "boolean"
+        },
+        "region": {
+          "type": "string"
+        },
+        "bucket": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "proxypresignenabled": {
+          "type": "boolean"
+        },
+        "baseurl": {
+          "type": "string"
+        },
+        "credentials": {
+          "$ref": "#/$defs/storage.ProviderCredentials"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "storage.ProviderCredentials": {
+      "properties": {
+        "accesskeyid": {
+          "type": "string"
+        },
+        "secretaccesskey": {
+          "type": "string"
+        },
+        "projectid": {
+          "type": "string"
+        },
+        "accountid": {
+          "type": "string"
+        },
+        "apitoken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "storage.Providers": {
+      "properties": {
+        "s3": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "cloudflarer2": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "gcs": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "disk": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        },
+        "database": {
+          "$ref": "#/$defs/storage.ProviderConfigs"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
     }
   },
   "properties": {
