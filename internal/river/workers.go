@@ -4,7 +4,7 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 
-	"github.com/theopenlane/core/pkg/corejobs"
+	"github.com/theopenlane/corejobs"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
@@ -63,6 +63,16 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		}
 
 		log.Info().Msg("watermark doc worker enabled")
+	}
+
+	if w.ClearTrustCenterCacheWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.ClearTrustCenterCacheWorker{
+			Config: w.ClearTrustCenterCacheWorker.Config,
+		}); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("ClearTrustCenterCacheWorker worker enabled")
 	}
 
 	if err := createPirschDomainWorkers(w, insertOnlyClient, workers); err != nil {

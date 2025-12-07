@@ -53,6 +53,29 @@
             },
             "slackworker": {
                 "config": {}
+            },
+            "clearTrustCenterCacheWorker": {
+                "config": {
+                    "objectstorage": {
+                        "providers": {
+                            "s3": {
+                                "credentials": {}
+                            },
+                            "cloudflarer2": {
+                                "credentials": {}
+                            },
+                            "gcs": {
+                                "credentials": {}
+                            },
+                            "disk": {
+                                "credentials": {}
+                            },
+                            "database": {
+                                "credentials": {}
+                            }
+                        }
+                    }
+                }
             }
         },
         "metrics": {}
@@ -121,6 +144,29 @@ Config is the configuration for the river server
         },
         "slackworker": {
             "config": {}
+        },
+        "clearTrustCenterCacheWorker": {
+            "config": {
+                "objectstorage": {
+                    "providers": {
+                        "s3": {
+                            "credentials": {}
+                        },
+                        "cloudflarer2": {
+                            "credentials": {}
+                        },
+                        "gcs": {
+                            "credentials": {}
+                        },
+                        "disk": {
+                            "credentials": {}
+                        },
+                        "database": {
+                            "credentials": {}
+                        }
+                    }
+                }
+            }
         }
     },
     "metrics": {}
@@ -163,6 +209,7 @@ Workers that will be enabled on the server
 |[**deletepirschdomainworker**](#riverworkersdeletepirschdomainworker)|`object`|||
 |[**updatepirschdomainworker**](#riverworkersupdatepirschdomainworker)|`object`|||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
+|[**clearTrustCenterCacheWorker**](#riverworkerscleartrustcentercacheworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -205,6 +252,29 @@ Workers that will be enabled on the server
     },
     "slackworker": {
         "config": {}
+    },
+    "clearTrustCenterCacheWorker": {
+        "config": {
+            "objectstorage": {
+                "providers": {
+                    "s3": {
+                        "credentials": {}
+                    },
+                    "cloudflarer2": {
+                        "credentials": {}
+                    },
+                    "gcs": {
+                        "credentials": {}
+                    },
+                    "disk": {
+                        "credentials": {}
+                    },
+                    "database": {
+                        "credentials": {}
+                    }
+                }
+            }
+        }
     }
 }
 ```
@@ -610,6 +680,357 @@ SlackConfig configures the Slack worker.
 |**enabled**|`boolean`|enable or disable the slack worker<br/>||
 |**devmode**|`boolean`|enable dev mode<br/>||
 |**token**|`string`|the token to use for the slack app<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscleartrustcentercacheworker"></a>
+#### river\.workers\.clearTrustCenterCacheWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkerscleartrustcentercacheworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {
+        "objectstorage": {
+            "providers": {
+                "s3": {
+                    "credentials": {}
+                },
+                "cloudflarer2": {
+                    "credentials": {}
+                },
+                "gcs": {
+                    "credentials": {}
+                },
+                "disk": {
+                    "credentials": {}
+                },
+                "database": {
+                    "credentials": {}
+                }
+            }
+        }
+    }
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfig"></a>
+##### river\.workers\.clearTrustCenterCacheWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**objectstorage**](#riverworkerscleartrustcentercacheworkerconfigobjectstorage)|`object`|||
+|**enabled**|`boolean`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "objectstorage": {
+        "providers": {
+            "s3": {
+                "credentials": {}
+            },
+            "cloudflarer2": {
+                "credentials": {}
+            },
+            "gcs": {
+                "credentials": {}
+            },
+            "disk": {
+                "credentials": {}
+            },
+            "database": {
+                "credentials": {}
+            }
+        }
+    }
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorage"></a>
+###### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|[**keys**](#riverworkerscleartrustcentercacheworkerconfigobjectstoragekeys)|`string[]`|||
+|**maxsizemb**|`integer`|||
+|**maxmemorymb**|`integer`|||
+|**devmode**|`boolean`|||
+|[**providers**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageproviders)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "providers": {
+        "s3": {
+            "credentials": {}
+        },
+        "cloudflarer2": {
+            "credentials": {}
+        },
+        "gcs": {
+            "credentials": {}
+        },
+        "disk": {
+            "credentials": {}
+        },
+        "database": {
+            "credentials": {}
+        }
+    }
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstoragekeys"></a>
+####### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.keys: array
+
+**Items**
+
+**Item Type:** `string`  
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageproviders"></a>
+####### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**s3**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderss3)|`object`|||
+|[**cloudflarer2**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderscloudflarer2)|`object`|||
+|[**gcs**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersgcs)|`object`|||
+|[**disk**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdisk)|`object`|||
+|[**database**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdatabase)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "s3": {
+        "credentials": {}
+    },
+    "cloudflarer2": {
+        "credentials": {}
+    },
+    "gcs": {
+        "credentials": {}
+    },
+    "disk": {
+        "credentials": {}
+    },
+    "database": {
+        "credentials": {}
+    }
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderss3"></a>
+######## river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.s3: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|**ensureavailable**|`boolean`|||
+|**region**|`string`|||
+|**bucket**|`string`|||
+|**endpoint**|`string`|||
+|**proxypresignenabled**|`boolean`|||
+|**baseurl**|`string`|||
+|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderss3credentials)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "credentials": {}
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderss3credentials"></a>
+######### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.s3\.credentials: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**accesskeyid**|`string`|||
+|**secretaccesskey**|`string`|||
+|**projectid**|`string`|||
+|**accountid**|`string`|||
+|**apitoken**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderscloudflarer2"></a>
+######## river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.cloudflarer2: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|**ensureavailable**|`boolean`|||
+|**region**|`string`|||
+|**bucket**|`string`|||
+|**endpoint**|`string`|||
+|**proxypresignenabled**|`boolean`|||
+|**baseurl**|`string`|||
+|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderscloudflarer2credentials)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "credentials": {}
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageproviderscloudflarer2credentials"></a>
+######### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.cloudflarer2\.credentials: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**accesskeyid**|`string`|||
+|**secretaccesskey**|`string`|||
+|**projectid**|`string`|||
+|**accountid**|`string`|||
+|**apitoken**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersgcs"></a>
+######## river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.gcs: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|**ensureavailable**|`boolean`|||
+|**region**|`string`|||
+|**bucket**|`string`|||
+|**endpoint**|`string`|||
+|**proxypresignenabled**|`boolean`|||
+|**baseurl**|`string`|||
+|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersgcscredentials)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "credentials": {}
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersgcscredentials"></a>
+######### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.gcs\.credentials: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**accesskeyid**|`string`|||
+|**secretaccesskey**|`string`|||
+|**projectid**|`string`|||
+|**accountid**|`string`|||
+|**apitoken**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdisk"></a>
+######## river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.disk: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|**ensureavailable**|`boolean`|||
+|**region**|`string`|||
+|**bucket**|`string`|||
+|**endpoint**|`string`|||
+|**proxypresignenabled**|`boolean`|||
+|**baseurl**|`string`|||
+|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdiskcredentials)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "credentials": {}
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdiskcredentials"></a>
+######### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.disk\.credentials: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**accesskeyid**|`string`|||
+|**secretaccesskey**|`string`|||
+|**projectid**|`string`|||
+|**accountid**|`string`|||
+|**apitoken**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdatabase"></a>
+######## river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.database: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|**ensureavailable**|`boolean`|||
+|**region**|`string`|||
+|**bucket**|`string`|||
+|**endpoint**|`string`|||
+|**proxypresignenabled**|`boolean`|||
+|**baseurl**|`string`|||
+|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdatabasecredentials)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "credentials": {}
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorageprovidersdatabasecredentials"></a>
+######### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.providers\.database\.credentials: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**accesskeyid**|`string`|||
+|**secretaccesskey**|`string`|||
+|**projectid**|`string`|||
+|**accountid**|`string`|||
+|**apitoken**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>
