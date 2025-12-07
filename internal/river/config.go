@@ -1,7 +1,7 @@
 package river
 
 import (
-	"github.com/theopenlane/core/pkg/corejobs"
+	"github.com/theopenlane/corejobs"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
