@@ -53,6 +53,15 @@
             },
             "slackworker": {
                 "config": {}
+            },
+            "createpreviewdomainworker": {
+                "config": {}
+            },
+            "deletepreviewdomainworker": {
+                "Config": {}
+            },
+            "validatepreviewdomainworker": {
+                "config": {}
             }
         },
         "metrics": {}
@@ -121,6 +130,15 @@ Config is the configuration for the river server
         },
         "slackworker": {
             "config": {}
+        },
+        "createpreviewdomainworker": {
+            "config": {}
+        },
+        "deletepreviewdomainworker": {
+            "Config": {}
+        },
+        "validatepreviewdomainworker": {
+            "config": {}
         }
     },
     "metrics": {}
@@ -163,6 +181,9 @@ Workers that will be enabled on the server
 |[**deletepirschdomainworker**](#riverworkersdeletepirschdomainworker)|`object`|||
 |[**updatepirschdomainworker**](#riverworkersupdatepirschdomainworker)|`object`|||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
+|[**createpreviewdomainworker**](#riverworkerscreatepreviewdomainworker)|`object`|||
+|[**deletepreviewdomainworker**](#riverworkersdeletepreviewdomainworker)|`object`|||
+|[**validatepreviewdomainworker**](#riverworkersvalidatepreviewdomainworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -204,6 +225,15 @@ Workers that will be enabled on the server
         "config": {}
     },
     "slackworker": {
+        "config": {}
+    },
+    "createpreviewdomainworker": {
+        "config": {}
+    },
+    "deletepreviewdomainworker": {
+        "Config": {}
+    },
+    "validatepreviewdomainworker": {
         "config": {}
     }
 }
@@ -610,6 +640,101 @@ SlackConfig configures the Slack worker.
 |**enabled**|`boolean`|enable or disable the slack worker<br/>||
 |**devmode**|`boolean`|enable dev mode<br/>||
 |**token**|`string`|the token to use for the slack app<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscreatepreviewdomainworker"></a>
+#### river\.workers\.createpreviewdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkerscreatepreviewdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkerscreatepreviewdomainworkerconfig"></a>
+##### river\.workers\.createpreviewdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**cloudflareapikey**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersdeletepreviewdomainworker"></a>
+#### river\.workers\.deletepreviewdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**Config**](#riverworkersdeletepreviewdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "Config": {}
+}
+```
+
+<a name="riverworkersdeletepreviewdomainworkerconfig"></a>
+##### river\.workers\.deletepreviewdomainworker\.Config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**cloudflareapikey**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersvalidatepreviewdomainworker"></a>
+#### river\.workers\.validatepreviewdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersvalidatepreviewdomainworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkersvalidatepreviewdomainworkerconfig"></a>
+##### river\.workers\.validatepreviewdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareapikey**|`string`||no|
+|**maxsnoozes**|`integer`||yes|
+|**snoozeduration**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>

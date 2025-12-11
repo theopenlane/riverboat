@@ -68,6 +68,16 @@ data:
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackworker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackworker.config.devmode | default true }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}
+  RIVERBOAT_RIVER_WORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.createpreviewdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.createpreviewdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.createpreviewdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.createpreviewdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.validatepreviewdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.validatepreviewdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.validatepreviewdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.validatepreviewdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.workers.validatepreviewdomainworker.config.maxsnoozes }}
+  RIVERBOAT_RIVER_WORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.workers.validatepreviewdomainworker.config.snoozeduration }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}
