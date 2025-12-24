@@ -103,6 +103,7 @@ tasks:
 
   go:build:ci:
     desc: Runs go build for the riverboat server
+    silent: true
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
