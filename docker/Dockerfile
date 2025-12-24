@@ -12,6 +12,9 @@ RUN git config --global url."ssh://git@github.com/".insteadOf "https://github.co
 WORKDIR /go/src/app
 COPY . .
 
+# Ensure modules are up to date before building, ignore errors due to possible unused dependencies
+RUN go mod tidy -e
+
 RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -tags=${BUILDTAGS} -o /go/bin/riverboat .
 
 FROM cgr.dev/chainguard/bash:latest
