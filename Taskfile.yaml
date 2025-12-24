@@ -64,18 +64,36 @@ tasks:
   go:build:
     desc: Runs go build for the riverboat server
     cmds:
-      - go build -mod=mod -o riverboat
+      - |
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          go build -tags=trustcenter -mod=mod -o riverboat; \
+        else \
+          go build -mod=mod -o riverboat ; \
+        fi
 
   go:build:ci:
     desc: Runs go build for the riverboat server
     cmds:
-      - go build -mod=mod -a -o bin/riverboat
+      - |
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          go build -tags=trustcenter -mod=mod -a -o bin/riverboat; \
+        else \
+          go build -mod=mod -a -o bin/riverboat ; \
+        fi
 
   run:
     dotenv: ["{{.ENV}}/.env-dev"]
+    silent: true
     desc: runs the riverboat server in dev mode, assumes all other dependencies (postgres) are running
     cmds:
-      - go run main.go serve --debug --pretty
+      - |
+        echo "Starting riverboat server..."
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          echo "Including Trust Center jobs"; \
+          go run -tags=trustcenter main.go serve --debug --pretty; \
+        else \
+          go run main.go serve --debug --pretty ; \
+        fi
 
   run-dev:
     dotenv: ["{{.ENV}}/.env-dev"]
@@ -95,6 +113,6 @@ tasks:
 
   generate:
     desc: generate mocks
-    dir: pkg/riverqueue/generate
     cmds:
       - go generate ./...
+

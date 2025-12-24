@@ -2,63 +2,24 @@ refreshInterval: 600000000000
 river:
     databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     defaultmaxretries: 10
+    enabletrustcenterjobs: false
     metrics:
         enablemetrics: false
         enablesemanticmetrics: true
         metricsdurationunit: ms
     queues: null
     workers:
-        createcustomdomainworker:
-            config:
-                cloudflareapikey: ""
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                validateinterval: 0
-        createpirschdomainworker:
-            config:
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                pirschclientid: ""
-                pirschclientsecret: ""
-        createpreviewdomainworker:
-            config:
-                cloudflareapikey: ""
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
         databaseworker:
             config:
                 baseUrl: http://localhost:1337
                 debug: false
                 enabled: true
                 endpoint: query
-        deletecustomdomainworker:
-            config:
-                cloudflareapikey: ""
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                validateinterval: 0
         deleteexportcontentworker:
             config:
                 cutoffduration: 0
                 enabled: false
                 interval: 0
-                openlaneapihost: ""
-                openlaneapitoken: ""
-        deletepirschdomainworker:
-            config:
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                pirschclientid: ""
-                pirschclientsecret: ""
-        deletepreviewdomainworker:
-            Config:
-                cloudflareapikey: ""
-                enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
         emailworker:
@@ -81,30 +42,3 @@ river:
                 devmode: true
                 enabled: false
                 token: ""
-        updatepirschdomainworker:
-            config:
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                pirschclientid: ""
-                pirschclientsecret: ""
-        validatecustomdomainworker:
-            config:
-                cloudflareapikey: ""
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                validateinterval: 0
-        validatepreviewdomainworker:
-            config:
-                cloudflareapikey: ""
-                enabled: false
-                maxsnoozes: 0
-                openlaneapihost: ""
-                openlaneapitoken: ""
-                snoozeduration: 0
-        watermarkdocworker:
-            config:
-                enabled: false
-                openlaneapihost: ""
-                openlaneapitoken: ""

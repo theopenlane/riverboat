@@ -1,33 +1,23 @@
+//go:build trustcenter
+
 package river
 
 import (
 	"time"
 
 	"github.com/riverqueue/river"
-	"github.com/theopenlane/core/pkg/corejobs"
+	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/corejobs"
 )
 
 // minInterval prevents spamming from a bag config
 var minInterval = 1 * time.Minute
 
-func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
+// createAdditionalPeriodicJobs creates periodic jobs for the trust center module
+func createAdditionalPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
+	log.Info().Msg("adding additional trust center periodic jobs")
+
 	jobs := []*river.PeriodicJob{}
-
-	if c.DeleteExportContentWorker.Config.Enabled {
-		interval := c.DeleteExportContentWorker.Config.Interval
-		if interval < minInterval {
-			interval = minInterval
-		}
-
-		deleteExportJobs := river.NewPeriodicJob(
-			river.PeriodicInterval(interval),
-			func() (river.JobArgs, *river.InsertOpts) {
-				return corejobs.DeleteExportContentArgs{}, nil
-			},
-			&river.PeriodicJobOpts{RunOnStart: true},
-		)
-		jobs = append(jobs, deleteExportJobs)
-	}
 
 	if c.ValidateCustomDomainWorker.Config.Enabled {
 		interval := c.ValidateCustomDomainWorker.Config.ValidateInterval

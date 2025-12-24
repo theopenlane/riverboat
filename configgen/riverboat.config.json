@@ -8,301 +8,6 @@
       },
       "type": "array"
     },
-    "corejobs.CreateCustomDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.CustomDomainConfig",
-          "description": "the configuration for custom domain creation"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.CreatePirschDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.PirschDomainConfig",
-          "description": "the configuration for pirsch domain creation"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.CreatePreviewDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.PreviewDomainConfig",
-          "description": "the configuration for preview domain creation"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.CustomDomainConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "cloudflareapikey": {
-          "type": "string"
-        },
-        "validateinterval": {
-          "type": "integer"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "required": [
-        "validateinterval"
-      ]
-    },
-    "corejobs.DeleteCustomDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.CustomDomainConfig",
-          "description": "the configuration for custom domain deletion"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.DeleteExportContentWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.DeleteExportWorkerConfig",
-          "description": "the configuration for deleting exports"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.DeleteExportWorkerConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "interval": {
-          "type": "integer"
-        },
-        "cutoffduration": {
-          "type": "integer"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "required": [
-        "interval",
-        "cutoffduration"
-      ]
-    },
-    "corejobs.DeletePirschDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.PirschDomainConfig",
-          "description": "the configuration for pirsch domain deletion"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.DeletePreviewDomainConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "cloudflareapikey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.DeletePreviewDomainWorker": {
-      "properties": {
-        "Config": {
-          "$ref": "#/$defs/corejobs.DeletePreviewDomainConfig"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ExportContentWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.ExportWorkerConfig",
-          "description": "the configuration for exporting"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ExportWorkerConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.OpenlaneConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.PirschDomainConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "pirschclientid": {
-          "type": "string"
-        },
-        "pirschclientsecret": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.PreviewDomainConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "cloudflareapikey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.UpdatePirschDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.PirschDomainConfig",
-          "description": "the configuration for pirsch domain update"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ValidateCustomDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.CustomDomainConfig",
-          "description": "the configuration for custom domain validation"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ValidatePreviewDomainConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "cloudflareapikey": {
-          "type": "string"
-        },
-        "maxsnoozes": {
-          "type": "integer"
-        },
-        "snoozeduration": {
-          "type": "integer"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "required": [
-        "maxsnoozes",
-        "snoozeduration"
-      ]
-    },
-    "corejobs.ValidatePreviewDomainWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.ValidatePreviewDomainConfig",
-          "description": "the configuration for preview domain validation"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.WatermarkDocWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.WatermarkWorkerConfig",
-          "description": "the configuration for watermarking"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.WatermarkWorkerConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
     "dbxclient.Config": {
       "properties": {
         "enabled": {
@@ -335,6 +40,46 @@
       "additionalProperties": false,
       "type": "object",
       "description": "DatabaseWorker is a worker to create a dedicated database for an organization"
+    },
+    "jobs.DeleteExportContentWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.DeleteExportWorkerConfig",
+          "description": "the configuration for deleting exports"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "DeleteExportContentWorker deletes exports that are older than the configured cutoff duration"
+    },
+    "jobs.DeleteExportWorkerConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string",
+          "description": "OpenlaneAPIHost is the host URL for the Openlane API"
+        },
+        "openlaneapitoken": {
+          "type": "string",
+          "description": "OpenlaneAPIToken is the API token for authenticating with the Openlane API"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "interval": {
+          "type": "integer"
+        },
+        "cutoffduration": {
+          "type": "integer",
+          "description": "CutoffDuration defines the tolerance for exports. If you set 30 minutes, all exports older than 30 minutes\nat the time of job execution will be deleted"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "interval",
+        "cutoffduration"
+      ],
+      "description": "DeleteExportWorkerConfig holds the configuration for the delete export worker"
     },
     "jobs.EmailConfig": {
       "properties": {
@@ -373,6 +118,50 @@
       "additionalProperties": false,
       "type": "object",
       "description": "EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider"
+    },
+    "jobs.ExportContentWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.ExportWorkerConfig",
+          "description": "the configuration for exporting"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "ExportContentWorker exports the content into csv and makes it downloadable"
+    },
+    "jobs.ExportWorkerConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string",
+          "description": "OpenlaneAPIHost is the host URL for the Openlane API"
+        },
+        "openlaneapitoken": {
+          "type": "string",
+          "description": "OpenlaneAPIToken is the API token for authenticating with the Openlane API"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "ExportWorkerConfig configuration for the export content worker"
+    },
+    "jobs.OpenlaneConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string",
+          "description": "OpenlaneAPIHost is the host URL for the Openlane API"
+        },
+        "openlaneapitoken": {
+          "type": "string",
+          "description": "OpenlaneAPIToken is the API token for authenticating with the Openlane API"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "OpenlaneConfig contains the configuration for connecting to the Openlane API."
     },
     "jobs.SlackConfig": {
       "properties": {
@@ -420,11 +209,15 @@
         },
         "defaultmaxretries": {
           "type": "integer",
-          "description": "DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
+          "description": "// AdditionalWorkers to be enabled on the server when trust center build tag is present\nAdditionalWorkers AdditionalWorkers `koanf:\"additionalworkers\" json:\"additionalworkers\"`\nDefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
         },
         "metrics": {
           "$ref": "#/$defs/riverqueue.MetricsConfig",
           "description": "Metrics enables or disables metrics collection"
+        },
+        "enabletrustcenterjobs": {
+          "type": "boolean",
+          "description": "EnableTrustCenterJobs enables trust center specific jobs and workers"
         }
       },
       "additionalProperties": false,
@@ -449,7 +242,7 @@
     "river.Workers": {
       "properties": {
         "openlaneconfig": {
-          "$ref": "#/$defs/corejobs.OpenlaneConfig",
+          "$ref": "#/$defs/jobs.OpenlaneConfig",
           "description": "OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers\nif a worker needs specific configuration, it can be set in the worker's config"
         },
         "emailworker": {
@@ -460,55 +253,17 @@
           "$ref": "#/$defs/jobs.DatabaseWorker",
           "description": "DatabaseWorker configuration for creating databases using openlane/dbx"
         },
-        "createcustomdomainworker": {
-          "$ref": "#/$defs/corejobs.CreateCustomDomainWorker",
-          "description": "CreateCustomDomainWorker configuration for creating custom domains"
-        },
-        "validatecustomdomainworker": {
-          "$ref": "#/$defs/corejobs.ValidateCustomDomainWorker",
-          "description": "ValidateCustomDomainWorker configuration for validating custom domains"
-        },
-        "deletecustomdomainworker": {
-          "$ref": "#/$defs/corejobs.DeleteCustomDomainWorker",
-          "description": "DeleteCustomDomainWorker configuration for deleting custom domains"
-        },
         "exportcontentworker": {
-          "$ref": "#/$defs/corejobs.ExportContentWorker",
+          "$ref": "#/$defs/jobs.ExportContentWorker",
           "description": "ExportContentWorker configuration for exporting content"
         },
         "deleteexportcontentworker": {
-          "$ref": "#/$defs/corejobs.DeleteExportContentWorker",
+          "$ref": "#/$defs/jobs.DeleteExportContentWorker",
           "description": "DeleteExportContentWorker configuration for batch deleting exports and clogging object storage"
-        },
-        "watermarkdocworker": {
-          "$ref": "#/$defs/corejobs.WatermarkDocWorker",
-          "description": "WatermarkDocWorker configuration for watermarking documents"
-        },
-        "createpirschdomainworker": {
-          "$ref": "#/$defs/corejobs.CreatePirschDomainWorker",
-          "description": "CreatePirschDomainWorker configuration for creating Pirsch domains"
-        },
-        "deletepirschdomainworker": {
-          "$ref": "#/$defs/corejobs.DeletePirschDomainWorker",
-          "description": "DeletePirschDomainWorker configuration for deleting Pirsch domains"
-        },
-        "updatepirschdomainworker": {
-          "$ref": "#/$defs/corejobs.UpdatePirschDomainWorker",
-          "description": "UpdatePirschDomainWorker configuration for updating Pirsch domains"
         },
         "slackworker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
-        },
-        "createpreviewdomainworker": {
-          "$ref": "#/$defs/corejobs.CreatePreviewDomainWorker",
-          "description": "PreviewDomainWorkers"
-        },
-        "deletepreviewdomainworker": {
-          "$ref": "#/$defs/corejobs.DeletePreviewDomainWorker"
-        },
-        "validatepreviewdomainworker": {
-          "$ref": "#/$defs/corejobs.ValidatePreviewDomainWorker"
         }
       },
       "additionalProperties": false,
