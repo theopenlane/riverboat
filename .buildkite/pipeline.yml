@@ -4,7 +4,7 @@ env:
   IMAGE_REPO_TC: ghcr.io/theopenlane/${APP_NAME}-tc
   IMAGE_TAG: ${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_COMMIT:0:8}
   SONAR_HOST: "https://sonarcloud.io"
-  INCLUDE_TRUST_CENTER: "true"
+  INCLUDE_TRUST_CENTER: "false"
   GOPRIVATE: github.com/theopenlane/corejobs
 
 steps:
@@ -24,7 +24,9 @@ steps:
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
-              command: ["task", "go:lint:ci"]
+              command:
+                - go mod tidy -e
+                - task go:lint:ci
       - label: ":golang: go test"
         key: "go_test"
         if_changed:
