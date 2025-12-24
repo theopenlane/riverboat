@@ -64,9 +64,9 @@ tasks:
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go test -mod=mod -tags=trustcenter -v ./... -coverprofile=coverage.out ; \
+          go test -tags=trustcenter -v ./... -coverprofile=coverage.out ; \
         else \
-          go test -mod=mod -v ./... -coverprofile=coverage.out ; \
+          go test -v ./... -coverprofile=coverage.out ; \
         fi
 
   go:test:cover:out:
