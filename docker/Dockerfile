@@ -4,6 +4,11 @@ ARG TARGETOS
 ARG TARGETARCH
 ARG BUILDTAGS
 
+# Used when fetching trust center jobs, otherwise ignored
+ENV GOPRIVATE=github.com/theopenlane/corejobs
+# Ensure git uses SSH instead of HTTPS for private repos
+RUN git config --global url."ssh://git@github.com/".insteadOf "https://github.com/"
+
 WORKDIR /go/src/app
 COPY . .
 

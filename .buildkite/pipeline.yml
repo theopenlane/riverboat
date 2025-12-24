@@ -17,7 +17,7 @@ steps:
           - "**.go"
           - .golangci.yaml
         cancel_on_build_failing: true
-        command: "go mod tidy -e && task go:lint:ci"
+        command: "task go:tidy && task go:lint:ci"
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
@@ -32,7 +32,7 @@ steps:
           - "**.go"
         cancel_on_build_failing: true
         command: |
-          go mod tidy -e
+          task go:tidy
           task go:test:cover
         plugins:
           - cluster-secrets#v1.0.0:
@@ -87,7 +87,7 @@ steps:
       - label: ":golang: build"
         key: "gobuild-server"
         command: |
-          go mod tidy -e
+          task go:tidy
           task go:build:ci
         artifact_paths: "bin/${APP_NAME}"
         plugins:

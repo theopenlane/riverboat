@@ -5,7 +5,7 @@ tasks:
     dir: ..
     desc: builds the riverboat docker image
     cmds:
-      - "docker build -f docker/Dockerfile . -t riverboat:dev"
+      - "docker build -f docker/Dockerfile . -t riverboat:dev --build-arg=BUILDTAGS=-tags=trustcenter"
 
   riverboat:ui:up:
     dir: ..
