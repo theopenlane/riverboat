@@ -17,6 +17,7 @@ steps:
           - "**.go"
           - .golangci.yaml
         cancel_on_build_failing: true
+        command: "go mod tidy -e && task go:lint:ci"
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
@@ -24,7 +25,6 @@ steps:
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
-              command: "go mod tidy -e && task go:lint:ci"
       - label: ":golang: go test"
         key: "go_test"
         if_changed:
