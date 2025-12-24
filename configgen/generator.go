@@ -3,6 +3,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"reflect"
@@ -23,13 +24,14 @@ const appName = "riverboat"
 
 // const values used for the schema generator
 const (
+	defaultDir     = "./config/"
 	koanfTagName   = "koanf"
 	skipper        = "-"
 	defaultTag     = "default"
 	jsonSchemaPath = "./configgen/%s.config.json"
-	yamlConfigPath = "./config/config.example.yaml"
-	envConfigPath  = "./config/.env.example"
-	configMapPath  = "./config/configmap.yaml"
+	yamlConfigPath = "config.example.yaml"
+	envConfigPath  = ".env.example"
+	configMapPath  = "configmap.yaml"
 	ownerReadWrite = 0o600
 	repoRoot       = "github.com/theopenlane/%s/"
 )
@@ -56,11 +58,16 @@ type schemaConfig struct {
 }
 
 func main() {
+	// args to set the directory paths to a custom location
+	configDir := flag.String("dir", defaultDir, "directory path for generated config files")
+
+	flag.Parse()
+
 	c := schemaConfig{
 		jsonSchemaPath: fmt.Sprintf(jsonSchemaPath, appName),
-		yamlConfigPath: yamlConfigPath,
-		envConfigPath:  envConfigPath,
-		configMapPath:  configMapPath,
+		yamlConfigPath: *configDir + yamlConfigPath,
+		envConfigPath:  *configDir + envConfigPath,
+		configMapPath:  *configDir + configMapPath,
 	}
 
 	generateSchema(appName, c, &config.Config{})

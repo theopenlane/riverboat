@@ -1,10 +1,10 @@
 package river
 
 import (
-	"github.com/theopenlane/core/pkg/corejobs"
-
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
+
+	"github.com/theopenlane/riverboat/trustcenter"
 )
 
 // Config is the configuration for the river server
@@ -18,8 +18,11 @@ type Config struct {
 	Queues []Queue `koanf:"queues" json:"queues" default:""`
 	// Workers to be enabled on the server
 	Workers Workers `koanf:"workers" json:"workers"`
+	// TrustCenterWorkers holds additional worker configurations based on build tags
+	TrustCenterWorkers trustcenter.Workers `koanf:"trustcenterworkers" json:"trustcenterworkers"`
 	// DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job
 	DefaultMaxRetries int `koanf:"defaultmaxretries" json:"defaultmaxretries" default:"10"`
+
 	// Metrics enables or disables metrics collection
 	Metrics riverqueue.MetricsConfig `koanf:"metrics" json:"metrics"`
 }
@@ -44,7 +47,7 @@ type Logger struct {
 type Workers struct {
 	// OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers
 	// if a worker needs specific configuration, it can be set in the worker's config
-	OpenlaneConfig corejobs.OpenlaneConfig `koanf:"openlaneconfig" json:"openlaneconfig"`
+	OpenlaneConfig jobs.OpenlaneConfig `koanf:"openlaneconfig" json:"openlaneconfig"`
 
 	// EmailWorker configuration for sending emails
 	EmailWorker jobs.EmailWorker `koanf:"emailworker" json:"emailworker"`
@@ -52,40 +55,14 @@ type Workers struct {
 	// DatabaseWorker configuration for creating databases using openlane/dbx
 	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseworker" json:"databaseworker"`
 
-	// CreateCustomDomainWorker configuration for creating custom domains
-	CreateCustomDomainWorker corejobs.CreateCustomDomainWorker `koanf:"createcustomdomainworker" json:"createcustomdomainworker"`
-
-	// ValidateCustomDomainWorker configuration for validating custom domains
-	ValidateCustomDomainWorker corejobs.ValidateCustomDomainWorker `koanf:"validatecustomdomainworker" json:"validatecustomdomainworker"`
-
-	// DeleteCustomDomainWorker configuration for deleting custom domains
-	DeleteCustomDomainWorker corejobs.DeleteCustomDomainWorker `koanf:"deletecustomdomainworker" json:"deletecustomdomainworker"`
-
 	// ExportContentWorker configuration for exporting content
-	ExportContentWorker corejobs.ExportContentWorker `koanf:"exportcontentworker" json:"exportcontentworker"`
+	ExportContentWorker jobs.ExportContentWorker `koanf:"exportcontentworker" json:"exportcontentworker"`
 
 	// DeleteExportContentWorker configuration for batch deleting exports and clogging object storage
-	DeleteExportContentWorker corejobs.DeleteExportContentWorker `koanf:"deleteexportcontentworker" json:"deleteexportcontentworker"`
-
-	// WatermarkDocWorker configuration for watermarking documents
-	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkdocworker" json:"watermarkdocworker"`
-
-	// CreatePirschDomainWorker configuration for creating Pirsch domains
-	CreatePirschDomainWorker corejobs.CreatePirschDomainWorker `koanf:"createpirschdomainworker" json:"createpirschdomainworker"`
-
-	// DeletePirschDomainWorker configuration for deleting Pirsch domains
-	DeletePirschDomainWorker corejobs.DeletePirschDomainWorker `koanf:"deletepirschdomainworker" json:"deletepirschdomainworker"`
-
-	// UpdatePirschDomainWorker configuration for updating Pirsch domains
-	UpdatePirschDomainWorker corejobs.UpdatePirschDomainWorker `koanf:"updatepirschdomainworker" json:"updatepirschdomainworker"`
+	DeleteExportContentWorker jobs.DeleteExportContentWorker `koanf:"deleteexportcontentworker" json:"deleteexportcontentworker"`
 
 	// SlackWorker configuration for sending Slack messages
 	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
-
-	// PreviewDomainWorkers
-	CreatePreviewDomainWorker   corejobs.CreatePreviewDomainWorker   `koanf:"createpreviewdomainworker" json:"createpreviewdomainworker"`
-	DeletePreviewDomainWorker   corejobs.DeletePreviewDomainWorker   `koanf:"deletepreviewdomainworker" json:"deletepreviewdomainworker"`
-	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
 
 	// add more workers here
 }

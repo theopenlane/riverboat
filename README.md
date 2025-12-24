@@ -115,6 +115,11 @@ in `pkg/jobs`.
 1. Add a `test` job to `test/` directory by creating a new directory with a
    `main.go` function that will insert the job into the queue.
 
+## FAQs
+
+1. When I run `go mod tidy` I get an error about `corejobs` repository not found.
+This can be safely ignored if you are not running or building the binary with `tags=trustcenter`. This repository is only required when using that tag, however `go mod tidy` will attempt to pull all imports within the repo, including indirect ones. Using `go mod tidy -e` will allow things to continue while ignoring the error.
+
 ## Contributing
 
 See the [contributing](.github/CONTRIBUTING.md) guide for more information.

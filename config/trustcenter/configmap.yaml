@@ -1,0 +1,86 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "common.names.fullname" . -}}-config
+  {{ $labels := include "common.tplvalues.merge" (dict "values" ( list .Values.api.commonLabels (include "common.labels.standard" .) ) "context" . ) }}
+  labels: {{- include "common.tplvalues.render" ( dict "value" $labels "context" $) | nindent 4 }}
+  {{- if .Values.api.commonAnnotations }}
+  {{- $annotations := include "common.tplvalues.merge" ( dict "values" ( list .Values.api.commonAnnotations ) "context" . ) }}
+  annotations: {{- include "common.tplvalues.render" ( dict "value" $annotations "context" $) | nindent 4 }}
+  {{- end }}
+data:
+  RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshInterval | default "10m" }}
+  RIVERBOAT_RIVER_DATABASEHOST: {{ .Values.riverboat.river.databasehost | default "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable" }}
+  RIVERBOAT_RIVER_QUEUES: {{ .Values.riverboat.river.queues }}
+  RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.openlaneconfig.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.openlaneconfig.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.emailworker.config.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.emailworker.config.devmode | default true }}
+  RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TESTDIR: {{ .Values.riverboat.river.workers.emailworker.config.testdir | default "fixtures/email" }}
+  RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.emailworker.config.token }}
+  RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_FROMEMAIL: {{ .Values.riverboat.river.workers.emailworker.config.fromemail | default "no-reply@example.com" }}
+  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.databaseworker.config.enabled | default true }}
+  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.river.workers.databaseworker.config.baseUrl | default "http://localhost:1337" }}
+  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.river.workers.databaseworker.config.endpoint | default "query" }}
+  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_DEBUG: {{ .Values.riverboat.river.workers.databaseworker.config.debug | default false }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportcontentworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_INTERVAL: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.interval }}
+  RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_CUTOFFDURATION: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.cutoffduration }}
+  RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackworker.config.enabled | default false }}
+  RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackworker.config.devmode | default true }}
+  RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.validateinterval }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.validatecustomdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.validatecustomdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.validatecustomdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.validatecustomdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.trustcenterworkers.validatecustomdomainworker.config.validateinterval }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.deletecustomdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.deletecustomdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.deletecustomdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.deletecustomdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETECUSTOMDOMAINWORKER_CONFIG_VALIDATEINTERVAL: {{ .Values.riverboat.river.trustcenterworkers.deletecustomdomainworker.config.validateinterval }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_WATERMARKDOCWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.watermarkdocworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_WATERMARKDOCWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.watermarkdocworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_WATERMARKDOCWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.watermarkdocworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createpirschdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.createpirschdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPIRSCHDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.createpirschdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTID: {{ .Values.riverboat.river.trustcenterworkers.createpirschdomainworker.config.pirschclientid }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTSECRET: {{ .Values.riverboat.river.trustcenterworkers.createpirschdomainworker.config.pirschclientsecret }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.deletepirschdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.deletepirschdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.deletepirschdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTID: {{ .Values.riverboat.river.trustcenterworkers.deletepirschdomainworker.config.pirschclientid }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_DELETEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTSECRET: {{ .Values.riverboat.river.trustcenterworkers.deletepirschdomainworker.config.pirschclientsecret }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.updatepirschdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.updatepirschdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.updatepirschdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTID: {{ .Values.riverboat.river.trustcenterworkers.updatepirschdomainworker.config.pirschclientid }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_UPDATEPIRSCHDOMAINWORKER_CONFIG_PIRSCHCLIENTSECRET: {{ .Values.riverboat.river.trustcenterworkers.updatepirschdomainworker.config.pirschclientsecret }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.maxsnoozes }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.snoozeduration }}
+  RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
+  RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
+  RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}
+  RIVERBOAT_RIVER_METRICS_ENABLESEMANTICMETRICS: {{ .Values.riverboat.river.metrics.enablesemanticmetrics | default true }}

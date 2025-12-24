@@ -1,7 +1,10 @@
+//go:build ignore
+
 package main
 
 import (
 	"context"
+
 	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/test/common"

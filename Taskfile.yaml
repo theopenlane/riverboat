@@ -10,6 +10,7 @@ includes:
 
 env:
   GOFLAGS: -buildvcs=false
+  GOPRIVATE: github.com/theopenlane/corejobs
 
 tasks:
   default:
@@ -20,8 +21,15 @@ tasks:
   ## Go tasks
   go:lint:
     desc: runs golangci-lint, the most annoying opinionated linter ever
+    silent: true
     cmds:
-      - golangci-lint run --verbose --fix
+      - golangci-lint run {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} --verbose --fix
+
+  go:lint:ci:
+    desc: runs golangci-lint, the most annoying opinionated linter ever
+    silent: true
+    cmds:
+      - golangci-lint run {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} --verbose
 
   go:fmt:
     desc: format all go code
@@ -30,15 +38,17 @@ tasks:
 
   go:test:
     desc: runs and outputs results of created go tests
+    silent: true
     aliases: [test]
     cmds:
-      - go test -v ./...
+      - go test {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} -v ./...
 
   go:test:cover:
     desc: runs and outputs results of created go tests with coverage
+    silent: true
     aliases: [cover]
     cmds:
-      - go test -v ./... -coverprofile=coverage.out
+      - go test {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} -v ./... -coverprofile=coverage.out
 
   go:test:cover:out:
     desc: runs and outputs results of created go tests with coverage
@@ -50,7 +60,7 @@ tasks:
     desc: runs go mod tidy on the backend
     aliases: [tidy]
     cmds:
-      - go mod tidy
+      - go mod tidy -e
 
   go:all:
     aliases: [go]
@@ -63,19 +73,23 @@ tasks:
 
   go:build:
     desc: Runs go build for the riverboat server
+    silent: true
     cmds:
-      - go build -mod=mod -o riverboat
+      - go build {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} -o riverboat
 
   go:build:ci:
     desc: Runs go build for the riverboat server
+    silent: true
     cmds:
-      - go build -mod=mod -a -o bin/riverboat
+      - go build {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} -a -o bin/riverboat
 
   run:
     dotenv: ["{{.ENV}}/.env-dev"]
+    # silent: true
     desc: runs the riverboat server in dev mode, assumes all other dependencies (postgres) are running
     cmds:
-      - go run main.go serve --debug --pretty
+      - echo "Starting riverboat server..."
+      - go run {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} main.go serve --debug --pretty
 
   run-dev:
     dotenv: ["{{.ENV}}/.env-dev"]
@@ -95,6 +109,6 @@ tasks:
 
   generate:
     desc: generate mocks
-    dir: pkg/riverqueue/generate
     cmds:
       - go generate ./...
+

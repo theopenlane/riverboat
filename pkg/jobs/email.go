@@ -14,6 +14,7 @@ const (
 	maxEmailAttempts         = 5
 	emailJobSnoozeDuration   = time.Second * 30
 	emailRetryPolicyDuration = time.Minute
+	queue                    = "notifications"
 )
 
 // EmailArgs for the email worker to process the job
@@ -29,7 +30,7 @@ func (EmailArgs) Kind() string { return "email" }
 // Here we want to retry sending an email a maximum of 3 times
 // This can be overridden on inserting the job
 func (EmailArgs) InsertOpts() river.InsertOpts {
-	return river.InsertOpts{MaxAttempts: maxEmailAttempts}
+	return river.InsertOpts{MaxAttempts: maxEmailAttempts, Queue: queue}
 }
 
 // EmailWorker is a worker to send emails using the resend email provider

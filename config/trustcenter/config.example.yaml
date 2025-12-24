@@ -1,0 +1,114 @@
+refreshInterval: 600000000000
+river:
+    databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
+    defaultmaxretries: 10
+    metrics:
+        enablemetrics: false
+        enablesemanticmetrics: true
+        metricsdurationunit: ms
+    queues: null
+    trustcenterworkers:
+        createcustomdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                validateinterval: 0
+        createpirschdomainworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                pirschclientid: ""
+                pirschclientsecret: ""
+        createpreviewdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+        deletecustomdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                validateinterval: 0
+        deletepirschdomainworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                pirschclientid: ""
+                pirschclientsecret: ""
+        deletepreviewdomainworker:
+            Config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+        openlaneconfig:
+            openlaneapihost: ""
+            openlaneapitoken: ""
+        updatepirschdomainworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                pirschclientid: ""
+                pirschclientsecret: ""
+        validatecustomdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                validateinterval: 0
+        validatepreviewdomainworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                maxsnoozes: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                snoozeduration: 0
+        watermarkdocworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+    workers:
+        databaseworker:
+            config:
+                baseUrl: http://localhost:1337
+                debug: false
+                enabled: true
+                endpoint: query
+        deleteexportcontentworker:
+            config:
+                cutoffduration: 0
+                enabled: false
+                interval: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+        emailworker:
+            config:
+                devmode: true
+                enabled: false
+                fromemail: no-reply@example.com
+                testdir: fixtures/email
+                token: ""
+        exportcontentworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+        openlaneconfig:
+            openlaneapihost: ""
+            openlaneapitoken: ""
+        slackworker:
+            config:
+                devmode: true
+                enabled: false
+                token: ""

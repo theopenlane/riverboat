@@ -10,6 +10,10 @@ var (
 	ErrMissingTestDir = errors.New("missing test directory in email config")
 	// ErrMissingToken is the error for missing token
 	ErrMissingToken = errors.New("missing resend api token, set token or use dev mode")
+	// ErrOpenlaneHostMissing is returned when the Openlane API host is missing
+	ErrOpenlaneHostMissing = errors.New("openlane api host is required")
+	// ErrOpenlaneTokenMissing is returned when the Openlane API token is missing
+	ErrOpenlaneTokenMissing = errors.New("openlane api token is required")
 )
 
 // MissingRequiredArgError is returned when a required argument was not provided to a job
