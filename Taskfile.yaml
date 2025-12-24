@@ -37,7 +37,7 @@ tasks:
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
           golangci-lint run --build-tags=trustcenter --verbose; \
         else \
-          golangci-lint run --fix ; \
+          golangci-lint run --verbose ; \
         fi
 
   go:fmt:
@@ -52,9 +52,9 @@ tasks:
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go test -mod=mod -tags=trustcenter -v ./... ; \
+          go test -tags=trustcenter -v ./... ; \
         else \
-          go test -mod=mod -v ./... ; \
+          go test -v ./... ; \
         fi
 
   go:test:cover:
@@ -96,9 +96,9 @@ tasks:
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go build -tags=trustcenter -mod=readonly -o riverboat; \
+          go build -tags=trustcenter -o riverboat; \
         else \
-          go build -mod=readonly -o riverboat ; \
+          go build-o riverboat ; \
         fi
 
   go:build:ci:
@@ -107,9 +107,9 @@ tasks:
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go build -tags=trustcenter -mod=readonly -a -o bin/riverboat; \
+          go build -tags=trustcenter -a -o bin/riverboat; \
         else \
-          go build -mod=readonly -a -o bin/riverboat ; \
+          go build -a -o bin/riverboat ; \
         fi
 
   run:

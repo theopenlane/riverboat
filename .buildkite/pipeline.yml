@@ -1,9 +1,10 @@
 env:
   APP_NAME: ${BUILDKITE_PIPELINE_SLUG}
   IMAGE_REPO: ghcr.io/theopenlane/${APP_NAME}
+  IMAGE_REPO_TC: ghcr.io/theopenlane/${APP_NAME}-tc
   IMAGE_TAG: ${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_COMMIT:0:8}
   SONAR_HOST: "https://sonarcloud.io"
-  INCLUDE_TRUST_CENTER: "false"
+  INCLUDE_TRUST_CENTER: "true"
 
 steps:
   - group: ":test_tube: Tests"
@@ -16,12 +17,13 @@ steps:
           - .golangci.yaml
         cancel_on_build_failing: true
         plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
               command: ["task", "go:lint:ci"]
-              environment:
-                - "GOTOOLCHAIN=auto"
       - label: ":golang: go test"
         key: "go_test"
         if_changed:
@@ -29,12 +31,13 @@ steps:
           - "**.go"
         cancel_on_build_failing: true
         plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
               command: ["task", "go:test:cover"]
-              environment:
-                - "GOTOOLCHAIN=auto"
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
@@ -82,6 +85,9 @@ steps:
         key: "gobuild-server"
         artifact_paths: "bin/${APP_NAME}"
         plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
@@ -97,6 +103,8 @@ steps:
         key: "docker-pr-build"
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
+        env:
+          INCLUDE_TRUST_CENTER: "false"
         if_changed:
           - go.{mod,sum}
           - "**.go"
@@ -111,6 +119,7 @@ steps:
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
           - docker-login#v3.0.0:
               username: openlane-bender
@@ -128,13 +137,57 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+                - BUILDTAGS=""
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
               trivy-version: "0.67.0"
-      - label: ":docker: docker build and publish"
+      - label: ":docker: docker pr build with trust center"
+        key: "docker-pr-build"
+        cancel_on_build_failing: true
+        if: build.branch != "main" && build.tag == null
+        if_changed:
+          - go.{mod,sum}
+          - "**.go"
+        matrix:
+          setup:
+            platform:
+              - amd64
+              - arm64
+        commands: |
+          #!/bin/bash
+          ls
+        plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
+                SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
+          - docker-login#v3.0.0:
+              username: openlane-bender
+              password-env: SECRET_GHCR_PUBLISH_TOKEN
+              server: ghcr.io
+          - theopenlane/docker-metadata#v1.0.1:
+              images:
+                - "${IMAGE_REPO_TC}"
+              extra_tags:
+                - "${IMAGE_TAG}"
+              tag_prefix: "{{matrix.platform}}-"
+          - theopenlane/container-build#v1.1.1:
+              dockerfile: docker/Dockerfile
+              push: false
+              platforms: linux/{{matrix.platform}}
+              build-args:
+                - NAME=${APP_NAME}
+                - BUILDTAGS="-tags=trustcenter"
+          - equinixmetal-buildkite/trivy#v1.19.0:
+              severity: CRITICAL,HIGH
+              ignore-unfixed: true
+              security-checks: config,secret,vuln
+              skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.67.0"
+      - label: ":docker: docker build and publish with tags"
         key: "docker-build"
         cancel_on_build_failing: true
         matrix:
@@ -150,6 +203,7 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
@@ -173,6 +227,47 @@ steps:
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
               trivy-version: "0.57.1"
+      - label: ":docker: docker build and publish with tags includes trust center"
+        key: "docker-build"
+        cancel_on_build_failing: true
+        matrix:
+          setup:
+            platform:
+              - amd64
+              - arm64
+        if: build.branch == "main"
+        commands: |
+          #!/bin/bash
+          ls
+        plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
+          - docker-login#v3.0.0:
+              username: openlane-bender
+              password-env: SECRET_GHCR_PUBLISH_TOKEN
+              server: ghcr.io
+          - theopenlane/docker-metadata#v1.0.1:
+              images:
+                - "${IMAGE_REPO_TC}"
+              extra_tags:
+                - "${IMAGE_TAG}"
+                - latest
+              tag_prefix: "{{matrix.platform}}-"
+          - theopenlane/container-build#v1.1.1:
+              dockerfile: docker/Dockerfile
+              push: true
+              platforms: linux/{{matrix.platform}}
+              build-args:
+                - NAME=${APP_NAME}
+                - BUILDTAGS="-tags=trustcenter"
+          - equinixmetal-buildkite/trivy#v1.19.0:
+              severity: CRITICAL,HIGH
+              ignore-unfixed: true
+              security-checks: config,secret,vuln
+              skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.57.1"
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
         if: build.tag != null
@@ -187,6 +282,7 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
@@ -203,3 +299,35 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+      - label: ":docker: docker build and publish"
+        key: "docker-build-and-tag"
+        if: build.tag != null
+        matrix:
+          setup:
+            platform:
+              - amd64
+              - arm64
+        commands: |
+          #!/bin/bash
+        plugins:
+          - cluster-secrets#v1.0.0:
+              variables:
+                SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
+                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
+          - docker-login#v3.0.0:
+              username: openlane-bender
+              password-env: SECRET_GHCR_PUBLISH_TOKEN
+              server: ghcr.io
+          - theopenlane/docker-metadata#v1.0.1:
+              images:
+                - "${IMAGE_REPO_TC}"
+              extra_tags:
+                - "${BUILDKITE_TAG}"
+              tag_prefix: "{{matrix.platform}}-"
+          - theopenlane/container-build#v1.1.1:
+              dockerfile: docker/Dockerfile
+              push: true
+              platforms: linux/{{matrix.platform}}
+              build-args:
+                - NAME=${APP_NAME}
+                - BUILDTAGS="-tags=trustcenter"

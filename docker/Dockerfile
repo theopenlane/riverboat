@@ -2,6 +2,7 @@ FROM --platform=$BUILDPLATFORM golang:1.25.5 AS builder
 
 ARG TARGETOS
 ARG TARGETARCH
+ARG BUILDTAGS
 
 WORKDIR /go/src/app
 COPY . .
