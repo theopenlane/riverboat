@@ -204,7 +204,7 @@ require (
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/stripe/stripe-go/v84 v84.1.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	github.com/theopenlane/corejobs v0.0.0-20251224022305-3e98553575ec // indirect
+	github.com/theopenlane/corejobs v0.1.0 // indirect
 	github.com/theopenlane/echox v0.2.4 // indirect
 	github.com/theopenlane/eddy v0.1.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.0 // indirect

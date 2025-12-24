@@ -22,23 +22,13 @@ tasks:
     desc: runs golangci-lint, the most annoying opinionated linter ever
     silent: true
     cmds:
-      - |
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          golangci-lint run --build-tags=trustcenter --verbose --fix; \
-        else \
-          golangci-lint run --verbose --fix ; \
-        fi
+      - golangci-lint run {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} --verbose --fix
 
   go:lint:ci:
     desc: runs golangci-lint, the most annoying opinionated linter ever
     silent: true
     cmds:
-      - |
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          golangci-lint run --build-tags=trustcenter --verbose; \
-        else \
-          golangci-lint run --verbose ; \
-        fi
+      - golangci-lint run {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} --verbose
 
   go:fmt:
     desc: format all go code
@@ -50,24 +40,14 @@ tasks:
     silent: true
     aliases: [test]
     cmds:
-      - |
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go test -tags=trustcenter -v ./... ; \
-        else \
-          go test -v ./... ; \
-        fi
+      - go test {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} -v ./...
 
   go:test:cover:
     desc: runs and outputs results of created go tests with coverage
     silent: true
     aliases: [cover]
     cmds:
-      - |
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go test -tags=trustcenter -v ./... -coverprofile=coverage.out ; \
-        else \
-          go test -v ./... -coverprofile=coverage.out ; \
-        fi
+      - go test {{if .INCLUDE_TRUST_CENTER}}--build-tags=trustcenter{{end}} -v ./... -coverprofile=coverage.out
 
   go:test:cover:out:
     desc: runs and outputs results of created go tests with coverage
@@ -94,37 +74,21 @@ tasks:
     desc: Runs go build for the riverboat server
     silent: true
     cmds:
-      - |
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go build -tags=trustcenter -o riverboat; \
-        else \
-          go build-o riverboat ; \
-        fi
+      - go build {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} -o riverboat
 
   go:build:ci:
     desc: Runs go build for the riverboat server
     silent: true
     cmds:
-      - |
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go build -tags=trustcenter -a -o bin/riverboat; \
-        else \
-          go build -a -o bin/riverboat ; \
-        fi
+      - go build {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} -a -o bin/riverboat
 
   run:
     dotenv: ["{{.ENV}}/.env-dev"]
-    silent: true
+    # silent: true
     desc: runs the riverboat server in dev mode, assumes all other dependencies (postgres) are running
     cmds:
-      - |
-        echo "Starting riverboat server..."
-        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          echo "Including Trust Center jobs"; \
-          go run -tags=trustcenter main.go serve --debug --pretty; \
-        else \
-          go run main.go serve --debug --pretty ; \
-        fi
+      - echo "Starting riverboat server..."
+      - go run {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} main.go serve --debug --pretty
 
   run-dev:
     dotenv: ["{{.ENV}}/.env-dev"]

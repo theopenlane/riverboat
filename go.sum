@@ -548,8 +548,8 @@ github.com/testcontainers/testcontainers-go/modules/openfga v0.40.0 h1:7zHXSbw8T
 github.com/testcontainers/testcontainers-go/modules/openfga v0.40.0/go.mod h1:zwLB9Af9gw2ViufG7oZT/DpmubgKhnpleOWItgcnLVY=
 github.com/theopenlane/core v0.50.3-0.20251224022145-ead2116cfb53 h1:qmTcLMQrjRGoj2hg/dtpwxIeRoxABzTgbfMUsSc+2Ck=
 github.com/theopenlane/core v0.50.3-0.20251224022145-ead2116cfb53/go.mod h1:jrLWZksAfi3DjsHNDEyhAwc8XYXGBQXD7AWzHV1lMj0=
-github.com/theopenlane/corejobs v0.0.0-20251224022305-3e98553575ec h1:b4p0ULJAVB7MzV+FdUrbjcOtOGiJgqRnhx+o2uE3/zQ=
-github.com/theopenlane/corejobs v0.0.0-20251224022305-3e98553575ec/go.mod h1:YjtKAYWMtwKiuevmeRLZf0ev5f6v0Kj63bIgjo9X1aw=
+github.com/theopenlane/corejobs v0.1.0 h1:LML8BP9OjX6x4ZcCXFrPGLtttxO88p//WltzQygCJgg=
+github.com/theopenlane/corejobs v0.1.0/go.mod h1:YjtKAYWMtwKiuevmeRLZf0ev5f6v0Kj63bIgjo9X1aw=
 github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
 github.com/theopenlane/dbx v0.1.3/go.mod h1:/bcz8oKFK3qrakLw0yHCAFY6fGnTOC3CntM0jMj3GDk=
 github.com/theopenlane/echox v0.2.4 h1:bocz1Dfs7d2fkNa8foQqdmeTtkMTQNwe1v20bIGIDps=
