@@ -5,6 +5,7 @@ env:
   IMAGE_TAG: ${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_COMMIT:0:8}
   SONAR_HOST: "https://sonarcloud.io"
   INCLUDE_TRUST_CENTER: "true"
+  GOPRIVATE: github.com/theopenlane/corejobs
 
 steps:
   - group: ":test_tube: Tests"
