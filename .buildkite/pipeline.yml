@@ -3,6 +3,7 @@ env:
   IMAGE_REPO: ghcr.io/theopenlane/${APP_NAME}
   IMAGE_TAG: ${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_COMMIT:0:8}
   SONAR_HOST: "https://sonarcloud.io"
+  INCLUDE_TRUST_CENTER: "false"
 
 steps:
   - group: ":test_tube: Tests"
