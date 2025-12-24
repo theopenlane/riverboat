@@ -39,4 +39,3 @@ data:
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}
   RIVERBOAT_RIVER_METRICS_ENABLESEMANTICMETRICS: {{ .Values.riverboat.river.metrics.enablesemanticmetrics | default true }}
-  RIVERBOAT_RIVER_ENABLETRUSTCENTERJOBS: {{ .Values.riverboat.river.enabletrustcenterjobs | default false }}

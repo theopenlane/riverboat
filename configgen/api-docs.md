@@ -88,7 +88,6 @@ Config is the configuration for the river server
 |[**trustcenterworkers**](#rivertrustcenterworkers)|`object`|||
 |**defaultmaxretries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
 |[**metrics**](#rivermetrics)|`object`|MetricsConfig is the configuration for metrics<br/>||
-|**enabletrustcenterjobs**|`boolean`|EnableTrustCenterJobs enables trust center specific jobs and workers<br/>||
 
 **Additional Properties:** not allowed  
 **Example**

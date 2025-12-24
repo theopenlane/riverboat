@@ -104,8 +104,6 @@ steps:
         key: "docker-pr-build"
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
-        env:
-          INCLUDE_TRUST_CENTER: "false"
         if_changed:
           - go.{mod,sum}
           - "**.go"

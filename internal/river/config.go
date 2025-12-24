@@ -25,9 +25,6 @@ type Config struct {
 
 	// Metrics enables or disables metrics collection
 	Metrics riverqueue.MetricsConfig `koanf:"metrics" json:"metrics"`
-
-	// EnableTrustCenterJobs enables trust center specific jobs and workers
-	EnableTrustCenterJobs bool `koanf:"enabletrustcenterjobs" json:"enabletrustcenterjobs" default:"false"`
 }
 
 // Queue is the configuration for a queue

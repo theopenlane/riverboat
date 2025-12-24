@@ -441,10 +441,6 @@
         "metrics": {
           "$ref": "#/$defs/riverqueue.MetricsConfig",
           "description": "Metrics enables or disables metrics collection"
-        },
-        "enabletrustcenterjobs": {
-          "type": "boolean",
-          "description": "EnableTrustCenterJobs enables trust center specific jobs and workers"
         }
       },
       "additionalProperties": false,
