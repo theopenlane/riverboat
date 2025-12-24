@@ -7,7 +7,7 @@ ARG BUILDTAGS
 WORKDIR /go/src/app
 COPY . .
 
-RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /go/bin/riverboat .
+RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -tags=${BUILDTAGS} -o /go/bin/riverboat .
 
 FROM cgr.dev/chainguard/bash:latest
 
