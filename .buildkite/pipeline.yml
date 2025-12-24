@@ -17,11 +17,8 @@ steps:
           - "**.go"
           - .golangci.yaml
         cancel_on_build_failing: true
-        command: "task go:tidy && task go:lint:ci"
+        command: "task go:tidy > /dev/null 2>&1 && task go:lint:ci"
         plugins:
-          - cluster-secrets#v1.0.0:
-              variables:
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
@@ -32,12 +29,9 @@ steps:
           - "**.go"
         cancel_on_build_failing: true
         command: |
-          task go:tidy
+          task go:tidy > /dev/null 2>&1
           task go:test:cover
         plugins:
-          - cluster-secrets#v1.0.0:
-              variables:
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
@@ -87,13 +81,10 @@ steps:
       - label: ":golang: build"
         key: "gobuild-server"
         command: |
-          task go:tidy
+          task go:tidy > /dev/null 2>&1
           task go:build:ci
         artifact_paths: "bin/${APP_NAME}"
         plugins:
-          - cluster-secrets#v1.0.0:
-              variables:
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
@@ -122,7 +113,6 @@ steps:
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
           - docker-login#v3.0.0:
               username: openlane-bender
@@ -184,6 +174,9 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
                 - BUILDTAGS="-tags=trustcenter"
+              secret-file:
+                - id: id_ed25519
+                  src: ~/.ssh/id_ed25519
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -206,7 +199,6 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
@@ -285,7 +277,6 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
@@ -316,7 +307,6 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-                GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
           - docker-login#v3.0.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
