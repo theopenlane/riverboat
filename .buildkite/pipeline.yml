@@ -31,6 +31,9 @@ steps:
           - go.{mod,sum}
           - "**.go"
         cancel_on_build_failing: true
+        command: |
+          go mod tidy -e
+          task go:test:cover
         plugins:
           - cluster-secrets#v1.0.0:
               variables:
@@ -38,7 +41,6 @@ steps:
           - docker#v5.13.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
-              command: ["task", "go:test:cover"]
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
@@ -84,6 +86,9 @@ steps:
     steps:
       - label: ":golang: build"
         key: "gobuild-server"
+        command: |
+          go mod tidy -e
+          task go:build:ci
         artifact_paths: "bin/${APP_NAME}"
         plugins:
           - cluster-secrets#v1.0.0:
@@ -95,7 +100,6 @@ steps:
               environment:
                 - CGO_ENABLED=0
                 - GOOS=linux
-              command: ["task", "go:build:ci"]
   - group: ":docker: Image Build"
     depends_on: "go-builds"
     key: "image-build"
