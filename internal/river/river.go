@@ -47,7 +47,7 @@ func Start(ctx context.Context, c Config) error {
 		log.Error().Err(err).Msg("failed to create workers")
 	}
 
-	worker, err = addConditionalWorkers(worker, nil, insertOnlyClient)
+	worker, err = addConditionalWorkers(worker, c.AdditionalWorkers, insertOnlyClient)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to add conditional workers")
 	}
@@ -58,7 +58,7 @@ func Start(ctx context.Context, c Config) error {
 		log.Error().Err(err).Msg("failed to create periodic jobs schedules")
 	}
 
-	additionalPeriodicJobs, err := createAdditionalPeriodicJobs(nil)
+	additionalPeriodicJobs, err := createAdditionalPeriodicJobs(c.AdditionalWorkers)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create additional periodic jobs schedules")
 	}

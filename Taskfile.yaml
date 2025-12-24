@@ -32,13 +32,13 @@ tasks:
     desc: runs and outputs results of created go tests
     aliases: [test]
     cmds:
-      - go test -v ./...
+      - go test -mod=readonly -v ./...
 
   go:test:cover:
     desc: runs and outputs results of created go tests with coverage
     aliases: [cover]
     cmds:
-      - go test -v ./... -coverprofile=coverage.out
+      - go test -mod=readonly -v ./... -coverprofile=coverage.out
 
   go:test:cover:out:
     desc: runs and outputs results of created go tests with coverage
@@ -66,9 +66,9 @@ tasks:
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go build -tags=trustcenter -mod=mod -o riverboat; \
+          go build -tags=trustcenter -mod=readonly -o riverboat; \
         else \
-          go build -mod=mod -o riverboat ; \
+          go build -mod=readonly -o riverboat ; \
         fi
 
   go:build:ci:
@@ -76,9 +76,9 @@ tasks:
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
-          go build -tags=trustcenter -mod=mod -a -o bin/riverboat; \
+          go build -tags=trustcenter -mod=readonly -a -o bin/riverboat; \
         else \
-          go build -mod=mod -a -o bin/riverboat ; \
+          go build -mod=readonly -a -o bin/riverboat ; \
         fi
 
   run:

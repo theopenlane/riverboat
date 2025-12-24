@@ -16,8 +16,8 @@ type Config struct {
 	Queues []Queue `koanf:"queues" json:"queues" default:""`
 	// Workers to be enabled on the server
 	Workers Workers `koanf:"workers" json:"workers"`
-	// // AdditionalWorkers to be enabled on the server when trust center build tag is present
-	// AdditionalWorkers AdditionalWorkers `koanf:"additionalworkers" json:"additionalworkers"`
+	// AdditionalWorkers holds additional worker configurations based on build tags
+	AdditionalWorkers AdditionalWorkers `koanf:"additionalworkers" json:"additionalworkers"`
 	// DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job
 	DefaultMaxRetries int `koanf:"defaultmaxretries" json:"defaultmaxretries" default:"10"`
 
@@ -67,36 +67,3 @@ type Workers struct {
 
 	// add more workers here
 }
-
-// type AdditionalWorkers struct {
-// 	// CreateCustomDomainWorker configuration for creating custom domains
-// 	CreateCustomDomainWorker corejobs.CreateCustomDomainWorker `koanf:"createcustomdomainworker" json:"createcustomdomainworker"`
-
-// 	// ValidateCustomDomainWorker configuration for validating custom domains
-// 	ValidateCustomDomainWorker corejobs.ValidateCustomDomainWorker `koanf:"validatecustomdomainworker" json:"validatecustomdomainworker"`
-
-// 	// DeleteCustomDomainWorker configuration for deleting custom domains
-// 	DeleteCustomDomainWorker corejobs.DeleteCustomDomainWorker `koanf:"deletecustomdomainworker" json:"deletecustomdomainworker"`
-
-// 	// WatermarkDocWorker configuration for watermarking documents
-// 	WatermarkDocWorker corejobs.WatermarkDocWorker `koanf:"watermarkdocworker" json:"watermarkdocworker"`
-
-// 	// CreatePirschDomainWorker configuration for creating Pirsch domains
-// 	CreatePirschDomainWorker corejobs.CreatePirschDomainWorker `koanf:"createpirschdomainworker" json:"createpirschdomainworker"`
-
-// 	// DeletePirschDomainWorker configuration for deleting Pirsch domains
-// 	DeletePirschDomainWorker corejobs.DeletePirschDomainWorker `koanf:"deletepirschdomainworker" json:"deletepirschdomainworker"`
-
-// 	// UpdatePirschDomainWorker configuration for updating Pirsch domains
-// 	UpdatePirschDomainWorker corejobs.UpdatePirschDomainWorker `koanf:"updatepirschdomainworker" json:"updatepirschdomainworker"`
-
-// 	// PreviewDomainWorkers configuration for preview domain workers
-// 	// CreatePreviewDomainWorker configuration for creating preview domains
-// 	CreatePreviewDomainWorker corejobs.CreatePreviewDomainWorker `koanf:"createpreviewdomainworker" json:"createpreviewdomainworker"`
-// 	// DeletePreviewDomainWorker configuration for deleting preview domains
-// 	DeletePreviewDomainWorker corejobs.DeletePreviewDomainWorker `koanf:"deletepreviewdomainworker" json:"deletepreviewdomainworker"`
-// 	// ValidatePreviewDomainWorker configuration for validating preview domains
-// 	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
-
-// 	// add more trust center specific workers here
-// }

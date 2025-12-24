@@ -193,6 +193,12 @@
       "type": "object",
       "description": "SlackWorker sends messages to Slack."
     },
+    "river.AdditionalWorkers": {
+      "properties": {},
+      "additionalProperties": false,
+      "type": "object",
+      "description": "AdditionalWorkers holds the configuration for additional trust center specific workers"
+    },
     "river.Config": {
       "properties": {
         "databasehost": {
@@ -207,9 +213,13 @@
           "$ref": "#/$defs/river.Workers",
           "description": "Workers to be enabled on the server"
         },
+        "additionalworkers": {
+          "$ref": "#/$defs/river.AdditionalWorkers",
+          "description": "AdditionalWorkers holds additional worker configurations based on build tags"
+        },
         "defaultmaxretries": {
           "type": "integer",
-          "description": "// AdditionalWorkers to be enabled on the server when trust center build tag is present\nAdditionalWorkers AdditionalWorkers `koanf:\"additionalworkers\" json:\"additionalworkers\"`\nDefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
+          "description": "DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job"
         },
         "metrics": {
           "$ref": "#/$defs/riverqueue.MetricsConfig",

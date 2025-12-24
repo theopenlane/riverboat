@@ -34,6 +34,7 @@
                 "config": {}
             }
         },
+        "additionalworkers": {},
         "metrics": {}
     }
 }
@@ -52,7 +53,8 @@ Config is the configuration for the river server
 |**databasehost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
 |[**queues**](#riverqueues)|`array`|||
 |[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
-|**defaultmaxretries**|`integer`|// AdditionalWorkers to be enabled on the server when trust center build tag is present<br/>AdditionalWorkers AdditionalWorkers `koanf:"additionalworkers" json:"additionalworkers"`<br/>DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
+|[**additionalworkers**](#riveradditionalworkers)|`object`|AdditionalWorkers holds the configuration for additional trust center specific workers<br/>||
+|**defaultmaxretries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
 |[**metrics**](#rivermetrics)|`object`|MetricsConfig is the configuration for metrics<br/>||
 |**enabletrustcenterjobs**|`boolean`|EnableTrustCenterJobs enables trust center specific jobs and workers<br/>||
 
@@ -82,6 +84,7 @@ Config is the configuration for the river server
             "config": {}
         }
     },
+    "additionalworkers": {},
     "metrics": {}
 }
 ```
@@ -334,6 +337,15 @@ SlackConfig configures the Slack worker.
 |**enabled**|`boolean`|enable or disable the slack worker<br/>||
 |**devmode**|`boolean`|enable dev mode<br/>||
 |**token**|`string`|the token to use for the slack app<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riveradditionalworkers"></a>
+### river\.additionalworkers: object
+
+AdditionalWorkers holds the configuration for additional trust center specific workers
+
+
+**No properties.**
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>
