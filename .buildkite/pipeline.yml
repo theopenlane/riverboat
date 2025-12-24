@@ -145,7 +145,7 @@ steps:
               skip-files: "cosign.key,Dockerfile.dev"
               trivy-version: "0.67.0"
       - label: ":docker: docker pr build with trust center"
-        key: "docker-pr-build"
+        key: "docker-pr-build-tc"
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
         if_changed:
@@ -228,7 +228,7 @@ steps:
               skip-files: "cosign.key,Dockerfile.dev"
               trivy-version: "0.57.1"
       - label: ":docker: docker build and publish with tags includes trust center"
-        key: "docker-build"
+        key: "docker-build-tc"
         cancel_on_build_failing: true
         matrix:
           setup:
@@ -300,7 +300,7 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
       - label: ":docker: docker build and publish"
-        key: "docker-build-and-tag"
+        key: "docker-build-and-tag-tc"
         if: build.tag != null
         matrix:
           setup:
