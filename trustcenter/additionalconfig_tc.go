@@ -1,14 +1,14 @@
 //go:build trustcenter
 
-package river
+package trustcenter
 
 import (
 	"github.com/theopenlane/corejobs"
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
-// AdditionalWorkers holds the configuration for additional trust center specific workers
-type AdditionalWorkers struct {
+// Workers holds the configuration for additional trust center specific workers
+type Workers struct {
 	// OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers
 	// if a worker needs specific configuration, it can be set in the worker's config
 	OpenlaneConfig jobs.OpenlaneConfig `koanf:"openlaneconfig" json:"openlaneconfig"`

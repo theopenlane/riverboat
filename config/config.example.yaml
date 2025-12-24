@@ -1,6 +1,5 @@
 refreshInterval: 600000000000
 river:
-    additionalworkers: {}
     databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     defaultmaxretries: 10
     enabletrustcenterjobs: false
@@ -9,6 +8,7 @@ river:
         enablesemanticmetrics: true
         metricsdurationunit: ms
     queues: null
+    trustcenterworkers: {}
     workers:
         databaseworker:
             config:

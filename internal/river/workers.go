@@ -9,7 +9,7 @@ import (
 )
 
 // createWorkers creates a new workers instance
-func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Workers, error) {
+func createWorkers(w Workers, _ *riverqueue.Client) (*river.Workers, error) {
 	// create workers
 	workers := river.NewWorkers()
 

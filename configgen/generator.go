@@ -62,6 +62,7 @@ func main() {
 	configDir := flag.String("dir", defaultDir, "directory path for generated config files")
 
 	flag.Parse()
+
 	c := schemaConfig{
 		jsonSchemaPath: fmt.Sprintf(jsonSchemaPath, appName),
 		yamlConfigPath: *configDir + yamlConfigPath,

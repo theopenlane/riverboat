@@ -20,8 +20,25 @@ tasks:
   ## Go tasks
   go:lint:
     desc: runs golangci-lint, the most annoying opinionated linter ever
+    silent: true
     cmds:
-      - golangci-lint run --verbose --fix
+      - |
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          golangci-lint run --build-tags=trustcenter --verbose --fix; \
+        else \
+          golangci-lint run --verbose --fix ; \
+        fi
+
+  go:lint:ci:
+    desc: runs golangci-lint, the most annoying opinionated linter ever
+    silent: true
+    cmds:
+      - |
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          golangci-lint run --build-tags=trustcenter --verbose; \
+        else \
+          golangci-lint run --fix ; \
+        fi
 
   go:fmt:
     desc: format all go code
@@ -30,15 +47,27 @@ tasks:
 
   go:test:
     desc: runs and outputs results of created go tests
+    silent: true
     aliases: [test]
     cmds:
-      - go test -mod=readonly -v ./...
+      - |
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          go test -mod=mod -tags=trustcenter -v ./... ; \
+        else \
+          go test -mod=mod -v ./... ; \
+        fi
 
   go:test:cover:
     desc: runs and outputs results of created go tests with coverage
+    silent: true
     aliases: [cover]
     cmds:
-      - go test -mod=readonly -v ./... -coverprofile=coverage.out
+      - |
+        if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \
+          go test -mod=mod -tags=trustcenter -v ./... -coverprofile=coverage.out ; \
+        else \
+          go test -mod=mod -v ./... -coverprofile=coverage.out ; \
+        fi
 
   go:test:cover:out:
     desc: runs and outputs results of created go tests with coverage
@@ -63,6 +92,7 @@ tasks:
 
   go:build:
     desc: Runs go build for the riverboat server
+    silent: true
     cmds:
       - |
         if [ "{{.INCLUDE_TRUST_CENTER}}" = "true" ]; then \

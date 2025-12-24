@@ -1,6 +1,14 @@
 refreshInterval: 600000000000
 river:
-    additionalworkers:
+    databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
+    defaultmaxretries: 10
+    enabletrustcenterjobs: false
+    metrics:
+        enablemetrics: false
+        enablesemanticmetrics: true
+        metricsdurationunit: ms
+    queues: null
+    trustcenterworkers:
         createcustomdomainworker:
             config:
                 cloudflareapikey: ""
@@ -71,14 +79,6 @@ river:
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
-    databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
-    defaultmaxretries: 10
-    enabletrustcenterjobs: false
-    metrics:
-        enablemetrics: false
-        enablesemanticmetrics: true
-        metricsdurationunit: ms
-    queues: null
     workers:
         databaseworker:
             config:

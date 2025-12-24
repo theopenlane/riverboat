@@ -23,14 +23,13 @@ import (
 	"github.com/theopenlane/iam/auth"
 
 	"github.com/theopenlane/core/pkg/enums"
+
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 
 	goclient "github.com/theopenlane/go-client"
 )
 
-const (
-	defaultPageSize = 100
-)
+var defaultPageSize int64 = 100
 
 var (
 	// ErrUnexpectedStatus is returned when an HTTP request returns a status code other than 200
@@ -257,7 +256,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[ExportCon
 //	    }
 //	  }
 //	}
-func (w *ExportContentWorker) buildGraphQLQuery(root string, singular string, fields []string, hasWhere bool) string {
+func (w *ExportContentWorker) buildGraphQLQuery(root, singular string, fields []string, hasWhere bool) string {
 	fieldStr := CreateFieldsStr(fields)
 
 	var (
@@ -315,6 +314,7 @@ func CreateFieldsStr(fields []string) string {
 			fieldStr += parts[0] + "\n        "
 
 			numClosingBraces := 0
+
 			for i, p := range parts[1:] {
 				// check the parent to see if it is plural, which will be the same index as the loop
 				// because we are looping over parts[1:]
@@ -399,7 +399,7 @@ func (w *ExportContentWorker) executeGraphQLQuery(ctx context.Context, query str
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
 	if len(result.Errors) > 0 {
 		return nil, extractErrors(result.Errors)
@@ -441,6 +441,7 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 
 	// 3) Write CSV
 	var buf bytes.Buffer
+
 	wr := csv.NewWriter(&buf)
 	writer := gocsv.NewSafeCSVWriter(wr)
 
@@ -483,6 +484,7 @@ func flatten(prefix string, v any, out map[string]any) {
 			if prefix != "" {
 				key = prefix + "." + k
 			}
+
 			flatten(key, v2, out)
 		}
 

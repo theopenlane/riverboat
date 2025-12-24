@@ -8,6 +8,7 @@ import (
 
 	"github.com/theopenlane/core/pkg/jobspec"
 	"github.com/theopenlane/go-client/graphclient"
+
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 )
 

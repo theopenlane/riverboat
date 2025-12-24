@@ -129,7 +129,7 @@ func TestDeleteExportContentWorker(t *testing.T) {
 			olMock := olmocks.NewMockGraphClient(t)
 
 			startTime := time.Now()
-			pageSize := int64(100)
+			pageSize := int64(100) //nolint:mnd
 
 			olMock.EXPECT().GetExports(mock.MatchedBy(func(ctx context.Context) bool {
 				return ctx != nil
@@ -178,7 +178,7 @@ func TestDeleteExportContentWorker(t *testing.T) {
 				}
 
 				return true
-			}), (*graphclient.ExportOrder)(nil)).Return(tc.getExportsResponse, tc.getExportsError)
+			}), mock.Anything).Return(tc.getExportsResponse, tc.getExportsError)
 
 			if tc.expectDeleteBulkExport {
 				olMock.EXPECT().DeleteBulkExport(mock.MatchedBy(func(ctx context.Context) bool {

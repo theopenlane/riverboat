@@ -13,6 +13,7 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
+	"github.com/theopenlane/riverboat/trustcenter"
 )
 
 const (
@@ -47,7 +48,7 @@ func Start(ctx context.Context, c Config) error {
 		log.Error().Err(err).Msg("failed to create workers")
 	}
 
-	worker, err = addConditionalWorkers(worker, c.AdditionalWorkers, insertOnlyClient)
+	worker, err = trustcenter.AddConditionalWorkers(worker, c.TrustCenterWorkers, insertOnlyClient)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to add conditional workers")
 	}
@@ -58,7 +59,7 @@ func Start(ctx context.Context, c Config) error {
 		log.Error().Err(err).Msg("failed to create periodic jobs schedules")
 	}
 
-	additionalPeriodicJobs, err := createAdditionalPeriodicJobs(c.AdditionalWorkers)
+	additionalPeriodicJobs, err := trustcenter.CreatePeriodicJobs(c.TrustCenterWorkers)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create additional periodic jobs schedules")
 	}

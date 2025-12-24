@@ -1,16 +1,21 @@
 //go:build trustcenter
 
-package river
+package trustcenter
 
 import (
+	"time"
+
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/core/pkg/jobspec"
 )
 
-// createAdditionalPeriodicJobs creates periodic jobs for the trust center module
-func createAdditionalPeriodicJobs(c AdditionalWorkers) ([]*river.PeriodicJob, error) {
-	log.Info().Msg("adding additional trust censter periodic jobs")
+// minInterval prevents spamming from a bag config
+var minInterval = 1 * time.Minute
+
+// CreatePeriodicJobs creates periodic jobs for the trust center module
+func CreatePeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
+	log.Info().Msg("adding additional trust center periodic jobs")
 
 	jobs := []*river.PeriodicJob{}
 

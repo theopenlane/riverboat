@@ -8,12 +8,12 @@ import (
 
 	"github.com/theopenlane/core/pkg/enums"
 	"github.com/theopenlane/go-client/graphclient"
+
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 )
 
 // DeleteExportContentArgs for the worker to process deletion of exports
-type DeleteExportContentArgs struct {
-}
+type DeleteExportContentArgs struct{}
 
 // DeleteExportWorkerConfig holds the configuration for the delete export worker
 type DeleteExportWorkerConfig struct {
@@ -67,12 +67,12 @@ func (w *DeleteExportContentWorker) Work(ctx context.Context, _ *river.Job[Delet
 
 	cutOffTime := time.Now().Add(-w.Config.CutoffDuration)
 
-	pageSize := int64(100)
 	var after *string
 
 	var exports []*graphclient.GetExports_Exports_Edges
+
 	for {
-		e, err := w.olClient.GetExports(ctx, &pageSize, nil, after, nil, &graphclient.ExportWhereInput{
+		e, err := w.olClient.GetExports(ctx, &defaultPageSize, nil, after, nil, &graphclient.ExportWhereInput{
 			CreatedAtLte: &cutOffTime,
 			StatusIn: []enums.ExportStatus{
 				enums.ExportStatusNodata,
@@ -96,7 +96,7 @@ func (w *DeleteExportContentWorker) Work(ctx context.Context, _ *river.Job[Delet
 		after = e.Exports.PageInfo.EndCursor
 	}
 
-	var ids = make([]string, 0, len(exports))
+	ids := make([]string, 0, len(exports))
 
 	for _, export := range exports {
 		ids = append(ids, export.Node.ID)

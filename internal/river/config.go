@@ -3,6 +3,8 @@ package river
 import (
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
+
+	"github.com/theopenlane/riverboat/trustcenter"
 )
 
 // Config is the configuration for the river server
@@ -16,8 +18,8 @@ type Config struct {
 	Queues []Queue `koanf:"queues" json:"queues" default:""`
 	// Workers to be enabled on the server
 	Workers Workers `koanf:"workers" json:"workers"`
-	// AdditionalWorkers holds additional worker configurations based on build tags
-	AdditionalWorkers AdditionalWorkers `koanf:"additionalworkers" json:"additionalworkers"`
+	// TrustCenterWorkers holds additional worker configurations based on build tags
+	TrustCenterWorkers trustcenter.Workers `koanf:"trustcenterworkers" json:"trustcenterworkers"`
 	// DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job
 	DefaultMaxRetries int `koanf:"defaultmaxretries" json:"defaultmaxretries" default:"10"`
 

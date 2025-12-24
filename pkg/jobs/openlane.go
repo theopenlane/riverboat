@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	openlane "github.com/theopenlane/go-client"
+
 	olclient "github.com/theopenlane/riverboat/pkg/jobs/openlane"
 )
 

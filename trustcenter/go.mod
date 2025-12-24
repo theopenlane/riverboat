@@ -1,46 +1,13 @@
-module github.com/theopenlane/riverboat
+module github.com/theopenlane/riverboat/trustcenter
 
 go 1.25.5
 
-replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
-
 require (
-	github.com/99designs/gqlgen v0.17.85
-	github.com/Yamashou/gqlgenc v0.33.0
-	github.com/gertd/go-pluralize v0.2.1
-	github.com/go-chi/chi/v5 v5.2.3
-	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
-	github.com/invopop/jsonschema v0.13.0
-	github.com/invopop/yaml v0.3.1
-	github.com/jackc/pgx/v5 v5.7.6
-	github.com/knadh/koanf/parsers/yaml v1.1.0
-	github.com/knadh/koanf/providers/env/v2 v2.0.0
-	github.com/knadh/koanf/providers/file v1.2.1
-	github.com/knadh/koanf/providers/posflag v1.0.1
-	github.com/knadh/koanf/v2 v2.3.0
-	github.com/mcuadros/go-defaults v1.2.0
-	github.com/microcosm-cc/bluemonday v1.0.27
-	github.com/prometheus/client_golang v1.23.2
 	github.com/riverqueue/river v0.29.0
-	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.29.0
-	github.com/riverqueue/river/rivertype v0.29.0
-	github.com/riverqueue/rivercontrib/otelriver v0.6.0
 	github.com/rs/zerolog v1.34.0
-	github.com/slack-go/slack v0.17.3
-	github.com/spf13/cobra v1.10.2
-	github.com/stoewer/go-strcase v1.3.1
-	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core v0.50.3-0.20251224022145-ead2116cfb53
-	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/go-client v0.2.1
-	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.23.1
-	github.com/theopenlane/newman v0.2.1
-	github.com/theopenlane/riverboat/trustcenter v0.0.0-00010101000000-000000000000
-	github.com/theopenlane/utils v0.6.2
-	go.opentelemetry.io/otel v1.39.0
-	go.opentelemetry.io/otel/exporters/prometheus v0.60.0
-	go.opentelemetry.io/otel/sdk/metric v1.39.0
+	github.com/theopenlane/core v0.50.3-0.20251224020032-8a036b0ae363
+	github.com/theopenlane/corejobs v0.0.0-20251224022305-3e98553575ec
+	github.com/theopenlane/riverboat v0.6.3
 )
 
 require (
@@ -56,8 +23,10 @@ require (
 	cloud.google.com/go/securitycenter v1.38.1 // indirect
 	entgo.io/contrib v0.7.0 // indirect
 	entgo.io/ent v0.14.6-0.20251211203232-397ebe9f39af // indirect
+	github.com/99designs/gqlgen v0.17.85 // indirect
 	github.com/AfterShip/email-verifier v1.4.1 // indirect
 	github.com/XSAM/otelsql v0.41.0 // indirect
+	github.com/Yamashou/gqlgenc v0.33.0 // indirect
 	github.com/Yiling-J/theine-go v0.6.2 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.2.1 // indirect
@@ -132,7 +101,6 @@ require (
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/websocket v1.5.4-0.20250319132907-e064f32e3674 // indirect
-	github.com/grafana/regexp v0.0.0-20240518133315-a468a5bfb3bc // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.3 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
@@ -141,12 +109,15 @@ require (
 	github.com/hhrutter/lzw v1.0.0 // indirect
 	github.com/hhrutter/pkcs7 v0.2.0 // indirect
 	github.com/hhrutter/tiff v1.0.2 // indirect
-	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/invopop/jsonschema v0.13.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
+	github.com/jackc/pgx/v5 v5.7.6 // indirect
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
 	github.com/knadh/koanf/maps v0.1.2 // indirect
+	github.com/knadh/koanf/parsers/yaml v1.1.0 // indirect
+	github.com/knadh/koanf/v2 v2.3.0 // indirect
 	github.com/labstack/echo-contrib v0.17.4 // indirect
 	github.com/labstack/echo/v4 v4.14.0 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
@@ -159,7 +130,7 @@ require (
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.19 // indirect
-	github.com/mattn/go-sqlite3 v1.14.32 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
 	github.com/mitchellh/hashstructure v1.1.0 // indirect
@@ -180,14 +151,17 @@ require (
 	github.com/pkoukk/tiktoken-go v0.1.8 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/pquerna/otp v1.5.0 // indirect
+	github.com/prometheus/client_golang v1.23.2 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
 	github.com/prometheus/common v0.67.4 // indirect
-	github.com/prometheus/otlptranslator v0.0.2 // indirect
 	github.com/prometheus/procfs v0.19.2 // indirect
 	github.com/redis/go-redis/v9 v9.17.2 // indirect
 	github.com/resend/resend-go/v2 v2.28.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.29.0 // indirect
+	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.29.0 // indirect
 	github.com/riverqueue/river/rivershared v0.29.0 // indirect
+	github.com/riverqueue/river/rivertype v0.29.0 // indirect
+	github.com/riverqueue/rivercontrib/otelriver v0.6.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sagikazarmark/locafero v0.12.0 // indirect
@@ -195,20 +169,28 @@ require (
 	github.com/samber/mo v1.16.0 // indirect
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
+	github.com/slack-go/slack v0.17.3 // indirect
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/spf13/viper v1.21.0 // indirect
+	github.com/stoewer/go-strcase v1.3.1 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
+	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/stripe/stripe-go/v84 v84.1.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	github.com/theopenlane/corejobs v0.0.0-20251224022305-3e98553575ec // indirect
+	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.2.4 // indirect
 	github.com/theopenlane/eddy v0.1.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.0 // indirect
 	github.com/theopenlane/entx v0.20.2 // indirect
+	github.com/theopenlane/go-client v0.2.1 // indirect
+	github.com/theopenlane/httpsling v0.3.0 // indirect
+	github.com/theopenlane/iam v0.23.1 // indirect
+	github.com/theopenlane/newman v0.2.1 // indirect
+	github.com/theopenlane/utils v0.6.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
@@ -236,8 +218,10 @@ require (
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.64.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.64.0 // indirect
+	go.opentelemetry.io/otel v1.39.0 // indirect
 	go.opentelemetry.io/otel/metric v1.39.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.39.0 // indirect
+	go.opentelemetry.io/otel/sdk/metric v1.39.0 // indirect
 	go.opentelemetry.io/otel/trace v1.39.0 // indirect
 	go.uber.org/goleak v1.3.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect

@@ -1,6 +1,6 @@
 //go:build trustcenter
 
-package river
+package trustcenter
 
 import (
 	"github.com/riverqueue/river"
@@ -11,8 +11,8 @@ import (
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
-// addConditionalWorkers adds trust center specific workers when the trustcenter build tag is present
-func addConditionalWorkers(workers *river.Workers, w AdditionalWorkers, insertOnlyClient *riverqueue.Client) (*river.Workers, error) {
+// AddConditionalWorkers adds trust center specific workers when the trustcenter build tag is present
+func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *riverqueue.Client) (*river.Workers, error) {
 	log.Info().Msg("adding additional trust center workers")
 
 	// create workers
@@ -54,7 +54,7 @@ func addConditionalWorkers(workers *river.Workers, w AdditionalWorkers, insertOn
 	return workers, nil
 }
 
-func createCustomDomainWorkers(w AdditionalWorkers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreateCustomDomainWorker.Config.Enabled {
 		customDomainConfig := &corejobs.CreateCustomDomainWorker{
 			Config: w.CreateCustomDomainWorker.Config,
@@ -123,7 +123,7 @@ func createCustomDomainWorkers(w AdditionalWorkers, insertOnlyClient *riverqueue
 	return nil
 }
 
-func createPirschDomainWorkers(w AdditionalWorkers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreatePirschDomainWorker.Config.Enabled {
 		pirschDomainConfig := &corejobs.CreatePirschDomainWorker{
 			Config: w.CreatePirschDomainWorker.Config,
@@ -172,7 +172,7 @@ func createPirschDomainWorkers(w AdditionalWorkers, insertOnlyClient *riverqueue
 	return nil
 }
 
-func createPreviewDomainWorkers(w AdditionalWorkers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreatePreviewDomainWorker.Config.Enabled {
 		previewDomainConfig := &corejobs.CreatePreviewDomainWorker{
 			Config: w.CreatePreviewDomainWorker.Config,
