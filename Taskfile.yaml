@@ -10,6 +10,7 @@ includes:
 
 env:
   GOFLAGS: -buildvcs=false
+  GOPRIVATE: github.com/theopenlane/corejobs
 
 tasks:
   default:
