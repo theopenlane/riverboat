@@ -131,6 +131,7 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=""
+              secret-file: 'id=id_ed25519,src=~/.ssh/id_ed25519'
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -174,9 +175,7 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
                 - BUILDTAGS="-tags=trustcenter"
-              secret-file:
-                - id: id_ed25519
-                  src: ~/.ssh/id_ed25519
+              secret-file: 'id=id_ed25519,src=~/.ssh/id_ed25519'
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -216,6 +215,7 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+              secret-file: 'id=id_ed25519,src=~/.ssh/id_ed25519'
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -257,9 +257,7 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
                 - BUILDTAGS="-tags=trustcenter"
-              secret-file:
-                - id: id_ed25519
-                  src: ~/.ssh/id_ed25519
+              secret-file: 'id=id_ed25519,src=~/.ssh/id_ed25519'
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
@@ -296,6 +294,7 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
+              secret-file: 'id=id_ed25519,src=~/.ssh/id_ed25519'
       - label: ":docker: docker build and publish with trust center"
         key: "docker-build-and-tag-tc"
         if: build.tag != null
@@ -328,6 +327,4 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
                 - BUILDTAGS="-tags=trustcenter"
-              secret-file:
-                - id: id_ed25519
-                  src: ~/.ssh/id_ed25519
+              secret-file: 'id=id_ed25519,src=~/.ssh/id_ed25519'
