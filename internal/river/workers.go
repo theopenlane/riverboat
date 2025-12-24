@@ -276,5 +276,16 @@ func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, 
 		log.Info().Msg("delete preview domain worker enabled")
 	}
 
+	if w.ValidatePreviewDomainWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.ValidatePreviewDomainWorker{
+			Config: w.ValidatePreviewDomainWorker.Config,
+		},
+		); err != nil {
+			return err
+		}
+
+		log.Info().Msg("validate preview domain worker enabled")
+	}
+
 	return nil
 }
