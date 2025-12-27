@@ -22,7 +22,7 @@ import (
 	"github.com/theopenlane/httpsling"
 	"github.com/theopenlane/iam/auth"
 
-	"github.com/theopenlane/core/pkg/enums"
+	"github.com/theopenlane/core/common/enums"
 
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 

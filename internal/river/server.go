@@ -10,7 +10,6 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/rs/zerolog/log"
-	"github.com/theopenlane/core/pkg/logx"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/prometheus"
 	"go.opentelemetry.io/otel/sdk/metric"
@@ -58,7 +57,7 @@ func registerMetricsServer(ctx context.Context) error {
 
 		defer cancel()
 
-		if err := srv.Shutdown(logx.SeedContext(shutdownCtx)); err != nil {
+		if err := srv.Shutdown(seedContext(shutdownCtx)); err != nil {
 			log.Error().Err(err).Msg("failed to shutdown metrics server")
 		}
 	}()
@@ -68,4 +67,13 @@ func registerMetricsServer(ctx context.Context) error {
 	}
 
 	return nil
+}
+
+// SeedContext ensures the provided context carries a logger, returning a derived context when necessary.
+func seedContext(ctx context.Context) context.Context {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+
+	return FromContext(ctx).WithContext(ctx)
 }

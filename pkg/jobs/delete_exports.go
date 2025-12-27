@@ -6,7 +6,7 @@ import (
 
 	"github.com/riverqueue/river"
 
-	"github.com/theopenlane/core/pkg/enums"
+	"github.com/theopenlane/core/common/enums"
 	"github.com/theopenlane/go-client/graphclient"
 
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
