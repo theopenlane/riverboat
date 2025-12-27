@@ -9,6 +9,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/prometheus"
@@ -75,5 +76,10 @@ func seedContext(ctx context.Context) context.Context {
 		ctx = context.Background()
 	}
 
-	return FromContext(ctx).WithContext(ctx)
+	logger := zerolog.Ctx(ctx)
+	if logger == nil || logger.GetLevel() == zerolog.Disabled {
+		logger = &log.Logger
+	}
+
+	return logger.WithContext(ctx)
 }
