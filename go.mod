@@ -32,7 +32,7 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core v0.50.3-0.20251224022145-ead2116cfb53
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/go-client v0.2.1
+	github.com/theopenlane/go-client v0.3.0
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.23.1
 	github.com/theopenlane/newman v0.2.1
