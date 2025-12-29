@@ -4,6 +4,8 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 
+	"github.com/theopenlane/corejobs"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
@@ -63,6 +65,16 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 		}
 
 		log.Info().Msg("export content worker enabled")
+	}
+
+	if w.ClearTrustCenterCacheWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.ClearTrustCenterCacheWorker{
+			Config: w.ClearTrustCenterCacheWorker.Config,
+		}); err != nil {
+			return err
+		}
+
+		log.Info().Msg("ClearTrustCenterCacheWorker worker enabled")
 	}
 
 	if w.DeleteExportContentWorker.Config.Enabled {

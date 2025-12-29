@@ -35,6 +35,12 @@ data:
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackworker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackworker.config.devmode | default true }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}
+  RIVERBOAT_RIVER_WORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_BUCKET: {{ .Values.riverboat.river.workers.clearTrustCenterCacheWorker.config.objectstorage.bucket }}
+  RIVERBOAT_RIVER_WORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_ENDPOINT: {{ .Values.riverboat.river.workers.clearTrustCenterCacheWorker.config.objectstorage.endpoint }}
+  RIVERBOAT_RIVER_WORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.workers.clearTrustCenterCacheWorker.config.objectstorage.credentials.accesskeyid }}
+  RIVERBOAT_RIVER_WORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.workers.clearTrustCenterCacheWorker.config.objectstorage.credentials.secretaccesskey }}
+  RIVERBOAT_RIVER_WORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.workers.clearTrustCenterCacheWorker.config.objectstorage.credentials.accountid }}
+  RIVERBOAT_RIVER_WORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.clearTrustCenterCacheWorker.config.enabled }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}

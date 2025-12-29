@@ -8,6 +8,59 @@
       },
       "type": "array"
     },
+    "corejobs.ClearTrustCenterCacheWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorkerConfig",
+          "description": "the configuration for clearing trust center cache"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ClearTrustCenterCacheWorkerConfig": {
+      "properties": {
+        "objectstorage": {
+          "$ref": "#/$defs/corejobs.ProviderConfig",
+          "description": "the object storage configuration for R2"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ProviderConfig": {
+      "properties": {
+        "bucket": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "credentials": {
+          "$ref": "#/$defs/corejobs.ProviderCredentials"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ProviderCredentials": {
+      "properties": {
+        "accesskeyid": {
+          "type": "string"
+        },
+        "secretaccesskey": {
+          "type": "string"
+        },
+        "accountid": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "dbxclient.Config": {
       "properties": {
         "enabled": {
@@ -264,6 +317,10 @@
         "slackworker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
+        },
+        "clearTrustCenterCacheWorker": {
+          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker",
+          "description": "Worker configuration for clearing trust center cached items when changes are detected"
         }
       },
       "additionalProperties": false,

@@ -32,6 +32,13 @@
             },
             "slackworker": {
                 "config": {}
+            },
+            "clearTrustCenterCacheWorker": {
+                "config": {
+                    "objectstorage": {
+                        "credentials": {}
+                    }
+                }
             }
         },
         "trustcenterworkers": {},
@@ -81,6 +88,13 @@ Config is the configuration for the river server
         },
         "slackworker": {
             "config": {}
+        },
+        "clearTrustCenterCacheWorker": {
+            "config": {
+                "objectstorage": {
+                    "credentials": {}
+                }
+            }
         }
     },
     "trustcenterworkers": {},
@@ -117,6 +131,7 @@ Workers that will be enabled on the server
 |[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
 |[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
+|[**clearTrustCenterCacheWorker**](#riverworkerscleartrustcentercacheworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -138,6 +153,13 @@ Workers that will be enabled on the server
     },
     "slackworker": {
         "config": {}
+    },
+    "clearTrustCenterCacheWorker": {
+        "config": {
+            "objectstorage": {
+                "credentials": {}
+            }
+        }
     }
 }
 ```
@@ -336,6 +358,81 @@ SlackConfig configures the Slack worker.
 |**enabled**|`boolean`|enable or disable the slack worker<br/>||
 |**devmode**|`boolean`|enable dev mode<br/>||
 |**token**|`string`|the token to use for the slack app<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkerscleartrustcentercacheworker"></a>
+#### river\.workers\.clearTrustCenterCacheWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkerscleartrustcentercacheworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {
+        "objectstorage": {
+            "credentials": {}
+        }
+    }
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfig"></a>
+##### river\.workers\.clearTrustCenterCacheWorker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**objectstorage**](#riverworkerscleartrustcentercacheworkerconfigobjectstorage)|`object`|||
+|**enabled**|`boolean`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "objectstorage": {
+        "credentials": {}
+    }
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorage"></a>
+###### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**bucket**|`string`|||
+|**endpoint**|`string`|||
+|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstoragecredentials)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "credentials": {}
+}
+```
+
+<a name="riverworkerscleartrustcentercacheworkerconfigobjectstoragecredentials"></a>
+####### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.credentials: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**accesskeyid**|`string`|||
+|**secretaccesskey**|`string`|||
+|**accountid**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkers"></a>
