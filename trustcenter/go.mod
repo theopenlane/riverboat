@@ -5,13 +5,13 @@ go 1.25.5
 require (
 	github.com/riverqueue/river v0.29.0
 	github.com/rs/zerolog v1.34.0
-	github.com/theopenlane/core v0.50.3-0.20251224020032-8a036b0ae363
+	github.com/theopenlane/core/common v0.1.0
 	github.com/theopenlane/corejobs v0.1.0
 	github.com/theopenlane/riverboat v0.6.3
 )
 
 require (
-	ariga.io/atlas v0.38.0 // indirect
+	ariga.io/atlas v1.0.0 // indirect
 	ariga.io/entcache v0.1.0 // indirect
 	cel.dev/expr v0.25.1 // indirect
 	cloud.google.com/go v0.123.0 // indirect
@@ -181,6 +181,7 @@ require (
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/stripe/stripe-go/v84 v84.1.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
+	github.com/theopenlane/core v0.50.3-0.20251224020032-8a036b0ae363 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.2.4 // indirect
 	github.com/theopenlane/eddy v0.1.0 // indirect
@@ -228,7 +229,7 @@ require (
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	gocloud.dev v0.44.0 // indirect
 	golang.org/x/crypto v0.46.0 // indirect
-	golang.org/x/exp v0.0.0-20251209150349-8475f28825e9 // indirect
+	golang.org/x/exp v0.0.0-20251219203646-944ab1f22d93 // indirect
 	golang.org/x/image v0.34.0 // indirect
 	golang.org/x/mod v0.31.0 // indirect
 	golang.org/x/net v0.48.0 // indirect

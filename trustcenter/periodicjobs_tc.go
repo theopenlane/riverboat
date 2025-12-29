@@ -7,7 +7,7 @@ import (
 
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
-	"github.com/theopenlane/core/pkg/jobspec"
+	"github.com/theopenlane/core/common/jobspec"
 )
 
 // minInterval prevents spamming from a bag config

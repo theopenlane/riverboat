@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/theopenlane/core/pkg/jobspec"
-	"github.com/theopenlane/core/pkg/models"
+	"github.com/theopenlane/core/common/jobspec"
+	"github.com/theopenlane/core/common/models"
 	"github.com/theopenlane/go-client/graphclient"
 	"github.com/theopenlane/riverboat/pkg/jobs"
 
