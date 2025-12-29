@@ -70,7 +70,7 @@ func registerMetricsServer(ctx context.Context) error {
 	return nil
 }
 
-// SeedContext ensures the provided context carries a logger, returning a derived context when necessary.
+// seedContext ensures the provided context carries a logger, returning a derived context when necessary.
 func seedContext(ctx context.Context) context.Context {
 	if ctx == nil {
 		ctx = context.Background()
