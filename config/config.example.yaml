@@ -9,16 +9,6 @@ river:
     queues: null
     trustcenterworkers: {}
     workers:
-        clearTrustCenterCacheWorker:
-            config:
-                enabled: false
-                objectstorage:
-                    bucket: ""
-                    credentials:
-                        accesskeyid: ""
-                        accountid: ""
-                        secretaccesskey: ""
-                    endpoint: ""
         databaseworker:
             config:
                 baseUrl: http://localhost:1337

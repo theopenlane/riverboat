@@ -31,6 +31,146 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.CreateCustomDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig",
+          "description": "the configuration for custom domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.CreatePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.CreatePreviewDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PreviewDomainConfig",
+          "description": "the configuration for preview domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.CustomDomainConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        },
+        "validateinterval": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "validateinterval"
+      ]
+    },
+    "corejobs.DeleteCustomDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig",
+          "description": "the configuration for custom domain deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.DeletePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.DeletePreviewDomainConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.DeletePreviewDomainWorker": {
+      "properties": {
+        "Config": {
+          "$ref": "#/$defs/corejobs.DeletePreviewDomainConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.PirschDomainConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "pirschclientid": {
+          "type": "string"
+        },
+        "pirschclientsecret": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.PreviewDomainConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ProviderConfig": {
       "properties": {
         "bucket": {
@@ -56,6 +196,89 @@
         },
         "accountid": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.UpdatePirschDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.PirschDomainConfig",
+          "description": "the configuration for pirsch domain update"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ValidateCustomDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CustomDomainConfig",
+          "description": "the configuration for custom domain validation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.ValidatePreviewDomainConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        },
+        "maxsnoozes": {
+          "type": "integer"
+        },
+        "snoozeduration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "maxsnoozes",
+        "snoozeduration"
+      ]
+    },
+    "corejobs.ValidatePreviewDomainWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.ValidatePreviewDomainConfig",
+          "description": "the configuration for preview domain validation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.WatermarkDocWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.WatermarkWorkerConfig",
+          "description": "the configuration for watermarking"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.WatermarkWorkerConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
@@ -317,10 +540,6 @@
         "slackworker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
-        },
-        "clearTrustCenterCacheWorker": {
-          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker",
-          "description": "Worker configuration for clearing trust center cached items when changes are detected"
         }
       },
       "additionalProperties": false,
@@ -347,7 +566,44 @@
       "description": "MetricsConfig is the configuration for metrics"
     },
     "trustcenter.Workers": {
-      "properties": {},
+      "properties": {
+        "openlaneconfig": {
+          "$ref": "#/$defs/jobs.OpenlaneConfig"
+        },
+        "createcustomdomainworker": {
+          "$ref": "#/$defs/corejobs.CreateCustomDomainWorker"
+        },
+        "validatecustomdomainworker": {
+          "$ref": "#/$defs/corejobs.ValidateCustomDomainWorker"
+        },
+        "deletecustomdomainworker": {
+          "$ref": "#/$defs/corejobs.DeleteCustomDomainWorker"
+        },
+        "watermarkdocworker": {
+          "$ref": "#/$defs/corejobs.WatermarkDocWorker"
+        },
+        "createpirschdomainworker": {
+          "$ref": "#/$defs/corejobs.CreatePirschDomainWorker"
+        },
+        "deletepirschdomainworker": {
+          "$ref": "#/$defs/corejobs.DeletePirschDomainWorker"
+        },
+        "updatepirschdomainworker": {
+          "$ref": "#/$defs/corejobs.UpdatePirschDomainWorker"
+        },
+        "createpreviewdomainworker": {
+          "$ref": "#/$defs/corejobs.CreatePreviewDomainWorker"
+        },
+        "deletepreviewdomainworker": {
+          "$ref": "#/$defs/corejobs.DeletePreviewDomainWorker"
+        },
+        "validatepreviewdomainworker": {
+          "$ref": "#/$defs/corejobs.ValidatePreviewDomainWorker"
+        },
+        "clearTrustCenterCacheWorker": {
+          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker"
+        }
+      },
       "additionalProperties": false,
       "type": "object"
     }

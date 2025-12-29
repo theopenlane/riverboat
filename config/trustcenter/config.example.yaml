@@ -8,6 +8,16 @@ river:
         metricsdurationunit: ms
     queues: null
     trustcenterworkers:
+        clearTrustCenterCacheWorker:
+            config:
+                enabled: false
+                objectstorage:
+                    bucket: ""
+                    credentials:
+                        accesskeyid: ""
+                        accountid: ""
+                        secretaccesskey: ""
+                    endpoint: ""
         createcustomdomainworker:
             config:
                 cloudflareapikey: ""

@@ -41,6 +41,16 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		log.Info().Msg("watermark doc worker enabled")
 	}
 
+	if w.ClearTrustCenterCacheWorker.Config.Enabled {
+		if err := river.AddWorkerSafely(workers, &corejobs.ClearTrustCenterCacheWorker{
+			Config: w.ClearTrustCenterCacheWorker.Config,
+		}); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("ClearTrustCenterCacheWorker worker enabled")
+	}
+
 	if err := createPirschDomainWorkers(w, insertOnlyClient, workers); err != nil {
 		return nil, err
 	}

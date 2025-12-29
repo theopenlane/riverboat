@@ -32,6 +32,39 @@
             },
             "slackworker": {
                 "config": {}
+            }
+        },
+        "trustcenterworkers": {
+            "openlaneconfig": {},
+            "createcustomdomainworker": {
+                "config": {}
+            },
+            "validatecustomdomainworker": {
+                "config": {}
+            },
+            "deletecustomdomainworker": {
+                "config": {}
+            },
+            "watermarkdocworker": {
+                "config": {}
+            },
+            "createpirschdomainworker": {
+                "config": {}
+            },
+            "deletepirschdomainworker": {
+                "config": {}
+            },
+            "updatepirschdomainworker": {
+                "config": {}
+            },
+            "createpreviewdomainworker": {
+                "config": {}
+            },
+            "deletepreviewdomainworker": {
+                "Config": {}
+            },
+            "validatepreviewdomainworker": {
+                "config": {}
             },
             "clearTrustCenterCacheWorker": {
                 "config": {
@@ -41,7 +74,6 @@
                 }
             }
         },
-        "trustcenterworkers": {},
         "metrics": {}
     }
 }
@@ -88,6 +120,39 @@ Config is the configuration for the river server
         },
         "slackworker": {
             "config": {}
+        }
+    },
+    "trustcenterworkers": {
+        "openlaneconfig": {},
+        "createcustomdomainworker": {
+            "config": {}
+        },
+        "validatecustomdomainworker": {
+            "config": {}
+        },
+        "deletecustomdomainworker": {
+            "config": {}
+        },
+        "watermarkdocworker": {
+            "config": {}
+        },
+        "createpirschdomainworker": {
+            "config": {}
+        },
+        "deletepirschdomainworker": {
+            "config": {}
+        },
+        "updatepirschdomainworker": {
+            "config": {}
+        },
+        "createpreviewdomainworker": {
+            "config": {}
+        },
+        "deletepreviewdomainworker": {
+            "Config": {}
+        },
+        "validatepreviewdomainworker": {
+            "config": {}
         },
         "clearTrustCenterCacheWorker": {
             "config": {
@@ -97,7 +162,6 @@ Config is the configuration for the river server
             }
         }
     },
-    "trustcenterworkers": {},
     "metrics": {}
 }
 ```
@@ -131,7 +195,6 @@ Workers that will be enabled on the server
 |[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
 |[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
-|[**clearTrustCenterCacheWorker**](#riverworkerscleartrustcentercacheworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -153,13 +216,6 @@ Workers that will be enabled on the server
     },
     "slackworker": {
         "config": {}
-    },
-    "clearTrustCenterCacheWorker": {
-        "config": {
-            "objectstorage": {
-                "credentials": {}
-            }
-        }
     }
 }
 ```
@@ -360,14 +416,411 @@ SlackConfig configures the Slack worker.
 |**token**|`string`|the token to use for the slack app<br/>||
 
 **Additional Properties:** not allowed  
-<a name="riverworkerscleartrustcentercacheworker"></a>
-#### river\.workers\.clearTrustCenterCacheWorker: object
+<a name="rivertrustcenterworkers"></a>
+### river\.trustcenterworkers: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkerscleartrustcentercacheworkerconfig)|`object`|||
+|[**openlaneconfig**](#rivertrustcenterworkersopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
+|[**createcustomdomainworker**](#rivertrustcenterworkerscreatecustomdomainworker)|`object`|||
+|[**validatecustomdomainworker**](#rivertrustcenterworkersvalidatecustomdomainworker)|`object`|||
+|[**deletecustomdomainworker**](#rivertrustcenterworkersdeletecustomdomainworker)|`object`|||
+|[**watermarkdocworker**](#rivertrustcenterworkerswatermarkdocworker)|`object`|||
+|[**createpirschdomainworker**](#rivertrustcenterworkerscreatepirschdomainworker)|`object`|||
+|[**deletepirschdomainworker**](#rivertrustcenterworkersdeletepirschdomainworker)|`object`|||
+|[**updatepirschdomainworker**](#rivertrustcenterworkersupdatepirschdomainworker)|`object`|||
+|[**createpreviewdomainworker**](#rivertrustcenterworkerscreatepreviewdomainworker)|`object`|||
+|[**deletepreviewdomainworker**](#rivertrustcenterworkersdeletepreviewdomainworker)|`object`|||
+|[**validatepreviewdomainworker**](#rivertrustcenterworkersvalidatepreviewdomainworker)|`object`|||
+|[**clearTrustCenterCacheWorker**](#rivertrustcenterworkerscleartrustcentercacheworker)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "openlaneconfig": {},
+    "createcustomdomainworker": {
+        "config": {}
+    },
+    "validatecustomdomainworker": {
+        "config": {}
+    },
+    "deletecustomdomainworker": {
+        "config": {}
+    },
+    "watermarkdocworker": {
+        "config": {}
+    },
+    "createpirschdomainworker": {
+        "config": {}
+    },
+    "deletepirschdomainworker": {
+        "config": {}
+    },
+    "updatepirschdomainworker": {
+        "config": {}
+    },
+    "createpreviewdomainworker": {
+        "config": {}
+    },
+    "deletepreviewdomainworker": {
+        "Config": {}
+    },
+    "validatepreviewdomainworker": {
+        "config": {}
+    },
+    "clearTrustCenterCacheWorker": {
+        "config": {
+            "objectstorage": {
+                "credentials": {}
+            }
+        }
+    }
+}
+```
+
+<a name="rivertrustcenterworkersopenlaneconfig"></a>
+#### river\.trustcenterworkers\.openlaneconfig: object
+
+OpenlaneConfig contains the configuration for connecting to the Openlane API.
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkerscreatecustomdomainworker"></a>
+#### river\.trustcenterworkers\.createcustomdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkerscreatecustomdomainworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkerscreatecustomdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.createcustomdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareapikey**|`string`||no|
+|**validateinterval**|`integer`||yes|
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersvalidatecustomdomainworker"></a>
+#### river\.trustcenterworkers\.validatecustomdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersvalidatecustomdomainworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersvalidatecustomdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.validatecustomdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareapikey**|`string`||no|
+|**validateinterval**|`integer`||yes|
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersdeletecustomdomainworker"></a>
+#### river\.trustcenterworkers\.deletecustomdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersdeletecustomdomainworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersdeletecustomdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.deletecustomdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareapikey**|`string`||no|
+|**validateinterval**|`integer`||yes|
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkerswatermarkdocworker"></a>
+#### river\.trustcenterworkers\.watermarkdocworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkerswatermarkdocworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkerswatermarkdocworkerconfig"></a>
+##### river\.trustcenterworkers\.watermarkdocworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkerscreatepirschdomainworker"></a>
+#### river\.trustcenterworkers\.createpirschdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkerscreatepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkerscreatepirschdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.createpirschdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschclientid**|`string`|||
+|**pirschclientsecret**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersdeletepirschdomainworker"></a>
+#### river\.trustcenterworkers\.deletepirschdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersdeletepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersdeletepirschdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.deletepirschdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschclientid**|`string`|||
+|**pirschclientsecret**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersupdatepirschdomainworker"></a>
+#### river\.trustcenterworkers\.updatepirschdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersupdatepirschdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersupdatepirschdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.updatepirschdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**pirschclientid**|`string`|||
+|**pirschclientsecret**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkerscreatepreviewdomainworker"></a>
+#### river\.trustcenterworkers\.createpreviewdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkerscreatepreviewdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkerscreatepreviewdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.createpreviewdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**cloudflareapikey**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersdeletepreviewdomainworker"></a>
+#### river\.trustcenterworkers\.deletepreviewdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**Config**](#rivertrustcenterworkersdeletepreviewdomainworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "Config": {}
+}
+```
+
+<a name="rivertrustcenterworkersdeletepreviewdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.deletepreviewdomainworker\.Config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
+|**cloudflareapikey**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersvalidatepreviewdomainworker"></a>
+#### river\.trustcenterworkers\.validatepreviewdomainworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersvalidatepreviewdomainworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersvalidatepreviewdomainworkerconfig"></a>
+##### river\.trustcenterworkers\.validatepreviewdomainworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareapikey**|`string`||no|
+|**maxsnoozes**|`integer`||yes|
+|**snoozeduration**|`integer`||yes|
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkerscleartrustcentercacheworker"></a>
+#### river\.trustcenterworkers\.clearTrustCenterCacheWorker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkerscleartrustcentercacheworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -382,14 +835,14 @@ SlackConfig configures the Slack worker.
 }
 ```
 
-<a name="riverworkerscleartrustcentercacheworkerconfig"></a>
-##### river\.workers\.clearTrustCenterCacheWorker\.config: object
+<a name="rivertrustcenterworkerscleartrustcentercacheworkerconfig"></a>
+##### river\.trustcenterworkers\.clearTrustCenterCacheWorker\.config: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**objectstorage**](#riverworkerscleartrustcentercacheworkerconfigobjectstorage)|`object`|||
+|[**objectstorage**](#rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstorage)|`object`|||
 |**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
@@ -403,8 +856,8 @@ SlackConfig configures the Slack worker.
 }
 ```
 
-<a name="riverworkerscleartrustcentercacheworkerconfigobjectstorage"></a>
-###### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage: object
+<a name="rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstorage"></a>
+###### river\.trustcenterworkers\.clearTrustCenterCacheWorker\.config\.objectstorage: object
 
 **Properties**
 
@@ -412,7 +865,7 @@ SlackConfig configures the Slack worker.
 |----|----|-----------|--------|
 |**bucket**|`string`|||
 |**endpoint**|`string`|||
-|[**credentials**](#riverworkerscleartrustcentercacheworkerconfigobjectstoragecredentials)|`object`|||
+|[**credentials**](#rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstoragecredentials)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -423,8 +876,8 @@ SlackConfig configures the Slack worker.
 }
 ```
 
-<a name="riverworkerscleartrustcentercacheworkerconfigobjectstoragecredentials"></a>
-####### river\.workers\.clearTrustCenterCacheWorker\.config\.objectstorage\.credentials: object
+<a name="rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstoragecredentials"></a>
+####### river\.trustcenterworkers\.clearTrustCenterCacheWorker\.config\.objectstorage\.credentials: object
 
 **Properties**
 
@@ -433,12 +886,6 @@ SlackConfig configures the Slack worker.
 |**accesskeyid**|`string`|||
 |**secretaccesskey**|`string`|||
 |**accountid**|`string`|||
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkers"></a>
-### river\.trustcenterworkers: object
-
-**No properties.**
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>
