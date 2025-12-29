@@ -30,7 +30,7 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v0.0.0-20251227193922-e29bdbb1397a
+	github.com/theopenlane/core/common v0.1.0
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/go-client v0.3.0
 	github.com/theopenlane/httpsling v0.3.0
