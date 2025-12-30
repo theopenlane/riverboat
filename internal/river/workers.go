@@ -21,7 +21,7 @@ func createWorkers(w Workers, _ *riverqueue.Client) (*river.Workers, error) {
 			return nil, err
 		}
 
-		log.Info().Msg("email worker enabled")
+		log.Info().Msg("worker enabled: email")
 	}
 
 	if w.SlackWorker.Config.Enabled {
@@ -31,7 +31,7 @@ func createWorkers(w Workers, _ *riverqueue.Client) (*river.Workers, error) {
 			return nil, err
 		}
 
-		log.Info().Msg("slack worker enabled")
+		log.Info().Msg("worker enabled: slack")
 	}
 
 	if err := createExportWorkers(w, workers); err != nil {
@@ -62,7 +62,7 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 			return err
 		}
 
-		log.Info().Msg("export content worker enabled")
+		log.Info().Msg("worker enabled: export content")
 	}
 
 	if w.DeleteExportContentWorker.Config.Enabled {
@@ -83,7 +83,7 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 			return err
 		}
 
-		log.Info().Msg("delete export content worker enabled")
+		log.Info().Msg("worker enabled: delete export content")
 	}
 
 	return nil

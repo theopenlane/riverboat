@@ -38,7 +38,7 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 			return nil, err
 		}
 
-		log.Info().Msg("watermark doc worker enabled")
+		log.Info().Msg("worker enabled: trust center watermark doc")
 	}
 
 	if err := createPirschDomainWorkers(w, insertOnlyClient, workers); err != nil {
@@ -75,7 +75,7 @@ func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 			return err
 		}
 
-		log.Info().Msg("create custom domain worker enabled")
+		log.Info().Msg("worker enabled: create custom domain")
 	}
 
 	if w.ValidateCustomDomainWorker.Config.Enabled {
@@ -96,7 +96,7 @@ func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 			return err
 		}
 
-		log.Info().Msg("validate custom domain worker enabled")
+		log.Info().Msg("worker enabled: validate custom domain")
 	}
 
 	if w.DeleteCustomDomainWorker.Config.Enabled {
@@ -117,7 +117,7 @@ func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 			return err
 		}
 
-		log.Info().Msg("delete custom domain worker enabled")
+		log.Info().Msg("worker enabled: delete custom domain")
 	}
 
 	return nil
@@ -144,7 +144,7 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 			return err
 		}
 
-		log.Info().Msg("create pirsch domain worker enabled")
+		log.Info().Msg("worker enabled: create pirsch domain")
 	}
 
 	if w.DeletePirschDomainWorker.Config.Enabled {
@@ -166,7 +166,7 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 			return err
 		}
 
-		log.Info().Msg("update pirsch domain worker enabled")
+		log.Info().Msg("worker enabled: update pirsch domain")
 	}
 
 	return nil
@@ -193,7 +193,7 @@ func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, 
 			return err
 		}
 
-		log.Info().Msg("create preview domain worker enabled")
+		log.Info().Msg("worker enabled: create preview domain")
 	}
 
 	if w.DeletePreviewDomainWorker.Config.Enabled {
@@ -204,7 +204,7 @@ func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, 
 			return err
 		}
 
-		log.Info().Msg("delete preview domain worker enabled")
+		log.Info().Msg("worker enabled: delete preview domain")
 	}
 
 	if w.ValidatePreviewDomainWorker.Config.Enabled {
@@ -215,7 +215,7 @@ func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, 
 			return err
 		}
 
-		log.Info().Msg("validate preview domain worker enabled")
+		log.Info().Msg("worker enabled: validate preview domain")
 	}
 
 	return nil
