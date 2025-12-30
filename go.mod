@@ -31,7 +31,6 @@ require (
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core/common v0.1.0
-	github.com/theopenlane/corejobs v0.1.3
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/go-client v0.3.2
 	github.com/theopenlane/httpsling v0.3.0
@@ -133,6 +132,7 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
+	github.com/theopenlane/corejobs v0.1.3 // indirect
 	github.com/theopenlane/echox v0.2.4 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
