@@ -170,7 +170,7 @@ steps:
               tag_prefix: "{{matrix.platform}}-"
           - theopenlane/container-build#v1.1.1:
               dockerfile: docker/Dockerfile
-              push: true
+              push: false
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
