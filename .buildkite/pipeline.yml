@@ -174,7 +174,7 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-                - BUILDTAGS="trustcenter"
+                - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
@@ -256,7 +256,7 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-                - BUILDTAGS="trustcenter"
+                - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
           - equinixmetal-buildkite/trivy#v1.19.0:
               severity: CRITICAL,HIGH
@@ -326,5 +326,5 @@ steps:
               platforms: linux/{{matrix.platform}}
               build-args:
                 - NAME=${APP_NAME}
-                - BUILDTAGS="trustcenter"
+                - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
