@@ -1,6 +1,7 @@
 package config
 
 import (
+	"os"
 	"strings"
 	"time"
 
@@ -22,9 +23,24 @@ var (
 // Config contains the configuration for the server
 type Config struct {
 	// RefreshInterval determines how often to reload the config
-	RefreshInterval time.Duration `json:"refreshInterval" koanf:"refreshInterval" default:"10m"`
+	RefreshInterval time.Duration `json:"refreshinterval" koanf:"refreshinterval" default:"10m"`
 	// River is the configuration for the job queue
 	River river.Config `koanf:"river" json:"river"`
+}
+
+// Option configures the Config
+type Option func(*Config)
+
+// New creates a Config with the supplied options applied
+func New(opts ...Option) *Config {
+	cfg := &Config{}
+	defaults.SetDefaults(cfg)
+
+	for _, opt := range opts {
+		opt(cfg)
+	}
+
+	return cfg
 }
 
 // Load is responsible for loading the configuration from a YAML file and environment variables.
@@ -38,16 +54,28 @@ func Load(cfgFile *string) (*Config, error) {
 		*cfgFile = defaultConfigFilePath
 	}
 
+	if _, err := os.Stat(*cfgFile); err != nil {
+		if os.IsNotExist(err) {
+			log.Warn().Err(err).Msg("config file not found, proceeding with default configuration")
+		}
+	}
+
 	// parse yaml config
 	if err := k.Load(file.Provider(*cfgFile), yaml.Parser()); err != nil {
-		log.Warn().Err(err).Msg("failed to load config file - ensure the .config.yaml is present and valid or use environment variables to set the configuration")
+		// if it's an  unmarshal errors, panic now instead of continuing
+		if strings.Contains(err.Error(), "yaml: unmarshal errors") {
+			log.Fatal().Err(err).Msg("failed to unmarshal config file - ensure the .config.yaml is valid")
+		} else {
+			log.Warn().Err(err).Msg("failed to load config file - ensure the .config.yaml is present and valid or use environment variables to set the configuration")
+		}
 	}
 
 	// load env vars
 	if err := k.Load(env.Provider(".", env.Opt{
 		Prefix: envPrefix,
-		TransformFunc: func(s, v string) (string, interface{}) {
-			key := strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, envPrefix)), "_", ".")
+		TransformFunc: func(key, v string) (string, interface{}) {
+			key = strings.ToLower(strings.TrimPrefix(key, envPrefix))
+			key = strings.ReplaceAll(key, "_", ".")
 
 			if strings.Contains(v, ",") {
 				return key, strings.Split(v, ",")
@@ -60,12 +88,9 @@ func Load(cfgFile *string) (*Config, error) {
 	}
 
 	// create the config with defaults
-	conf := &Config{}
-	defaults.SetDefaults(conf)
-
-	// unmarshal into the config struct
+	conf := New()
 	if err := k.Unmarshal("", &conf); err != nil {
-		log.Fatal().Err(err).Msg("failed to unmarshal env vars")
+		log.Fatal().Err(err).Msg("failed to unmarshal config")
 	}
 
 	return conf, nil

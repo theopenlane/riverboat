@@ -7,8 +7,8 @@ services:
       - serve
       - --debug
       - --pretty
-    environment:
-      - RIVERBOAT_JOBQUEUE_DATABASEHOST=postgres://postgres:password@postgres-riverboat:5432/jobs?sslmode=disable
+    volumes:
+      - ${PWD}/config/.config.yaml:/config/.config.yaml
     restart: unless-stopped
     networks:
       - default
