@@ -266,7 +266,7 @@ steps:
               trivy-version: "0.57.1"
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
-        if: build.tag != null
+        if: build.tag != null && build.tag !~ /trustcenter\//
         matrix:
           setup:
             platform:
@@ -297,7 +297,7 @@ steps:
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
       - label: ":docker: docker build and publish with trust center"
         key: "docker-build-and-tag-tc"
-        if: build.tag != null
+        if: build.tag != null && build.tag !~ /trustcenter\//
         matrix:
           setup:
             platform:
