@@ -4,6 +4,7 @@ package trustcenter
 
 import (
 	"github.com/theopenlane/corejobs"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
@@ -42,5 +43,7 @@ type Workers struct {
 	// ValidatePreviewDomainWorker configuration for validating preview domains
 	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
 
+	// Worker configuration for clearing trust center cached items when changes are detected
+	ClearTrustCenterCacheWorker corejobs.ClearTrustCenterCacheWorker `koanf:"clearTrustCenterCacheWorker" json:"clearTrustCenterCacheWorker"`
 	// add more trust center specific workers here
 }
