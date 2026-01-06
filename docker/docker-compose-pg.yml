@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:17
+    image: postgres:18
     container_name: postgres-riverboat
     command: postgres -c 'max_connections=150'
     ports:
