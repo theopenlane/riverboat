@@ -82,11 +82,6 @@ func (w *CreateTaskWorker) Work(ctx context.Context, job *river.Job[jobspec.Crea
 		OwnerID: &job.Args.OrganizationID,
 	}
 
-	// Add optional fields if provided
-	if job.Args.Category != nil {
-		taskInput.Category = job.Args.Category
-	}
-
 	if job.Args.AssigneeID != nil {
 		taskInput.AssigneeID = job.Args.AssigneeID
 	}

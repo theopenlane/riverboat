@@ -26,7 +26,6 @@ func TestCreateTaskWorker(t *testing.T) {
 	assigneeID := "01JC0000000000000000000001"
 	assignerID := "01JC0000000000000000000002"
 	policyID := "01JD0000000000000000000001"
-	category := "Policy Review"
 	title := "Information Security Policy Review"
 	description := "Conduct the annual review of this internal policy"
 	tag1 := "security"
@@ -46,7 +45,6 @@ func TestCreateTaskWorker(t *testing.T) {
 				OrganizationID:    orgID,
 				Title:             title,
 				Description:       description,
-				Category:          &category,
 				AssigneeID:        &assigneeID,
 				AssignerID:        &assignerID,
 				InternalPolicyIDs: []string{policyID},
@@ -85,7 +83,6 @@ func TestCreateTaskWorker(t *testing.T) {
 				OrganizationID:    orgID,
 				Title:             title,
 				Description:       description,
-				Category:          &category,
 				InternalPolicyIDs: []string{policyID},
 			},
 			createTaskResponse: &graphclient.CreateTask{
@@ -196,12 +193,6 @@ func TestCreateTaskWorker(t *testing.T) {
 						}
 
 						// Validate optional fields
-						if tc.input.Category != nil {
-							if input.Category == nil || *input.Category != *tc.input.Category {
-								return false
-							}
-						}
-
 						if tc.input.AssigneeID != nil {
 							if input.AssigneeID == nil || *input.AssigneeID != *tc.input.AssigneeID {
 								return false
