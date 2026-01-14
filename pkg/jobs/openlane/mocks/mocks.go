@@ -4273,6 +4273,89 @@ func (_c *MockGraphClient_CreateBulkCSVSubcontrol_Call) RunAndReturn(run func(ct
 	return _c
 }
 
+// CreateBulkCSVSubprocessor provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVSubprocessor(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSubprocessor, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVSubprocessor")
+	}
+
+	var r0 *graphclient.CreateBulkCSVSubprocessor
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSubprocessor, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVSubprocessor); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVSubprocessor)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVSubprocessor_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVSubprocessor'
+type MockGraphClient_CreateBulkCSVSubprocessor_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVSubprocessor is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
+	return &MockGraphClient_CreateBulkCSVSubprocessor_Call{Call: _e.mock.On("CreateBulkCSVSubprocessor",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVSubprocessor_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVSubprocessor_Call) Return(createBulkCSVSubprocessor *graphclient.CreateBulkCSVSubprocessor, err error) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
+	_c.Call.Return(createBulkCSVSubprocessor, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVSubprocessor_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSubprocessor, error)) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateBulkCSVSubscriber provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateBulkCSVSubscriber(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSubscriber, error) {
 	var tmpRet mock.Arguments
@@ -8585,6 +8668,89 @@ func (_c *MockGraphClient_CreateBulkSubcontrol_Call) Return(createBulkSubcontrol
 }
 
 func (_c *MockGraphClient_CreateBulkSubcontrol_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateSubcontrolInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSubcontrol, error)) *MockGraphClient_CreateBulkSubcontrol_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkSubprocessor provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkSubprocessor(ctx context.Context, input []*graphclient.CreateSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSubprocessor, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkSubprocessor")
+	}
+
+	var r0 *graphclient.CreateBulkSubprocessor
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateSubprocessorInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSubprocessor, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateSubprocessorInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkSubprocessor); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkSubprocessor)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateSubprocessorInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkSubprocessor_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkSubprocessor'
+type MockGraphClient_CreateBulkSubprocessor_Call struct {
+	*mock.Call
+}
+
+// CreateBulkSubprocessor is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateSubprocessorInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkSubprocessor_Call {
+	return &MockGraphClient_CreateBulkSubprocessor_Call{Call: _e.mock.On("CreateBulkSubprocessor",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkSubprocessor_Call) Run(run func(ctx context.Context, input []*graphclient.CreateSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkSubprocessor_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateSubprocessorInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateSubprocessorInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkSubprocessor_Call) Return(createBulkSubprocessor *graphclient.CreateBulkSubprocessor, err error) *MockGraphClient_CreateBulkSubprocessor_Call {
+	_c.Call.Return(createBulkSubprocessor, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkSubprocessor_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSubprocessor, error)) *MockGraphClient_CreateBulkSubprocessor_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -13837,12 +14003,12 @@ func (_c *MockGraphClient_CreateScheduledJobRun_Call) RunAndReturn(run func(ctx 
 }
 
 // CreateStandard provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) CreateStandard(ctx context.Context, input graphclient.CreateStandardInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateStandard, error) {
+func (_mock *MockGraphClient) CreateStandard(ctx context.Context, input graphclient.CreateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateStandard, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, input, interceptors)
+		tmpRet = _mock.Called(ctx, input, logoFile, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, input)
+		tmpRet = _mock.Called(ctx, input, logoFile)
 	}
 	ret := tmpRet
 
@@ -13852,18 +14018,18 @@ func (_mock *MockGraphClient) CreateStandard(ctx context.Context, input graphcli
 
 	var r0 *graphclient.CreateStandard
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateStandardInput, ...clientv2.RequestInterceptor) (*graphclient.CreateStandard, error)); ok {
-		return returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateStandardInput, *graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateStandard, error)); ok {
+		return returnFunc(ctx, input, logoFile, interceptors...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateStandardInput, ...clientv2.RequestInterceptor) *graphclient.CreateStandard); ok {
-		r0 = returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateStandardInput, *graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateStandard); ok {
+		r0 = returnFunc(ctx, input, logoFile, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.CreateStandard)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateStandardInput, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateStandardInput, *graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, logoFile, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -13878,13 +14044,14 @@ type MockGraphClient_CreateStandard_Call struct {
 // CreateStandard is a helper method to define mock.On call
 //   - ctx context.Context
 //   - input graphclient.CreateStandardInput
+//   - logoFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateStandard(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateStandard_Call {
+func (_e *MockGraphClient_Expecter) CreateStandard(ctx interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateStandard_Call {
 	return &MockGraphClient_CreateStandard_Call{Call: _e.mock.On("CreateStandard",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]interface{}{ctx, input, logoFile}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_CreateStandard_Call) Run(run func(ctx context.Context, input graphclient.CreateStandardInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateStandard_Call {
+func (_c *MockGraphClient_CreateStandard_Call) Run(run func(ctx context.Context, input graphclient.CreateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateStandard_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -13894,16 +14061,21 @@ func (_c *MockGraphClient_CreateStandard_Call) Run(run func(ctx context.Context,
 		if args[1] != nil {
 			arg1 = args[1].(graphclient.CreateStandardInput)
 		}
-		var arg2 []clientv2.RequestInterceptor
-		var variadicArgs []clientv2.RequestInterceptor
-		if len(args) > 2 {
-			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		var arg2 *graphql.Upload
+		if args[2] != nil {
+			arg2 = args[2].(*graphql.Upload)
 		}
-		arg2 = variadicArgs
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
 		run(
 			arg0,
 			arg1,
-			arg2...,
+			arg2,
+			arg3...,
 		)
 	})
 	return _c
@@ -13914,7 +14086,7 @@ func (_c *MockGraphClient_CreateStandard_Call) Return(createStandard *graphclien
 	return _c
 }
 
-func (_c *MockGraphClient_CreateStandard_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateStandardInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateStandard, error)) *MockGraphClient_CreateStandard_Call {
+func (_c *MockGraphClient_CreateStandard_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateStandard, error)) *MockGraphClient_CreateStandard_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -15189,12 +15361,12 @@ func (_c *MockGraphClient_CreateTrustCenterSubprocessor_Call) RunAndReturn(run f
 }
 
 // CreateTrustCenterWatermarkConfig provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) CreateTrustCenterWatermarkConfig(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterWatermarkConfig, error) {
+func (_mock *MockGraphClient) CreateTrustCenterWatermarkConfig(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterWatermarkConfig, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, input, logoFile, interceptors)
+		tmpRet = _mock.Called(ctx, input, watermarkFile, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, input, logoFile)
+		tmpRet = _mock.Called(ctx, input, watermarkFile)
 	}
 	ret := tmpRet
 
@@ -15205,17 +15377,17 @@ func (_mock *MockGraphClient) CreateTrustCenterWatermarkConfig(ctx context.Conte
 	var r0 *graphclient.CreateTrustCenterWatermarkConfig
 	var r1 error
 	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateTrustCenterWatermarkConfigInput, *graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterWatermarkConfig, error)); ok {
-		return returnFunc(ctx, input, logoFile, interceptors...)
+		return returnFunc(ctx, input, watermarkFile, interceptors...)
 	}
 	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateTrustCenterWatermarkConfigInput, *graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateTrustCenterWatermarkConfig); ok {
-		r0 = returnFunc(ctx, input, logoFile, interceptors...)
+		r0 = returnFunc(ctx, input, watermarkFile, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.CreateTrustCenterWatermarkConfig)
 		}
 	}
 	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateTrustCenterWatermarkConfigInput, *graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, input, logoFile, interceptors...)
+		r1 = returnFunc(ctx, input, watermarkFile, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -15230,14 +15402,14 @@ type MockGraphClient_CreateTrustCenterWatermarkConfig_Call struct {
 // CreateTrustCenterWatermarkConfig is a helper method to define mock.On call
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterWatermarkConfigInput
-//   - logoFile *graphql.Upload
+//   - watermarkFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterWatermarkConfig(ctx interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterWatermarkConfig(ctx interface{}, input interface{}, watermarkFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
 	return &MockGraphClient_CreateTrustCenterWatermarkConfig_Call{Call: _e.mock.On("CreateTrustCenterWatermarkConfig",
-		append([]interface{}{ctx, input, logoFile}, interceptors...)...)}
+		append([]interface{}{ctx, input, watermarkFile}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_CreateTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
+func (_c *MockGraphClient_CreateTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -15272,7 +15444,7 @@ func (_c *MockGraphClient_CreateTrustCenterWatermarkConfig_Call) Return(createTr
 	return _c
 }
 
-func (_c *MockGraphClient_CreateTrustCenterWatermarkConfig_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterWatermarkConfig, error)) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
+func (_c *MockGraphClient_CreateTrustCenterWatermarkConfig_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterWatermarkConfig, error)) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -16779,6 +16951,172 @@ func (_c *MockGraphClient_DeleteBulkExport_Call) Return(deleteBulkExport *graphc
 }
 
 func (_c *MockGraphClient_DeleteBulkExport_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkExport, error)) *MockGraphClient_DeleteBulkExport_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteBulkSubprocessor provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkSubprocessor(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSubprocessor, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkSubprocessor")
+	}
+
+	var r0 *graphclient.DeleteBulkSubprocessor
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSubprocessor, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkSubprocessor); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkSubprocessor)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkSubprocessor_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkSubprocessor'
+type MockGraphClient_DeleteBulkSubprocessor_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkSubprocessor is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkSubprocessor(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkSubprocessor_Call {
+	return &MockGraphClient_DeleteBulkSubprocessor_Call{Call: _e.mock.On("DeleteBulkSubprocessor",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkSubprocessor_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkSubprocessor_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkSubprocessor_Call) Return(deleteBulkSubprocessor *graphclient.DeleteBulkSubprocessor, err error) *MockGraphClient_DeleteBulkSubprocessor_Call {
+	_c.Call.Return(deleteBulkSubprocessor, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkSubprocessor_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSubprocessor, error)) *MockGraphClient_DeleteBulkSubprocessor_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteBulkTrustCenterSubprocessor provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkTrustCenterSubprocessor(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkTrustCenterSubprocessor, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkTrustCenterSubprocessor")
+	}
+
+	var r0 *graphclient.DeleteBulkTrustCenterSubprocessor
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkTrustCenterSubprocessor, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkTrustCenterSubprocessor); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkTrustCenterSubprocessor)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkTrustCenterSubprocessor'
+type MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkTrustCenterSubprocessor is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkTrustCenterSubprocessor(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
+	return &MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call{Call: _e.mock.On("DeleteBulkTrustCenterSubprocessor",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call) Return(deleteBulkTrustCenterSubprocessor *graphclient.DeleteBulkTrustCenterSubprocessor, err error) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
+	_c.Call.Return(deleteBulkTrustCenterSubprocessor, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkTrustCenterSubprocessor, error)) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -47353,6 +47691,184 @@ func (_c *MockGraphClient_UpdateAsset_Call) RunAndReturn(run func(ctx context.Co
 	return _c
 }
 
+// UpdateBulkSubprocessor provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkSubprocessor(ctx context.Context, ids []string, input graphclient.UpdateSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSubprocessor, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkSubprocessor")
+	}
+
+	var r0 *graphclient.UpdateBulkSubprocessor
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateSubprocessorInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSubprocessor, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateSubprocessorInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkSubprocessor); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkSubprocessor)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateSubprocessorInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkSubprocessor_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkSubprocessor'
+type MockGraphClient_UpdateBulkSubprocessor_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkSubprocessor is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateSubprocessorInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkSubprocessor(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkSubprocessor_Call {
+	return &MockGraphClient_UpdateBulkSubprocessor_Call{Call: _e.mock.On("UpdateBulkSubprocessor",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkSubprocessor_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkSubprocessor_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateSubprocessorInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateSubprocessorInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkSubprocessor_Call) Return(updateBulkSubprocessor *graphclient.UpdateBulkSubprocessor, err error) *MockGraphClient_UpdateBulkSubprocessor_Call {
+	_c.Call.Return(updateBulkSubprocessor, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkSubprocessor_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSubprocessor, error)) *MockGraphClient_UpdateBulkSubprocessor_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkTrustCenterSubprocessor provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkTrustCenterSubprocessor(ctx context.Context, ids []string, input graphclient.UpdateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkTrustCenterSubprocessor, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkTrustCenterSubprocessor")
+	}
+
+	var r0 *graphclient.UpdateBulkTrustCenterSubprocessor
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateTrustCenterSubprocessorInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkTrustCenterSubprocessor, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateTrustCenterSubprocessorInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkTrustCenterSubprocessor); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkTrustCenterSubprocessor)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateTrustCenterSubprocessorInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkTrustCenterSubprocessor'
+type MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkTrustCenterSubprocessor is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateTrustCenterSubprocessorInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkTrustCenterSubprocessor(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
+	return &MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call{Call: _e.mock.On("UpdateBulkTrustCenterSubprocessor",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateTrustCenterSubprocessorInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateTrustCenterSubprocessorInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call) Return(updateBulkTrustCenterSubprocessor *graphclient.UpdateBulkTrustCenterSubprocessor, err error) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
+	_c.Call.Return(updateBulkTrustCenterSubprocessor, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkTrustCenterSubprocessor, error)) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // UpdateContact provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) UpdateContact(ctx context.Context, updateContactID string, input graphclient.UpdateContactInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateContact, error) {
 	var tmpRet mock.Arguments
@@ -51573,12 +52089,12 @@ func (_c *MockGraphClient_UpdateScheduledJobRun_Call) RunAndReturn(run func(ctx 
 }
 
 // UpdateStandard provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) UpdateStandard(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateStandard, error) {
+func (_mock *MockGraphClient) UpdateStandard(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateStandard, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, updateStandardID, input, interceptors)
+		tmpRet = _mock.Called(ctx, updateStandardID, input, logoFile, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, updateStandardID, input)
+		tmpRet = _mock.Called(ctx, updateStandardID, input, logoFile)
 	}
 	ret := tmpRet
 
@@ -51588,18 +52104,18 @@ func (_mock *MockGraphClient) UpdateStandard(ctx context.Context, updateStandard
 
 	var r0 *graphclient.UpdateStandard
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateStandardInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateStandard, error)); ok {
-		return returnFunc(ctx, updateStandardID, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateStandardInput, *graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateStandard, error)); ok {
+		return returnFunc(ctx, updateStandardID, input, logoFile, interceptors...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateStandardInput, ...clientv2.RequestInterceptor) *graphclient.UpdateStandard); ok {
-		r0 = returnFunc(ctx, updateStandardID, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateStandardInput, *graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateStandard); ok {
+		r0 = returnFunc(ctx, updateStandardID, input, logoFile, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.UpdateStandard)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateStandardInput, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, updateStandardID, input, interceptors...)
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateStandardInput, *graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateStandardID, input, logoFile, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -51615,13 +52131,14 @@ type MockGraphClient_UpdateStandard_Call struct {
 //   - ctx context.Context
 //   - updateStandardID string
 //   - input graphclient.UpdateStandardInput
+//   - logoFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateStandard(ctx interface{}, updateStandardID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateStandard_Call {
+func (_e *MockGraphClient_Expecter) UpdateStandard(ctx interface{}, updateStandardID interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateStandard_Call {
 	return &MockGraphClient_UpdateStandard_Call{Call: _e.mock.On("UpdateStandard",
-		append([]interface{}{ctx, updateStandardID, input}, interceptors...)...)}
+		append([]interface{}{ctx, updateStandardID, input, logoFile}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_UpdateStandard_Call) Run(run func(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateStandard_Call {
+func (_c *MockGraphClient_UpdateStandard_Call) Run(run func(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateStandard_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -51635,17 +52152,22 @@ func (_c *MockGraphClient_UpdateStandard_Call) Run(run func(ctx context.Context,
 		if args[2] != nil {
 			arg2 = args[2].(graphclient.UpdateStandardInput)
 		}
-		var arg3 []clientv2.RequestInterceptor
-		var variadicArgs []clientv2.RequestInterceptor
-		if len(args) > 3 {
-			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		var arg3 *graphql.Upload
+		if args[3] != nil {
+			arg3 = args[3].(*graphql.Upload)
 		}
-		arg3 = variadicArgs
+		var arg4 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 4 {
+			variadicArgs = args[4].([]clientv2.RequestInterceptor)
+		}
+		arg4 = variadicArgs
 		run(
 			arg0,
 			arg1,
 			arg2,
-			arg3...,
+			arg3,
+			arg4...,
 		)
 	})
 	return _c
@@ -51656,7 +52178,7 @@ func (_c *MockGraphClient_UpdateStandard_Call) Return(updateStandard *graphclien
 	return _c
 }
 
-func (_c *MockGraphClient_UpdateStandard_Call) RunAndReturn(run func(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateStandard, error)) *MockGraphClient_UpdateStandard_Call {
+func (_c *MockGraphClient_UpdateStandard_Call) RunAndReturn(run func(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateStandard, error)) *MockGraphClient_UpdateStandard_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -52849,12 +53371,12 @@ func (_c *MockGraphClient_UpdateTrustCenterSubprocessor_Call) RunAndReturn(run f
 }
 
 // UpdateTrustCenterWatermarkConfig provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) UpdateTrustCenterWatermarkConfig(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterWatermarkConfig, error) {
+func (_mock *MockGraphClient) UpdateTrustCenterWatermarkConfig(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterWatermarkConfig, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, updateTrustCenterWatermarkConfigID, input, logoFile, interceptors)
+		tmpRet = _mock.Called(ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, updateTrustCenterWatermarkConfigID, input, logoFile)
+		tmpRet = _mock.Called(ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile)
 	}
 	ret := tmpRet
 
@@ -52865,17 +53387,17 @@ func (_mock *MockGraphClient) UpdateTrustCenterWatermarkConfig(ctx context.Conte
 	var r0 *graphclient.UpdateTrustCenterWatermarkConfig
 	var r1 error
 	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateTrustCenterWatermarkConfigInput, *graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterWatermarkConfig, error)); ok {
-		return returnFunc(ctx, updateTrustCenterWatermarkConfigID, input, logoFile, interceptors...)
+		return returnFunc(ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile, interceptors...)
 	}
 	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateTrustCenterWatermarkConfigInput, *graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateTrustCenterWatermarkConfig); ok {
-		r0 = returnFunc(ctx, updateTrustCenterWatermarkConfigID, input, logoFile, interceptors...)
+		r0 = returnFunc(ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.UpdateTrustCenterWatermarkConfig)
 		}
 	}
 	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateTrustCenterWatermarkConfigInput, *graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, updateTrustCenterWatermarkConfigID, input, logoFile, interceptors...)
+		r1 = returnFunc(ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -52891,14 +53413,14 @@ type MockGraphClient_UpdateTrustCenterWatermarkConfig_Call struct {
 //   - ctx context.Context
 //   - updateTrustCenterWatermarkConfigID string
 //   - input graphclient.UpdateTrustCenterWatermarkConfigInput
-//   - logoFile *graphql.Upload
+//   - watermarkFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterWatermarkConfig(ctx interface{}, updateTrustCenterWatermarkConfigID interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterWatermarkConfig(ctx interface{}, updateTrustCenterWatermarkConfigID interface{}, input interface{}, watermarkFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
 	return &MockGraphClient_UpdateTrustCenterWatermarkConfig_Call{Call: _e.mock.On("UpdateTrustCenterWatermarkConfig",
-		append([]interface{}{ctx, updateTrustCenterWatermarkConfigID, input, logoFile}, interceptors...)...)}
+		append([]interface{}{ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
+func (_c *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -52938,7 +53460,7 @@ func (_c *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call) Return(updateTr
 	return _c
 }
 
-func (_c *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call) RunAndReturn(run func(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterWatermarkConfig, error)) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
+func (_c *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call) RunAndReturn(run func(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterWatermarkConfig, error)) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
 	_c.Call.Return(run)
 	return _c
 }
