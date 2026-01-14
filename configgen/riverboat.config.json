@@ -600,7 +600,7 @@
         "validatepreviewdomainworker": {
           "$ref": "#/$defs/corejobs.ValidatePreviewDomainWorker"
         },
-        "clearTrustCenterCacheWorker": {
+        "cleartrustcentercacheworker": {
           "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker"
         }
       },
@@ -609,7 +609,7 @@
     }
   },
   "properties": {
-    "refreshInterval": {
+    "refreshinterval": {
       "type": "integer"
     },
     "river": {

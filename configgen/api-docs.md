@@ -4,7 +4,7 @@
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**refreshInterval**|`integer`|||
+|**refreshinterval**|`integer`|||
 |[**river**](#river)|`object`|Config is the configuration for the river server<br/>||
 
 **Additional Properties:** not allowed  
@@ -66,7 +66,7 @@
             "validatepreviewdomainworker": {
                 "config": {}
             },
-            "clearTrustCenterCacheWorker": {
+            "cleartrustcentercacheworker": {
                 "config": {
                     "objectstorage": {
                         "credentials": {}
@@ -154,7 +154,7 @@ Config is the configuration for the river server
         "validatepreviewdomainworker": {
             "config": {}
         },
-        "clearTrustCenterCacheWorker": {
+        "cleartrustcentercacheworker": {
             "config": {
                 "objectstorage": {
                     "credentials": {}
@@ -434,7 +434,7 @@ SlackConfig configures the Slack worker.
 |[**createpreviewdomainworker**](#rivertrustcenterworkerscreatepreviewdomainworker)|`object`|||
 |[**deletepreviewdomainworker**](#rivertrustcenterworkersdeletepreviewdomainworker)|`object`|||
 |[**validatepreviewdomainworker**](#rivertrustcenterworkersvalidatepreviewdomainworker)|`object`|||
-|[**clearTrustCenterCacheWorker**](#rivertrustcenterworkerscleartrustcentercacheworker)|`object`|||
+|[**cleartrustcentercacheworker**](#rivertrustcenterworkerscleartrustcentercacheworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -472,7 +472,7 @@ SlackConfig configures the Slack worker.
     "validatepreviewdomainworker": {
         "config": {}
     },
-    "clearTrustCenterCacheWorker": {
+    "cleartrustcentercacheworker": {
         "config": {
             "objectstorage": {
                 "credentials": {}
@@ -814,7 +814,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkerscleartrustcentercacheworker"></a>
-#### river\.trustcenterworkers\.clearTrustCenterCacheWorker: object
+#### river\.trustcenterworkers\.cleartrustcentercacheworker: object
 
 **Properties**
 
@@ -836,7 +836,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 ```
 
 <a name="rivertrustcenterworkerscleartrustcentercacheworkerconfig"></a>
-##### river\.trustcenterworkers\.clearTrustCenterCacheWorker\.config: object
+##### river\.trustcenterworkers\.cleartrustcentercacheworker\.config: object
 
 **Properties**
 
@@ -857,7 +857,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 ```
 
 <a name="rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstorage"></a>
-###### river\.trustcenterworkers\.clearTrustCenterCacheWorker\.config\.objectstorage: object
+###### river\.trustcenterworkers\.cleartrustcentercacheworker\.config\.objectstorage: object
 
 **Properties**
 
@@ -877,7 +877,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 ```
 
 <a name="rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstoragecredentials"></a>
-####### river\.trustcenterworkers\.clearTrustCenterCacheWorker\.config\.objectstorage\.credentials: object
+####### river\.trustcenterworkers\.cleartrustcentercacheworker\.config\.objectstorage\.credentials: object
 
 **Properties**
 
