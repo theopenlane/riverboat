@@ -10,7 +10,7 @@ metadata:
   annotations: {{- include "common.tplvalues.render" ( dict "value" $annotations "context" $) | nindent 4 }}
   {{- end }}
 data:
-  RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshInterval | default "10m" }}
+  RIVERBOAT_REFRESHINTERVAL: {{ .Values.riverboat.refreshinterval | default "10m" }}
   RIVERBOAT_RIVER_DATABASEHOST: {{ .Values.riverboat.river.databasehost | default "postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable" }}
   RIVERBOAT_RIVER_QUEUES: {{ .Values.riverboat.river.queues }}
   RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.openlaneconfig.openlaneapihost }}

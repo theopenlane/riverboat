@@ -44,6 +44,6 @@ type Workers struct {
 	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
 
 	// Worker configuration for clearing trust center cached items when changes are detected
-	ClearTrustCenterCacheWorker corejobs.ClearTrustCenterCacheWorker `koanf:"clearTrustCenterCacheWorker" json:"clearTrustCenterCacheWorker"`
+	ClearTrustCenterCacheWorker corejobs.ClearTrustCenterCacheWorker `koanf:"cleartrustcentercacheworker" json:"cleartrustcentercacheworker"`
 	// add more trust center specific workers here
 }

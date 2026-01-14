@@ -1,4 +1,4 @@
-refreshInterval: 600000000000
+refreshinterval: 600000000000
 river:
     databasehost: postgres://postgres:password@0.0.0.0:5432/jobs?sslmode=disable
     defaultmaxretries: 10
