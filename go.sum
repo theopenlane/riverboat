@@ -98,6 +98,8 @@ github.com/clipperhouse/uax29/v2 v2.3.0 h1:SNdx9DVUqMoBuBoW3iLOj4FQv3dN5mDtuqwuh
 github.com/clipperhouse/uax29/v2 v2.3.0/go.mod h1:Wn1g7MK6OoeDT0vL+Q0SQLDz/KpfsVRgg6W7ihQeh4g=
 github.com/cloudflare/cloudflare-go/v6 v6.5.0 h1:S6k+wO/QLr10EGnfTzJcf1a2FnMsKf+DhCjnO3RigbY=
 github.com/cloudflare/cloudflare-go/v6 v6.5.0/go.mod h1:Lj3MUqjvKctXRpdRhLQxZYRrNZHuRs0XYuH8JtQGyoI=
+github.com/cloudflare/cloudflare-go/v6 v6.6.0 h1:EboC3hfMoxnDnU9f8Feth3/EYTiIwF5jBkSrMNV2vno=
+github.com/cloudflare/cloudflare-go/v6 v6.6.0/go.mod h1:Lj3MUqjvKctXRpdRhLQxZYRrNZHuRs0XYuH8JtQGyoI=
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
 github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -349,6 +351,8 @@ github.com/theopenlane/core/common v1.0.1 h1:jcuau4CEPx6oSB4ZKr3rpYW75c2PLGTbmQn
 github.com/theopenlane/core/common v1.0.1/go.mod h1:YtuzGWC2beESJViCwrl8PV9fg4U/l1UHSh2TZiuhaxg=
 github.com/theopenlane/corejobs v0.1.4 h1:1uXj4RdFJecuEMicNLFZ54sbE94r9P0YskH4dd3hYi0=
 github.com/theopenlane/corejobs v0.1.4/go.mod h1:sCCHCvw3O3CC18UkPiLwUdlTVAuymfjSC6IX3+WwzQ8=
+github.com/theopenlane/corejobs v0.1.5 h1:kJrTpP6NDa/E7ayn+/wrDdV75G/8UGzU2FiWwV09+/o=
+github.com/theopenlane/corejobs v0.1.5/go.mod h1:sKb6qGIo8hXUmmjnccWE3mYpf8OeJbX0JNKONIgNWiQ=
 github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
 github.com/theopenlane/dbx v0.1.3/go.mod h1:/bcz8oKFK3qrakLw0yHCAFY6fGnTOC3CntM0jMj3GDk=
 github.com/theopenlane/echox v0.2.4 h1:bocz1Dfs7d2fkNa8foQqdmeTtkMTQNwe1v20bIGIDps=

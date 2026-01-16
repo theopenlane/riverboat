@@ -3,10 +3,10 @@ module github.com/theopenlane/riverboat/trustcenter
 go 1.25.5
 
 require (
-	github.com/riverqueue/river v0.29.0
+	github.com/riverqueue/river v0.30.0
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v0.1.0
-	github.com/theopenlane/corejobs v0.1.4
+	github.com/theopenlane/corejobs v0.1.5
 	github.com/theopenlane/riverboat v0.6.3
 )
 
@@ -87,10 +87,10 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/redis/go-redis/v9 v9.17.2 // indirect
 	github.com/resend/resend-go/v2 v2.28.0 // indirect
-	github.com/riverqueue/river/riverdriver v0.29.0 // indirect
-	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.29.0 // indirect
-	github.com/riverqueue/river/rivershared v0.29.0 // indirect
-	github.com/riverqueue/river/rivertype v0.29.0 // indirect
+	github.com/riverqueue/river/riverdriver v0.30.0 // indirect
+	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.30.0 // indirect
+	github.com/riverqueue/river/rivershared v0.30.0 // indirect
+	github.com/riverqueue/river/rivertype v0.30.0 // indirect
 	github.com/riverqueue/rivercontrib/otelriver v0.6.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/samber/lo v1.52.0 // indirect
@@ -131,7 +131,7 @@ require (
 	golang.org/x/oauth2 v0.34.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.39.0 // indirect
-	golang.org/x/text v0.32.0 // indirect
+	golang.org/x/text v0.33.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
