@@ -7,7 +7,7 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v1.0.1
 	github.com/theopenlane/corejobs v0.1.5
-	github.com/theopenlane/riverboat v0.6.3
+	github.com/theopenlane/riverboat v0.8.1
 )
 
 require (
