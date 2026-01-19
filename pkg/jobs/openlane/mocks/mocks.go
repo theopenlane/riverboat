@@ -39383,6 +39383,458 @@ func (_c *MockGraphClient_GetMappableDomains_Call) RunAndReturn(run func(ctx con
 	return _c
 }
 
+// GetMappedAllFromControlsForID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetMappedAllFromControlsForID(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllFromControlsForID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetMappedAllFromControlsForID")
+	}
+
+	var r0 *graphclient.GetMappedAllFromControlsForID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.ControlOrder, ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllFromControlsForID, error)); ok {
+		return returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.ControlOrder, ...clientv2.RequestInterceptor) *graphclient.GetMappedAllFromControlsForID); ok {
+		r0 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetMappedAllFromControlsForID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.ControlOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetMappedAllFromControlsForID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetMappedAllFromControlsForID'
+type MockGraphClient_GetMappedAllFromControlsForID_Call struct {
+	*mock.Call
+}
+
+// GetMappedAllFromControlsForID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - mappedControlID string
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.ControlOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetMappedAllFromControlsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllFromControlsForID_Call {
+	return &MockGraphClient_GetMappedAllFromControlsForID_Call{Call: _e.mock.On("GetMappedAllFromControlsForID",
+		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetMappedAllFromControlsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllFromControlsForID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *int64
+		if args[3] != nil {
+			arg3 = args[3].(*int64)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 *string
+		if args[5] != nil {
+			arg5 = args[5].(*string)
+		}
+		var arg6 []*graphclient.ControlOrder
+		if args[6] != nil {
+			arg6 = args[6].([]*graphclient.ControlOrder)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllFromControlsForID_Call) Return(getMappedAllFromControlsForID *graphclient.GetMappedAllFromControlsForID, err error) *MockGraphClient_GetMappedAllFromControlsForID_Call {
+	_c.Call.Return(getMappedAllFromControlsForID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllFromControlsForID_Call) RunAndReturn(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllFromControlsForID, error)) *MockGraphClient_GetMappedAllFromControlsForID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetMappedAllFromSubcontrolsForID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetMappedAllFromSubcontrolsForID(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllFromSubcontrolsForID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetMappedAllFromSubcontrolsForID")
+	}
+
+	var r0 *graphclient.GetMappedAllFromSubcontrolsForID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.SubcontrolOrder, ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllFromSubcontrolsForID, error)); ok {
+		return returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.SubcontrolOrder, ...clientv2.RequestInterceptor) *graphclient.GetMappedAllFromSubcontrolsForID); ok {
+		r0 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetMappedAllFromSubcontrolsForID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.SubcontrolOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetMappedAllFromSubcontrolsForID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetMappedAllFromSubcontrolsForID'
+type MockGraphClient_GetMappedAllFromSubcontrolsForID_Call struct {
+	*mock.Call
+}
+
+// GetMappedAllFromSubcontrolsForID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - mappedControlID string
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.SubcontrolOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetMappedAllFromSubcontrolsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
+	return &MockGraphClient_GetMappedAllFromSubcontrolsForID_Call{Call: _e.mock.On("GetMappedAllFromSubcontrolsForID",
+		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *int64
+		if args[3] != nil {
+			arg3 = args[3].(*int64)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 *string
+		if args[5] != nil {
+			arg5 = args[5].(*string)
+		}
+		var arg6 []*graphclient.SubcontrolOrder
+		if args[6] != nil {
+			arg6 = args[6].([]*graphclient.SubcontrolOrder)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call) Return(getMappedAllFromSubcontrolsForID *graphclient.GetMappedAllFromSubcontrolsForID, err error) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
+	_c.Call.Return(getMappedAllFromSubcontrolsForID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call) RunAndReturn(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllFromSubcontrolsForID, error)) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetMappedAllToControlsForID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetMappedAllToControlsForID(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllToControlsForID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetMappedAllToControlsForID")
+	}
+
+	var r0 *graphclient.GetMappedAllToControlsForID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.ControlOrder, ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllToControlsForID, error)); ok {
+		return returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.ControlOrder, ...clientv2.RequestInterceptor) *graphclient.GetMappedAllToControlsForID); ok {
+		r0 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetMappedAllToControlsForID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.ControlOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetMappedAllToControlsForID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetMappedAllToControlsForID'
+type MockGraphClient_GetMappedAllToControlsForID_Call struct {
+	*mock.Call
+}
+
+// GetMappedAllToControlsForID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - mappedControlID string
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.ControlOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetMappedAllToControlsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllToControlsForID_Call {
+	return &MockGraphClient_GetMappedAllToControlsForID_Call{Call: _e.mock.On("GetMappedAllToControlsForID",
+		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetMappedAllToControlsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllToControlsForID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *int64
+		if args[3] != nil {
+			arg3 = args[3].(*int64)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 *string
+		if args[5] != nil {
+			arg5 = args[5].(*string)
+		}
+		var arg6 []*graphclient.ControlOrder
+		if args[6] != nil {
+			arg6 = args[6].([]*graphclient.ControlOrder)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllToControlsForID_Call) Return(getMappedAllToControlsForID *graphclient.GetMappedAllToControlsForID, err error) *MockGraphClient_GetMappedAllToControlsForID_Call {
+	_c.Call.Return(getMappedAllToControlsForID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllToControlsForID_Call) RunAndReturn(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllToControlsForID, error)) *MockGraphClient_GetMappedAllToControlsForID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetMappedAllToSubcontrolsForID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetMappedAllToSubcontrolsForID(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllToSubcontrolsForID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, mappedControlID, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetMappedAllToSubcontrolsForID")
+	}
+
+	var r0 *graphclient.GetMappedAllToSubcontrolsForID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.SubcontrolOrder, ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllToSubcontrolsForID, error)); ok {
+		return returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.SubcontrolOrder, ...clientv2.RequestInterceptor) *graphclient.GetMappedAllToSubcontrolsForID); ok {
+		r0 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetMappedAllToSubcontrolsForID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.SubcontrolOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, mappedControlID, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetMappedAllToSubcontrolsForID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetMappedAllToSubcontrolsForID'
+type MockGraphClient_GetMappedAllToSubcontrolsForID_Call struct {
+	*mock.Call
+}
+
+// GetMappedAllToSubcontrolsForID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - mappedControlID string
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.SubcontrolOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetMappedAllToSubcontrolsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
+	return &MockGraphClient_GetMappedAllToSubcontrolsForID_Call{Call: _e.mock.On("GetMappedAllToSubcontrolsForID",
+		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetMappedAllToSubcontrolsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *int64
+		if args[3] != nil {
+			arg3 = args[3].(*int64)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 *string
+		if args[5] != nil {
+			arg5 = args[5].(*string)
+		}
+		var arg6 []*graphclient.SubcontrolOrder
+		if args[6] != nil {
+			arg6 = args[6].([]*graphclient.SubcontrolOrder)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllToSubcontrolsForID_Call) Return(getMappedAllToSubcontrolsForID *graphclient.GetMappedAllToSubcontrolsForID, err error) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
+	_c.Call.Return(getMappedAllToSubcontrolsForID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetMappedAllToSubcontrolsForID_Call) RunAndReturn(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedAllToSubcontrolsForID, error)) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetMappedControlByID provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) GetMappedControlByID(ctx context.Context, mappedControlID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetMappedControlByID, error) {
 	var tmpRet mock.Arguments
