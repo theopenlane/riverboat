@@ -16,6 +16,7 @@ import (
 func InsertOpts(a jobspec.CreateTaskArgs) river.InsertOpts {
 	opts := river.InsertOpts{
 		MaxAttempts: 3, // nolint:mnd
+		Queue:       jobspec.QueueDefault,
 	}
 
 	// If scheduled time is specified, set it in the options

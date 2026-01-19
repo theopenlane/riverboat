@@ -3,10 +3,10 @@ package jobs
 import (
 	"context"
 
-	dbx "github.com/theopenlane/dbx/pkg/dbxclient"
-
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/core/common/jobspec"
+	dbx "github.com/theopenlane/dbx/pkg/dbxclient"
 )
 
 // DatabaseArgs are the arguments for the database worker
@@ -19,6 +19,11 @@ type DatabaseArgs struct {
 
 // Kind satisfies the river.Args interface for the database worker
 func (DatabaseArgs) Kind() string { return "dedicated_database" }
+
+// InsertOpts provides the default configuration when processing this job.
+func (DatabaseArgs) InsertOpts() river.InsertOpts {
+	return river.InsertOpts{MaxAttempts: 3, Queue: jobspec.QueueDefault} //nolint:mnd
+}
 
 // DatabaseWorker is a worker to create a dedicated database for an organization
 type DatabaseWorker struct {

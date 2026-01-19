@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/riverqueue/river"
-
 	"github.com/theopenlane/core/common/enums"
+	"github.com/theopenlane/core/common/jobspec"
 	"github.com/theopenlane/go-client/graphclient"
 
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
@@ -34,7 +34,7 @@ func (DeleteExportContentArgs) Kind() string { return "delete_export_content" }
 
 // InsertOpts provides the insertion options for the delete export content job
 func (DeleteExportContentArgs) InsertOpts() river.InsertOpts {
-	return river.InsertOpts{MaxAttempts: 3} //nolint:mnd
+	return river.InsertOpts{MaxAttempts: 3, Queue: jobspec.QueueDefault} //nolint:mnd
 }
 
 // DeleteExportContentWorker deletes exports that are older than the configured cutoff duration

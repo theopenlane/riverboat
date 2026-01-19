@@ -18,11 +18,11 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 	"github.com/stoewer/go-strcase"
+	"github.com/theopenlane/core/common/enums"
+	"github.com/theopenlane/core/common/jobspec"
 	"github.com/theopenlane/go-client/graphclient"
 	"github.com/theopenlane/httpsling"
 	"github.com/theopenlane/iam/auth"
-
-	"github.com/theopenlane/core/common/enums"
 
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 
@@ -70,6 +70,11 @@ type ExportWorkerConfig struct {
 
 // Kind satisfies the river.Job interface
 func (ExportContentArgs) Kind() string { return "export_content" }
+
+// InsertOpts provides the default configuration when processing this job.
+func (ExportContentArgs) InsertOpts() river.InsertOpts {
+	return river.InsertOpts{MaxAttempts: 3, Queue: jobspec.QueueDefault} //nolint:mnd
+}
 
 // ExportContentWorker exports the content into csv and makes it downloadable
 type ExportContentWorker struct {
