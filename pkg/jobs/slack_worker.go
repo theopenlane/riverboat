@@ -5,6 +5,7 @@ import (
 
 	"github.com/riverqueue/river"
 	slack "github.com/slack-go/slack"
+	"github.com/theopenlane/core/common/jobspec"
 )
 
 // SlackArgs holds the arguments for a Slack message job.
@@ -19,6 +20,11 @@ type SlackArgs struct {
 
 // Kind returns the job kind for SlackArgs.
 func (SlackArgs) Kind() string { return "slack" }
+
+// InsertOpts provides the default configuration when processing this job.
+func (SlackArgs) InsertOpts() river.InsertOpts {
+	return river.InsertOpts{MaxAttempts: 3, Queue: jobspec.QueueNotification} //nolint:mnd
+}
 
 // SlackWorker sends messages to Slack.
 type SlackWorker struct {

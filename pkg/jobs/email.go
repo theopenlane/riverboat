@@ -6,6 +6,7 @@ import (
 
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/core/common/jobspec"
 	"github.com/theopenlane/newman"
 	"github.com/theopenlane/newman/providers/resend"
 )
@@ -14,7 +15,6 @@ const (
 	maxEmailAttempts         = 5
 	emailJobSnoozeDuration   = time.Second * 30
 	emailRetryPolicyDuration = time.Minute
-	queue                    = "notifications"
 )
 
 // EmailArgs for the email worker to process the job
@@ -30,7 +30,7 @@ func (EmailArgs) Kind() string { return "email" }
 // Here we want to retry sending an email a maximum of 3 times
 // This can be overridden on inserting the job
 func (EmailArgs) InsertOpts() river.InsertOpts {
-	return river.InsertOpts{MaxAttempts: maxEmailAttempts, Queue: queue}
+	return river.InsertOpts{MaxAttempts: maxEmailAttempts, Queue: jobspec.QueueNotification}
 }
 
 // EmailWorker is a worker to send emails using the resend email provider
