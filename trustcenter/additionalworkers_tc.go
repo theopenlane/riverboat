@@ -48,7 +48,7 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 			return nil, err
 		}
 
-		log.Info().Msg("ClearTrustCenterCacheWorker worker enabled")
+		log.Info().Msg("worker enabled: clear trust center cache")
 	}
 
 	if err := createPirschDomainWorkers(w, insertOnlyClient, workers); err != nil {

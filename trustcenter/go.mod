@@ -6,7 +6,7 @@ require (
 	github.com/riverqueue/river v0.30.1
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v1.0.3
-	github.com/theopenlane/corejobs v0.1.6
+	github.com/theopenlane/corejobs v0.1.7
 	github.com/theopenlane/riverboat v0.8.1
 )
 
@@ -104,7 +104,7 @@ require (
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/go-client v0.5.0 // indirect
+	github.com/theopenlane/go-client v0.6.0 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.23.3 // indirect
 	github.com/theopenlane/newman v0.2.1 // indirect
