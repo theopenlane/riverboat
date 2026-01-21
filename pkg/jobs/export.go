@@ -106,6 +106,15 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[ExportCon
 		return newMissingRequiredArg("export_id", ExportContentArgs{}.Kind())
 	}
 
+	// Exports must be done on behalf of a user in an organization
+	if job.Args.OrganizationID == "" {
+		return newMissingRequiredArg("organization_id", ExportContentArgs{}.Kind())
+	}
+
+	if job.Args.UserID == "" {
+		return newMissingRequiredArg("user_id", ExportContentArgs{}.Kind())
+	}
+
 	if w.olClient == nil {
 		cl, err := w.Config.getOpenlaneClient()
 		if err != nil {
@@ -135,13 +144,6 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[ExportCon
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
 	}
 
-	ownerIDPtr := export.Export.OwnerID
-
-	ownerID := ""
-	if ownerIDPtr != nil {
-		ownerID = *ownerIDPtr
-	}
-
 	var filterMap map[string]any
 
 	filtersPtr := export.Export.Filters
@@ -156,10 +158,6 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[ExportCon
 	}
 
 	where := make(map[string]any)
-
-	if _, exists := filterMap["ownerID"]; !exists && ownerID != "" {
-		where["ownerID"] = ownerID
-	}
 
 	maps.Copy(where, filterMap)
 
