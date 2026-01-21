@@ -76,7 +76,9 @@ func TestExportContentWorker(t *testing.T) {
 		{
 			name: "happy path - export controls",
 			input: jobs.ExportContentArgs{
-				ExportID: exportID,
+				ExportID:       exportID,
+				UserID:         "user123",
+				OrganizationID: ownerID,
 			},
 			getExportByIDResponse: &graphclient.GetExportByID{
 				Export: graphclient.GetExportByID_Export{
@@ -118,15 +120,39 @@ func TestExportContentWorker(t *testing.T) {
 		{
 			name: "missing export ID",
 			input: jobs.ExportContentArgs{
-				ExportID: "",
+				ExportID:       "",
+				UserID:         "user123",
+				OrganizationID: ownerID,
 			},
 			expectedError:       "export_id is required for the export_content job",
 			expectGetExportByID: false,
 		},
 		{
+			name: "missing organization ID",
+			input: jobs.ExportContentArgs{
+				ExportID:       exportID,
+				UserID:         "user123",
+				OrganizationID: "",
+			},
+			expectedError:       "organization_id is required for the export_content job",
+			expectGetExportByID: false,
+		},
+		{
+			name: "missing user ID",
+			input: jobs.ExportContentArgs{
+				ExportID:       exportID,
+				UserID:         "",
+				OrganizationID: ownerID,
+			},
+			expectedError:       "user_id is required for the export_content job",
+			expectGetExportByID: false,
+		},
+		{
 			name: "error getting export",
 			input: jobs.ExportContentArgs{
-				ExportID: exportID,
+				ExportID:       exportID,
+				UserID:         "user123",
+				OrganizationID: ownerID,
 			},
 			getExportByIDError:   assert.AnError,
 			expectGetExportByID:  true,
@@ -136,7 +162,9 @@ func TestExportContentWorker(t *testing.T) {
 		{
 			name: "no data found for export",
 			input: jobs.ExportContentArgs{
-				ExportID: exportID,
+				ExportID:       exportID,
+				UserID:         "user123",
+				OrganizationID: ownerID,
 			},
 			getExportByIDResponse: &graphclient.GetExportByID{
 				Export: graphclient.GetExportByID_Export{
@@ -162,7 +190,9 @@ func TestExportContentWorker(t *testing.T) {
 		{
 			name: "error updating export with file",
 			input: jobs.ExportContentArgs{
-				ExportID: exportID,
+				ExportID:       exportID,
+				UserID:         "user123",
+				OrganizationID: ownerID,
 			},
 			getExportByIDResponse: &graphclient.GetExportByID{
 				Export: graphclient.GetExportByID_Export{
@@ -198,7 +228,9 @@ func TestExportContentWorker(t *testing.T) {
 		{
 			name: "export evidence type",
 			input: jobs.ExportContentArgs{
-				ExportID: exportID,
+				ExportID:       exportID,
+				UserID:         "user123",
+				OrganizationID: ownerID,
 			},
 			getExportByIDResponse: &graphclient.GetExportByID{
 				Export: graphclient.GetExportByID_Export{
@@ -362,7 +394,7 @@ func TestExportContentWorker_GraphQLErrorResponse(t *testing.T) {
 
 	ctx := context.Background()
 	err := worker.Work(ctx, &river.Job[jobs.ExportContentArgs]{
-		Args: jobs.ExportContentArgs{ExportID: exportID},
+		Args: jobs.ExportContentArgs{ExportID: exportID, UserID: "user123", OrganizationID: ownerID},
 	})
 
 	require.NoError(t, err)
