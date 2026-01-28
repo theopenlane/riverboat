@@ -32,6 +32,7 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+                pirschthemeid: ""
         createpreviewdomainworker:
             config:
                 cloudflareapikey: ""
@@ -52,8 +53,9 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+                pirschthemeid: ""
         deletepreviewdomainworker:
-            Config:
+            config:
                 cloudflareapikey: ""
                 enabled: false
                 openlaneapihost: ""
@@ -68,6 +70,7 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+                pirschthemeid: ""
         validatecustomdomainworker:
             config:
                 cloudflareapikey: ""

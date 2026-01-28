@@ -125,8 +125,9 @@
     },
     "corejobs.DeletePreviewDomainWorker": {
       "properties": {
-        "Config": {
-          "$ref": "#/$defs/corejobs.DeletePreviewDomainConfig"
+        "config": {
+          "$ref": "#/$defs/corejobs.DeletePreviewDomainConfig",
+          "description": "the delete preview domain worker configuration"
         }
       },
       "additionalProperties": false,
@@ -148,6 +149,10 @@
         },
         "pirschclientsecret": {
           "type": "string"
+        },
+        "pirschthemeid": {
+          "type": "string",
+          "description": "the pirsch theme id for created domains"
         }
       },
       "additionalProperties": false,

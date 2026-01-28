@@ -61,7 +61,7 @@
                 "config": {}
             },
             "deletepreviewdomainworker": {
-                "Config": {}
+                "config": {}
             },
             "validatepreviewdomainworker": {
                 "config": {}
@@ -149,7 +149,7 @@ Config is the configuration for the river server
             "config": {}
         },
         "deletepreviewdomainworker": {
-            "Config": {}
+            "config": {}
         },
         "validatepreviewdomainworker": {
             "config": {}
@@ -467,7 +467,7 @@ SlackConfig configures the Slack worker.
         "config": {}
     },
     "deletepreviewdomainworker": {
-        "Config": {}
+        "config": {}
     },
     "validatepreviewdomainworker": {
         "config": {}
@@ -652,6 +652,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**enabled**|`boolean`|||
 |**pirschclientid**|`string`|||
 |**pirschclientsecret**|`string`|||
+|**pirschthemeid**|`string`|the pirsch theme id for created domains<br/>||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkersdeletepirschdomainworker"></a>
@@ -684,6 +685,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**enabled**|`boolean`|||
 |**pirschclientid**|`string`|||
 |**pirschclientsecret**|`string`|||
+|**pirschthemeid**|`string`|the pirsch theme id for created domains<br/>||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkersupdatepirschdomainworker"></a>
@@ -716,6 +718,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**enabled**|`boolean`|||
 |**pirschclientid**|`string`|||
 |**pirschclientsecret**|`string`|||
+|**pirschthemeid**|`string`|the pirsch theme id for created domains<br/>||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkerscreatepreviewdomainworker"></a>
@@ -756,19 +759,19 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**Config**](#rivertrustcenterworkersdeletepreviewdomainworkerconfig)|`object`|||
+|[**config**](#rivertrustcenterworkersdeletepreviewdomainworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
 
 ```json
 {
-    "Config": {}
+    "config": {}
 }
 ```
 
 <a name="rivertrustcenterworkersdeletepreviewdomainworkerconfig"></a>
-##### river\.trustcenterworkers\.deletepreviewdomainworker\.Config: object
+##### river\.trustcenterworkers\.deletepreviewdomainworker\.config: object
 
 **Properties**
 
