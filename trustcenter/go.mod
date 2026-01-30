@@ -5,10 +5,12 @@ go 1.25.5
 require (
 	github.com/riverqueue/river v0.30.1
 	github.com/rs/zerolog v1.34.0
-	github.com/theopenlane/core/common v1.0.3
+	github.com/theopenlane/core/common v1.0.5
 	github.com/theopenlane/corejobs v0.1.7
 	github.com/theopenlane/riverboat v0.8.1
 )
+
+replace github.com/theopenlane/corejobs => ../../corejobs/
 
 require (
 	github.com/99designs/gqlgen v0.17.86 // indirect
@@ -52,7 +54,7 @@ require (
 	github.com/go-webauthn/x v0.1.27 // indirect
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
-	github.com/golang-jwt/jwt/v5 v5.3.0 // indirect
+	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
 	github.com/google/go-querystring v1.2.0 // indirect
 	github.com/google/go-tpm v0.9.8 // indirect
 	github.com/google/uuid v1.6.0 // indirect
@@ -69,7 +71,7 @@ require (
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/knadh/koanf/maps v0.1.2 // indirect
 	github.com/knadh/koanf/parsers/yaml v1.1.0 // indirect
-	github.com/knadh/koanf/v2 v2.3.0 // indirect
+	github.com/knadh/koanf/v2 v2.3.2 // indirect
 	github.com/lestrrat-go/blackmagic v1.0.4 // indirect
 	github.com/lestrrat-go/httpcc v1.0.1 // indirect
 	github.com/lestrrat-go/httprc/v3 v3.0.3 // indirect
@@ -87,7 +89,7 @@ require (
 	github.com/pdfcpu/pdfcpu v0.11.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
-	github.com/redis/go-redis/v9 v9.17.2 // indirect
+	github.com/redis/go-redis/v9 v9.17.3 // indirect
 	github.com/resend/resend-go/v2 v2.28.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.30.1 // indirect
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.30.1 // indirect
@@ -104,9 +106,9 @@ require (
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/go-client v0.6.0 // indirect
+	github.com/theopenlane/go-client v0.7.2 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
-	github.com/theopenlane/iam v0.23.3 // indirect
+	github.com/theopenlane/iam v0.23.5 // indirect
 	github.com/theopenlane/newman v0.2.1 // indirect
 	github.com/theopenlane/utils v0.6.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect

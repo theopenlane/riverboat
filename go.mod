@@ -28,9 +28,9 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v1.0.4
+	github.com/theopenlane/core/common v1.0.5
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/go-client v0.7.1
+	github.com/theopenlane/go-client v0.7.2
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.23.5
 	github.com/theopenlane/newman v0.2.1
@@ -162,3 +162,9 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter/
+
+replace github.com/theopenlane/corejobs => ../corejobs/
+
+replace github.com/theopenlane/core/common => ../core/common/

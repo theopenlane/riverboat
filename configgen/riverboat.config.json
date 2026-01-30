@@ -8,6 +8,31 @@
       },
       "type": "array"
     },
+    "corejobs.AttestNDARequestWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.AttestationWorkerConfig",
+          "description": "the configuration for NDA attestation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.AttestationWorkerConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.ClearTrustCenterCacheWorker": {
       "properties": {
         "config": {
@@ -607,6 +632,9 @@
         },
         "cleartrustcentercacheworker": {
           "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker"
+        },
+        "attestndarequestworker": {
+          "$ref": "#/$defs/corejobs.AttestNDARequestWorker"
         }
       },
       "additionalProperties": false,
