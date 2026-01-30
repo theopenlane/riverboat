@@ -8,6 +8,11 @@ river:
         metricsdurationunit: ms
     queues: null
     trustcenterworkers:
+        attestndarequestworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
         cleartrustcentercacheworker:
             config:
                 enabled: false

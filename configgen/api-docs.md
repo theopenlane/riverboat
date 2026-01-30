@@ -72,6 +72,9 @@
                         "credentials": {}
                     }
                 }
+            },
+            "attestndarequestworker": {
+                "config": {}
             }
         },
         "metrics": {}
@@ -160,6 +163,9 @@ Config is the configuration for the river server
                     "credentials": {}
                 }
             }
+        },
+        "attestndarequestworker": {
+            "config": {}
         }
     },
     "metrics": {}
@@ -435,6 +441,7 @@ SlackConfig configures the Slack worker.
 |[**deletepreviewdomainworker**](#rivertrustcenterworkersdeletepreviewdomainworker)|`object`|||
 |[**validatepreviewdomainworker**](#rivertrustcenterworkersvalidatepreviewdomainworker)|`object`|||
 |[**cleartrustcentercacheworker**](#rivertrustcenterworkerscleartrustcentercacheworker)|`object`|||
+|[**attestndarequestworker**](#rivertrustcenterworkersattestndarequestworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -478,6 +485,9 @@ SlackConfig configures the Slack worker.
                 "credentials": {}
             }
         }
+    },
+    "attestndarequestworker": {
+        "config": {}
     }
 }
 ```
@@ -889,6 +899,36 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**accesskeyid**|`string`|||
 |**secretaccesskey**|`string`|||
 |**accountid**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersattestndarequestworker"></a>
+#### river\.trustcenterworkers\.attestndarequestworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersattestndarequestworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersattestndarequestworkerconfig"></a>
+##### river\.trustcenterworkers\.attestndarequestworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>
