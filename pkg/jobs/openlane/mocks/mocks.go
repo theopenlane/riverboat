@@ -4771,6 +4771,89 @@ func (_c *MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call) RunAndReturn(
 	return _c
 }
 
+// CreateBulkCSVTrustCenterNDARequest provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVTrustCenterNDARequest(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVTrustCenterNDARequest, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVTrustCenterNDARequest")
+	}
+
+	var r0 *graphclient.CreateBulkCSVTrustCenterNDARequest
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVTrustCenterNDARequest, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVTrustCenterNDARequest); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVTrustCenterNDARequest)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVTrustCenterNDARequest'
+type MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVTrustCenterNDARequest is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterNDARequest(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
+	return &MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call{Call: _e.mock.On("CreateBulkCSVTrustCenterNDARequest",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call) Return(createBulkCSVTrustCenterNDARequest *graphclient.CreateBulkCSVTrustCenterNDARequest, err error) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
+	_c.Call.Return(createBulkCSVTrustCenterNDARequest, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVTrustCenterNDARequest, error)) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateBulkCSVTrustCenterSubprocessor provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateBulkCSVTrustCenterSubprocessor(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVTrustCenterSubprocessor, error) {
 	var tmpRet mock.Arguments
@@ -8751,6 +8834,89 @@ func (_c *MockGraphClient_CreateBulkTrustCenterCompliance_Call) Return(createBul
 }
 
 func (_c *MockGraphClient_CreateBulkTrustCenterCompliance_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateTrustCenterComplianceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkTrustCenterCompliance, error)) *MockGraphClient_CreateBulkTrustCenterCompliance_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkTrustCenterNDARequest provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkTrustCenterNDARequest(ctx context.Context, input []*graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkTrustCenterNDARequest, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkTrustCenterNDARequest")
+	}
+
+	var r0 *graphclient.CreateBulkTrustCenterNDARequest
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkTrustCenterNDARequest, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkTrustCenterNDARequest); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkTrustCenterNDARequest)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkTrustCenterNDARequest_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkTrustCenterNDARequest'
+type MockGraphClient_CreateBulkTrustCenterNDARequest_Call struct {
+	*mock.Call
+}
+
+// CreateBulkTrustCenterNDARequest is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateTrustCenterNDARequestInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterNDARequest(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
+	return &MockGraphClient_CreateBulkTrustCenterNDARequest_Call{Call: _e.mock.On("CreateBulkTrustCenterNDARequest",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkTrustCenterNDARequest_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateTrustCenterNDARequestInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateTrustCenterNDARequestInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkTrustCenterNDARequest_Call) Return(createBulkTrustCenterNDARequest *graphclient.CreateBulkTrustCenterNDARequest, err error) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
+	_c.Call.Return(createBulkTrustCenterNDARequest, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkTrustCenterNDARequest_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkTrustCenterNDARequest, error)) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -14188,6 +14354,89 @@ func (_c *MockGraphClient_CreateTrustCenterDomain_Call) Return(createTrustCenter
 }
 
 func (_c *MockGraphClient_CreateTrustCenterDomain_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateTrustCenterDomainInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterDomain, error)) *MockGraphClient_CreateTrustCenterDomain_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateTrustCenterNDARequest provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateTrustCenterNDARequest(ctx context.Context, input graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterNDARequest, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateTrustCenterNDARequest")
+	}
+
+	var r0 *graphclient.CreateTrustCenterNDARequest
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterNDARequest, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) *graphclient.CreateTrustCenterNDARequest); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateTrustCenterNDARequest)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateTrustCenterNDARequest_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateTrustCenterNDARequest'
+type MockGraphClient_CreateTrustCenterNDARequest_Call struct {
+	*mock.Call
+}
+
+// CreateTrustCenterNDARequest is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateTrustCenterNDARequestInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateTrustCenterNDARequest(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterNDARequest_Call {
+	return &MockGraphClient_CreateTrustCenterNDARequest_Call{Call: _e.mock.On("CreateTrustCenterNDARequest",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateTrustCenterNDARequest_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterNDARequest_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateTrustCenterNDARequestInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateTrustCenterNDARequestInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateTrustCenterNDARequest_Call) Return(createTrustCenterNDARequest *graphclient.CreateTrustCenterNDARequest, err error) *MockGraphClient_CreateTrustCenterNDARequest_Call {
+	_c.Call.Return(createTrustCenterNDARequest, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateTrustCenterNDARequest_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTrustCenterNDARequest, error)) *MockGraphClient_CreateTrustCenterNDARequest_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -20858,6 +21107,89 @@ func (_c *MockGraphClient_DeleteTrustCenterDoc_Call) Return(deleteTrustCenterDoc
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterDoc_Call) RunAndReturn(run func(ctx context.Context, deleteTrustCenterDocID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteTrustCenterDoc, error)) *MockGraphClient_DeleteTrustCenterDoc_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteTrustCenterNDARequest provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteTrustCenterNDARequest(ctx context.Context, deleteTrustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteTrustCenterNDARequest, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, deleteTrustCenterNDARequestID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, deleteTrustCenterNDARequestID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteTrustCenterNDARequest")
+	}
+
+	var r0 *graphclient.DeleteTrustCenterNDARequest
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.DeleteTrustCenterNDARequest, error)); ok {
+		return returnFunc(ctx, deleteTrustCenterNDARequestID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.DeleteTrustCenterNDARequest); ok {
+		r0 = returnFunc(ctx, deleteTrustCenterNDARequestID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteTrustCenterNDARequest)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, deleteTrustCenterNDARequestID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteTrustCenterNDARequest_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteTrustCenterNDARequest'
+type MockGraphClient_DeleteTrustCenterNDARequest_Call struct {
+	*mock.Call
+}
+
+// DeleteTrustCenterNDARequest is a helper method to define mock.On call
+//   - ctx context.Context
+//   - deleteTrustCenterNDARequestID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterNDARequest(ctx interface{}, deleteTrustCenterNDARequestID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
+	return &MockGraphClient_DeleteTrustCenterNDARequest_Call{Call: _e.mock.On("DeleteTrustCenterNDARequest",
+		append([]interface{}{ctx, deleteTrustCenterNDARequestID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteTrustCenterNDARequest_Call) Run(run func(ctx context.Context, deleteTrustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteTrustCenterNDARequest_Call) Return(deleteTrustCenterNDARequest *graphclient.DeleteTrustCenterNDARequest, err error) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
+	_c.Call.Return(deleteTrustCenterNDARequest, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteTrustCenterNDARequest_Call) RunAndReturn(run func(ctx context.Context, deleteTrustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteTrustCenterNDARequest, error)) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -28661,6 +28993,113 @@ func (_c *MockGraphClient_GetAllTrustCenterDocs_Call) Return(getAllTrustCenterDo
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterDocs_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterDocOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllTrustCenterDocs, error)) *MockGraphClient_GetAllTrustCenterDocs_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetAllTrustCenterNDARequests provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetAllTrustCenterNDARequests(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllTrustCenterNDARequests, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAllTrustCenterNDARequests")
+	}
+
+	var r0 *graphclient.GetAllTrustCenterNDARequests
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.TrustCenterNDARequestOrder, ...clientv2.RequestInterceptor) (*graphclient.GetAllTrustCenterNDARequests, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.TrustCenterNDARequestOrder, ...clientv2.RequestInterceptor) *graphclient.GetAllTrustCenterNDARequests); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetAllTrustCenterNDARequests)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.TrustCenterNDARequestOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetAllTrustCenterNDARequests_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAllTrustCenterNDARequests'
+type MockGraphClient_GetAllTrustCenterNDARequests_Call struct {
+	*mock.Call
+}
+
+// GetAllTrustCenterNDARequests is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.TrustCenterNDARequestOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterNDARequests(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
+	return &MockGraphClient_GetAllTrustCenterNDARequests_Call{Call: _e.mock.On("GetAllTrustCenterNDARequests",
+		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetAllTrustCenterNDARequests_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.TrustCenterNDARequestOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.TrustCenterNDARequestOrder)
+		}
+		var arg6 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 6 {
+			variadicArgs = args[6].([]clientv2.RequestInterceptor)
+		}
+		arg6 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllTrustCenterNDARequests_Call) Return(getAllTrustCenterNDARequests *graphclient.GetAllTrustCenterNDARequests, err error) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
+	_c.Call.Return(getAllTrustCenterNDARequests, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllTrustCenterNDARequests_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllTrustCenterNDARequests, error)) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -43413,6 +43852,202 @@ func (_c *MockGraphClient_GetTrustCenterDocs_Call) RunAndReturn(run func(ctx con
 	return _c
 }
 
+// GetTrustCenterNDARequestByID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetTrustCenterNDARequestByID(ctx context.Context, trustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterNDARequestByID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, trustCenterNDARequestID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, trustCenterNDARequestID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetTrustCenterNDARequestByID")
+	}
+
+	var r0 *graphclient.GetTrustCenterNDARequestByID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterNDARequestByID, error)); ok {
+		return returnFunc(ctx, trustCenterNDARequestID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.GetTrustCenterNDARequestByID); ok {
+		r0 = returnFunc(ctx, trustCenterNDARequestID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetTrustCenterNDARequestByID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, trustCenterNDARequestID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetTrustCenterNDARequestByID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetTrustCenterNDARequestByID'
+type MockGraphClient_GetTrustCenterNDARequestByID_Call struct {
+	*mock.Call
+}
+
+// GetTrustCenterNDARequestByID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - trustCenterNDARequestID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetTrustCenterNDARequestByID(ctx interface{}, trustCenterNDARequestID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
+	return &MockGraphClient_GetTrustCenterNDARequestByID_Call{Call: _e.mock.On("GetTrustCenterNDARequestByID",
+		append([]interface{}{ctx, trustCenterNDARequestID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetTrustCenterNDARequestByID_Call) Run(run func(ctx context.Context, trustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetTrustCenterNDARequestByID_Call) Return(getTrustCenterNDARequestByID *graphclient.GetTrustCenterNDARequestByID, err error) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
+	_c.Call.Return(getTrustCenterNDARequestByID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetTrustCenterNDARequestByID_Call) RunAndReturn(run func(ctx context.Context, trustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterNDARequestByID, error)) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetTrustCenterNDARequests provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetTrustCenterNDARequests(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, where *graphclient.TrustCenterNDARequestWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterNDARequests, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetTrustCenterNDARequests")
+	}
+
+	var r0 *graphclient.GetTrustCenterNDARequests
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.TrustCenterNDARequestOrder, *graphclient.TrustCenterNDARequestWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterNDARequests, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.TrustCenterNDARequestOrder, *graphclient.TrustCenterNDARequestWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetTrustCenterNDARequests); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetTrustCenterNDARequests)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.TrustCenterNDARequestOrder, *graphclient.TrustCenterNDARequestWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetTrustCenterNDARequests_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetTrustCenterNDARequests'
+type MockGraphClient_GetTrustCenterNDARequests_Call struct {
+	*mock.Call
+}
+
+// GetTrustCenterNDARequests is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.TrustCenterNDARequestOrder
+//   - where *graphclient.TrustCenterNDARequestWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetTrustCenterNDARequests(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterNDARequests_Call {
+	return &MockGraphClient_GetTrustCenterNDARequests_Call{Call: _e.mock.On("GetTrustCenterNDARequests",
+		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetTrustCenterNDARequests_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, where *graphclient.TrustCenterNDARequestWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterNDARequests_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.TrustCenterNDARequestOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.TrustCenterNDARequestOrder)
+		}
+		var arg6 *graphclient.TrustCenterNDARequestWhereInput
+		if args[6] != nil {
+			arg6 = args[6].(*graphclient.TrustCenterNDARequestWhereInput)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetTrustCenterNDARequests_Call) Return(getTrustCenterNDARequests *graphclient.GetTrustCenterNDARequests, err error) *MockGraphClient_GetTrustCenterNDARequests_Call {
+	_c.Call.Return(getTrustCenterNDARequests, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetTrustCenterNDARequests_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, where *graphclient.TrustCenterNDARequestWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterNDARequests, error)) *MockGraphClient_GetTrustCenterNDARequests_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetTrustCenterSettingByID provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) GetTrustCenterSettingByID(ctx context.Context, trustCenterSettingID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetTrustCenterSettingByID, error) {
 	var tmpRet mock.Arguments
@@ -47647,12 +48282,12 @@ func (_c *MockGraphClient_UpdateDiscussion_Call) RunAndReturn(run func(ctx conte
 }
 
 // UpdateDocumentData provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) UpdateDocumentData(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error) {
+func (_mock *MockGraphClient) UpdateDocumentData(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, updateDocumentDataID, input, interceptors)
+		tmpRet = _mock.Called(ctx, updateDocumentDataID, input, documentDataFile, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, updateDocumentDataID, input)
+		tmpRet = _mock.Called(ctx, updateDocumentDataID, input, documentDataFile)
 	}
 	ret := tmpRet
 
@@ -47662,18 +48297,18 @@ func (_mock *MockGraphClient) UpdateDocumentData(ctx context.Context, updateDocu
 
 	var r0 *graphclient.UpdateDocumentData
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)); ok {
-		return returnFunc(ctx, updateDocumentDataID, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, *graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)); ok {
+		return returnFunc(ctx, updateDocumentDataID, input, documentDataFile, interceptors...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, ...clientv2.RequestInterceptor) *graphclient.UpdateDocumentData); ok {
-		r0 = returnFunc(ctx, updateDocumentDataID, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, *graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateDocumentData); ok {
+		r0 = returnFunc(ctx, updateDocumentDataID, input, documentDataFile, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.UpdateDocumentData)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateDocumentDataInput, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, updateDocumentDataID, input, interceptors...)
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateDocumentDataInput, *graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateDocumentDataID, input, documentDataFile, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -47689,13 +48324,14 @@ type MockGraphClient_UpdateDocumentData_Call struct {
 //   - ctx context.Context
 //   - updateDocumentDataID string
 //   - input graphclient.UpdateDocumentDataInput
+//   - documentDataFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDocumentData(ctx interface{}, updateDocumentDataID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDocumentData_Call {
+func (_e *MockGraphClient_Expecter) UpdateDocumentData(ctx interface{}, updateDocumentDataID interface{}, input interface{}, documentDataFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDocumentData_Call {
 	return &MockGraphClient_UpdateDocumentData_Call{Call: _e.mock.On("UpdateDocumentData",
-		append([]interface{}{ctx, updateDocumentDataID, input}, interceptors...)...)}
+		append([]interface{}{ctx, updateDocumentDataID, input, documentDataFile}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDocumentData_Call {
+func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDocumentData_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -47709,17 +48345,22 @@ func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Cont
 		if args[2] != nil {
 			arg2 = args[2].(graphclient.UpdateDocumentDataInput)
 		}
-		var arg3 []clientv2.RequestInterceptor
-		var variadicArgs []clientv2.RequestInterceptor
-		if len(args) > 3 {
-			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		var arg3 *graphql.Upload
+		if args[3] != nil {
+			arg3 = args[3].(*graphql.Upload)
 		}
-		arg3 = variadicArgs
+		var arg4 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 4 {
+			variadicArgs = args[4].([]clientv2.RequestInterceptor)
+		}
+		arg4 = variadicArgs
 		run(
 			arg0,
 			arg1,
 			arg2,
-			arg3...,
+			arg3,
+			arg4...,
 		)
 	})
 	return _c
@@ -47730,7 +48371,7 @@ func (_c *MockGraphClient_UpdateDocumentData_Call) Return(updateDocumentData *gr
 	return _c
 }
 
-func (_c *MockGraphClient_UpdateDocumentData_Call) RunAndReturn(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)) *MockGraphClient_UpdateDocumentData_Call {
+func (_c *MockGraphClient_UpdateDocumentData_Call) RunAndReturn(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)) *MockGraphClient_UpdateDocumentData_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -51796,6 +52437,95 @@ func (_c *MockGraphClient_UpdateTrustCenterDoc_Call) Return(updateTrustCenterDoc
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterDoc_Call) RunAndReturn(run func(ctx context.Context, updateTrustCenterDocID string, input graphclient.UpdateTrustCenterDocInput, trustCenterDocFile *graphql.Upload, watermarkedTrustCenterDocFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterDoc, error)) *MockGraphClient_UpdateTrustCenterDoc_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateTrustCenterNDARequest provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateTrustCenterNDARequest(ctx context.Context, updateTrustCenterNDARequestID string, input graphclient.UpdateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterNDARequest, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, updateTrustCenterNDARequestID, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, updateTrustCenterNDARequestID, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateTrustCenterNDARequest")
+	}
+
+	var r0 *graphclient.UpdateTrustCenterNDARequest
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterNDARequest, error)); ok {
+		return returnFunc(ctx, updateTrustCenterNDARequestID, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) *graphclient.UpdateTrustCenterNDARequest); ok {
+		r0 = returnFunc(ctx, updateTrustCenterNDARequestID, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateTrustCenterNDARequest)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateTrustCenterNDARequestInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateTrustCenterNDARequestID, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateTrustCenterNDARequest_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateTrustCenterNDARequest'
+type MockGraphClient_UpdateTrustCenterNDARequest_Call struct {
+	*mock.Call
+}
+
+// UpdateTrustCenterNDARequest is a helper method to define mock.On call
+//   - ctx context.Context
+//   - updateTrustCenterNDARequestID string
+//   - input graphclient.UpdateTrustCenterNDARequestInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterNDARequest(ctx interface{}, updateTrustCenterNDARequestID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
+	return &MockGraphClient_UpdateTrustCenterNDARequest_Call{Call: _e.mock.On("UpdateTrustCenterNDARequest",
+		append([]interface{}{ctx, updateTrustCenterNDARequestID, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateTrustCenterNDARequest_Call) Run(run func(ctx context.Context, updateTrustCenterNDARequestID string, input graphclient.UpdateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 graphclient.UpdateTrustCenterNDARequestInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateTrustCenterNDARequestInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateTrustCenterNDARequest_Call) Return(updateTrustCenterNDARequest *graphclient.UpdateTrustCenterNDARequest, err error) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
+	_c.Call.Return(updateTrustCenterNDARequest, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateTrustCenterNDARequest_Call) RunAndReturn(run func(ctx context.Context, updateTrustCenterNDARequestID string, input graphclient.UpdateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateTrustCenterNDARequest, error)) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
 	_c.Call.Return(run)
 	return _c
 }

@@ -45,5 +45,8 @@ type Workers struct {
 
 	// Worker configuration for clearing trust center cached items when changes are detected
 	ClearTrustCenterCacheWorker corejobs.ClearTrustCenterCacheWorker `koanf:"cleartrustcentercacheworker" json:"cleartrustcentercacheworker"`
+
+	// AttestNDARequestWorker configuration for attesting NDA requests
+	AttestNDARequestWorker corejobs.AttestNDARequestWorker `koanf:"attestndarequestworker" json:"attestndarequestworker"`
 	// add more trust center specific workers here
 }

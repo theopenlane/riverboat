@@ -59,6 +59,27 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		return nil, err
 	}
 
+	if w.AttestNDARequestWorker.Config.Enabled {
+		attestNDAConfig := &corejobs.AttestNDARequestWorker{
+			Config: w.AttestNDARequestWorker.Config,
+		}
+
+		// set Openlane config defaults if not set
+		if attestNDAConfig.Config.OpenlaneAPIHost == "" {
+			attestNDAConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
+		}
+
+		if attestNDAConfig.Config.OpenlaneAPIToken == "" {
+			attestNDAConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
+		}
+
+		if err := river.AddWorkerSafely(workers, attestNDAConfig); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("worker enabled: attest NDA request")
+	}
+
 	// add more workers here
 
 	return workers, nil
