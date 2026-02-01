@@ -32,7 +32,7 @@ require (
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/go-client v0.7.6
 	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.23.5
+	github.com/theopenlane/iam v0.23.6
 	github.com/theopenlane/newman v0.2.1
 	github.com/theopenlane/riverboat/trustcenter v0.1.1
 	github.com/theopenlane/utils v0.6.2
@@ -80,7 +80,7 @@ require (
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/go-webauthn/webauthn v0.15.0 // indirect
-	github.com/go-webauthn/x v0.1.27 // indirect
+	github.com/go-webauthn/x v0.1.28 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
 	github.com/google/go-querystring v1.2.0 // indirect
@@ -129,7 +129,7 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
-	github.com/theopenlane/corejobs v0.1.8 // indirect
+	github.com/theopenlane/corejobs v0.1.9 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
@@ -163,7 +163,3 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter/
-
-replace github.com/theopenlane/corejobs => ../corejobs/

@@ -6,11 +6,9 @@ require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v1.0.6
-	github.com/theopenlane/corejobs v0.1.8
+	github.com/theopenlane/corejobs v0.1.9
 	github.com/theopenlane/riverboat v0.8.7
 )
-
-replace github.com/theopenlane/corejobs => ../../corejobs/
 
 require (
 	github.com/99designs/gqlgen v0.17.86 // indirect
@@ -108,7 +106,7 @@ require (
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/go-client v0.7.5 // indirect
+	github.com/theopenlane/go-client v0.7.6 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.23.5 // indirect
 	github.com/theopenlane/newman v0.2.1 // indirect
