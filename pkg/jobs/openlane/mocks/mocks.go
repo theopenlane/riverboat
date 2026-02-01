@@ -48282,12 +48282,12 @@ func (_c *MockGraphClient_UpdateDiscussion_Call) RunAndReturn(run func(ctx conte
 }
 
 // UpdateDocumentData provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) UpdateDocumentData(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error) {
+func (_mock *MockGraphClient) UpdateDocumentData(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, updateDocumentDataID, input, interceptors)
+		tmpRet = _mock.Called(ctx, updateDocumentDataID, input, documentDataFile, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, updateDocumentDataID, input)
+		tmpRet = _mock.Called(ctx, updateDocumentDataID, input, documentDataFile)
 	}
 	ret := tmpRet
 
@@ -48297,18 +48297,18 @@ func (_mock *MockGraphClient) UpdateDocumentData(ctx context.Context, updateDocu
 
 	var r0 *graphclient.UpdateDocumentData
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)); ok {
-		return returnFunc(ctx, updateDocumentDataID, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, *graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)); ok {
+		return returnFunc(ctx, updateDocumentDataID, input, documentDataFile, interceptors...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, ...clientv2.RequestInterceptor) *graphclient.UpdateDocumentData); ok {
-		r0 = returnFunc(ctx, updateDocumentDataID, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateDocumentDataInput, *graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateDocumentData); ok {
+		r0 = returnFunc(ctx, updateDocumentDataID, input, documentDataFile, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.UpdateDocumentData)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateDocumentDataInput, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, updateDocumentDataID, input, interceptors...)
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateDocumentDataInput, *graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateDocumentDataID, input, documentDataFile, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -48324,13 +48324,14 @@ type MockGraphClient_UpdateDocumentData_Call struct {
 //   - ctx context.Context
 //   - updateDocumentDataID string
 //   - input graphclient.UpdateDocumentDataInput
+//   - documentDataFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDocumentData(ctx interface{}, updateDocumentDataID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDocumentData_Call {
+func (_e *MockGraphClient_Expecter) UpdateDocumentData(ctx interface{}, updateDocumentDataID interface{}, input interface{}, documentDataFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDocumentData_Call {
 	return &MockGraphClient_UpdateDocumentData_Call{Call: _e.mock.On("UpdateDocumentData",
-		append([]interface{}{ctx, updateDocumentDataID, input}, interceptors...)...)}
+		append([]interface{}{ctx, updateDocumentDataID, input, documentDataFile}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDocumentData_Call {
+func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDocumentData_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -48344,17 +48345,22 @@ func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Cont
 		if args[2] != nil {
 			arg2 = args[2].(graphclient.UpdateDocumentDataInput)
 		}
-		var arg3 []clientv2.RequestInterceptor
-		var variadicArgs []clientv2.RequestInterceptor
-		if len(args) > 3 {
-			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		var arg3 *graphql.Upload
+		if args[3] != nil {
+			arg3 = args[3].(*graphql.Upload)
 		}
-		arg3 = variadicArgs
+		var arg4 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 4 {
+			variadicArgs = args[4].([]clientv2.RequestInterceptor)
+		}
+		arg4 = variadicArgs
 		run(
 			arg0,
 			arg1,
 			arg2,
-			arg3...,
+			arg3,
+			arg4...,
 		)
 	})
 	return _c
@@ -48365,7 +48371,7 @@ func (_c *MockGraphClient_UpdateDocumentData_Call) Return(updateDocumentData *gr
 	return _c
 }
 
-func (_c *MockGraphClient_UpdateDocumentData_Call) RunAndReturn(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)) *MockGraphClient_UpdateDocumentData_Call {
+func (_c *MockGraphClient_UpdateDocumentData_Call) RunAndReturn(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)) *MockGraphClient_UpdateDocumentData_Call {
 	_c.Call.Return(run)
 	return _c
 }
