@@ -4,8 +4,8 @@ github.com/Yamashou/gqlgenc v0.33.0 h1:0fxTnNE8/JVmFpfo7reA5pEgOcr7VjNc+/nEpVhNj
 github.com/Yamashou/gqlgenc v0.33.0/go.mod h1:MZGXx/nALyxcehcFeLGmYiNsJ+hQTOGJzNYCGNX4rL0=
 github.com/agnivade/levenshtein v1.2.1 h1:EHBY3UOn1gwdy/VbFwgo4cxecRznFk7fKWN1KOX7eoM=
 github.com/agnivade/levenshtein v1.2.1/go.mod h1:QVVI16kDrtSuwcpd0p1+xMC6Z/VfhtCyDIjcwga4/DU=
-github.com/alicebob/miniredis/v2 v2.35.0 h1:QwLphYqCEAo1eu1TqPRN2jgVMPBweeQcR21jeqDCONI=
-github.com/alicebob/miniredis/v2 v2.35.0/go.mod h1:TcL7YfarKPGDAthEtl5NBeHZfeUQj6OXMm/+iu5cLMM=
+github.com/alicebob/miniredis/v2 v2.36.1 h1:Dvc5oAnNOr7BIfPn7tF269U8DvRW1dBG2D5n0WrfYMI=
+github.com/alicebob/miniredis/v2 v2.36.1/go.mod h1:TcL7YfarKPGDAthEtl5NBeHZfeUQj6OXMm/+iu5cLMM=
 github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883 h1:bvNMNQO63//z+xNgfBlViaCIJKLlCJ6/fmUseuG0wVQ=
 github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883/go.mod h1:rCTlJbsFo29Kk6CurOXKm700vrz8f0KW0JNfpkRJY/8=
 github.com/aws/aws-sdk-go-v2 v1.41.1 h1:ABlyEARCDLN034NhxlRUSZr4l71mh+T5KAeGh6cerhU=
@@ -286,8 +286,8 @@ github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu7U=
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
-github.com/theopenlane/core/common v1.0.6 h1:H+FtyTwpnbr/jSPtONyzcFxsd/BVD9xtWPi6qp662eA=
-github.com/theopenlane/core/common v1.0.6/go.mod h1:EZ1ndAi+8VcbgHSqmW+7ervFG4JzEwUXvMj5hIe8YmI=
+github.com/theopenlane/core/common v1.0.7 h1:+VArGC8yIOO0NZ6jVY5gayq/yAnNVNr6H129ojnZSc0=
+github.com/theopenlane/core/common v1.0.7/go.mod h1:C5uOOHxVoOwgAJZwAb/Oa8a1mALN9IAjl69esNrV7qY=
 github.com/theopenlane/corejobs v0.1.10 h1:CRP8r/NzZBKSD5jke1GlPKF3aSb2RTlXMz4qdcODk34=
 github.com/theopenlane/corejobs v0.1.10/go.mod h1:DqkyBYPK06K/x1u8Q5o524CaGyLk4tax3f5bQnwwnJ0=
 github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
@@ -302,8 +302,8 @@ github.com/theopenlane/iam v0.23.7 h1:hjYBL1wsCeEC1YMyEg4Q0VOP5YjO+MR0yVNn8iVGq0
 github.com/theopenlane/iam v0.23.7/go.mod h1:r/8IELBc3aAgeqgOT+GjPuXgcBSZmJh6xZFBccWXgYk=
 github.com/theopenlane/newman v0.2.1 h1:9tbkP0W0q3HJZKWpMbJ/W7YoeE92zghEoa7hBeJt80o=
 github.com/theopenlane/newman v0.2.1/go.mod h1:+kr2ZIdSRUaOHw+MwUqRdof6dEdw9qCHDZfyfTfPnAQ=
-github.com/theopenlane/riverboat/trustcenter v0.1.1 h1:2nzJ4TttuS1zk7Ql+Ti18TuiLVaokFg7LOqvsOdhFp8=
-github.com/theopenlane/riverboat/trustcenter v0.1.1/go.mod h1:oIGhx1YndQKLHXXJ7JFwMQqMKBHAFpZcue2l8ubIaI0=
+github.com/theopenlane/riverboat/trustcenter v0.1.2 h1:v3xE3ntEL/S7q9N6qeSAx/VU1VJc0+6sEPVw9g/gmh0=
+github.com/theopenlane/riverboat/trustcenter v0.1.2/go.mod h1:+FwOYDXzYhwfY/sQOZayNMikuoyviH8CP2ilBqkkMNE=
 github.com/theopenlane/utils v0.6.2 h1:7TgABVt0rb+Dhph3N7DEBAO3jcB/J+wgVv47F2Nry7c=
 github.com/theopenlane/utils v0.6.2/go.mod h1:7STP+gs2LAYYKLS7blxq8FTY5jvL7R0riLiUQJfTeM0=
 github.com/tidwall/gjson v1.14.2/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
