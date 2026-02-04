@@ -2,6 +2,8 @@ module github.com/theopenlane/riverboat
 
 go 1.25.6
 
+replace github.com/theopenlane/trustcenter => ./trustcenter
+
 require (
 	github.com/99designs/gqlgen v0.17.86
 	github.com/Yamashou/gqlgenc v0.33.0
