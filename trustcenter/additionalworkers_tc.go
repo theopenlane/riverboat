@@ -137,6 +137,11 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 	}
 
 	if w.DeletePirschDomainWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.DeletePirschDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for delete pirsch domain worker")
+			return err
+		}
+
 		if err := river.AddWorkerSafely(workers, &w.DeletePirschDomainWorker); err != nil {
 			return err
 		}
