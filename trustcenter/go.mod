@@ -2,6 +2,8 @@ module github.com/theopenlane/riverboat/trustcenter
 
 go 1.25.6
 
+replace github.com/theopenlane/corejobs => ../../corejobs
+
 require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
