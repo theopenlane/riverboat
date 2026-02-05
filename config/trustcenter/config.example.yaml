@@ -37,6 +37,7 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+                pirschteamid: ""
                 pirschthemeid: ""
         createpreviewdomainworker:
             config:
@@ -58,6 +59,7 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+                pirschteamid: ""
                 pirschthemeid: ""
         deletepreviewdomainworker:
             config:
@@ -75,6 +77,7 @@ river:
                 openlaneapitoken: ""
                 pirschclientid: ""
                 pirschclientsecret: ""
+                pirschteamid: ""
                 pirschthemeid: ""
         validatecustomdomainworker:
             config:

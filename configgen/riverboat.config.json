@@ -178,6 +178,10 @@
         "pirschthemeid": {
           "type": "string",
           "description": "the pirsch theme id for created domains"
+        },
+        "pirschteamid": {
+          "type": "string",
+          "description": "the pirsch team id for created domains"
         }
       },
       "additionalProperties": false,
