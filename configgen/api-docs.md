@@ -663,6 +663,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**pirschclientid**|`string`|||
 |**pirschclientsecret**|`string`|||
 |**pirschthemeid**|`string`|the pirsch theme id for created domains<br/>||
+|**pirschteamid**|`string`|the pirsch team id for created domains<br/>||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkersdeletepirschdomainworker"></a>
@@ -696,6 +697,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**pirschclientid**|`string`|||
 |**pirschclientsecret**|`string`|||
 |**pirschthemeid**|`string`|the pirsch theme id for created domains<br/>||
+|**pirschteamid**|`string`|the pirsch team id for created domains<br/>||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkersupdatepirschdomainworker"></a>
@@ -729,6 +731,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**pirschclientid**|`string`|||
 |**pirschclientsecret**|`string`|||
 |**pirschthemeid**|`string`|the pirsch theme id for created domains<br/>||
+|**pirschteamid**|`string`|the pirsch team id for created domains<br/>||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkerscreatepreviewdomainworker"></a>
