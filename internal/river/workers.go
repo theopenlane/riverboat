@@ -45,20 +45,11 @@ func createWorkers(w Workers, _ *riverqueue.Client) (*river.Workers, error) {
 
 func createExportWorkers(w Workers, workers *river.Workers) error {
 	if w.ExportContentWorker.Config.Enabled {
-		exportContentConfig := &jobs.ExportContentWorker{
-			Config: w.ExportContentWorker.Config,
+		if err := w.ExportContentWorker.Config.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
+			return err
 		}
 
-		// set Openlane config defaults if not set
-		if exportContentConfig.Config.OpenlaneAPIHost == "" {
-			exportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if exportContentConfig.Config.OpenlaneAPIToken == "" {
-			exportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, exportContentConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.ExportContentWorker); err != nil {
 			return err
 		}
 
@@ -66,20 +57,11 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 	}
 
 	if w.DeleteExportContentWorker.Config.Enabled {
-		deleteExportContentConfig := &jobs.DeleteExportContentWorker{
-			Config: w.DeleteExportContentWorker.Config,
+		if err := w.DeleteExportContentWorker.Config.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
+			return err
 		}
 
-		// set Openlane config defaults if not set
-		if deleteExportContentConfig.Config.OpenlaneAPIHost == "" {
-			deleteExportContentConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if deleteExportContentConfig.Config.OpenlaneAPIToken == "" {
-			deleteExportContentConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, deleteExportContentConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.DeleteExportContentWorker); err != nil {
 			return err
 		}
 

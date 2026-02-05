@@ -5,9 +5,9 @@ go 1.25.6
 require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
-	github.com/theopenlane/core/common v1.0.6
-	github.com/theopenlane/corejobs v0.1.10
-	github.com/theopenlane/riverboat v0.8.8
+	github.com/theopenlane/core/common v1.0.7
+	github.com/theopenlane/corejobs v0.1.11
+	github.com/theopenlane/riverboat v0.9.0
 )
 
 require (

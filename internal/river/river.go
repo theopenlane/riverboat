@@ -30,6 +30,7 @@ func Start(ctx context.Context, c Config) error {
 
 		if err := setupMetricsExporter(); err != nil {
 			log.Error().Err(err).Msg("failed to setup otel metrics exporter")
+			return err
 		}
 	}
 
@@ -46,22 +47,33 @@ func Start(ctx context.Context, c Config) error {
 	worker, err := createWorkers(c.Workers, insertOnlyClient)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create workers")
+
+		return err
+	}
+
+	// add conditional workers based on build tags
+	if err := c.TrustCenterWorkers.OpenlaneConfig.SetDefaultsIfUnset(c.Workers.OpenlaneConfig); err != nil {
+		log.Error().Err(err).Msg("failed to set and validate openlane config defaults for trust center workers")
+		return err
 	}
 
 	worker, err = trustcenter.AddConditionalWorkers(worker, c.TrustCenterWorkers, insertOnlyClient)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to add conditional workers")
+		return err
 	}
 
 	// create periodic jobs
 	periodicJobs, err := createPeriodicJobs(c.Workers)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create periodic jobs schedules")
+		return err
 	}
 
 	additionalPeriodicJobs, err := trustcenter.CreatePeriodicJobs(c.TrustCenterWorkers)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create additional periodic jobs schedules")
+		return err
 	}
 
 	// append additional periodic jobs

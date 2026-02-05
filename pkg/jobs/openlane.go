@@ -16,6 +16,42 @@ type OpenlaneConfig struct {
 	OpenlaneAPIToken string `koanf:"openlaneapitoken" json:"openlaneapitoken" jsonschema:"required description=the openlane api token" sensitive:"true"`
 }
 
+// GetAPIToken returns the Openlane API token
+func (c OpenlaneConfig) GetAPIToken() string {
+	return c.OpenlaneAPIToken
+}
+
+// GetAPIHost returns the Openlane API host URL
+func (c OpenlaneConfig) GetAPIHost() string {
+	return c.OpenlaneAPIHost
+}
+
+// SetAPIToken sets the Openlane API token
+func (c *OpenlaneConfig) SetAPIToken(token string) {
+	c.OpenlaneAPIToken = token
+}
+
+// SetAPIHost sets the Openlane API host URL
+func (c *OpenlaneConfig) SetAPIHost(host string) {
+	c.OpenlaneAPIHost = host
+}
+
+// SetDefaultsIfUnset sets default values for OpenlaneConfig fields if they are not already sets
+func (c *OpenlaneConfig) SetDefaultsIfUnset(input OpenlaneConfig) error {
+	host := input.GetAPIHost()
+	token := input.GetAPIToken()
+
+	if c.GetAPIHost() == "" {
+		c.SetAPIHost(host)
+	}
+
+	if c.GetAPIToken() == "" {
+		c.SetAPIToken(token)
+	}
+
+	return c.Validate()
+}
+
 // allowedPrefixes are the valid prefixes for Openlane API tokens
 var allowedPrefixes = []string{
 	// personal access tokens

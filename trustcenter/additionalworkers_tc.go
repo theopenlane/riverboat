@@ -7,7 +7,7 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/corejobs"
-
+	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
@@ -21,20 +21,12 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 	}
 
 	if w.WatermarkDocWorker.Config.Enabled {
-		watermarkDocConfig := &corejobs.WatermarkDocWorker{
-			Config: w.WatermarkDocWorker.Config,
+		if err := setAndValidateOpenlaneConfigDefaults(&w.WatermarkDocWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for watermark doc worker")
+			return nil, err
 		}
 
-		// set Openlane config defaults if not set
-		if watermarkDocConfig.Config.OpenlaneAPIHost == "" {
-			watermarkDocConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if watermarkDocConfig.Config.OpenlaneAPIToken == "" {
-			watermarkDocConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, watermarkDocConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.WatermarkDocWorker); err != nil {
 			return nil, err
 		}
 
@@ -42,9 +34,7 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 	}
 
 	if w.ClearTrustCenterCacheWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.ClearTrustCenterCacheWorker{
-			Config: w.ClearTrustCenterCacheWorker.Config,
-		}); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.ClearTrustCenterCacheWorker); err != nil {
 			return nil, err
 		}
 
@@ -60,20 +50,12 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 	}
 
 	if w.AttestNDARequestWorker.Config.Enabled {
-		attestNDAConfig := &corejobs.AttestNDARequestWorker{
-			Config: w.AttestNDARequestWorker.Config,
+		if err := setAndValidateOpenlaneConfigDefaults(&w.AttestNDARequestWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for attest NDA request worker")
+			return nil, err
 		}
 
-		// set Openlane config defaults if not set
-		if attestNDAConfig.Config.OpenlaneAPIHost == "" {
-			attestNDAConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if attestNDAConfig.Config.OpenlaneAPIToken == "" {
-			attestNDAConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, attestNDAConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.AttestNDARequestWorker); err != nil {
 			return nil, err
 		}
 
@@ -85,24 +67,24 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 	return workers, nil
 }
 
+// setAndValidateOpenlaneConfigDefaults sets OpenlaneConfig fields from target if they are not already set in input
+func setAndValidateOpenlaneConfigDefaults(input *corejobs.OpenlaneConfig, target jobs.OpenlaneConfig) error {
+	input.SetAPIHost(target.GetAPIHost())
+	input.SetAPIToken(target.GetAPIToken())
+
+	return input.Validate()
+}
+
 func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreateCustomDomainWorker.Config.Enabled {
-		customDomainConfig := &corejobs.CreateCustomDomainWorker{
-			Config: w.CreateCustomDomainWorker.Config,
+		if err := setAndValidateOpenlaneConfigDefaults(&w.CreateCustomDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for create custom domain worker")
+			return err
 		}
 
-		// set Openlane config defaults if not set
-		if customDomainConfig.Config.OpenlaneAPIHost == "" {
-			customDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
+		w.CreateCustomDomainWorker.WithRiverClient(insertOnlyClient)
 
-		if customDomainConfig.Config.OpenlaneAPIToken == "" {
-			customDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		customDomainConfig.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, customDomainConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.CreateCustomDomainWorker); err != nil {
 			return err
 		}
 
@@ -110,20 +92,12 @@ func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 	}
 
 	if w.ValidateCustomDomainWorker.Config.Enabled {
-		validateCustomDomainConfig := &corejobs.ValidateCustomDomainWorker{
-			Config: w.ValidateCustomDomainWorker.Config,
+		if err := setAndValidateOpenlaneConfigDefaults(&w.ValidateCustomDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for validate custom domain worker")
+			return err
 		}
 
-		// set Openlane config defaults if not set
-		if validateCustomDomainConfig.Config.OpenlaneAPIHost == "" {
-			validateCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if validateCustomDomainConfig.Config.OpenlaneAPIToken == "" {
-			validateCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, validateCustomDomainConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.ValidateCustomDomainWorker); err != nil {
 			return err
 		}
 
@@ -131,20 +105,12 @@ func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 	}
 
 	if w.DeleteCustomDomainWorker.Config.Enabled {
-		deleteCustomDomainConfig := &corejobs.DeleteCustomDomainWorker{
-			Config: w.DeleteCustomDomainWorker.Config,
+		if err := setAndValidateOpenlaneConfigDefaults(&w.DeleteCustomDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for delete custom domain worker")
+			return err
 		}
 
-		// set Openlane config defaults if not set
-		if deleteCustomDomainConfig.Config.OpenlaneAPIHost == "" {
-			deleteCustomDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if deleteCustomDomainConfig.Config.OpenlaneAPIToken == "" {
-			deleteCustomDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		if err := river.AddWorkerSafely(workers, deleteCustomDomainConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.DeleteCustomDomainWorker); err != nil {
 			return err
 		}
 
@@ -156,22 +122,14 @@ func createCustomDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 
 func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreatePirschDomainWorker.Config.Enabled {
-		pirschDomainConfig := &corejobs.CreatePirschDomainWorker{
-			Config: w.CreatePirschDomainWorker.Config,
+		if err := setAndValidateOpenlaneConfigDefaults(&w.CreatePirschDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for create pirsch domain worker")
+			return err
 		}
 
-		// set Openlane config defaults if not set
-		if pirschDomainConfig.Config.OpenlaneAPIHost == "" {
-			pirschDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
+		w.CreatePirschDomainWorker.WithRiverClient(insertOnlyClient)
 
-		if pirschDomainConfig.Config.OpenlaneAPIToken == "" {
-			pirschDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		pirschDomainConfig.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, pirschDomainConfig); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.CreatePirschDomainWorker); err != nil {
 			return err
 		}
 
@@ -179,10 +137,12 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 	}
 
 	if w.DeletePirschDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.DeletePirschDomainWorker{
-			Config: w.DeletePirschDomainWorker.Config,
-		},
-		); err != nil {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.DeletePirschDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for delete pirsch domain worker")
+			return err
+		}
+
+		if err := river.AddWorkerSafely(workers, &w.DeletePirschDomainWorker); err != nil {
 			return err
 		}
 
@@ -190,10 +150,7 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 	}
 
 	if w.UpdatePirschDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.UpdatePirschDomainWorker{
-			Config: w.UpdatePirschDomainWorker.Config,
-		},
-		); err != nil {
+		if err := river.AddWorkerSafely(workers, &w.UpdatePirschDomainWorker); err != nil {
 			return err
 		}
 
@@ -205,33 +162,27 @@ func createPirschDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, w
 
 func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.CreatePreviewDomainWorker.Config.Enabled {
-		previewDomainConfig := &corejobs.CreatePreviewDomainWorker{
-			Config: w.CreatePreviewDomainWorker.Config,
-		}
-
-		// set Openlane config defaults if not set
-		if previewDomainConfig.Config.OpenlaneAPIHost == "" {
-			previewDomainConfig.Config.OpenlaneAPIHost = w.OpenlaneConfig.OpenlaneAPIHost
-		}
-
-		if previewDomainConfig.Config.OpenlaneAPIToken == "" {
-			previewDomainConfig.Config.OpenlaneAPIToken = w.OpenlaneConfig.OpenlaneAPIToken
-		}
-
-		previewDomainConfig.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, previewDomainConfig); err != nil {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.CreatePreviewDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for create preview domain worker")
 			return err
 		}
 
-		log.Info().Msg("worker enabled: create preview domain")
+		w.CreatePreviewDomainWorker.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, &w.CreatePreviewDomainWorker); err != nil {
+			return err
+		}
+
+		log.Info().Str("worker", "create preview domain").Msg("worker enabled: create preview domain")
 	}
 
 	if w.DeletePreviewDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.DeletePreviewDomainWorker{
-			Config: w.DeletePreviewDomainWorker.Config,
-		},
-		); err != nil {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.DeletePreviewDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for delete preview domain worker")
+			return err
+		}
+
+		if err := river.AddWorkerSafely(workers, &w.DeletePreviewDomainWorker); err != nil {
 			return err
 		}
 
@@ -239,10 +190,12 @@ func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, 
 	}
 
 	if w.ValidatePreviewDomainWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &corejobs.ValidatePreviewDomainWorker{
-			Config: w.ValidatePreviewDomainWorker.Config,
-		},
-		); err != nil {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.ValidatePreviewDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for validate preview domain worker")
+			return err
+		}
+
+		if err := river.AddWorkerSafely(workers, &w.ValidatePreviewDomainWorker); err != nil {
 			return err
 		}
 

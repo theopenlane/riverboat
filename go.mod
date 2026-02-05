@@ -2,6 +2,8 @@ module github.com/theopenlane/riverboat
 
 go 1.25.6
 
+replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
+
 require (
 	github.com/99designs/gqlgen v0.17.86
 	github.com/Yamashou/gqlgenc v0.33.0
@@ -129,7 +131,7 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
-	github.com/theopenlane/corejobs v0.1.10 // indirect
+	github.com/theopenlane/corejobs v0.1.11-0.20260204230021-38477a1558ac // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
