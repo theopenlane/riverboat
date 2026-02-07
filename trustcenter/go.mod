@@ -15,7 +15,6 @@ replace github.com/theopenlane/corejobs => ../../corejobs/
 require (
 	github.com/99designs/gqlgen v0.17.86 // indirect
 	github.com/Yamashou/gqlgenc v0.33.0 // indirect
-	github.com/alicebob/miniredis/v2 v2.36.1 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.41.1 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.4 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.32.7 // indirect
@@ -106,12 +105,13 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/stoewer/go-strcase v1.3.1 // indirect
 	github.com/stretchr/testify v1.11.1 // indirect
+	github.com/theopenlane/core v1.8.4 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.4-0.20260207001550-fd653a45eb5b // indirect
-	github.com/theopenlane/go-client v0.8.1 // indirect
+	github.com/theopenlane/go-client v0.8.2 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
-	github.com/theopenlane/iam v0.23.7 // indirect
+	github.com/theopenlane/iam v0.23.8 // indirect
 	github.com/theopenlane/newman v0.2.1 // indirect
 	github.com/theopenlane/utils v0.6.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect

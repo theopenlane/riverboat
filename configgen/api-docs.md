@@ -956,6 +956,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**openlaneapihost**|`string`|||
 |**openlaneapitoken**|`string`|||
 |**enabled**|`boolean`|||
+|**defaulttrustcenterdomain**|`string`|the default domain for the trust center if no custom domain is set<br/>||
 |[**email**](#rivertrustcenterworkersattestndarequestworkerconfigemail)|`object`|||
 
 **Additional Properties:** not allowed  

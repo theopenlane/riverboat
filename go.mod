@@ -32,9 +32,9 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core/common v1.0.7
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/go-client v0.8.1
+	github.com/theopenlane/go-client v0.8.2
 	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.23.7
+	github.com/theopenlane/iam v0.23.8
 	github.com/theopenlane/newman v0.2.1
 	github.com/theopenlane/riverboat/trustcenter v0.1.2
 	github.com/theopenlane/utils v0.6.2
@@ -131,6 +131,7 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
+	github.com/theopenlane/core v1.8.4 // indirect
 	github.com/theopenlane/corejobs v0.1.13 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.4-0.20260207001550-fd653a45eb5b // indirect
