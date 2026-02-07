@@ -10,6 +10,8 @@ require (
 	github.com/theopenlane/riverboat v0.9.0
 )
 
+replace github.com/theopenlane/corejobs => ../../corejobs/
+
 require (
 	github.com/99designs/gqlgen v0.17.86 // indirect
 	github.com/Yamashou/gqlgenc v0.33.0 // indirect
@@ -106,6 +108,7 @@ require (
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
+	github.com/theopenlane/emailtemplates v0.3.4-0.20260207001550-fd653a45eb5b // indirect
 	github.com/theopenlane/go-client v0.8.1 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.23.7 // indirect

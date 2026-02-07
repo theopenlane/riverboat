@@ -99,6 +99,25 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_COMPANYNAME: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.companyname }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_COMPANYADDRESS: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.companyaddress }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_CORPORATION: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.corporation }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_YEAR: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.year }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_FROMEMAIL: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.fromemail }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_SUPPORTEMAIL: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.supportemail }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_QUESTIONNAIREEMAIL: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.questionnaireemail }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_LOGOURL: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.logourl }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_ROOT: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.root }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_PRODUCT: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.product }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_DOCS: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.docs }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFY: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.verify }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_INVITE: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.invite }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_RESET: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.reset }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYSUBSCRIBER: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.verifysubscriber }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYBILLING: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.verifybilling }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_QUESTIONNAIRE: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.questionnaire }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_TEMPLATESPATH: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.templatespath }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}

@@ -28,6 +28,9 @@
         },
         "enabled": {
           "type": "boolean"
+        },
+        "email": {
+          "$ref": "#/$defs/struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the watermark worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }"
         }
       },
       "additionalProperties": false,
@@ -340,6 +343,75 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "emailtemplates.Config": {
+      "properties": {
+        "companyname": {
+          "type": "string"
+        },
+        "companyaddress": {
+          "type": "string"
+        },
+        "corporation": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "fromemail": {
+          "type": "string"
+        },
+        "supportemail": {
+          "type": "string"
+        },
+        "questionnaireemail": {
+          "type": "string"
+        },
+        "logourl": {
+          "type": "string"
+        },
+        "urls": {
+          "$ref": "#/$defs/emailtemplates.URLConfig"
+        },
+        "templatespath": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "emailtemplates.URLConfig": {
+      "properties": {
+        "root": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "docs": {
+          "type": "string"
+        },
+        "verify": {
+          "type": "string"
+        },
+        "invite": {
+          "type": "string"
+        },
+        "reset": {
+          "type": "string"
+        },
+        "verifysubscriber": {
+          "type": "string"
+        },
+        "verifybilling": {
+          "type": "string"
+        },
+        "questionnaire": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "jobs.DatabaseWorker": {
       "properties": {
         "config": {
@@ -598,6 +670,18 @@
       "additionalProperties": false,
       "type": "object",
       "description": "MetricsConfig is the configuration for metrics"
+    },
+    "struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the watermark worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "config": {
+          "$ref": "#/$defs/emailtemplates.Config"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
     },
     "trustcenter.Workers": {
       "properties": {

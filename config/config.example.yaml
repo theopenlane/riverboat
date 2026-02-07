@@ -7,7 +7,10 @@ river:
         enablesemanticmetrics: true
         metricsdurationunit: ms
     queues: null
-    trustcenterworkers: {}
+    trustcenterworkers:
+        openlaneconfig:
+            openlaneapihost: ""
+            openlaneapitoken: ""
     workers:
         databaseworker:
             config:
