@@ -10,8 +10,6 @@ require (
 	github.com/theopenlane/riverboat v0.9.0
 )
 
-replace github.com/theopenlane/corejobs => ../../corejobs/
-
 require (
 	github.com/99designs/gqlgen v0.17.86 // indirect
 	github.com/Yamashou/gqlgenc v0.33.0 // indirect
