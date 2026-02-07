@@ -5,9 +5,9 @@ go 1.25.6
 require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
-	github.com/theopenlane/core/common v1.0.7
-	github.com/theopenlane/corejobs v0.1.13
-	github.com/theopenlane/riverboat v0.9.0
+	github.com/theopenlane/core/common v1.0.8
+	github.com/theopenlane/corejobs v0.1.14-0.20260207223417-9834203d4874
+	github.com/theopenlane/riverboat v0.9.3
 )
 
 require (
@@ -73,7 +73,7 @@ require (
 	github.com/knadh/koanf/v2 v2.3.2 // indirect
 	github.com/lestrrat-go/blackmagic v1.0.4 // indirect
 	github.com/lestrrat-go/httpcc v1.0.1 // indirect
-	github.com/lestrrat-go/httprc/v3 v3.0.3 // indirect
+	github.com/lestrrat-go/httprc/v3 v3.0.4 // indirect
 	github.com/lestrrat-go/jwx/v3 v3.0.13 // indirect
 	github.com/lestrrat-go/option/v2 v2.0.0 // indirect
 	github.com/mailru/easyjson v0.9.1 // indirect
@@ -103,10 +103,9 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/stoewer/go-strcase v1.3.1 // indirect
 	github.com/stretchr/testify v1.11.1 // indirect
-	github.com/theopenlane/core v1.8.4 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/emailtemplates v0.3.4-0.20260207001550-fd653a45eb5b // indirect
+	github.com/theopenlane/emailtemplates v0.3.4 // indirect
 	github.com/theopenlane/go-client v0.8.2 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.23.8 // indirect

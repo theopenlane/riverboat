@@ -99,7 +99,6 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.enabled }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_DEFAULTTRUSTCENTERDOMAIN: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.defaulttrustcenterdomain }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.enabled }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_COMPANYNAME: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.companyname }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_COMPANYADDRESS: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.companyaddress }}

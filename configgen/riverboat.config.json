@@ -29,12 +29,8 @@
         "enabled": {
           "type": "boolean"
         },
-        "defaulttrustcenterdomain": {
-          "type": "string",
-          "description": "the default domain for the trust center if no custom domain is set"
-        },
         "email": {
-          "$ref": "#/$defs/struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the watermark worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }"
+          "$ref": "#/$defs/struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the email worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }"
         }
       },
       "additionalProperties": false,
@@ -675,7 +671,7 @@
       "type": "object",
       "description": "MetricsConfig is the configuration for metrics"
     },
-    "struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the watermark worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }": {
+    "struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the email worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }": {
       "properties": {
         "enabled": {
           "type": "boolean"

@@ -10,7 +10,6 @@ river:
     trustcenterworkers:
         attestndarequestworker:
             config:
-                defaulttrustcenterdomain: ""
                 email:
                     config:
                         companyaddress: ""
