@@ -1,19 +1,18 @@
 module github.com/theopenlane/riverboat/trustcenter
 
-go 1.25.6
+go 1.25.7
 
 require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
-	github.com/theopenlane/core/common v1.0.7
-	github.com/theopenlane/corejobs v0.1.13
-	github.com/theopenlane/riverboat v0.9.0
+	github.com/theopenlane/core/common v1.0.8
+	github.com/theopenlane/corejobs v0.1.14
+	github.com/theopenlane/riverboat v0.9.3
 )
 
 require (
 	github.com/99designs/gqlgen v0.17.86 // indirect
 	github.com/Yamashou/gqlgenc v0.33.0 // indirect
-	github.com/alicebob/miniredis/v2 v2.36.1 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.41.1 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.4 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.32.7 // indirect
@@ -51,7 +50,7 @@ require (
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/go-webauthn/webauthn v0.15.0 // indirect
-	github.com/go-webauthn/x v0.1.28 // indirect
+	github.com/go-webauthn/x v0.2.0 // indirect
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
@@ -74,7 +73,7 @@ require (
 	github.com/knadh/koanf/v2 v2.3.2 // indirect
 	github.com/lestrrat-go/blackmagic v1.0.4 // indirect
 	github.com/lestrrat-go/httpcc v1.0.1 // indirect
-	github.com/lestrrat-go/httprc/v3 v3.0.3 // indirect
+	github.com/lestrrat-go/httprc/v3 v3.0.4 // indirect
 	github.com/lestrrat-go/jwx/v3 v3.0.13 // indirect
 	github.com/lestrrat-go/option/v2 v2.0.0 // indirect
 	github.com/mailru/easyjson v0.9.1 // indirect
@@ -106,9 +105,10 @@ require (
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/go-client v0.8.1 // indirect
+	github.com/theopenlane/emailtemplates v0.3.4 // indirect
+	github.com/theopenlane/go-client v0.8.2 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
-	github.com/theopenlane/iam v0.23.7 // indirect
+	github.com/theopenlane/iam v0.23.8 // indirect
 	github.com/theopenlane/newman v0.2.1 // indirect
 	github.com/theopenlane/utils v0.6.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
@@ -133,7 +133,7 @@ require (
 	golang.org/x/crypto v0.47.0 // indirect
 	golang.org/x/image v0.35.0 // indirect
 	golang.org/x/net v0.49.0 // indirect
-	golang.org/x/oauth2 v0.34.0 // indirect
+	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.40.0 // indirect
 	golang.org/x/text v0.33.0 // indirect

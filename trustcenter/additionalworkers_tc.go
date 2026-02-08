@@ -7,6 +7,7 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/corejobs"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
@@ -54,6 +55,8 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for attest NDA request worker")
 			return nil, err
 		}
+
+		w.AttestNDARequestWorker.WithRiverClient(insertOnlyClient)
 
 		if err := river.AddWorkerSafely(workers, &w.AttestNDARequestWorker); err != nil {
 			return nil, err

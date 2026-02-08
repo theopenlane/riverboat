@@ -74,7 +74,13 @@
                 }
             },
             "attestndarequestworker": {
-                "config": {}
+                "config": {
+                    "email": {
+                        "config": {
+                            "urls": {}
+                        }
+                    }
+                }
             }
         },
         "metrics": {}
@@ -165,7 +171,13 @@ Config is the configuration for the river server
             }
         },
         "attestndarequestworker": {
-            "config": {}
+            "config": {
+                "email": {
+                    "config": {
+                        "urls": {}
+                    }
+                }
+            }
         }
     },
     "metrics": {}
@@ -487,7 +499,13 @@ SlackConfig configures the Slack worker.
         }
     },
     "attestndarequestworker": {
-        "config": {}
+        "config": {
+            "email": {
+                "config": {
+                    "urls": {}
+                }
+            }
+        }
     }
 }
 ```
@@ -918,7 +936,13 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 
 ```json
 {
-    "config": {}
+    "config": {
+        "email": {
+            "config": {
+                "urls": {}
+            }
+        }
+    }
 }
 ```
 
@@ -932,6 +956,85 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**openlaneapihost**|`string`|||
 |**openlaneapitoken**|`string`|||
 |**enabled**|`boolean`|||
+|[**email**](#rivertrustcenterworkersattestndarequestworkerconfigemail)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "email": {
+        "config": {
+            "urls": {}
+        }
+    }
+}
+```
+
+<a name="rivertrustcenterworkersattestndarequestworkerconfigemail"></a>
+###### river\.trustcenterworkers\.attestndarequestworker\.config\.email: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|[**config**](#rivertrustcenterworkersattestndarequestworkerconfigemailconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {
+        "urls": {}
+    }
+}
+```
+
+<a name="rivertrustcenterworkersattestndarequestworkerconfigemailconfig"></a>
+####### river\.trustcenterworkers\.attestndarequestworker\.config\.email\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**companyname**|`string`|||
+|**companyaddress**|`string`|||
+|**corporation**|`string`|||
+|**year**|`integer`|||
+|**fromemail**|`string`|||
+|**supportemail**|`string`|||
+|**questionnaireemail**|`string`|||
+|**logourl**|`string`|||
+|[**urls**](#rivertrustcenterworkersattestndarequestworkerconfigemailconfigurls)|`object`|||
+|**templatespath**|`string`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "urls": {}
+}
+```
+
+<a name="rivertrustcenterworkersattestndarequestworkerconfigemailconfigurls"></a>
+######## river\.trustcenterworkers\.attestndarequestworker\.config\.email\.config\.urls: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**root**|`string`|||
+|**product**|`string`|||
+|**docs**|`string`|||
+|**verify**|`string`|||
+|**invite**|`string`|||
+|**reset**|`string`|||
+|**verifysubscriber**|`string`|||
+|**verifybilling**|`string`|||
+|**questionnaire**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>
