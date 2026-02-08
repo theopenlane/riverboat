@@ -43,8 +43,6 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.40.0
 )
 
-replace github.com/theopenlane/corejobs => ../corejobs/
-
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.1 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.4 // indirect
@@ -84,7 +82,7 @@ require (
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/go-webauthn/webauthn v0.15.0 // indirect
-	github.com/go-webauthn/x v0.1.28 // indirect
+	github.com/go-webauthn/x v0.2.0 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
 	github.com/google/go-querystring v1.2.0 // indirect
@@ -133,7 +131,7 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
-	github.com/theopenlane/corejobs v0.1.14-0.20260207223417-9834203d4874 // indirect
+	github.com/theopenlane/corejobs v0.1.14 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.4 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
@@ -159,7 +157,7 @@ require (
 	golang.org/x/crypto v0.47.0 // indirect
 	golang.org/x/image v0.35.0 // indirect
 	golang.org/x/net v0.49.0 // indirect
-	golang.org/x/oauth2 v0.34.0 // indirect
+	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.40.0 // indirect
 	golang.org/x/text v0.33.0 // indirect

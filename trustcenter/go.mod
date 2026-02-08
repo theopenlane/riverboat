@@ -6,7 +6,7 @@ require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v1.0.8
-	github.com/theopenlane/corejobs v0.1.14-0.20260207223417-9834203d4874
+	github.com/theopenlane/corejobs v0.1.14
 	github.com/theopenlane/riverboat v0.9.3
 )
 
@@ -50,7 +50,7 @@ require (
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/go-webauthn/webauthn v0.15.0 // indirect
-	github.com/go-webauthn/x v0.1.28 // indirect
+	github.com/go-webauthn/x v0.2.0 // indirect
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
@@ -133,7 +133,7 @@ require (
 	golang.org/x/crypto v0.47.0 // indirect
 	golang.org/x/image v0.35.0 // indirect
 	golang.org/x/net v0.49.0 // indirect
-	golang.org/x/oauth2 v0.34.0 // indirect
+	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.40.0 // indirect
 	golang.org/x/text v0.33.0 // indirect
