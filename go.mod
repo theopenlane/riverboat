@@ -6,10 +6,10 @@ replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
 require (
 	github.com/99designs/gqlgen v0.17.86
-	github.com/Yamashou/gqlgenc v0.33.0
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.2.5
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
+	github.com/gqlgo/gqlgenc v0.33.1
 	github.com/invopop/jsonschema v0.13.0
 	github.com/invopop/yaml v0.3.1
 	github.com/jackc/pgx/v5 v5.8.0
@@ -44,6 +44,7 @@ require (
 )
 
 require (
+	github.com/Yamashou/gqlgenc v0.33.0 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.41.1 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.4 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.32.7 // indirect
@@ -90,7 +91,6 @@ require (
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/websocket v1.5.4-0.20250319132907-e064f32e3674 // indirect
-	github.com/gqlgo/gqlgenc v0.33.1 // indirect
 	github.com/hhrutter/lzw v1.0.0 // indirect
 	github.com/hhrutter/pkcs7 v0.2.0 // indirect
 	github.com/hhrutter/tiff v1.0.2 // indirect
