@@ -8,7 +8,7 @@ import (
 	"context"
 
 	"github.com/99designs/gqlgen/graphql"
-	"github.com/Yamashou/gqlgenc/clientv2"
+	"github.com/gqlgo/gqlgenc/clientv2"
 	mock "github.com/stretchr/testify/mock"
 	"github.com/theopenlane/go-client/graphclient"
 )
@@ -2364,6 +2364,172 @@ func (_c *MockGraphClient_CreateBulkCSVDocumentData_Call) RunAndReturn(run func(
 	return _c
 }
 
+// CreateBulkCSVEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVEmailBranding(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVEmailBranding")
+	}
+
+	var r0 *graphclient.CreateBulkCSVEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEmailBranding, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVEmailBranding); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVEmailBranding'
+type MockGraphClient_CreateBulkCSVEmailBranding_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVEmailBranding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVEmailBranding_Call {
+	return &MockGraphClient_CreateBulkCSVEmailBranding_Call{Call: _e.mock.On("CreateBulkCSVEmailBranding",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVEmailBranding_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVEmailBranding_Call) Return(createBulkCSVEmailBranding *graphclient.CreateBulkCSVEmailBranding, err error) *MockGraphClient_CreateBulkCSVEmailBranding_Call {
+	_c.Call.Return(createBulkCSVEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVEmailBranding_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEmailBranding, error)) *MockGraphClient_CreateBulkCSVEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkCSVEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVEmailTemplate(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVEmailTemplate")
+	}
+
+	var r0 *graphclient.CreateBulkCSVEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEmailTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVEmailTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVEmailTemplate'
+type MockGraphClient_CreateBulkCSVEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
+	return &MockGraphClient_CreateBulkCSVEmailTemplate_Call{Call: _e.mock.On("CreateBulkCSVEmailTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVEmailTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVEmailTemplate_Call) Return(createBulkCSVEmailTemplate *graphclient.CreateBulkCSVEmailTemplate, err error) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
+	_c.Call.Return(createBulkCSVEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEmailTemplate, error)) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateBulkCSVEntity provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateBulkCSVEntity(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVEntity, error) {
 	var tmpRet mock.Arguments
@@ -3688,6 +3854,172 @@ func (_c *MockGraphClient_CreateBulkCSVNarrative_Call) Return(createBulkCSVNarra
 }
 
 func (_c *MockGraphClient_CreateBulkCSVNarrative_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNarrative, error)) *MockGraphClient_CreateBulkCSVNarrative_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkCSVNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVNotificationPreference(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVNotificationPreference")
+	}
+
+	var r0 *graphclient.CreateBulkCSVNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNotificationPreference, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVNotificationPreference); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVNotificationPreference'
+type MockGraphClient_CreateBulkCSVNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
+	return &MockGraphClient_CreateBulkCSVNotificationPreference_Call{Call: _e.mock.On("CreateBulkCSVNotificationPreference",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVNotificationPreference_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVNotificationPreference_Call) Return(createBulkCSVNotificationPreference *graphclient.CreateBulkCSVNotificationPreference, err error) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
+	_c.Call.Return(createBulkCSVNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNotificationPreference, error)) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkCSVNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVNotificationTemplate(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVNotificationTemplate")
+	}
+
+	var r0 *graphclient.CreateBulkCSVNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNotificationTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVNotificationTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVNotificationTemplate'
+type MockGraphClient_CreateBulkCSVNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
+	return &MockGraphClient_CreateBulkCSVNotificationTemplate_Call{Call: _e.mock.On("CreateBulkCSVNotificationTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVNotificationTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVNotificationTemplate_Call) Return(createBulkCSVNotificationTemplate *graphclient.CreateBulkCSVNotificationTemplate, err error) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
+	_c.Call.Return(createBulkCSVNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVNotificationTemplate, error)) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -6763,6 +7095,172 @@ func (_c *MockGraphClient_CreateBulkDocumentData_Call) RunAndReturn(run func(ctx
 	return _c
 }
 
+// CreateBulkEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkEmailBranding(ctx context.Context, input []*graphclient.CreateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkEmailBranding")
+	}
+
+	var r0 *graphclient.CreateBulkEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateEmailBrandingInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEmailBranding, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateEmailBrandingInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkEmailBranding); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateEmailBrandingInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkEmailBranding'
+type MockGraphClient_CreateBulkEmailBranding_Call struct {
+	*mock.Call
+}
+
+// CreateBulkEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateEmailBrandingInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkEmailBranding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkEmailBranding_Call {
+	return &MockGraphClient_CreateBulkEmailBranding_Call{Call: _e.mock.On("CreateBulkEmailBranding",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkEmailBranding_Call) Run(run func(ctx context.Context, input []*graphclient.CreateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateEmailBrandingInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateEmailBrandingInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkEmailBranding_Call) Return(createBulkEmailBranding *graphclient.CreateBulkEmailBranding, err error) *MockGraphClient_CreateBulkEmailBranding_Call {
+	_c.Call.Return(createBulkEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkEmailBranding_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEmailBranding, error)) *MockGraphClient_CreateBulkEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkEmailTemplate(ctx context.Context, input []*graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkEmailTemplate")
+	}
+
+	var r0 *graphclient.CreateBulkEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateEmailTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEmailTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateEmailTemplateInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkEmailTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateEmailTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkEmailTemplate'
+type MockGraphClient_CreateBulkEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// CreateBulkEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateEmailTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkEmailTemplate_Call {
+	return &MockGraphClient_CreateBulkEmailTemplate_Call{Call: _e.mock.On("CreateBulkEmailTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkEmailTemplate_Call) Run(run func(ctx context.Context, input []*graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateEmailTemplateInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateEmailTemplateInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkEmailTemplate_Call) Return(createBulkEmailTemplate *graphclient.CreateBulkEmailTemplate, err error) *MockGraphClient_CreateBulkEmailTemplate_Call {
+	_c.Call.Return(createBulkEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEmailTemplate, error)) *MockGraphClient_CreateBulkEmailTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateBulkEntity provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateBulkEntity(ctx context.Context, input []*graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkEntity, error) {
 	var tmpRet mock.Arguments
@@ -8087,6 +8585,172 @@ func (_c *MockGraphClient_CreateBulkNarrative_Call) Return(createBulkNarrative *
 }
 
 func (_c *MockGraphClient_CreateBulkNarrative_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateNarrativeInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNarrative, error)) *MockGraphClient_CreateBulkNarrative_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkNotificationPreference(ctx context.Context, input []*graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkNotificationPreference")
+	}
+
+	var r0 *graphclient.CreateBulkNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateNotificationPreferenceInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNotificationPreference, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateNotificationPreferenceInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkNotificationPreference); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateNotificationPreferenceInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkNotificationPreference'
+type MockGraphClient_CreateBulkNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// CreateBulkNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateNotificationPreferenceInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkNotificationPreference_Call {
+	return &MockGraphClient_CreateBulkNotificationPreference_Call{Call: _e.mock.On("CreateBulkNotificationPreference",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkNotificationPreference_Call) Run(run func(ctx context.Context, input []*graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateNotificationPreferenceInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateNotificationPreferenceInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkNotificationPreference_Call) Return(createBulkNotificationPreference *graphclient.CreateBulkNotificationPreference, err error) *MockGraphClient_CreateBulkNotificationPreference_Call {
+	_c.Call.Return(createBulkNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNotificationPreference, error)) *MockGraphClient_CreateBulkNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateBulkNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkNotificationTemplate(ctx context.Context, input []*graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkNotificationTemplate")
+	}
+
+	var r0 *graphclient.CreateBulkNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateNotificationTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNotificationTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateNotificationTemplateInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkNotificationTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateNotificationTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkNotificationTemplate'
+type MockGraphClient_CreateBulkNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// CreateBulkNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateNotificationTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkNotificationTemplate_Call {
+	return &MockGraphClient_CreateBulkNotificationTemplate_Call{Call: _e.mock.On("CreateBulkNotificationTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkNotificationTemplate_Call) Run(run func(ctx context.Context, input []*graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateNotificationTemplateInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateNotificationTemplateInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkNotificationTemplate_Call) Return(createBulkNotificationTemplate *graphclient.CreateBulkNotificationTemplate, err error) *MockGraphClient_CreateBulkNotificationTemplate_Call {
+	_c.Call.Return(createBulkNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkNotificationTemplate, error)) *MockGraphClient_CreateBulkNotificationTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -11500,6 +12164,172 @@ func (_c *MockGraphClient_CreateDocumentData_Call) RunAndReturn(run func(ctx con
 	return _c
 }
 
+// CreateEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateEmailBranding(ctx context.Context, input graphclient.CreateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateEmailBranding")
+	}
+
+	var r0 *graphclient.CreateEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEmailBrandingInput, ...clientv2.RequestInterceptor) (*graphclient.CreateEmailBranding, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEmailBrandingInput, ...clientv2.RequestInterceptor) *graphclient.CreateEmailBranding); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateEmailBrandingInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateEmailBranding'
+type MockGraphClient_CreateEmailBranding_Call struct {
+	*mock.Call
+}
+
+// CreateEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateEmailBrandingInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateEmailBranding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEmailBranding_Call {
+	return &MockGraphClient_CreateEmailBranding_Call{Call: _e.mock.On("CreateEmailBranding",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateEmailBranding_Call) Run(run func(ctx context.Context, input graphclient.CreateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateEmailBrandingInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateEmailBrandingInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateEmailBranding_Call) Return(createEmailBranding *graphclient.CreateEmailBranding, err error) *MockGraphClient_CreateEmailBranding_Call {
+	_c.Call.Return(createEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateEmailBranding_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEmailBranding, error)) *MockGraphClient_CreateEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateEmailTemplate(ctx context.Context, input graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateEmailTemplate")
+	}
+
+	var r0 *graphclient.CreateEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEmailTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.CreateEmailTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEmailTemplateInput, ...clientv2.RequestInterceptor) *graphclient.CreateEmailTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateEmailTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateEmailTemplate'
+type MockGraphClient_CreateEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// CreateEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateEmailTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEmailTemplate_Call {
+	return &MockGraphClient_CreateEmailTemplate_Call{Call: _e.mock.On("CreateEmailTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateEmailTemplate_Call) Run(run func(ctx context.Context, input graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateEmailTemplateInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateEmailTemplateInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateEmailTemplate_Call) Return(createEmailTemplate *graphclient.CreateEmailTemplate, err error) *MockGraphClient_CreateEmailTemplate_Call {
+	_c.Call.Return(createEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEmailTemplate, error)) *MockGraphClient_CreateEmailTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateEntity provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error) {
 	var tmpRet mock.Arguments
@@ -13334,6 +14164,172 @@ func (_c *MockGraphClient_CreateNarrative_Call) Return(createNarrative *graphcli
 }
 
 func (_c *MockGraphClient_CreateNarrative_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateNarrativeInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNarrative, error)) *MockGraphClient_CreateNarrative_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateNotificationPreference(ctx context.Context, input graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateNotificationPreference")
+	}
+
+	var r0 *graphclient.CreateNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateNotificationPreferenceInput, ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationPreference, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateNotificationPreferenceInput, ...clientv2.RequestInterceptor) *graphclient.CreateNotificationPreference); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateNotificationPreferenceInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateNotificationPreference'
+type MockGraphClient_CreateNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// CreateNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateNotificationPreferenceInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNotificationPreference_Call {
+	return &MockGraphClient_CreateNotificationPreference_Call{Call: _e.mock.On("CreateNotificationPreference",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateNotificationPreference_Call) Run(run func(ctx context.Context, input graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateNotificationPreferenceInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateNotificationPreferenceInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateNotificationPreference_Call) Return(createNotificationPreference *graphclient.CreateNotificationPreference, err error) *MockGraphClient_CreateNotificationPreference_Call {
+	_c.Call.Return(createNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationPreference, error)) *MockGraphClient_CreateNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CreateNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateNotificationTemplate(ctx context.Context, input graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateNotificationTemplate")
+	}
+
+	var r0 *graphclient.CreateNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateNotificationTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateNotificationTemplateInput, ...clientv2.RequestInterceptor) *graphclient.CreateNotificationTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateNotificationTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateNotificationTemplate'
+type MockGraphClient_CreateNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// CreateNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateNotificationTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNotificationTemplate_Call {
+	return &MockGraphClient_CreateNotificationTemplate_Call{Call: _e.mock.On("CreateNotificationTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateNotificationTemplate_Call) Run(run func(ctx context.Context, input graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateNotificationTemplateInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateNotificationTemplateInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateNotificationTemplate_Call) Return(createNotificationTemplate *graphclient.CreateNotificationTemplate, err error) *MockGraphClient_CreateNotificationTemplate_Call {
+	_c.Call.Return(createNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationTemplate, error)) *MockGraphClient_CreateNotificationTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -17127,6 +18123,172 @@ func (_c *MockGraphClient_DeleteBulkAssessment_Call) RunAndReturn(run func(ctx c
 	return _c
 }
 
+// DeleteBulkEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkEmailBranding(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkEmailBranding")
+	}
+
+	var r0 *graphclient.DeleteBulkEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkEmailBranding, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkEmailBranding); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkEmailBranding'
+type MockGraphClient_DeleteBulkEmailBranding_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkEmailBranding(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkEmailBranding_Call {
+	return &MockGraphClient_DeleteBulkEmailBranding_Call{Call: _e.mock.On("DeleteBulkEmailBranding",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkEmailBranding_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkEmailBranding_Call) Return(deleteBulkEmailBranding *graphclient.DeleteBulkEmailBranding, err error) *MockGraphClient_DeleteBulkEmailBranding_Call {
+	_c.Call.Return(deleteBulkEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkEmailBranding_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkEmailBranding, error)) *MockGraphClient_DeleteBulkEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteBulkEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkEmailTemplate(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkEmailTemplate")
+	}
+
+	var r0 *graphclient.DeleteBulkEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkEmailTemplate, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkEmailTemplate); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkEmailTemplate'
+type MockGraphClient_DeleteBulkEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkEmailTemplate(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkEmailTemplate_Call {
+	return &MockGraphClient_DeleteBulkEmailTemplate_Call{Call: _e.mock.On("DeleteBulkEmailTemplate",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkEmailTemplate_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkEmailTemplate_Call) Return(deleteBulkEmailTemplate *graphclient.DeleteBulkEmailTemplate, err error) *MockGraphClient_DeleteBulkEmailTemplate_Call {
+	_c.Call.Return(deleteBulkEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkEmailTemplate, error)) *MockGraphClient_DeleteBulkEmailTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // DeleteBulkExport provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) DeleteBulkExport(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkExport, error) {
 	var tmpRet mock.Arguments
@@ -17206,6 +18368,172 @@ func (_c *MockGraphClient_DeleteBulkExport_Call) Return(deleteBulkExport *graphc
 }
 
 func (_c *MockGraphClient_DeleteBulkExport_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkExport, error)) *MockGraphClient_DeleteBulkExport_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteBulkNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkNotificationPreference(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkNotificationPreference")
+	}
+
+	var r0 *graphclient.DeleteBulkNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkNotificationPreference, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkNotificationPreference); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkNotificationPreference'
+type MockGraphClient_DeleteBulkNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkNotificationPreference(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkNotificationPreference_Call {
+	return &MockGraphClient_DeleteBulkNotificationPreference_Call{Call: _e.mock.On("DeleteBulkNotificationPreference",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkNotificationPreference_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkNotificationPreference_Call) Return(deleteBulkNotificationPreference *graphclient.DeleteBulkNotificationPreference, err error) *MockGraphClient_DeleteBulkNotificationPreference_Call {
+	_c.Call.Return(deleteBulkNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkNotificationPreference, error)) *MockGraphClient_DeleteBulkNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteBulkNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkNotificationTemplate(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkNotificationTemplate")
+	}
+
+	var r0 *graphclient.DeleteBulkNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkNotificationTemplate, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkNotificationTemplate); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkNotificationTemplate'
+type MockGraphClient_DeleteBulkNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkNotificationTemplate(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
+	return &MockGraphClient_DeleteBulkNotificationTemplate_Call{Call: _e.mock.On("DeleteBulkNotificationTemplate",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkNotificationTemplate_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkNotificationTemplate_Call) Return(deleteBulkNotificationTemplate *graphclient.DeleteBulkNotificationTemplate, err error) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
+	_c.Call.Return(deleteBulkNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkNotificationTemplate, error)) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -18617,6 +19945,172 @@ func (_c *MockGraphClient_DeleteDocumentData_Call) Return(deleteDocumentData *gr
 }
 
 func (_c *MockGraphClient_DeleteDocumentData_Call) RunAndReturn(run func(ctx context.Context, deleteDocumentDataID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteDocumentData, error)) *MockGraphClient_DeleteDocumentData_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteEmailBranding(ctx context.Context, deleteEmailBrandingID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, deleteEmailBrandingID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, deleteEmailBrandingID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteEmailBranding")
+	}
+
+	var r0 *graphclient.DeleteEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.DeleteEmailBranding, error)); ok {
+		return returnFunc(ctx, deleteEmailBrandingID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.DeleteEmailBranding); ok {
+		r0 = returnFunc(ctx, deleteEmailBrandingID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, deleteEmailBrandingID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteEmailBranding'
+type MockGraphClient_DeleteEmailBranding_Call struct {
+	*mock.Call
+}
+
+// DeleteEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - deleteEmailBrandingID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteEmailBranding(ctx interface{}, deleteEmailBrandingID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEmailBranding_Call {
+	return &MockGraphClient_DeleteEmailBranding_Call{Call: _e.mock.On("DeleteEmailBranding",
+		append([]interface{}{ctx, deleteEmailBrandingID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteEmailBranding_Call) Run(run func(ctx context.Context, deleteEmailBrandingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteEmailBranding_Call) Return(deleteEmailBranding *graphclient.DeleteEmailBranding, err error) *MockGraphClient_DeleteEmailBranding_Call {
+	_c.Call.Return(deleteEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteEmailBranding_Call) RunAndReturn(run func(ctx context.Context, deleteEmailBrandingID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteEmailBranding, error)) *MockGraphClient_DeleteEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteEmailTemplate(ctx context.Context, deleteEmailTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, deleteEmailTemplateID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, deleteEmailTemplateID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteEmailTemplate")
+	}
+
+	var r0 *graphclient.DeleteEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.DeleteEmailTemplate, error)); ok {
+		return returnFunc(ctx, deleteEmailTemplateID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.DeleteEmailTemplate); ok {
+		r0 = returnFunc(ctx, deleteEmailTemplateID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, deleteEmailTemplateID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteEmailTemplate'
+type MockGraphClient_DeleteEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// DeleteEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - deleteEmailTemplateID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteEmailTemplate(ctx interface{}, deleteEmailTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEmailTemplate_Call {
+	return &MockGraphClient_DeleteEmailTemplate_Call{Call: _e.mock.On("DeleteEmailTemplate",
+		append([]interface{}{ctx, deleteEmailTemplateID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteEmailTemplate_Call) Run(run func(ctx context.Context, deleteEmailTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteEmailTemplate_Call) Return(deleteEmailTemplate *graphclient.DeleteEmailTemplate, err error) *MockGraphClient_DeleteEmailTemplate_Call {
+	_c.Call.Return(deleteEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, deleteEmailTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteEmailTemplate, error)) *MockGraphClient_DeleteEmailTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -20692,6 +22186,172 @@ func (_c *MockGraphClient_DeleteNote_Call) Return(deleteNote *graphclient.Delete
 }
 
 func (_c *MockGraphClient_DeleteNote_Call) RunAndReturn(run func(ctx context.Context, noteID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteNote, error)) *MockGraphClient_DeleteNote_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteNotificationPreference(ctx context.Context, deleteNotificationPreferenceID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, deleteNotificationPreferenceID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, deleteNotificationPreferenceID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteNotificationPreference")
+	}
+
+	var r0 *graphclient.DeleteNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.DeleteNotificationPreference, error)); ok {
+		return returnFunc(ctx, deleteNotificationPreferenceID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.DeleteNotificationPreference); ok {
+		r0 = returnFunc(ctx, deleteNotificationPreferenceID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, deleteNotificationPreferenceID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteNotificationPreference'
+type MockGraphClient_DeleteNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// DeleteNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - deleteNotificationPreferenceID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteNotificationPreference(ctx interface{}, deleteNotificationPreferenceID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteNotificationPreference_Call {
+	return &MockGraphClient_DeleteNotificationPreference_Call{Call: _e.mock.On("DeleteNotificationPreference",
+		append([]interface{}{ctx, deleteNotificationPreferenceID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteNotificationPreference_Call) Run(run func(ctx context.Context, deleteNotificationPreferenceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteNotificationPreference_Call) Return(deleteNotificationPreference *graphclient.DeleteNotificationPreference, err error) *MockGraphClient_DeleteNotificationPreference_Call {
+	_c.Call.Return(deleteNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, deleteNotificationPreferenceID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteNotificationPreference, error)) *MockGraphClient_DeleteNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteNotificationTemplate(ctx context.Context, deleteNotificationTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, deleteNotificationTemplateID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, deleteNotificationTemplateID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteNotificationTemplate")
+	}
+
+	var r0 *graphclient.DeleteNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.DeleteNotificationTemplate, error)); ok {
+		return returnFunc(ctx, deleteNotificationTemplateID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.DeleteNotificationTemplate); ok {
+		r0 = returnFunc(ctx, deleteNotificationTemplateID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, deleteNotificationTemplateID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteNotificationTemplate'
+type MockGraphClient_DeleteNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// DeleteNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - deleteNotificationTemplateID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteNotificationTemplate(ctx interface{}, deleteNotificationTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteNotificationTemplate_Call {
+	return &MockGraphClient_DeleteNotificationTemplate_Call{Call: _e.mock.On("DeleteNotificationTemplate",
+		append([]interface{}{ctx, deleteNotificationTemplateID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteNotificationTemplate_Call) Run(run func(ctx context.Context, deleteNotificationTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteNotificationTemplate_Call) Return(deleteNotificationTemplate *graphclient.DeleteNotificationTemplate, err error) *MockGraphClient_DeleteNotificationTemplate_Call {
+	_c.Call.Return(deleteNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, deleteNotificationTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteNotificationTemplate, error)) *MockGraphClient_DeleteNotificationTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -25765,6 +27425,220 @@ func (_c *MockGraphClient_GetAllDiscussions_Call) RunAndReturn(run func(ctx cont
 	return _c
 }
 
+// GetAllEmailBrandings provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetAllEmailBrandings(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailBrandingOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllEmailBrandings, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAllEmailBrandings")
+	}
+
+	var r0 *graphclient.GetAllEmailBrandings
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailBrandingOrder, ...clientv2.RequestInterceptor) (*graphclient.GetAllEmailBrandings, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailBrandingOrder, ...clientv2.RequestInterceptor) *graphclient.GetAllEmailBrandings); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetAllEmailBrandings)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailBrandingOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetAllEmailBrandings_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAllEmailBrandings'
+type MockGraphClient_GetAllEmailBrandings_Call struct {
+	*mock.Call
+}
+
+// GetAllEmailBrandings is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.EmailBrandingOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetAllEmailBrandings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEmailBrandings_Call {
+	return &MockGraphClient_GetAllEmailBrandings_Call{Call: _e.mock.On("GetAllEmailBrandings",
+		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetAllEmailBrandings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailBrandingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEmailBrandings_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.EmailBrandingOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.EmailBrandingOrder)
+		}
+		var arg6 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 6 {
+			variadicArgs = args[6].([]clientv2.RequestInterceptor)
+		}
+		arg6 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllEmailBrandings_Call) Return(getAllEmailBrandings *graphclient.GetAllEmailBrandings, err error) *MockGraphClient_GetAllEmailBrandings_Call {
+	_c.Call.Return(getAllEmailBrandings, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllEmailBrandings_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailBrandingOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllEmailBrandings, error)) *MockGraphClient_GetAllEmailBrandings_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetAllEmailTemplates provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetAllEmailTemplates(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllEmailTemplates, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAllEmailTemplates")
+	}
+
+	var r0 *graphclient.GetAllEmailTemplates
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailTemplateOrder, ...clientv2.RequestInterceptor) (*graphclient.GetAllEmailTemplates, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailTemplateOrder, ...clientv2.RequestInterceptor) *graphclient.GetAllEmailTemplates); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetAllEmailTemplates)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailTemplateOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetAllEmailTemplates_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAllEmailTemplates'
+type MockGraphClient_GetAllEmailTemplates_Call struct {
+	*mock.Call
+}
+
+// GetAllEmailTemplates is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.EmailTemplateOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetAllEmailTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEmailTemplates_Call {
+	return &MockGraphClient_GetAllEmailTemplates_Call{Call: _e.mock.On("GetAllEmailTemplates",
+		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetAllEmailTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEmailTemplates_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.EmailTemplateOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.EmailTemplateOrder)
+		}
+		var arg6 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 6 {
+			variadicArgs = args[6].([]clientv2.RequestInterceptor)
+		}
+		arg6 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllEmailTemplates_Call) Return(getAllEmailTemplates *graphclient.GetAllEmailTemplates, err error) *MockGraphClient_GetAllEmailTemplates_Call {
+	_c.Call.Return(getAllEmailTemplates, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllEmailTemplates_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllEmailTemplates, error)) *MockGraphClient_GetAllEmailTemplates_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetAllEntities provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) GetAllEntities(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EntityOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllEntities, error) {
 	var tmpRet mock.Arguments
@@ -28329,6 +30203,220 @@ func (_c *MockGraphClient_GetAllNarratives_Call) Return(getAllNarratives *graphc
 }
 
 func (_c *MockGraphClient_GetAllNarratives_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NarrativeOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllNarratives, error)) *MockGraphClient_GetAllNarratives_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetAllNotificationPreferences provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetAllNotificationPreferences(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllNotificationPreferences, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAllNotificationPreferences")
+	}
+
+	var r0 *graphclient.GetAllNotificationPreferences
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationPreferenceOrder, ...clientv2.RequestInterceptor) (*graphclient.GetAllNotificationPreferences, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationPreferenceOrder, ...clientv2.RequestInterceptor) *graphclient.GetAllNotificationPreferences); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetAllNotificationPreferences)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationPreferenceOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetAllNotificationPreferences_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAllNotificationPreferences'
+type MockGraphClient_GetAllNotificationPreferences_Call struct {
+	*mock.Call
+}
+
+// GetAllNotificationPreferences is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.NotificationPreferenceOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetAllNotificationPreferences(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllNotificationPreferences_Call {
+	return &MockGraphClient_GetAllNotificationPreferences_Call{Call: _e.mock.On("GetAllNotificationPreferences",
+		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetAllNotificationPreferences_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllNotificationPreferences_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.NotificationPreferenceOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.NotificationPreferenceOrder)
+		}
+		var arg6 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 6 {
+			variadicArgs = args[6].([]clientv2.RequestInterceptor)
+		}
+		arg6 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllNotificationPreferences_Call) Return(getAllNotificationPreferences *graphclient.GetAllNotificationPreferences, err error) *MockGraphClient_GetAllNotificationPreferences_Call {
+	_c.Call.Return(getAllNotificationPreferences, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllNotificationPreferences_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllNotificationPreferences, error)) *MockGraphClient_GetAllNotificationPreferences_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetAllNotificationTemplates provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetAllNotificationTemplates(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllNotificationTemplates, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAllNotificationTemplates")
+	}
+
+	var r0 *graphclient.GetAllNotificationTemplates
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationTemplateOrder, ...clientv2.RequestInterceptor) (*graphclient.GetAllNotificationTemplates, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationTemplateOrder, ...clientv2.RequestInterceptor) *graphclient.GetAllNotificationTemplates); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetAllNotificationTemplates)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationTemplateOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetAllNotificationTemplates_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAllNotificationTemplates'
+type MockGraphClient_GetAllNotificationTemplates_Call struct {
+	*mock.Call
+}
+
+// GetAllNotificationTemplates is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.NotificationTemplateOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetAllNotificationTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllNotificationTemplates_Call {
+	return &MockGraphClient_GetAllNotificationTemplates_Call{Call: _e.mock.On("GetAllNotificationTemplates",
+		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetAllNotificationTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllNotificationTemplates_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.NotificationTemplateOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.NotificationTemplateOrder)
+		}
+		var arg6 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 6 {
+			variadicArgs = args[6].([]clientv2.RequestInterceptor)
+		}
+		arg6 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllNotificationTemplates_Call) Return(getAllNotificationTemplates *graphclient.GetAllNotificationTemplates, err error) *MockGraphClient_GetAllNotificationTemplates_Call {
+	_c.Call.Return(getAllNotificationTemplates, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllNotificationTemplates_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllNotificationTemplates, error)) *MockGraphClient_GetAllNotificationTemplates_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -36449,6 +38537,398 @@ func (_c *MockGraphClient_GetDocumentDataByID_Call) RunAndReturn(run func(ctx co
 	return _c
 }
 
+// GetEmailBrandingByID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetEmailBrandingByID(ctx context.Context, emailBrandingID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailBrandingByID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, emailBrandingID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, emailBrandingID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetEmailBrandingByID")
+	}
+
+	var r0 *graphclient.GetEmailBrandingByID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.GetEmailBrandingByID, error)); ok {
+		return returnFunc(ctx, emailBrandingID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.GetEmailBrandingByID); ok {
+		r0 = returnFunc(ctx, emailBrandingID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetEmailBrandingByID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, emailBrandingID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetEmailBrandingByID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetEmailBrandingByID'
+type MockGraphClient_GetEmailBrandingByID_Call struct {
+	*mock.Call
+}
+
+// GetEmailBrandingByID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - emailBrandingID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetEmailBrandingByID(ctx interface{}, emailBrandingID interface{}, interceptors ...interface{}) *MockGraphClient_GetEmailBrandingByID_Call {
+	return &MockGraphClient_GetEmailBrandingByID_Call{Call: _e.mock.On("GetEmailBrandingByID",
+		append([]interface{}{ctx, emailBrandingID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetEmailBrandingByID_Call) Run(run func(ctx context.Context, emailBrandingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEmailBrandingByID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailBrandingByID_Call) Return(getEmailBrandingByID *graphclient.GetEmailBrandingByID, err error) *MockGraphClient_GetEmailBrandingByID_Call {
+	_c.Call.Return(getEmailBrandingByID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailBrandingByID_Call) RunAndReturn(run func(ctx context.Context, emailBrandingID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailBrandingByID, error)) *MockGraphClient_GetEmailBrandingByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetEmailBrandings provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetEmailBrandings(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailBrandingOrder, where *graphclient.EmailBrandingWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailBrandings, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetEmailBrandings")
+	}
+
+	var r0 *graphclient.GetEmailBrandings
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailBrandingOrder, *graphclient.EmailBrandingWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetEmailBrandings, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailBrandingOrder, *graphclient.EmailBrandingWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetEmailBrandings); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetEmailBrandings)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailBrandingOrder, *graphclient.EmailBrandingWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetEmailBrandings_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetEmailBrandings'
+type MockGraphClient_GetEmailBrandings_Call struct {
+	*mock.Call
+}
+
+// GetEmailBrandings is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.EmailBrandingOrder
+//   - where *graphclient.EmailBrandingWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetEmailBrandings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetEmailBrandings_Call {
+	return &MockGraphClient_GetEmailBrandings_Call{Call: _e.mock.On("GetEmailBrandings",
+		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetEmailBrandings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailBrandingOrder, where *graphclient.EmailBrandingWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEmailBrandings_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.EmailBrandingOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.EmailBrandingOrder)
+		}
+		var arg6 *graphclient.EmailBrandingWhereInput
+		if args[6] != nil {
+			arg6 = args[6].(*graphclient.EmailBrandingWhereInput)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailBrandings_Call) Return(getEmailBrandings *graphclient.GetEmailBrandings, err error) *MockGraphClient_GetEmailBrandings_Call {
+	_c.Call.Return(getEmailBrandings, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailBrandings_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailBrandingOrder, where *graphclient.EmailBrandingWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailBrandings, error)) *MockGraphClient_GetEmailBrandings_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetEmailTemplateByID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetEmailTemplateByID(ctx context.Context, emailTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailTemplateByID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, emailTemplateID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, emailTemplateID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetEmailTemplateByID")
+	}
+
+	var r0 *graphclient.GetEmailTemplateByID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.GetEmailTemplateByID, error)); ok {
+		return returnFunc(ctx, emailTemplateID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.GetEmailTemplateByID); ok {
+		r0 = returnFunc(ctx, emailTemplateID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetEmailTemplateByID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, emailTemplateID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetEmailTemplateByID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetEmailTemplateByID'
+type MockGraphClient_GetEmailTemplateByID_Call struct {
+	*mock.Call
+}
+
+// GetEmailTemplateByID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - emailTemplateID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetEmailTemplateByID(ctx interface{}, emailTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_GetEmailTemplateByID_Call {
+	return &MockGraphClient_GetEmailTemplateByID_Call{Call: _e.mock.On("GetEmailTemplateByID",
+		append([]interface{}{ctx, emailTemplateID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetEmailTemplateByID_Call) Run(run func(ctx context.Context, emailTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEmailTemplateByID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailTemplateByID_Call) Return(getEmailTemplateByID *graphclient.GetEmailTemplateByID, err error) *MockGraphClient_GetEmailTemplateByID_Call {
+	_c.Call.Return(getEmailTemplateByID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailTemplateByID_Call) RunAndReturn(run func(ctx context.Context, emailTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailTemplateByID, error)) *MockGraphClient_GetEmailTemplateByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetEmailTemplates provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetEmailTemplates(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, where *graphclient.EmailTemplateWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailTemplates, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetEmailTemplates")
+	}
+
+	var r0 *graphclient.GetEmailTemplates
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailTemplateOrder, *graphclient.EmailTemplateWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetEmailTemplates, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailTemplateOrder, *graphclient.EmailTemplateWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetEmailTemplates); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetEmailTemplates)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.EmailTemplateOrder, *graphclient.EmailTemplateWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetEmailTemplates_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetEmailTemplates'
+type MockGraphClient_GetEmailTemplates_Call struct {
+	*mock.Call
+}
+
+// GetEmailTemplates is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.EmailTemplateOrder
+//   - where *graphclient.EmailTemplateWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetEmailTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetEmailTemplates_Call {
+	return &MockGraphClient_GetEmailTemplates_Call{Call: _e.mock.On("GetEmailTemplates",
+		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetEmailTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, where *graphclient.EmailTemplateWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEmailTemplates_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.EmailTemplateOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.EmailTemplateOrder)
+		}
+		var arg6 *graphclient.EmailTemplateWhereInput
+		if args[6] != nil {
+			arg6 = args[6].(*graphclient.EmailTemplateWhereInput)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailTemplates_Call) Return(getEmailTemplates *graphclient.GetEmailTemplates, err error) *MockGraphClient_GetEmailTemplates_Call {
+	_c.Call.Return(getEmailTemplates, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetEmailTemplates_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, where *graphclient.EmailTemplateWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEmailTemplates, error)) *MockGraphClient_GetEmailTemplates_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetEntities provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) GetEntities(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.EntityWhereInput, orderBy []*graphclient.EntityOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetEntities, error) {
 	var tmpRet mock.Arguments
@@ -41714,6 +44194,398 @@ func (_c *MockGraphClient_GetNarratives_Call) Return(getNarratives *graphclient.
 }
 
 func (_c *MockGraphClient_GetNarratives_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.NarrativeWhereInput, orderBy []*graphclient.NarrativeOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNarratives, error)) *MockGraphClient_GetNarratives_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetNotificationPreferenceByID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetNotificationPreferenceByID(ctx context.Context, notificationPreferenceID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationPreferenceByID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, notificationPreferenceID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, notificationPreferenceID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetNotificationPreferenceByID")
+	}
+
+	var r0 *graphclient.GetNotificationPreferenceByID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.GetNotificationPreferenceByID, error)); ok {
+		return returnFunc(ctx, notificationPreferenceID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.GetNotificationPreferenceByID); ok {
+		r0 = returnFunc(ctx, notificationPreferenceID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetNotificationPreferenceByID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, notificationPreferenceID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetNotificationPreferenceByID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetNotificationPreferenceByID'
+type MockGraphClient_GetNotificationPreferenceByID_Call struct {
+	*mock.Call
+}
+
+// GetNotificationPreferenceByID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - notificationPreferenceID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetNotificationPreferenceByID(ctx interface{}, notificationPreferenceID interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationPreferenceByID_Call {
+	return &MockGraphClient_GetNotificationPreferenceByID_Call{Call: _e.mock.On("GetNotificationPreferenceByID",
+		append([]interface{}{ctx, notificationPreferenceID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetNotificationPreferenceByID_Call) Run(run func(ctx context.Context, notificationPreferenceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationPreferenceByID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationPreferenceByID_Call) Return(getNotificationPreferenceByID *graphclient.GetNotificationPreferenceByID, err error) *MockGraphClient_GetNotificationPreferenceByID_Call {
+	_c.Call.Return(getNotificationPreferenceByID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationPreferenceByID_Call) RunAndReturn(run func(ctx context.Context, notificationPreferenceID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationPreferenceByID, error)) *MockGraphClient_GetNotificationPreferenceByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetNotificationPreferences provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetNotificationPreferences(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, where *graphclient.NotificationPreferenceWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationPreferences, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetNotificationPreferences")
+	}
+
+	var r0 *graphclient.GetNotificationPreferences
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationPreferenceOrder, *graphclient.NotificationPreferenceWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetNotificationPreferences, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationPreferenceOrder, *graphclient.NotificationPreferenceWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetNotificationPreferences); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetNotificationPreferences)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationPreferenceOrder, *graphclient.NotificationPreferenceWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetNotificationPreferences_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetNotificationPreferences'
+type MockGraphClient_GetNotificationPreferences_Call struct {
+	*mock.Call
+}
+
+// GetNotificationPreferences is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.NotificationPreferenceOrder
+//   - where *graphclient.NotificationPreferenceWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetNotificationPreferences(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationPreferences_Call {
+	return &MockGraphClient_GetNotificationPreferences_Call{Call: _e.mock.On("GetNotificationPreferences",
+		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetNotificationPreferences_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, where *graphclient.NotificationPreferenceWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationPreferences_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.NotificationPreferenceOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.NotificationPreferenceOrder)
+		}
+		var arg6 *graphclient.NotificationPreferenceWhereInput
+		if args[6] != nil {
+			arg6 = args[6].(*graphclient.NotificationPreferenceWhereInput)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationPreferences_Call) Return(getNotificationPreferences *graphclient.GetNotificationPreferences, err error) *MockGraphClient_GetNotificationPreferences_Call {
+	_c.Call.Return(getNotificationPreferences, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationPreferences_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, where *graphclient.NotificationPreferenceWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationPreferences, error)) *MockGraphClient_GetNotificationPreferences_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetNotificationTemplateByID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetNotificationTemplateByID(ctx context.Context, notificationTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplateByID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, notificationTemplateID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, notificationTemplateID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetNotificationTemplateByID")
+	}
+
+	var r0 *graphclient.GetNotificationTemplateByID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplateByID, error)); ok {
+		return returnFunc(ctx, notificationTemplateID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.GetNotificationTemplateByID); ok {
+		r0 = returnFunc(ctx, notificationTemplateID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetNotificationTemplateByID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, notificationTemplateID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetNotificationTemplateByID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetNotificationTemplateByID'
+type MockGraphClient_GetNotificationTemplateByID_Call struct {
+	*mock.Call
+}
+
+// GetNotificationTemplateByID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - notificationTemplateID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetNotificationTemplateByID(ctx interface{}, notificationTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationTemplateByID_Call {
+	return &MockGraphClient_GetNotificationTemplateByID_Call{Call: _e.mock.On("GetNotificationTemplateByID",
+		append([]interface{}{ctx, notificationTemplateID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetNotificationTemplateByID_Call) Run(run func(ctx context.Context, notificationTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationTemplateByID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationTemplateByID_Call) Return(getNotificationTemplateByID *graphclient.GetNotificationTemplateByID, err error) *MockGraphClient_GetNotificationTemplateByID_Call {
+	_c.Call.Return(getNotificationTemplateByID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationTemplateByID_Call) RunAndReturn(run func(ctx context.Context, notificationTemplateID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplateByID, error)) *MockGraphClient_GetNotificationTemplateByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetNotificationTemplates provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetNotificationTemplates(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, where *graphclient.NotificationTemplateWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplates, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetNotificationTemplates")
+	}
+
+	var r0 *graphclient.GetNotificationTemplates
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationTemplateOrder, *graphclient.NotificationTemplateWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplates, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationTemplateOrder, *graphclient.NotificationTemplateWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetNotificationTemplates); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetNotificationTemplates)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.NotificationTemplateOrder, *graphclient.NotificationTemplateWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetNotificationTemplates_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetNotificationTemplates'
+type MockGraphClient_GetNotificationTemplates_Call struct {
+	*mock.Call
+}
+
+// GetNotificationTemplates is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.NotificationTemplateOrder
+//   - where *graphclient.NotificationTemplateWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetNotificationTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationTemplates_Call {
+	return &MockGraphClient_GetNotificationTemplates_Call{Call: _e.mock.On("GetNotificationTemplates",
+		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetNotificationTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, where *graphclient.NotificationTemplateWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationTemplates_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.NotificationTemplateOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.NotificationTemplateOrder)
+		}
+		var arg6 *graphclient.NotificationTemplateWhereInput
+		if args[6] != nil {
+			arg6 = args[6].(*graphclient.NotificationTemplateWhereInput)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationTemplates_Call) Return(getNotificationTemplates *graphclient.GetNotificationTemplates, err error) *MockGraphClient_GetNotificationTemplates_Call {
+	_c.Call.Return(getNotificationTemplates, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetNotificationTemplates_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, where *graphclient.NotificationTemplateWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplates, error)) *MockGraphClient_GetNotificationTemplates_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -50281,6 +53153,694 @@ func (_c *MockGraphClient_UpdateAsset_Call) RunAndReturn(run func(ctx context.Co
 	return _c
 }
 
+// UpdateBulkCSVEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkCSVEmailBranding(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkCSVEmailBranding")
+	}
+
+	var r0 *graphclient.UpdateBulkCSVEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVEmailBranding, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkCSVEmailBranding); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkCSVEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkCSVEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkCSVEmailBranding'
+type MockGraphClient_UpdateBulkCSVEmailBranding_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkCSVEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVEmailBranding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVEmailBranding_Call {
+	return &MockGraphClient_UpdateBulkCSVEmailBranding_Call{Call: _e.mock.On("UpdateBulkCSVEmailBranding",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVEmailBranding_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVEmailBranding_Call) Return(updateBulkCSVEmailBranding *graphclient.UpdateBulkCSVEmailBranding, err error) *MockGraphClient_UpdateBulkCSVEmailBranding_Call {
+	_c.Call.Return(updateBulkCSVEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVEmailBranding_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVEmailBranding, error)) *MockGraphClient_UpdateBulkCSVEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkCSVEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkCSVEmailTemplate(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkCSVEmailTemplate")
+	}
+
+	var r0 *graphclient.UpdateBulkCSVEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVEmailTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkCSVEmailTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkCSVEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkCSVEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkCSVEmailTemplate'
+type MockGraphClient_UpdateBulkCSVEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkCSVEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
+	return &MockGraphClient_UpdateBulkCSVEmailTemplate_Call{Call: _e.mock.On("UpdateBulkCSVEmailTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVEmailTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVEmailTemplate_Call) Return(updateBulkCSVEmailTemplate *graphclient.UpdateBulkCSVEmailTemplate, err error) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
+	_c.Call.Return(updateBulkCSVEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVEmailTemplate, error)) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkCSVNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkCSVNotificationPreference(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkCSVNotificationPreference")
+	}
+
+	var r0 *graphclient.UpdateBulkCSVNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVNotificationPreference, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkCSVNotificationPreference); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkCSVNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkCSVNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkCSVNotificationPreference'
+type MockGraphClient_UpdateBulkCSVNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkCSVNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
+	return &MockGraphClient_UpdateBulkCSVNotificationPreference_Call{Call: _e.mock.On("UpdateBulkCSVNotificationPreference",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVNotificationPreference_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVNotificationPreference_Call) Return(updateBulkCSVNotificationPreference *graphclient.UpdateBulkCSVNotificationPreference, err error) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
+	_c.Call.Return(updateBulkCSVNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVNotificationPreference, error)) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkCSVNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkCSVNotificationTemplate(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkCSVNotificationTemplate")
+	}
+
+	var r0 *graphclient.UpdateBulkCSVNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVNotificationTemplate, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkCSVNotificationTemplate); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkCSVNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkCSVNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkCSVNotificationTemplate'
+type MockGraphClient_UpdateBulkCSVNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkCSVNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
+	return &MockGraphClient_UpdateBulkCSVNotificationTemplate_Call{Call: _e.mock.On("UpdateBulkCSVNotificationTemplate",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call) Return(updateBulkCSVNotificationTemplate *graphclient.UpdateBulkCSVNotificationTemplate, err error) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
+	_c.Call.Return(updateBulkCSVNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVNotificationTemplate, error)) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkEmailBranding(ctx context.Context, ids []string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkEmailBranding")
+	}
+
+	var r0 *graphclient.UpdateBulkEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateEmailBrandingInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailBranding, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateEmailBrandingInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkEmailBranding); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateEmailBrandingInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkEmailBranding'
+type MockGraphClient_UpdateBulkEmailBranding_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateEmailBrandingInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkEmailBranding(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkEmailBranding_Call {
+	return &MockGraphClient_UpdateBulkEmailBranding_Call{Call: _e.mock.On("UpdateBulkEmailBranding",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkEmailBranding_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateEmailBrandingInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateEmailBrandingInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkEmailBranding_Call) Return(updateBulkEmailBranding *graphclient.UpdateBulkEmailBranding, err error) *MockGraphClient_UpdateBulkEmailBranding_Call {
+	_c.Call.Return(updateBulkEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkEmailBranding_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailBranding, error)) *MockGraphClient_UpdateBulkEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkEmailTemplate(ctx context.Context, ids []string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkEmailTemplate")
+	}
+
+	var r0 *graphclient.UpdateBulkEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateEmailTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailTemplate, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateEmailTemplateInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkEmailTemplate); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateEmailTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkEmailTemplate'
+type MockGraphClient_UpdateBulkEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateEmailTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkEmailTemplate(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkEmailTemplate_Call {
+	return &MockGraphClient_UpdateBulkEmailTemplate_Call{Call: _e.mock.On("UpdateBulkEmailTemplate",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkEmailTemplate_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateEmailTemplateInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateEmailTemplateInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkEmailTemplate_Call) Return(updateBulkEmailTemplate *graphclient.UpdateBulkEmailTemplate, err error) *MockGraphClient_UpdateBulkEmailTemplate_Call {
+	_c.Call.Return(updateBulkEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailTemplate, error)) *MockGraphClient_UpdateBulkEmailTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkNotificationPreference(ctx context.Context, ids []string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkNotificationPreference")
+	}
+
+	var r0 *graphclient.UpdateBulkNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateNotificationPreferenceInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkNotificationPreference, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateNotificationPreferenceInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkNotificationPreference); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateNotificationPreferenceInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkNotificationPreference'
+type MockGraphClient_UpdateBulkNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateNotificationPreferenceInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkNotificationPreference(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkNotificationPreference_Call {
+	return &MockGraphClient_UpdateBulkNotificationPreference_Call{Call: _e.mock.On("UpdateBulkNotificationPreference",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkNotificationPreference_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateNotificationPreferenceInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateNotificationPreferenceInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkNotificationPreference_Call) Return(updateBulkNotificationPreference *graphclient.UpdateBulkNotificationPreference, err error) *MockGraphClient_UpdateBulkNotificationPreference_Call {
+	_c.Call.Return(updateBulkNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkNotificationPreference, error)) *MockGraphClient_UpdateBulkNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkNotificationTemplate(ctx context.Context, ids []string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkNotificationTemplate")
+	}
+
+	var r0 *graphclient.UpdateBulkNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateNotificationTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkNotificationTemplate, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateNotificationTemplateInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkNotificationTemplate); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateNotificationTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkNotificationTemplate'
+type MockGraphClient_UpdateBulkNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateNotificationTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkNotificationTemplate(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
+	return &MockGraphClient_UpdateBulkNotificationTemplate_Call{Call: _e.mock.On("UpdateBulkNotificationTemplate",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkNotificationTemplate_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateNotificationTemplateInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateNotificationTemplateInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkNotificationTemplate_Call) Return(updateBulkNotificationTemplate *graphclient.UpdateBulkNotificationTemplate, err error) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
+	_c.Call.Return(updateBulkNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkNotificationTemplate, error)) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // UpdateBulkSubprocessor provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) UpdateBulkSubprocessor(ctx context.Context, ids []string, input graphclient.UpdateSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSubprocessor, error) {
 	var tmpRet mock.Arguments
@@ -51796,6 +55356,184 @@ func (_c *MockGraphClient_UpdateDocumentData_Call) Return(updateDocumentData *gr
 }
 
 func (_c *MockGraphClient_UpdateDocumentData_Call) RunAndReturn(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateDocumentData, error)) *MockGraphClient_UpdateDocumentData_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateEmailBranding provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateEmailBranding(ctx context.Context, updateEmailBrandingID string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateEmailBranding, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, updateEmailBrandingID, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, updateEmailBrandingID, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateEmailBranding")
+	}
+
+	var r0 *graphclient.UpdateEmailBranding
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateEmailBrandingInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateEmailBranding, error)); ok {
+		return returnFunc(ctx, updateEmailBrandingID, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateEmailBrandingInput, ...clientv2.RequestInterceptor) *graphclient.UpdateEmailBranding); ok {
+		r0 = returnFunc(ctx, updateEmailBrandingID, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateEmailBranding)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateEmailBrandingInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateEmailBrandingID, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateEmailBranding_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateEmailBranding'
+type MockGraphClient_UpdateEmailBranding_Call struct {
+	*mock.Call
+}
+
+// UpdateEmailBranding is a helper method to define mock.On call
+//   - ctx context.Context
+//   - updateEmailBrandingID string
+//   - input graphclient.UpdateEmailBrandingInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateEmailBranding(ctx interface{}, updateEmailBrandingID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEmailBranding_Call {
+	return &MockGraphClient_UpdateEmailBranding_Call{Call: _e.mock.On("UpdateEmailBranding",
+		append([]interface{}{ctx, updateEmailBrandingID, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateEmailBranding_Call) Run(run func(ctx context.Context, updateEmailBrandingID string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEmailBranding_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 graphclient.UpdateEmailBrandingInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateEmailBrandingInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateEmailBranding_Call) Return(updateEmailBranding *graphclient.UpdateEmailBranding, err error) *MockGraphClient_UpdateEmailBranding_Call {
+	_c.Call.Return(updateEmailBranding, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateEmailBranding_Call) RunAndReturn(run func(ctx context.Context, updateEmailBrandingID string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateEmailBranding, error)) *MockGraphClient_UpdateEmailBranding_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateEmailTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateEmailTemplate(ctx context.Context, updateEmailTemplateID string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateEmailTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, updateEmailTemplateID, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, updateEmailTemplateID, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateEmailTemplate")
+	}
+
+	var r0 *graphclient.UpdateEmailTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateEmailTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateEmailTemplate, error)); ok {
+		return returnFunc(ctx, updateEmailTemplateID, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateEmailTemplateInput, ...clientv2.RequestInterceptor) *graphclient.UpdateEmailTemplate); ok {
+		r0 = returnFunc(ctx, updateEmailTemplateID, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateEmailTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateEmailTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateEmailTemplateID, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateEmailTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateEmailTemplate'
+type MockGraphClient_UpdateEmailTemplate_Call struct {
+	*mock.Call
+}
+
+// UpdateEmailTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - updateEmailTemplateID string
+//   - input graphclient.UpdateEmailTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateEmailTemplate(ctx interface{}, updateEmailTemplateID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEmailTemplate_Call {
+	return &MockGraphClient_UpdateEmailTemplate_Call{Call: _e.mock.On("UpdateEmailTemplate",
+		append([]interface{}{ctx, updateEmailTemplateID, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateEmailTemplate_Call) Run(run func(ctx context.Context, updateEmailTemplateID string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEmailTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 graphclient.UpdateEmailTemplateInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateEmailTemplateInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateEmailTemplate_Call) Return(updateEmailTemplate *graphclient.UpdateEmailTemplate, err error) *MockGraphClient_UpdateEmailTemplate_Call {
+	_c.Call.Return(updateEmailTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateEmailTemplate_Call) RunAndReturn(run func(ctx context.Context, updateEmailTemplateID string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateEmailTemplate, error)) *MockGraphClient_UpdateEmailTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -53689,6 +57427,184 @@ func (_c *MockGraphClient_UpdateNarrative_Call) Return(updateNarrative *graphcli
 }
 
 func (_c *MockGraphClient_UpdateNarrative_Call) RunAndReturn(run func(ctx context.Context, updateNarrativeID string, input graphclient.UpdateNarrativeInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateNarrative, error)) *MockGraphClient_UpdateNarrative_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateNotificationPreference provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateNotificationPreference(ctx context.Context, updateNotificationPreferenceID string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateNotificationPreference, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, updateNotificationPreferenceID, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, updateNotificationPreferenceID, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateNotificationPreference")
+	}
+
+	var r0 *graphclient.UpdateNotificationPreference
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateNotificationPreferenceInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateNotificationPreference, error)); ok {
+		return returnFunc(ctx, updateNotificationPreferenceID, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateNotificationPreferenceInput, ...clientv2.RequestInterceptor) *graphclient.UpdateNotificationPreference); ok {
+		r0 = returnFunc(ctx, updateNotificationPreferenceID, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateNotificationPreference)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateNotificationPreferenceInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateNotificationPreferenceID, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateNotificationPreference_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateNotificationPreference'
+type MockGraphClient_UpdateNotificationPreference_Call struct {
+	*mock.Call
+}
+
+// UpdateNotificationPreference is a helper method to define mock.On call
+//   - ctx context.Context
+//   - updateNotificationPreferenceID string
+//   - input graphclient.UpdateNotificationPreferenceInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateNotificationPreference(ctx interface{}, updateNotificationPreferenceID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateNotificationPreference_Call {
+	return &MockGraphClient_UpdateNotificationPreference_Call{Call: _e.mock.On("UpdateNotificationPreference",
+		append([]interface{}{ctx, updateNotificationPreferenceID, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateNotificationPreference_Call) Run(run func(ctx context.Context, updateNotificationPreferenceID string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateNotificationPreference_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 graphclient.UpdateNotificationPreferenceInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateNotificationPreferenceInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateNotificationPreference_Call) Return(updateNotificationPreference *graphclient.UpdateNotificationPreference, err error) *MockGraphClient_UpdateNotificationPreference_Call {
+	_c.Call.Return(updateNotificationPreference, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateNotificationPreference_Call) RunAndReturn(run func(ctx context.Context, updateNotificationPreferenceID string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateNotificationPreference, error)) *MockGraphClient_UpdateNotificationPreference_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateNotificationTemplate provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateNotificationTemplate(ctx context.Context, updateNotificationTemplateID string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateNotificationTemplate, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, updateNotificationTemplateID, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, updateNotificationTemplateID, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateNotificationTemplate")
+	}
+
+	var r0 *graphclient.UpdateNotificationTemplate
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateNotificationTemplateInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateNotificationTemplate, error)); ok {
+		return returnFunc(ctx, updateNotificationTemplateID, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateNotificationTemplateInput, ...clientv2.RequestInterceptor) *graphclient.UpdateNotificationTemplate); ok {
+		r0 = returnFunc(ctx, updateNotificationTemplateID, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateNotificationTemplate)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateNotificationTemplateInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateNotificationTemplateID, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateNotificationTemplate_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateNotificationTemplate'
+type MockGraphClient_UpdateNotificationTemplate_Call struct {
+	*mock.Call
+}
+
+// UpdateNotificationTemplate is a helper method to define mock.On call
+//   - ctx context.Context
+//   - updateNotificationTemplateID string
+//   - input graphclient.UpdateNotificationTemplateInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateNotificationTemplate(ctx interface{}, updateNotificationTemplateID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateNotificationTemplate_Call {
+	return &MockGraphClient_UpdateNotificationTemplate_Call{Call: _e.mock.On("UpdateNotificationTemplate",
+		append([]interface{}{ctx, updateNotificationTemplateID, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateNotificationTemplate_Call) Run(run func(ctx context.Context, updateNotificationTemplateID string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateNotificationTemplate_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 graphclient.UpdateNotificationTemplateInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateNotificationTemplateInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateNotificationTemplate_Call) Return(updateNotificationTemplate *graphclient.UpdateNotificationTemplate, err error) *MockGraphClient_UpdateNotificationTemplate_Call {
+	_c.Call.Return(updateNotificationTemplate, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateNotificationTemplate_Call) RunAndReturn(run func(ctx context.Context, updateNotificationTemplateID string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateNotificationTemplate, error)) *MockGraphClient_UpdateNotificationTemplate_Call {
 	_c.Call.Return(run)
 	return _c
 }
