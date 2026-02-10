@@ -131,7 +131,7 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
-	github.com/theopenlane/corejobs v0.1.15 // indirect
+	github.com/theopenlane/corejobs v0.1.16-0.20260210225634-3f503e3f1894 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.4 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect

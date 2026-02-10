@@ -6,7 +6,7 @@ require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v1.0.8
-	github.com/theopenlane/corejobs v0.1.15
+	github.com/theopenlane/corejobs v0.1.16-0.20260210225634-3f503e3f1894
 	github.com/theopenlane/riverboat v0.9.4
 )
 
