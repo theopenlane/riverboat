@@ -6,8 +6,8 @@ require (
 	github.com/riverqueue/river v0.30.2
 	github.com/rs/zerolog v1.34.0
 	github.com/theopenlane/core/common v1.0.8
-	github.com/theopenlane/corejobs v0.1.14
-	github.com/theopenlane/riverboat v0.9.3
+	github.com/theopenlane/corejobs v0.1.16
+	github.com/theopenlane/riverboat v0.9.4
 )
 
 require (
@@ -36,9 +36,8 @@ require (
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/clipperhouse/stringish v0.1.1 // indirect
-	github.com/clipperhouse/uax29/v2 v2.5.0 // indirect
-	github.com/cloudflare/cloudflare-go/v6 v6.6.0 // indirect
+	github.com/clipperhouse/uax29/v2 v2.6.0 // indirect
+	github.com/cloudflare/cloudflare-go/v6 v6.7.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
@@ -60,6 +59,7 @@ require (
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/websocket v1.5.4-0.20250319132907-e064f32e3674 // indirect
+	github.com/gqlgo/gqlgenc v0.33.1 // indirect
 	github.com/hhrutter/lzw v1.0.0 // indirect
 	github.com/hhrutter/pkcs7 v0.2.0 // indirect
 	github.com/hhrutter/tiff v1.0.2 // indirect
@@ -106,9 +106,9 @@ require (
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.4 // indirect
-	github.com/theopenlane/go-client v0.8.2 // indirect
+	github.com/theopenlane/go-client v0.8.4 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
-	github.com/theopenlane/iam v0.23.8 // indirect
+	github.com/theopenlane/iam v0.24.0 // indirect
 	github.com/theopenlane/newman v0.2.1 // indirect
 	github.com/theopenlane/utils v0.6.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
@@ -122,7 +122,7 @@ require (
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
-	github.com/zitadel/oidc/v3 v3.45.3 // indirect
+	github.com/zitadel/oidc/v3 v3.45.4 // indirect
 	github.com/zitadel/schema v1.3.2 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/otel v1.40.0 // indirect
@@ -130,13 +130,13 @@ require (
 	go.opentelemetry.io/otel/trace v1.40.0 // indirect
 	go.uber.org/goleak v1.3.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.47.0 // indirect
-	golang.org/x/image v0.35.0 // indirect
-	golang.org/x/net v0.49.0 // indirect
+	golang.org/x/crypto v0.48.0 // indirect
+	golang.org/x/image v0.36.0 // indirect
+	golang.org/x/net v0.50.0 // indirect
 	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
-	golang.org/x/sys v0.40.0 // indirect
-	golang.org/x/text v0.33.0 // indirect
+	golang.org/x/sys v0.41.0 // indirect
+	golang.org/x/text v0.34.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
