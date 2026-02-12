@@ -39,7 +39,7 @@ require (
 	github.com/theopenlane/riverboat/trustcenter v0.1.2
 	github.com/theopenlane/utils v0.6.2
 	go.opentelemetry.io/otel v1.40.0
-	go.opentelemetry.io/otel/exporters/prometheus v0.61.0
+	go.opentelemetry.io/otel/exporters/prometheus v0.62.0
 	go.opentelemetry.io/otel/sdk/metric v1.40.0
 )
 
