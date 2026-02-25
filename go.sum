@@ -1,19 +1,3 @@
-baliance.com/gooxml v1.0.1 h1:fG5lmxmjEVFfbKQ2NuyCuU3hMuuOb5avh5a38SZNO1o=
-baliance.com/gooxml v1.0.1/go.mod h1:+gpUgmkAF4zCtwOFPNRLDAvpVRWoKs5EeQTSv/HYFnw=
-github.com/99designs/gqlgen v0.17.86 h1:C8N3UTa5heXX6twl+b0AJyGkTwYL6dNmFrgZNLRcU6w=
-github.com/99designs/gqlgen v0.17.86/go.mod h1:KTrPl+vHA1IUzNlh4EYkl7+tcErL3MgKnhHrBcV74Fw=
-github.com/Achiket123/html2docx v0.1.1 h1:QgmOpyMrNolPHRzxoEi7IyYM8w9Krm5Y4whk4uO3jt0=
-github.com/Achiket123/html2docx v0.1.1/go.mod h1:uPSyBD8pW6kzLhIyDJevKaVVe+Q2mg9u2jlrAdxW5g0=
-github.com/Achiket123/html2docx v0.1.2 h1:BxvcoR2jlLHbMgyUkQI/h0JzB/vkWnBdPQfaa3Y5uPY=
-github.com/Achiket123/html2docx v0.1.2/go.mod h1:uPSyBD8pW6kzLhIyDJevKaVVe+Q2mg9u2jlrAdxW5g0=
-github.com/99designs/gqlgen v0.17.89 h1:KzEcxPiMgQoMw3m/E85atUEHyZyt0PbAflMia5Kw8z8=
-github.com/99designs/gqlgen v0.17.89/go.mod h1:GFqruTVGB7ZTdrf1uzOagpXbY7DrEt1pIxnTdhIbWvQ=
-baliance.com/gooxml v1.0.1 h1:fG5lmxmjEVFfbKQ2NuyCuU3hMuuOb5avh5a38SZNO1o=
-baliance.com/gooxml v1.0.1/go.mod h1:+gpUgmkAF4zCtwOFPNRLDAvpVRWoKs5EeQTSv/HYFnw=
-github.com/Achiket123/html2docx v0.1.1 h1:QgmOpyMrNolPHRzxoEi7IyYM8w9Krm5Y4whk4uO3jt0=
-github.com/Achiket123/html2docx v0.1.1/go.mod h1:uPSyBD8pW6kzLhIyDJevKaVVe+Q2mg9u2jlrAdxW5g0=
-github.com/Achiket123/html2docx v0.1.2 h1:BxvcoR2jlLHbMgyUkQI/h0JzB/vkWnBdPQfaa3Y5uPY=
-github.com/Achiket123/html2docx v0.1.2/go.mod h1:uPSyBD8pW6kzLhIyDJevKaVVe+Q2mg9u2jlrAdxW5g0=
 github.com/Yamashou/gqlgenc v0.33.0 h1:0fxTnNE8/JVmFpfo7reA5pEgOcr7VjNc+/nEpVhNjfc=
 github.com/Yamashou/gqlgenc v0.33.0/go.mod h1:MZGXx/nALyxcehcFeLGmYiNsJ+hQTOGJzNYCGNX4rL0=
 github.com/agnivade/levenshtein v1.2.1 h1:EHBY3UOn1gwdy/VbFwgo4cxecRznFk7fKWN1KOX7eoM=
@@ -294,12 +278,27 @@ github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu7U=
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
+github.com/theopenlane/core v1.19.0 h1:SMNN+rK1x1jsGfiotlIpF2IrE46VsSOmyBs8GoNunMs=
+github.com/theopenlane/core v1.19.0/go.mod h1:j5/VpjzRDLwIB1xhzokAuFrPjLwaUs/oaFbS5TR8mWw=
+github.com/theopenlane/core/common v1.0.21 h1:KWdGMCQT0WRdp4V/kvTUTnWu3cgE7ep9RFQeHIsK5AE=
+github.com/theopenlane/core/common v1.0.21/go.mod h1:waXdCoEZt/jaSmHa1e/U/of1AeauVg1WcaNg/usWAlg=
+github.com/theopenlane/corejobs v0.1.24 h1:UjP1v7lmG/MNjN9KxdziQ7sTVtrf3T3YkZJtEGWx5dM=
+github.com/theopenlane/corejobs v0.1.24/go.mod h1:VaoZck5Aq1XtWzUYfswTuXdaHOH4jRE3pL96E9qFq28=
+=======
 github.com/theopenlane/core v1.16.4 h1:3zgr6YA9BO5o+8jaBWYorECWKZQ/Ek7VfeV82cw/C3Y=
 github.com/theopenlane/core v1.16.4/go.mod h1:2Ta7YUFvubxV+Jq/bNOGaeMR/p1BdQLX+X0b44ttj1g=
 github.com/theopenlane/core/common v1.0.17 h1:kdrlGHfEGpx4PRhUq8G4xiIW+U0FmmLXD5XjF6wEozw=
 github.com/theopenlane/core/common v1.0.17/go.mod h1:+OOhH2NYhLgngkFgkwJZdFTgbB6e+X+pXVXBG8hrZ/M=
 github.com/theopenlane/corejobs v0.1.23 h1:c9xLv9FGssp0Fc27wSEOfuyoWlOtarXoM5K4CaVnSM4=
 github.com/theopenlane/corejobs v0.1.23/go.mod h1:MlwDAfiZfnMyeCxz/0SyeHLrr5vHggLaO5cjJ6vGIMc=
+<<<<<<< HEAD
+=======
+=======
+github.com/theopenlane/core/common v1.0.8 h1:44HADJaErn49UU/yljyOiBmL3qkxCUje+I8wCbEpA50=
+github.com/theopenlane/core/common v1.0.8/go.mod h1:Lz54GwJpEKvtT8mcrjv80xPP4XBDRocpFUbkS9Vckzs=
+>>>>>>> 2ac86bc (Add: job to export in multiple formats)
+>>>>>>> 80e515e (Add: job to export in multiple formats)
+>>>>>>> 8ae8745 (Add: job to export in multiple formats)
 github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
 github.com/theopenlane/dbx v0.1.3/go.mod h1:/bcz8oKFK3qrakLw0yHCAFY6fGnTOC3CntM0jMj3GDk=
 github.com/theopenlane/echox v0.3.0 h1:uwOKEw+r1utGQoOR6dZQqAVuY5j8TcasqnTwO5+rMsA=
