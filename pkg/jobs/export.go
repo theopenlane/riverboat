@@ -162,7 +162,17 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 	// but we need it for DOCX, PDF, and MD exports.
 	// So just for csv we are not adding it
 	if export.Export.Format != enums.ExportFormatCsv {
+<<<<<<< HEAD
 		hasDetails := slices.Contains(fields, "details")
+=======
+		hasDetails := false
+		for _, f := range fields {
+			if f == "details" {
+				hasDetails = true
+				break
+			}
+		}
+>>>>>>> ad7cf6d (fix: merge conflicts)
 		if !hasDetails {
 			fields = append(fields, "details")
 		}
@@ -267,7 +277,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		Status: &enums.ExportStatusReady,
 	}
 
-	_, err = w.olClient.UpdateExport(ctx, job.Args.ExportID, updateInput, []*graphql.Upload{upload}, goclient.WithImpersonationInterceptor(job.Args.UserID, job.Args.OrganizationID))
+	_, err = w.olClient.UpdateExport(ctx, job.Args.ExportID, updateInput, []*graphql.Upload{upload})
 	if err != nil {
 		log.Error().Err(err).Msg("failed to update export with file")
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
