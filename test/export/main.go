@@ -7,8 +7,8 @@ import (
 	"flag"
 
 	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/core/common/jobspec"
 
-	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/test/common"
 )
 
@@ -39,7 +39,7 @@ func main() {
 
 	flag.Parse()
 
-	_, err := client.Insert(context.Background(), jobs.ExportContentArgs{
+	_, err := client.Insert(context.Background(), jobspec.ExportContentArgs{
 		ExportID: *contentID,
 	}, nil)
 	if err != nil {

@@ -12331,12 +12331,12 @@ func (_c *MockGraphClient_CreateEmailTemplate_Call) RunAndReturn(run func(ctx co
 }
 
 // CreateEntity provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error) {
+func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, input, interceptors)
+		tmpRet = _mock.Called(ctx, input, entityTypeName, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, input)
+		tmpRet = _mock.Called(ctx, input, entityTypeName)
 	}
 	ret := tmpRet
 
@@ -12346,18 +12346,18 @@ func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclien
 
 	var r0 *graphclient.CreateEntity
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)); ok {
-		return returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, *string, ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)); ok {
+		return returnFunc(ctx, input, entityTypeName, interceptors...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, ...clientv2.RequestInterceptor) *graphclient.CreateEntity); ok {
-		r0 = returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, *string, ...clientv2.RequestInterceptor) *graphclient.CreateEntity); ok {
+		r0 = returnFunc(ctx, input, entityTypeName, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.CreateEntity)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateEntityInput, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateEntityInput, *string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, entityTypeName, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -12372,13 +12372,14 @@ type MockGraphClient_CreateEntity_Call struct {
 // CreateEntity is a helper method to define mock.On call
 //   - ctx context.Context
 //   - input graphclient.CreateEntityInput
+//   - entityTypeName *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEntity(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEntity_Call {
+func (_e *MockGraphClient_Expecter) CreateEntity(ctx interface{}, input interface{}, entityTypeName interface{}, interceptors ...interface{}) *MockGraphClient_CreateEntity_Call {
 	return &MockGraphClient_CreateEntity_Call{Call: _e.mock.On("CreateEntity",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]interface{}{ctx, input, entityTypeName}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEntity_Call {
+func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEntity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -12388,16 +12389,21 @@ func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, i
 		if args[1] != nil {
 			arg1 = args[1].(graphclient.CreateEntityInput)
 		}
-		var arg2 []clientv2.RequestInterceptor
-		var variadicArgs []clientv2.RequestInterceptor
-		if len(args) > 2 {
-			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		var arg2 *string
+		if args[2] != nil {
+			arg2 = args[2].(*string)
 		}
-		arg2 = variadicArgs
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
 		run(
 			arg0,
 			arg1,
-			arg2...,
+			arg2,
+			arg3...,
 		)
 	})
 	return _c
@@ -12408,7 +12414,7 @@ func (_c *MockGraphClient_CreateEntity_Call) Return(createEntity *graphclient.Cr
 	return _c
 }
 
-func (_c *MockGraphClient_CreateEntity_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)) *MockGraphClient_CreateEntity_Call {
+func (_c *MockGraphClient_CreateEntity_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)) *MockGraphClient_CreateEntity_Call {
 	_c.Call.Return(run)
 	return _c
 }

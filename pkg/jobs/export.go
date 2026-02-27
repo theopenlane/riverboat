@@ -50,35 +50,20 @@ var (
 	ErrMissingEndCursor = errors.New("missing endCursor in pageInfo")
 )
 
-// ExportContentArgs for the worker to process and update the record for the updated content
-type ExportContentArgs struct {
-	// ID of the export
-	ExportID string `json:"export_id,omitempty"`
-	// UserID of the user who requested the export (for system admin context)
-	UserID string `json:"user_id,omitempty"`
-	// OrganizationID of the organization context for the export
-	OrganizationID string `json:"organization_id,omitempty"`
-}
-
 // ExportWorkerConfig configuration for the export content worker
 type ExportWorkerConfig struct {
 	// embed OpenlaneConfig to reuse validation and client creation logic
 	OpenlaneConfig `koanf:",squash" jsonschema:"description=the openlane API configuration for exporting"`
 
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the export worker is enabled"`
-}
 
-// Kind satisfies the river.Job interface
-func (ExportContentArgs) Kind() string { return "export_content" }
-
-// InsertOpts provides the default configuration when processing this job.
-func (ExportContentArgs) InsertOpts() river.InsertOpts {
-	return river.InsertOpts{MaxAttempts: 3, Queue: jobspec.QueueDefault} //nolint:mnd
+	// MaxZipSize is the maximum allowed size in bytes for a zip archive export
+	MaxZipSize int64 `koanf:"maxzipsize" json:"maxZipSize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"52428800"`
 }
 
 // ExportContentWorker exports the content into csv and makes it downloadable
 type ExportContentWorker struct {
-	river.WorkerDefaults[ExportContentArgs]
+	river.WorkerDefaults[jobspec.ExportContentArgs]
 
 	Config ExportWorkerConfig `koanf:"config" json:"config" jsonschema:"description=the configuration for exporting"`
 
@@ -101,18 +86,18 @@ func (w *ExportContentWorker) WithRequester(requester *httpsling.Requester) *Exp
 
 // Work satisfies the river.Worker interface for the export content worker
 // it creates a csv, uploads it and associates it with the export
-func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[ExportContentArgs]) error {
+func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.ExportContentArgs]) error {
 	if job.Args.ExportID == "" {
-		return newMissingRequiredArg("export_id", ExportContentArgs{}.Kind())
+		return newMissingRequiredArg("export_id", jobspec.ExportContentArgs{}.Kind())
 	}
 
 	// Exports must be done on behalf of a user in an organization
 	if job.Args.OrganizationID == "" {
-		return newMissingRequiredArg("organization_id", ExportContentArgs{}.Kind())
+		return newMissingRequiredArg("organization_id", jobspec.ExportContentArgs{}.Kind())
 	}
 
 	if job.Args.UserID == "" {
-		return newMissingRequiredArg("user_id", ExportContentArgs{}.Kind())
+		return newMissingRequiredArg("user_id", jobspec.ExportContentArgs{}.Kind())
 	}
 
 	if w.olClient == nil {
@@ -142,6 +127,10 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[ExportCon
 	if err != nil {
 		log.Error().Err(err).Str("export_id", job.Args.ExportID).Msg("failed to get export")
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+	}
+
+	if job.Args.Mode == enums.ExportModeFlat || job.Args.Mode == enums.ExportModeFolder {
+		return w.exportEvidenceFiles(ctx, job, export)
 	}
 
 	var filterMap map[string]any
@@ -372,7 +361,7 @@ func extractErrors(errs []any) error {
 }
 
 // executeGraphQLQuery performs a GraphQL query against the Openlane API
-func (w *ExportContentWorker) executeGraphQLQuery(ctx context.Context, query string, variables map[string]any, jobArgs ExportContentArgs) (map[string]any, error) {
+func (w *ExportContentWorker) executeGraphQLQuery(ctx context.Context, query string, variables map[string]any, jobArgs jobspec.ExportContentArgs) (map[string]any, error) {
 	body := map[string]any{"query": query}
 	if len(variables) > 0 {
 		body["variables"] = variables
@@ -530,7 +519,7 @@ func (w *ExportContentWorker) updateExportStatus(ctx context.Context, exportID s
 	return nil
 }
 
-func (w *ExportContentWorker) fetchPage(ctx context.Context, query, rootQuery string, after *string, where map[string]any, jobArgs ExportContentArgs) ([]map[string]any, bool, string, error) {
+func (w *ExportContentWorker) fetchPage(ctx context.Context, query, rootQuery string, after *string, where map[string]any, jobArgs jobspec.ExportContentArgs) ([]map[string]any, bool, string, error) {
 	vars := map[string]any{"first": defaultPageSize}
 	if after != nil {
 		vars["after"] = *after

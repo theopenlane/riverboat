@@ -15,6 +15,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/theopenlane/core/common/enums"
+	"github.com/theopenlane/core/common/jobspec"
 	"github.com/theopenlane/go-client/graphclient"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
@@ -60,7 +61,7 @@ func TestExportContentWorker(t *testing.T) {
 
 	testCases := []struct {
 		name                     string
-		input                    jobs.ExportContentArgs
+		input                    jobspec.ExportContentArgs
 		getExportByIDResponse    *graphclient.GetExportByID
 		getExportByIDError       error
 		graphQLResponses         map[string]interface{}
@@ -75,7 +76,7 @@ func TestExportContentWorker(t *testing.T) {
 	}{
 		{
 			name: "happy path - export controls",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "user123",
 				OrganizationID: ownerID,
@@ -119,7 +120,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "missing export ID",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       "",
 				UserID:         "user123",
 				OrganizationID: ownerID,
@@ -129,7 +130,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "missing organization ID",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "user123",
 				OrganizationID: "",
@@ -139,7 +140,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "missing user ID",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "",
 				OrganizationID: ownerID,
@@ -149,7 +150,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "error getting export",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "user123",
 				OrganizationID: ownerID,
@@ -161,7 +162,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "no data found for export",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "user123",
 				OrganizationID: ownerID,
@@ -189,7 +190,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "error updating export with file",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "user123",
 				OrganizationID: ownerID,
@@ -227,7 +228,7 @@ func TestExportContentWorker(t *testing.T) {
 		},
 		{
 			name: "export evidence type",
-			input: jobs.ExportContentArgs{
+			input: jobspec.ExportContentArgs{
 				ExportID:       exportID,
 				UserID:         "user123",
 				OrganizationID: ownerID,
@@ -329,7 +330,7 @@ func TestExportContentWorker(t *testing.T) {
 			worker.WithOpenlaneClient(olMock)
 
 			ctx := context.Background()
-			err := worker.Work(ctx, &river.Job[jobs.ExportContentArgs]{Args: tc.input})
+			err := worker.Work(ctx, &river.Job[jobspec.ExportContentArgs]{Args: tc.input})
 
 			if tc.expectedError != "" {
 				require.Error(t, err)
@@ -393,8 +394,8 @@ func TestExportContentWorker_GraphQLErrorResponse(t *testing.T) {
 	worker.WithOpenlaneClient(olMock)
 
 	ctx := context.Background()
-	err := worker.Work(ctx, &river.Job[jobs.ExportContentArgs]{
-		Args: jobs.ExportContentArgs{ExportID: exportID, UserID: "user123", OrganizationID: ownerID},
+	err := worker.Work(ctx, &river.Job[jobspec.ExportContentArgs]{
+		Args: jobspec.ExportContentArgs{ExportID: exportID, UserID: "user123", OrganizationID: ownerID},
 	})
 
 	require.NoError(t, err)
@@ -414,7 +415,7 @@ func TestExportContentWorker_WithOpenlaneClient(t *testing.T) {
 func TestExportContentArgs_Kind(t *testing.T) {
 	t.Parallel()
 
-	args := jobs.ExportContentArgs{}
+	args := jobspec.ExportContentArgs{}
 	require.Equal(t, "export_content", args.Kind())
 }
 
