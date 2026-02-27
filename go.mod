@@ -5,7 +5,7 @@ go 1.25.7
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
 require (
-	github.com/99designs/gqlgen v0.17.86
+	github.com/99designs/gqlgen v0.17.87
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.2.5
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
@@ -30,12 +30,12 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v1.0.8
+	github.com/theopenlane/core/common v1.0.11
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/go-client v0.8.4
+	github.com/theopenlane/go-client v0.8.5
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.24.0
-	github.com/theopenlane/newman v0.2.1
+	github.com/theopenlane/newman v0.2.2
 	github.com/theopenlane/riverboat/trustcenter v0.1.2
 	github.com/theopenlane/utils v0.6.2
 	go.opentelemetry.io/otel v1.40.0
