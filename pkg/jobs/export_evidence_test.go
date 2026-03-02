@@ -97,7 +97,6 @@ func fileDownloadServer(t *testing.T, files map[string][]byte) *httptest.Server 
 	}))
 }
 
-// extractZipContents reads a zip from bytes and returns a map of path -> content.
 func extractZipContents(t *testing.T, data []byte) map[string]string {
 	t.Helper()
 
@@ -115,7 +114,14 @@ func extractZipContents(t *testing.T, data []byte) map[string]string {
 
 		rc.Close() //nolint:errcheck
 
-		result[f.Name] = buf.String()
+		path := f.Name
+		if idx := strings.Index(path, "/"); idx >= 0 {
+			path = path[idx+1:]
+		}
+
+		if path != "" {
+			result[path] = buf.String()
+		}
 	}
 
 	return result
@@ -974,4 +980,3 @@ func TestExportEvidenceFiles_MissingRequiredArgs(t *testing.T) {
 		})
 	}
 }
-
