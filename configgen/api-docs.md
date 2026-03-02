@@ -358,6 +358,7 @@ ExportWorkerConfig configuration for the export content worker
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
 |**enabled**|`boolean`|||
+|**maxzipsize**|`integer`|the maximum allowed size in bytes for a zip archive export<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeleteexportcontentworker"></a>

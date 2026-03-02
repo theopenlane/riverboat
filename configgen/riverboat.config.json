@@ -524,6 +524,10 @@
         },
         "enabled": {
           "type": "boolean"
+        },
+        "maxzipsize": {
+          "type": "integer",
+          "description": "the maximum allowed size in bytes for a zip archive export"
         }
       },
       "additionalProperties": false,

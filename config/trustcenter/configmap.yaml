@@ -27,6 +27,7 @@ data:
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportcontentworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_MAXZIPSIZE: {{ .Values.riverboat.river.workers.exportcontentworker.config.maxzipsize | default "52428800" }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.enabled }}
