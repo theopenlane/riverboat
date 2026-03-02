@@ -145,7 +145,7 @@ river:
         exportcontentworker:
             config:
                 enabled: false
-                maxZipSize: 52428800
+                maxzipsize: 52428800
                 openlaneapihost: ""
                 openlaneapitoken: ""
         openlaneconfig:

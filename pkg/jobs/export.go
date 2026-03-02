@@ -58,7 +58,7 @@ type ExportWorkerConfig struct {
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the export worker is enabled"`
 
 	// MaxZipSize is the maximum allowed size in bytes for a zip archive export
-	MaxZipSize int64 `koanf:"maxzipsize" json:"maxZipSize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"52428800"`
+	MaxZipSize int64 `koanf:"maxzipsize" json:"maxzipsize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"52428800"`
 }
 
 // ExportContentWorker exports the content into csv and makes it downloadable
