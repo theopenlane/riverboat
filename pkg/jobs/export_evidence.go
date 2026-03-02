@@ -1,6 +1,7 @@
 package jobs
 
 import (
+	"archive/zip"
 	"bytes"
 	"context"
 	"encoding/json"
@@ -10,8 +11,6 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-
-	"archive/zip"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/gqlgo/gqlgenc/clientv2"
@@ -50,8 +49,8 @@ type evidenceMetadata struct {
 }
 
 func (w *ExportContentWorker) exportEvidenceFiles(ctx context.Context,
-	job *river.Job[jobspec.ExportContentArgs], export *graphclient.GetExportByID) error {
-
+	job *river.Job[jobspec.ExportContentArgs], export *graphclient.GetExportByID,
+) error {
 	where, err := parseExportFilters(export)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to parse export filters")
@@ -172,8 +171,8 @@ func parseExportFilters(export *graphclient.GetExportByID) (*graphclient.Evidenc
 }
 
 func (w *ExportContentWorker) fetchEvidences(ctx context.Context, where *graphclient.EvidenceWhereInput,
-	impersonation clientv2.RequestInterceptor) ([]*graphclient.GetEvidences_Evidences_Edges_Node, error) {
-
+	impersonation clientv2.RequestInterceptor,
+) ([]*graphclient.GetEvidences_Evidences_Edges_Node, error) {
 	var (
 		allEvidences []*graphclient.GetEvidences_Evidences_Edges_Node
 		after        *string
@@ -265,8 +264,8 @@ func foldersForEvidence(ev *graphclient.GetEvidences_Evidences_Edges_Node, mode 
 }
 
 func buildFileEntries(evidences []*graphclient.GetEvidences_Evidences_Edges_Node, fileDetails map[string]*graphclient.GetFileByID_File,
-	mode enums.ExportMode, retainOriginalFileName bool) ([]evidenceFile, map[string][]evidenceMetadata) {
-
+	mode enums.ExportMode, retainOriginalFileName bool,
+) ([]evidenceFile, map[string][]evidenceMetadata) {
 	usedNames := make(map[string]map[string]int)
 
 	// we need metadata.txt for folder exports
@@ -356,8 +355,8 @@ func buildFileEntries(evidences []*graphclient.GetEvidences_Evidences_Edges_Node
 
 func (w *ExportContentWorker) createZipArchive(
 	ctx context.Context, rootFolder string, files []evidenceFile, folders map[string][]evidenceMetadata,
-	controls map[string]controlInfo, mode enums.ExportMode) ([]byte, error) {
-
+	controls map[string]controlInfo, mode enums.ExportMode,
+) ([]byte, error) {
 	var buf bytes.Buffer
 
 	zw := zip.NewWriter(&buf)
@@ -366,7 +365,6 @@ func (w *ExportContentWorker) createZipArchive(
 
 	if mode == enums.ExportModeFolder {
 		for folder, evidences := range folders {
-
 			detail, found := lo.Find(lo.Values(controls), func(cd controlInfo) bool {
 				return sanitizeRefCode(cd.RefCode) == folder
 			})
@@ -454,7 +452,7 @@ func downloadFile(ctx context.Context, url string) ([]byte, error) {
 		return nil, fmt.Errorf("could not create download request: %w", err)
 	}
 
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := http.DefaultClient.Do(req) //nolint:gosec // URL comes from presigned file URLs
 	if err != nil {
 		return nil, fmt.Errorf("could not download file: %w", err)
 	}
@@ -499,7 +497,7 @@ func createMetadataContent(refCode string, control controlInfo, evidences []evid
 	return []byte(b.String())
 }
 
-// we want to have files like file-001, file-002 e.g
+//nolint:mnd // we want to have files like file-001, file-002 e.g
 func padFileNameWidth(count int) int {
 	switch {
 	case count <= 99:
