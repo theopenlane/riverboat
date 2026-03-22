@@ -35,7 +35,7 @@ require (
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/go-client v0.8.5
 	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.25.0
+	github.com/theopenlane/iam v0.27.5
 	github.com/theopenlane/newman v0.2.2
 	github.com/theopenlane/riverboat/trustcenter v0.1.2
 	github.com/theopenlane/utils v0.7.0
