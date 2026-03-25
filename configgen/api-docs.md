@@ -81,6 +81,9 @@
                         }
                     }
                 }
+            },
+            "createpreviewdomainacmeworker": {
+                "config": {}
             }
         },
         "metrics": {}
@@ -178,6 +181,9 @@ Config is the configuration for the river server
                     }
                 }
             }
+        },
+        "createpreviewdomainacmeworker": {
+            "config": {}
         }
     },
     "metrics": {}
@@ -455,6 +461,7 @@ SlackConfig configures the Slack worker.
 |[**validatepreviewdomainworker**](#rivertrustcenterworkersvalidatepreviewdomainworker)|`object`|||
 |[**cleartrustcentercacheworker**](#rivertrustcenterworkerscleartrustcentercacheworker)|`object`|||
 |[**attestndarequestworker**](#rivertrustcenterworkersattestndarequestworker)|`object`|||
+|[**createpreviewdomainacmeworker**](#rivertrustcenterworkerscreatepreviewdomainacmeworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -507,6 +514,9 @@ SlackConfig configures the Slack worker.
                 }
             }
         }
+    },
+    "createpreviewdomainacmeworker": {
+        "config": {}
     }
 }
 ```
@@ -1036,6 +1046,39 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**verifysubscriber**|`string`|||
 |**verifybilling**|`string`|||
 |**questionnaire**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkerscreatepreviewdomainacmeworker"></a>
+#### river\.trustcenterworkers\.createpreviewdomainacmeworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkerscreatepreviewdomainacmeworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkerscreatepreviewdomainacmeworkerconfig"></a>
+##### river\.trustcenterworkers\.createpreviewdomainacmeworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**enabled**|`boolean`||no|
+|**cloudflareapikey**|`string`||no|
+|**maxsnoozes**|`integer`||yes|
+|**snoozeduration**|`integer`||yes|
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>

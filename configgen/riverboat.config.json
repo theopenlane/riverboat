@@ -79,6 +79,44 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.CreatePreviewDomainAcmeConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        },
+        "maxsnoozes": {
+          "type": "integer"
+        },
+        "snoozeduration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "maxsnoozes",
+        "snoozeduration"
+      ]
+    },
+    "corejobs.CreatePreviewDomainAcmeWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CreatePreviewDomainAcmeConfig",
+          "description": "the configuration for preview domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CreatePreviewDomainWorker": {
       "properties": {
         "config": {
@@ -727,6 +765,9 @@
         },
         "attestndarequestworker": {
           "$ref": "#/$defs/corejobs.AttestNDARequestWorker"
+        },
+        "createpreviewdomainacmeworker": {
+          "$ref": "#/$defs/corejobs.CreatePreviewDomainAcmeWorker"
         }
       },
       "additionalProperties": false,

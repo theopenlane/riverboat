@@ -61,6 +61,14 @@ river:
                 pirschclientsecret: ""
                 pirschteamid: ""
                 pirschthemeid: ""
+        createpreviewdomainacmeworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                maxsnoozes: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                snoozeduration: 0
         createpreviewdomainworker:
             config:
                 cloudflareapikey: ""

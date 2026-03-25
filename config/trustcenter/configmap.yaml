@@ -119,6 +119,12 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYBILLING: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.verifybilling }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_QUESTIONNAIRE: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.questionnaire }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_TEMPLATESPATH: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.templatespath }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.maxsnoozes }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.snoozeduration }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}

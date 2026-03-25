@@ -48,5 +48,7 @@ type Workers struct {
 
 	// AttestNDARequestWorker configuration for attesting NDA requests
 	AttestNDARequestWorker corejobs.AttestNDARequestWorker `koanf:"attestndarequestworker" json:"attestndarequestworker"`
+
+	CreatePreviewDomainAcmeWorker corejobs.CreatePreviewDomainAcmeWorker `koanf:"createpreviewdomainacmeworker" json:"createpreviewdomainacmeworker"`
 	// add more trust center specific workers here
 }
