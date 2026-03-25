@@ -132,7 +132,7 @@ steps:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=""
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
+          - equinixmetal-buildkite/trivy#v1.22.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
               security-checks: config,secret,vuln
@@ -176,7 +176,7 @@ steps:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
+          - equinixmetal-buildkite/trivy#v1.22.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
               security-checks: config,secret,vuln
@@ -216,7 +216,7 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
+          - equinixmetal-buildkite/trivy#v1.22.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
               security-checks: config,secret,vuln
@@ -258,7 +258,7 @@ steps:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
+          - equinixmetal-buildkite/trivy#v1.22.0:
               severity: CRITICAL,HIGH
               ignore-unfixed: true
               security-checks: config,secret,vuln
