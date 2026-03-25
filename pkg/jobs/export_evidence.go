@@ -473,25 +473,25 @@ func downloadFile(ctx context.Context, url string) ([]byte, error) {
 func createMetadataContent(refCode string, control controlInfo, evidences []evidenceMetadata) []byte {
 	var b strings.Builder
 
-	b.WriteString(fmt.Sprintf("RefCode: %s\n", refCode))
+	fmt.Fprintf(&b, "RefCode: %s\n", refCode)
 
 	if control.ReferenceFramework != "" {
-		b.WriteString(fmt.Sprintf("ReferenceFramework: %s\n", control.ReferenceFramework))
+		fmt.Fprintf(&b, "ReferenceFramework: %s\n", control.ReferenceFramework)
 	}
 
 	if control.ReferenceID != "" {
-		b.WriteString(fmt.Sprintf("ReferenceID: %s\n", control.ReferenceID))
+		fmt.Fprintf(&b, "ReferenceID: %s\n", control.ReferenceID)
 	}
 
 	if control.AuditorReferenceID != "" {
-		b.WriteString(fmt.Sprintf("AuditorReferenceID: %s\n", control.AuditorReferenceID))
+		fmt.Fprintf(&b, "AuditorReferenceID: %s\n", control.AuditorReferenceID)
 	}
 
 	b.WriteString("\nEvidence:\n")
 
 	lo.ForEach(evidences, func(ev evidenceMetadata, _ int) {
-		b.WriteString(fmt.Sprintf("  - Name: %s\n", ev.Name))
-		b.WriteString(fmt.Sprintf("    Files: %s\n", strings.Join(ev.Files, ", ")))
+		fmt.Fprintf(&b, "  - Name: %s\n", ev.Name)
+		fmt.Fprintf(&b, "    Files: %s\n", strings.Join(ev.Files, ", "))
 	})
 
 	return []byte(b.String())
