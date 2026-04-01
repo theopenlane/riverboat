@@ -35,16 +35,6 @@ river:
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
-        cleartrustcentercacheworker:
-            config:
-                enabled: false
-                objectstorage:
-                    bucket: ""
-                    credentials:
-                        accesskeyid: ""
-                        accountid: ""
-                        secretaccesskey: ""
-                    endpoint: ""
         createcustomdomainworker:
             config:
                 cloudflareapikey: ""
