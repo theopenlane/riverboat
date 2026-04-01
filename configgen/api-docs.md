@@ -66,13 +66,6 @@
             "validatepreviewdomainworker": {
                 "config": {}
             },
-            "cleartrustcentercacheworker": {
-                "config": {
-                    "objectstorage": {
-                        "credentials": {}
-                    }
-                }
-            },
             "attestndarequestworker": {
                 "config": {
                     "email": {
@@ -165,13 +158,6 @@ Config is the configuration for the river server
         },
         "validatepreviewdomainworker": {
             "config": {}
-        },
-        "cleartrustcentercacheworker": {
-            "config": {
-                "objectstorage": {
-                    "credentials": {}
-                }
-            }
         },
         "attestndarequestworker": {
             "config": {
@@ -459,7 +445,6 @@ SlackConfig configures the Slack worker.
 |[**createpreviewdomainworker**](#rivertrustcenterworkerscreatepreviewdomainworker)|`object`|||
 |[**deletepreviewdomainworker**](#rivertrustcenterworkersdeletepreviewdomainworker)|`object`|||
 |[**validatepreviewdomainworker**](#rivertrustcenterworkersvalidatepreviewdomainworker)|`object`|||
-|[**cleartrustcentercacheworker**](#rivertrustcenterworkerscleartrustcentercacheworker)|`object`|||
 |[**attestndarequestworker**](#rivertrustcenterworkersattestndarequestworker)|`object`|||
 |[**createpreviewdomainacmeworker**](#rivertrustcenterworkerscreatepreviewdomainacmeworker)|`object`|||
 
@@ -498,13 +483,6 @@ SlackConfig configures the Slack worker.
     },
     "validatepreviewdomainworker": {
         "config": {}
-    },
-    "cleartrustcentercacheworker": {
-        "config": {
-            "objectstorage": {
-                "credentials": {}
-            }
-        }
     },
     "attestndarequestworker": {
         "config": {
@@ -856,81 +834,6 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**cloudflareapikey**|`string`||no|
 |**maxsnoozes**|`integer`||yes|
 |**snoozeduration**|`integer`||yes|
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkerscleartrustcentercacheworker"></a>
-#### river\.trustcenterworkers\.cleartrustcentercacheworker: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkerscleartrustcentercacheworkerconfig)|`object`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {
-        "objectstorage": {
-            "credentials": {}
-        }
-    }
-}
-```
-
-<a name="rivertrustcenterworkerscleartrustcentercacheworkerconfig"></a>
-##### river\.trustcenterworkers\.cleartrustcentercacheworker\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**objectstorage**](#rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstorage)|`object`|||
-|**enabled**|`boolean`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "objectstorage": {
-        "credentials": {}
-    }
-}
-```
-
-<a name="rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstorage"></a>
-###### river\.trustcenterworkers\.cleartrustcentercacheworker\.config\.objectstorage: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**bucket**|`string`|||
-|**endpoint**|`string`|||
-|[**credentials**](#rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstoragecredentials)|`object`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "credentials": {}
-}
-```
-
-<a name="rivertrustcenterworkerscleartrustcentercacheworkerconfigobjectstoragecredentials"></a>
-####### river\.trustcenterworkers\.cleartrustcentercacheworker\.config\.objectstorage\.credentials: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**accesskeyid**|`string`|||
-|**secretaccesskey**|`string`|||
-|**accountid**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkersattestndarequestworker"></a>

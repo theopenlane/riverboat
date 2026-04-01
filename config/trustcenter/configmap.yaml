@@ -91,12 +91,6 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.cloudflareapikey }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.maxsnoozes }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_VALIDATEPREVIEWDOMAINWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.trustcenterworkers.validatepreviewdomainworker.config.snoozeduration }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_BUCKET: {{ .Values.riverboat.river.trustcenterworkers.cleartrustcentercacheworker.config.objectstorage.bucket }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_ENDPOINT: {{ .Values.riverboat.river.trustcenterworkers.cleartrustcentercacheworker.config.objectstorage.endpoint }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_CREDENTIALS_ACCESSKEYID: {{ .Values.riverboat.river.trustcenterworkers.cleartrustcentercacheworker.config.objectstorage.credentials.accesskeyid }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_CREDENTIALS_SECRETACCESSKEY: {{ .Values.riverboat.river.trustcenterworkers.cleartrustcentercacheworker.config.objectstorage.credentials.secretaccesskey }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_OBJECTSTORAGE_CREDENTIALS_ACCOUNTID: {{ .Values.riverboat.river.trustcenterworkers.cleartrustcentercacheworker.config.objectstorage.credentials.accountid }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CLEARTRUSTCENTERCACHEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.cleartrustcentercacheworker.config.enabled }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.enabled }}
