@@ -10,6 +10,12 @@ require (
 	github.com/theopenlane/riverboat v0.9.8
 )
 
+replace github.com/theopenlane/corejobs => ../../corejobs/
+
+replace github.com/theopenlane/core/common => ../../core/common/
+
+replace github.com/theopenlane/go-client => ../../go-client/
+
 require (
 	github.com/99designs/gqlgen v0.17.89 // indirect
 	github.com/Yamashou/gqlgenc v0.33.0 // indirect

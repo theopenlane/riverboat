@@ -4,6 +4,12 @@ go 1.25.8
 
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
+replace github.com/theopenlane/corejobs => ../corejobs/
+
+replace github.com/theopenlane/core/common => ../core/common/
+
+replace github.com/theopenlane/go-client => ../go-client/
+
 require (
 	github.com/99designs/gqlgen v0.17.89
 	github.com/gertd/go-pluralize v0.2.1
