@@ -70,7 +70,8 @@
     "corejobs.CreateDomainScanWorker": {
       "properties": {
         "config": {
-          "$ref": "#/$defs/corejobs.CreateDomainScanConfig"
+          "$ref": "#/$defs/corejobs.CreateDomainScanConfig",
+          "description": "the configuration for domain scan creation"
         }
       },
       "additionalProperties": false,
@@ -283,7 +284,8 @@
     "corejobs.RetrieveDomainScanWorker": {
       "properties": {
         "config": {
-          "$ref": "#/$defs/corejobs.RetrieveDomainScanConfig"
+          "$ref": "#/$defs/corejobs.RetrieveDomainScanConfig",
+          "description": "the configuration for retrieve domain scan"
         }
       },
       "additionalProperties": false,
