@@ -792,3 +792,17 @@ func marshalToMarkdown(htmlContents []string) ([]byte, error) {
 
 	return []byte(md), nil
 }
+
+func createTempFile(ext string) (string, func(), error) {
+	tmpDir, err := os.MkdirTemp("", "export-*")
+	if err != nil {
+		return "", nil, fmt.Errorf("failed to create temp dir: %w", err)
+	}
+
+	cleanup := func() {
+		_ = os.RemoveAll(tmpDir)
+	}
+
+	tmpPath := filepath.Join(tmpDir, "file"+ext)
+	return tmpPath, cleanup, nil
+}
