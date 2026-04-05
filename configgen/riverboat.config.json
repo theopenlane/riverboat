@@ -36,29 +36,6 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "corejobs.ClearTrustCenterCacheWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorkerConfig",
-          "description": "the configuration for clearing trust center cache"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ClearTrustCenterCacheWorkerConfig": {
-      "properties": {
-        "objectstorage": {
-          "$ref": "#/$defs/corejobs.ProviderConfig",
-          "description": "the object storage configuration for R2"
-        },
-        "enabled": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
     "corejobs.CreateCustomDomainWorker": {
       "properties": {
         "config": {
@@ -74,6 +51,44 @@
         "config": {
           "$ref": "#/$defs/corejobs.PirschDomainConfig",
           "description": "the configuration for pirsch domain creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.CreatePreviewDomainAcmeConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        },
+        "maxsnoozes": {
+          "type": "integer"
+        },
+        "snoozeduration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "maxsnoozes",
+        "snoozeduration"
+      ]
+    },
+    "corejobs.CreatePreviewDomainAcmeWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CreatePreviewDomainAcmeConfig",
+          "description": "the configuration for preview domain creation"
         }
       },
       "additionalProperties": false,
@@ -202,36 +217,6 @@
           "type": "boolean"
         },
         "cloudflareapikey": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ProviderConfig": {
-      "properties": {
-        "bucket": {
-          "type": "string"
-        },
-        "endpoint": {
-          "type": "string"
-        },
-        "credentials": {
-          "$ref": "#/$defs/corejobs.ProviderCredentials"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.ProviderCredentials": {
-      "properties": {
-        "accesskeyid": {
-          "type": "string"
-        },
-        "secretaccesskey": {
-          "type": "string"
-        },
-        "accountid": {
           "type": "string"
         }
       },
@@ -524,6 +509,10 @@
         },
         "enabled": {
           "type": "boolean"
+        },
+        "maxzipsize": {
+          "type": "integer",
+          "description": "the maximum allowed size in bytes for a zip archive export"
         }
       },
       "additionalProperties": false,
@@ -718,11 +707,11 @@
         "validatepreviewdomainworker": {
           "$ref": "#/$defs/corejobs.ValidatePreviewDomainWorker"
         },
-        "cleartrustcentercacheworker": {
-          "$ref": "#/$defs/corejobs.ClearTrustCenterCacheWorker"
-        },
         "attestndarequestworker": {
           "$ref": "#/$defs/corejobs.AttestNDARequestWorker"
+        },
+        "createpreviewdomainacmeworker": {
+          "$ref": "#/$defs/corejobs.CreatePreviewDomainAcmeWorker"
         }
       },
       "additionalProperties": false,

@@ -34,14 +34,6 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		log.Info().Msg("worker enabled: trust center watermark doc")
 	}
 
-	if w.ClearTrustCenterCacheWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &w.ClearTrustCenterCacheWorker); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("worker enabled: clear trust center cache")
-	}
-
 	if err := createPirschDomainWorkers(w, insertOnlyClient, workers); err != nil {
 		return nil, err
 	}
@@ -63,6 +55,21 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		}
 
 		log.Info().Msg("worker enabled: attest NDA request")
+	}
+
+	if w.CreatePreviewDomainWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.CreatePreviewDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for preview domain acme worker")
+			return nil, err
+		}
+
+		w.CreatePreviewDomainAcmeWorker.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, &w.CreatePreviewDomainAcmeWorker); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("worker enabled: create preview domain")
 	}
 
 	// add more workers here

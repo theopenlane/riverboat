@@ -137,7 +137,7 @@ steps:
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.67.0"
+              trivy-version: "0.69.2"
       - label: ":docker: docker pr build with trust center"
         key: "docker-pr-build-tc"
         cancel_on_build_failing: true
@@ -181,7 +181,7 @@ steps:
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.67.0"
+              trivy-version: "0.69.2"
       - label: ":docker: docker build and publish with tags"
         key: "docker-build"
         cancel_on_build_failing: true
@@ -221,7 +221,7 @@ steps:
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.57.1"
+              trivy-version: "0.69.2"
       - label: ":docker: docker build and publish with tags includes trust center"
         key: "docker-build-tc"
         cancel_on_build_failing: true
@@ -263,7 +263,7 @@ steps:
               ignore-unfixed: true
               security-checks: config,secret,vuln
               skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.57.1"
+              trivy-version: "0.69.2"
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
         if: build.tag != null && build.tag !~ /trustcenter\//

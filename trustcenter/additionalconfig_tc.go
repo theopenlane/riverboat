@@ -43,10 +43,9 @@ type Workers struct {
 	// ValidatePreviewDomainWorker configuration for validating preview domains
 	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
 
-	// Worker configuration for clearing trust center cached items when changes are detected
-	ClearTrustCenterCacheWorker corejobs.ClearTrustCenterCacheWorker `koanf:"cleartrustcentercacheworker" json:"cleartrustcentercacheworker"`
-
 	// AttestNDARequestWorker configuration for attesting NDA requests
 	AttestNDARequestWorker corejobs.AttestNDARequestWorker `koanf:"attestndarequestworker" json:"attestndarequestworker"`
+
+	CreatePreviewDomainAcmeWorker corejobs.CreatePreviewDomainAcmeWorker `koanf:"createpreviewdomainacmeworker" json:"createpreviewdomainacmeworker"`
 	// add more trust center specific workers here
 }

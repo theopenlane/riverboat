@@ -14,6 +14,8 @@ var (
 	ErrOpenlaneHostMissing = errors.New("openlane api host is required")
 	// ErrOpenlaneTokenMissing is returned when the Openlane API token is missing
 	ErrOpenlaneTokenMissing = errors.New("openlane api token is required")
+	// ErrZipTooLarge is returned when the zip archive exceeds the maximum allowed size
+	ErrZipTooLarge = errors.New("zip archive exceeds maximum allowed size")
 )
 
 // MissingRequiredArgError is returned when a required argument was not provided to a job

@@ -5186,6 +5186,89 @@ func (_c *MockGraphClient_CreateBulkCSVSubscriber_Call) RunAndReturn(run func(ct
 	return _c
 }
 
+// CreateBulkCSVSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkCSVSystemDetail(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkCSVSystemDetail")
+	}
+
+	var r0 *graphclient.CreateBulkCSVSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSystemDetail, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.CreateBulkCSVSystemDetail); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkCSVSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkCSVSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkCSVSystemDetail'
+type MockGraphClient_CreateBulkCSVSystemDetail_Call struct {
+	*mock.Call
+}
+
+// CreateBulkCSVSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkCSVSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
+	return &MockGraphClient_CreateBulkCSVSystemDetail_Call{Call: _e.mock.On("CreateBulkCSVSystemDetail",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkCSVSystemDetail_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVSystemDetail_Call) Return(createBulkCSVSystemDetail *graphclient.CreateBulkCSVSystemDetail, err error) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
+	_c.Call.Return(createBulkCSVSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkCSVSystemDetail_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVSystemDetail, error)) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateBulkCSVTagDefinition provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateBulkCSVTagDefinition(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkCSVTagDefinition, error) {
 	var tmpRet mock.Arguments
@@ -9917,6 +10000,89 @@ func (_c *MockGraphClient_CreateBulkSubscriber_Call) RunAndReturn(run func(ctx c
 	return _c
 }
 
+// CreateBulkSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateBulkSystemDetail(ctx context.Context, input []*graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateBulkSystemDetail")
+	}
+
+	var r0 *graphclient.CreateBulkSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateSystemDetailInput, ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSystemDetail, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []*graphclient.CreateSystemDetailInput, ...clientv2.RequestInterceptor) *graphclient.CreateBulkSystemDetail); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateBulkSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []*graphclient.CreateSystemDetailInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateBulkSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateBulkSystemDetail'
+type MockGraphClient_CreateBulkSystemDetail_Call struct {
+	*mock.Call
+}
+
+// CreateBulkSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input []*graphclient.CreateSystemDetailInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateBulkSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkSystemDetail_Call {
+	return &MockGraphClient_CreateBulkSystemDetail_Call{Call: _e.mock.On("CreateBulkSystemDetail",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateBulkSystemDetail_Call) Run(run func(ctx context.Context, input []*graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []*graphclient.CreateSystemDetailInput
+		if args[1] != nil {
+			arg1 = args[1].([]*graphclient.CreateSystemDetailInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkSystemDetail_Call) Return(createBulkSystemDetail *graphclient.CreateBulkSystemDetail, err error) *MockGraphClient_CreateBulkSystemDetail_Call {
+	_c.Call.Return(createBulkSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateBulkSystemDetail_Call) RunAndReturn(run func(ctx context.Context, input []*graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkSystemDetail, error)) *MockGraphClient_CreateBulkSystemDetail_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateBulkTagDefinition provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateBulkTagDefinition(ctx context.Context, input []*graphclient.CreateTagDefinitionInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateBulkTagDefinition, error) {
 	var tmpRet mock.Arguments
@@ -12331,12 +12497,12 @@ func (_c *MockGraphClient_CreateEmailTemplate_Call) RunAndReturn(run func(ctx co
 }
 
 // CreateEntity provides a mock function for the type MockGraphClient
-func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error) {
+func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error) {
 	var tmpRet mock.Arguments
 	if len(interceptors) > 0 {
-		tmpRet = _mock.Called(ctx, input, interceptors)
+		tmpRet = _mock.Called(ctx, input, entityTypeName, interceptors)
 	} else {
-		tmpRet = _mock.Called(ctx, input)
+		tmpRet = _mock.Called(ctx, input, entityTypeName)
 	}
 	ret := tmpRet
 
@@ -12346,18 +12512,18 @@ func (_mock *MockGraphClient) CreateEntity(ctx context.Context, input graphclien
 
 	var r0 *graphclient.CreateEntity
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)); ok {
-		return returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, *string, ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)); ok {
+		return returnFunc(ctx, input, entityTypeName, interceptors...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, ...clientv2.RequestInterceptor) *graphclient.CreateEntity); ok {
-		r0 = returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateEntityInput, *string, ...clientv2.RequestInterceptor) *graphclient.CreateEntity); ok {
+		r0 = returnFunc(ctx, input, entityTypeName, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*graphclient.CreateEntity)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateEntityInput, ...clientv2.RequestInterceptor) error); ok {
-		r1 = returnFunc(ctx, input, interceptors...)
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateEntityInput, *string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, entityTypeName, interceptors...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -12372,13 +12538,14 @@ type MockGraphClient_CreateEntity_Call struct {
 // CreateEntity is a helper method to define mock.On call
 //   - ctx context.Context
 //   - input graphclient.CreateEntityInput
+//   - entityTypeName *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEntity(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEntity_Call {
+func (_e *MockGraphClient_Expecter) CreateEntity(ctx interface{}, input interface{}, entityTypeName interface{}, interceptors ...interface{}) *MockGraphClient_CreateEntity_Call {
 	return &MockGraphClient_CreateEntity_Call{Call: _e.mock.On("CreateEntity",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]interface{}{ctx, input, entityTypeName}, interceptors...)...)}
 }
 
-func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEntity_Call {
+func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEntity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -12388,16 +12555,21 @@ func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, i
 		if args[1] != nil {
 			arg1 = args[1].(graphclient.CreateEntityInput)
 		}
-		var arg2 []clientv2.RequestInterceptor
-		var variadicArgs []clientv2.RequestInterceptor
-		if len(args) > 2 {
-			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		var arg2 *string
+		if args[2] != nil {
+			arg2 = args[2].(*string)
 		}
-		arg2 = variadicArgs
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
 		run(
 			arg0,
 			arg1,
-			arg2...,
+			arg2,
+			arg3...,
 		)
 	})
 	return _c
@@ -12408,7 +12580,7 @@ func (_c *MockGraphClient_CreateEntity_Call) Return(createEntity *graphclient.Cr
 	return _c
 }
 
-func (_c *MockGraphClient_CreateEntity_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)) *MockGraphClient_CreateEntity_Call {
+func (_c *MockGraphClient_CreateEntity_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateEntity, error)) *MockGraphClient_CreateEntity_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -15929,6 +16101,89 @@ func (_c *MockGraphClient_CreateSubscriber_Call) RunAndReturn(run func(ctx conte
 	return _c
 }
 
+// CreateSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateSystemDetail(ctx context.Context, input graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateSystemDetail")
+	}
+
+	var r0 *graphclient.CreateSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateSystemDetailInput, ...clientv2.RequestInterceptor) (*graphclient.CreateSystemDetail, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateSystemDetailInput, ...clientv2.RequestInterceptor) *graphclient.CreateSystemDetail); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateSystemDetailInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateSystemDetail'
+type MockGraphClient_CreateSystemDetail_Call struct {
+	*mock.Call
+}
+
+// CreateSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateSystemDetailInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateSystemDetail_Call {
+	return &MockGraphClient_CreateSystemDetail_Call{Call: _e.mock.On("CreateSystemDetail",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateSystemDetail_Call) Run(run func(ctx context.Context, input graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateSystemDetailInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateSystemDetailInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateSystemDetail_Call) Return(createSystemDetail *graphclient.CreateSystemDetail, err error) *MockGraphClient_CreateSystemDetail_Call {
+	_c.Call.Return(createSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateSystemDetail_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateSystemDetail, error)) *MockGraphClient_CreateSystemDetail_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateTFASetting provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateTFASetting(ctx context.Context, input graphclient.CreateTFASettingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateTFASetting, error) {
 	var tmpRet mock.Arguments
@@ -18617,6 +18872,89 @@ func (_c *MockGraphClient_DeleteBulkSubprocessor_Call) Return(deleteBulkSubproce
 }
 
 func (_c *MockGraphClient_DeleteBulkSubprocessor_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSubprocessor, error)) *MockGraphClient_DeleteBulkSubprocessor_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteBulkSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteBulkSystemDetail(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteBulkSystemDetail")
+	}
+
+	var r0 *graphclient.DeleteBulkSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSystemDetail, error)); ok {
+		return returnFunc(ctx, ids, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, ...clientv2.RequestInterceptor) *graphclient.DeleteBulkSystemDetail); ok {
+		r0 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteBulkSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteBulkSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteBulkSystemDetail'
+type MockGraphClient_DeleteBulkSystemDetail_Call struct {
+	*mock.Call
+}
+
+// DeleteBulkSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteBulkSystemDetail(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkSystemDetail_Call {
+	return &MockGraphClient_DeleteBulkSystemDetail_Call{Call: _e.mock.On("DeleteBulkSystemDetail",
+		append([]interface{}{ctx, ids}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteBulkSystemDetail_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkSystemDetail_Call) Return(deleteBulkSystemDetail *graphclient.DeleteBulkSystemDetail, err error) *MockGraphClient_DeleteBulkSystemDetail_Call {
+	_c.Call.Return(deleteBulkSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteBulkSystemDetail_Call) RunAndReturn(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteBulkSystemDetail, error)) *MockGraphClient_DeleteBulkSystemDetail_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -23852,6 +24190,89 @@ func (_c *MockGraphClient_DeleteSubscriber_Call) Return(deleteSubscriber *graphc
 }
 
 func (_c *MockGraphClient_DeleteSubscriber_Call) RunAndReturn(run func(ctx context.Context, deleteSubscriberEmail string, subscriberOrganization *string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteSubscriber, error)) *MockGraphClient_DeleteSubscriber_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) DeleteSystemDetail(ctx context.Context, deleteSystemDetailID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, deleteSystemDetailID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, deleteSystemDetailID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteSystemDetail")
+	}
+
+	var r0 *graphclient.DeleteSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.DeleteSystemDetail, error)); ok {
+		return returnFunc(ctx, deleteSystemDetailID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.DeleteSystemDetail); ok {
+		r0 = returnFunc(ctx, deleteSystemDetailID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.DeleteSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, deleteSystemDetailID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_DeleteSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteSystemDetail'
+type MockGraphClient_DeleteSystemDetail_Call struct {
+	*mock.Call
+}
+
+// DeleteSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - deleteSystemDetailID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) DeleteSystemDetail(ctx interface{}, deleteSystemDetailID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteSystemDetail_Call {
+	return &MockGraphClient_DeleteSystemDetail_Call{Call: _e.mock.On("DeleteSystemDetail",
+		append([]interface{}{ctx, deleteSystemDetailID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_DeleteSystemDetail_Call) Run(run func(ctx context.Context, deleteSystemDetailID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteSystemDetail_Call) Return(deleteSystemDetail *graphclient.DeleteSystemDetail, err error) *MockGraphClient_DeleteSystemDetail_Call {
+	_c.Call.Return(deleteSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_DeleteSystemDetail_Call) RunAndReturn(run func(ctx context.Context, deleteSystemDetailID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.DeleteSystemDetail, error)) *MockGraphClient_DeleteSystemDetail_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -32450,6 +32871,113 @@ func (_c *MockGraphClient_GetAllSubscribers_Call) Return(getAllSubscribers *grap
 }
 
 func (_c *MockGraphClient_GetAllSubscribers_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubscriberOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllSubscribers, error)) *MockGraphClient_GetAllSubscribers_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetAllSystemDetails provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetAllSystemDetails(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllSystemDetails, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAllSystemDetails")
+	}
+
+	var r0 *graphclient.GetAllSystemDetails
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.SystemDetailOrder, ...clientv2.RequestInterceptor) (*graphclient.GetAllSystemDetails, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.SystemDetailOrder, ...clientv2.RequestInterceptor) *graphclient.GetAllSystemDetails); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetAllSystemDetails)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.SystemDetailOrder, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetAllSystemDetails_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAllSystemDetails'
+type MockGraphClient_GetAllSystemDetails_Call struct {
+	*mock.Call
+}
+
+// GetAllSystemDetails is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.SystemDetailOrder
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetAllSystemDetails(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllSystemDetails_Call {
+	return &MockGraphClient_GetAllSystemDetails_Call{Call: _e.mock.On("GetAllSystemDetails",
+		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetAllSystemDetails_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllSystemDetails_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.SystemDetailOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.SystemDetailOrder)
+		}
+		var arg6 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 6 {
+			variadicArgs = args[6].([]clientv2.RequestInterceptor)
+		}
+		arg6 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllSystemDetails_Call) Return(getAllSystemDetails *graphclient.GetAllSystemDetails, err error) *MockGraphClient_GetAllSystemDetails_Call {
+	_c.Call.Return(getAllSystemDetails, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetAllSystemDetails_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetAllSystemDetails, error)) *MockGraphClient_GetAllSystemDetails_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -48391,6 +48919,202 @@ func (_c *MockGraphClient_GetSubscribers_Call) RunAndReturn(run func(ctx context
 	return _c
 }
 
+// GetSystemDetailByID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetSystemDetailByID(ctx context.Context, systemDetailID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetSystemDetailByID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, systemDetailID, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, systemDetailID)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetSystemDetailByID")
+	}
+
+	var r0 *graphclient.GetSystemDetailByID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) (*graphclient.GetSystemDetailByID, error)); ok {
+		return returnFunc(ctx, systemDetailID, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, ...clientv2.RequestInterceptor) *graphclient.GetSystemDetailByID); ok {
+		r0 = returnFunc(ctx, systemDetailID, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetSystemDetailByID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, systemDetailID, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetSystemDetailByID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetSystemDetailByID'
+type MockGraphClient_GetSystemDetailByID_Call struct {
+	*mock.Call
+}
+
+// GetSystemDetailByID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - systemDetailID string
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetSystemDetailByID(ctx interface{}, systemDetailID interface{}, interceptors ...interface{}) *MockGraphClient_GetSystemDetailByID_Call {
+	return &MockGraphClient_GetSystemDetailByID_Call{Call: _e.mock.On("GetSystemDetailByID",
+		append([]interface{}{ctx, systemDetailID}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetSystemDetailByID_Call) Run(run func(ctx context.Context, systemDetailID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSystemDetailByID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetSystemDetailByID_Call) Return(getSystemDetailByID *graphclient.GetSystemDetailByID, err error) *MockGraphClient_GetSystemDetailByID_Call {
+	_c.Call.Return(getSystemDetailByID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetSystemDetailByID_Call) RunAndReturn(run func(ctx context.Context, systemDetailID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetSystemDetailByID, error)) *MockGraphClient_GetSystemDetailByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetSystemDetails provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetSystemDetails(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, where *graphclient.SystemDetailWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetSystemDetails, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetSystemDetails")
+	}
+
+	var r0 *graphclient.GetSystemDetails
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.SystemDetailOrder, *graphclient.SystemDetailWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetSystemDetails, error)); ok {
+		return returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.SystemDetailOrder, *graphclient.SystemDetailWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetSystemDetails); ok {
+		r0 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetSystemDetails)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *int64, *int64, *string, *string, []*graphclient.SystemDetailOrder, *graphclient.SystemDetailWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetSystemDetails_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetSystemDetails'
+type MockGraphClient_GetSystemDetails_Call struct {
+	*mock.Call
+}
+
+// GetSystemDetails is a helper method to define mock.On call
+//   - ctx context.Context
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.SystemDetailOrder
+//   - where *graphclient.SystemDetailWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetSystemDetails(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetSystemDetails_Call {
+	return &MockGraphClient_GetSystemDetails_Call{Call: _e.mock.On("GetSystemDetails",
+		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetSystemDetails_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, where *graphclient.SystemDetailWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSystemDetails_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *int64
+		if args[1] != nil {
+			arg1 = args[1].(*int64)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *string
+		if args[3] != nil {
+			arg3 = args[3].(*string)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 []*graphclient.SystemDetailOrder
+		if args[5] != nil {
+			arg5 = args[5].([]*graphclient.SystemDetailOrder)
+		}
+		var arg6 *graphclient.SystemDetailWhereInput
+		if args[6] != nil {
+			arg6 = args[6].(*graphclient.SystemDetailWhereInput)
+		}
+		var arg7 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 7 {
+			variadicArgs = args[7].([]clientv2.RequestInterceptor)
+		}
+		arg7 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetSystemDetails_Call) Return(getSystemDetails *graphclient.GetSystemDetails, err error) *MockGraphClient_GetSystemDetails_Call {
+	_c.Call.Return(getSystemDetails, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetSystemDetails_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, where *graphclient.SystemDetailWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetSystemDetails, error)) *MockGraphClient_GetSystemDetails_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetTFASettingByID provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) GetTFASettingByID(ctx context.Context, tFASettingID string, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetTFASettingByID, error) {
 	var tmpRet mock.Arguments
@@ -53485,6 +54209,89 @@ func (_c *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call) RunAndReturn(r
 	return _c
 }
 
+// UpdateBulkCSVSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkCSVSystemDetail(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkCSVSystemDetail")
+	}
+
+	var r0 *graphclient.UpdateBulkCSVSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVSystemDetail, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkCSVSystemDetail); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkCSVSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphql.Upload, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkCSVSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkCSVSystemDetail'
+type MockGraphClient_UpdateBulkCSVSystemDetail_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkCSVSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphql.Upload
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
+	return &MockGraphClient_UpdateBulkCSVSystemDetail_Call{Call: _e.mock.On("UpdateBulkCSVSystemDetail",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVSystemDetail_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphql.Upload
+		if args[1] != nil {
+			arg1 = args[1].(graphql.Upload)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVSystemDetail_Call) Return(updateBulkCSVSystemDetail *graphclient.UpdateBulkCSVSystemDetail, err error) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
+	_c.Call.Return(updateBulkCSVSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkCSVSystemDetail_Call) RunAndReturn(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkCSVSystemDetail, error)) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // UpdateBulkEmailBranding provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) UpdateBulkEmailBranding(ctx context.Context, ids []string, input graphclient.UpdateEmailBrandingInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkEmailBranding, error) {
 	var tmpRet mock.Arguments
@@ -53926,6 +54733,95 @@ func (_c *MockGraphClient_UpdateBulkSubprocessor_Call) Return(updateBulkSubproce
 }
 
 func (_c *MockGraphClient_UpdateBulkSubprocessor_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateSubprocessorInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSubprocessor, error)) *MockGraphClient_UpdateBulkSubprocessor_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateBulkSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateBulkSystemDetail(ctx context.Context, ids []string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, ids, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, ids, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateBulkSystemDetail")
+	}
+
+	var r0 *graphclient.UpdateBulkSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateSystemDetailInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSystemDetail, error)); ok {
+		return returnFunc(ctx, ids, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []string, graphclient.UpdateSystemDetailInput, ...clientv2.RequestInterceptor) *graphclient.UpdateBulkSystemDetail); ok {
+		r0 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateBulkSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, []string, graphclient.UpdateSystemDetailInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, ids, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateBulkSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateBulkSystemDetail'
+type MockGraphClient_UpdateBulkSystemDetail_Call struct {
+	*mock.Call
+}
+
+// UpdateBulkSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - ids []string
+//   - input graphclient.UpdateSystemDetailInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateBulkSystemDetail(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkSystemDetail_Call {
+	return &MockGraphClient_UpdateBulkSystemDetail_Call{Call: _e.mock.On("UpdateBulkSystemDetail",
+		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateBulkSystemDetail_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 []string
+		if args[1] != nil {
+			arg1 = args[1].([]string)
+		}
+		var arg2 graphclient.UpdateSystemDetailInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateSystemDetailInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkSystemDetail_Call) Return(updateBulkSystemDetail *graphclient.UpdateBulkSystemDetail, err error) *MockGraphClient_UpdateBulkSystemDetail_Call {
+	_c.Call.Return(updateBulkSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateBulkSystemDetail_Call) RunAndReturn(run func(ctx context.Context, ids []string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateBulkSystemDetail, error)) *MockGraphClient_UpdateBulkSystemDetail_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -59320,6 +60216,95 @@ func (_c *MockGraphClient_UpdateSubscriber_Call) Return(updateSubscriber *graphc
 }
 
 func (_c *MockGraphClient_UpdateSubscriber_Call) RunAndReturn(run func(ctx context.Context, email string, input graphclient.UpdateSubscriberInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateSubscriber, error)) *MockGraphClient_UpdateSubscriber_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateSystemDetail provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) UpdateSystemDetail(ctx context.Context, updateSystemDetailID string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateSystemDetail, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, updateSystemDetailID, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, updateSystemDetailID, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateSystemDetail")
+	}
+
+	var r0 *graphclient.UpdateSystemDetail
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateSystemDetailInput, ...clientv2.RequestInterceptor) (*graphclient.UpdateSystemDetail, error)); ok {
+		return returnFunc(ctx, updateSystemDetailID, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, graphclient.UpdateSystemDetailInput, ...clientv2.RequestInterceptor) *graphclient.UpdateSystemDetail); ok {
+		r0 = returnFunc(ctx, updateSystemDetailID, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.UpdateSystemDetail)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, graphclient.UpdateSystemDetailInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, updateSystemDetailID, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_UpdateSystemDetail_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateSystemDetail'
+type MockGraphClient_UpdateSystemDetail_Call struct {
+	*mock.Call
+}
+
+// UpdateSystemDetail is a helper method to define mock.On call
+//   - ctx context.Context
+//   - updateSystemDetailID string
+//   - input graphclient.UpdateSystemDetailInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) UpdateSystemDetail(ctx interface{}, updateSystemDetailID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateSystemDetail_Call {
+	return &MockGraphClient_UpdateSystemDetail_Call{Call: _e.mock.On("UpdateSystemDetail",
+		append([]interface{}{ctx, updateSystemDetailID, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_UpdateSystemDetail_Call) Run(run func(ctx context.Context, updateSystemDetailID string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateSystemDetail_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 graphclient.UpdateSystemDetailInput
+		if args[2] != nil {
+			arg2 = args[2].(graphclient.UpdateSystemDetailInput)
+		}
+		var arg3 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 3 {
+			variadicArgs = args[3].([]clientv2.RequestInterceptor)
+		}
+		arg3 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateSystemDetail_Call) Return(updateSystemDetail *graphclient.UpdateSystemDetail, err error) *MockGraphClient_UpdateSystemDetail_Call {
+	_c.Call.Return(updateSystemDetail, err)
+	return _c
+}
+
+func (_c *MockGraphClient_UpdateSystemDetail_Call) RunAndReturn(run func(ctx context.Context, updateSystemDetailID string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.UpdateSystemDetail, error)) *MockGraphClient_UpdateSystemDetail_Call {
 	_c.Call.Return(run)
 	return _c
 }

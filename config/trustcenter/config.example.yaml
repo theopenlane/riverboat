@@ -35,16 +35,6 @@ river:
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
-        cleartrustcentercacheworker:
-            config:
-                enabled: false
-                objectstorage:
-                    bucket: ""
-                    credentials:
-                        accesskeyid: ""
-                        accountid: ""
-                        secretaccesskey: ""
-                    endpoint: ""
         createcustomdomainworker:
             config:
                 cloudflareapikey: ""
@@ -61,6 +51,14 @@ river:
                 pirschclientsecret: ""
                 pirschteamid: ""
                 pirschthemeid: ""
+        createpreviewdomainacmeworker:
+            config:
+                cloudflareapikey: ""
+                enabled: false
+                maxsnoozes: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                snoozeduration: 0
         createpreviewdomainworker:
             config:
                 cloudflareapikey: ""
@@ -145,6 +143,7 @@ river:
         exportcontentworker:
             config:
                 enabled: false
+                maxzipsize: 52428800
                 openlaneapihost: ""
                 openlaneapitoken: ""
         openlaneconfig:
