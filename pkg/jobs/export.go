@@ -11,6 +11,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"path/filepath"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/gertd/go-pluralize"
@@ -731,24 +732,22 @@ func extractDetailsStrings(nodes []map[string]any) []string {
 // marshalToDocx converts HTML content to DOCX format bytes using the html2docx converter.
 func marshalToDocx(htmlContents []string) ([]byte, error) {
 	conv := html2docx.NewHTMLToDocxConverter()
+
 	if err := conv.Convert(htmlContents); err != nil {
 		return nil, fmt.Errorf("docx conversion failed: %w", err)
 	}
 
-	tmpFile, err := os.CreateTemp("", "export-*.docx")
+	tmpPath, cleanup, err := createTempFile(".docx")
 	if err != nil {
-		return nil, fmt.Errorf("failed to create temp file: %w", err)
+		return nil, err
 	}
-
-	tmpPath := tmpFile.Name()
-	tmpFile.Close() //nolint:errcheck
-
-	defer os.Remove(tmpPath) //nolint:errcheck
+	defer cleanup()
 
 	if err := conv.SaveToFile(tmpPath); err != nil {
 		return nil, fmt.Errorf("failed to save docx: %w", err)
 	}
 
+	// #nosec G304 -- safe: path generated via MkdirTemp, not user input
 	data, err := os.ReadFile(tmpPath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read docx file: %w", err)
@@ -756,28 +755,25 @@ func marshalToDocx(htmlContents []string) ([]byte, error) {
 
 	return data, nil
 }
-
 // marshalToPDF converts HTML content to PDF format bytes using the html2docx converter.
 func marshalToPDF(htmlContents []string) ([]byte, error) {
 	conv := html2docx.NewHTMLToPDFConverter()
+
 	if err := conv.Convert(htmlContents); err != nil {
 		return nil, fmt.Errorf("pdf conversion failed: %w", err)
 	}
 
-	tmpFile, err := os.CreateTemp("", "export-*.pdf")
+	tmpPath, cleanup, err := createTempFile(".pdf")
 	if err != nil {
-		return nil, fmt.Errorf("failed to create temp file: %w", err)
+		return nil, err
 	}
-
-	tmpPath := tmpFile.Name()
-	tmpFile.Close() //nolint:errcheck
-
-	defer os.Remove(tmpPath) //nolint:errcheck
+	defer cleanup()
 
 	if err := conv.SaveToFile(tmpPath); err != nil {
 		return nil, fmt.Errorf("failed to save pdf: %w", err)
 	}
 
+	// #nosec G304 -- safe: path generated internally
 	data, err := os.ReadFile(tmpPath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read pdf file: %w", err)
@@ -785,7 +781,6 @@ func marshalToPDF(htmlContents []string) ([]byte, error) {
 
 	return data, nil
 }
-
 // marshalToMarkdown converts HTML content to Markdown format bytes using the html2docx converter.
 func marshalToMarkdown(htmlContents []string) ([]byte, error) {
 	conv := html2docx.NewHTMLToMarkdownConverter()
