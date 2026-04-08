@@ -57,8 +57,8 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		log.Info().Msg("worker enabled: attest NDA request")
 	}
 
-	if w.CreatePreviewDomainWorker.Config.Enabled {
-		if err := setAndValidateOpenlaneConfigDefaults(&w.CreatePreviewDomainWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+	if w.CreatePreviewDomainAcmeWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.CreatePreviewDomainAcmeWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for preview domain acme worker")
 			return nil, err
 		}
@@ -70,6 +70,34 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		}
 
 		log.Info().Msg("worker enabled: create preview domain")
+	}
+
+	if w.CreateDomainScanWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.CreateDomainScanWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for domain scan creation worker")
+			return nil, err
+		}
+
+		w.CreateDomainScanWorker.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, &w.CreateDomainScanWorker); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("worker enabled: create domain scan")
+	}
+
+	if w.RetrieveDomainScanWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.RetrieveDomainScanWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for domain scan retrieval worker")
+			return nil, err
+		}
+
+		if err := river.AddWorkerSafely(workers, &w.RetrieveDomainScanWorker); err != nil {
+			return nil, err
+		}
+
+		log.Info().Msg("worker enabled: retrieve domain scan results")
 	}
 
 	// add more workers here

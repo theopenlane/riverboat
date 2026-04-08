@@ -14340,6 +14340,89 @@ func (_c *MockGraphClient_CreateNarrative_Call) RunAndReturn(run func(ctx contex
 	return _c
 }
 
+// CreateNotification provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) CreateNotification(ctx context.Context, input graphclient.CreateNotificationInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotification, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, input, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, input)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateNotification")
+	}
+
+	var r0 *graphclient.CreateNotification
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateNotificationInput, ...clientv2.RequestInterceptor) (*graphclient.CreateNotification, error)); ok {
+		return returnFunc(ctx, input, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, graphclient.CreateNotificationInput, ...clientv2.RequestInterceptor) *graphclient.CreateNotification); ok {
+		r0 = returnFunc(ctx, input, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.CreateNotification)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, graphclient.CreateNotificationInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, input, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_CreateNotification_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateNotification'
+type MockGraphClient_CreateNotification_Call struct {
+	*mock.Call
+}
+
+// CreateNotification is a helper method to define mock.On call
+//   - ctx context.Context
+//   - input graphclient.CreateNotificationInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) CreateNotification(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNotification_Call {
+	return &MockGraphClient_CreateNotification_Call{Call: _e.mock.On("CreateNotification",
+		append([]interface{}{ctx, input}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_CreateNotification_Call) Run(run func(ctx context.Context, input graphclient.CreateNotificationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNotification_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 graphclient.CreateNotificationInput
+		if args[1] != nil {
+			arg1 = args[1].(graphclient.CreateNotificationInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_CreateNotification_Call) Return(createNotification *graphclient.CreateNotification, err error) *MockGraphClient_CreateNotification_Call {
+	_c.Call.Return(createNotification, err)
+	return _c
+}
+
+func (_c *MockGraphClient_CreateNotification_Call) RunAndReturn(run func(ctx context.Context, input graphclient.CreateNotificationInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotification, error)) *MockGraphClient_CreateNotification_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CreateNotificationPreference provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) CreateNotificationPreference(ctx context.Context, input graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.CreateNotificationPreference, error) {
 	var tmpRet mock.Arguments

@@ -42,6 +42,13 @@ river:
                 openlaneapihost: ""
                 openlaneapitoken: ""
                 validateinterval: 0
+        createdomainscanworker:
+            config:
+                cloudflareaccountid: ""
+                cloudflareapikey: ""
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
         createpirschdomainworker:
             config:
                 enabled: false
@@ -90,6 +97,15 @@ river:
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""
+        retrievedomainscanworker:
+            config:
+                cloudflareaccountid: ""
+                cloudflareapikey: ""
+                enabled: false
+                maxsnoozes: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                snoozeduration: 0
         updatepirschdomainworker:
             config:
                 enabled: false

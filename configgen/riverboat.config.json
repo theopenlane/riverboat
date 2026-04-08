@@ -46,6 +46,37 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.CreateDomainScanConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareaccountid": {
+          "type": "string"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.CreateDomainScanWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.CreateDomainScanConfig",
+          "description": "the configuration for domain scan creation"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.CreatePirschDomainWorker": {
       "properties": {
         "config": {
@@ -218,6 +249,43 @@
         },
         "cloudflareapikey": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.RetrieveDomainScanConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "cloudflareaccountid": {
+          "type": "string"
+        },
+        "cloudflareapikey": {
+          "type": "string"
+        },
+        "maxsnoozes": {
+          "type": "integer"
+        },
+        "snoozeduration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.RetrieveDomainScanWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.RetrieveDomainScanConfig",
+          "description": "the configuration for retrieve domain scan"
         }
       },
       "additionalProperties": false,
@@ -712,6 +780,12 @@
         },
         "createpreviewdomainacmeworker": {
           "$ref": "#/$defs/corejobs.CreatePreviewDomainAcmeWorker"
+        },
+        "createdomainscanworker": {
+          "$ref": "#/$defs/corejobs.CreateDomainScanWorker"
+        },
+        "retrievedomainscanworker": {
+          "$ref": "#/$defs/corejobs.RetrieveDomainScanWorker"
         }
       },
       "additionalProperties": false,

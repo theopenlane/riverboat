@@ -119,6 +119,18 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.cloudflareapikey }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.maxsnoozes }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.snoozeduration }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEDOMAINSCANWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createdomainscanworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEDOMAINSCANWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.createdomainscanworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEDOMAINSCANWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.createdomainscanworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEDOMAINSCANWORKER_CONFIG_CLOUDFLAREACCOUNTID: {{ .Values.riverboat.river.trustcenterworkers.createdomainscanworker.config.cloudflareaccountid }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEDOMAINSCANWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.createdomainscanworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_CLOUDFLAREACCOUNTID: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.cloudflareaccountid }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.maxsnoozes }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.snoozeduration }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}
