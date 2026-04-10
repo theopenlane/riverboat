@@ -4,6 +4,10 @@ go 1.25.8
 
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
+replace github.com/theopenlane/corejobs => ../corejobs/
+
+replace github.com/theopenlane/go-client => ../go-client/
+
 require (
 	github.com/99designs/gqlgen v0.17.89
 	github.com/gertd/go-pluralize v0.2.1
@@ -31,7 +35,7 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v1.0.17
+	github.com/theopenlane/core/common v1.0.19
 	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/go-client v0.9.3
 	github.com/theopenlane/httpsling v0.3.0
@@ -41,7 +45,7 @@ require (
 	github.com/theopenlane/utils v0.7.0
 	go.opentelemetry.io/otel v1.43.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.61.0
-	go.opentelemetry.io/otel/sdk/metric v1.42.0
+	go.opentelemetry.io/otel/sdk/metric v1.43.0
 )
 
 require (
@@ -102,7 +106,7 @@ require (
 	github.com/sosodev/duration v1.4.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
-	github.com/theopenlane/core v1.16.4 // indirect
+	github.com/theopenlane/core v1.16.5 // indirect
 	github.com/theopenlane/corejobs v0.1.21 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.6 // indirect
@@ -118,7 +122,7 @@ require (
 	github.com/x448/float16 v0.8.4 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/otel/metric v1.43.0 // indirect
-	go.opentelemetry.io/otel/sdk v1.42.0 // indirect
+	go.opentelemetry.io/otel/sdk v1.43.0 // indirect
 	go.opentelemetry.io/otel/trace v1.43.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/goleak v1.3.0 // indirect

@@ -83,6 +83,12 @@
             },
             "retrievedomainscanworker": {
                 "config": {}
+            },
+            "organizationdeletionreminderworker": {
+                "config": {}
+            },
+            "organizatondeletionworker": {
+                "config": {}
             }
         },
         "metrics": {}
@@ -181,6 +187,12 @@ Config is the configuration for the river server
             "config": {}
         },
         "retrievedomainscanworker": {
+            "config": {}
+        },
+        "organizationdeletionreminderworker": {
+            "config": {}
+        },
+        "organizatondeletionworker": {
             "config": {}
         }
     },
@@ -461,6 +473,8 @@ SlackConfig configures the Slack worker.
 |[**createpreviewdomainacmeworker**](#rivertrustcenterworkerscreatepreviewdomainacmeworker)|`object`|||
 |[**createdomainscanworker**](#rivertrustcenterworkerscreatedomainscanworker)|`object`|||
 |[**retrievedomainscanworker**](#rivertrustcenterworkersretrievedomainscanworker)|`object`|||
+|[**organizationdeletionreminderworker**](#rivertrustcenterworkersorganizationdeletionreminderworker)|`object`|||
+|[**organizatondeletionworker**](#rivertrustcenterworkersorganizatondeletionworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -514,6 +528,12 @@ SlackConfig configures the Slack worker.
         "config": {}
     },
     "retrievedomainscanworker": {
+        "config": {}
+    },
+    "organizationdeletionreminderworker": {
+        "config": {}
+    },
+    "organizatondeletionworker": {
         "config": {}
     }
 }
@@ -1068,6 +1088,67 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**cloudflareapikey**|`string`|||
 |**maxsnoozes**|`integer`|||
 |**snoozeduration**|`integer`|||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersorganizationdeletionreminderworker"></a>
+#### river\.trustcenterworkers\.organizationdeletionreminderworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfig"></a>
+##### river\.trustcenterworkers\.organizationdeletionreminderworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**paymentmethodinterval**|`integer`||yes|
+|**enabled**|`boolean`||no|
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersorganizatondeletionworker"></a>
+#### river\.trustcenterworkers\.organizatondeletionworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#rivertrustcenterworkersorganizatondeletionworkerconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="rivertrustcenterworkersorganizatondeletionworkerconfig"></a>
+##### river\.trustcenterworkers\.organizatondeletionworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|||
+|**openlaneapitoken**|`string`|||
+|**enabled**|`boolean`|||
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>

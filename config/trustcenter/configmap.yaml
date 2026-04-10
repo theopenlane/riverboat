@@ -131,6 +131,13 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.cloudflareapikey }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.maxsnoozes }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_RETRIEVEDOMAINSCANWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.trustcenterworkers.retrievedomainscanworker.config.snoozeduration }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_PAYMENTMETHODINTERVAL: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.paymentmethodinterval }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATONDELETIONWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.organizatondeletionworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATONDELETIONWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.organizatondeletionworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATONDELETIONWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.organizatondeletionworker.config.enabled }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}

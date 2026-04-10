@@ -207,6 +207,62 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "corejobs.OrganizationDeleteConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.OrganizationDeleteWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.OrganizationDeleteConfig",
+          "description": "the configuration for organization deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "corejobs.OrganizationPaymentReminderConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string"
+        },
+        "openlaneapitoken": {
+          "type": "string"
+        },
+        "paymentmethodinterval": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "paymentmethodinterval"
+      ]
+    },
+    "corejobs.OrganizationPaymentReminderWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/corejobs.OrganizationPaymentReminderConfig",
+          "description": "the configuration for organization payment reminders"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
     "corejobs.PirschDomainConfig": {
       "properties": {
         "openlaneapihost": {
@@ -786,6 +842,12 @@
         },
         "retrievedomainscanworker": {
           "$ref": "#/$defs/corejobs.RetrieveDomainScanWorker"
+        },
+        "organizationdeletionreminderworker": {
+          "$ref": "#/$defs/corejobs.OrganizationPaymentReminderWorker"
+        },
+        "organizatondeletionworker": {
+          "$ref": "#/$defs/corejobs.OrganizationDeleteWorker"
         }
       },
       "additionalProperties": false,

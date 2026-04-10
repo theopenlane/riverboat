@@ -5,10 +5,14 @@ go 1.25.8
 require (
 	github.com/riverqueue/river v0.33.0
 	github.com/rs/zerolog v1.35.0
-	github.com/theopenlane/core/common v1.0.17
+	github.com/theopenlane/core/common v1.0.19
 	github.com/theopenlane/corejobs v0.1.21
 	github.com/theopenlane/riverboat v0.9.9
 )
+
+replace github.com/theopenlane/corejobs => ../../corejobs/
+
+replace github.com/theopenlane/go-client => ../../go-client/
 
 require (
 	github.com/99designs/gqlgen v0.17.89 // indirect
@@ -65,7 +69,7 @@ require (
 	github.com/sosodev/duration v1.4.0 // indirect
 	github.com/stoewer/go-strcase v1.3.1 // indirect
 	github.com/stretchr/testify v1.11.1 // indirect
-	github.com/theopenlane/core v1.16.4 // indirect
+	github.com/theopenlane/core v1.16.5 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.6 // indirect

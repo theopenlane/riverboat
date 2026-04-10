@@ -35,5 +35,8 @@ func CreatePeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 		jobs = append(jobs, validateCustomDomainJobs)
 	}
 
+	if c.OrganizationDeletionReminderWorker.Config.Enabled {
+	}
+
 	return jobs, nil
 }

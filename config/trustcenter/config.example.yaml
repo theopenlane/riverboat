@@ -97,6 +97,17 @@ river:
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""
+        organizationdeletionreminderworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                paymentmethodinterval: 0
+        organizatondeletionworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
         retrievedomainscanworker:
             config:
                 cloudflareaccountid: ""
