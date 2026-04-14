@@ -122,6 +122,29 @@ river:
         organizationdeletionreminderworker:
             config:
                 deletiondays: 0
+                email:
+                    config:
+                        companyaddress: ""
+                        companyname: ""
+                        corporation: ""
+                        fromemail: ""
+                        logourl: ""
+                        questionnaireemail: ""
+                        supportemail: ""
+                        templatespath: ""
+                        urls:
+                            billing: ""
+                            docs: ""
+                            invite: ""
+                            product: ""
+                            questionnaire: ""
+                            reset: ""
+                            root: ""
+                            verify: ""
+                            verifybilling: ""
+                            verifysubscriber: ""
+                        year: 0
+                    enabled: false
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
@@ -131,6 +154,7 @@ river:
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
+                runinterval: 0
         retrievedomainscanworker:
             config:
                 cloudflareaccountid: ""

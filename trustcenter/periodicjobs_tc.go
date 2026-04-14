@@ -17,7 +17,8 @@ const (
 	// atleast one day
 	minOrgDeleteReminderInterval = 1
 
-	twentyFourhours = time.Hour * 24
+	twentyFourhours                     = time.Hour * 24
+	defaultOrgDeletionWorkerRunInterval = twentyFourhours
 )
 
 // CreatePeriodicJobs creates periodic jobs for the trust center module
@@ -60,6 +61,24 @@ func CreatePeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 		jobs = append(jobs, orgDeletionReminders)
 
 		log.Info().Msg("periodic worker enabled: organization deletion reminder")
+	}
+
+	if c.OrganizationDeletionWorker.Config.Enabled {
+		interval := c.OrganizationDeletionWorker.Config.RunInterval
+		if interval == 0 {
+			interval = defaultOrgDeletionWorkerRunInterval
+		}
+
+		orgDeletion := river.NewPeriodicJob(
+			river.PeriodicInterval(interval),
+			func() (river.JobArgs, *river.InsertOpts) {
+				return jobspec.OrganizationDeletionArgs{}, nil
+			},
+			&river.PeriodicJobOpts{},
+		)
+		jobs = append(jobs, orgDeletion)
+
+		log.Info().Msg("periodic worker enabled: organization deletion")
 	}
 
 	return jobs, nil

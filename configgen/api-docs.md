@@ -88,7 +88,13 @@
                 "config": {}
             },
             "organizationdeletionreminderworker": {
-                "config": {}
+                "config": {
+                    "email": {
+                        "config": {
+                            "urls": {}
+                        }
+                    }
+                }
             },
             "organizationdeletionworker": {
                 "config": {}
@@ -196,7 +202,13 @@ Config is the configuration for the river server
             "config": {}
         },
         "organizationdeletionreminderworker": {
-            "config": {}
+            "config": {
+                "email": {
+                    "config": {
+                        "urls": {}
+                    }
+                }
+            }
         },
         "organizationdeletionworker": {
             "config": {}
@@ -541,7 +553,13 @@ SlackConfig configures the Slack worker.
         "config": {}
     },
     "organizationdeletionreminderworker": {
-        "config": {}
+        "config": {
+            "email": {
+                "config": {
+                    "urls": {}
+                }
+            }
+        }
     },
     "organizationdeletionworker": {
         "config": {}
@@ -1164,7 +1182,13 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 
 ```json
 {
-    "config": {}
+    "config": {
+        "email": {
+            "config": {
+                "urls": {}
+            }
+        }
+    }
 }
 ```
 
@@ -1180,6 +1204,86 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 |**paymentmethodinterval**|`integer`||yes|
 |**deletiondays**|`integer`||yes|
 |**enabled**|`boolean`||no|
+|[**email**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "email": {
+        "config": {
+            "urls": {}
+        }
+    }
+}
+```
+
+<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfigemail"></a>
+###### river\.trustcenterworkers\.organizationdeletionreminderworker\.config\.email: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|[**config**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {
+        "urls": {}
+    }
+}
+```
+
+<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfig"></a>
+####### river\.trustcenterworkers\.organizationdeletionreminderworker\.config\.email\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**companyname**|`string`|||
+|**companyaddress**|`string`|||
+|**corporation**|`string`|||
+|**year**|`integer`|||
+|**fromemail**|`string`|||
+|**supportemail**|`string`|||
+|**questionnaireemail**|`string`|||
+|**logourl**|`string`|||
+|[**urls**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfigurls)|`object`|||
+|**templatespath**|`string`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "urls": {}
+}
+```
+
+<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfigurls"></a>
+######## river\.trustcenterworkers\.organizationdeletionreminderworker\.config\.email\.config\.urls: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**root**|`string`|||
+|**product**|`string`|||
+|**docs**|`string`|||
+|**verify**|`string`|||
+|**invite**|`string`|||
+|**reset**|`string`|||
+|**verifysubscriber**|`string`|||
+|**verifybilling**|`string`|||
+|**billing**|`string`|||
+|**questionnaire**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkersorganizationdeletionworker"></a>
@@ -1189,7 +1293,7 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkersorganizationdeletionworkerconfig)|`object`|||
+|[**config**](#rivertrustcenterworkersorganizationdeletionworkerconfig)|`object`||yes|
 
 **Additional Properties:** not allowed  
 **Example**
@@ -1207,9 +1311,10 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneapihost**|`string`|||
-|**openlaneapitoken**|`string`|||
-|**enabled**|`boolean`|||
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**runinterval**|`integer`||yes|
+|**enabled**|`boolean`||no|
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>

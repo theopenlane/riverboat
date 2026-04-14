@@ -37,11 +37,12 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core/common v1.0.20
 	github.com/theopenlane/dbx v0.1.3
+	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.9.4
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.27.5
 	github.com/theopenlane/newman v0.3.0
-	github.com/theopenlane/riverboat/trustcenter v0.1.2
+	github.com/theopenlane/riverboat/trustcenter v0.0.0-00010101000000-000000000000
 	github.com/theopenlane/utils v0.7.0
 	go.opentelemetry.io/otel v1.43.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.61.0
@@ -109,7 +110,6 @@ require (
 	github.com/theopenlane/core v1.16.8 // indirect
 	github.com/theopenlane/corejobs v0.1.21 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/emailtemplates v0.3.7 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect

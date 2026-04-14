@@ -256,6 +256,8 @@ func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.C
 			return err
 		}
 
+		w.EmailConfig.SetDefaultsIfUnset(&w.OrganizationDeletionReminderWorker.Config.Email.Config)
+
 		w.OrganizationDeletionReminderWorker.WithRiverClient(insertOnlyClient)
 
 		if err := river.AddWorkerSafely(workers, &w.OrganizationDeletionReminderWorker); err != nil {

@@ -215,12 +215,18 @@
         "openlaneapitoken": {
           "type": "string"
         },
+        "runinterval": {
+          "type": "integer"
+        },
         "enabled": {
           "type": "boolean"
         }
       },
       "additionalProperties": false,
-      "type": "object"
+      "type": "object",
+      "required": [
+        "runinterval"
+      ]
     },
     "corejobs.OrganizationDeleteWorker": {
       "properties": {
@@ -248,6 +254,9 @@
         },
         "enabled": {
           "type": "boolean"
+        },
+        "email": {
+          "$ref": "#/$defs/struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether to send emails about the scheduled delution\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }"
         }
       },
       "additionalProperties": false,
@@ -829,6 +838,18 @@
       "description": "MetricsConfig is the configuration for metrics"
     },
     "struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether the email worker is enabled\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "config": {
+          "$ref": "#/$defs/emailtemplates.Config"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether to send emails about the scheduled delution\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }": {
       "properties": {
         "enabled": {
           "type": "boolean"
