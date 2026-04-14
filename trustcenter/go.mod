@@ -1,14 +1,18 @@
 module github.com/theopenlane/riverboat/trustcenter
 
-go 1.25.8
+go 1.25.9
 
 require (
 	github.com/riverqueue/river v0.33.0
 	github.com/rs/zerolog v1.35.0
-	github.com/theopenlane/core/common v1.0.17
+	github.com/theopenlane/core/common v1.0.20
 	github.com/theopenlane/corejobs v0.1.21
 	github.com/theopenlane/riverboat v0.9.9
 )
+
+replace github.com/theopenlane/corejobs => ../../corejobs/
+
+replace github.com/theopenlane/go-client => ../../go-client/
 
 require (
 	github.com/99designs/gqlgen v0.17.89 // indirect
@@ -25,8 +29,8 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
-	github.com/go-webauthn/webauthn v0.16.3 // indirect
-	github.com/go-webauthn/x v0.2.2 // indirect
+	github.com/go-webauthn/webauthn v0.16.4 // indirect
+	github.com/go-webauthn/x v0.2.3 // indirect
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
 	github.com/google/go-querystring v1.2.0 // indirect
@@ -65,14 +69,14 @@ require (
 	github.com/sosodev/duration v1.4.0 // indirect
 	github.com/stoewer/go-strcase v1.3.1 // indirect
 	github.com/stretchr/testify v1.11.1 // indirect
-	github.com/theopenlane/core v1.16.4 // indirect
+	github.com/theopenlane/core v1.16.8 // indirect
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
-	github.com/theopenlane/emailtemplates v0.3.6 // indirect
-	github.com/theopenlane/go-client v0.9.3 // indirect
+	github.com/theopenlane/emailtemplates v0.3.7 // indirect
+	github.com/theopenlane/go-client v0.9.4 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.27.5 // indirect
-	github.com/theopenlane/newman v0.2.2 // indirect
+	github.com/theopenlane/newman v0.3.0 // indirect
 	github.com/theopenlane/utils v0.7.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
@@ -90,13 +94,13 @@ require (
 	go.opentelemetry.io/otel/trace v1.43.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/goleak v1.3.0 // indirect
-	golang.org/x/crypto v0.49.0 // indirect
+	golang.org/x/crypto v0.50.0 // indirect
 	golang.org/x/image v0.38.0 // indirect
-	golang.org/x/net v0.52.0 // indirect
+	golang.org/x/net v0.53.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
 	golang.org/x/sync v0.20.0 // indirect
 	golang.org/x/sys v0.43.0 // indirect
-	golang.org/x/text v0.35.0 // indirect
+	golang.org/x/text v0.36.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

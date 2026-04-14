@@ -21,6 +21,7 @@ river:
                         supportemail: ""
                         templatespath: ""
                         urls:
+                            billing: ""
                             docs: ""
                             invite: ""
                             product: ""
@@ -94,9 +95,66 @@ river:
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
+        emailconfig:
+            companyaddress: ""
+            companyname: ""
+            corporation: ""
+            fromemail: ""
+            logourl: ""
+            questionnaireemail: ""
+            supportemail: ""
+            templatespath: ""
+            urls:
+                billing: ""
+                docs: ""
+                invite: ""
+                product: ""
+                questionnaire: ""
+                reset: ""
+                root: ""
+                verify: ""
+                verifybilling: ""
+                verifysubscriber: ""
+            year: 0
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""
+        organizationdeletionreminderworker:
+            config:
+                deletiondays: 0
+                email:
+                    config:
+                        companyaddress: ""
+                        companyname: ""
+                        corporation: ""
+                        fromemail: ""
+                        logourl: ""
+                        questionnaireemail: ""
+                        supportemail: ""
+                        templatespath: ""
+                        urls:
+                            billing: ""
+                            docs: ""
+                            invite: ""
+                            product: ""
+                            questionnaire: ""
+                            reset: ""
+                            root: ""
+                            verify: ""
+                            verifybilling: ""
+                            verifysubscriber: ""
+                        year: 0
+                    enabled: false
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                paymentmethodinterval: 0
+        organizationdeletionworker:
+            config:
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                runinterval: 0
         retrievedomainscanworker:
             config:
                 cloudflareaccountid: ""

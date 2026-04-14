@@ -14,6 +14,10 @@ type Workers struct {
 	// if a worker needs specific configuration, it can be set in the worker's config
 	OpenlaneConfig jobs.OpenlaneConfig `koanf:"openlaneconfig" json:"openlaneconfig"`
 
+	// EmailConfig configuration for trust center email templates, this is shared across multiple workers
+	// if a worker needs specific configuration, it can be set in the worker's config
+	EmailConfig jobs.EmailTemplateConfig `koanf:"emailconfig" json:"emailconfig"`
+
 	// CreateCustomDomainWorker configuration for creating custom domains
 	CreateCustomDomainWorker corejobs.CreateCustomDomainWorker `koanf:"createcustomdomainworker" json:"createcustomdomainworker"`
 
@@ -54,6 +58,12 @@ type Workers struct {
 
 	// RetrieveDomainScanWorker for fetching the scan data from cloudflare and creating a notification
 	RetrieveDomainScanWorker corejobs.RetrieveDomainScanWorker `koanf:"retrievedomainscanworker" json:"retrievedomainscanworker"`
+
+	// OrganizationDeletionReminderWorker configuration for sending organization deletion reminders
+	OrganizationDeletionReminderWorker corejobs.OrganizationPaymentReminderWorker `koanf:"organizationdeletionreminderworker" json:"organizationdeletionreminderworker"`
+
+	// OrganizationDeletionWorker configuration for deleting organizations
+	OrganizationDeletionWorker corejobs.OrganizationDeleteWorker `koanf:"organizationdeletionworker" json:"organizationdeletionworker"`
 
 	// add more trust center specific workers here
 }
