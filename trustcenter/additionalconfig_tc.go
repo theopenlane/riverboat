@@ -59,7 +59,7 @@ type Workers struct {
 	OrganizationDeletionReminderWorker corejobs.OrganizationPaymentReminderWorker `koanf:"organizationdeletionreminderworker" json:"organizationdeletionreminderworker"`
 
 	// OrganizationDeletionWorker configuration for deleting organizations
-	OrganizationDeletionWorker corejobs.OrganizationDeleteWorker `koanf:"organizatondeletionworker" json:"organizatondeletionworker"`
+	OrganizationDeletionWorker corejobs.OrganizationDeleteWorker `koanf:"organizationdeletionworker" json:"organizationdeletionworker"`
 
 	// add more trust center specific workers here
 }

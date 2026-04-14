@@ -55,7 +55,7 @@ func CreatePeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 			func() (river.JobArgs, *river.InsertOpts) {
 				return jobspec.OrganizationDeletionReminderArgs{}, nil
 			},
-			&river.PeriodicJobOpts{RunOnStart: true},
+			&river.PeriodicJobOpts{},
 		)
 		jobs = append(jobs, orgDeletionReminders)
 

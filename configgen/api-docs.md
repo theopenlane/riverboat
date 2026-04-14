@@ -87,7 +87,7 @@
             "organizationdeletionreminderworker": {
                 "config": {}
             },
-            "organizatondeletionworker": {
+            "organizationdeletionworker": {
                 "config": {}
             }
         },
@@ -192,7 +192,7 @@ Config is the configuration for the river server
         "organizationdeletionreminderworker": {
             "config": {}
         },
-        "organizatondeletionworker": {
+        "organizationdeletionworker": {
             "config": {}
         }
     },
@@ -474,7 +474,7 @@ SlackConfig configures the Slack worker.
 |[**createdomainscanworker**](#rivertrustcenterworkerscreatedomainscanworker)|`object`|||
 |[**retrievedomainscanworker**](#rivertrustcenterworkersretrievedomainscanworker)|`object`|||
 |[**organizationdeletionreminderworker**](#rivertrustcenterworkersorganizationdeletionreminderworker)|`object`|||
-|[**organizatondeletionworker**](#rivertrustcenterworkersorganizatondeletionworker)|`object`|||
+|[**organizationdeletionworker**](#rivertrustcenterworkersorganizationdeletionworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -533,7 +533,7 @@ SlackConfig configures the Slack worker.
     "organizationdeletionreminderworker": {
         "config": {}
     },
-    "organizatondeletionworker": {
+    "organizationdeletionworker": {
         "config": {}
     }
 }
@@ -988,6 +988,7 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**reset**|`string`|||
 |**verifysubscriber**|`string`|||
 |**verifybilling**|`string`|||
+|**billing**|`string`|||
 |**questionnaire**|`string`|||
 
 **Additional Properties:** not allowed  
@@ -1118,17 +1119,18 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**openlaneapihost**|`string`||no|
 |**openlaneapitoken**|`string`||no|
 |**paymentmethodinterval**|`integer`||yes|
+|**deletiondays**|`integer`||yes|
 |**enabled**|`boolean`||no|
 
 **Additional Properties:** not allowed  
-<a name="rivertrustcenterworkersorganizatondeletionworker"></a>
-#### river\.trustcenterworkers\.organizatondeletionworker: object
+<a name="rivertrustcenterworkersorganizationdeletionworker"></a>
+#### river\.trustcenterworkers\.organizationdeletionworker: object
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkersorganizatondeletionworkerconfig)|`object`|||
+|[**config**](#rivertrustcenterworkersorganizationdeletionworkerconfig)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -1139,8 +1141,8 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 }
 ```
 
-<a name="rivertrustcenterworkersorganizatondeletionworkerconfig"></a>
-##### river\.trustcenterworkers\.organizatondeletionworker\.config: object
+<a name="rivertrustcenterworkersorganizationdeletionworkerconfig"></a>
+##### river\.trustcenterworkers\.organizationdeletionworker\.config: object
 
 **Properties**
 

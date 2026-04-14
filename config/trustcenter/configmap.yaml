@@ -111,6 +111,7 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_RESET: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.reset }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYSUBSCRIBER: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.verifysubscriber }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYBILLING: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.verifybilling }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_BILLING: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.billing }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_URLS_QUESTIONNAIRE: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.urls.questionnaire }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ATTESTNDAREQUESTWORKER_CONFIG_EMAIL_CONFIG_TEMPLATESPATH: {{ .Values.riverboat.river.trustcenterworkers.attestndarequestworker.config.email.config.templatespath }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATEPREVIEWDOMAINACMEWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createpreviewdomainacmeworker.config.openlaneapihost }}
@@ -134,10 +135,11 @@ data:
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_PAYMENTMETHODINTERVAL: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.paymentmethodinterval }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_DELETIONDAYS: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.deletiondays }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionreminderworker.config.enabled }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATONDELETIONWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.organizatondeletionworker.config.openlaneapihost }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATONDELETIONWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.organizatondeletionworker.config.openlaneapitoken }}
-  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATONDELETIONWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.organizatondeletionworker.config.enabled }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.organizationdeletionworker.config.enabled }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}
   RIVERBOAT_RIVER_METRICS_ENABLEMETRICS: {{ .Values.riverboat.river.metrics.enablemetrics | default false }}
   RIVERBOAT_RIVER_METRICS_METRICSDURATIONUNIT: {{ .Values.riverboat.river.metrics.metricsdurationunit | default "ms" }}

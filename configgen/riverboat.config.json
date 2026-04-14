@@ -243,6 +243,9 @@
         "paymentmethodinterval": {
           "type": "integer"
         },
+        "deletiondays": {
+          "type": "integer"
+        },
         "enabled": {
           "type": "boolean"
         }
@@ -250,7 +253,8 @@
       "additionalProperties": false,
       "type": "object",
       "required": [
-        "paymentmethodinterval"
+        "paymentmethodinterval",
+        "deletiondays"
       ]
     },
     "corejobs.OrganizationPaymentReminderWorker": {
@@ -512,6 +516,9 @@
           "type": "string"
         },
         "verifybilling": {
+          "type": "string"
+        },
+        "billing": {
           "type": "string"
         },
         "questionnaire": {
@@ -846,7 +853,7 @@
         "organizationdeletionreminderworker": {
           "$ref": "#/$defs/corejobs.OrganizationPaymentReminderWorker"
         },
-        "organizatondeletionworker": {
+        "organizationdeletionworker": {
           "$ref": "#/$defs/corejobs.OrganizationDeleteWorker"
         }
       },

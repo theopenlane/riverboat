@@ -100,6 +100,10 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		log.Info().Msg("worker enabled: retrieve domain scan results")
 	}
 
+	if err := createOrganizationDeletionWorkers(w, insertOnlyClient, workers); err != nil {
+		return nil, err
+	}
+
 	// add more workers here
 
 	return workers, nil
@@ -238,6 +242,38 @@ func createPreviewDomainWorkers(w Workers, insertOnlyClient *riverqueue.Client, 
 		}
 
 		log.Info().Msg("worker enabled: validate preview domain")
+	}
+
+	return nil
+}
+
+func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
+	if w.OrganizationDeletionReminderWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.OrganizationDeletionReminderWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion reminder worker")
+			return err
+		}
+
+		w.OrganizationDeletionReminderWorker.WithRiverClient(insertOnlyClient)
+
+		if err := river.AddWorkerSafely(workers, &w.OrganizationDeletionReminderWorker); err != nil {
+			return err
+		}
+
+		log.Info().Msg("worker enabled: organization deletion reminder")
+	}
+
+	if w.OrganizationDeletionWorker.Config.Enabled {
+		if err := setAndValidateOpenlaneConfigDefaults(&w.OrganizationDeletionWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion worker")
+			return err
+		}
+
+		if err := river.AddWorkerSafely(workers, &w.OrganizationDeletionWorker); err != nil {
+			return err
+		}
+
+		log.Info().Msg("worker enabled: organization deletion")
 	}
 
 	return nil

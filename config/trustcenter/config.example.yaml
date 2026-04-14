@@ -21,6 +21,7 @@ river:
                         supportemail: ""
                         templatespath: ""
                         urls:
+                            billing: ""
                             docs: ""
                             invite: ""
                             product: ""
@@ -99,11 +100,12 @@ river:
             openlaneapitoken: ""
         organizationdeletionreminderworker:
             config:
+                deletiondays: 0
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
                 paymentmethodinterval: 0
-        organizatondeletionworker:
+        organizationdeletionworker:
             config:
                 enabled: false
                 openlaneapihost: ""
