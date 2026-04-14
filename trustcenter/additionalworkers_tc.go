@@ -48,6 +48,8 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 			return nil, err
 		}
 
+		w.EmailConfig.SetDefaultsIfUnset(&w.AttestNDARequestWorker.Config.Email.Config)
+
 		w.AttestNDARequestWorker.WithRiverClient(insertOnlyClient)
 
 		if err := river.AddWorkerSafely(workers, &w.AttestNDARequestWorker); err != nil {

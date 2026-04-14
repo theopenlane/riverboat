@@ -38,6 +38,25 @@ data:
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapitoken }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_COMPANYNAME: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.companyname }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_COMPANYADDRESS: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.companyaddress }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_CORPORATION: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.corporation }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_YEAR: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.year }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_FROMEMAIL: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.fromemail }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_SUPPORTEMAIL: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.supportemail }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_QUESTIONNAIREEMAIL: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.questionnaireemail }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_LOGOURL: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.logourl }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_ROOT: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.root }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_PRODUCT: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.product }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_DOCS: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.docs }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_VERIFY: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.verify }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_INVITE: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.invite }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_RESET: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.reset }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_VERIFYSUBSCRIBER: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.verifysubscriber }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_VERIFYBILLING: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.verifybilling }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_BILLING: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.billing }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_URLS_QUESTIONNAIRE: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.urls.questionnaire }}
+  RIVERBOAT_RIVER_TRUSTCENTERWORKERS_EMAILCONFIG_TEMPLATESPATH: {{ .Values.riverboat.river.trustcenterworkers.emailconfig.templatespath }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_CREATECUSTOMDOMAINWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.trustcenterworkers.createcustomdomainworker.config.enabled }}

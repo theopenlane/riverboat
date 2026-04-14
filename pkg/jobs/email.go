@@ -7,6 +7,7 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/core/common/jobspec"
+	"github.com/theopenlane/emailtemplates"
 	"github.com/theopenlane/newman"
 	"github.com/theopenlane/newman/providers/resend"
 )
@@ -56,6 +57,99 @@ type EmailConfig struct {
 	Token string `koanf:"token" json:"token" jsonschema:"description=the token to use for the email provider"`
 	// FromEmail is the email address to use as the sender
 	FromEmail string `koanf:"fromemail" json:"fromemail" jsonschema:"required description=the email address to use as the sender" default:"no-reply@example.com"`
+}
+
+// EmailTemplateConfig contains configuration that can be shared across workers instead of each worker
+// redefining theirs. So configuration does not go out of sync
+type EmailTemplateConfig struct {
+	emailtemplates.Config `koanf:",squash" jsonschema:"description=the email template configuration"`
+}
+
+// SetDefaultsIfUnset sets email template fields from the target if they are not already set in input.
+func (c EmailTemplateConfig) SetDefaultsIfUnset(input *emailtemplates.Config) {
+	setTemplatingDefaults(input, c.Config)
+}
+
+func setTemplatingDefaults(input *emailtemplates.Config, target emailtemplates.Config) {
+	if input.CompanyName == "" {
+		input.CompanyName = target.CompanyName
+	}
+
+	if input.CompanyAddress == "" {
+		input.CompanyAddress = target.CompanyAddress
+	}
+
+	if input.Corporation == "" {
+		input.Corporation = target.Corporation
+	}
+
+	if input.Year == 0 {
+		input.Year = target.Year
+	}
+
+	if input.FromEmail == "" {
+		input.FromEmail = target.FromEmail
+	}
+
+	if input.SupportEmail == "" {
+		input.SupportEmail = target.SupportEmail
+	}
+
+	if input.QuestionnaireEmail == "" {
+		input.QuestionnaireEmail = target.QuestionnaireEmail
+	}
+
+	if input.LogoURL == "" {
+		input.LogoURL = target.LogoURL
+	}
+
+	if input.TemplatesPath == "" {
+		input.TemplatesPath = target.TemplatesPath
+	}
+
+	setURLDefaults(&input.URLS, target.URLS)
+}
+
+func setURLDefaults(input *emailtemplates.URLConfig, target emailtemplates.URLConfig) {
+	if input.Root == "" {
+		input.Root = target.Root
+	}
+
+	if input.Product == "" {
+		input.Product = target.Product
+	}
+
+	if input.Docs == "" {
+		input.Docs = target.Docs
+	}
+
+	if input.Verify == "" {
+		input.Verify = target.Verify
+	}
+
+	if input.Invite == "" {
+		input.Invite = target.Invite
+	}
+
+	if input.PasswordReset == "" {
+		input.PasswordReset = target.PasswordReset
+	}
+
+	if input.VerifySubscriber == "" {
+		input.VerifySubscriber = target.VerifySubscriber
+	}
+
+	if input.VerifyBilling == "" {
+		input.VerifyBilling = target.VerifyBilling
+	}
+
+	if input.Billing == "" {
+		input.Billing = target.Billing
+	}
+
+	if input.Questionnaire == "" {
+		input.Questionnaire = target.Questionnaire
+	}
 }
 
 // validateEmailConfig validates the email configuration settings

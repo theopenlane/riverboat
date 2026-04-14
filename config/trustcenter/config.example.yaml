@@ -95,6 +95,27 @@ river:
                 enabled: false
                 openlaneapihost: ""
                 openlaneapitoken: ""
+        emailconfig:
+            companyaddress: ""
+            companyname: ""
+            corporation: ""
+            fromemail: ""
+            logourl: ""
+            questionnaireemail: ""
+            supportemail: ""
+            templatespath: ""
+            urls:
+                billing: ""
+                docs: ""
+                invite: ""
+                product: ""
+                questionnaire: ""
+                reset: ""
+                root: ""
+                verify: ""
+                verifybilling: ""
+                verifysubscriber: ""
+            year: 0
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""

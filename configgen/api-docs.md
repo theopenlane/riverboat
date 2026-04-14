@@ -36,6 +36,9 @@
         },
         "trustcenterworkers": {
             "openlaneconfig": {},
+            "emailconfig": {
+                "urls": {}
+            },
             "createcustomdomainworker": {
                 "config": {}
             },
@@ -141,6 +144,9 @@ Config is the configuration for the river server
     },
     "trustcenterworkers": {
         "openlaneconfig": {},
+        "emailconfig": {
+            "urls": {}
+        },
         "createcustomdomainworker": {
             "config": {}
         },
@@ -459,6 +465,7 @@ SlackConfig configures the Slack worker.
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |[**openlaneconfig**](#rivertrustcenterworkersopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
+|[**emailconfig**](#rivertrustcenterworkersemailconfig)|`object`|EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.<br/>||
 |[**createcustomdomainworker**](#rivertrustcenterworkerscreatecustomdomainworker)|`object`|||
 |[**validatecustomdomainworker**](#rivertrustcenterworkersvalidatecustomdomainworker)|`object`|||
 |[**deletecustomdomainworker**](#rivertrustcenterworkersdeletecustomdomainworker)|`object`|||
@@ -482,6 +489,9 @@ SlackConfig configures the Slack worker.
 ```json
 {
     "openlaneconfig": {},
+    "emailconfig": {
+        "urls": {}
+    },
     "createcustomdomainworker": {
         "config": {}
     },
@@ -551,6 +561,55 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |----|----|-----------|--------|
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+
+**Additional Properties:** not allowed  
+<a name="rivertrustcenterworkersemailconfig"></a>
+#### river\.trustcenterworkers\.emailconfig: object
+
+EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**companyname**|`string`|||
+|**companyaddress**|`string`|||
+|**corporation**|`string`|||
+|**year**|`integer`|||
+|**fromemail**|`string`|||
+|**supportemail**|`string`|||
+|**questionnaireemail**|`string`|||
+|**logourl**|`string`|||
+|[**urls**](#rivertrustcenterworkersemailconfigurls)|`object`|||
+|**templatespath**|`string`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "urls": {}
+}
+```
+
+<a name="rivertrustcenterworkersemailconfigurls"></a>
+##### river\.trustcenterworkers\.emailconfig\.urls: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**root**|`string`|||
+|**product**|`string`|||
+|**docs**|`string`|||
+|**verify**|`string`|||
+|**invite**|`string`|||
+|**reset**|`string`|||
+|**verifysubscriber**|`string`|||
+|**verifybilling**|`string`|||
+|**billing**|`string`|||
+|**questionnaire**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="rivertrustcenterworkerscreatecustomdomainworker"></a>

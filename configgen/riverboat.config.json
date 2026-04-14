@@ -606,6 +606,43 @@
       "type": "object",
       "description": "EmailConfig contains the configuration for the email worker"
     },
+    "jobs.EmailTemplateConfig": {
+      "properties": {
+        "companyname": {
+          "type": "string"
+        },
+        "companyaddress": {
+          "type": "string"
+        },
+        "corporation": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "fromemail": {
+          "type": "string"
+        },
+        "supportemail": {
+          "type": "string"
+        },
+        "questionnaireemail": {
+          "type": "string"
+        },
+        "logourl": {
+          "type": "string"
+        },
+        "urls": {
+          "$ref": "#/$defs/emailtemplates.URLConfig"
+        },
+        "templatespath": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs."
+    },
     "jobs.EmailWorker": {
       "properties": {
         "config": {
@@ -807,6 +844,9 @@
       "properties": {
         "openlaneconfig": {
           "$ref": "#/$defs/jobs.OpenlaneConfig"
+        },
+        "emailconfig": {
+          "$ref": "#/$defs/jobs.EmailTemplateConfig"
         },
         "createcustomdomainworker": {
           "$ref": "#/$defs/corejobs.CreateCustomDomainWorker"
