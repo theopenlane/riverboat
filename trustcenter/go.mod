@@ -1,6 +1,6 @@
 module github.com/theopenlane/riverboat/trustcenter
 
-go 1.25.8
+go 1.25.9
 
 require (
 	github.com/riverqueue/river v0.33.0

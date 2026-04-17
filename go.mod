@@ -1,6 +1,6 @@
 module github.com/theopenlane/riverboat
 
-go 1.25.8
+go 1.25.9
 
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
