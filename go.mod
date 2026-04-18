@@ -1,6 +1,6 @@
 module github.com/theopenlane/riverboat
 
-go 1.25.8
+go 1.25.9
 
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
@@ -41,7 +41,7 @@ require (
 	github.com/theopenlane/utils v0.7.0
 	go.opentelemetry.io/otel v1.43.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.61.0
-	go.opentelemetry.io/otel/sdk/metric v1.42.0
+	go.opentelemetry.io/otel/sdk/metric v1.43.0
 )
 
 require (
@@ -103,7 +103,7 @@ require (
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/theopenlane/core v1.16.4 // indirect
-	github.com/theopenlane/corejobs v0.1.21 // indirect
+	github.com/theopenlane/corejobs v0.1.22 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.6 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
@@ -118,7 +118,7 @@ require (
 	github.com/x448/float16 v0.8.4 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/otel/metric v1.43.0 // indirect
-	go.opentelemetry.io/otel/sdk v1.42.0 // indirect
+	go.opentelemetry.io/otel/sdk v1.43.0 // indirect
 	go.opentelemetry.io/otel/trace v1.43.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/goleak v1.3.0 // indirect
