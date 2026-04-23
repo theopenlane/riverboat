@@ -4,10 +4,10 @@ go 1.25.9
 
 require (
 	github.com/riverqueue/river v0.33.0
-	github.com/rs/zerolog v1.35.0
-	github.com/theopenlane/core/common v1.0.17
+	github.com/rs/zerolog v1.35.1
+	github.com/theopenlane/core/common v1.0.20
 	github.com/theopenlane/corejobs v0.1.23
-	github.com/theopenlane/riverboat v0.9.9
+	github.com/theopenlane/riverboat v0.9.12
 )
 
 require (
@@ -102,4 +102,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/hhrutter/pkcs7 => github.com/hhrutter/pkcs7 v0.2.0
+replace github.com/hhrutter/pkcs7 => github.com/hhrutter/pkcs7 v0.2.2
