@@ -25,17 +25,17 @@ require (
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.33.0
 	github.com/riverqueue/river/rivertype v0.33.0
 	github.com/riverqueue/rivercontrib/otelriver v0.7.0
-	github.com/rs/zerolog v1.35.0
+	github.com/rs/zerolog v1.35.1
 	github.com/samber/lo v1.53.0
 	github.com/slack-go/slack v0.21.1
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v1.0.17
+	github.com/theopenlane/core/common v1.0.20
 	github.com/theopenlane/dbx v0.1.3
-	github.com/theopenlane/go-client v0.9.3
+	github.com/theopenlane/go-client v0.9.4
 	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.27.5
+	github.com/theopenlane/iam v0.27.6
 	github.com/theopenlane/newman v0.2.2
 	github.com/theopenlane/riverboat/trustcenter v0.1.2
 	github.com/theopenlane/utils v0.7.0
@@ -137,4 +137,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/hhrutter/pkcs7 => github.com/hhrutter/pkcs7 v0.2.0
+replace github.com/hhrutter/pkcs7 => github.com/hhrutter/pkcs7 v0.2.2
