@@ -25,6 +25,27 @@ river:
                 interval: 0
                 openlaneapihost: ""
                 openlaneapitoken: ""
+        emailconfig:
+            companyaddress: ""
+            companyname: ""
+            corporation: ""
+            fromemail: ""
+            logourl: ""
+            questionnaireemail: ""
+            supportemail: ""
+            templatespath: ""
+            urls:
+                billing: ""
+                docs: ""
+                invite: ""
+                product: ""
+                questionnaire: ""
+                reset: ""
+                root: ""
+                verify: ""
+                verifybilling: ""
+                verifysubscriber: ""
+            year: 0
         emailworker:
             config:
                 devmode: true
@@ -41,6 +62,43 @@ river:
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""
+        organizationdeletionreminderworker:
+            config:
+                deletiondays: 0
+                email:
+                    config:
+                        companyaddress: ""
+                        companyname: ""
+                        corporation: ""
+                        fromemail: ""
+                        logourl: ""
+                        questionnaireemail: ""
+                        supportemail: ""
+                        templatespath: ""
+                        urls:
+                            billing: ""
+                            docs: ""
+                            invite: ""
+                            product: ""
+                            questionnaire: ""
+                            reset: ""
+                            root: ""
+                            verify: ""
+                            verifybilling: ""
+                            verifysubscriber: ""
+                        year: 0
+                    enabled: false
+                enabled: false
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                paymentmethodinterval: 0
+        organizationdeletionworker:
+            config:
+                enabled: false
+                maxdeletesperrun: 0
+                openlaneapihost: ""
+                openlaneapitoken: ""
+                runinterval: 0
         slackworker:
             config:
                 devmode: true

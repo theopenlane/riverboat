@@ -59,11 +59,5 @@ type Workers struct {
 	// RetrieveDomainScanWorker for fetching the scan data from cloudflare and creating a notification
 	RetrieveDomainScanWorker corejobs.RetrieveDomainScanWorker `koanf:"retrievedomainscanworker" json:"retrievedomainscanworker"`
 
-	// OrganizationDeletionReminderWorker configuration for sending organization deletion reminders
-	OrganizationDeletionReminderWorker corejobs.OrganizationPaymentReminderWorker `koanf:"organizationdeletionreminderworker" json:"organizationdeletionreminderworker"`
-
-	// OrganizationDeletionWorker configuration for deleting organizations
-	OrganizationDeletionWorker corejobs.OrganizationDeleteWorker `koanf:"organizationdeletionworker" json:"organizationdeletionworker"`
-
 	// add more trust center specific workers here
 }

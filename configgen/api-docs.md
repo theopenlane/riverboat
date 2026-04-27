@@ -18,6 +18,9 @@
         ],
         "workers": {
             "openlaneconfig": {},
+            "emailconfig": {
+                "urls": {}
+            },
             "emailworker": {
                 "config": {}
             },
@@ -31,6 +34,18 @@
                 "config": {}
             },
             "slackworker": {
+                "config": {}
+            },
+            "organizationdeletionreminderworker": {
+                "config": {
+                    "email": {
+                        "config": {
+                            "urls": {}
+                        }
+                    }
+                }
+            },
+            "organizationdeletionworker": {
                 "config": {}
             }
         },
@@ -86,18 +101,6 @@
             },
             "retrievedomainscanworker": {
                 "config": {}
-            },
-            "organizationdeletionreminderworker": {
-                "config": {
-                    "email": {
-                        "config": {
-                            "urls": {}
-                        }
-                    }
-                }
-            },
-            "organizationdeletionworker": {
-                "config": {}
             }
         },
         "metrics": {}
@@ -132,6 +135,9 @@ Config is the configuration for the river server
     ],
     "workers": {
         "openlaneconfig": {},
+        "emailconfig": {
+            "urls": {}
+        },
         "emailworker": {
             "config": {}
         },
@@ -145,6 +151,18 @@ Config is the configuration for the river server
             "config": {}
         },
         "slackworker": {
+            "config": {}
+        },
+        "organizationdeletionreminderworker": {
+            "config": {
+                "email": {
+                    "config": {
+                        "urls": {}
+                    }
+                }
+            }
+        },
+        "organizationdeletionworker": {
             "config": {}
         }
     },
@@ -200,18 +218,6 @@ Config is the configuration for the river server
         },
         "retrievedomainscanworker": {
             "config": {}
-        },
-        "organizationdeletionreminderworker": {
-            "config": {
-                "email": {
-                    "config": {
-                        "urls": {}
-                    }
-                }
-            }
-        },
-        "organizationdeletionworker": {
-            "config": {}
         }
     },
     "metrics": {}
@@ -242,11 +248,14 @@ Workers that will be enabled on the server
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |[**openlaneconfig**](#riverworkersopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
+|[**emailconfig**](#riverworkersemailconfig)|`object`|EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.<br/>||
 |[**emailworker**](#riverworkersemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
 |[**databaseworker**](#riverworkersdatabaseworker)|`object`|DatabaseWorker is a worker to create a dedicated database for an organization<br/>||
 |[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
 |[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
+|[**organizationdeletionreminderworker**](#riverworkersorganizationdeletionreminderworker)|`object`|||
+|[**organizationdeletionworker**](#riverworkersorganizationdeletionworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -254,6 +263,9 @@ Workers that will be enabled on the server
 ```json
 {
     "openlaneconfig": {},
+    "emailconfig": {
+        "urls": {}
+    },
     "emailworker": {
         "config": {}
     },
@@ -267,6 +279,18 @@ Workers that will be enabled on the server
         "config": {}
     },
     "slackworker": {
+        "config": {}
+    },
+    "organizationdeletionreminderworker": {
+        "config": {
+            "email": {
+                "config": {
+                    "urls": {}
+                }
+            }
+        }
+    },
+    "organizationdeletionworker": {
         "config": {}
     }
 }
@@ -284,6 +308,55 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |----|----|-----------|--------|
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersemailconfig"></a>
+#### river\.workers\.emailconfig: object
+
+EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**companyname**|`string`|||
+|**companyaddress**|`string`|||
+|**corporation**|`string`|||
+|**year**|`integer`|||
+|**fromemail**|`string`|||
+|**supportemail**|`string`|||
+|**questionnaireemail**|`string`|||
+|**logourl**|`string`|||
+|[**urls**](#riverworkersemailconfigurls)|`object`|||
+|**templatespath**|`string`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "urls": {}
+}
+```
+
+<a name="riverworkersemailconfigurls"></a>
+##### river\.workers\.emailconfig\.urls: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**root**|`string`|||
+|**product**|`string`|||
+|**docs**|`string`|||
+|**verify**|`string`|||
+|**invite**|`string`|||
+|**reset**|`string`|||
+|**verifysubscriber**|`string`|||
+|**verifybilling**|`string`|||
+|**billing**|`string`|||
+|**questionnaire**|`string`|||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersemailworker"></a>
@@ -469,6 +542,156 @@ SlackConfig configures the Slack worker.
 |**token**|`string`|the token to use for the slack app<br/>||
 
 **Additional Properties:** not allowed  
+<a name="riverworkersorganizationdeletionreminderworker"></a>
+#### river\.workers\.organizationdeletionreminderworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersorganizationdeletionreminderworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {
+        "email": {
+            "config": {
+                "urls": {}
+            }
+        }
+    }
+}
+```
+
+<a name="riverworkersorganizationdeletionreminderworkerconfig"></a>
+##### river\.workers\.organizationdeletionreminderworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**paymentmethodinterval**|`integer`||yes|
+|**deletiondays**|`integer`||yes|
+|**enabled**|`boolean`||no|
+|[**email**](#riverworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "email": {
+        "config": {
+            "urls": {}
+        }
+    }
+}
+```
+
+<a name="riverworkersorganizationdeletionreminderworkerconfigemail"></a>
+###### river\.workers\.organizationdeletionreminderworker\.config\.email: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enabled**|`boolean`|||
+|[**config**](#riverworkersorganizationdeletionreminderworkerconfigemailconfig)|`object`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {
+        "urls": {}
+    }
+}
+```
+
+<a name="riverworkersorganizationdeletionreminderworkerconfigemailconfig"></a>
+####### river\.workers\.organizationdeletionreminderworker\.config\.email\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**companyname**|`string`|||
+|**companyaddress**|`string`|||
+|**corporation**|`string`|||
+|**year**|`integer`|||
+|**fromemail**|`string`|||
+|**supportemail**|`string`|||
+|**questionnaireemail**|`string`|||
+|**logourl**|`string`|||
+|[**urls**](#riverworkersorganizationdeletionreminderworkerconfigemailconfigurls)|`object`|||
+|**templatespath**|`string`|||
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "urls": {}
+}
+```
+
+<a name="riverworkersorganizationdeletionreminderworkerconfigemailconfigurls"></a>
+######## river\.workers\.organizationdeletionreminderworker\.config\.email\.config\.urls: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**root**|`string`|||
+|**product**|`string`|||
+|**docs**|`string`|||
+|**verify**|`string`|||
+|**invite**|`string`|||
+|**reset**|`string`|||
+|**verifysubscriber**|`string`|||
+|**verifybilling**|`string`|||
+|**billing**|`string`|||
+|**questionnaire**|`string`|||
+
+**Additional Properties:** not allowed  
+<a name="riverworkersorganizationdeletionworker"></a>
+#### river\.workers\.organizationdeletionworker: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**config**](#riverworkersorganizationdeletionworkerconfig)|`object`||yes|
+
+**Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+<a name="riverworkersorganizationdeletionworkerconfig"></a>
+##### river\.workers\.organizationdeletionworker\.config: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`||no|
+|**openlaneapitoken**|`string`||no|
+|**runinterval**|`integer`||yes|
+|**maxdeletesperrun**|`integer`||yes|
+|**enabled**|`boolean`||no|
+
+**Additional Properties:** not allowed  
 <a name="rivertrustcenterworkers"></a>
 ### river\.trustcenterworkers: object
 
@@ -492,8 +715,6 @@ SlackConfig configures the Slack worker.
 |[**createpreviewdomainacmeworker**](#rivertrustcenterworkerscreatepreviewdomainacmeworker)|`object`|||
 |[**createdomainscanworker**](#rivertrustcenterworkerscreatedomainscanworker)|`object`|||
 |[**retrievedomainscanworker**](#rivertrustcenterworkersretrievedomainscanworker)|`object`|||
-|[**organizationdeletionreminderworker**](#rivertrustcenterworkersorganizationdeletionreminderworker)|`object`|||
-|[**organizationdeletionworker**](#rivertrustcenterworkersorganizationdeletionworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -550,18 +771,6 @@ SlackConfig configures the Slack worker.
         "config": {}
     },
     "retrievedomainscanworker": {
-        "config": {}
-    },
-    "organizationdeletionreminderworker": {
-        "config": {
-            "email": {
-                "config": {
-                    "urls": {}
-                }
-            }
-        }
-    },
-    "organizationdeletionworker": {
         "config": {}
     }
 }
@@ -1166,155 +1375,6 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 |**cloudflareapikey**|`string`|||
 |**maxsnoozes**|`integer`|||
 |**snoozeduration**|`integer`|||
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkersorganizationdeletionreminderworker"></a>
-#### river\.trustcenterworkers\.organizationdeletionreminderworker: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfig)|`object`||yes|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {
-        "email": {
-            "config": {
-                "urls": {}
-            }
-        }
-    }
-}
-```
-
-<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfig"></a>
-##### river\.trustcenterworkers\.organizationdeletionreminderworker\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`||no|
-|**openlaneapitoken**|`string`||no|
-|**paymentmethodinterval**|`integer`||yes|
-|**deletiondays**|`integer`||yes|
-|**enabled**|`boolean`||no|
-|[**email**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "email": {
-        "config": {
-            "urls": {}
-        }
-    }
-}
-```
-
-<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfigemail"></a>
-###### river\.trustcenterworkers\.organizationdeletionreminderworker\.config\.email: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**enabled**|`boolean`|||
-|[**config**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfig)|`object`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {
-        "urls": {}
-    }
-}
-```
-
-<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfig"></a>
-####### river\.trustcenterworkers\.organizationdeletionreminderworker\.config\.email\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**companyname**|`string`|||
-|**companyaddress**|`string`|||
-|**corporation**|`string`|||
-|**year**|`integer`|||
-|**fromemail**|`string`|||
-|**supportemail**|`string`|||
-|**questionnaireemail**|`string`|||
-|**logourl**|`string`|||
-|[**urls**](#rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfigurls)|`object`|||
-|**templatespath**|`string`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "urls": {}
-}
-```
-
-<a name="rivertrustcenterworkersorganizationdeletionreminderworkerconfigemailconfigurls"></a>
-######## river\.trustcenterworkers\.organizationdeletionreminderworker\.config\.email\.config\.urls: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**root**|`string`|||
-|**product**|`string`|||
-|**docs**|`string`|||
-|**verify**|`string`|||
-|**invite**|`string`|||
-|**reset**|`string`|||
-|**verifysubscriber**|`string`|||
-|**verifybilling**|`string`|||
-|**billing**|`string`|||
-|**questionnaire**|`string`|||
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkersorganizationdeletionworker"></a>
-#### river\.trustcenterworkers\.organizationdeletionworker: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkersorganizationdeletionworkerconfig)|`object`||yes|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {}
-}
-```
-
-<a name="rivertrustcenterworkersorganizationdeletionworkerconfig"></a>
-##### river\.trustcenterworkers\.organizationdeletionworker\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`||no|
-|**openlaneapitoken**|`string`||no|
-|**runinterval**|`integer`||yes|
-|**enabled**|`boolean`||no|
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>

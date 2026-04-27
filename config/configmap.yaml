@@ -15,6 +15,25 @@ data:
   RIVERBOAT_RIVER_QUEUES: {{ .Values.riverboat.river.queues }}
   RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.openlaneconfig.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.openlaneconfig.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_COMPANYNAME: {{ .Values.riverboat.river.workers.emailconfig.companyname }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_COMPANYADDRESS: {{ .Values.riverboat.river.workers.emailconfig.companyaddress }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_CORPORATION: {{ .Values.riverboat.river.workers.emailconfig.corporation }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_YEAR: {{ .Values.riverboat.river.workers.emailconfig.year }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_FROMEMAIL: {{ .Values.riverboat.river.workers.emailconfig.fromemail }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_SUPPORTEMAIL: {{ .Values.riverboat.river.workers.emailconfig.supportemail }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_QUESTIONNAIREEMAIL: {{ .Values.riverboat.river.workers.emailconfig.questionnaireemail }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_LOGOURL: {{ .Values.riverboat.river.workers.emailconfig.logourl }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_ROOT: {{ .Values.riverboat.river.workers.emailconfig.urls.root }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_PRODUCT: {{ .Values.riverboat.river.workers.emailconfig.urls.product }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_DOCS: {{ .Values.riverboat.river.workers.emailconfig.urls.docs }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_VERIFY: {{ .Values.riverboat.river.workers.emailconfig.urls.verify }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_INVITE: {{ .Values.riverboat.river.workers.emailconfig.urls.invite }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_RESET: {{ .Values.riverboat.river.workers.emailconfig.urls.reset }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_VERIFYSUBSCRIBER: {{ .Values.riverboat.river.workers.emailconfig.urls.verifysubscriber }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_VERIFYBILLING: {{ .Values.riverboat.river.workers.emailconfig.urls.verifybilling }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_BILLING: {{ .Values.riverboat.river.workers.emailconfig.urls.billing }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_URLS_QUESTIONNAIRE: {{ .Values.riverboat.river.workers.emailconfig.urls.questionnaire }}
+  RIVERBOAT_RIVER_WORKERS_EMAILCONFIG_TEMPLATESPATH: {{ .Values.riverboat.river.workers.emailconfig.templatespath }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.emailworker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.emailworker.config.devmode | default true }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TESTDIR: {{ .Values.riverboat.river.workers.emailworker.config.testdir | default "fixtures/email" }}
@@ -36,6 +55,36 @@ data:
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.slackworker.config.enabled | default false }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_DEVMODE: {{ .Values.riverboat.river.workers.slackworker.config.devmode | default true }}
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_PAYMENTMETHODINTERVAL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.paymentmethodinterval }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_DELETIONDAYS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.deletiondays }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.enabled }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_COMPANYNAME: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.companyname }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_COMPANYADDRESS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.companyaddress }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_CORPORATION: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.corporation }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_YEAR: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.year }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_FROMEMAIL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.fromemail }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_SUPPORTEMAIL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.supportemail }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_QUESTIONNAIREEMAIL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.questionnaireemail }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_LOGOURL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.logourl }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_ROOT: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.root }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_PRODUCT: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.product }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_DOCS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.docs }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFY: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.verify }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_INVITE: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.invite }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_RESET: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.reset }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYSUBSCRIBER: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.verifysubscriber }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_VERIFYBILLING: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.verifybilling }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_BILLING: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.billing }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_URLS_QUESTIONNAIRE: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.urls.questionnaire }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_TEMPLATESPATH: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.templatespath }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.openlaneapihost }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.openlaneapitoken }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_RUNINTERVAL: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.runinterval }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_MAXDELETESPERRUN: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.maxdeletesperrun }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.enabled }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapitoken }}
   RIVERBOAT_RIVER_DEFAULTMAXRETRIES: {{ .Values.riverboat.river.defaultmaxretries | default 10 }}

@@ -218,6 +218,9 @@
         "runinterval": {
           "type": "integer"
         },
+        "maxdeletesperrun": {
+          "type": "integer"
+        },
         "enabled": {
           "type": "boolean"
         }
@@ -225,7 +228,8 @@
       "additionalProperties": false,
       "type": "object",
       "required": [
-        "runinterval"
+        "runinterval",
+        "maxdeletesperrun"
       ]
     },
     "corejobs.OrganizationDeleteWorker": {
@@ -793,6 +797,10 @@
           "$ref": "#/$defs/jobs.OpenlaneConfig",
           "description": "OpenlaneConfig configuration for openlane jobs, this is shared across multiple workers\nif a worker needs specific configuration, it can be set in the worker's config"
         },
+        "emailconfig": {
+          "$ref": "#/$defs/jobs.EmailTemplateConfig",
+          "description": "EmailConfig configuration for email templates shared across multiple workers"
+        },
         "emailworker": {
           "$ref": "#/$defs/jobs.EmailWorker",
           "description": "EmailWorker configuration for sending emails"
@@ -812,6 +820,14 @@
         "slackworker": {
           "$ref": "#/$defs/jobs.SlackWorker",
           "description": "SlackWorker configuration for sending Slack messages"
+        },
+        "organizationdeletionreminderworker": {
+          "$ref": "#/$defs/corejobs.OrganizationPaymentReminderWorker",
+          "description": "OrganizationDeletionReminderWorker configuration for sending organization deletion reminders"
+        },
+        "organizationdeletionworker": {
+          "$ref": "#/$defs/corejobs.OrganizationDeleteWorker",
+          "description": "OrganizationDeletionWorker configuration for deleting organizations"
         }
       },
       "additionalProperties": false,
@@ -910,12 +926,6 @@
         },
         "retrievedomainscanworker": {
           "$ref": "#/$defs/corejobs.RetrieveDomainScanWorker"
-        },
-        "organizationdeletionreminderworker": {
-          "$ref": "#/$defs/corejobs.OrganizationPaymentReminderWorker"
-        },
-        "organizationdeletionworker": {
-          "$ref": "#/$defs/corejobs.OrganizationDeleteWorker"
         }
       },
       "additionalProperties": false,
