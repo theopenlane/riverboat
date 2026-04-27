@@ -211,6 +211,7 @@ river:
         organizationdeletionreminderworker:
             config:
                 deletiondays: 0
+                dryrun: false
                 email:
                     config:
                         companyaddress: ""

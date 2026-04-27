@@ -4,15 +4,13 @@ go 1.25.9
 
 require (
 	github.com/riverqueue/river v0.33.0
-	github.com/rs/zerolog v1.35.0
+	github.com/rs/zerolog v1.35.1
 	github.com/theopenlane/core/common v1.0.20
 	github.com/theopenlane/corejobs v0.1.21
 	github.com/theopenlane/riverboat v0.9.9
 )
 
 replace github.com/theopenlane/corejobs => ../../corejobs/
-
-replace github.com/theopenlane/go-client => ../../go-client/
 
 require (
 	github.com/99designs/gqlgen v0.17.89 // indirect
@@ -29,7 +27,7 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
-	github.com/go-webauthn/webauthn v0.16.4 // indirect
+	github.com/go-webauthn/webauthn v0.17.0 // indirect
 	github.com/go-webauthn/x v0.2.3 // indirect
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
@@ -45,7 +43,7 @@ require (
 	github.com/hhrutter/tiff v1.0.3 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
-	github.com/jackc/pgx/v5 v5.9.1 // indirect
+	github.com/jackc/pgx/v5 v5.9.2 // indirect
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.21 // indirect
@@ -73,16 +71,16 @@ require (
 	github.com/theopenlane/dbx v0.1.3 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.7 // indirect
-	github.com/theopenlane/go-client v0.9.4 // indirect
+	github.com/theopenlane/go-client v0.9.5 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
-	github.com/theopenlane/iam v0.27.5 // indirect
+	github.com/theopenlane/iam v0.27.6 // indirect
 	github.com/theopenlane/newman v0.3.0 // indirect
 	github.com/theopenlane/utils v0.7.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
-	github.com/tinylib/msgp v1.6.3 // indirect
+	github.com/tinylib/msgp v1.6.4 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	github.com/vektah/gqlparser/v2 v2.5.32 // indirect

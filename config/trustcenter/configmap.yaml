@@ -60,6 +60,7 @@ data:
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_PAYMENTMETHODINTERVAL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.paymentmethodinterval }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_DELETIONDAYS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.deletiondays }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.enabled }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_DRYRUN: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.dryrun }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.enabled }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_COMPANYNAME: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.companyname }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_CONFIG_COMPANYADDRESS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.config.companyaddress }}

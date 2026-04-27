@@ -578,6 +578,7 @@ SlackConfig configures the Slack worker.
 |**paymentmethodinterval**|`integer`||yes|
 |**deletiondays**|`integer`||yes|
 |**enabled**|`boolean`||no|
+|**dryrun**|`boolean`|if true<br/>|no|
 |[**email**](#riverworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
 
 **Additional Properties:** not allowed  
