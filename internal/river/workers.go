@@ -77,7 +77,7 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 
 func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.OrganizationDeletionReminderWorker.Config.Enabled {
-		if err := w.OrganizationDeletionReminderWorker.Config.OpenlaneConfig.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
+		if err := w.OrganizationDeletionReminderWorker.Config.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion reminder worker")
 			return err
 		}
@@ -94,7 +94,7 @@ func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.C
 	}
 
 	if w.OrganizationDeletionWorker.Config.Enabled {
-		if err := w.OrganizationDeletionWorker.Config.OpenlaneConfig.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
+		if err := w.OrganizationDeletionWorker.Config.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion worker")
 			return err
 		}

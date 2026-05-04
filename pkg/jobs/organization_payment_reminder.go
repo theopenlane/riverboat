@@ -14,6 +14,7 @@ import (
 	"github.com/theopenlane/core/common/models"
 	"github.com/theopenlane/emailtemplates"
 	"github.com/theopenlane/go-client/graphclient"
+
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
