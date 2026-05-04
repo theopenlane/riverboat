@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
 	"reflect"
 	"strings"
 
@@ -63,11 +64,16 @@ func main() {
 
 	flag.Parse()
 
+	outputDir, err := filepath.Abs(filepath.Clean(*configDir))
+	if err != nil {
+		log.Panic().Err(err).Msg("error resolving config output directory")
+	}
+
 	c := schemaConfig{
 		jsonSchemaPath: fmt.Sprintf(jsonSchemaPath, appName),
-		yamlConfigPath: *configDir + yamlConfigPath,
-		envConfigPath:  *configDir + envConfigPath,
-		configMapPath:  *configDir + configMapPath,
+		yamlConfigPath: filepath.Join(outputDir, yamlConfigPath),
+		envConfigPath:  filepath.Join(outputDir, envConfigPath),
+		configMapPath:  filepath.Join(outputDir, configMapPath),
 	}
 
 	generateSchema(appName, c, &config.Config{})
@@ -191,6 +197,7 @@ func genConfigMapSchema(configMapSchema string, c schemaConfig) {
 	cm = append(cm, []byte(configMapSchema)...)
 
 	// write the configmap to a file
+	// #nosec G703 - configMapPath is built from a cleaned output directory and a constant generated filename.
 	if err = os.WriteFile(c.configMapPath, cm, ownerReadWrite); err != nil {
 		log.Panic().Err(err).Msg("error writing configmap")
 	}

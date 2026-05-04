@@ -41975,6 +41975,125 @@ func (_c *MockGraphClient_GetIdentityHolderByID_Call) RunAndReturn(run func(ctx 
 	return _c
 }
 
+// GetIdentityHolderDirectoryAccounts provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetIdentityHolderDirectoryAccounts(ctx context.Context, identityHolderID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryAccountOrder, where *graphclient.DirectoryAccountWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetIdentityHolderDirectoryAccounts, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, identityHolderID, first, last, after, before, orderBy, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, identityHolderID, first, last, after, before, orderBy, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetIdentityHolderDirectoryAccounts")
+	}
+
+	var r0 *graphclient.GetIdentityHolderDirectoryAccounts
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.DirectoryAccountOrder, *graphclient.DirectoryAccountWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetIdentityHolderDirectoryAccounts, error)); ok {
+		return returnFunc(ctx, identityHolderID, first, last, after, before, orderBy, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.DirectoryAccountOrder, *graphclient.DirectoryAccountWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetIdentityHolderDirectoryAccounts); ok {
+		r0 = returnFunc(ctx, identityHolderID, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetIdentityHolderDirectoryAccounts)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, *int64, *int64, *string, *string, []*graphclient.DirectoryAccountOrder, *graphclient.DirectoryAccountWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, identityHolderID, first, last, after, before, orderBy, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetIdentityHolderDirectoryAccounts_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetIdentityHolderDirectoryAccounts'
+type MockGraphClient_GetIdentityHolderDirectoryAccounts_Call struct {
+	*mock.Call
+}
+
+// GetIdentityHolderDirectoryAccounts is a helper method to define mock.On call
+//   - ctx context.Context
+//   - identityHolderID string
+//   - first *int64
+//   - last *int64
+//   - after *string
+//   - before *string
+//   - orderBy []*graphclient.DirectoryAccountOrder
+//   - where *graphclient.DirectoryAccountWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetIdentityHolderDirectoryAccounts(ctx interface{}, identityHolderID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
+	return &MockGraphClient_GetIdentityHolderDirectoryAccounts_Call{Call: _e.mock.On("GetIdentityHolderDirectoryAccounts",
+		append([]interface{}{ctx, identityHolderID, first, last, after, before, orderBy, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call) Run(run func(ctx context.Context, identityHolderID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryAccountOrder, where *graphclient.DirectoryAccountWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 *int64
+		if args[2] != nil {
+			arg2 = args[2].(*int64)
+		}
+		var arg3 *int64
+		if args[3] != nil {
+			arg3 = args[3].(*int64)
+		}
+		var arg4 *string
+		if args[4] != nil {
+			arg4 = args[4].(*string)
+		}
+		var arg5 *string
+		if args[5] != nil {
+			arg5 = args[5].(*string)
+		}
+		var arg6 []*graphclient.DirectoryAccountOrder
+		if args[6] != nil {
+			arg6 = args[6].([]*graphclient.DirectoryAccountOrder)
+		}
+		var arg7 *graphclient.DirectoryAccountWhereInput
+		if args[7] != nil {
+			arg7 = args[7].(*graphclient.DirectoryAccountWhereInput)
+		}
+		var arg8 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 8 {
+			variadicArgs = args[8].([]clientv2.RequestInterceptor)
+		}
+		arg8 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+			arg5,
+			arg6,
+			arg7,
+			arg8...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call) Return(getIdentityHolderDirectoryAccounts *graphclient.GetIdentityHolderDirectoryAccounts, err error) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
+	_c.Call.Return(getIdentityHolderDirectoryAccounts, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call) RunAndReturn(run func(ctx context.Context, identityHolderID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryAccountOrder, where *graphclient.DirectoryAccountWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetIdentityHolderDirectoryAccounts, error)) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetIdentityHolders provides a mock function for the type MockGraphClient
 func (_mock *MockGraphClient) GetIdentityHolders(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.IdentityHolderOrder, where *graphclient.IdentityHolderWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetIdentityHolders, error) {
 	var tmpRet mock.Arguments
@@ -45197,6 +45316,89 @@ func (_c *MockGraphClient_GetNotificationTemplates_Call) Return(getNotificationT
 }
 
 func (_c *MockGraphClient_GetNotificationTemplates_Call) RunAndReturn(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, where *graphclient.NotificationTemplateWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetNotificationTemplates, error)) *MockGraphClient_GetNotificationTemplates_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetOrgMembersByOrgID provides a mock function for the type MockGraphClient
+func (_mock *MockGraphClient) GetOrgMembersByOrgID(ctx context.Context, where *graphclient.OrgMembershipWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetOrgMembersByOrgID, error) {
+	var tmpRet mock.Arguments
+	if len(interceptors) > 0 {
+		tmpRet = _mock.Called(ctx, where, interceptors)
+	} else {
+		tmpRet = _mock.Called(ctx, where)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetOrgMembersByOrgID")
+	}
+
+	var r0 *graphclient.GetOrgMembersByOrgID
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *graphclient.OrgMembershipWhereInput, ...clientv2.RequestInterceptor) (*graphclient.GetOrgMembersByOrgID, error)); ok {
+		return returnFunc(ctx, where, interceptors...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *graphclient.OrgMembershipWhereInput, ...clientv2.RequestInterceptor) *graphclient.GetOrgMembersByOrgID); ok {
+		r0 = returnFunc(ctx, where, interceptors...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*graphclient.GetOrgMembersByOrgID)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *graphclient.OrgMembershipWhereInput, ...clientv2.RequestInterceptor) error); ok {
+		r1 = returnFunc(ctx, where, interceptors...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockGraphClient_GetOrgMembersByOrgID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetOrgMembersByOrgID'
+type MockGraphClient_GetOrgMembersByOrgID_Call struct {
+	*mock.Call
+}
+
+// GetOrgMembersByOrgID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - where *graphclient.OrgMembershipWhereInput
+//   - interceptors ...clientv2.RequestInterceptor
+func (_e *MockGraphClient_Expecter) GetOrgMembersByOrgID(ctx interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetOrgMembersByOrgID_Call {
+	return &MockGraphClient_GetOrgMembersByOrgID_Call{Call: _e.mock.On("GetOrgMembersByOrgID",
+		append([]interface{}{ctx, where}, interceptors...)...)}
+}
+
+func (_c *MockGraphClient_GetOrgMembersByOrgID_Call) Run(run func(ctx context.Context, where *graphclient.OrgMembershipWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrgMembersByOrgID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *graphclient.OrgMembershipWhereInput
+		if args[1] != nil {
+			arg1 = args[1].(*graphclient.OrgMembershipWhereInput)
+		}
+		var arg2 []clientv2.RequestInterceptor
+		var variadicArgs []clientv2.RequestInterceptor
+		if len(args) > 2 {
+			variadicArgs = args[2].([]clientv2.RequestInterceptor)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockGraphClient_GetOrgMembersByOrgID_Call) Return(getOrgMembersByOrgID *graphclient.GetOrgMembersByOrgID, err error) *MockGraphClient_GetOrgMembersByOrgID_Call {
+	_c.Call.Return(getOrgMembersByOrgID, err)
+	return _c
+}
+
+func (_c *MockGraphClient_GetOrgMembersByOrgID_Call) RunAndReturn(run func(ctx context.Context, where *graphclient.OrgMembershipWhereInput, interceptors ...clientv2.RequestInterceptor) (*graphclient.GetOrgMembersByOrgID, error)) *MockGraphClient_GetOrgMembersByOrgID_Call {
 	_c.Call.Return(run)
 	return _c
 }
