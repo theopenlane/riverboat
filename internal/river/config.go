@@ -1,8 +1,6 @@
 package river
 
 import (
-	"github.com/theopenlane/corejobs"
-
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 
@@ -70,10 +68,10 @@ type Workers struct {
 	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
 
 	// OrganizationDeletionReminderWorker configuration for sending organization deletion reminders
-	OrganizationDeletionReminderWorker corejobs.OrganizationPaymentReminderWorker `koanf:"organizationdeletionreminderworker" json:"organizationdeletionreminderworker"`
+	OrganizationDeletionReminderWorker jobs.OrganizationPaymentReminderWorker `koanf:"organizationdeletionreminderworker" json:"organizationdeletionreminderworker"`
 
 	// OrganizationDeletionWorker configuration for deleting organizations
-	OrganizationDeletionWorker corejobs.OrganizationDeleteWorker `koanf:"organizationdeletionworker" json:"organizationdeletionworker"`
+	OrganizationDeletionWorker jobs.OrganizationDeleteWorker `koanf:"organizationdeletionworker" json:"organizationdeletionworker"`
 
 	// add more workers here
 }

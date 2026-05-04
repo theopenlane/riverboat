@@ -4,7 +4,6 @@ import (
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 
-	"github.com/theopenlane/corejobs"
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
@@ -76,16 +75,9 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 	return nil
 }
 
-func setAndValidateOpenlaneConfigDefaults(input *corejobs.OpenlaneConfig, target jobs.OpenlaneConfig) error {
-	input.SetAPIHost(target.GetAPIHost())
-	input.SetAPIToken(target.GetAPIToken())
-
-	return input.Validate()
-}
-
 func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
 	if w.OrganizationDeletionReminderWorker.Config.Enabled {
-		if err := setAndValidateOpenlaneConfigDefaults(&w.OrganizationDeletionReminderWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+		if err := w.OrganizationDeletionReminderWorker.Config.OpenlaneConfig.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion reminder worker")
 			return err
 		}
@@ -102,7 +94,7 @@ func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.C
 	}
 
 	if w.OrganizationDeletionWorker.Config.Enabled {
-		if err := setAndValidateOpenlaneConfigDefaults(&w.OrganizationDeletionWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
+		if err := w.OrganizationDeletionWorker.Config.OpenlaneConfig.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion worker")
 			return err
 		}

@@ -207,83 +207,6 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "corejobs.OrganizationDeleteConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "runinterval": {
-          "type": "integer"
-        },
-        "maxdeletesperrun": {
-          "type": "integer"
-        },
-        "enabled": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "required": [
-        "runinterval",
-        "maxdeletesperrun"
-      ]
-    },
-    "corejobs.OrganizationDeleteWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.OrganizationDeleteConfig",
-          "description": "the configuration for organization deletion"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "corejobs.OrganizationPaymentReminderConfig": {
-      "properties": {
-        "openlaneapihost": {
-          "type": "string"
-        },
-        "openlaneapitoken": {
-          "type": "string"
-        },
-        "paymentmethodinterval": {
-          "type": "integer"
-        },
-        "deletiondays": {
-          "type": "integer"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "dryrun": {
-          "type": "boolean",
-          "description": "if true"
-        },
-        "email": {
-          "$ref": "#/$defs/struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether to send emails about the scheduled delution\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "required": [
-        "paymentmethodinterval",
-        "deletiondays"
-      ]
-    },
-    "corejobs.OrganizationPaymentReminderWorker": {
-      "properties": {
-        "config": {
-          "$ref": "#/$defs/corejobs.OrganizationPaymentReminderConfig",
-          "description": "the configuration for organization payment reminders"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object"
-    },
     "corejobs.PirschDomainConfig": {
       "properties": {
         "openlaneapihost": {
@@ -719,6 +642,94 @@
       "type": "object",
       "description": "OpenlaneConfig contains the configuration for connecting to the Openlane API."
     },
+    "jobs.OrganizationDeleteConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string",
+          "description": "OpenlaneAPIHost is the host URL for the Openlane API"
+        },
+        "openlaneapitoken": {
+          "type": "string",
+          "description": "OpenlaneAPIToken is the API token for authenticating with the Openlane API"
+        },
+        "runinterval": {
+          "type": "integer"
+        },
+        "maxdeletesperrun": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "runinterval",
+        "maxdeletesperrun"
+      ],
+      "description": "OrganizationDeleteConfig contains the configuration for the organization deletion worker."
+    },
+    "jobs.OrganizationDeleteWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.OrganizationDeleteConfig",
+          "description": "the configuration for organization deletion"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "OrganizationDeleteWorker deletes organizations in Openlane."
+    },
+    "jobs.OrganizationPaymentReminderConfig": {
+      "properties": {
+        "openlaneapihost": {
+          "type": "string",
+          "description": "OpenlaneAPIHost is the host URL for the Openlane API"
+        },
+        "openlaneapitoken": {
+          "type": "string",
+          "description": "OpenlaneAPIToken is the API token for authenticating with the Openlane API"
+        },
+        "paymentmethodinterval": {
+          "type": "integer",
+          "description": "PaymentMethodInterval is the amount of days an org must have a payment method attached or else it will be earmarked for deletion\nThis is after org creation. So if an org is created 7 days ago and this is set to 6 days, the org will be marked\nas pending deletion. But if set to say 8 days, nothing happens"
+        },
+        "deletiondays": {
+          "type": "integer",
+          "description": "DeletionDays is the number of days an org has before the deletion actually occurs. Once an org is earmarked for\ndeletion, we do not delete immediately, instead we send them an email and update \"pending_deletion_at\". SO if\nDeletionDays is set to 30, the org will be deleted at in 30 days ( pending_deletion_at set to today + 30 days)"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Enabled is used to determine if to register this worker or not"
+        },
+        "dryrun": {
+          "type": "boolean",
+          "description": "if true"
+        },
+        "email": {
+          "$ref": "#/$defs/struct { Enabled bool \"koanf:\\\"enabled\\\" json:\\\"enabled\\\" jsonschema:\\\"required description=whether to send emails about the scheduled delution\\\"\"; Config emailtemplates.Config \"json:\\\"config\\\" koanf:\\\"config\\\" jsonschema:\\\"required description=email settings\\\"\" }"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "paymentmethodinterval",
+        "deletiondays"
+      ],
+      "description": "OrganizationPaymentReminderConfig contains the configuration for the organization payment reminder worker."
+    },
+    "jobs.OrganizationPaymentReminderWorker": {
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/jobs.OrganizationPaymentReminderConfig",
+          "description": "the configuration for organization payment reminders"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "OrganizationPaymentReminderWorker fetches organizations for payment reminder processing."
+    },
     "jobs.SlackConfig": {
       "properties": {
         "enabled": {
@@ -826,11 +837,11 @@
           "description": "SlackWorker configuration for sending Slack messages"
         },
         "organizationdeletionreminderworker": {
-          "$ref": "#/$defs/corejobs.OrganizationPaymentReminderWorker",
+          "$ref": "#/$defs/jobs.OrganizationPaymentReminderWorker",
           "description": "OrganizationDeletionReminderWorker configuration for sending organization deletion reminders"
         },
         "organizationdeletionworker": {
-          "$ref": "#/$defs/corejobs.OrganizationDeleteWorker",
+          "$ref": "#/$defs/jobs.OrganizationDeleteWorker",
           "description": "OrganizationDeletionWorker configuration for deleting organizations"
         }
       },

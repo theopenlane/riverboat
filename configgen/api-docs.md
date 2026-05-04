@@ -254,8 +254,8 @@ Workers that will be enabled on the server
 |[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
 |[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
-|[**organizationdeletionreminderworker**](#riverworkersorganizationdeletionreminderworker)|`object`|||
-|[**organizationdeletionworker**](#riverworkersorganizationdeletionworker)|`object`|||
+|[**organizationdeletionreminderworker**](#riverworkersorganizationdeletionreminderworker)|`object`|OrganizationPaymentReminderWorker fetches organizations for payment reminder processing.<br/>||
+|[**organizationdeletionworker**](#riverworkersorganizationdeletionworker)|`object`|OrganizationDeleteWorker deletes organizations in Openlane.<br/>||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -545,11 +545,14 @@ SlackConfig configures the Slack worker.
 <a name="riverworkersorganizationdeletionreminderworker"></a>
 #### river\.workers\.organizationdeletionreminderworker: object
 
+OrganizationPaymentReminderWorker fetches organizations for payment reminder processing.
+
+
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkersorganizationdeletionreminderworkerconfig)|`object`||yes|
+|[**config**](#riverworkersorganizationdeletionreminderworkerconfig)|`object`|OrganizationPaymentReminderConfig contains the configuration for the organization payment reminder worker.<br/>|yes|
 
 **Additional Properties:** not allowed  
 **Example**
@@ -569,15 +572,18 @@ SlackConfig configures the Slack worker.
 <a name="riverworkersorganizationdeletionreminderworkerconfig"></a>
 ##### river\.workers\.organizationdeletionreminderworker\.config: object
 
+OrganizationPaymentReminderConfig contains the configuration for the organization payment reminder worker.
+
+
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneapihost**|`string`||no|
-|**openlaneapitoken**|`string`||no|
-|**paymentmethodinterval**|`integer`||yes|
-|**deletiondays**|`integer`||yes|
-|**enabled**|`boolean`||no|
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
+|**paymentmethodinterval**|`integer`|PaymentMethodInterval is the amount of days an org must have a payment method attached or else it will be earmarked for deletion<br/>This is after org creation. So if an org is created 7 days ago and this is set to 6 days, the org will be marked<br/>as pending deletion. But if set to say 8 days, nothing happens<br/>|yes|
+|**deletiondays**|`integer`|DeletionDays is the number of days an org has before the deletion actually occurs. Once an org is earmarked for<br/>deletion, we do not delete immediately, instead we send them an email and update "pending_deletion_at". SO if<br/>DeletionDays is set to 30, the org will be deleted at in 30 days ( pending_deletion_at set to today + 30 days)<br/>|yes|
+|**enabled**|`boolean`|Enabled is used to determine if to register this worker or not<br/>|no|
 |**dryrun**|`boolean`|if true<br/>|no|
 |[**email**](#riverworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
 
@@ -664,11 +670,14 @@ SlackConfig configures the Slack worker.
 <a name="riverworkersorganizationdeletionworker"></a>
 #### river\.workers\.organizationdeletionworker: object
 
+OrganizationDeleteWorker deletes organizations in Openlane.
+
+
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkersorganizationdeletionworkerconfig)|`object`||yes|
+|[**config**](#riverworkersorganizationdeletionworkerconfig)|`object`|OrganizationDeleteConfig contains the configuration for the organization deletion worker.<br/>|yes|
 
 **Additional Properties:** not allowed  
 **Example**
@@ -682,12 +691,15 @@ SlackConfig configures the Slack worker.
 <a name="riverworkersorganizationdeletionworkerconfig"></a>
 ##### river\.workers\.organizationdeletionworker\.config: object
 
+OrganizationDeleteConfig contains the configuration for the organization deletion worker.
+
+
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneapihost**|`string`||no|
-|**openlaneapitoken**|`string`||no|
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
 |**runinterval**|`integer`||yes|
 |**maxdeletesperrun**|`integer`||yes|
 |**enabled**|`boolean`||no|
