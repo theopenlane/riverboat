@@ -10,8 +10,10 @@ import (
 	"github.com/theopenlane/core/common/jobspec"
 )
 
-// minInterval prevents spamming from a bag config
-var minInterval = 1 * time.Minute
+const (
+	// minInterval prevents spamming from a bag config
+	minInterval = 1 * time.Minute
+)
 
 // CreatePeriodicJobs creates periodic jobs for the trust center module
 func CreatePeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
@@ -33,6 +35,8 @@ func CreatePeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 			&river.PeriodicJobOpts{RunOnStart: true},
 		)
 		jobs = append(jobs, validateCustomDomainJobs)
+
+		log.Info().Msg("periodic worker enabled: validate custom domain")
 	}
 
 	return jobs, nil

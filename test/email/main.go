@@ -7,9 +7,7 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/newman"
-
 	"github.com/theopenlane/riverboat/test/common"
-
 	"github.com/theopenlane/riverboat/pkg/jobs"
 )
 
@@ -25,6 +23,7 @@ func main() {
 		newman.WithTo([]string{"meowfunk@example.com"}),
 		newman.WithFrom("no-reply@mail.theopenlane.io"),
 	)
+
 
 	_, err := client.Insert(context.Background(), jobs.EmailArgs{
 		Message: *msg,
