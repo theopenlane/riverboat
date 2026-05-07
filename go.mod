@@ -32,7 +32,6 @@ require (
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core/common v1.0.21
-	github.com/theopenlane/dbx v0.1.3
 	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.9.5
 	github.com/theopenlane/httpsling v0.3.0
@@ -46,7 +45,6 @@ require (
 )
 
 require (
-	github.com/Yamashou/gqlgenc v0.33.0 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect

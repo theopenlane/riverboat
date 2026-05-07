@@ -55,9 +55,6 @@ type Workers struct {
 	// EmailWorker configuration for sending emails
 	EmailWorker jobs.EmailWorker `koanf:"emailworker" json:"emailworker"`
 
-	// DatabaseWorker configuration for creating databases using openlane/dbx
-	DatabaseWorker jobs.DatabaseWorker `koanf:"databaseworker" json:"databaseworker"`
-
 	// ExportContentWorker configuration for exporting content
 	ExportContentWorker jobs.ExportContentWorker `koanf:"exportcontentworker" json:"exportcontentworker"`
 

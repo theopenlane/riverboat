@@ -39,10 +39,6 @@ data:
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TESTDIR: {{ .Values.riverboat.river.workers.emailworker.config.testdir | default "fixtures/email" }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.emailworker.config.token }}
   RIVERBOAT_RIVER_WORKERS_EMAILWORKER_CONFIG_FROMEMAIL: {{ .Values.riverboat.river.workers.emailworker.config.fromemail | default "no-reply@example.com" }}
-  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.databaseworker.config.enabled | default true }}
-  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_BASEURL: {{ .Values.riverboat.river.workers.databaseworker.config.baseUrl | default "http://localhost:1337" }}
-  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_ENDPOINT: {{ .Values.riverboat.river.workers.databaseworker.config.endpoint | default "query" }}
-  RIVERBOAT_RIVER_WORKERS_DATABASEWORKER_CONFIG_DEBUG: {{ .Values.riverboat.river.workers.databaseworker.config.debug | default false }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportcontentworker.config.enabled }}
