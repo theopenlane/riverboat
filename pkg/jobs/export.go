@@ -8,6 +8,9 @@ import (
 	"errors"
 	"fmt"
 	"maps"
+	"os"
+	"path/filepath"
+	"sort"
 	"strings"
 	"time"
 
@@ -24,9 +27,9 @@ import (
 	"github.com/theopenlane/httpsling"
 	"github.com/theopenlane/iam/auth"
 
-	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
+	html2docx "github.com/Achiket123/html2docx/converter"
 
-	goclient "github.com/theopenlane/go-client"
+	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 )
 
 var defaultPageSize int64 = 100
@@ -157,6 +160,16 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 
 	fields := export.Export.Fields
 
+	// Ensure `details` is in the fields list so we can extract it for document generation.
+	// but we need it for DOCX, PDF, and MD exports.
+	// So just for csv we are not adding it
+	if export.Export.Format != enums.ExportFormatCsv {
+		hasDetails := slices.Contains(fields, "details")
+		if !hasDetails {
+			fields = append(fields, "details")
+		}
+	}
+
 	query := w.buildGraphQLQuery(rootQuery, exportType, fields, hasWhere)
 
 	var (
@@ -184,27 +197,79 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusNodata, nil)
 	}
 
-	csvData, err := w.marshalToCSV(allNodes)
-	if err != nil {
-		log.Error().Err(err).Msg("failed to marshal to CSV")
-		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+	// Determine the output format from the export record
+	exportFormat := export.Export.Format
+	timestamp := time.Now().Format("20060102_150405")
+
+	var (
+		fileData    []byte
+		filename    string
+		contentType string
+	)
+
+	switch exportFormat {
+	case enums.ExportFormatDocx:
+		htmlStrings := extractDetailsStrings(allNodes)
+
+		fileData, err = marshalToDocx(htmlStrings)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to marshal to DOCX")
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		filename = fmt.Sprintf("%s_export_%s_%s.docx", rootQuery, job.Args.ExportID, timestamp)
+		contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
+	case enums.ExportFormatPdf:
+		htmlStrings := extractDetailsStrings(allNodes)
+
+		fileData, err = marshalToPDF(htmlStrings)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to marshal to PDF")
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		filename = fmt.Sprintf("%s_export_%s_%s.pdf", rootQuery, job.Args.ExportID, timestamp)
+		contentType = "application/pdf"
+
+	case enums.ExportFormatMarkDown:
+		htmlStrings := extractDetailsStrings(allNodes)
+
+		fileData, err = marshalToMarkdown(htmlStrings)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to marshal to Markdown")
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		filename = fmt.Sprintf("%s_export_%s_%s.md", rootQuery, job.Args.ExportID, timestamp)
+		contentType = "text/markdown"
+
+	default:
+		// Default to CSV (includes ExportFormatCsv and any unknown format)
+		fileData, err = w.marshalToCSV(allNodes)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to marshal to CSV")
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		filename = fmt.Sprintf("%s_export_%s_%s.csv", rootQuery, job.Args.ExportID, timestamp)
+		contentType = "text/csv"
 	}
 
-	filename := fmt.Sprintf("%s_export_%s_%s.csv", rootQuery, job.Args.ExportID, time.Now().Format("20060102_150405"))
-	reader := bytes.NewReader(csvData)
+	reader := bytes.NewReader(fileData)
 
 	upload := &graphql.Upload{
 		File:        reader,
 		Filename:    filename,
-		Size:        int64(len(csvData)),
-		ContentType: "text/csv",
+		Size:        int64(len(fileData)),
+		ContentType: contentType,
 	}
 
 	updateInput := graphclient.UpdateExportInput{
 		Status: &enums.ExportStatusReady,
 	}
 
-	_, err = w.olClient.UpdateExport(ctx, job.Args.ExportID, updateInput, []*graphql.Upload{upload}, goclient.WithImpersonationInterceptor(job.Args.UserID, job.Args.OrganizationID))
+	_, err = w.olClient.UpdateExport(ctx, job.Args.ExportID, updateInput, []*graphql.Upload{upload})
 	if err != nil {
 		log.Error().Err(err).Msg("failed to update export with file")
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
@@ -431,6 +496,8 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 		headers = append(headers, k)
 	}
 
+	sort.Strings(headers)
+
 	// 3) Write CSV
 	var buf bytes.Buffer
 
@@ -593,4 +660,185 @@ func cleanHTML(v any) string {
 	cleaned = strings.TrimSpace(strings.Join(strings.Fields(cleaned), " "))
 
 	return cleaned
+}
+
+// extractDetailsStrings extracts string content from nodes and formats them into
+// HTML strings for PDF/DOCX/MD generation. It includes ID, CreatedAt, Name, Status,
+// and the Details (or fallback content).
+func extractDetailsStrings(nodes []map[string]any) []string {
+	if len(nodes) == 0 {
+		return nil
+	}
+
+	var results []string
+
+	for _, n := range nodes {
+		flat := make(map[string]any)
+		flatten("", n, flat)
+
+		var buf strings.Builder
+
+		// Add common headers if they exist
+		// Try both camelCase (GraphQL) and snake_case (legacy/internal)
+		headerKeys := []struct {
+			key   string
+			label string
+		}{
+			{"id", "ID"},
+			{"displayID", "Display ID"},
+			{"display_id", "Display ID"},
+			{"name", "Name"},
+			{"status", "Status"},
+			{"createdAt", "Created At"},
+			{"created_at", "Created At"},
+			{"updatedAt", "Updated At"},
+			{"updated_at", "Updated At"},
+			{"updatedBy", "Last Updated By"},
+			{"updated_by", "Last Updated By"},
+			{"revision", "Version"},
+		}
+
+		addedKeys := make(map[string]bool)
+		for _, hk := range headerKeys {
+			if val, ok := flat[hk.key]; ok && val != nil && !addedKeys[hk.label] {
+				fmt.Fprintf(&buf, "<p><strong>%s:</strong> %v</p>\n", hk.label, val)
+				addedKeys[hk.label] = true
+			}
+		}
+
+		buf.WriteString("<hr/>\n")
+
+		// Add the main content (details or fallback)
+		if details, ok := flat["details"]; ok && details != nil {
+			str := fmt.Sprint(details)
+			log.Info().Str("raw_details", str).Msg("extracted details field for debugging slate.js format")
+
+			if !strings.Contains(str, "<p>") && !strings.Contains(str, "<div>") && !strings.Contains(str, "<br") {
+				str = strings.ReplaceAll(str, "\n", "<br/>\n")
+			}
+
+			fmt.Fprintf(&buf, "<div><strong>Summary:</strong><br/>\n%s</div>\n", str)
+		}
+
+		// Fallback: extract string representation for any val not already added
+		keys := make([]string, 0, len(flat))
+		for k := range flat {
+			keys = append(keys, k)
+		}
+
+		sort.Strings(keys)
+
+		buf.WriteString("<div>")
+
+		for _, k := range keys {
+			// skip keys that were already added as headers or 'details'
+			isHeader := false
+
+			for _, hk := range headerKeys {
+				if k == hk.key {
+					isHeader = true
+					break
+				}
+			}
+
+			if isHeader || k == "details" {
+				continue
+			}
+
+			v := flat[k]
+			if v != nil {
+				str := fmt.Sprint(v)
+				if strings.TrimSpace(str) != "" {
+					fmt.Fprintf(&buf, "<strong>%s:</strong> %s<br/>\n", k, str)
+				}
+			}
+		}
+
+		buf.WriteString("</div>\n")
+
+		if buf.Len() > 0 {
+			results = append(results, buf.String())
+		}
+	}
+
+	return results
+}
+
+// marshalToDocx converts HTML content to DOCX format bytes using the html2docx converter.
+func marshalToDocx(htmlContents []string) ([]byte, error) {
+	conv := html2docx.NewHTMLToDocxConverter()
+	if err := conv.Convert(htmlContents); err != nil {
+		return nil, fmt.Errorf("docx conversion failed: %w", err)
+	}
+
+	tmpPath, cleanup, err := createTempFile(".docx")
+	if err != nil {
+		return nil, err
+	}
+	defer cleanup()
+
+	if err := conv.SaveToFile(tmpPath); err != nil {
+		return nil, fmt.Errorf("failed to save docx: %w", err)
+	}
+
+	// #nosec G304 -- safe: path generated via MkdirTemp, not user input
+	data, err := os.ReadFile(tmpPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read docx file: %w", err)
+	}
+
+	return data, nil
+}
+
+// marshalToPDF converts HTML content to PDF format bytes using the html2docx converter.
+func marshalToPDF(htmlContents []string) ([]byte, error) {
+	conv := html2docx.NewHTMLToPDFConverter()
+	if err := conv.Convert(htmlContents); err != nil {
+		return nil, fmt.Errorf("pdf conversion failed: %w", err)
+	}
+
+	tmpPath, cleanup, err := createTempFile(".pdf")
+	if err != nil {
+		return nil, err
+	}
+	defer cleanup()
+
+	if err := conv.SaveToFile(tmpPath); err != nil {
+		return nil, fmt.Errorf("failed to save pdf: %w", err)
+	}
+
+	// #nosec G304 -- safe: path generated internally
+	data, err := os.ReadFile(tmpPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read pdf file: %w", err)
+	}
+
+	return data, nil
+}
+
+// marshalToMarkdown converts HTML content to Markdown format bytes using the html2docx converter.
+func marshalToMarkdown(htmlContents []string) ([]byte, error) {
+	conv := html2docx.NewHTMLToMarkdownConverter()
+
+	md, err := conv.Convert(htmlContents)
+	if err != nil {
+		return nil, fmt.Errorf("markdown conversion failed: %w", err)
+	}
+
+	return []byte(md), nil
+}
+
+func createTempFile(ext string) (string, func(), error) {
+	tmpDir, err := os.MkdirTemp("", "export-*")
+	if err != nil {
+		return "", nil, fmt.Errorf("failed to create temp dir: %w", err)
+	}
+
+	cleanup := func() {
+		_ = os.RemoveAll(tmpDir)
+	}
+
+	tmpPath := filepath.Join(tmpDir, "file"+ext)
+
+	return tmpPath, cleanup, nil
 }
