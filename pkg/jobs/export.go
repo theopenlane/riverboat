@@ -9,9 +9,10 @@ import (
 	"fmt"
 	"maps"
 	"os"
+	"path/filepath"
+	"sort"
 	"strings"
 	"time"
-	"path/filepath"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/gertd/go-pluralize"
@@ -27,6 +28,7 @@ import (
 	"github.com/theopenlane/iam/auth"
 
 	html2docx "github.com/Achiket123/html2docx/converter"
+
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
 )
 
@@ -162,17 +164,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 	// but we need it for DOCX, PDF, and MD exports.
 	// So just for csv we are not adding it
 	if export.Export.Format != enums.ExportFormatCsv {
-<<<<<<< HEAD
 		hasDetails := slices.Contains(fields, "details")
-=======
-		hasDetails := false
-		for _, f := range fields {
-			if f == "details" {
-				hasDetails = true
-				break
-			}
-		}
->>>>>>> ad7cf6d (fix: merge conflicts)
 		if !hasDetails {
 			fields = append(fields, "details")
 		}
@@ -504,6 +496,8 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 		headers = append(headers, k)
 	}
 
+	sort.Strings(headers)
+
 	// 3) Write CSV
 	var buf bytes.Buffer
 
@@ -681,51 +675,98 @@ func extractDetailsStrings(nodes []map[string]any) []string {
 	for _, n := range nodes {
 		flat := make(map[string]any)
 		flatten("", n, flat)
-		details, ok := flat["details"]
-		if !ok || details == nil || strings.TrimSpace(fmt.Sprint(details)) == "" {
-			continue
-		}
 
 		var buf strings.Builder
 
 		// Add common headers if they exist
-		if name, ok := flat["name"]; ok && name != nil {
-			buf.WriteString(fmt.Sprintf("<p><strong>Name:</strong> %v</p>\n", name))
+		// Try both camelCase (GraphQL) and snake_case (legacy/internal)
+		headerKeys := []struct {
+			key   string
+			label string
+		}{
+			{"id", "ID"},
+			{"displayID", "Display ID"},
+			{"display_id", "Display ID"},
+			{"name", "Name"},
+			{"status", "Status"},
+			{"createdAt", "Created At"},
+			{"created_at", "Created At"},
+			{"updatedAt", "Updated At"},
+			{"updated_at", "Updated At"},
+			{"updatedBy", "Last Updated By"},
+			{"updated_by", "Last Updated By"},
+			{"revision", "Version"},
 		}
-		if status, ok := flat["status"]; ok && status != nil {
-			buf.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %v</p>\n", status))
-		}
-		if updatedAt, ok := flat["updated_at"]; ok && updatedAt != nil {
-			buf.WriteString(fmt.Sprintf("<p><strong>Last Updated At:</strong> %v</p>\n", updatedAt))
-		}
-		if updatedBy, ok := flat["updated_by"]; ok && updatedBy != nil {
-			buf.WriteString(fmt.Sprintf("<p><strong>Last Updated By:</strong> %v</p>\n", updatedBy))
-		}
-		if revision, ok := flat["revision"]; ok && revision != nil {
-			buf.WriteString(fmt.Sprintf("<p><strong>Version:</strong> %v</p>\n", revision))
+
+		addedKeys := make(map[string]bool)
+		for _, hk := range headerKeys {
+			if val, ok := flat[hk.key]; ok && val != nil && !addedKeys[hk.label] {
+				fmt.Fprintf(&buf, "<p><strong>%s:</strong> %v</p>\n", hk.label, val)
+				addedKeys[hk.label] = true
+			}
 		}
 
 		buf.WriteString("<hr/>\n")
 
-		// Add the main content from details.
-		str := fmt.Sprint(details)
-		log.Info().Str("raw_details", str).Msg("extracted details field for debugging slate.js format")
-		if !strings.Contains(str, "<p>") && !strings.Contains(str, "<div>") && !strings.Contains(str, "<br") {
-			str = strings.ReplaceAll(str, "\n", "<br/>\n")
+		// Add the main content (details or fallback)
+		if details, ok := flat["details"]; ok && details != nil {
+			str := fmt.Sprint(details)
+			log.Info().Str("raw_details", str).Msg("extracted details field for debugging slate.js format")
+
+			if !strings.Contains(str, "<p>") && !strings.Contains(str, "<div>") && !strings.Contains(str, "<br") {
+				str = strings.ReplaceAll(str, "\n", "<br/>\n")
+			}
+
+			fmt.Fprintf(&buf, "<div><strong>Summary:</strong><br/>\n%s</div>\n", str)
 		}
-		buf.WriteString(fmt.Sprintf("<div>%s</div>\n", str))
+
+		// Fallback: extract string representation for any val not already added
+		keys := make([]string, 0, len(flat))
+		for k := range flat {
+			keys = append(keys, k)
+		}
+
+		sort.Strings(keys)
+
+		buf.WriteString("<div>")
+
+		for _, k := range keys {
+			// skip keys that were already added as headers or 'details'
+			isHeader := false
+
+			for _, hk := range headerKeys {
+				if k == hk.key {
+					isHeader = true
+					break
+				}
+			}
+
+			if isHeader || k == "details" {
+				continue
+			}
+
+			v := flat[k]
+			if v != nil {
+				str := fmt.Sprint(v)
+				if strings.TrimSpace(str) != "" {
+					fmt.Fprintf(&buf, "<strong>%s:</strong> %s<br/>\n", k, str)
+				}
+			}
+		}
+
+		buf.WriteString("</div>\n")
 
 		if buf.Len() > 0 {
 			results = append(results, buf.String())
 		}
 	}
+
 	return results
 }
 
 // marshalToDocx converts HTML content to DOCX format bytes using the html2docx converter.
 func marshalToDocx(htmlContents []string) ([]byte, error) {
 	conv := html2docx.NewHTMLToDocxConverter()
-
 	if err := conv.Convert(htmlContents); err != nil {
 		return nil, fmt.Errorf("docx conversion failed: %w", err)
 	}
@@ -748,10 +789,10 @@ func marshalToDocx(htmlContents []string) ([]byte, error) {
 
 	return data, nil
 }
+
 // marshalToPDF converts HTML content to PDF format bytes using the html2docx converter.
 func marshalToPDF(htmlContents []string) ([]byte, error) {
 	conv := html2docx.NewHTMLToPDFConverter()
-
 	if err := conv.Convert(htmlContents); err != nil {
 		return nil, fmt.Errorf("pdf conversion failed: %w", err)
 	}
@@ -774,6 +815,7 @@ func marshalToPDF(htmlContents []string) ([]byte, error) {
 
 	return data, nil
 }
+
 // marshalToMarkdown converts HTML content to Markdown format bytes using the html2docx converter.
 func marshalToMarkdown(htmlContents []string) ([]byte, error) {
 	conv := html2docx.NewHTMLToMarkdownConverter()
@@ -797,5 +839,6 @@ func createTempFile(ext string) (string, func(), error) {
 	}
 
 	tmpPath := filepath.Join(tmpDir, "file"+ext)
+
 	return tmpPath, cleanup, nil
 }
