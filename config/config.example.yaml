@@ -12,12 +12,6 @@ river:
             openlaneapihost: ""
             openlaneapitoken: ""
     workers:
-        databaseworker:
-            config:
-                baseUrl: http://localhost:1337
-                debug: false
-                enabled: true
-                endpoint: query
         deleteexportcontentworker:
             config:
                 cutoffduration: 0

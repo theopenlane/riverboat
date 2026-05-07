@@ -25,7 +25,7 @@ getting things running.
 
 ### Dependencies
 
-- Go 1.25.3+
+- Go 1.26.2+
 - Docker (used for running Postgres and the river-ui)
 - [task](https://taskfile.dev/)
 

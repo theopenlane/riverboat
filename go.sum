@@ -1,7 +1,5 @@
 github.com/99designs/gqlgen v0.17.90 h1:wSv6blm/PoplU6QoNw83EcQpNtC0HX3/+44vITJOzpk=
 github.com/99designs/gqlgen v0.17.90/go.mod h1:GqYrEwYsqCG8VaOsq2kJUCUKwAE1T+u2i+Nj7NtXiVI=
-github.com/Yamashou/gqlgenc v0.33.0 h1:0fxTnNE8/JVmFpfo7reA5pEgOcr7VjNc+/nEpVhNjfc=
-github.com/Yamashou/gqlgenc v0.33.0/go.mod h1:MZGXx/nALyxcehcFeLGmYiNsJ+hQTOGJzNYCGNX4rL0=
 github.com/agnivade/levenshtein v1.2.1 h1:EHBY3UOn1gwdy/VbFwgo4cxecRznFk7fKWN1KOX7eoM=
 github.com/agnivade/levenshtein v1.2.1/go.mod h1:QVVI16kDrtSuwcpd0p1+xMC6Z/VfhtCyDIjcwga4/DU=
 github.com/alicebob/miniredis/v2 v2.37.0 h1:RheObYW32G1aiJIj81XVt78ZHJpHonHLHW7OLIshq68=
@@ -226,8 +224,6 @@ github.com/theopenlane/core/common v1.0.21 h1:KWdGMCQT0WRdp4V/kvTUTnWu3cgE7ep9RF
 github.com/theopenlane/core/common v1.0.21/go.mod h1:waXdCoEZt/jaSmHa1e/U/of1AeauVg1WcaNg/usWAlg=
 github.com/theopenlane/corejobs v0.1.24 h1:UjP1v7lmG/MNjN9KxdziQ7sTVtrf3T3YkZJtEGWx5dM=
 github.com/theopenlane/corejobs v0.1.24/go.mod h1:VaoZck5Aq1XtWzUYfswTuXdaHOH4jRE3pL96E9qFq28=
-github.com/theopenlane/dbx v0.1.3 h1:6zncXgqnvRyz5OuCDPM07xmOiBXS7q7U9GSMOWu3vNc=
-github.com/theopenlane/dbx v0.1.3/go.mod h1:/bcz8oKFK3qrakLw0yHCAFY6fGnTOC3CntM0jMj3GDk=
 github.com/theopenlane/echox v0.3.0 h1:uwOKEw+r1utGQoOR6dZQqAVuY5j8TcasqnTwO5+rMsA=
 github.com/theopenlane/echox v0.3.0/go.mod h1:yTrXnj7s3VNIg0FCvB7Dut2Elr+LqJKU/nruxx1E1cM=
 github.com/theopenlane/emailtemplates v0.3.7 h1:yJLfsCIZ8zAeZ2QvmZ8qYyVZKzXkMyjlYsImFti/J9k=
