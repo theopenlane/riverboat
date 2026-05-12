@@ -36,7 +36,7 @@ require (
 	github.com/theopenlane/go-client v0.9.5
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.28.0
-	github.com/theopenlane/newman v0.3.0
+	github.com/theopenlane/newman v0.4.0
 	github.com/theopenlane/riverboat/trustcenter v0.0.0-00010101000000-000000000000
 	github.com/theopenlane/utils v0.7.0
 	go.opentelemetry.io/otel v1.43.0
