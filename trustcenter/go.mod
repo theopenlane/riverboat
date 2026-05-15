@@ -3,11 +3,11 @@ module github.com/theopenlane/riverboat/trustcenter
 go 1.26.3
 
 require (
-	github.com/riverqueue/river v0.37.0
+	github.com/riverqueue/river v0.37.1
 	github.com/rs/zerolog v1.35.1
-	github.com/theopenlane/core/common v1.0.21
+	github.com/theopenlane/core/common v1.0.22
 	github.com/theopenlane/corejobs v0.1.26
-	github.com/theopenlane/riverboat v0.9.13
+	github.com/theopenlane/riverboat v0.9.14
 )
 
 require (

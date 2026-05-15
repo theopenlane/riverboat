@@ -21,9 +21,9 @@ require (
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/microcosm-cc/bluemonday v1.0.27
 	github.com/prometheus/client_golang v1.23.2
-	github.com/riverqueue/river v0.37.0
-	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.37.0
-	github.com/riverqueue/river/rivertype v0.37.0
+	github.com/riverqueue/river v0.37.1
+	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.37.1
+	github.com/riverqueue/river/rivertype v0.37.1
 	github.com/riverqueue/rivercontrib/otelriver v0.7.0
 	github.com/rs/zerolog v1.35.1
 	github.com/samber/lo v1.53.0
@@ -31,9 +31,9 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v1.0.21
+	github.com/theopenlane/core/common v1.0.22
 	github.com/theopenlane/emailtemplates v0.3.7
-	github.com/theopenlane/go-client v0.10.0
+	github.com/theopenlane/go-client v0.10.1
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.29.0
 	github.com/theopenlane/newman v0.4.0
