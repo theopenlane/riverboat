@@ -24,7 +24,7 @@ require (
 	github.com/riverqueue/river v0.37.0
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.37.0
 	github.com/riverqueue/river/rivertype v0.37.0
-	github.com/riverqueue/rivercontrib/otelriver v0.7.0
+	github.com/riverqueue/rivercontrib/otelriver v0.8.0
 	github.com/rs/zerolog v1.35.1
 	github.com/samber/lo v1.53.0
 	github.com/slack-go/slack v0.23.1
