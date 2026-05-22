@@ -47,9 +47,6 @@ type Workers struct {
 	// ValidatePreviewDomainWorker configuration for validating preview domains
 	ValidatePreviewDomainWorker corejobs.ValidatePreviewDomainWorker `koanf:"validatepreviewdomainworker" json:"validatepreviewdomainworker"`
 
-	// AttestNDARequestWorker configuration for attesting NDA requests
-	AttestNDARequestWorker corejobs.AttestNDARequestWorker `koanf:"attestndarequestworker" json:"attestndarequestworker"`
-
 	// CreatePreviewDomainAcmeWorker for storing the acme content from cloudflare so we can serve it when request
 	CreatePreviewDomainAcmeWorker corejobs.CreatePreviewDomainAcmeWorker `koanf:"createpreviewdomainacmeworker" json:"createpreviewdomainacmeworker"`
 

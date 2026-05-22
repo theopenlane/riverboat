@@ -42,23 +42,6 @@ func AddConditionalWorkers(workers *river.Workers, w Workers, insertOnlyClient *
 		return nil, err
 	}
 
-	if w.AttestNDARequestWorker.Config.Enabled {
-		if err := setAndValidateOpenlaneConfigDefaults(&w.AttestNDARequestWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
-			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for attest NDA request worker")
-			return nil, err
-		}
-
-		w.EmailConfig.SetDefaultsIfUnset(&w.AttestNDARequestWorker.Config.Email.Config)
-
-		w.AttestNDARequestWorker.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, &w.AttestNDARequestWorker); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("worker enabled: attest NDA request")
-	}
-
 	if w.CreatePreviewDomainAcmeWorker.Config.Enabled {
 		if err := setAndValidateOpenlaneConfigDefaults(&w.CreatePreviewDomainAcmeWorker.Config.OpenlaneConfig, w.OpenlaneConfig); err != nil {
 			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for preview domain acme worker")
