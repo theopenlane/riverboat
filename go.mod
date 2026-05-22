@@ -4,8 +4,6 @@ go 1.26.3
 
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
-replace github.com/theopenlane/corejobs => ../corejobs/
-
 require (
 	github.com/99designs/gqlgen v0.17.90
 	github.com/gertd/go-pluralize v0.2.1
@@ -37,7 +35,7 @@ require (
 	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.10.1
 	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.30.0
+	github.com/theopenlane/iam v0.31.0
 	github.com/theopenlane/newman v0.4.0
 	github.com/theopenlane/riverboat/trustcenter v0.0.0-00010101000000-000000000000
 	github.com/theopenlane/utils v0.7.1
@@ -102,7 +100,7 @@ require (
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/theopenlane/core v1.21.22 // indirect
-	github.com/theopenlane/corejobs v0.2.0 // indirect
+	github.com/theopenlane/corejobs v0.2.1 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/tidwall/gjson v1.19.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
