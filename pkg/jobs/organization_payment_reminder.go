@@ -102,8 +102,9 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 	}
 
 	var (
-		after            *string
-		emailQueueOffset int
+		after                   *string
+		emailQueueOffset        int
+		paymentMethodCutoffTime = time.Now().Add(-time.Duration(w.Config.PaymentMethodInterval) * 24 * time.Hour)
 	)
 
 	for {
@@ -113,7 +114,8 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 				PaymentMethodAdded:     lo.ToPtr(false),
 				HasOrganizationWith: []*graphclient.OrganizationWhereInput{
 					{
-						PersonalOrg: lo.ToPtr(false),
+						PersonalOrg:  lo.ToPtr(false),
+						CreatedAtLte: lo.ToPtr(paymentMethodCutoffTime),
 						Not: &graphclient.OrganizationWhereInput{
 							HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
 								{
@@ -142,16 +144,6 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 				Str("organization_id", edge.Node.Organization.ID).
 				Str("setting_id", edge.Node.ID).
 				Msg("processing organization setting")
-
-			if !isPastPaymentIntervalTimeline(edge.Node.Organization.CreatedAt, w.Config.PaymentMethodInterval) {
-				logger.Info().
-					Str("organization_id", edge.Node.Organization.ID).
-					Str("setting_id", edge.Node.ID).
-					Uint8("payment_method_interval_days", w.Config.PaymentMethodInterval).
-					Msg("skipping organization before payment reminder interval")
-
-				continue
-			}
 
 			if w.Config.DryRun {
 				logger.Info().
@@ -270,16 +262,4 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 	}
 
 	return nil
-}
-
-func isPastPaymentIntervalTimeline(createdAt *time.Time, intervalDays uint8) bool {
-	if createdAt == nil {
-		return false
-	}
-
-	if intervalDays == 0 {
-		return true
-	}
-
-	return time.Since(*createdAt) >= time.Duration(intervalDays)*24*time.Hour
 }
