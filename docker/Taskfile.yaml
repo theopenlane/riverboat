@@ -7,6 +7,14 @@ tasks:
     cmds:
       - "docker build -f docker/Dockerfile . -t riverboat:dev"
 
+  build:local:
+    dir: ..
+    desc: builds the riverboat docker image
+    deps:
+      - :go:build:linux
+    cmds:
+      - "docker build -f docker/Dockerfile.dev . -t riverboat:dev"
+
   riverboat:ui:up:
     dir: ..
     desc: runs the riverboat ui

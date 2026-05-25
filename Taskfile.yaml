@@ -77,6 +77,12 @@ tasks:
     cmds:
       - go build {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} -o riverboat
 
+  go:build:linux:
+    desc: Runs go build for the riverboat server
+    silent: true
+    cmds:
+      - GOOS=linux go build {{if .INCLUDE_TRUST_CENTER}}-tags=trustcenter{{end}} -o riverboat
+
   go:build:ci:
     desc: Runs go build for the riverboat server
     silent: true

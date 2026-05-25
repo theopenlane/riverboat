@@ -1,0 +1,8 @@
+FROM ubuntu:22.04
+
+# Copy the binary
+COPY riverboat /bin/riverboat
+
+# Run the server on container startup
+ENTRYPOINT [ "/bin/riverboat" ]
+CMD ["serve"]
