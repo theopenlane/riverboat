@@ -16,6 +16,8 @@ var (
 	ErrOpenlaneTokenMissing = errors.New("openlane api token is required")
 	// ErrZipTooLarge is returned when the zip archive exceeds the maximum allowed size
 	ErrZipTooLarge = errors.New("zip archive exceeds maximum allowed size")
+	// ErrUnsupportedExportType is the error returned when an export type is not currently supported by the jobs framework
+	ErrUnsupportedExportType = errors.New("export type is not currently supported")
 )
 
 // MissingRequiredArgError is returned when a required argument was not provided to a job

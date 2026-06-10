@@ -404,6 +404,8 @@ ExportWorkerConfig configuration for the export content worker
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
 |**enabled**|`boolean`|||
 |**maxzipsize**|`integer`|the maximum allowed size in bytes for a zip archive export<br/>||
+|**cloudflareaccountid**|`string`|the cloudflare account id used for browser rendering pdf generation<br/>||
+|**cloudflareapikey**|`string`|the cloudflare api key used for browser rendering pdf generation<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeleteexportcontentworker"></a>

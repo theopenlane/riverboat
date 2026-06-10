@@ -167,6 +167,8 @@ river:
                 token: ""
         exportcontentworker:
             config:
+                cloudflareaccountid: ""
+                cloudflareapikey: ""
                 enabled: false
                 maxzipsize: 52428800
                 openlaneapihost: ""
