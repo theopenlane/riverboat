@@ -402,7 +402,7 @@ ExportWorkerConfig configuration for the export content worker
 |----|----|-----------|--------|
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
-|**enabled**|`boolean`|||
+|**enabled**|`boolean`|Enabled indicates if this job is enabled in the server<br/>||
 |**maxzipsize**|`integer`|the maximum allowed size in bytes for a zip archive export<br/>||
 |**cloudflareaccountid**|`string`|the cloudflare account id used for browser rendering pdf generation<br/>||
 |**cloudflareapikey**|`string`|the cloudflare api key used for browser rendering pdf generation<br/>||

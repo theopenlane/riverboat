@@ -5,9 +5,6 @@ import (
 	"bytes"
 	"context"
 	"io"
-	"net/http"
-	"net/http/httptest"
-	"net/url"
 	"testing"
 
 	"github.com/99designs/gqlgen/graphql"
@@ -22,6 +19,7 @@ import (
 	"github.com/theopenlane/go-client/graphclient"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
+	pdfmocks "github.com/theopenlane/riverboat/pkg/jobs/mocks"
 	olmocks "github.com/theopenlane/riverboat/pkg/jobs/openlane/mocks"
 )
 
@@ -45,9 +43,6 @@ func TestExportContentWorkerPDF(t *testing.T) {
 		))
 		defer graphServer.Close()
 
-		cfServer := fakeCloudflarePDFServer(t)
-		defer cfServer.Close()
-
 		olMock := olmocks.NewMockGraphClient(t)
 		olMock.EXPECT().GetExportByID(mock.Anything, exportID).Return(newPDFExport(exportID, ownerID), nil)
 
@@ -58,8 +53,7 @@ func TestExportContentWorkerPDF(t *testing.T) {
 				captured = exportFiles
 			}).Return(&graphclient.UpdateExport{}, nil)
 
-		worker := newPDFWorker(graphServer.URL, cfServer)
-		worker.WithOpenlaneClient(olMock)
+		worker := newPDFWorker(graphServer.URL, fakePDFRenderer(t)).WithOpenlaneClient(olMock)
 
 		err := worker.Work(context.Background(), &river.Job[jobspec.ExportContentArgs]{Args: input})
 		require.NoError(t, err)
@@ -76,9 +70,6 @@ func TestExportContentWorkerPDF(t *testing.T) {
 		))
 		defer graphServer.Close()
 
-		cfServer := fakeCloudflarePDFServer(t)
-		defer cfServer.Close()
-
 		olMock := olmocks.NewMockGraphClient(t)
 		olMock.EXPECT().GetExportByID(mock.Anything, exportID).Return(newPDFExport(exportID, ownerID), nil)
 
@@ -89,8 +80,7 @@ func TestExportContentWorkerPDF(t *testing.T) {
 				captured = exportFiles
 			}).Return(&graphclient.UpdateExport{}, nil)
 
-		worker := newPDFWorker(graphServer.URL, cfServer)
-		worker.WithOpenlaneClient(olMock)
+		worker := newPDFWorker(graphServer.URL, fakePDFRenderer(t)).WithOpenlaneClient(olMock)
 
 		err := worker.Work(context.Background(), &river.Job[jobspec.ExportContentArgs]{Args: input})
 		require.NoError(t, err)
@@ -126,30 +116,12 @@ func TestExportContentWorkerPDF(t *testing.T) {
 	})
 }
 
-// cloudflareRedirectTransport rewrites every request to the given test server so the
-// worker's Cloudflare browser rendering calls hit our fake PDF endpoint
-type cloudflareRedirectTransport struct {
-	scheme string
-	host   string
-}
+// fakePDFRenderer returns a mock renderer that produces deterministic fake PDF bytes
+func fakePDFRenderer(t *testing.T) *pdfmocks.MockPDFRenderer {
+	m := pdfmocks.NewMockPDFRenderer(t)
+	m.EXPECT().HTMLToPDF(mock.Anything, mock.Anything).Return([]byte("%PDF-1.4 fake"), nil)
 
-func (t cloudflareRedirectTransport) RoundTrip(req *http.Request) (*http.Response, error) {
-	req.URL.Scheme = t.scheme
-	req.URL.Host = t.host
-
-	return http.DefaultTransport.RoundTrip(req)
-}
-
-// fakeCloudflarePDFServer returns a server that responds to the browser rendering
-// endpoint with deterministic fake PDF bytes
-func fakeCloudflarePDFServer(t *testing.T) *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		require.Equal(t, http.MethodPost, r.Method)
-		require.Equal(t, "Bearer cf-test-key", r.Header.Get("Authorization"))
-
-		w.Header().Set("Content-Type", "application/pdf")
-		_, _ = w.Write([]byte("%PDF-1.4 fake"))
-	}))
+	return m
 }
 
 func newPDFExport(exportID, ownerID string) *graphclient.GetExportByID {
@@ -181,13 +153,7 @@ func controlsResponse(nodes ...map[string]interface{}) map[string]interface{} {
 	}
 }
 
-func newPDFWorker(graphURL string, cfServer *httptest.Server) *jobs.ExportContentWorker {
-	cfURL, _ := url.Parse(cfServer.URL)
-
-	cfClient := &http.Client{
-		Transport: cloudflareRedirectTransport{scheme: cfURL.Scheme, host: cfURL.Host},
-	}
-
+func newPDFWorker(graphURL string, renderer jobs.PDFRenderer) *jobs.ExportContentWorker {
 	worker := &jobs.ExportContentWorker{
 		Config: jobs.ExportWorkerConfig{
 			OpenlaneConfig: jobs.OpenlaneConfig{
@@ -200,7 +166,7 @@ func newPDFWorker(graphURL string, cfServer *httptest.Server) *jobs.ExportConten
 		},
 	}
 
-	return worker.WithCloudflareHTTPClient(cfClient)
+	return worker.WithPDFRenderer(renderer)
 }
 
 func zipEntryNames(t *testing.T, upload *graphql.Upload) []string {

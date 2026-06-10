@@ -9,7 +9,6 @@ import (
 	"errors"
 	"fmt"
 	"maps"
-	"net/http"
 	"sort"
 	"strings"
 	"time"
@@ -59,12 +58,10 @@ var (
 type ExportWorkerConfig struct {
 	// embed OpenlaneConfig to reuse validation and client creation logic
 	OpenlaneConfig `koanf:",squash" jsonschema:"description=the openlane API configuration for exporting"`
-
+	// Enabled indicates if this job is enabled in the server
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the export worker is enabled"`
-
 	// MaxZipSize is the maximum allowed size in bytes for a zip archive export
 	MaxZipSize int64 `koanf:"maxzipsize" json:"maxzipsize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"52428800"`
-
 	// CloudflareAccountID is the cloudflare account id used for browser rendering PDF generation
 	CloudflareAccountID string `koanf:"cloudflareaccountid" json:"cloudflareaccountid" jsonschema:"description=the cloudflare account id used for browser rendering pdf generation"`
 	// CloudflareAPIKey is the cloudflare api key used for browser rendering PDF generation
@@ -77,9 +74,14 @@ type ExportContentWorker struct {
 
 	Config ExportWorkerConfig `koanf:"config" json:"config" jsonschema:"description=the configuration for exporting"`
 
-	olClient   openlane.GraphClient
-	requester  *httpsling.Requester
-	httpClient *http.Client
+	olClient    openlane.GraphClient
+	requester   *httpsling.Requester
+	pdfRenderer PDFRenderer
+}
+
+// PDFRenderer renders a complete HTML document into PDF bytes
+type PDFRenderer interface {
+	HTMLToPDF(ctx context.Context, html string) ([]byte, error)
 }
 
 // WithOpenlaneClient sets the Openlane client for the worker
@@ -95,9 +97,9 @@ func (w *ExportContentWorker) WithRequester(requester *httpsling.Requester) *Exp
 	return w
 }
 
-// WithCloudflareHTTPClient sets the HTTP client used to call the Cloudflare browser rendering API
-func (w *ExportContentWorker) WithCloudflareHTTPClient(cl *http.Client) *ExportContentWorker {
-	w.httpClient = cl
+// WithPDFRenderer sets the renderer used to convert HTML documents into PDFs
+func (w *ExportContentWorker) WithPDFRenderer(renderer PDFRenderer) *ExportContentWorker {
+	w.pdfRenderer = renderer
 	return w
 }
 
@@ -645,10 +647,12 @@ type pdfFile struct {
 
 // generatePolicyPDFs renders each node into its own PDF document, named after the document's name field
 func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []map[string]any, rootQuery string) ([]pdfFile, error) {
-	pdfClient := &render.PDFClient{
-		AccountID:  w.Config.CloudflareAccountID,
-		APIKey:     w.Config.CloudflareAPIKey,
-		HTTPClient: w.httpClient,
+	renderer := w.pdfRenderer
+	if renderer == nil {
+		renderer = &render.PDFClient{
+			AccountID: w.Config.CloudflareAccountID,
+			APIToken:  w.Config.CloudflareAPIKey,
+		}
 	}
 
 	usedNames := make(map[string]int)
@@ -657,7 +661,7 @@ func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []ma
 	for _, node := range nodes {
 		doc := render.WrapDocument(strings.Join(render.ExtractDetailsStrings([]map[string]any{node}), "\n"))
 
-		data, err := pdfClient.HTMLToPDF(ctx, doc)
+		data, err := renderer.HTMLToPDF(ctx, doc)
 		if err != nil {
 			return nil, err
 		}

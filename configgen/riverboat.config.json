@@ -555,7 +555,8 @@
           "description": "OpenlaneAPIToken is the API token for authenticating with the Openlane API"
         },
         "enabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Enabled indicates if this job is enabled in the server"
         },
         "maxzipsize": {
           "type": "integer",

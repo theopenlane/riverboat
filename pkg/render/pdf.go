@@ -6,7 +6,6 @@ import (
 	"encoding/base64"
 	"fmt"
 	"io"
-	"net/http"
 	"time"
 
 	"github.com/cloudflare/cloudflare-go/v6"
@@ -48,22 +47,15 @@ func footerHTML() string {
 type PDFClient struct {
 	// AccountID is the cloudflare account id
 	AccountID string
-	// APIKey is the cloudflare api key used for authentication
-	APIKey string
-	// HTTPClient is the HTTP client used for requests, a default client is used when nil
-	HTTPClient *http.Client
+	// APIToken is the cloudflare api token used for authentication
+	APIToken string
 }
 
 // HTMLToPDF renders a complete HTML document into PDF bytes
 func (c *PDFClient) HTMLToPDF(ctx context.Context, html string) ([]byte, error) {
-	httpClient := c.HTTPClient
-	if httpClient == nil {
-		httpClient = &http.Client{Timeout: defaultPDFTimeout}
-	}
-
 	client := cloudflare.NewClient(
-		option.WithAPIToken(c.APIKey),
-		option.WithHTTPClient(httpClient),
+		option.WithAPIToken(c.APIToken),
+		option.WithRequestTimeout(defaultPDFTimeout),
 	)
 
 	resp, err := client.BrowserRendering.PDF.New(ctx, browser_rendering.PDFNewParams{
