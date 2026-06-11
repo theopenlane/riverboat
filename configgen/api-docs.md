@@ -36,6 +36,7 @@
             "organizationdeletionreminderworker": {
                 "config": {
                     "systemadminorgid": "01101101011010010111010001100010",
+                    "slackchannel": "customers",
                     "email": {
                         "config": {
                             "urls": {}
@@ -45,7 +46,8 @@
             },
             "organizationdeletionworker": {
                 "config": {
-                    "systemadminorgid": "01101101011010010111010001100010"
+                    "systemadminorgid": "01101101011010010111010001100010",
+                    "slackchannel": "customers"
                 }
             }
         },
@@ -144,6 +146,7 @@ Config is the configuration for the river server
         "organizationdeletionreminderworker": {
             "config": {
                 "systemadminorgid": "01101101011010010111010001100010",
+                "slackchannel": "customers",
                 "email": {
                     "config": {
                         "urls": {}
@@ -153,7 +156,8 @@ Config is the configuration for the river server
         },
         "organizationdeletionworker": {
             "config": {
-                "systemadminorgid": "01101101011010010111010001100010"
+                "systemadminorgid": "01101101011010010111010001100010",
+                "slackchannel": "customers"
             }
         }
     },
@@ -262,6 +266,7 @@ Workers that will be enabled on the server
     "organizationdeletionreminderworker": {
         "config": {
             "systemadminorgid": "01101101011010010111010001100010",
+            "slackchannel": "customers",
             "email": {
                 "config": {
                     "urls": {}
@@ -271,7 +276,8 @@ Workers that will be enabled on the server
     },
     "organizationdeletionworker": {
         "config": {
-            "systemadminorgid": "01101101011010010111010001100010"
+            "systemadminorgid": "01101101011010010111010001100010",
+            "slackchannel": "customers"
         }
     }
 }
@@ -510,6 +516,7 @@ OrganizationPaymentReminderWorker fetches organizations for payment reminder pro
 {
     "config": {
         "systemadminorgid": "01101101011010010111010001100010",
+        "slackchannel": "customers",
         "email": {
             "config": {
                 "urls": {}
@@ -534,6 +541,7 @@ OrganizationPaymentReminderConfig contains the configuration for the organizatio
 |**orgdeletionaftercanceldays**|`integer`|OrgDeletionAfterCancelDays is the number of days after a previously active organization's subscription is canceled before it is queued for deletion<br/>|yes|
 |**deletiondays**|`integer`|DeletionDays is the number of days an org has before the deletion actually occurs. Once an org is earmarked for<br/>deletion, we do not delete immediately, instead we send them an email and update "pending_deletion_at". SO if<br/>DeletionDays is set to 30, the org will be deleted at in 30 days ( pending_deletion_at set to today + 30 days)<br/>|yes|
 |**systemadminorgid**|`string`|organization ID that must never be queued for deletion<br/>Default: `"01101101011010010111010001100010"`<br/>|no|
+|**slackchannel**|`string`|slack channel for organization deletion summaries<br/>Default: `"customers"`<br/>|no|
 |**enabled**|`boolean`|Enabled is used to determine if to register this worker or not<br/>|no|
 |**dryrun**|`boolean`|if true<br/>|no|
 |[**email**](#riverworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
@@ -544,6 +552,7 @@ OrganizationPaymentReminderConfig contains the configuration for the organizatio
 ```json
 {
     "systemadminorgid": "01101101011010010111010001100010",
+    "slackchannel": "customers",
     "email": {
         "config": {
             "urls": {}
@@ -637,7 +646,8 @@ OrganizationDeleteWorker deletes organizations in Openlane.
 ```json
 {
     "config": {
-        "systemadminorgid": "01101101011010010111010001100010"
+        "systemadminorgid": "01101101011010010111010001100010",
+        "slackchannel": "customers"
     }
 }
 ```
@@ -657,6 +667,7 @@ OrganizationDeleteConfig contains the configuration for the organization deletio
 |**runinterval**|`integer`||yes|
 |**maxdeletesperrun**|`integer`||yes|
 |**systemadminorgid**|`string`|organization ID that must never be deleted<br/>Default: `"01101101011010010111010001100010"`<br/>|no|
+|**slackchannel**|`string`|slack channel for organization deletion summaries<br/>Default: `"customers"`<br/>|no|
 |**enabled**|`boolean`||no|
 
 **Additional Properties:** not allowed  
@@ -664,7 +675,8 @@ OrganizationDeleteConfig contains the configuration for the organization deletio
 
 ```json
 {
-    "systemadminorgid": "01101101011010010111010001100010"
+    "systemadminorgid": "01101101011010010111010001100010",
+    "slackchannel": "customers"
 }
 ```
 

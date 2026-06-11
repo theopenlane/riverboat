@@ -25,6 +25,7 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 
 	ctx := context.Background()
 	olMock := olmocks.NewMockGraphClient(t)
+	riverMock := rivermocks.NewMockJobClient(t)
 
 	pendingDeletionAt := models.DateTime(time.Now().Add(-24 * time.Hour))
 	recoveredSettings := organizationSettingsResponse(
@@ -84,13 +85,23 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 		Return(&graphclient.DeleteOrganization{}, nil).
 		Once()
 
+	riverMock.EXPECT().
+		Insert(mock.Anything, mock.MatchedBy(func(args jobs.SlackArgs) bool {
+			return args.Channel == "customers" &&
+				args.Message == "Organization deletion summary: 1 orgs deleted:\n- unpaid-org (org-unpaid)"
+		}), (*river.InsertOpts)(nil)).
+		Return(&rivertype.JobInsertResult{}, nil).
+		Once()
+
 	worker := &jobs.OrganizationDeleteWorker{
 		Config: jobs.OrganizationDeleteConfig{
 			MaxDeletesPerRun: 2,
 			SystemAdminOrgID: "system-admin",
+			SlackChannel:     "customers",
 		},
 	}
 	worker.WithOpenlaneClient(olMock)
+	worker.WithRiverClient(riverMock)
 
 	err := worker.Work(ctx, &river.Job[jobspec.OrganizationDeletionArgs]{
 		JobRow: &rivertype.JobRow{Kind: jobspec.OrganizationDeletionArgs{}.Kind()},
@@ -200,11 +211,20 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 		Return(&rivertype.JobInsertResult{}, nil).
 		Twice()
 
+	riverMock.EXPECT().
+		Insert(mock.Anything, mock.MatchedBy(func(args jobs.SlackArgs) bool {
+			return args.Channel == "customers" &&
+				args.Message == "Organization deletion reminder summary: 1 orgs set to be deleted:\n- acme (org-1)"
+		}), (*river.InsertOpts)(nil)).
+		Return(&rivertype.JobInsertResult{}, nil).
+		Once()
+
 	worker := &jobs.OrganizationPaymentReminderWorker{
 		Config: jobs.OrganizationPaymentReminderConfig{
 			OrgDeletionAfterCancelDays: 1,
 			DeletionDays:               7,
 			SystemAdminOrgID:           "system-admin",
+			SlackChannel:               "customers",
 		},
 	}
 	worker.Config.Email.Enabled = true

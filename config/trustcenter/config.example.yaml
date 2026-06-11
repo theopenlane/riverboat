@@ -207,6 +207,7 @@ river:
                 openlaneapihost: ""
                 openlaneapitoken: ""
                 orgdeletionaftercanceldays: 0
+                slackchannel: customers
                 systemadminorgid: "01101101011010010111010001100010"
         organizationdeletionworker:
             config:
@@ -215,6 +216,7 @@ river:
                 openlaneapihost: ""
                 openlaneapitoken: ""
                 runinterval: 0
+                slackchannel: customers
                 systemadminorgid: "01101101011010010111010001100010"
         slackworker:
             config:

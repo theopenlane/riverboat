@@ -3,6 +3,7 @@ package jobs
 import (
 	"context"
 	"errors"
+	"fmt"
 	"strings"
 	"time"
 
@@ -24,6 +25,8 @@ const reminderStaggerDifference = 30 * time.Second
 var (
 	errDeletionDaysTooLow            = errors.New("deletion days must be at least 1 day")
 	errOrgDeletionAfterCancelDaysLow = errors.New("org deletion after cancel days must be at least 1 day")
+	errRiverClientRequired           = errors.New("river client is not set on worker")
+	errSlackChannelRequired          = errors.New("slack channel is required")
 	errSystemAdminOrgIDRequired      = errors.New("system admin org id is required")
 )
 
@@ -41,6 +44,9 @@ type OrganizationPaymentReminderConfig struct {
 
 	// SystemAdminOrgID is the organization ID that should never be queued for deletion
 	SystemAdminOrgID string `koanf:"systemadminorgid" json:"systemadminorgid" default:"01101101011010010111010001100010" jsonschema:"description=organization ID that must never be queued for deletion,default=01101101011010010111010001100010"`
+
+	// SlackChannel is the channel name where organization deletion reminders summaries will be sent to
+	SlackChannel string `koanf:"slackchannel" json:"slackchannel" default:"customers" jsonschema:"description=slack channel for organization deletion summaries,default=customers"`
 
 	// Enabled is used to determine if to register this worker or not
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the organization payment reminder worker is enabled"`
@@ -90,6 +96,11 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		return errSystemAdminOrgIDRequired
 	}
 
+	w.Config.SlackChannel = strings.TrimSpace(w.Config.SlackChannel)
+	if w.Config.SlackChannel == "" {
+		return errSlackChannelRequired
+	}
+
 	cancelDays := w.Config.OrgDeletionAfterCancelDays
 	if cancelDays <= 0 {
 		return errOrgDeletionAfterCancelDaysLow
@@ -106,12 +117,13 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 
 	if w.riverClient == nil {
 		logger.Error().Msg("river client is not set on worker, cannot insert organization deletion jobs")
-		return errors.New("river client is not set on worker") //nolint:err113
+		return errRiverClientRequired
 	}
 
 	var (
-		emailQueueOffset int
-		now              = time.Now()
+		emailQueueOffset    int
+		now                 = time.Now()
+		pendingOrgsToDelete []string
 	)
 
 	where := w.pendingDeletionWhere(&graphclient.OrgSubscriptionWhereInput{
@@ -143,10 +155,12 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 				Msg("processing organization setting")
 
 			if w.Config.DryRun {
+				pendingOrgsToDelete = append(pendingOrgsToDelete, fmt.Sprintf("%s (%s)", edge.Node.Organization.Name, edge.Node.Organization.ID))
+
 				logger.Info().
 					Str("organization_id", edge.Node.Organization.ID).
 					Str("organization_name", edge.Node.Organization.Name).
-					Msg("dry run: this organization would be scheduled for deletion")
+					Msg("dry run: this organization would be scheduled for deletion - Dry Run")
 
 				continue
 			}
@@ -165,6 +179,8 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 
 				return err
 			}
+
+			pendingOrgsToDelete = append(pendingOrgsToDelete, fmt.Sprintf("%s (%s)", edge.Node.Organization.Name, edge.Node.Organization.ID))
 
 			if !w.Config.Email.Enabled {
 				continue
@@ -256,6 +272,28 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		}
 
 		after = settings.OrganizationSettings.PageInfo.EndCursor
+	}
+
+	action := "set to be deleted"
+	if w.Config.DryRun {
+		action = "would be deleted"
+	}
+
+	message := fmt.Sprintf("Organization deletion reminder summary: %d orgs %s", len(pendingOrgsToDelete), action)
+	if len(pendingOrgsToDelete) > 0 {
+		message = fmt.Sprintf("%s:\n- %s", message, strings.Join(pendingOrgsToDelete, "\n- "))
+	}
+
+	if w.Config.DryRun {
+		message += " - Dry Run"
+	}
+
+	if _, err := w.riverClient.Insert(ctx, SlackArgs{
+		Channel: w.Config.SlackChannel,
+		Message: message,
+	}, nil); err != nil {
+		logger.Error().Err(err).Msg("failed to insert slack job for organization deletion reminder summary")
+		return err
 	}
 
 	return nil
