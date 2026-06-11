@@ -1,6 +1,7 @@
 package jobs
 
 import (
+	"archive/zip"
 	"bytes"
 	"context"
 	"encoding/csv"
@@ -8,28 +9,31 @@ import (
 	"errors"
 	"fmt"
 	"maps"
+	"sort"
 	"strings"
 	"time"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/gertd/go-pluralize"
 	"github.com/gocarina/gocsv"
-	"github.com/microcosm-cc/bluemonday"
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 	"github.com/stoewer/go-strcase"
 	"github.com/theopenlane/core/common/enums"
 	"github.com/theopenlane/core/common/jobspec"
+	goclient "github.com/theopenlane/go-client"
 	"github.com/theopenlane/go-client/graphclient"
 	"github.com/theopenlane/httpsling"
 	"github.com/theopenlane/iam/auth"
 
 	"github.com/theopenlane/riverboat/pkg/jobs/openlane"
-
-	goclient "github.com/theopenlane/go-client"
+	"github.com/theopenlane/riverboat/pkg/render"
 )
 
 var defaultPageSize int64 = 100
+
+// pdfFieldsWanted include the fields used in the PDF export we need to make sure we have in the graphql request
+var pdfFieldsWanted = []string{"details", "revision", "name", "createdAt", "updatedAt", "status"}
 
 var (
 	// ErrUnexpectedStatus is returned when an HTTP request returns a status code other than 200
@@ -54,11 +58,14 @@ var (
 type ExportWorkerConfig struct {
 	// embed OpenlaneConfig to reuse validation and client creation logic
 	OpenlaneConfig `koanf:",squash" jsonschema:"description=the openlane API configuration for exporting"`
-
+	// Enabled indicates if this job is enabled in the server
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the export worker is enabled"`
-
-	// MaxZipSize is the maximum allowed size in bytes for a zip archive export
-	MaxZipSize int64 `koanf:"maxzipsize" json:"maxzipsize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"52428800"`
+	// MaxZipSize is the maximum allowed size in bytes for a zip archive export, defaults to 500 MB
+	MaxZipSize int64 `koanf:"maxzipsize" json:"maxzipsize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"500000000"`
+	// CloudflareAccountID is the cloudflare account id used for browser rendering PDF generation
+	CloudflareAccountID string `koanf:"cloudflareaccountid" json:"cloudflareaccountid" jsonschema:"description=the cloudflare account id used for browser rendering pdf generation"`
+	// CloudflareAPIKey is the cloudflare api key used for browser rendering PDF generation
+	CloudflareAPIKey string `koanf:"cloudflareapikey" json:"cloudflareapikey" jsonschema:"description=the cloudflare api key used for browser rendering pdf generation" sensitive:"true"`
 }
 
 // ExportContentWorker exports the content into csv and makes it downloadable
@@ -67,8 +74,14 @@ type ExportContentWorker struct {
 
 	Config ExportWorkerConfig `koanf:"config" json:"config" jsonschema:"description=the configuration for exporting"`
 
-	olClient  openlane.GraphClient
-	requester *httpsling.Requester
+	olClient    openlane.GraphClient
+	requester   *httpsling.Requester
+	pdfRenderer PDFRenderer
+}
+
+// PDFRenderer renders a complete HTML document into PDF bytes
+type PDFRenderer interface {
+	HTMLToPDF(ctx context.Context, html string) ([]byte, error)
 }
 
 // WithOpenlaneClient sets the Openlane client for the worker
@@ -81,6 +94,12 @@ func (w *ExportContentWorker) WithOpenlaneClient(cl openlane.GraphClient) *Expor
 // WithRequester sets the httpsling requester to use for HTTP requests
 func (w *ExportContentWorker) WithRequester(requester *httpsling.Requester) *ExportContentWorker {
 	w.requester = requester
+	return w
+}
+
+// WithPDFRenderer sets the renderer used to convert HTML documents into PDFs
+func (w *ExportContentWorker) WithPDFRenderer(renderer PDFRenderer) *ExportContentWorker {
+	w.pdfRenderer = renderer
 	return w
 }
 
@@ -157,6 +176,11 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 
 	fields := export.Export.Fields
 
+	// Specific fields wanted for non-csv export
+	if export.Export.Format != enums.ExportFormatCsv {
+		fields = pdfFieldsWanted
+	}
+
 	query := w.buildGraphQLQuery(rootQuery, exportType, fields, hasWhere)
 
 	var (
@@ -184,27 +208,82 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusNodata, nil)
 	}
 
-	csvData, err := w.marshalToCSV(allNodes)
-	if err != nil {
-		log.Error().Err(err).Msg("failed to marshal to CSV")
-		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+	// Determine the output format from the export record
+	exportFormat := export.Export.Format
+	timestamp := time.Now().Format("20060102_150405")
+
+	var (
+		fileData    []byte
+		filename    string
+		contentType string
+	)
+
+	switch exportFormat {
+	// TODO: determine support for implementation, for now leaving off implementation
+	case enums.ExportFormatDocx, enums.ExportFormatMarkDown:
+		return ErrUnsupportedExportType
+	case enums.ExportFormatPdf:
+		// PDF generation relies on the Cloudflare browser rendering API, when it is
+		// not configured the PDF format is effectively unsupported
+		if w.Config.CloudflareAccountID == "" || w.Config.CloudflareAPIKey == "" {
+			return ErrUnsupportedExportType
+		}
+
+		pdfs, err := w.generatePolicyPDFs(ctx, allNodes, rootQuery)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to generate PDFs")
+
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		// a single document is uploaded as a standalone PDF, multiple documents are
+		// bundled into a zip archive so each document keeps its own file
+		if len(pdfs) == 1 {
+			fileData = pdfs[0].data
+			filename = pdfs[0].name
+			contentType = "application/pdf"
+		} else {
+			fileData, err = w.buildPDFZip(pdfs)
+			if err != nil {
+				log.Error().Err(err).Msg("failed to build PDF zip archive")
+
+				return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+			}
+
+			filename = fmt.Sprintf("%s_export_%s.zip", strcase.SnakeCase(rootQuery), timestamp)
+
+			contentType = "application/zip"
+		}
+	default:
+		// Default to CSV (includes ExportFormatCsv and any unknown format)
+		fileData, err = w.marshalToCSV(allNodes)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to marshal to CSV")
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		filename = fmt.Sprintf("%s_export_%s.csv", rootQuery, timestamp)
+		contentType = "text/csv"
 	}
 
-	filename := fmt.Sprintf("%s_export_%s_%s.csv", rootQuery, job.Args.ExportID, time.Now().Format("20060102_150405"))
-	reader := bytes.NewReader(csvData)
+	reader := bytes.NewReader(fileData)
 
 	upload := &graphql.Upload{
 		File:        reader,
 		Filename:    filename,
-		Size:        int64(len(csvData)),
-		ContentType: "text/csv",
+		Size:        int64(len(fileData)),
+		ContentType: contentType,
 	}
 
 	updateInput := graphclient.UpdateExportInput{
 		Status: &enums.ExportStatusReady,
 	}
 
-	_, err = w.olClient.UpdateExport(ctx, job.Args.ExportID, updateInput, []*graphql.Upload{upload}, goclient.WithImpersonationInterceptor(job.Args.UserID, job.Args.OrganizationID))
+	// impersonate the requesting user so the uploaded file is created in their
+	// organization and is linked to the export
+	impersonation := goclient.WithImpersonationInterceptor(job.Args.UserID, job.Args.OrganizationID)
+
+	_, err = w.olClient.UpdateExport(ctx, job.Args.ExportID, updateInput, []*graphql.Upload{upload}, impersonation)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to update export with file")
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
@@ -413,7 +492,7 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 
 	for i, n := range nodes {
 		flat := make(map[string]any)
-		flatten("", n, flat)
+		render.Flatten("", n, flat)
 		flatNodes[i] = flat
 
 		for k := range flat {
@@ -430,6 +509,8 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 	for k := range headerSet {
 		headers = append(headers, k)
 	}
+
+	sort.Strings(headers)
 
 	// 3) Write CSV
 	var buf bytes.Buffer
@@ -450,7 +531,7 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 				continue
 			}
 
-			row[i] = cleanHTML(val)
+			row[i] = render.CleanHTML(val)
 		}
 
 		if err := writer.Write(row); err != nil {
@@ -465,33 +546,6 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 	}
 
 	return buf.Bytes(), nil
-}
-
-// flatten flattens a nested map into a flat map with dot notation keys
-func flatten(prefix string, v any, out map[string]any) {
-	switch val := v.(type) {
-	case map[string]any:
-		for k, v2 := range val {
-			key := k
-			if prefix != "" {
-				key = prefix + "." + k
-			}
-
-			flatten(key, v2, out)
-		}
-
-	case []any:
-		for i, v2 := range val {
-			key := fmt.Sprintf("%s.%d", prefix, i)
-			flatten(key, v2, out)
-		}
-
-	default:
-		// leaf value
-		if prefix != "" {
-			out[prefix] = val
-		}
-	}
 }
 
 func (w *ExportContentWorker) updateExportStatus(ctx context.Context, exportID string, status enums.ExportStatus, err error) error {
@@ -584,13 +638,88 @@ func (w *ExportContentWorker) fetchPage(ctx context.Context, query, rootQuery st
 	return nodes, hasNext, endCursor, nil
 }
 
-var stripHTML = bluemonday.StrictPolicy()
+// pdfFile holds a single rendered PDF document along with the filename it should
+// take inside the export (or the zip archive when multiple documents are exported)
+type pdfFile struct {
+	name string
+	data []byte
+}
 
-func cleanHTML(v any) string {
-	raw := fmt.Sprint(v)
+// generatePolicyPDFs renders each node into its own PDF document, named after the document's name field
+func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []map[string]any, rootQuery string) ([]pdfFile, error) {
+	renderer := w.pdfRenderer
+	if renderer == nil {
+		renderer = &render.PDFClient{
+			AccountID: w.Config.CloudflareAccountID,
+			APIToken:  w.Config.CloudflareAPIKey,
+		}
+	}
 
-	cleaned := stripHTML.Sanitize(raw)
-	cleaned = strings.TrimSpace(strings.Join(strings.Fields(cleaned), " "))
+	usedNames := make(map[string]int)
+	pdfs := make([]pdfFile, 0, len(nodes))
 
-	return cleaned
+	for _, node := range nodes {
+		doc := render.WrapDocument(strings.Join(render.ExtractDetailsStrings([]map[string]any{node}), "\n"))
+
+		data, err := renderer.HTMLToPDF(ctx, doc)
+		if err != nil {
+			return nil, err
+		}
+
+		name := resolveCollision(usedNames, pdfFileName(node, rootQuery))
+		usedNames[name]++
+
+		pdfs = append(pdfs, pdfFile{name: name, data: data})
+	}
+
+	return pdfs, nil
+}
+
+// pdfFileName derives a safe pdf filename from a node's name field, falling back to
+// the rootQuery when the node has no usable name
+func pdfFileName(node map[string]any, fallback string) string {
+	name := fallback
+
+	if raw, ok := node["name"]; ok && raw != nil {
+		if str := strings.TrimSpace(fmt.Sprint(raw)); str != "" {
+			name = str
+		}
+	}
+
+	return strcase.SnakeCase(name) + ".pdf"
+}
+
+// buildPDFZip bundles the rendered PDFs into a single zip archive, enforcing the
+// configured maximum archive size
+func (w *ExportContentWorker) buildPDFZip(pdfs []pdfFile) ([]byte, error) {
+	var buf bytes.Buffer
+
+	zw := zip.NewWriter(&buf)
+
+	currentTime := time.Now()
+
+	for _, pdf := range pdfs {
+		if w.Config.MaxZipSize > 0 && int64(buf.Len()+len(pdf.data)) > w.Config.MaxZipSize {
+			return nil, ErrZipTooLarge
+		}
+
+		f, err := zw.CreateHeader(&zip.FileHeader{
+			Name:     pdf.name,
+			Method:   zip.Deflate,
+			Modified: currentTime,
+		})
+		if err != nil {
+			return nil, fmt.Errorf("failed to create file in zip: %w", err)
+		}
+
+		if _, err := f.Write(pdf.data); err != nil {
+			return nil, fmt.Errorf("failed to write file to zip: %w", err)
+		}
+	}
+
+	if err := zw.Close(); err != nil {
+		return nil, fmt.Errorf("failed to close zip writer: %w", err)
+	}
+
+	return buf.Bytes(), nil
 }

@@ -1,7 +1,12 @@
 FROM ubuntu:26.04
 
+# install ca-certificates so outbound HTTPS calls (e.g. cloudflare browser rendering) can verify TLS
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
 # add non-root user
-RUN useradd -u 1000 nonroot
+RUN useradd -u 1011 nonroot
 USER nonroot
 
 # Copy the binary

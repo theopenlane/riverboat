@@ -1,0 +1,15 @@
+all: false
+dir: "{{.InterfaceDir}}/mocks"
+filename: mocks.go
+force-file-write: true
+formatter: goimports
+log-level: info
+structname: "{{.Mock}}{{.InterfaceName}}"
+pkgname: mocks
+recursive: false
+include-auto-generated: true
+template: testify
+packages:
+  github.com/theopenlane/riverboat/pkg/jobs:
+    interfaces:
+      PDFRenderer:
