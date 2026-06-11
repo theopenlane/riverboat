@@ -60,8 +60,8 @@ type ExportWorkerConfig struct {
 	OpenlaneConfig `koanf:",squash" jsonschema:"description=the openlane API configuration for exporting"`
 	// Enabled indicates if this job is enabled in the server
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the export worker is enabled"`
-	// MaxZipSize is the maximum allowed size in bytes for a zip archive export
-	MaxZipSize int64 `koanf:"maxzipsize" json:"maxzipsize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"52428800"`
+	// MaxZipSize is the maximum allowed size in bytes for a zip archive export, defaults to 500 MB
+	MaxZipSize int64 `koanf:"maxzipsize" json:"maxzipsize" jsonschema:"description=the maximum allowed size in bytes for a zip archive export" default:"500000000"`
 	// CloudflareAccountID is the cloudflare account id used for browser rendering PDF generation
 	CloudflareAccountID string `koanf:"cloudflareaccountid" json:"cloudflareaccountid" jsonschema:"description=the cloudflare account id used for browser rendering pdf generation"`
 	// CloudflareAPIKey is the cloudflare api key used for browser rendering PDF generation
