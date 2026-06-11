@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/riverqueue/river"
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/samber/lo"
 	"github.com/theopenlane/core/common/enums"
@@ -87,23 +88,9 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 	logger := log.Ctx(ctx).With().Str("job_kind", job.Kind).Logger()
 	logger.Info().Msg("starting organization payment reminder job")
 
-	if w.Config.DeletionDays <= 0 {
-		return errDeletionDaysTooLow
-	}
-
-	w.Config.SystemAdminOrgID = strings.TrimSpace(w.Config.SystemAdminOrgID)
-	if w.Config.SystemAdminOrgID == "" {
-		return errSystemAdminOrgIDRequired
-	}
-
-	w.Config.SlackChannel = strings.TrimSpace(w.Config.SlackChannel)
-	if w.Config.SlackChannel == "" {
-		return errSlackChannelRequired
-	}
-
-	cancelDays := w.Config.OrgDeletionAfterCancelDays
-	if cancelDays <= 0 {
-		return errOrgDeletionAfterCancelDaysLow
+	cancelDays, err := w.validateConfig()
+	if err != nil {
+		return err
 	}
 
 	if w.olClient == nil {
@@ -126,10 +113,28 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		pendingOrgsToDelete []string
 	)
 
-	where := w.pendingDeletionWhere(&graphclient.OrgSubscriptionWhereInput{
-		Active:       lo.ToPtr(false),
-		UpdatedAtLte: lo.ToPtr(now.Add(-time.Duration(cancelDays) * 24 * time.Hour)),
-	})
+	where := &graphclient.OrganizationSettingWhereInput{
+		PendingDeletionAtIsNil: lo.ToPtr(true),
+		HasOrganizationWith: []*graphclient.OrganizationWhereInput{
+			{
+				IDNeq:       lo.ToPtr(w.Config.SystemAdminOrgID),
+				PersonalOrg: lo.ToPtr(false),
+				Not: &graphclient.OrganizationWhereInput{
+					HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
+						{
+							Active: lo.ToPtr(true),
+						},
+					},
+				},
+				HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
+					{
+						Active:       lo.ToPtr(false),
+						UpdatedAtLte: lo.ToPtr(now.Add(-time.Duration(cancelDays) * 24 * time.Hour)),
+					},
+				},
+			},
+		},
+	}
 
 	var after *string
 
@@ -145,126 +150,14 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		}
 
 		for _, edge := range settings.OrganizationSettings.Edges {
-			if edge == nil || edge.Node == nil || edge.Node.Organization == nil {
-				continue
-			}
-
-			logger.Info().
-				Str("organization_id", edge.Node.Organization.ID).
-				Str("setting_id", edge.Node.ID).
-				Msg("processing organization setting")
-
-			if w.Config.DryRun {
-				pendingOrgsToDelete = append(pendingOrgsToDelete, fmt.Sprintf("%s (%s)", edge.Node.Organization.Name, edge.Node.Organization.ID))
-
-				logger.Info().
-					Str("organization_id", edge.Node.Organization.ID).
-					Str("organization_name", edge.Node.Organization.Name).
-					Msg("dry run: this organization would be scheduled for deletion - Dry Run")
-
-				continue
-			}
-
-			pendingDeletionAt := time.Now().AddDate(0, 0, int(w.Config.DeletionDays))
-
-			_, err = w.olClient.UpdateOrganizationSetting(ctx, edge.Node.ID, graphclient.UpdateOrganizationSettingInput{
-				PendingDeletionAt: lo.ToPtr(models.DateTime(pendingDeletionAt)),
-			})
+			summary, isProcessed, err := w.processOrganization(ctx, logger, edge, &emailQueueOffset)
 			if err != nil {
-				logger.Error().
-					Err(err).
-					Str("organization_id", edge.Node.Organization.ID).
-					Str("setting_id", edge.Node.ID).
-					Msg("failed to update organization settings pending deletion state")
-
 				return err
 			}
 
-			pendingOrgsToDelete = append(pendingOrgsToDelete, fmt.Sprintf("%s (%s)", edge.Node.Organization.Name, edge.Node.Organization.ID))
-
-			if !w.Config.Email.Enabled {
-				continue
+			if isProcessed {
+				pendingOrgsToDelete = append(pendingOrgsToDelete, summary)
 			}
-
-			members, err := w.olClient.GetOrgMembersByOrgID(ctx, &graphclient.OrgMembershipWhereInput{
-				OrganizationID: lo.ToPtr(edge.Node.Organization.ID),
-				RoleIn:         []enums.Role{enums.RoleAdmin, enums.RoleOwner},
-			})
-			if err != nil {
-				logger.Error().
-					Err(err).
-					Str("organization_id", edge.Node.Organization.ID).
-					Str("setting_id", edge.Node.ID).
-					Msg("failed to fetch organization admin members")
-
-				return err
-			}
-
-			recipients := make([]emailtemplates.Recipient, 0, len(members.OrgMemberships.Edges)+1)
-
-			for _, member := range members.OrgMemberships.Edges {
-				if member == nil || member.Node == nil || member.Node.User.Email == "" {
-					continue
-				}
-
-				recipients = append(recipients, emailtemplates.Recipient{
-					Email:     member.Node.User.Email,
-					FirstName: lo.FromPtr(member.Node.User.FirstName),
-					LastName:  lo.FromPtr(member.Node.User.LastName),
-				})
-			}
-
-			orgBillingEmail := strings.TrimSpace(lo.FromPtr(edge.Node.BillingEmail))
-			if orgBillingEmail != "" {
-				recipients = append(recipients, emailtemplates.Recipient{
-					Email: orgBillingEmail,
-					// add default names
-					FirstName: "Billing",
-					LastName:  "Admin",
-				})
-			}
-
-			recipients = lo.UniqBy(recipients, func(r emailtemplates.Recipient) string {
-				return strings.ToLower(strings.TrimSpace(r.Email))
-			})
-
-			for _, recipient := range recipients {
-				email, err := w.Config.Email.Config.NewOrgDeletionNoticeEmail(recipient, emailtemplates.OrgDeletionNoticeTemplateData{
-					OrganizationName: edge.Node.Organization.Name,
-					Date:             pendingDeletionAt,
-				})
-				if err != nil {
-					logger.Error().
-						Err(err).
-						Str("organization_id", edge.Node.Organization.ID).
-						Str("setting_id", edge.Node.ID).
-						Msg("failed to create organization deletion notice email")
-
-					return err
-				}
-
-				_, err = w.riverClient.Insert(ctx, EmailArgs{
-					Message: *email,
-				}, &river.InsertOpts{
-					ScheduledAt: time.Now().Add(time.Duration(emailQueueOffset) * reminderStaggerDifference),
-				})
-				if err != nil {
-					logger.Error().
-						Err(err).
-						Str("organization_id", edge.Node.Organization.ID).
-						Str("setting_id", edge.Node.ID).
-						Msg("failed to insert email job for organization deletion notice")
-
-					return err
-				}
-
-				emailQueueOffset++
-			}
-
-			logger.Info().
-				Str("organization_id", edge.Node.Organization.ID).
-				Str("setting_id", edge.Node.ID).
-				Msg("sent notification to owners and admins about deletion")
 		}
 
 		if !settings.OrganizationSettings.PageInfo.HasNextPage {
@@ -274,6 +167,170 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		after = settings.OrganizationSettings.PageInfo.EndCursor
 	}
 
+	return w.createReminderSummary(ctx, logger, pendingOrgsToDelete)
+}
+
+func (w *OrganizationPaymentReminderWorker) validateConfig() (uint8, error) {
+	if w.Config.DeletionDays <= 0 {
+		return 0, errDeletionDaysTooLow
+	}
+
+	w.Config.SystemAdminOrgID = strings.TrimSpace(w.Config.SystemAdminOrgID)
+	if w.Config.SystemAdminOrgID == "" {
+		return 0, errSystemAdminOrgIDRequired
+	}
+
+	w.Config.SlackChannel = strings.TrimSpace(w.Config.SlackChannel)
+	if w.Config.SlackChannel == "" {
+		return 0, errSlackChannelRequired
+	}
+
+	cancelDays := w.Config.OrgDeletionAfterCancelDays
+	if cancelDays <= 0 {
+		return 0, errOrgDeletionAfterCancelDaysLow
+	}
+
+	return cancelDays, nil
+}
+
+func (w *OrganizationPaymentReminderWorker) processOrganization(ctx context.Context, logger zerolog.Logger, edge *graphclient.GetOrganizationSettings_OrganizationSettings_Edges, emailQueueOffset *int) (string, bool, error) {
+	if edge == nil || edge.Node == nil || edge.Node.Organization == nil {
+		return "", false, nil
+	}
+
+	summary := fmt.Sprintf("%s (%s)", edge.Node.Organization.Name, edge.Node.Organization.ID)
+
+	logger.Info().
+		Str("organization_id", edge.Node.Organization.ID).
+		Str("setting_id", edge.Node.ID).
+		Msg("processing organization setting")
+
+	if w.Config.DryRun {
+		logger.Info().
+			Str("organization_id", edge.Node.Organization.ID).
+			Str("organization_name", edge.Node.Organization.Name).
+			Msg("dry run: this organization would be scheduled for deletion - Dry Run")
+
+		return summary, true, nil
+	}
+
+	pendingDeletionAt := time.Now().AddDate(0, 0, int(w.Config.DeletionDays))
+
+	_, err := w.olClient.UpdateOrganizationSetting(ctx, edge.Node.ID, graphclient.UpdateOrganizationSettingInput{
+		PendingDeletionAt: lo.ToPtr(models.DateTime(pendingDeletionAt)),
+	})
+	if err != nil {
+		logger.Error().
+			Err(err).
+			Str("organization_id", edge.Node.Organization.ID).
+			Str("setting_id", edge.Node.ID).
+			Msg("failed to update organization settings pending deletion state")
+
+		return "", false, err
+	}
+
+	if !w.Config.Email.Enabled {
+		return summary, true, nil
+	}
+
+	if err := w.sendReminder(ctx, logger, edge, pendingDeletionAt, emailQueueOffset); err != nil {
+		return "", false, err
+	}
+
+	logger.Info().
+		Str("organization_id", edge.Node.Organization.ID).
+		Str("setting_id", edge.Node.ID).
+		Msg("sent notification to owners and admins about deletion")
+
+	return summary, true, nil
+}
+
+func (w *OrganizationPaymentReminderWorker) sendReminder(ctx context.Context, logger zerolog.Logger, edge *graphclient.GetOrganizationSettings_OrganizationSettings_Edges, pendingDeletionAt time.Time, emailQueueOffset *int) error {
+	recipients, err := w.getReminderRecipients(ctx, edge)
+	if err != nil {
+		logger.Error().
+			Err(err).
+			Str("organization_id", edge.Node.Organization.ID).
+			Str("setting_id", edge.Node.ID).
+			Msg("failed to fetch organization admin members")
+
+		return err
+	}
+
+	for _, recipient := range recipients {
+		email, err := w.Config.Email.Config.NewOrgDeletionNoticeEmail(recipient, emailtemplates.OrgDeletionNoticeTemplateData{
+			OrganizationName: edge.Node.Organization.Name,
+			Date:             pendingDeletionAt,
+		})
+		if err != nil {
+			logger.Error().
+				Err(err).
+				Str("organization_id", edge.Node.Organization.ID).
+				Str("setting_id", edge.Node.ID).
+				Msg("failed to create organization deletion notice email")
+
+			return err
+		}
+
+		_, err = w.riverClient.Insert(ctx, EmailArgs{
+			Message: *email,
+		}, &river.InsertOpts{
+			ScheduledAt: time.Now().Add(time.Duration(*emailQueueOffset) * reminderStaggerDifference),
+		})
+		if err != nil {
+			logger.Error().
+				Err(err).
+				Str("organization_id", edge.Node.Organization.ID).
+				Str("setting_id", edge.Node.ID).
+				Msg("failed to insert email job for organization deletion notice")
+
+			return err
+		}
+
+		*emailQueueOffset++
+	}
+
+	return nil
+}
+
+func (w *OrganizationPaymentReminderWorker) getReminderRecipients(ctx context.Context, edge *graphclient.GetOrganizationSettings_OrganizationSettings_Edges) ([]emailtemplates.Recipient, error) {
+	members, err := w.olClient.GetOrgMembersByOrgID(ctx, &graphclient.OrgMembershipWhereInput{
+		OrganizationID: lo.ToPtr(edge.Node.Organization.ID),
+		RoleIn:         []enums.Role{enums.RoleAdmin, enums.RoleOwner},
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	recipients := make([]emailtemplates.Recipient, 0, len(members.OrgMemberships.Edges)+1)
+	for _, member := range members.OrgMemberships.Edges {
+		if member == nil || member.Node == nil || member.Node.User.Email == "" {
+			continue
+		}
+
+		recipients = append(recipients, emailtemplates.Recipient{
+			Email:     member.Node.User.Email,
+			FirstName: lo.FromPtr(member.Node.User.FirstName),
+			LastName:  lo.FromPtr(member.Node.User.LastName),
+		})
+	}
+
+	orgBillingEmail := strings.TrimSpace(lo.FromPtr(edge.Node.BillingEmail))
+	if orgBillingEmail != "" {
+		recipients = append(recipients, emailtemplates.Recipient{
+			Email: orgBillingEmail,
+			// add default names
+			FirstName: "Billing",
+			LastName:  "Admin",
+		})
+	}
+
+	return lo.UniqBy(recipients, func(r emailtemplates.Recipient) string {
+		return strings.ToLower(strings.TrimSpace(r.Email))
+	}), nil
+}
+
+func (w *OrganizationPaymentReminderWorker) createReminderSummary(ctx context.Context, logger zerolog.Logger, pendingOrgsToDelete []string) error {
 	action := "set to be deleted"
 	if w.Config.DryRun {
 		action = "would be deleted"
@@ -297,29 +354,4 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 	}
 
 	return nil
-}
-
-func (w *OrganizationPaymentReminderWorker) pendingDeletionWhere(subscriptionWhere *graphclient.OrgSubscriptionWhereInput) *graphclient.OrganizationSettingWhereInput {
-	orgWhere := &graphclient.OrganizationWhereInput{
-		PersonalOrg: lo.ToPtr(false),
-		Not: &graphclient.OrganizationWhereInput{
-			HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
-				{
-					Active: lo.ToPtr(true),
-				},
-			},
-		},
-		HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
-			subscriptionWhere,
-		},
-	}
-
-	orgWhere.IDNeq = lo.ToPtr(w.Config.SystemAdminOrgID)
-
-	return &graphclient.OrganizationSettingWhereInput{
-		PendingDeletionAtIsNil: lo.ToPtr(true),
-		HasOrganizationWith: []*graphclient.OrganizationWhereInput{
-			orgWhere,
-		},
-	}
 }

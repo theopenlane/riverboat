@@ -15,6 +15,7 @@ import (
 	"github.com/theopenlane/core/common/jobspec"
 	"github.com/theopenlane/core/common/models"
 	"github.com/theopenlane/go-client/graphclient"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	olmocks "github.com/theopenlane/riverboat/pkg/jobs/openlane/mocks"
 	rivermocks "github.com/theopenlane/riverboat/pkg/riverqueue/mocks"
@@ -38,12 +39,15 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 	olMock.EXPECT().
 		GetOrganizationSettings(mock.Anything, mock.Anything, (*int64)(nil), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
+				// make sure the orgs are already earmarked for deletion
 				where.PendingDeletionAtNotNil != nil && *where.PendingDeletionAtNotNil &&
 				where.PendingDeletionAtLte == nil &&
+				// system admin and personal orgs can never be part of potential deletions
 				len(where.HasOrganizationWith) == 1 &&
 				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
 				where.HasOrganizationWith[0].PersonalOrg != nil &&
 				!*where.HasOrganizationWith[0].PersonalOrg &&
+				// an active subscription means the org recovered and pending deletion should be cleared
 				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
 				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&
 				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active
@@ -56,10 +60,13 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 			return last != nil && *last == 2
 		}), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
+				// actual deletion only considers orgs whose pending deletion date has passed
 				where.PendingDeletionAtNotNil != nil && *where.PendingDeletionAtNotNil &&
 				where.PendingDeletionAtLte != nil &&
+				// the protected org is excluded before any delete call can happen
 				len(where.HasOrganizationWith) == 1 &&
 				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				// orgs with an active subscription should not be deleted
 				where.HasOrganizationWith[0].Not != nil &&
 				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
 				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
@@ -124,16 +131,21 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 	olMock.EXPECT().
 		GetOrganizationSettings(mock.Anything, mock.Anything, (*int64)(nil), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
+				// reminder only picks orgs that have not already been marked
 				where.PendingDeletionAtIsNil != nil && *where.PendingDeletionAtIsNil &&
+				// payment method is not part of this decision anymore
 				where.PaymentMethodAdded == nil &&
+				// system admin and personal orgs should never be marked for deletion
 				len(where.HasOrganizationWith) == 1 &&
 				where.HasOrganizationWith[0].PersonalOrg != nil &&
 				!*where.HasOrganizationWith[0].PersonalOrg &&
 				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				// orgs with an active subscription should not be marked
 				where.HasOrganizationWith[0].Not != nil &&
 				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
 				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
 				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active &&
+				// an inactive subscription old enough to pass the configured window is required
 				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
 				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&
 				!*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active &&
