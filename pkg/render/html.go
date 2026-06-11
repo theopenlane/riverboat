@@ -17,7 +17,12 @@ import (
 var scrub = scrubber.NewPolicyScrubber(
 	scrubber.WithStyling(),
 	scrubber.WithTables(),
-	scrubber.WithURLSchemes("http", "https", "mailto"),
+	scrubber.WithImages(),
+	scrubber.WithDocumentStructure(),
+	scrubber.WithAccessibility(),
+	scrubber.WithURLSchemes("http", "https", "mailto", "tel"),
+	scrubber.WithNoRelativeURLs(),
+	scrubber.WithTargetBlankOnLinks(),
 )
 
 // markdownConverter renders markdown content into HTML, supporting GitHub flavored
