@@ -22,23 +22,25 @@ import (
 const reminderStaggerDifference = 30 * time.Second
 
 var (
-	errDeletionDaysTooLow          = errors.New("deletion days must be at least 1 day")
-	errPaymentMethodIntervalTooLow = errors.New("payment method interval must be atleast 1 day")
+	errDeletionDaysTooLow            = errors.New("deletion days must be at least 1 day")
+	errOrgDeletionAfterCancelDaysLow = errors.New("org deletion after cancel days must be at least 1 day")
+	errSystemAdminOrgIDRequired      = errors.New("system admin org id is required")
 )
 
 // OrganizationPaymentReminderConfig contains the configuration for the organization payment reminder worker.
 type OrganizationPaymentReminderConfig struct {
 	OpenlaneConfig `koanf:",squash" jsonschema:"description=the openlane API configuration for organization payment reminders"`
 
-	// PaymentMethodInterval is the amount of days an org must have a payment method attached or else it will be earmarked for deletion
-	// This is after org creation. So if an org is created 7 days ago and this is set to 6 days, the org will be marked
-	// as pending deletion. But if set to say 8 days, nothing happens
-	PaymentMethodInterval uint8 `koanf:"paymentmethodinterval" json:"paymentmethodinterval" jsonschema:"required,default=30 description=the number of days after organization creation before deletion is queued"`
+	// OrgDeletionAfterCancelDays is the number of days after a previously active organization's subscription is canceled before it is queued for deletion
+	OrgDeletionAfterCancelDays uint8 `koanf:"orgdeletionaftercanceldays" json:"orgdeletionaftercanceldays" jsonschema:"required,default=30 description=the number of days after a previously active organization's subscription cancellation before deletion is queued"`
 
 	// DeletionDays is the number of days an org has before the deletion actually occurs. Once an org is earmarked for
 	// deletion, we do not delete immediately, instead we send them an email and update "pending_deletion_at". SO if
 	// DeletionDays is set to 30, the org will be deleted at in 30 days ( pending_deletion_at set to today + 30 days)
 	DeletionDays uint8 `koanf:"deletiondays" json:"deletiondays" jsonschema:"required,default=7 description=the number of days before an organization pending deletion is executed"`
+
+	// SystemAdminOrgID is the organization ID that should never be queued for deletion
+	SystemAdminOrgID string `koanf:"systemadminorgid" json:"systemadminorgid" default:"01101101011010010111010001100010" jsonschema:"description=organization ID that must never be queued for deletion,default=01101101011010010111010001100010"`
 
 	// Enabled is used to determine if to register this worker or not
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the organization payment reminder worker is enabled"`
@@ -83,8 +85,14 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		return errDeletionDaysTooLow
 	}
 
-	if w.Config.PaymentMethodInterval <= 0 {
-		return errPaymentMethodIntervalTooLow
+	w.Config.SystemAdminOrgID = strings.TrimSpace(w.Config.SystemAdminOrgID)
+	if w.Config.SystemAdminOrgID == "" {
+		return errSystemAdminOrgIDRequired
+	}
+
+	cancelDays := w.Config.OrgDeletionAfterCancelDays
+	if cancelDays <= 0 {
+		return errOrgDeletionAfterCancelDaysLow
 	}
 
 	if w.olClient == nil {
@@ -102,30 +110,19 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 	}
 
 	var (
-		after                   *string
-		emailQueueOffset        int
-		paymentMethodCutoffTime = time.Now().Add(-time.Duration(w.Config.PaymentMethodInterval) * 24 * time.Hour)
+		emailQueueOffset int
+		now              = time.Now()
 	)
 
+	where := w.pendingDeletionWhere(&graphclient.OrgSubscriptionWhereInput{
+		Active:       lo.ToPtr(false),
+		UpdatedAtLte: lo.ToPtr(now.Add(-time.Duration(cancelDays) * 24 * time.Hour)),
+	})
+
+	var after *string
+
 	for {
-		settings, err := w.olClient.GetOrganizationSettings(ctx, &defaultPageSize, nil, after, nil,
-			&graphclient.OrganizationSettingWhereInput{
-				PendingDeletionAtIsNil: lo.ToPtr(true),
-				PaymentMethodAdded:     lo.ToPtr(false),
-				HasOrganizationWith: []*graphclient.OrganizationWhereInput{
-					{
-						PersonalOrg:  lo.ToPtr(false),
-						CreatedAtLte: lo.ToPtr(paymentMethodCutoffTime),
-						Not: &graphclient.OrganizationWhereInput{
-							HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
-								{
-									Active: lo.ToPtr(true),
-								},
-							},
-						},
-					},
-				},
-			}, nil)
+		settings, err := w.olClient.GetOrganizationSettings(ctx, &defaultPageSize, nil, after, nil, where, nil)
 		if err != nil {
 			logger.Error().Err(err).Msg("failed to fetch organizations")
 			return err
@@ -136,7 +133,7 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 		}
 
 		for _, edge := range settings.OrganizationSettings.Edges {
-			if edge == nil || edge.Node == nil {
+			if edge == nil || edge.Node == nil || edge.Node.Organization == nil {
 				continue
 			}
 
@@ -262,4 +259,29 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 	}
 
 	return nil
+}
+
+func (w *OrganizationPaymentReminderWorker) pendingDeletionWhere(subscriptionWhere *graphclient.OrgSubscriptionWhereInput) *graphclient.OrganizationSettingWhereInput {
+	orgWhere := &graphclient.OrganizationWhereInput{
+		PersonalOrg: lo.ToPtr(false),
+		Not: &graphclient.OrganizationWhereInput{
+			HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
+				{
+					Active: lo.ToPtr(true),
+				},
+			},
+		},
+		HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
+			subscriptionWhere,
+		},
+	}
+
+	orgWhere.IDNeq = lo.ToPtr(w.Config.SystemAdminOrgID)
+
+	return &graphclient.OrganizationSettingWhereInput{
+		PendingDeletionAtIsNil: lo.ToPtr(true),
+		HasOrganizationWith: []*graphclient.OrganizationWhereInput{
+			orgWhere,
+		},
+	}
 }

@@ -42,7 +42,7 @@ data:
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.exportcontentworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.exportcontentworker.config.enabled }}
-  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_MAXZIPSIZE: {{ .Values.riverboat.river.workers.exportcontentworker.config.maxzipsize | default "52428800" }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_MAXZIPSIZE: {{ .Values.riverboat.river.workers.exportcontentworker.config.maxzipsize | default "500000000" }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_CLOUDFLAREACCOUNTID: {{ .Values.riverboat.river.workers.exportcontentworker.config.cloudflareaccountid }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.exportcontentworker.config.cloudflareapikey }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapihost }}
@@ -55,8 +55,9 @@ data:
   RIVERBOAT_RIVER_WORKERS_SLACKWORKER_CONFIG_TOKEN: {{ .Values.riverboat.river.workers.slackworker.config.token }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.openlaneapitoken }}
-  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_PAYMENTMETHODINTERVAL: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.paymentmethodinterval }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_ORGDELETIONAFTERCANCELDAYS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.orgdeletionaftercanceldays }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_DELETIONDAYS: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.deletiondays }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_SYSTEMADMINORGID: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.systemadminorgid | default "01101101011010010111010001100010" }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.enabled }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_DRYRUN: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.dryrun }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONREMINDERWORKER_CONFIG_EMAIL_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionreminderworker.config.email.enabled }}
@@ -83,6 +84,7 @@ data:
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_RUNINTERVAL: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.runinterval }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_MAXDELETESPERRUN: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.maxdeletesperrun }}
+  RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_SYSTEMADMINORGID: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.systemadminorgid | default "01101101011010010111010001100010" }}
   RIVERBOAT_RIVER_WORKERS_ORGANIZATIONDELETIONWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.organizationdeletionworker.config.enabled }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapihost }}
   RIVERBOAT_RIVER_TRUSTCENTERWORKERS_OPENLANECONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.trustcenterworkers.openlaneconfig.openlaneapitoken }}

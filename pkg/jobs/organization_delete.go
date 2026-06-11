@@ -2,9 +2,11 @@ package jobs
 
 import (
 	"context"
+	"strings"
 	"time"
 
 	"github.com/riverqueue/river"
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/samber/lo"
 
@@ -22,6 +24,9 @@ type OrganizationDeleteConfig struct {
 	RunInterval time.Duration `koanf:"runinterval" json:"runinterval" jsonschema:"required,default=24h description=how often to run the organization deletion worker"`
 
 	MaxDeletesPerRun int64 `koanf:"maxdeletesperrun" json:"maxdeletesperrun" jsonschema:"required,default=25 description=maximum number of overdue organizations to delete in a single run"`
+
+	// SystemAdminOrgID is the organization ID that should never be deleted
+	SystemAdminOrgID string `koanf:"systemadminorgid" json:"systemadminorgid" default:"01101101011010010111010001100010" jsonschema:"description=organization ID that must never be deleted,default=01101101011010010111010001100010"`
 
 	Enabled bool `koanf:"enabled" json:"enabled" jsonschema:"required description=whether the organization deletion worker is enabled"`
 }
@@ -46,6 +51,12 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 	logger := log.Ctx(ctx).With().Str("job_kind", job.Kind).Logger()
 	logger.Info().Msg("starting organization deletion")
 
+	w.Config.SystemAdminOrgID = strings.TrimSpace(w.Config.SystemAdminOrgID)
+
+	if w.Config.SystemAdminOrgID == "" {
+		return errSystemAdminOrgIDRequired
+	}
+
 	if w.olClient == nil {
 		cl, err := w.Config.getOpenlaneClient()
 		if err != nil {
@@ -53,6 +64,10 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 		}
 
 		w.olClient = cl
+	}
+
+	if err := w.checkReactivatedSubs(ctx, logger); err != nil {
+		return err
 	}
 
 	now, err := models.ToDateTime(time.Now().Format("2006-01-02"))
@@ -65,6 +80,19 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 		&graphclient.OrganizationSettingWhereInput{
 			PendingDeletionAtNotNil: lo.ToPtr(true),
 			PendingDeletionAtLte:    now,
+			HasOrganizationWith: []*graphclient.OrganizationWhereInput{
+				{
+					IDNeq:       lo.ToPtr(w.Config.SystemAdminOrgID),
+					PersonalOrg: lo.ToPtr(false),
+					Not: &graphclient.OrganizationWhereInput{
+						HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
+							{
+								Active: lo.ToPtr(true),
+							},
+						},
+					},
+				},
+			},
 		}, []*graphclient.OrganizationSettingOrder{
 			{
 				Field:     graphclient.OrganizationSettingOrderFieldUpdatedAt,
@@ -86,19 +114,6 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 			Str("setting_id", edge.Node.ID).
 			Logger()
 
-		if edge.Node.PaymentMethodAdded {
-			if _, err := w.olClient.UpdateOrganizationSetting(ctx, edge.Node.ID, graphclient.UpdateOrganizationSettingInput{
-				ClearPendingDeletionAt: lo.ToPtr(true),
-			}); err != nil {
-				orgLogger.Error().Err(err).Msg("failed to clear organization pending deletion state")
-				return err
-			}
-
-			orgLogger.Info().Msg("cleared organization pending deletion state because payment method was added")
-
-			continue
-		}
-
 		if _, err := w.olClient.DeleteOrganization(ctx, edge.Node.Organization.ID); err != nil {
 			orgLogger.Error().Err(err).Msg("failed to delete organization")
 			return err
@@ -108,6 +123,66 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 	}
 
 	logger.Info().Msg("finished organization deletion")
+
+	return nil
+}
+
+// checkReactivatedSubs checks to make sure orgs that were previously earmarked for deletions and now
+// have an active sub will no longer be deleted
+func (w *OrganizationDeleteWorker) checkReactivatedSubs(ctx context.Context, logger zerolog.Logger) error {
+	var after *string
+
+	for {
+		settings, err := w.olClient.GetOrganizationSettings(ctx, &defaultPageSize, nil, after, nil,
+			&graphclient.OrganizationSettingWhereInput{
+				PendingDeletionAtNotNil: lo.ToPtr(true),
+				HasOrganizationWith: []*graphclient.OrganizationWhereInput{
+					{
+						IDNeq:       lo.ToPtr(w.Config.SystemAdminOrgID),
+						PersonalOrg: lo.ToPtr(false),
+						HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
+							{
+								Active: lo.ToPtr(true),
+							},
+						},
+					},
+				},
+			}, nil)
+		if err != nil {
+			logger.Error().Err(err).Msg("failed to fetch recovered organizations pending deletion")
+			return err
+		}
+
+		if len(settings.OrganizationSettings.Edges) == 0 {
+			break
+		}
+
+		for _, edge := range settings.OrganizationSettings.Edges {
+			if edge == nil || edge.Node == nil || edge.Node.Organization == nil {
+				continue
+			}
+
+			orgLogger := logger.With().
+				Str("organization_id", edge.Node.Organization.ID).
+				Str("setting_id", edge.Node.ID).
+				Logger()
+
+			if _, err := w.olClient.UpdateOrganizationSetting(ctx, edge.Node.ID, graphclient.UpdateOrganizationSettingInput{
+				ClearPendingDeletionAt: lo.ToPtr(true),
+			}); err != nil {
+				orgLogger.Error().Err(err).Msg("failed to clear organization pending deletion state")
+				return err
+			}
+
+			orgLogger.Info().Msg("cleared organization pending deletion state because billing status recovered")
+		}
+
+		if !settings.OrganizationSettings.PageInfo.HasNextPage {
+			break
+		}
+
+		after = settings.OrganizationSettings.PageInfo.EndCursor
+	}
 
 	return nil
 }

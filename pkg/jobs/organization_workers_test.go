@@ -27,10 +27,28 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 	olMock := olmocks.NewMockGraphClient(t)
 
 	pendingDeletionAt := models.DateTime(time.Now().Add(-24 * time.Hour))
-	settings := organizationSettingsResponse(
+	recoveredSettings := organizationSettingsResponse(
 		organizationSettingEdge("setting-paid", "org-paid", "paid-org", true, nil, &pendingDeletionAt),
+	)
+	deletableSettings := organizationSettingsResponse(
 		organizationSettingEdge("setting-unpaid", "org-unpaid", "unpaid-org", false, nil, &pendingDeletionAt),
 	)
+
+	olMock.EXPECT().
+		GetOrganizationSettings(mock.Anything, mock.Anything, (*int64)(nil), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
+			return where != nil &&
+				where.PendingDeletionAtNotNil != nil && *where.PendingDeletionAtNotNil &&
+				where.PendingDeletionAtLte == nil &&
+				len(where.HasOrganizationWith) == 1 &&
+				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				where.HasOrganizationWith[0].PersonalOrg != nil &&
+				!*where.HasOrganizationWith[0].PersonalOrg &&
+				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&
+				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active
+		}), ([]*graphclient.OrganizationSettingOrder)(nil)).
+		Return(recoveredSettings, nil).
+		Once()
 
 	olMock.EXPECT().
 		GetOrganizationSettings(mock.Anything, (*int64)(nil), mock.MatchedBy(func(last *int64) bool {
@@ -38,14 +56,20 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 		}), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
 				where.PendingDeletionAtNotNil != nil && *where.PendingDeletionAtNotNil &&
-				where.PendingDeletionAtLte != nil
+				where.PendingDeletionAtLte != nil &&
+				len(where.HasOrganizationWith) == 1 &&
+				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				where.HasOrganizationWith[0].Not != nil &&
+				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active
 		}), mock.MatchedBy(func(orderBy []*graphclient.OrganizationSettingOrder) bool {
 			return len(orderBy) == 1 &&
 				orderBy[0] != nil &&
 				orderBy[0].Field == graphclient.OrganizationSettingOrderFieldUpdatedAt &&
 				orderBy[0].Direction == graphclient.OrderDirectionAsc
 		})).
-		Return(settings, nil).
+		Return(deletableSettings, nil).
 		Once()
 
 	olMock.EXPECT().
@@ -63,6 +87,7 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 	worker := &jobs.OrganizationDeleteWorker{
 		Config: jobs.OrganizationDeleteConfig{
 			MaxDeletesPerRun: 2,
+			SystemAdminOrgID: "system-admin",
 		},
 	}
 	worker.WithOpenlaneClient(olMock)
@@ -81,23 +106,28 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 	riverMock := rivermocks.NewMockJobClient(t)
 	insertScheduledAt := make([]time.Time, 0, 2)
 
-	createdAt := time.Now().Add(-48 * time.Hour)
 	settings := organizationSettingsResponse(
-		organizationSettingEdge("setting-1", "org-1", "acme", false, &createdAt, nil),
+		organizationSettingEdge("setting-1", "org-1", "acme", true, nil, nil),
 	)
 
 	olMock.EXPECT().
 		GetOrganizationSettings(mock.Anything, mock.Anything, (*int64)(nil), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
 				where.PendingDeletionAtIsNil != nil && *where.PendingDeletionAtIsNil &&
-				where.PaymentMethodAdded != nil && !*where.PaymentMethodAdded &&
+				where.PaymentMethodAdded == nil &&
 				len(where.HasOrganizationWith) == 1 &&
 				where.HasOrganizationWith[0].PersonalOrg != nil &&
 				!*where.HasOrganizationWith[0].PersonalOrg &&
+				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
 				where.HasOrganizationWith[0].Not != nil &&
 				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
 				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
-				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active &&
+				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&
+				!*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].UpdatedAtLte != nil &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].TrialExpiresAtNotNil == nil
 		}), ([]*graphclient.OrganizationSettingOrder)(nil)).
 		Return(settings, nil).
 		Once()
@@ -172,8 +202,9 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 
 	worker := &jobs.OrganizationPaymentReminderWorker{
 		Config: jobs.OrganizationPaymentReminderConfig{
-			PaymentMethodInterval: 1,
-			DeletionDays:          7,
+			OrgDeletionAfterCancelDays: 1,
+			DeletionDays:               7,
+			SystemAdminOrgID:           "system-admin",
 		},
 	}
 	worker.Config.Email.Enabled = true

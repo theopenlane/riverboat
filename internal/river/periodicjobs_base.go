@@ -39,7 +39,7 @@ func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 	}
 
 	if c.OrganizationDeletionReminderWorker.Config.Enabled {
-		days := c.OrganizationDeletionReminderWorker.Config.PaymentMethodInterval
+		days := c.OrganizationDeletionReminderWorker.Config.OrgDeletionAfterCancelDays
 		if days < minOrgDeleteReminderInterval {
 			days = minOrgDeleteReminderInterval
 		}

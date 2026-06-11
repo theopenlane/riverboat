@@ -35,6 +35,7 @@
             },
             "organizationdeletionreminderworker": {
                 "config": {
+                    "systemadminorgid": "01101101011010010111010001100010",
                     "email": {
                         "config": {
                             "urls": {}
@@ -43,7 +44,9 @@
                 }
             },
             "organizationdeletionworker": {
-                "config": {}
+                "config": {
+                    "systemadminorgid": "01101101011010010111010001100010"
+                }
             }
         },
         "trustcenterworkers": {
@@ -140,6 +143,7 @@ Config is the configuration for the river server
         },
         "organizationdeletionreminderworker": {
             "config": {
+                "systemadminorgid": "01101101011010010111010001100010",
                 "email": {
                     "config": {
                         "urls": {}
@@ -148,7 +152,9 @@ Config is the configuration for the river server
             }
         },
         "organizationdeletionworker": {
-            "config": {}
+            "config": {
+                "systemadminorgid": "01101101011010010111010001100010"
+            }
         }
     },
     "trustcenterworkers": {
@@ -255,6 +261,7 @@ Workers that will be enabled on the server
     },
     "organizationdeletionreminderworker": {
         "config": {
+            "systemadminorgid": "01101101011010010111010001100010",
             "email": {
                 "config": {
                     "urls": {}
@@ -263,7 +270,9 @@ Workers that will be enabled on the server
         }
     },
     "organizationdeletionworker": {
-        "config": {}
+        "config": {
+            "systemadminorgid": "01101101011010010111010001100010"
+        }
     }
 }
 ```
@@ -500,6 +509,7 @@ OrganizationPaymentReminderWorker fetches organizations for payment reminder pro
 ```json
 {
     "config": {
+        "systemadminorgid": "01101101011010010111010001100010",
         "email": {
             "config": {
                 "urls": {}
@@ -521,8 +531,9 @@ OrganizationPaymentReminderConfig contains the configuration for the organizatio
 |----|----|-----------|--------|
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
-|**paymentmethodinterval**|`integer`|PaymentMethodInterval is the amount of days an org must have a payment method attached or else it will be earmarked for deletion<br/>This is after org creation. So if an org is created 7 days ago and this is set to 6 days, the org will be marked<br/>as pending deletion. But if set to say 8 days, nothing happens<br/>|yes|
+|**orgdeletionaftercanceldays**|`integer`|OrgDeletionAfterCancelDays is the number of days after a previously active organization's subscription is canceled before it is queued for deletion<br/>|yes|
 |**deletiondays**|`integer`|DeletionDays is the number of days an org has before the deletion actually occurs. Once an org is earmarked for<br/>deletion, we do not delete immediately, instead we send them an email and update "pending_deletion_at". SO if<br/>DeletionDays is set to 30, the org will be deleted at in 30 days ( pending_deletion_at set to today + 30 days)<br/>|yes|
+|**systemadminorgid**|`string`|organization ID that must never be queued for deletion<br/>Default: `"01101101011010010111010001100010"`<br/>|no|
 |**enabled**|`boolean`|Enabled is used to determine if to register this worker or not<br/>|no|
 |**dryrun**|`boolean`|if true<br/>|no|
 |[**email**](#riverworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
@@ -532,6 +543,7 @@ OrganizationPaymentReminderConfig contains the configuration for the organizatio
 
 ```json
 {
+    "systemadminorgid": "01101101011010010111010001100010",
     "email": {
         "config": {
             "urls": {}
@@ -624,7 +636,9 @@ OrganizationDeleteWorker deletes organizations in Openlane.
 
 ```json
 {
-    "config": {}
+    "config": {
+        "systemadminorgid": "01101101011010010111010001100010"
+    }
 }
 ```
 
@@ -642,9 +656,18 @@ OrganizationDeleteConfig contains the configuration for the organization deletio
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
 |**runinterval**|`integer`||yes|
 |**maxdeletesperrun**|`integer`||yes|
+|**systemadminorgid**|`string`|organization ID that must never be deleted<br/>Default: `"01101101011010010111010001100010"`<br/>|no|
 |**enabled**|`boolean`||no|
 
 **Additional Properties:** not allowed  
+**Example**
+
+```json
+{
+    "systemadminorgid": "01101101011010010111010001100010"
+}
+```
+
 <a name="rivertrustcenterworkers"></a>
 ### river\.trustcenterworkers: object
 
