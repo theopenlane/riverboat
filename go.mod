@@ -1,12 +1,12 @@
 module github.com/theopenlane/riverboat
 
-go 1.26.3
+go 1.26.4
 
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
 require (
 	github.com/99designs/gqlgen v0.17.90
-	github.com/cloudflare/cloudflare-go/v7 v7.4.0
+	github.com/cloudflare/cloudflare-go/v7 v7.5.0
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.2.5
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
