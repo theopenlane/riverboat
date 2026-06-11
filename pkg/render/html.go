@@ -14,7 +14,7 @@ import (
 )
 
 // stripHTML removes all HTML tags from a value
-var stripHTML = scrubber.NewPolicyScrubber(
+var scrub = scrubber.NewPolicyScrubber(
 	scrubber.WithStyling(),
 	scrubber.WithTables(),
 	scrubber.WithURLSchemes("http", "https", "mailto"),
@@ -69,11 +69,7 @@ const pdfDocumentTemplate = `<!DOCTYPE html>
 func CleanHTML(v any) string {
 	raw := fmt.Sprint(v)
 
-	s := scrubber.ScrubberFunc(func(content string) string {
-		return strings.TrimSpace(content)
-	})
-
-	return s.Scrub(raw)
+	return scrub.Scrub(raw)
 }
 
 // DetailsToHTML returns the content as HTML. Content that already contains HTML markup
