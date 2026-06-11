@@ -6,15 +6,24 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/microcosm-cc/bluemonday"
 	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/newman/scrubber"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/renderer/html"
 )
 
 // stripHTML removes all HTML tags from a value
-var stripHTML = bluemonday.StrictPolicy()
+var scrub = scrubber.NewPolicyScrubber(
+	scrubber.WithStyling(),
+	scrubber.WithTables(),
+	scrubber.WithImages(),
+	scrubber.WithDocumentStructure(),
+	scrubber.WithAccessibility(),
+	scrubber.WithURLSchemes("http", "https", "mailto", "tel"),
+	scrubber.WithNoRelativeURLs(),
+	scrubber.WithTargetBlankOnLinks(),
+)
 
 // markdownConverter renders markdown content into HTML, supporting GitHub flavored
 // markdown features such as tables, strikethrough, and autolinks
@@ -65,10 +74,7 @@ const pdfDocumentTemplate = `<!DOCTYPE html>
 func CleanHTML(v any) string {
 	raw := fmt.Sprint(v)
 
-	cleaned := stripHTML.Sanitize(raw)
-	cleaned = strings.TrimSpace(strings.Join(strings.Fields(cleaned), " "))
-
-	return cleaned
+	return scrub.Scrub(raw)
 }
 
 // DetailsToHTML returns the content as HTML. Content that already contains HTML markup
@@ -122,7 +128,9 @@ func preserveHTMLLineBreaks(content string) string {
 // WrapDocument wraps HTML fragments in a complete, styled HTML document suitable for
 // rendering to PDF
 func WrapDocument(body string) string {
-	return fmt.Sprintf(pdfDocumentTemplate, body)
+	cleaned := CleanHTML(body)
+
+	return fmt.Sprintf(pdfDocumentTemplate, cleaned)
 }
 
 // Flatten flattens a nested map into a flat map with dot notation keys
