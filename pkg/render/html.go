@@ -198,13 +198,25 @@ func ExtractDetailsStrings(nodes []map[string]any) []string {
 
 		buf.WriteString("<hr/>\n")
 
-		// Add the main content or fallback to placeholder
-		if details, ok := flat["details"]; ok && details != nil {
-			str := fmt.Sprint(details)
-			buf.WriteString(DetailsToHTML(str))
-		} else {
-			buf.WriteString(DetailsToHTML("Empty Policy Document"))
+		var details string
+
+		// Add the main content (details), or externalContents if an integration, or fallback to placeholder
+		for _, key := range []string{
+			"details",
+			"externalContents",
+			"liveExternalContents",
+		} {
+			if text, ok := flat[key]; ok && text != nil && text != "" {
+				details = fmt.Sprint(text)
+				break
+			}
 		}
+
+		if details == "" {
+			details = "Empty Policy Document"
+		}
+
+		buf.WriteString(DetailsToHTML(details))
 
 		if buf.Len() > 0 {
 			results = append(results, buf.String())

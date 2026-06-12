@@ -33,7 +33,10 @@ import (
 var defaultPageSize int64 = 100
 
 // pdfFieldsWanted include the fields used in the PDF export we need to make sure we have in the graphql request
-var pdfFieldsWanted = []string{"details", "revision", "name", "createdAt", "updatedAt", "status"}
+var (
+	pdfFieldsWanted        = []string{"details", "externalContents", "revision", "name", "createdAt", "updatedAt", "status"}
+	additionalPolicyFields = []string{"liveExternalContents"}
+)
 
 var (
 	// ErrUnexpectedStatus is returned when an HTTP request returns a status code other than 200
@@ -179,6 +182,10 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 	// Specific fields wanted for non-csv export
 	if export.Export.Format != enums.ExportFormatCsv {
 		fields = pdfFieldsWanted
+	}
+
+	if export.Export.ExportType == enums.ExportTypeInternalPolicy {
+		fields = append(fields, additionalPolicyFields...)
 	}
 
 	query := w.buildGraphQLQuery(rootQuery, exportType, fields, hasWhere)
