@@ -198,8 +198,11 @@ func ExtractDetailsStrings(nodes []map[string]any) []string {
 
 		buf.WriteString("<hr/>\n")
 
-		// Add the main content or fallback to placeholder
-		if details, ok := flat["details"]; ok && details != nil {
+		// Add the main content (details), or liveExternalContents if an integration, or fallback to placeholder
+		if details, ok := flat["details"]; ok && details != nil && details != "" {
+			str := fmt.Sprint(details)
+			buf.WriteString(DetailsToHTML(str))
+		} else if details, ok := flat["liveExternalContents"]; ok && details != nil && details != "" {
 			str := fmt.Sprint(details)
 			buf.WriteString(DetailsToHTML(str))
 		} else {

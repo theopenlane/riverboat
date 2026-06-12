@@ -33,7 +33,7 @@ import (
 var defaultPageSize int64 = 100
 
 // pdfFieldsWanted include the fields used in the PDF export we need to make sure we have in the graphql request
-var pdfFieldsWanted = []string{"details", "revision", "name", "createdAt", "updatedAt", "status"}
+var pdfFieldsWanted = []string{"details", "liveExternalContents", "revision", "name", "createdAt", "updatedAt", "status"}
 
 var (
 	// ErrUnexpectedStatus is returned when an HTTP request returns a status code other than 200
