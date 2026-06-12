@@ -99,6 +99,8 @@ func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.C
 			return err
 		}
 
+		w.OrganizationDeletionWorker.WithRiverClient(insertOnlyClient)
+
 		if err := river.AddWorkerSafely(workers, &w.OrganizationDeletionWorker); err != nil {
 			return err
 		}
