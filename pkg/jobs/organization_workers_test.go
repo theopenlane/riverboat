@@ -47,10 +47,13 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
 				where.HasOrganizationWith[0].PersonalOrg != nil &&
 				!*where.HasOrganizationWith[0].PersonalOrg &&
-				// an active subscription means the org recovered and pending deletion should be cleared
+				// an active or trialing subscription means the org recovered and pending deletion should be cleared
 				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
-				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&
-				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active
+				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or) == 2 &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[0].Active != nil &&
+				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[0].Active &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus != nil &&
+				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus == "trialing"
 		}), ([]*graphclient.OrganizationSettingOrder)(nil)).
 		Return(recoveredSettings, nil).
 		Once()
@@ -66,11 +69,14 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 				// the protected org is excluded before any delete call can happen
 				len(where.HasOrganizationWith) == 1 &&
 				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
-				// orgs with an active subscription should not be deleted
+				// orgs with an active or trialing subscription should not be deleted
 				where.HasOrganizationWith[0].Not != nil &&
 				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
-				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
-				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active
+				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or) == 2 &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus == "trialing"
 		}), mock.MatchedBy(func(orderBy []*graphclient.OrganizationSettingOrder) bool {
 			return len(orderBy) == 1 &&
 				orderBy[0] != nil &&
@@ -140,11 +146,14 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 				where.HasOrganizationWith[0].PersonalOrg != nil &&
 				!*where.HasOrganizationWith[0].PersonalOrg &&
 				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
-				// orgs with an active subscription should not be marked
+				// orgs with an active or trialing subscription should not be marked
 				where.HasOrganizationWith[0].Not != nil &&
 				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
-				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
-				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active &&
+				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or) == 2 &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus == "trialing" &&
 				// an inactive subscription old enough to pass the configured window is required
 				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
 				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&

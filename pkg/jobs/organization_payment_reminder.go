@@ -21,7 +21,11 @@ import (
 	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
-const reminderStaggerDifference = 30 * time.Second
+const (
+	reminderStaggerDifference = 30 * time.Second
+
+	stripeSubscriptionStatusTrialing = "trialing"
+)
 
 var (
 	errDeletionDaysTooLow            = errors.New("deletion days must be at least 1 day")
@@ -122,7 +126,14 @@ func (w *OrganizationPaymentReminderWorker) Work(ctx context.Context, job *river
 				Not: &graphclient.OrganizationWhereInput{
 					HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
 						{
-							Active: lo.ToPtr(true),
+							Or: []*graphclient.OrgSubscriptionWhereInput{
+								{
+									Active: lo.ToPtr(true),
+								},
+								{
+									StripeSubscriptionStatus: lo.ToPtr(stripeSubscriptionStatusTrialing),
+								},
+							},
 						},
 					},
 				},

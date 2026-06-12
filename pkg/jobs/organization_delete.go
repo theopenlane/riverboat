@@ -109,7 +109,14 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 					Not: &graphclient.OrganizationWhereInput{
 						HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
 							{
-								Active: lo.ToPtr(true),
+								Or: []*graphclient.OrgSubscriptionWhereInput{
+									{
+										Active: lo.ToPtr(true),
+									},
+									{
+										StripeSubscriptionStatus: lo.ToPtr(stripeSubscriptionStatusTrialing),
+									},
+								},
 							},
 						},
 					},
@@ -167,7 +174,7 @@ func (w *OrganizationDeleteWorker) Work(ctx context.Context, job *river.Job[jobs
 }
 
 // checkReactivatedSubs checks to make sure orgs that were previously earmarked for deletions and now
-// have an active sub will no longer be deleted
+// have an active or trialing sub will no longer be deleted
 func (w *OrganizationDeleteWorker) checkReactivatedSubs(ctx context.Context, logger zerolog.Logger) error {
 	var after *string
 
@@ -181,7 +188,14 @@ func (w *OrganizationDeleteWorker) checkReactivatedSubs(ctx context.Context, log
 						PersonalOrg: lo.ToPtr(false),
 						HasOrgSubscriptionsWith: []*graphclient.OrgSubscriptionWhereInput{
 							{
-								Active: lo.ToPtr(true),
+								Or: []*graphclient.OrgSubscriptionWhereInput{
+									{
+										Active: lo.ToPtr(true),
+									},
+									{
+										StripeSubscriptionStatus: lo.ToPtr(stripeSubscriptionStatusTrialing),
+									},
+								},
 							},
 						},
 					},
