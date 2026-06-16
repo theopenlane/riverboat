@@ -15,6 +15,7 @@ import (
 	"github.com/theopenlane/core/common/jobspec"
 	"github.com/theopenlane/core/common/models"
 	"github.com/theopenlane/go-client/graphclient"
+
 	"github.com/theopenlane/riverboat/pkg/jobs"
 	olmocks "github.com/theopenlane/riverboat/pkg/jobs/openlane/mocks"
 	rivermocks "github.com/theopenlane/riverboat/pkg/riverqueue/mocks"
@@ -25,27 +26,64 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 
 	ctx := context.Background()
 	olMock := olmocks.NewMockGraphClient(t)
+	riverMock := rivermocks.NewMockJobClient(t)
 
 	pendingDeletionAt := models.DateTime(time.Now().Add(-24 * time.Hour))
-	settings := organizationSettingsResponse(
+	recoveredSettings := organizationSettingsResponse(
 		organizationSettingEdge("setting-paid", "org-paid", "paid-org", true, nil, &pendingDeletionAt),
+	)
+	deletableSettings := organizationSettingsResponse(
 		organizationSettingEdge("setting-unpaid", "org-unpaid", "unpaid-org", false, nil, &pendingDeletionAt),
 	)
+
+	olMock.EXPECT().
+		GetOrganizationSettings(mock.Anything, mock.Anything, (*int64)(nil), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
+			return where != nil &&
+				// make sure the orgs are already earmarked for deletion
+				where.PendingDeletionAtNotNil != nil && *where.PendingDeletionAtNotNil &&
+				where.PendingDeletionAtLte == nil &&
+				// system admin and personal orgs can never be part of potential deletions
+				len(where.HasOrganizationWith) == 1 &&
+				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				where.HasOrganizationWith[0].PersonalOrg != nil &&
+				!*where.HasOrganizationWith[0].PersonalOrg &&
+				// an active or trialing subscription means the org recovered and pending deletion should be cleared
+				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
+				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or) == 2 &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[0].Active != nil &&
+				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[0].Active &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus != nil &&
+				*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus == "trialing"
+		}), ([]*graphclient.OrganizationSettingOrder)(nil)).
+		Return(recoveredSettings, nil).
+		Once()
 
 	olMock.EXPECT().
 		GetOrganizationSettings(mock.Anything, (*int64)(nil), mock.MatchedBy(func(last *int64) bool {
 			return last != nil && *last == 2
 		}), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
+				// actual deletion only considers orgs whose pending deletion date has passed
 				where.PendingDeletionAtNotNil != nil && *where.PendingDeletionAtNotNil &&
-				where.PendingDeletionAtLte != nil
+				where.PendingDeletionAtLte != nil &&
+				// the protected org is excluded before any delete call can happen
+				len(where.HasOrganizationWith) == 1 &&
+				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				// orgs with an active or trialing subscription should not be deleted
+				where.HasOrganizationWith[0].Not != nil &&
+				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
+				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or) == 2 &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus == "trialing"
 		}), mock.MatchedBy(func(orderBy []*graphclient.OrganizationSettingOrder) bool {
 			return len(orderBy) == 1 &&
 				orderBy[0] != nil &&
 				orderBy[0].Field == graphclient.OrganizationSettingOrderFieldUpdatedAt &&
 				orderBy[0].Direction == graphclient.OrderDirectionAsc
 		})).
-		Return(settings, nil).
+		Return(deletableSettings, nil).
 		Once()
 
 	olMock.EXPECT().
@@ -60,12 +98,23 @@ func TestOrganizationDeleteWorker(t *testing.T) {
 		Return(&graphclient.DeleteOrganization{}, nil).
 		Once()
 
+	riverMock.EXPECT().
+		Insert(mock.Anything, mock.MatchedBy(func(args jobs.SlackArgs) bool {
+			return args.Channel == "customers" &&
+				args.Message == "Organization deletion summary: 1 orgs deleted:\n- unpaid-org (org-unpaid)"
+		}), (*river.InsertOpts)(nil)).
+		Return(&rivertype.JobInsertResult{}, nil).
+		Once()
+
 	worker := &jobs.OrganizationDeleteWorker{
 		Config: jobs.OrganizationDeleteConfig{
 			MaxDeletesPerRun: 2,
+			SystemAdminOrgID: "system-admin",
+			SlackChannel:     "customers",
 		},
 	}
 	worker.WithOpenlaneClient(olMock)
+	worker.WithRiverClient(riverMock)
 
 	err := worker.Work(ctx, &river.Job[jobspec.OrganizationDeletionArgs]{
 		JobRow: &rivertype.JobRow{Kind: jobspec.OrganizationDeletionArgs{}.Kind()},
@@ -81,23 +130,36 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 	riverMock := rivermocks.NewMockJobClient(t)
 	insertScheduledAt := make([]time.Time, 0, 2)
 
-	createdAt := time.Now().Add(-48 * time.Hour)
 	settings := organizationSettingsResponse(
-		organizationSettingEdge("setting-1", "org-1", "acme", false, &createdAt, nil),
+		organizationSettingEdge("setting-1", "org-1", "acme", true, nil, nil),
 	)
 
 	olMock.EXPECT().
 		GetOrganizationSettings(mock.Anything, mock.Anything, (*int64)(nil), (*string)(nil), (*string)(nil), mock.MatchedBy(func(where *graphclient.OrganizationSettingWhereInput) bool {
 			return where != nil &&
+				// reminder only picks orgs that have not already been marked
 				where.PendingDeletionAtIsNil != nil && *where.PendingDeletionAtIsNil &&
-				where.PaymentMethodAdded != nil && !*where.PaymentMethodAdded &&
+				// payment method is not part of this decision anymore
+				where.PaymentMethodAdded == nil &&
+				// system admin and personal orgs should never be marked for deletion
 				len(where.HasOrganizationWith) == 1 &&
 				where.HasOrganizationWith[0].PersonalOrg != nil &&
 				!*where.HasOrganizationWith[0].PersonalOrg &&
+				where.HasOrganizationWith[0].IDNeq != nil && *where.HasOrganizationWith[0].IDNeq == "system-admin" &&
+				// orgs with an active or trialing subscription should not be marked
 				where.HasOrganizationWith[0].Not != nil &&
 				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith) == 1 &&
-				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active != nil &&
-				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Active
+				len(where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or) == 2 &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[0].Active &&
+				where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus != nil &&
+				*where.HasOrganizationWith[0].Not.HasOrgSubscriptionsWith[0].Or[1].StripeSubscriptionStatus == "trialing" &&
+				// an inactive subscription old enough to pass the configured window is required
+				len(where.HasOrganizationWith[0].HasOrgSubscriptionsWith) == 1 &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active != nil &&
+				!*where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].Active &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].UpdatedAtLte != nil &&
+				where.HasOrganizationWith[0].HasOrgSubscriptionsWith[0].TrialExpiresAtNotNil == nil
 		}), ([]*graphclient.OrganizationSettingOrder)(nil)).
 		Return(settings, nil).
 		Once()
@@ -170,10 +232,20 @@ func TestOrganizationPaymentReminderWorker(t *testing.T) {
 		Return(&rivertype.JobInsertResult{}, nil).
 		Twice()
 
+	riverMock.EXPECT().
+		Insert(mock.Anything, mock.MatchedBy(func(args jobs.SlackArgs) bool {
+			return args.Channel == "customers" &&
+				args.Message == "Organization deletion reminder summary: 1 orgs set to be deleted:\n- acme (org-1)"
+		}), (*river.InsertOpts)(nil)).
+		Return(&rivertype.JobInsertResult{}, nil).
+		Once()
+
 	worker := &jobs.OrganizationPaymentReminderWorker{
 		Config: jobs.OrganizationPaymentReminderConfig{
-			PaymentMethodInterval: 1,
-			DeletionDays:          7,
+			OrgDeletionAfterCancelDays: 1,
+			DeletionDays:               7,
+			SystemAdminOrgID:           "system-admin",
+			SlackChannel:               "customers",
 		},
 	}
 	worker.Config.Email.Enabled = true
