@@ -44,7 +44,7 @@ func Start(ctx context.Context, c Config) error {
 	defer insertOnlyClient.Close() // nolint:errcheck
 
 	// Create workers based on the configuration
-	worker, err := createWorkers(c.Workers, insertOnlyClient)
+	worker, err := createWorkers(c.Workers)
 	if err != nil {
 		log.Error().Err(err).Msg("failed to create workers")
 

@@ -5,11 +5,10 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/theopenlane/riverboat/pkg/jobs"
-	"github.com/theopenlane/riverboat/pkg/riverqueue"
 )
 
 // createWorkers creates a new workers instance
-func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Workers, error) {
+func createWorkers(w Workers) (*river.Workers, error) {
 	// create workers
 	workers := river.NewWorkers()
 
