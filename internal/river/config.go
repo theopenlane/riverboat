@@ -64,11 +64,5 @@ type Workers struct {
 	// SlackWorker configuration for sending Slack messages
 	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
 
-	// OrganizationDeletionReminderWorker configuration for sending organization deletion reminders
-	OrganizationDeletionReminderWorker jobs.OrganizationPaymentReminderWorker `koanf:"organizationdeletionreminderworker" json:"organizationdeletionreminderworker"`
-
-	// OrganizationDeletionWorker configuration for deleting organizations
-	OrganizationDeletionWorker jobs.OrganizationDeleteWorker `koanf:"organizationdeletionworker" json:"organizationdeletionworker"`
-
 	// add more workers here
 }
