@@ -32,23 +32,6 @@
             },
             "slackworker": {
                 "config": {}
-            },
-            "organizationdeletionreminderworker": {
-                "config": {
-                    "systemadminorgid": "01101101011010010111010001100010",
-                    "slackchannel": "customers",
-                    "email": {
-                        "config": {
-                            "urls": {}
-                        }
-                    }
-                }
-            },
-            "organizationdeletionworker": {
-                "config": {
-                    "systemadminorgid": "01101101011010010111010001100010",
-                    "slackchannel": "customers"
-                }
             }
         },
         "trustcenterworkers": {
@@ -142,23 +125,6 @@ Config is the configuration for the river server
         },
         "slackworker": {
             "config": {}
-        },
-        "organizationdeletionreminderworker": {
-            "config": {
-                "systemadminorgid": "01101101011010010111010001100010",
-                "slackchannel": "customers",
-                "email": {
-                    "config": {
-                        "urls": {}
-                    }
-                }
-            }
-        },
-        "organizationdeletionworker": {
-            "config": {
-                "systemadminorgid": "01101101011010010111010001100010",
-                "slackchannel": "customers"
-            }
         }
     },
     "trustcenterworkers": {
@@ -239,8 +205,6 @@ Workers that will be enabled on the server
 |[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
 |[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
 |[**slackworker**](#riverworkersslackworker)|`object`|SlackWorker sends messages to Slack.<br/>||
-|[**organizationdeletionreminderworker**](#riverworkersorganizationdeletionreminderworker)|`object`|OrganizationPaymentReminderWorker fetches organizations for payment reminder processing.<br/>||
-|[**organizationdeletionworker**](#riverworkersorganizationdeletionworker)|`object`|OrganizationDeleteWorker deletes organizations in Openlane.<br/>||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -262,23 +226,6 @@ Workers that will be enabled on the server
     },
     "slackworker": {
         "config": {}
-    },
-    "organizationdeletionreminderworker": {
-        "config": {
-            "systemadminorgid": "01101101011010010111010001100010",
-            "slackchannel": "customers",
-            "email": {
-                "config": {
-                    "urls": {}
-                }
-            }
-        }
-    },
-    "organizationdeletionworker": {
-        "config": {
-            "systemadminorgid": "01101101011010010111010001100010",
-            "slackchannel": "customers"
-        }
     }
 }
 ```
@@ -497,189 +444,6 @@ SlackConfig configures the Slack worker.
 |**token**|`string`|the token to use for the slack app<br/>||
 
 **Additional Properties:** not allowed  
-<a name="riverworkersorganizationdeletionreminderworker"></a>
-#### river\.workers\.organizationdeletionreminderworker: object
-
-OrganizationPaymentReminderWorker fetches organizations for payment reminder processing.
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#riverworkersorganizationdeletionreminderworkerconfig)|`object`|OrganizationPaymentReminderConfig contains the configuration for the organization payment reminder worker.<br/>|yes|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {
-        "systemadminorgid": "01101101011010010111010001100010",
-        "slackchannel": "customers",
-        "email": {
-            "config": {
-                "urls": {}
-            }
-        }
-    }
-}
-```
-
-<a name="riverworkersorganizationdeletionreminderworkerconfig"></a>
-##### river\.workers\.organizationdeletionreminderworker\.config: object
-
-OrganizationPaymentReminderConfig contains the configuration for the organization payment reminder worker.
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
-|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
-|**orgdeletionaftercanceldays**|`integer`|OrgDeletionAfterCancelDays is the number of days after a previously active organization's subscription is canceled before it is queued for deletion<br/>|yes|
-|**deletiondays**|`integer`|DeletionDays is the number of days an org has before the deletion actually occurs. Once an org is earmarked for<br/>deletion, we do not delete immediately, instead we send them an email and update "pending_deletion_at". SO if<br/>DeletionDays is set to 30, the org will be deleted at in 30 days ( pending_deletion_at set to today + 30 days)<br/>|yes|
-|**systemadminorgid**|`string`|organization ID that must never be queued for deletion<br/>Default: `"01101101011010010111010001100010"`<br/>|no|
-|**slackchannel**|`string`|slack channel for organization deletion summaries<br/>Default: `"customers"`<br/>|no|
-|**enabled**|`boolean`|Enabled is used to determine if to register this worker or not<br/>|no|
-|**dryrun**|`boolean`|if true<br/>|no|
-|[**email**](#riverworkersorganizationdeletionreminderworkerconfigemail)|`object`||no|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "systemadminorgid": "01101101011010010111010001100010",
-    "slackchannel": "customers",
-    "email": {
-        "config": {
-            "urls": {}
-        }
-    }
-}
-```
-
-<a name="riverworkersorganizationdeletionreminderworkerconfigemail"></a>
-###### river\.workers\.organizationdeletionreminderworker\.config\.email: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**enabled**|`boolean`|||
-|[**config**](#riverworkersorganizationdeletionreminderworkerconfigemailconfig)|`object`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {
-        "urls": {}
-    }
-}
-```
-
-<a name="riverworkersorganizationdeletionreminderworkerconfigemailconfig"></a>
-####### river\.workers\.organizationdeletionreminderworker\.config\.email\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**companyname**|`string`|||
-|**companyaddress**|`string`|||
-|**corporation**|`string`|||
-|**year**|`integer`|||
-|**fromemail**|`string`|||
-|**supportemail**|`string`|||
-|**questionnaireemail**|`string`|||
-|**logourl**|`string`|||
-|[**urls**](#riverworkersorganizationdeletionreminderworkerconfigemailconfigurls)|`object`|||
-|**templatespath**|`string`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "urls": {}
-}
-```
-
-<a name="riverworkersorganizationdeletionreminderworkerconfigemailconfigurls"></a>
-######## river\.workers\.organizationdeletionreminderworker\.config\.email\.config\.urls: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**root**|`string`|||
-|**product**|`string`|||
-|**docs**|`string`|||
-|**verify**|`string`|||
-|**invite**|`string`|||
-|**reset**|`string`|||
-|**verifysubscriber**|`string`|||
-|**verifybilling**|`string`|||
-|**billing**|`string`|||
-|**questionnaire**|`string`|||
-
-**Additional Properties:** not allowed  
-<a name="riverworkersorganizationdeletionworker"></a>
-#### river\.workers\.organizationdeletionworker: object
-
-OrganizationDeleteWorker deletes organizations in Openlane.
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#riverworkersorganizationdeletionworkerconfig)|`object`|OrganizationDeleteConfig contains the configuration for the organization deletion worker.<br/>|yes|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {
-        "systemadminorgid": "01101101011010010111010001100010",
-        "slackchannel": "customers"
-    }
-}
-```
-
-<a name="riverworkersorganizationdeletionworkerconfig"></a>
-##### river\.workers\.organizationdeletionworker\.config: object
-
-OrganizationDeleteConfig contains the configuration for the organization deletion worker.
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
-|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
-|**runinterval**|`integer`||yes|
-|**maxdeletesperrun**|`integer`||yes|
-|**systemadminorgid**|`string`|organization ID that must never be deleted<br/>Default: `"01101101011010010111010001100010"`<br/>|no|
-|**slackchannel**|`string`|slack channel for organization deletion summaries<br/>Default: `"customers"`<br/>|no|
-|**enabled**|`boolean`||no|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "systemadminorgid": "01101101011010010111010001100010",
-    "slackchannel": "customers"
-}
-```
-
 <a name="rivertrustcenterworkers"></a>
 ### river\.trustcenterworkers: object
 

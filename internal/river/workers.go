@@ -38,10 +38,6 @@ func createWorkers(w Workers, insertOnlyClient *riverqueue.Client) (*river.Worke
 		return nil, err
 	}
 
-	if err := createOrganizationDeletionWorkers(w, insertOnlyClient, workers); err != nil {
-		return nil, err
-	}
-
 	// add more workers here
 
 	return workers, nil
@@ -70,42 +66,6 @@ func createExportWorkers(w Workers, workers *river.Workers) error {
 		}
 
 		log.Info().Msg("worker enabled: delete export content")
-	}
-
-	return nil
-}
-
-func createOrganizationDeletionWorkers(w Workers, insertOnlyClient *riverqueue.Client, workers *river.Workers) error {
-	if w.OrganizationDeletionReminderWorker.Config.Enabled {
-		if err := w.OrganizationDeletionReminderWorker.Config.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
-			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion reminder worker")
-			return err
-		}
-
-		w.EmailConfig.SetDefaultsIfUnset(&w.OrganizationDeletionReminderWorker.Config.Email.Config)
-
-		w.OrganizationDeletionReminderWorker.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, &w.OrganizationDeletionReminderWorker); err != nil {
-			return err
-		}
-
-		log.Info().Msg("worker enabled: organization deletion reminder")
-	}
-
-	if w.OrganizationDeletionWorker.Config.Enabled {
-		if err := w.OrganizationDeletionWorker.Config.SetDefaultsIfUnset(w.OpenlaneConfig); err != nil {
-			log.Error().Err(err).Msg("failed to set and validate openlane config defaults for organization deletion worker")
-			return err
-		}
-
-		w.OrganizationDeletionWorker.WithRiverClient(insertOnlyClient)
-
-		if err := river.AddWorkerSafely(workers, &w.OrganizationDeletionWorker); err != nil {
-			return err
-		}
-
-		log.Info().Msg("worker enabled: organization deletion")
 	}
 
 	return nil
