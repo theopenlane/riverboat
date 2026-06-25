@@ -9,7 +9,7 @@ require (
 	github.com/cloudflare/cloudflare-go/v7 v7.5.0
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.2.5
-	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
+	github.com/gocarina/gocsv v0.0.0-20260607070740-0735908c6461
 	github.com/gqlgo/gqlgenc v0.37.0
 	github.com/invopop/jsonschema v0.14.0
 	github.com/invopop/yaml v0.3.1
