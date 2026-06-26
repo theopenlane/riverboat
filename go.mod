@@ -5,7 +5,7 @@ go 1.26.4
 replace github.com/theopenlane/riverboat/trustcenter => ./trustcenter
 
 require (
-	github.com/99designs/gqlgen v0.17.90
+	github.com/99designs/gqlgen v0.17.93
 	github.com/cloudflare/cloudflare-go/v7 v7.5.0
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.2.5
@@ -18,7 +18,7 @@ require (
 	github.com/knadh/koanf/providers/env/v2 v2.0.0
 	github.com/knadh/koanf/providers/file v1.2.1
 	github.com/knadh/koanf/providers/posflag v1.0.1
-	github.com/knadh/koanf/v2 v2.3.4
+	github.com/knadh/koanf/v2 v2.3.5
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/prometheus/client_golang v1.23.2
 	github.com/riverqueue/river v0.38.0
@@ -31,12 +31,12 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.11.1
-	github.com/theopenlane/core/common v1.0.22
+	github.com/theopenlane/core/common v1.0.24
 	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.10.1
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.31.0
-	github.com/theopenlane/newman v0.4.0
+	github.com/theopenlane/newman v0.4.1
 	github.com/theopenlane/riverboat/trustcenter v0.0.0-00010101000000-000000000000
 	github.com/theopenlane/utils v0.7.1
 	github.com/yuin/goldmark v1.8.2
