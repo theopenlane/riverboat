@@ -262,25 +262,8 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 
 		pdfs, err := w.generatePolicyPDFs(ctx, allNodes, rootQuery)
 		if err != nil {
-			var errCheck *cloudflare.Error
-
-			// 422 could be for a plethora of reasons from timeouts to browser/page crashes
-			if errors.As(err, &errCheck) && errCheck.StatusCode == http.StatusUnprocessableEntity {
-				snoozes := struct{ Snoozes int }{}
-				if err := json.Unmarshal(job.Metadata, &snoozes); err != nil {
-					snoozes.Snoozes = 0
-				}
-
-				if snoozes.Snoozes >= w.Config.MaxSnoozes {
-					log.Warn().Msg("max snoozes reached, giving up")
-					return ErrMaxSnoozesReached
-				}
-
-				log.Info().
-					Int("snoozes", snoozes.Snoozes).
-					Msg("cloudflare browser rendering returned 422, snoozing")
-
-				return river.JobSnooze(w.Config.SnoozeDuration)
+			if ok, newErr := w.isRetryable(job, err); ok {
+				return newErr
 			}
 
 			log.Error().Err(err).Msg("failed to generate PDFs")
@@ -342,6 +325,31 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 	}
 
 	return nil
+}
+
+func (w *ExportContentWorker) isRetryable(job *river.Job[jobspec.ExportContentArgs], err error) (bool, error) {
+	var errCheck *cloudflare.Error
+
+	// 422 could be for a plethora of reasons from timeouts to browser/page crashes
+	if !errors.As(err, &errCheck) || errCheck.StatusCode != http.StatusUnprocessableEntity {
+		return false, nil
+	}
+
+	snoozes := struct{ Snoozes int }{}
+	if err := json.Unmarshal(job.Metadata, &snoozes); err != nil {
+		snoozes.Snoozes = 0
+	}
+
+	if snoozes.Snoozes >= w.Config.MaxSnoozes {
+		log.Warn().Msg("max snoozes reached, giving up")
+		return true, ErrMaxSnoozesReached
+	}
+
+	log.Info().
+		Int("snoozes", snoozes.Snoozes).
+		Msg("cloudflare browser rendering returned 422, snoozing")
+
+	return true, river.JobSnooze(w.Config.SnoozeDuration)
 }
 
 // buildGraphQLQuery generates a query that can be used to paginate and fetch all data
