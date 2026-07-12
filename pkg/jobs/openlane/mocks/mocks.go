@@ -83,9 +83,9 @@ type MockGraphClient_ApproveWorkflowAssignment_Call struct {
 //   - ctx context.Context
 //   - id string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) ApproveWorkflowAssignment(ctx interface{}, id interface{}, interceptors ...interface{}) *MockGraphClient_ApproveWorkflowAssignment_Call {
+func (_e *MockGraphClient_Expecter) ApproveWorkflowAssignment(ctx any, id any, interceptors ...any) *MockGraphClient_ApproveWorkflowAssignment_Call {
 	return &MockGraphClient_ApproveWorkflowAssignment_Call{Call: _e.mock.On("ApproveWorkflowAssignment",
-		append([]interface{}{ctx, id}, interceptors...)...)}
+		append([]any{ctx, id}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_ApproveWorkflowAssignment_Call) Run(run func(ctx context.Context, id string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_ApproveWorkflowAssignment_Call {
@@ -166,9 +166,9 @@ type MockGraphClient_CloneBulkCSVControl_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CloneBulkCSVControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CloneBulkCSVControl_Call {
+func (_e *MockGraphClient_Expecter) CloneBulkCSVControl(ctx any, input any, interceptors ...any) *MockGraphClient_CloneBulkCSVControl_Call {
 	return &MockGraphClient_CloneBulkCSVControl_Call{Call: _e.mock.On("CloneBulkCSVControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CloneBulkCSVControl_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CloneBulkCSVControl_Call {
@@ -249,9 +249,9 @@ type MockGraphClient_CreateAPIToken_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateAPITokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateAPIToken(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateAPIToken_Call {
+func (_e *MockGraphClient_Expecter) CreateAPIToken(ctx any, input any, interceptors ...any) *MockGraphClient_CreateAPIToken_Call {
 	return &MockGraphClient_CreateAPIToken_Call{Call: _e.mock.On("CreateAPIToken",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateAPIToken_Call) Run(run func(ctx context.Context, input graphclient.CreateAPITokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateAPIToken_Call {
@@ -332,9 +332,9 @@ type MockGraphClient_CreateActionPlan_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateActionPlanInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateActionPlan(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateActionPlan_Call {
+func (_e *MockGraphClient_Expecter) CreateActionPlan(ctx any, input any, interceptors ...any) *MockGraphClient_CreateActionPlan_Call {
 	return &MockGraphClient_CreateActionPlan_Call{Call: _e.mock.On("CreateActionPlan",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateActionPlan_Call) Run(run func(ctx context.Context, input graphclient.CreateActionPlanInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateActionPlan_Call {
@@ -415,9 +415,9 @@ type MockGraphClient_CreateAssessment_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateAssessmentInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateAssessment(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateAssessment_Call {
+func (_e *MockGraphClient_Expecter) CreateAssessment(ctx any, input any, interceptors ...any) *MockGraphClient_CreateAssessment_Call {
 	return &MockGraphClient_CreateAssessment_Call{Call: _e.mock.On("CreateAssessment",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateAssessment_Call) Run(run func(ctx context.Context, input graphclient.CreateAssessmentInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateAssessment_Call {
@@ -498,9 +498,9 @@ type MockGraphClient_CreateAssessmentResponse_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateAssessmentResponseInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateAssessmentResponse(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateAssessmentResponse_Call {
+func (_e *MockGraphClient_Expecter) CreateAssessmentResponse(ctx any, input any, interceptors ...any) *MockGraphClient_CreateAssessmentResponse_Call {
 	return &MockGraphClient_CreateAssessmentResponse_Call{Call: _e.mock.On("CreateAssessmentResponse",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateAssessmentResponse_Call) Run(run func(ctx context.Context, input graphclient.CreateAssessmentResponseInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateAssessmentResponse_Call {
@@ -581,9 +581,9 @@ type MockGraphClient_CreateAsset_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateAssetInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateAsset(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateAsset_Call {
+func (_e *MockGraphClient_Expecter) CreateAsset(ctx any, input any, interceptors ...any) *MockGraphClient_CreateAsset_Call {
 	return &MockGraphClient_CreateAsset_Call{Call: _e.mock.On("CreateAsset",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateAsset_Call) Run(run func(ctx context.Context, input graphclient.CreateAssetInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateAsset_Call {
@@ -664,9 +664,9 @@ type MockGraphClient_CreateBulkAPIToken_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateAPITokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkAPIToken(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkAPIToken_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkAPIToken(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkAPIToken_Call {
 	return &MockGraphClient_CreateBulkAPIToken_Call{Call: _e.mock.On("CreateBulkAPIToken",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkAPIToken_Call) Run(run func(ctx context.Context, input []*graphclient.CreateAPITokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkAPIToken_Call {
@@ -747,9 +747,9 @@ type MockGraphClient_CreateBulkActionPlan_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateActionPlanInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkActionPlan(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkActionPlan_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkActionPlan(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkActionPlan_Call {
 	return &MockGraphClient_CreateBulkActionPlan_Call{Call: _e.mock.On("CreateBulkActionPlan",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkActionPlan_Call) Run(run func(ctx context.Context, input []*graphclient.CreateActionPlanInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkActionPlan_Call {
@@ -830,9 +830,9 @@ type MockGraphClient_CreateBulkAsset_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateAssetInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkAsset(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkAsset_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkAsset(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkAsset_Call {
 	return &MockGraphClient_CreateBulkAsset_Call{Call: _e.mock.On("CreateBulkAsset",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkAsset_Call) Run(run func(ctx context.Context, input []*graphclient.CreateAssetInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkAsset_Call {
@@ -913,9 +913,9 @@ type MockGraphClient_CreateBulkCSVAPIToken_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVAPIToken(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVAPIToken_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVAPIToken(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVAPIToken_Call {
 	return &MockGraphClient_CreateBulkCSVAPIToken_Call{Call: _e.mock.On("CreateBulkCSVAPIToken",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVAPIToken_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVAPIToken_Call {
@@ -996,9 +996,9 @@ type MockGraphClient_CreateBulkCSVActionPlan_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVActionPlan(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVActionPlan_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVActionPlan(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVActionPlan_Call {
 	return &MockGraphClient_CreateBulkCSVActionPlan_Call{Call: _e.mock.On("CreateBulkCSVActionPlan",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVActionPlan_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVActionPlan_Call {
@@ -1079,9 +1079,9 @@ type MockGraphClient_CreateBulkCSVAsset_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVAsset(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVAsset_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVAsset(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVAsset_Call {
 	return &MockGraphClient_CreateBulkCSVAsset_Call{Call: _e.mock.On("CreateBulkCSVAsset",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVAsset_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVAsset_Call {
@@ -1162,9 +1162,9 @@ type MockGraphClient_CreateBulkCSVCampaign_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVCampaign(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVCampaign_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVCampaign(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVCampaign_Call {
 	return &MockGraphClient_CreateBulkCSVCampaign_Call{Call: _e.mock.On("CreateBulkCSVCampaign",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVCampaign_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVCampaign_Call {
@@ -1245,9 +1245,9 @@ type MockGraphClient_CreateBulkCSVCampaignTarget_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVCampaignTarget(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVCampaignTarget_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVCampaignTarget(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVCampaignTarget_Call {
 	return &MockGraphClient_CreateBulkCSVCampaignTarget_Call{Call: _e.mock.On("CreateBulkCSVCampaignTarget",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVCampaignTarget_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVCampaignTarget_Call {
@@ -1328,9 +1328,9 @@ type MockGraphClient_CreateBulkCSVCheckResult_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVCheckResult(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVCheckResult_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVCheckResult(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVCheckResult_Call {
 	return &MockGraphClient_CreateBulkCSVCheckResult_Call{Call: _e.mock.On("CreateBulkCSVCheckResult",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVCheckResult_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVCheckResult_Call {
@@ -1411,9 +1411,9 @@ type MockGraphClient_CreateBulkCSVContact_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVContact(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVContact_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVContact(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVContact_Call {
 	return &MockGraphClient_CreateBulkCSVContact_Call{Call: _e.mock.On("CreateBulkCSVContact",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVContact_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVContact_Call {
@@ -1494,9 +1494,9 @@ type MockGraphClient_CreateBulkCSVControl_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVControl_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVControl_Call {
 	return &MockGraphClient_CreateBulkCSVControl_Call{Call: _e.mock.On("CreateBulkCSVControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVControl_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVControl_Call {
@@ -1577,9 +1577,9 @@ type MockGraphClient_CreateBulkCSVControlImplementation_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVControlImplementation(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVControlImplementation_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVControlImplementation(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVControlImplementation_Call {
 	return &MockGraphClient_CreateBulkCSVControlImplementation_Call{Call: _e.mock.On("CreateBulkCSVControlImplementation",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVControlImplementation_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVControlImplementation_Call {
@@ -1660,9 +1660,9 @@ type MockGraphClient_CreateBulkCSVControlObjective_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVControlObjective(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVControlObjective_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVControlObjective(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVControlObjective_Call {
 	return &MockGraphClient_CreateBulkCSVControlObjective_Call{Call: _e.mock.On("CreateBulkCSVControlObjective",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVControlObjective_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVControlObjective_Call {
@@ -1743,9 +1743,9 @@ type MockGraphClient_CreateBulkCSVCustomDomain_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVCustomDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVCustomDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVCustomDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVCustomDomain_Call {
 	return &MockGraphClient_CreateBulkCSVCustomDomain_Call{Call: _e.mock.On("CreateBulkCSVCustomDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVCustomDomain_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVCustomDomain_Call {
@@ -1826,9 +1826,9 @@ type MockGraphClient_CreateBulkCSVCustomTypeEnum_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVCustomTypeEnum(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVCustomTypeEnum_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVCustomTypeEnum(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVCustomTypeEnum_Call {
 	return &MockGraphClient_CreateBulkCSVCustomTypeEnum_Call{Call: _e.mock.On("CreateBulkCSVCustomTypeEnum",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVCustomTypeEnum_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVCustomTypeEnum_Call {
@@ -1909,9 +1909,9 @@ type MockGraphClient_CreateBulkCSVDNSVerification_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDNSVerification(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDNSVerification_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDNSVerification(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDNSVerification_Call {
 	return &MockGraphClient_CreateBulkCSVDNSVerification_Call{Call: _e.mock.On("CreateBulkCSVDNSVerification",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDNSVerification_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDNSVerification_Call {
@@ -1992,9 +1992,9 @@ type MockGraphClient_CreateBulkCSVDirectoryAccount_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectoryAccount(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDirectoryAccount_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectoryAccount(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDirectoryAccount_Call {
 	return &MockGraphClient_CreateBulkCSVDirectoryAccount_Call{Call: _e.mock.On("CreateBulkCSVDirectoryAccount",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDirectoryAccount_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDirectoryAccount_Call {
@@ -2075,9 +2075,9 @@ type MockGraphClient_CreateBulkCSVDirectoryGroup_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectoryGroup(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDirectoryGroup_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectoryGroup(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDirectoryGroup_Call {
 	return &MockGraphClient_CreateBulkCSVDirectoryGroup_Call{Call: _e.mock.On("CreateBulkCSVDirectoryGroup",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDirectoryGroup_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDirectoryGroup_Call {
@@ -2158,9 +2158,9 @@ type MockGraphClient_CreateBulkCSVDirectoryMembership_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectoryMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDirectoryMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectoryMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDirectoryMembership_Call {
 	return &MockGraphClient_CreateBulkCSVDirectoryMembership_Call{Call: _e.mock.On("CreateBulkCSVDirectoryMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDirectoryMembership_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDirectoryMembership_Call {
@@ -2241,9 +2241,9 @@ type MockGraphClient_CreateBulkCSVDirectorySyncRun_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectorySyncRun(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDirectorySyncRun_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDirectorySyncRun(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDirectorySyncRun_Call {
 	return &MockGraphClient_CreateBulkCSVDirectorySyncRun_Call{Call: _e.mock.On("CreateBulkCSVDirectorySyncRun",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDirectorySyncRun_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDirectorySyncRun_Call {
@@ -2324,9 +2324,9 @@ type MockGraphClient_CreateBulkCSVDiscussion_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDiscussion(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDiscussion_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDiscussion(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDiscussion_Call {
 	return &MockGraphClient_CreateBulkCSVDiscussion_Call{Call: _e.mock.On("CreateBulkCSVDiscussion",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDiscussion_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDiscussion_Call {
@@ -2407,9 +2407,9 @@ type MockGraphClient_CreateBulkCSVDocumentData_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVDocumentData(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVDocumentData_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVDocumentData(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVDocumentData_Call {
 	return &MockGraphClient_CreateBulkCSVDocumentData_Call{Call: _e.mock.On("CreateBulkCSVDocumentData",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVDocumentData_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVDocumentData_Call {
@@ -2490,9 +2490,9 @@ type MockGraphClient_CreateBulkCSVEmailTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVEmailTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
 	return &MockGraphClient_CreateBulkCSVEmailTemplate_Call{Call: _e.mock.On("CreateBulkCSVEmailTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVEmailTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVEmailTemplate_Call {
@@ -2573,9 +2573,9 @@ type MockGraphClient_CreateBulkCSVEntity_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVEntity(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVEntity_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVEntity(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVEntity_Call {
 	return &MockGraphClient_CreateBulkCSVEntity_Call{Call: _e.mock.On("CreateBulkCSVEntity",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVEntity_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVEntity_Call {
@@ -2656,9 +2656,9 @@ type MockGraphClient_CreateBulkCSVEntityType_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVEntityType(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVEntityType_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVEntityType(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVEntityType_Call {
 	return &MockGraphClient_CreateBulkCSVEntityType_Call{Call: _e.mock.On("CreateBulkCSVEntityType",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVEntityType_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVEntityType_Call {
@@ -2739,9 +2739,9 @@ type MockGraphClient_CreateBulkCSVEvent_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVEvent(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVEvent_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVEvent(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVEvent_Call {
 	return &MockGraphClient_CreateBulkCSVEvent_Call{Call: _e.mock.On("CreateBulkCSVEvent",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVEvent_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVEvent_Call {
@@ -2822,9 +2822,9 @@ type MockGraphClient_CreateBulkCSVFinding_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVFinding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVFinding_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVFinding(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVFinding_Call {
 	return &MockGraphClient_CreateBulkCSVFinding_Call{Call: _e.mock.On("CreateBulkCSVFinding",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVFinding_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVFinding_Call {
@@ -2905,9 +2905,9 @@ type MockGraphClient_CreateBulkCSVFindingControl_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVFindingControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVFindingControl_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVFindingControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVFindingControl_Call {
 	return &MockGraphClient_CreateBulkCSVFindingControl_Call{Call: _e.mock.On("CreateBulkCSVFindingControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVFindingControl_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVFindingControl_Call {
@@ -2988,9 +2988,9 @@ type MockGraphClient_CreateBulkCSVGroup_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVGroup(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVGroup_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVGroup(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVGroup_Call {
 	return &MockGraphClient_CreateBulkCSVGroup_Call{Call: _e.mock.On("CreateBulkCSVGroup",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVGroup_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVGroup_Call {
@@ -3071,9 +3071,9 @@ type MockGraphClient_CreateBulkCSVGroupMembership_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVGroupMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVGroupMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVGroupMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVGroupMembership_Call {
 	return &MockGraphClient_CreateBulkCSVGroupMembership_Call{Call: _e.mock.On("CreateBulkCSVGroupMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVGroupMembership_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVGroupMembership_Call {
@@ -3154,9 +3154,9 @@ type MockGraphClient_CreateBulkCSVGroupSetting_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVGroupSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVGroupSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVGroupSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVGroupSetting_Call {
 	return &MockGraphClient_CreateBulkCSVGroupSetting_Call{Call: _e.mock.On("CreateBulkCSVGroupSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVGroupSetting_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVGroupSetting_Call {
@@ -3237,9 +3237,9 @@ type MockGraphClient_CreateBulkCSVHush_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVHush(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVHush_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVHush(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVHush_Call {
 	return &MockGraphClient_CreateBulkCSVHush_Call{Call: _e.mock.On("CreateBulkCSVHush",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVHush_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVHush_Call {
@@ -3320,9 +3320,9 @@ type MockGraphClient_CreateBulkCSVIdentityHolder_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVIdentityHolder(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVIdentityHolder_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVIdentityHolder(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVIdentityHolder_Call {
 	return &MockGraphClient_CreateBulkCSVIdentityHolder_Call{Call: _e.mock.On("CreateBulkCSVIdentityHolder",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVIdentityHolder_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVIdentityHolder_Call {
@@ -3403,9 +3403,9 @@ type MockGraphClient_CreateBulkCSVInternalPolicy_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVInternalPolicy(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVInternalPolicy_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVInternalPolicy(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVInternalPolicy_Call {
 	return &MockGraphClient_CreateBulkCSVInternalPolicy_Call{Call: _e.mock.On("CreateBulkCSVInternalPolicy",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVInternalPolicy_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVInternalPolicy_Call {
@@ -3486,9 +3486,9 @@ type MockGraphClient_CreateBulkCSVInvite_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVInvite(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVInvite_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVInvite(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVInvite_Call {
 	return &MockGraphClient_CreateBulkCSVInvite_Call{Call: _e.mock.On("CreateBulkCSVInvite",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVInvite_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVInvite_Call {
@@ -3569,9 +3569,9 @@ type MockGraphClient_CreateBulkCSVJobTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVJobTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVJobTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVJobTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVJobTemplate_Call {
 	return &MockGraphClient_CreateBulkCSVJobTemplate_Call{Call: _e.mock.On("CreateBulkCSVJobTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVJobTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVJobTemplate_Call {
@@ -3652,9 +3652,9 @@ type MockGraphClient_CreateBulkCSVMappableDomain_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVMappableDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVMappableDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVMappableDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVMappableDomain_Call {
 	return &MockGraphClient_CreateBulkCSVMappableDomain_Call{Call: _e.mock.On("CreateBulkCSVMappableDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVMappableDomain_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVMappableDomain_Call {
@@ -3735,9 +3735,9 @@ type MockGraphClient_CreateBulkCSVMappedControl_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVMappedControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVMappedControl_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVMappedControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVMappedControl_Call {
 	return &MockGraphClient_CreateBulkCSVMappedControl_Call{Call: _e.mock.On("CreateBulkCSVMappedControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVMappedControl_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVMappedControl_Call {
@@ -3818,9 +3818,9 @@ type MockGraphClient_CreateBulkCSVNarrative_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVNarrative(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVNarrative_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVNarrative(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVNarrative_Call {
 	return &MockGraphClient_CreateBulkCSVNarrative_Call{Call: _e.mock.On("CreateBulkCSVNarrative",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVNarrative_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVNarrative_Call {
@@ -3901,9 +3901,9 @@ type MockGraphClient_CreateBulkCSVNotificationPreference_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVNotificationPreference(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
 	return &MockGraphClient_CreateBulkCSVNotificationPreference_Call{Call: _e.mock.On("CreateBulkCSVNotificationPreference",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVNotificationPreference_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVNotificationPreference_Call {
@@ -3984,9 +3984,9 @@ type MockGraphClient_CreateBulkCSVNotificationTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVNotificationTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
 	return &MockGraphClient_CreateBulkCSVNotificationTemplate_Call{Call: _e.mock.On("CreateBulkCSVNotificationTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVNotificationTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVNotificationTemplate_Call {
@@ -4067,9 +4067,9 @@ type MockGraphClient_CreateBulkCSVOrgMembership_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVOrgMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVOrgMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVOrgMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVOrgMembership_Call {
 	return &MockGraphClient_CreateBulkCSVOrgMembership_Call{Call: _e.mock.On("CreateBulkCSVOrgMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVOrgMembership_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVOrgMembership_Call {
@@ -4150,9 +4150,9 @@ type MockGraphClient_CreateBulkCSVOrganizationSetting_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVOrganizationSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVOrganizationSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVOrganizationSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVOrganizationSetting_Call {
 	return &MockGraphClient_CreateBulkCSVOrganizationSetting_Call{Call: _e.mock.On("CreateBulkCSVOrganizationSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVOrganizationSetting_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVOrganizationSetting_Call {
@@ -4233,9 +4233,9 @@ type MockGraphClient_CreateBulkCSVPlatform_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVPlatform(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVPlatform_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVPlatform(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVPlatform_Call {
 	return &MockGraphClient_CreateBulkCSVPlatform_Call{Call: _e.mock.On("CreateBulkCSVPlatform",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVPlatform_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVPlatform_Call {
@@ -4316,9 +4316,9 @@ type MockGraphClient_CreateBulkCSVProcedure_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVProcedure(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVProcedure_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVProcedure(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVProcedure_Call {
 	return &MockGraphClient_CreateBulkCSVProcedure_Call{Call: _e.mock.On("CreateBulkCSVProcedure",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVProcedure_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVProcedure_Call {
@@ -4399,9 +4399,9 @@ type MockGraphClient_CreateBulkCSVProgram_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVProgram(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVProgram_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVProgram(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVProgram_Call {
 	return &MockGraphClient_CreateBulkCSVProgram_Call{Call: _e.mock.On("CreateBulkCSVProgram",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVProgram_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVProgram_Call {
@@ -4482,9 +4482,9 @@ type MockGraphClient_CreateBulkCSVProgramMembership_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVProgramMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVProgramMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVProgramMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVProgramMembership_Call {
 	return &MockGraphClient_CreateBulkCSVProgramMembership_Call{Call: _e.mock.On("CreateBulkCSVProgramMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVProgramMembership_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVProgramMembership_Call {
@@ -4565,9 +4565,9 @@ type MockGraphClient_CreateBulkCSVRemediation_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVRemediation(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVRemediation_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVRemediation(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVRemediation_Call {
 	return &MockGraphClient_CreateBulkCSVRemediation_Call{Call: _e.mock.On("CreateBulkCSVRemediation",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVRemediation_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVRemediation_Call {
@@ -4648,9 +4648,9 @@ type MockGraphClient_CreateBulkCSVReview_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVReview(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVReview_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVReview(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVReview_Call {
 	return &MockGraphClient_CreateBulkCSVReview_Call{Call: _e.mock.On("CreateBulkCSVReview",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVReview_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVReview_Call {
@@ -4731,9 +4731,9 @@ type MockGraphClient_CreateBulkCSVRisk_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVRisk(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVRisk_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVRisk(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVRisk_Call {
 	return &MockGraphClient_CreateBulkCSVRisk_Call{Call: _e.mock.On("CreateBulkCSVRisk",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVRisk_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVRisk_Call {
@@ -4814,9 +4814,9 @@ type MockGraphClient_CreateBulkCSVScan_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVScan(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVScan_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVScan(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVScan_Call {
 	return &MockGraphClient_CreateBulkCSVScan_Call{Call: _e.mock.On("CreateBulkCSVScan",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVScan_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVScan_Call {
@@ -4897,9 +4897,9 @@ type MockGraphClient_CreateBulkCSVScheduledJob_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVScheduledJob(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVScheduledJob_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVScheduledJob(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVScheduledJob_Call {
 	return &MockGraphClient_CreateBulkCSVScheduledJob_Call{Call: _e.mock.On("CreateBulkCSVScheduledJob",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVScheduledJob_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVScheduledJob_Call {
@@ -4980,9 +4980,9 @@ type MockGraphClient_CreateBulkCSVSubcontrol_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVSubcontrol(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVSubcontrol_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVSubcontrol(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVSubcontrol_Call {
 	return &MockGraphClient_CreateBulkCSVSubcontrol_Call{Call: _e.mock.On("CreateBulkCSVSubcontrol",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVSubcontrol_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVSubcontrol_Call {
@@ -5063,9 +5063,9 @@ type MockGraphClient_CreateBulkCSVSubprocessor_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVSubprocessor(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
 	return &MockGraphClient_CreateBulkCSVSubprocessor_Call{Call: _e.mock.On("CreateBulkCSVSubprocessor",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVSubprocessor_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVSubprocessor_Call {
@@ -5146,9 +5146,9 @@ type MockGraphClient_CreateBulkCSVSubscriber_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVSubscriber(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVSubscriber_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVSubscriber(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVSubscriber_Call {
 	return &MockGraphClient_CreateBulkCSVSubscriber_Call{Call: _e.mock.On("CreateBulkCSVSubscriber",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVSubscriber_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVSubscriber_Call {
@@ -5229,9 +5229,9 @@ type MockGraphClient_CreateBulkCSVSystemDetail_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVSystemDetail(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
 	return &MockGraphClient_CreateBulkCSVSystemDetail_Call{Call: _e.mock.On("CreateBulkCSVSystemDetail",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVSystemDetail_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVSystemDetail_Call {
@@ -5312,9 +5312,9 @@ type MockGraphClient_CreateBulkCSVTagDefinition_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVTagDefinition(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTagDefinition_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTagDefinition(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVTagDefinition_Call {
 	return &MockGraphClient_CreateBulkCSVTagDefinition_Call{Call: _e.mock.On("CreateBulkCSVTagDefinition",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVTagDefinition_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTagDefinition_Call {
@@ -5395,9 +5395,9 @@ type MockGraphClient_CreateBulkCSVTask_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVTask(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTask_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTask(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVTask_Call {
 	return &MockGraphClient_CreateBulkCSVTask_Call{Call: _e.mock.On("CreateBulkCSVTask",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVTask_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTask_Call {
@@ -5478,9 +5478,9 @@ type MockGraphClient_CreateBulkCSVTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVTemplate_Call {
 	return &MockGraphClient_CreateBulkCSVTemplate_Call{Call: _e.mock.On("CreateBulkCSVTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTemplate_Call {
@@ -5561,9 +5561,9 @@ type MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterCompliance(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterCompliance(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call {
 	return &MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call{Call: _e.mock.On("CreateBulkCSVTrustCenterCompliance",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTrustCenterCompliance_Call {
@@ -5644,9 +5644,9 @@ type MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterNDARequest(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterNDARequest(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
 	return &MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call{Call: _e.mock.On("CreateBulkCSVTrustCenterNDARequest",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTrustCenterNDARequest_Call {
@@ -5727,9 +5727,9 @@ type MockGraphClient_CreateBulkCSVTrustCenterSubprocessor_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVTrustCenterSubprocessor(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVTrustCenterSubprocessor_Call {
 	return &MockGraphClient_CreateBulkCSVTrustCenterSubprocessor_Call{Call: _e.mock.On("CreateBulkCSVTrustCenterSubprocessor",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVTrustCenterSubprocessor_Call {
@@ -5810,9 +5810,9 @@ type MockGraphClient_CreateBulkCSVVulnerability_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVVulnerability(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVVulnerability_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVVulnerability(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVVulnerability_Call {
 	return &MockGraphClient_CreateBulkCSVVulnerability_Call{Call: _e.mock.On("CreateBulkCSVVulnerability",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVVulnerability_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVVulnerability_Call {
@@ -5893,9 +5893,9 @@ type MockGraphClient_CreateBulkCSVWorkflowDefinition_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCSVWorkflowDefinition(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCSVWorkflowDefinition_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCSVWorkflowDefinition(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCSVWorkflowDefinition_Call {
 	return &MockGraphClient_CreateBulkCSVWorkflowDefinition_Call{Call: _e.mock.On("CreateBulkCSVWorkflowDefinition",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCSVWorkflowDefinition_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCSVWorkflowDefinition_Call {
@@ -5976,9 +5976,9 @@ type MockGraphClient_CreateBulkCampaign_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateCampaignInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCampaign(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCampaign_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCampaign(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCampaign_Call {
 	return &MockGraphClient_CreateBulkCampaign_Call{Call: _e.mock.On("CreateBulkCampaign",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCampaign_Call) Run(run func(ctx context.Context, input []*graphclient.CreateCampaignInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCampaign_Call {
@@ -6059,9 +6059,9 @@ type MockGraphClient_CreateBulkCampaignTarget_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateCampaignTargetInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCampaignTarget(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCampaignTarget_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCampaignTarget(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCampaignTarget_Call {
 	return &MockGraphClient_CreateBulkCampaignTarget_Call{Call: _e.mock.On("CreateBulkCampaignTarget",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCampaignTarget_Call) Run(run func(ctx context.Context, input []*graphclient.CreateCampaignTargetInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCampaignTarget_Call {
@@ -6142,9 +6142,9 @@ type MockGraphClient_CreateBulkCheckResult_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateCheckResultInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCheckResult(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCheckResult_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCheckResult(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCheckResult_Call {
 	return &MockGraphClient_CreateBulkCheckResult_Call{Call: _e.mock.On("CreateBulkCheckResult",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCheckResult_Call) Run(run func(ctx context.Context, input []*graphclient.CreateCheckResultInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCheckResult_Call {
@@ -6225,9 +6225,9 @@ type MockGraphClient_CreateBulkContact_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateContactInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkContact(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkContact_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkContact(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkContact_Call {
 	return &MockGraphClient_CreateBulkContact_Call{Call: _e.mock.On("CreateBulkContact",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkContact_Call) Run(run func(ctx context.Context, input []*graphclient.CreateContactInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkContact_Call {
@@ -6308,9 +6308,9 @@ type MockGraphClient_CreateBulkControl_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkControl_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkControl_Call {
 	return &MockGraphClient_CreateBulkControl_Call{Call: _e.mock.On("CreateBulkControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkControl_Call) Run(run func(ctx context.Context, input []*graphclient.CreateControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkControl_Call {
@@ -6391,9 +6391,9 @@ type MockGraphClient_CreateBulkControlImplementation_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateControlImplementationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkControlImplementation(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkControlImplementation_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkControlImplementation(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkControlImplementation_Call {
 	return &MockGraphClient_CreateBulkControlImplementation_Call{Call: _e.mock.On("CreateBulkControlImplementation",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkControlImplementation_Call) Run(run func(ctx context.Context, input []*graphclient.CreateControlImplementationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkControlImplementation_Call {
@@ -6474,9 +6474,9 @@ type MockGraphClient_CreateBulkControlObjective_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateControlObjectiveInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkControlObjective(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkControlObjective_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkControlObjective(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkControlObjective_Call {
 	return &MockGraphClient_CreateBulkControlObjective_Call{Call: _e.mock.On("CreateBulkControlObjective",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkControlObjective_Call) Run(run func(ctx context.Context, input []*graphclient.CreateControlObjectiveInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkControlObjective_Call {
@@ -6557,9 +6557,9 @@ type MockGraphClient_CreateBulkCustomDomain_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateCustomDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCustomDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCustomDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCustomDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCustomDomain_Call {
 	return &MockGraphClient_CreateBulkCustomDomain_Call{Call: _e.mock.On("CreateBulkCustomDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCustomDomain_Call) Run(run func(ctx context.Context, input []*graphclient.CreateCustomDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCustomDomain_Call {
@@ -6640,9 +6640,9 @@ type MockGraphClient_CreateBulkCustomTypeEnum_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateCustomTypeEnumInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkCustomTypeEnum(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkCustomTypeEnum_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkCustomTypeEnum(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkCustomTypeEnum_Call {
 	return &MockGraphClient_CreateBulkCustomTypeEnum_Call{Call: _e.mock.On("CreateBulkCustomTypeEnum",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkCustomTypeEnum_Call) Run(run func(ctx context.Context, input []*graphclient.CreateCustomTypeEnumInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkCustomTypeEnum_Call {
@@ -6723,9 +6723,9 @@ type MockGraphClient_CreateBulkDNSVerification_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDNSVerificationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDNSVerification(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDNSVerification_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDNSVerification(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDNSVerification_Call {
 	return &MockGraphClient_CreateBulkDNSVerification_Call{Call: _e.mock.On("CreateBulkDNSVerification",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDNSVerification_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDNSVerificationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDNSVerification_Call {
@@ -6806,9 +6806,9 @@ type MockGraphClient_CreateBulkDirectoryAccount_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDirectoryAccountInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDirectoryAccount(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDirectoryAccount_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDirectoryAccount(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDirectoryAccount_Call {
 	return &MockGraphClient_CreateBulkDirectoryAccount_Call{Call: _e.mock.On("CreateBulkDirectoryAccount",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDirectoryAccount_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDirectoryAccountInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDirectoryAccount_Call {
@@ -6889,9 +6889,9 @@ type MockGraphClient_CreateBulkDirectoryGroup_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDirectoryGroupInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDirectoryGroup(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDirectoryGroup_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDirectoryGroup(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDirectoryGroup_Call {
 	return &MockGraphClient_CreateBulkDirectoryGroup_Call{Call: _e.mock.On("CreateBulkDirectoryGroup",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDirectoryGroup_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDirectoryGroupInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDirectoryGroup_Call {
@@ -6972,9 +6972,9 @@ type MockGraphClient_CreateBulkDirectoryMembership_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDirectoryMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDirectoryMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDirectoryMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDirectoryMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDirectoryMembership_Call {
 	return &MockGraphClient_CreateBulkDirectoryMembership_Call{Call: _e.mock.On("CreateBulkDirectoryMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDirectoryMembership_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDirectoryMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDirectoryMembership_Call {
@@ -7055,9 +7055,9 @@ type MockGraphClient_CreateBulkDirectorySyncRun_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDirectorySyncRunInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDirectorySyncRun(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDirectorySyncRun_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDirectorySyncRun(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDirectorySyncRun_Call {
 	return &MockGraphClient_CreateBulkDirectorySyncRun_Call{Call: _e.mock.On("CreateBulkDirectorySyncRun",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDirectorySyncRun_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDirectorySyncRunInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDirectorySyncRun_Call {
@@ -7138,9 +7138,9 @@ type MockGraphClient_CreateBulkDiscussion_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDiscussionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDiscussion(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDiscussion_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDiscussion(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDiscussion_Call {
 	return &MockGraphClient_CreateBulkDiscussion_Call{Call: _e.mock.On("CreateBulkDiscussion",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDiscussion_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDiscussionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDiscussion_Call {
@@ -7221,9 +7221,9 @@ type MockGraphClient_CreateBulkDocumentData_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateDocumentDataInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkDocumentData(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkDocumentData_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkDocumentData(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkDocumentData_Call {
 	return &MockGraphClient_CreateBulkDocumentData_Call{Call: _e.mock.On("CreateBulkDocumentData",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkDocumentData_Call) Run(run func(ctx context.Context, input []*graphclient.CreateDocumentDataInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkDocumentData_Call {
@@ -7304,9 +7304,9 @@ type MockGraphClient_CreateBulkEmailTemplate_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateEmailTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkEmailTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkEmailTemplate_Call {
 	return &MockGraphClient_CreateBulkEmailTemplate_Call{Call: _e.mock.On("CreateBulkEmailTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkEmailTemplate_Call) Run(run func(ctx context.Context, input []*graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkEmailTemplate_Call {
@@ -7387,9 +7387,9 @@ type MockGraphClient_CreateBulkEntity_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateEntityInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkEntity(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkEntity_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkEntity(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkEntity_Call {
 	return &MockGraphClient_CreateBulkEntity_Call{Call: _e.mock.On("CreateBulkEntity",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkEntity_Call) Run(run func(ctx context.Context, input []*graphclient.CreateEntityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkEntity_Call {
@@ -7470,9 +7470,9 @@ type MockGraphClient_CreateBulkEntityType_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateEntityTypeInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkEntityType(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkEntityType_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkEntityType(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkEntityType_Call {
 	return &MockGraphClient_CreateBulkEntityType_Call{Call: _e.mock.On("CreateBulkEntityType",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkEntityType_Call) Run(run func(ctx context.Context, input []*graphclient.CreateEntityTypeInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkEntityType_Call {
@@ -7553,9 +7553,9 @@ type MockGraphClient_CreateBulkEvent_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateEventInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkEvent(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkEvent_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkEvent(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkEvent_Call {
 	return &MockGraphClient_CreateBulkEvent_Call{Call: _e.mock.On("CreateBulkEvent",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkEvent_Call) Run(run func(ctx context.Context, input []*graphclient.CreateEventInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkEvent_Call {
@@ -7636,9 +7636,9 @@ type MockGraphClient_CreateBulkFinding_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateFindingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkFinding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkFinding_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkFinding(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkFinding_Call {
 	return &MockGraphClient_CreateBulkFinding_Call{Call: _e.mock.On("CreateBulkFinding",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkFinding_Call) Run(run func(ctx context.Context, input []*graphclient.CreateFindingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkFinding_Call {
@@ -7719,9 +7719,9 @@ type MockGraphClient_CreateBulkFindingControl_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateFindingControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkFindingControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkFindingControl_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkFindingControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkFindingControl_Call {
 	return &MockGraphClient_CreateBulkFindingControl_Call{Call: _e.mock.On("CreateBulkFindingControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkFindingControl_Call) Run(run func(ctx context.Context, input []*graphclient.CreateFindingControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkFindingControl_Call {
@@ -7802,9 +7802,9 @@ type MockGraphClient_CreateBulkGroup_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateGroupInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkGroup(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkGroup_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkGroup(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkGroup_Call {
 	return &MockGraphClient_CreateBulkGroup_Call{Call: _e.mock.On("CreateBulkGroup",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkGroup_Call) Run(run func(ctx context.Context, input []*graphclient.CreateGroupInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkGroup_Call {
@@ -7885,9 +7885,9 @@ type MockGraphClient_CreateBulkGroupMembership_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateGroupMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkGroupMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkGroupMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkGroupMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkGroupMembership_Call {
 	return &MockGraphClient_CreateBulkGroupMembership_Call{Call: _e.mock.On("CreateBulkGroupMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkGroupMembership_Call) Run(run func(ctx context.Context, input []*graphclient.CreateGroupMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkGroupMembership_Call {
@@ -7968,9 +7968,9 @@ type MockGraphClient_CreateBulkGroupSetting_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateGroupSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkGroupSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkGroupSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkGroupSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkGroupSetting_Call {
 	return &MockGraphClient_CreateBulkGroupSetting_Call{Call: _e.mock.On("CreateBulkGroupSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkGroupSetting_Call) Run(run func(ctx context.Context, input []*graphclient.CreateGroupSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkGroupSetting_Call {
@@ -8051,9 +8051,9 @@ type MockGraphClient_CreateBulkHush_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateHushInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkHush(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkHush_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkHush(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkHush_Call {
 	return &MockGraphClient_CreateBulkHush_Call{Call: _e.mock.On("CreateBulkHush",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkHush_Call) Run(run func(ctx context.Context, input []*graphclient.CreateHushInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkHush_Call {
@@ -8134,9 +8134,9 @@ type MockGraphClient_CreateBulkIdentityHolder_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateIdentityHolderInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkIdentityHolder(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkIdentityHolder_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkIdentityHolder(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkIdentityHolder_Call {
 	return &MockGraphClient_CreateBulkIdentityHolder_Call{Call: _e.mock.On("CreateBulkIdentityHolder",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkIdentityHolder_Call) Run(run func(ctx context.Context, input []*graphclient.CreateIdentityHolderInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkIdentityHolder_Call {
@@ -8217,9 +8217,9 @@ type MockGraphClient_CreateBulkInternalPolicy_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateInternalPolicyInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkInternalPolicy(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkInternalPolicy_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkInternalPolicy(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkInternalPolicy_Call {
 	return &MockGraphClient_CreateBulkInternalPolicy_Call{Call: _e.mock.On("CreateBulkInternalPolicy",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkInternalPolicy_Call) Run(run func(ctx context.Context, input []*graphclient.CreateInternalPolicyInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkInternalPolicy_Call {
@@ -8300,9 +8300,9 @@ type MockGraphClient_CreateBulkInvite_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateInviteInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkInvite(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkInvite_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkInvite(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkInvite_Call {
 	return &MockGraphClient_CreateBulkInvite_Call{Call: _e.mock.On("CreateBulkInvite",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkInvite_Call) Run(run func(ctx context.Context, input []*graphclient.CreateInviteInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkInvite_Call {
@@ -8383,9 +8383,9 @@ type MockGraphClient_CreateBulkJobTemplate_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateJobTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkJobTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkJobTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkJobTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkJobTemplate_Call {
 	return &MockGraphClient_CreateBulkJobTemplate_Call{Call: _e.mock.On("CreateBulkJobTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkJobTemplate_Call) Run(run func(ctx context.Context, input []*graphclient.CreateJobTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkJobTemplate_Call {
@@ -8466,9 +8466,9 @@ type MockGraphClient_CreateBulkMappableDomain_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateMappableDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkMappableDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkMappableDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkMappableDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkMappableDomain_Call {
 	return &MockGraphClient_CreateBulkMappableDomain_Call{Call: _e.mock.On("CreateBulkMappableDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkMappableDomain_Call) Run(run func(ctx context.Context, input []*graphclient.CreateMappableDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkMappableDomain_Call {
@@ -8549,9 +8549,9 @@ type MockGraphClient_CreateBulkMappedControl_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateMappedControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkMappedControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkMappedControl_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkMappedControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkMappedControl_Call {
 	return &MockGraphClient_CreateBulkMappedControl_Call{Call: _e.mock.On("CreateBulkMappedControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkMappedControl_Call) Run(run func(ctx context.Context, input []*graphclient.CreateMappedControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkMappedControl_Call {
@@ -8632,9 +8632,9 @@ type MockGraphClient_CreateBulkNarrative_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateNarrativeInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkNarrative(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkNarrative_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkNarrative(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkNarrative_Call {
 	return &MockGraphClient_CreateBulkNarrative_Call{Call: _e.mock.On("CreateBulkNarrative",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkNarrative_Call) Run(run func(ctx context.Context, input []*graphclient.CreateNarrativeInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkNarrative_Call {
@@ -8715,9 +8715,9 @@ type MockGraphClient_CreateBulkNotificationPreference_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateNotificationPreferenceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkNotificationPreference(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkNotificationPreference_Call {
 	return &MockGraphClient_CreateBulkNotificationPreference_Call{Call: _e.mock.On("CreateBulkNotificationPreference",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkNotificationPreference_Call) Run(run func(ctx context.Context, input []*graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkNotificationPreference_Call {
@@ -8798,9 +8798,9 @@ type MockGraphClient_CreateBulkNotificationTemplate_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateNotificationTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkNotificationTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkNotificationTemplate_Call {
 	return &MockGraphClient_CreateBulkNotificationTemplate_Call{Call: _e.mock.On("CreateBulkNotificationTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkNotificationTemplate_Call) Run(run func(ctx context.Context, input []*graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkNotificationTemplate_Call {
@@ -8881,9 +8881,9 @@ type MockGraphClient_CreateBulkOrgMembership_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateOrgMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkOrgMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkOrgMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkOrgMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkOrgMembership_Call {
 	return &MockGraphClient_CreateBulkOrgMembership_Call{Call: _e.mock.On("CreateBulkOrgMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkOrgMembership_Call) Run(run func(ctx context.Context, input []*graphclient.CreateOrgMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkOrgMembership_Call {
@@ -8964,9 +8964,9 @@ type MockGraphClient_CreateBulkOrganizationSetting_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateOrganizationSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkOrganizationSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkOrganizationSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkOrganizationSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkOrganizationSetting_Call {
 	return &MockGraphClient_CreateBulkOrganizationSetting_Call{Call: _e.mock.On("CreateBulkOrganizationSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkOrganizationSetting_Call) Run(run func(ctx context.Context, input []*graphclient.CreateOrganizationSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkOrganizationSetting_Call {
@@ -9047,9 +9047,9 @@ type MockGraphClient_CreateBulkPlatform_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreatePlatformInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkPlatform(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkPlatform_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkPlatform(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkPlatform_Call {
 	return &MockGraphClient_CreateBulkPlatform_Call{Call: _e.mock.On("CreateBulkPlatform",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkPlatform_Call) Run(run func(ctx context.Context, input []*graphclient.CreatePlatformInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkPlatform_Call {
@@ -9130,9 +9130,9 @@ type MockGraphClient_CreateBulkProcedure_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateProcedureInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkProcedure(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkProcedure_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkProcedure(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkProcedure_Call {
 	return &MockGraphClient_CreateBulkProcedure_Call{Call: _e.mock.On("CreateBulkProcedure",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkProcedure_Call) Run(run func(ctx context.Context, input []*graphclient.CreateProcedureInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkProcedure_Call {
@@ -9213,9 +9213,9 @@ type MockGraphClient_CreateBulkProgram_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateProgramInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkProgram(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkProgram_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkProgram(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkProgram_Call {
 	return &MockGraphClient_CreateBulkProgram_Call{Call: _e.mock.On("CreateBulkProgram",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkProgram_Call) Run(run func(ctx context.Context, input []*graphclient.CreateProgramInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkProgram_Call {
@@ -9296,9 +9296,9 @@ type MockGraphClient_CreateBulkProgramMembership_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateProgramMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkProgramMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkProgramMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkProgramMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkProgramMembership_Call {
 	return &MockGraphClient_CreateBulkProgramMembership_Call{Call: _e.mock.On("CreateBulkProgramMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkProgramMembership_Call) Run(run func(ctx context.Context, input []*graphclient.CreateProgramMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkProgramMembership_Call {
@@ -9379,9 +9379,9 @@ type MockGraphClient_CreateBulkRemediation_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateRemediationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkRemediation(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkRemediation_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkRemediation(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkRemediation_Call {
 	return &MockGraphClient_CreateBulkRemediation_Call{Call: _e.mock.On("CreateBulkRemediation",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkRemediation_Call) Run(run func(ctx context.Context, input []*graphclient.CreateRemediationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkRemediation_Call {
@@ -9462,9 +9462,9 @@ type MockGraphClient_CreateBulkReview_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateReviewInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkReview(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkReview_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkReview(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkReview_Call {
 	return &MockGraphClient_CreateBulkReview_Call{Call: _e.mock.On("CreateBulkReview",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkReview_Call) Run(run func(ctx context.Context, input []*graphclient.CreateReviewInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkReview_Call {
@@ -9545,9 +9545,9 @@ type MockGraphClient_CreateBulkRisk_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateRiskInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkRisk(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkRisk_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkRisk(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkRisk_Call {
 	return &MockGraphClient_CreateBulkRisk_Call{Call: _e.mock.On("CreateBulkRisk",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkRisk_Call) Run(run func(ctx context.Context, input []*graphclient.CreateRiskInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkRisk_Call {
@@ -9628,9 +9628,9 @@ type MockGraphClient_CreateBulkScan_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateScanInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkScan(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkScan_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkScan(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkScan_Call {
 	return &MockGraphClient_CreateBulkScan_Call{Call: _e.mock.On("CreateBulkScan",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkScan_Call) Run(run func(ctx context.Context, input []*graphclient.CreateScanInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkScan_Call {
@@ -9711,9 +9711,9 @@ type MockGraphClient_CreateBulkScheduledJob_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateScheduledJobInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkScheduledJob(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkScheduledJob_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkScheduledJob(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkScheduledJob_Call {
 	return &MockGraphClient_CreateBulkScheduledJob_Call{Call: _e.mock.On("CreateBulkScheduledJob",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkScheduledJob_Call) Run(run func(ctx context.Context, input []*graphclient.CreateScheduledJobInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkScheduledJob_Call {
@@ -9794,9 +9794,9 @@ type MockGraphClient_CreateBulkSubcontrol_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateSubcontrolInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkSubcontrol(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkSubcontrol_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkSubcontrol(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkSubcontrol_Call {
 	return &MockGraphClient_CreateBulkSubcontrol_Call{Call: _e.mock.On("CreateBulkSubcontrol",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkSubcontrol_Call) Run(run func(ctx context.Context, input []*graphclient.CreateSubcontrolInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkSubcontrol_Call {
@@ -9877,9 +9877,9 @@ type MockGraphClient_CreateBulkSubprocessor_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateSubprocessorInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkSubprocessor(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkSubprocessor_Call {
 	return &MockGraphClient_CreateBulkSubprocessor_Call{Call: _e.mock.On("CreateBulkSubprocessor",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkSubprocessor_Call) Run(run func(ctx context.Context, input []*graphclient.CreateSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkSubprocessor_Call {
@@ -9960,9 +9960,9 @@ type MockGraphClient_CreateBulkSubscriber_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateSubscriberInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkSubscriber(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkSubscriber_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkSubscriber(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkSubscriber_Call {
 	return &MockGraphClient_CreateBulkSubscriber_Call{Call: _e.mock.On("CreateBulkSubscriber",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkSubscriber_Call) Run(run func(ctx context.Context, input []*graphclient.CreateSubscriberInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkSubscriber_Call {
@@ -10043,9 +10043,9 @@ type MockGraphClient_CreateBulkSystemDetail_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateSystemDetailInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkSystemDetail(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkSystemDetail_Call {
 	return &MockGraphClient_CreateBulkSystemDetail_Call{Call: _e.mock.On("CreateBulkSystemDetail",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkSystemDetail_Call) Run(run func(ctx context.Context, input []*graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkSystemDetail_Call {
@@ -10126,9 +10126,9 @@ type MockGraphClient_CreateBulkTagDefinition_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateTagDefinitionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkTagDefinition(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTagDefinition_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkTagDefinition(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkTagDefinition_Call {
 	return &MockGraphClient_CreateBulkTagDefinition_Call{Call: _e.mock.On("CreateBulkTagDefinition",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkTagDefinition_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTagDefinitionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTagDefinition_Call {
@@ -10209,9 +10209,9 @@ type MockGraphClient_CreateBulkTask_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateTaskInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkTask(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTask_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkTask(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkTask_Call {
 	return &MockGraphClient_CreateBulkTask_Call{Call: _e.mock.On("CreateBulkTask",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkTask_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTaskInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTask_Call {
@@ -10292,9 +10292,9 @@ type MockGraphClient_CreateBulkTemplate_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkTemplate_Call {
 	return &MockGraphClient_CreateBulkTemplate_Call{Call: _e.mock.On("CreateBulkTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkTemplate_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTemplate_Call {
@@ -10375,9 +10375,9 @@ type MockGraphClient_CreateBulkTrustCenterCompliance_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateTrustCenterComplianceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterCompliance(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTrustCenterCompliance_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterCompliance(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkTrustCenterCompliance_Call {
 	return &MockGraphClient_CreateBulkTrustCenterCompliance_Call{Call: _e.mock.On("CreateBulkTrustCenterCompliance",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkTrustCenterCompliance_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTrustCenterComplianceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTrustCenterCompliance_Call {
@@ -10458,9 +10458,9 @@ type MockGraphClient_CreateBulkTrustCenterNDARequest_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateTrustCenterNDARequestInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterNDARequest(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterNDARequest(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
 	return &MockGraphClient_CreateBulkTrustCenterNDARequest_Call{Call: _e.mock.On("CreateBulkTrustCenterNDARequest",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkTrustCenterNDARequest_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTrustCenterNDARequest_Call {
@@ -10541,9 +10541,9 @@ type MockGraphClient_CreateBulkTrustCenterSubprocessor_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateTrustCenterSubprocessorInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkTrustCenterSubprocessor(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkTrustCenterSubprocessor_Call {
 	return &MockGraphClient_CreateBulkTrustCenterSubprocessor_Call{Call: _e.mock.On("CreateBulkTrustCenterSubprocessor",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, input []*graphclient.CreateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkTrustCenterSubprocessor_Call {
@@ -10624,9 +10624,9 @@ type MockGraphClient_CreateBulkVulnerability_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateVulnerabilityInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkVulnerability(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkVulnerability_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkVulnerability(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkVulnerability_Call {
 	return &MockGraphClient_CreateBulkVulnerability_Call{Call: _e.mock.On("CreateBulkVulnerability",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkVulnerability_Call) Run(run func(ctx context.Context, input []*graphclient.CreateVulnerabilityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkVulnerability_Call {
@@ -10707,9 +10707,9 @@ type MockGraphClient_CreateBulkWorkflowDefinition_Call struct {
 //   - ctx context.Context
 //   - input []*graphclient.CreateWorkflowDefinitionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateBulkWorkflowDefinition(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateBulkWorkflowDefinition_Call {
+func (_e *MockGraphClient_Expecter) CreateBulkWorkflowDefinition(ctx any, input any, interceptors ...any) *MockGraphClient_CreateBulkWorkflowDefinition_Call {
 	return &MockGraphClient_CreateBulkWorkflowDefinition_Call{Call: _e.mock.On("CreateBulkWorkflowDefinition",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateBulkWorkflowDefinition_Call) Run(run func(ctx context.Context, input []*graphclient.CreateWorkflowDefinitionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateBulkWorkflowDefinition_Call {
@@ -10790,9 +10790,9 @@ type MockGraphClient_CreateCampaign_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateCampaignInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCampaign(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateCampaign_Call {
+func (_e *MockGraphClient_Expecter) CreateCampaign(ctx any, input any, interceptors ...any) *MockGraphClient_CreateCampaign_Call {
 	return &MockGraphClient_CreateCampaign_Call{Call: _e.mock.On("CreateCampaign",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCampaign_Call) Run(run func(ctx context.Context, input graphclient.CreateCampaignInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCampaign_Call {
@@ -10873,9 +10873,9 @@ type MockGraphClient_CreateCampaignTarget_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateCampaignTargetInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCampaignTarget(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateCampaignTarget_Call {
+func (_e *MockGraphClient_Expecter) CreateCampaignTarget(ctx any, input any, interceptors ...any) *MockGraphClient_CreateCampaignTarget_Call {
 	return &MockGraphClient_CreateCampaignTarget_Call{Call: _e.mock.On("CreateCampaignTarget",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCampaignTarget_Call) Run(run func(ctx context.Context, input graphclient.CreateCampaignTargetInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCampaignTarget_Call {
@@ -10956,9 +10956,9 @@ type MockGraphClient_CreateCampaignWithTargets_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateCampaignWithTargetsInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCampaignWithTargets(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateCampaignWithTargets_Call {
+func (_e *MockGraphClient_Expecter) CreateCampaignWithTargets(ctx any, input any, interceptors ...any) *MockGraphClient_CreateCampaignWithTargets_Call {
 	return &MockGraphClient_CreateCampaignWithTargets_Call{Call: _e.mock.On("CreateCampaignWithTargets",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCampaignWithTargets_Call) Run(run func(ctx context.Context, input graphclient.CreateCampaignWithTargetsInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCampaignWithTargets_Call {
@@ -11040,9 +11040,9 @@ type MockGraphClient_CreateCampaignWithTargetsCSV_Call struct {
 //   - campaign graphclient.CreateCampaignInput
 //   - targets graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCampaignWithTargetsCSV(ctx interface{}, campaign interface{}, targets interface{}, interceptors ...interface{}) *MockGraphClient_CreateCampaignWithTargetsCSV_Call {
+func (_e *MockGraphClient_Expecter) CreateCampaignWithTargetsCSV(ctx any, campaign any, targets any, interceptors ...any) *MockGraphClient_CreateCampaignWithTargetsCSV_Call {
 	return &MockGraphClient_CreateCampaignWithTargetsCSV_Call{Call: _e.mock.On("CreateCampaignWithTargetsCSV",
-		append([]interface{}{ctx, campaign, targets}, interceptors...)...)}
+		append([]any{ctx, campaign, targets}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCampaignWithTargetsCSV_Call) Run(run func(ctx context.Context, campaign graphclient.CreateCampaignInput, targets graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCampaignWithTargetsCSV_Call {
@@ -11128,9 +11128,9 @@ type MockGraphClient_CreateCheckResult_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateCheckResultInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCheckResult(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateCheckResult_Call {
+func (_e *MockGraphClient_Expecter) CreateCheckResult(ctx any, input any, interceptors ...any) *MockGraphClient_CreateCheckResult_Call {
 	return &MockGraphClient_CreateCheckResult_Call{Call: _e.mock.On("CreateCheckResult",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCheckResult_Call) Run(run func(ctx context.Context, input graphclient.CreateCheckResultInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCheckResult_Call {
@@ -11211,9 +11211,9 @@ type MockGraphClient_CreateContact_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateContactInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateContact(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateContact_Call {
+func (_e *MockGraphClient_Expecter) CreateContact(ctx any, input any, interceptors ...any) *MockGraphClient_CreateContact_Call {
 	return &MockGraphClient_CreateContact_Call{Call: _e.mock.On("CreateContact",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateContact_Call) Run(run func(ctx context.Context, input graphclient.CreateContactInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateContact_Call {
@@ -11294,9 +11294,9 @@ type MockGraphClient_CreateControl_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateControl_Call {
+func (_e *MockGraphClient_Expecter) CreateControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateControl_Call {
 	return &MockGraphClient_CreateControl_Call{Call: _e.mock.On("CreateControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateControl_Call) Run(run func(ctx context.Context, input graphclient.CreateControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateControl_Call {
@@ -11377,9 +11377,9 @@ type MockGraphClient_CreateControlImplementation_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateControlImplementationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateControlImplementation(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateControlImplementation_Call {
+func (_e *MockGraphClient_Expecter) CreateControlImplementation(ctx any, input any, interceptors ...any) *MockGraphClient_CreateControlImplementation_Call {
 	return &MockGraphClient_CreateControlImplementation_Call{Call: _e.mock.On("CreateControlImplementation",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateControlImplementation_Call) Run(run func(ctx context.Context, input graphclient.CreateControlImplementationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateControlImplementation_Call {
@@ -11460,9 +11460,9 @@ type MockGraphClient_CreateControlObjective_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateControlObjectiveInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateControlObjective(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateControlObjective_Call {
+func (_e *MockGraphClient_Expecter) CreateControlObjective(ctx any, input any, interceptors ...any) *MockGraphClient_CreateControlObjective_Call {
 	return &MockGraphClient_CreateControlObjective_Call{Call: _e.mock.On("CreateControlObjective",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateControlObjective_Call) Run(run func(ctx context.Context, input graphclient.CreateControlObjectiveInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateControlObjective_Call {
@@ -11543,9 +11543,9 @@ type MockGraphClient_CreateControlsByClone_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CloneControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateControlsByClone(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateControlsByClone_Call {
+func (_e *MockGraphClient_Expecter) CreateControlsByClone(ctx any, input any, interceptors ...any) *MockGraphClient_CreateControlsByClone_Call {
 	return &MockGraphClient_CreateControlsByClone_Call{Call: _e.mock.On("CreateControlsByClone",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateControlsByClone_Call) Run(run func(ctx context.Context, input graphclient.CloneControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateControlsByClone_Call {
@@ -11626,9 +11626,9 @@ type MockGraphClient_CreateControlsByCloneReturnID_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CloneControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateControlsByCloneReturnID(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateControlsByCloneReturnID_Call {
+func (_e *MockGraphClient_Expecter) CreateControlsByCloneReturnID(ctx any, input any, interceptors ...any) *MockGraphClient_CreateControlsByCloneReturnID_Call {
 	return &MockGraphClient_CreateControlsByCloneReturnID_Call{Call: _e.mock.On("CreateControlsByCloneReturnID",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateControlsByCloneReturnID_Call) Run(run func(ctx context.Context, input graphclient.CloneControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateControlsByCloneReturnID_Call {
@@ -11709,9 +11709,9 @@ type MockGraphClient_CreateCustomDomain_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateCustomDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCustomDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateCustomDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateCustomDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateCustomDomain_Call {
 	return &MockGraphClient_CreateCustomDomain_Call{Call: _e.mock.On("CreateCustomDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCustomDomain_Call) Run(run func(ctx context.Context, input graphclient.CreateCustomDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCustomDomain_Call {
@@ -11792,9 +11792,9 @@ type MockGraphClient_CreateCustomTypeEnum_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateCustomTypeEnumInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateCustomTypeEnum(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateCustomTypeEnum_Call {
+func (_e *MockGraphClient_Expecter) CreateCustomTypeEnum(ctx any, input any, interceptors ...any) *MockGraphClient_CreateCustomTypeEnum_Call {
 	return &MockGraphClient_CreateCustomTypeEnum_Call{Call: _e.mock.On("CreateCustomTypeEnum",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateCustomTypeEnum_Call) Run(run func(ctx context.Context, input graphclient.CreateCustomTypeEnumInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateCustomTypeEnum_Call {
@@ -11875,9 +11875,9 @@ type MockGraphClient_CreateDNSVerification_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDNSVerificationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDNSVerification(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDNSVerification_Call {
+func (_e *MockGraphClient_Expecter) CreateDNSVerification(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDNSVerification_Call {
 	return &MockGraphClient_CreateDNSVerification_Call{Call: _e.mock.On("CreateDNSVerification",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDNSVerification_Call) Run(run func(ctx context.Context, input graphclient.CreateDNSVerificationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDNSVerification_Call {
@@ -11958,9 +11958,9 @@ type MockGraphClient_CreateDirectoryAccount_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDirectoryAccountInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDirectoryAccount(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDirectoryAccount_Call {
+func (_e *MockGraphClient_Expecter) CreateDirectoryAccount(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDirectoryAccount_Call {
 	return &MockGraphClient_CreateDirectoryAccount_Call{Call: _e.mock.On("CreateDirectoryAccount",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDirectoryAccount_Call) Run(run func(ctx context.Context, input graphclient.CreateDirectoryAccountInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDirectoryAccount_Call {
@@ -12041,9 +12041,9 @@ type MockGraphClient_CreateDirectoryGroup_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDirectoryGroupInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDirectoryGroup(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDirectoryGroup_Call {
+func (_e *MockGraphClient_Expecter) CreateDirectoryGroup(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDirectoryGroup_Call {
 	return &MockGraphClient_CreateDirectoryGroup_Call{Call: _e.mock.On("CreateDirectoryGroup",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDirectoryGroup_Call) Run(run func(ctx context.Context, input graphclient.CreateDirectoryGroupInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDirectoryGroup_Call {
@@ -12124,9 +12124,9 @@ type MockGraphClient_CreateDirectoryMembership_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDirectoryMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDirectoryMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDirectoryMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateDirectoryMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDirectoryMembership_Call {
 	return &MockGraphClient_CreateDirectoryMembership_Call{Call: _e.mock.On("CreateDirectoryMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDirectoryMembership_Call) Run(run func(ctx context.Context, input graphclient.CreateDirectoryMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDirectoryMembership_Call {
@@ -12207,9 +12207,9 @@ type MockGraphClient_CreateDirectorySyncRun_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDirectorySyncRunInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDirectorySyncRun(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDirectorySyncRun_Call {
+func (_e *MockGraphClient_Expecter) CreateDirectorySyncRun(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDirectorySyncRun_Call {
 	return &MockGraphClient_CreateDirectorySyncRun_Call{Call: _e.mock.On("CreateDirectorySyncRun",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDirectorySyncRun_Call) Run(run func(ctx context.Context, input graphclient.CreateDirectorySyncRunInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDirectorySyncRun_Call {
@@ -12290,9 +12290,9 @@ type MockGraphClient_CreateDiscussion_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDiscussionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDiscussion(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDiscussion_Call {
+func (_e *MockGraphClient_Expecter) CreateDiscussion(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDiscussion_Call {
 	return &MockGraphClient_CreateDiscussion_Call{Call: _e.mock.On("CreateDiscussion",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDiscussion_Call) Run(run func(ctx context.Context, input graphclient.CreateDiscussionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDiscussion_Call {
@@ -12373,9 +12373,9 @@ type MockGraphClient_CreateDocumentData_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateDocumentDataInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateDocumentData(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateDocumentData_Call {
+func (_e *MockGraphClient_Expecter) CreateDocumentData(ctx any, input any, interceptors ...any) *MockGraphClient_CreateDocumentData_Call {
 	return &MockGraphClient_CreateDocumentData_Call{Call: _e.mock.On("CreateDocumentData",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateDocumentData_Call) Run(run func(ctx context.Context, input graphclient.CreateDocumentDataInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateDocumentData_Call {
@@ -12456,9 +12456,9 @@ type MockGraphClient_CreateEmailTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateEmailTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateEmailTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateEmailTemplate_Call {
 	return &MockGraphClient_CreateEmailTemplate_Call{Call: _e.mock.On("CreateEmailTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateEmailTemplate_Call) Run(run func(ctx context.Context, input graphclient.CreateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEmailTemplate_Call {
@@ -12540,9 +12540,9 @@ type MockGraphClient_CreateEntity_Call struct {
 //   - input graphclient.CreateEntityInput
 //   - entityTypeName *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEntity(ctx interface{}, input interface{}, entityTypeName interface{}, interceptors ...interface{}) *MockGraphClient_CreateEntity_Call {
+func (_e *MockGraphClient_Expecter) CreateEntity(ctx any, input any, entityTypeName any, interceptors ...any) *MockGraphClient_CreateEntity_Call {
 	return &MockGraphClient_CreateEntity_Call{Call: _e.mock.On("CreateEntity",
-		append([]interface{}{ctx, input, entityTypeName}, interceptors...)...)}
+		append([]any{ctx, input, entityTypeName}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateEntity_Call) Run(run func(ctx context.Context, input graphclient.CreateEntityInput, entityTypeName *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEntity_Call {
@@ -12628,9 +12628,9 @@ type MockGraphClient_CreateEntityType_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateEntityTypeInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEntityType(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEntityType_Call {
+func (_e *MockGraphClient_Expecter) CreateEntityType(ctx any, input any, interceptors ...any) *MockGraphClient_CreateEntityType_Call {
 	return &MockGraphClient_CreateEntityType_Call{Call: _e.mock.On("CreateEntityType",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateEntityType_Call) Run(run func(ctx context.Context, input graphclient.CreateEntityTypeInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEntityType_Call {
@@ -12711,9 +12711,9 @@ type MockGraphClient_CreateEvent_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateEventInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEvent(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateEvent_Call {
+func (_e *MockGraphClient_Expecter) CreateEvent(ctx any, input any, interceptors ...any) *MockGraphClient_CreateEvent_Call {
 	return &MockGraphClient_CreateEvent_Call{Call: _e.mock.On("CreateEvent",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateEvent_Call) Run(run func(ctx context.Context, input graphclient.CreateEventInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEvent_Call {
@@ -12795,9 +12795,9 @@ type MockGraphClient_CreateEvidence_Call struct {
 //   - input graphclient.CreateEvidenceInput
 //   - evidenceFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateEvidence(ctx interface{}, input interface{}, evidenceFiles interface{}, interceptors ...interface{}) *MockGraphClient_CreateEvidence_Call {
+func (_e *MockGraphClient_Expecter) CreateEvidence(ctx any, input any, evidenceFiles any, interceptors ...any) *MockGraphClient_CreateEvidence_Call {
 	return &MockGraphClient_CreateEvidence_Call{Call: _e.mock.On("CreateEvidence",
-		append([]interface{}{ctx, input, evidenceFiles}, interceptors...)...)}
+		append([]any{ctx, input, evidenceFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateEvidence_Call) Run(run func(ctx context.Context, input graphclient.CreateEvidenceInput, evidenceFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateEvidence_Call {
@@ -12883,9 +12883,9 @@ type MockGraphClient_CreateExport_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateExportInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateExport(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateExport_Call {
+func (_e *MockGraphClient_Expecter) CreateExport(ctx any, input any, interceptors ...any) *MockGraphClient_CreateExport_Call {
 	return &MockGraphClient_CreateExport_Call{Call: _e.mock.On("CreateExport",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateExport_Call) Run(run func(ctx context.Context, input graphclient.CreateExportInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateExport_Call {
@@ -12966,9 +12966,9 @@ type MockGraphClient_CreateFinding_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateFindingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateFinding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateFinding_Call {
+func (_e *MockGraphClient_Expecter) CreateFinding(ctx any, input any, interceptors ...any) *MockGraphClient_CreateFinding_Call {
 	return &MockGraphClient_CreateFinding_Call{Call: _e.mock.On("CreateFinding",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateFinding_Call) Run(run func(ctx context.Context, input graphclient.CreateFindingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateFinding_Call {
@@ -13049,9 +13049,9 @@ type MockGraphClient_CreateFindingControl_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateFindingControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateFindingControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateFindingControl_Call {
+func (_e *MockGraphClient_Expecter) CreateFindingControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateFindingControl_Call {
 	return &MockGraphClient_CreateFindingControl_Call{Call: _e.mock.On("CreateFindingControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateFindingControl_Call) Run(run func(ctx context.Context, input graphclient.CreateFindingControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateFindingControl_Call {
@@ -13132,9 +13132,9 @@ type MockGraphClient_CreateGroup_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateGroupInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateGroup(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateGroup_Call {
+func (_e *MockGraphClient_Expecter) CreateGroup(ctx any, input any, interceptors ...any) *MockGraphClient_CreateGroup_Call {
 	return &MockGraphClient_CreateGroup_Call{Call: _e.mock.On("CreateGroup",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateGroup_Call) Run(run func(ctx context.Context, input graphclient.CreateGroupInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateGroup_Call {
@@ -13215,9 +13215,9 @@ type MockGraphClient_CreateGroupMembership_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateGroupMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateGroupMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateGroupMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateGroupMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateGroupMembership_Call {
 	return &MockGraphClient_CreateGroupMembership_Call{Call: _e.mock.On("CreateGroupMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateGroupMembership_Call) Run(run func(ctx context.Context, input graphclient.CreateGroupMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateGroupMembership_Call {
@@ -13298,9 +13298,9 @@ type MockGraphClient_CreateGroupSetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateGroupSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateGroupSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateGroupSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateGroupSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateGroupSetting_Call {
 	return &MockGraphClient_CreateGroupSetting_Call{Call: _e.mock.On("CreateGroupSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateGroupSetting_Call) Run(run func(ctx context.Context, input graphclient.CreateGroupSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateGroupSetting_Call {
@@ -13381,9 +13381,9 @@ type MockGraphClient_CreateHush_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateHushInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateHush(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateHush_Call {
+func (_e *MockGraphClient_Expecter) CreateHush(ctx any, input any, interceptors ...any) *MockGraphClient_CreateHush_Call {
 	return &MockGraphClient_CreateHush_Call{Call: _e.mock.On("CreateHush",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateHush_Call) Run(run func(ctx context.Context, input graphclient.CreateHushInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateHush_Call {
@@ -13464,9 +13464,9 @@ type MockGraphClient_CreateIdentityHolder_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateIdentityHolderInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateIdentityHolder(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateIdentityHolder_Call {
+func (_e *MockGraphClient_Expecter) CreateIdentityHolder(ctx any, input any, interceptors ...any) *MockGraphClient_CreateIdentityHolder_Call {
 	return &MockGraphClient_CreateIdentityHolder_Call{Call: _e.mock.On("CreateIdentityHolder",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateIdentityHolder_Call) Run(run func(ctx context.Context, input graphclient.CreateIdentityHolderInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateIdentityHolder_Call {
@@ -13547,9 +13547,9 @@ type MockGraphClient_CreateInternalPolicy_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateInternalPolicyInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateInternalPolicy(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateInternalPolicy_Call {
+func (_e *MockGraphClient_Expecter) CreateInternalPolicy(ctx any, input any, interceptors ...any) *MockGraphClient_CreateInternalPolicy_Call {
 	return &MockGraphClient_CreateInternalPolicy_Call{Call: _e.mock.On("CreateInternalPolicy",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateInternalPolicy_Call) Run(run func(ctx context.Context, input graphclient.CreateInternalPolicyInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateInternalPolicy_Call {
@@ -13630,9 +13630,9 @@ type MockGraphClient_CreateInvite_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateInviteInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateInvite(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateInvite_Call {
+func (_e *MockGraphClient_Expecter) CreateInvite(ctx any, input any, interceptors ...any) *MockGraphClient_CreateInvite_Call {
 	return &MockGraphClient_CreateInvite_Call{Call: _e.mock.On("CreateInvite",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateInvite_Call) Run(run func(ctx context.Context, input graphclient.CreateInviteInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateInvite_Call {
@@ -13714,9 +13714,9 @@ type MockGraphClient_CreateJobResult_Call struct {
 //   - input graphclient.CreateJobResultInput
 //   - jobResultFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateJobResult(ctx interface{}, input interface{}, jobResultFiles interface{}, interceptors ...interface{}) *MockGraphClient_CreateJobResult_Call {
+func (_e *MockGraphClient_Expecter) CreateJobResult(ctx any, input any, jobResultFiles any, interceptors ...any) *MockGraphClient_CreateJobResult_Call {
 	return &MockGraphClient_CreateJobResult_Call{Call: _e.mock.On("CreateJobResult",
-		append([]interface{}{ctx, input, jobResultFiles}, interceptors...)...)}
+		append([]any{ctx, input, jobResultFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateJobResult_Call) Run(run func(ctx context.Context, input graphclient.CreateJobResultInput, jobResultFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateJobResult_Call {
@@ -13802,9 +13802,9 @@ type MockGraphClient_CreateJobRunner_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateJobRunnerInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateJobRunner(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateJobRunner_Call {
+func (_e *MockGraphClient_Expecter) CreateJobRunner(ctx any, input any, interceptors ...any) *MockGraphClient_CreateJobRunner_Call {
 	return &MockGraphClient_CreateJobRunner_Call{Call: _e.mock.On("CreateJobRunner",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateJobRunner_Call) Run(run func(ctx context.Context, input graphclient.CreateJobRunnerInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateJobRunner_Call {
@@ -13885,9 +13885,9 @@ type MockGraphClient_CreateJobRunnerRegistrationToken_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateJobRunnerRegistrationTokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateJobRunnerRegistrationToken(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateJobRunnerRegistrationToken_Call {
+func (_e *MockGraphClient_Expecter) CreateJobRunnerRegistrationToken(ctx any, input any, interceptors ...any) *MockGraphClient_CreateJobRunnerRegistrationToken_Call {
 	return &MockGraphClient_CreateJobRunnerRegistrationToken_Call{Call: _e.mock.On("CreateJobRunnerRegistrationToken",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateJobRunnerRegistrationToken_Call) Run(run func(ctx context.Context, input graphclient.CreateJobRunnerRegistrationTokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateJobRunnerRegistrationToken_Call {
@@ -13968,9 +13968,9 @@ type MockGraphClient_CreateJobRunnerToken_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateJobRunnerTokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateJobRunnerToken(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateJobRunnerToken_Call {
+func (_e *MockGraphClient_Expecter) CreateJobRunnerToken(ctx any, input any, interceptors ...any) *MockGraphClient_CreateJobRunnerToken_Call {
 	return &MockGraphClient_CreateJobRunnerToken_Call{Call: _e.mock.On("CreateJobRunnerToken",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateJobRunnerToken_Call) Run(run func(ctx context.Context, input graphclient.CreateJobRunnerTokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateJobRunnerToken_Call {
@@ -14051,9 +14051,9 @@ type MockGraphClient_CreateJobTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateJobTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateJobTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateJobTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateJobTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateJobTemplate_Call {
 	return &MockGraphClient_CreateJobTemplate_Call{Call: _e.mock.On("CreateJobTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateJobTemplate_Call) Run(run func(ctx context.Context, input graphclient.CreateJobTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateJobTemplate_Call {
@@ -14134,9 +14134,9 @@ type MockGraphClient_CreateMappableDomain_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateMappableDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateMappableDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateMappableDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateMappableDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateMappableDomain_Call {
 	return &MockGraphClient_CreateMappableDomain_Call{Call: _e.mock.On("CreateMappableDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateMappableDomain_Call) Run(run func(ctx context.Context, input graphclient.CreateMappableDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateMappableDomain_Call {
@@ -14217,9 +14217,9 @@ type MockGraphClient_CreateMappedControl_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateMappedControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateMappedControl(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateMappedControl_Call {
+func (_e *MockGraphClient_Expecter) CreateMappedControl(ctx any, input any, interceptors ...any) *MockGraphClient_CreateMappedControl_Call {
 	return &MockGraphClient_CreateMappedControl_Call{Call: _e.mock.On("CreateMappedControl",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateMappedControl_Call) Run(run func(ctx context.Context, input graphclient.CreateMappedControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateMappedControl_Call {
@@ -14300,9 +14300,9 @@ type MockGraphClient_CreateNarrative_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateNarrativeInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateNarrative(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNarrative_Call {
+func (_e *MockGraphClient_Expecter) CreateNarrative(ctx any, input any, interceptors ...any) *MockGraphClient_CreateNarrative_Call {
 	return &MockGraphClient_CreateNarrative_Call{Call: _e.mock.On("CreateNarrative",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateNarrative_Call) Run(run func(ctx context.Context, input graphclient.CreateNarrativeInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNarrative_Call {
@@ -14383,9 +14383,9 @@ type MockGraphClient_CreateNotification_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateNotificationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateNotification(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNotification_Call {
+func (_e *MockGraphClient_Expecter) CreateNotification(ctx any, input any, interceptors ...any) *MockGraphClient_CreateNotification_Call {
 	return &MockGraphClient_CreateNotification_Call{Call: _e.mock.On("CreateNotification",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateNotification_Call) Run(run func(ctx context.Context, input graphclient.CreateNotificationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNotification_Call {
@@ -14466,9 +14466,9 @@ type MockGraphClient_CreateNotificationPreference_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateNotificationPreferenceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) CreateNotificationPreference(ctx any, input any, interceptors ...any) *MockGraphClient_CreateNotificationPreference_Call {
 	return &MockGraphClient_CreateNotificationPreference_Call{Call: _e.mock.On("CreateNotificationPreference",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateNotificationPreference_Call) Run(run func(ctx context.Context, input graphclient.CreateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNotificationPreference_Call {
@@ -14549,9 +14549,9 @@ type MockGraphClient_CreateNotificationTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateNotificationTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateNotificationTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_CreateNotificationTemplate_Call {
 	return &MockGraphClient_CreateNotificationTemplate_Call{Call: _e.mock.On("CreateNotificationTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateNotificationTemplate_Call) Run(run func(ctx context.Context, input graphclient.CreateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateNotificationTemplate_Call {
@@ -14632,9 +14632,9 @@ type MockGraphClient_CreateOnboarding_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateOnboardingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateOnboarding(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateOnboarding_Call {
+func (_e *MockGraphClient_Expecter) CreateOnboarding(ctx any, input any, interceptors ...any) *MockGraphClient_CreateOnboarding_Call {
 	return &MockGraphClient_CreateOnboarding_Call{Call: _e.mock.On("CreateOnboarding",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateOnboarding_Call) Run(run func(ctx context.Context, input graphclient.CreateOnboardingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateOnboarding_Call {
@@ -14715,9 +14715,9 @@ type MockGraphClient_CreateOrgMembership_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateOrgMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateOrgMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateOrgMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateOrgMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateOrgMembership_Call {
 	return &MockGraphClient_CreateOrgMembership_Call{Call: _e.mock.On("CreateOrgMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateOrgMembership_Call) Run(run func(ctx context.Context, input graphclient.CreateOrgMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateOrgMembership_Call {
@@ -14799,9 +14799,9 @@ type MockGraphClient_CreateOrganization_Call struct {
 //   - input graphclient.CreateOrganizationInput
 //   - avatarFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateOrganization(ctx interface{}, input interface{}, avatarFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateOrganization_Call {
+func (_e *MockGraphClient_Expecter) CreateOrganization(ctx any, input any, avatarFile any, interceptors ...any) *MockGraphClient_CreateOrganization_Call {
 	return &MockGraphClient_CreateOrganization_Call{Call: _e.mock.On("CreateOrganization",
-		append([]interface{}{ctx, input, avatarFile}, interceptors...)...)}
+		append([]any{ctx, input, avatarFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateOrganization_Call) Run(run func(ctx context.Context, input graphclient.CreateOrganizationInput, avatarFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateOrganization_Call {
@@ -14887,9 +14887,9 @@ type MockGraphClient_CreateOrganizationSetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateOrganizationSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateOrganizationSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateOrganizationSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateOrganizationSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateOrganizationSetting_Call {
 	return &MockGraphClient_CreateOrganizationSetting_Call{Call: _e.mock.On("CreateOrganizationSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateOrganizationSetting_Call) Run(run func(ctx context.Context, input graphclient.CreateOrganizationSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateOrganizationSetting_Call {
@@ -14970,9 +14970,9 @@ type MockGraphClient_CreatePersonalAccessToken_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreatePersonalAccessTokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreatePersonalAccessToken(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreatePersonalAccessToken_Call {
+func (_e *MockGraphClient_Expecter) CreatePersonalAccessToken(ctx any, input any, interceptors ...any) *MockGraphClient_CreatePersonalAccessToken_Call {
 	return &MockGraphClient_CreatePersonalAccessToken_Call{Call: _e.mock.On("CreatePersonalAccessToken",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreatePersonalAccessToken_Call) Run(run func(ctx context.Context, input graphclient.CreatePersonalAccessTokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreatePersonalAccessToken_Call {
@@ -15053,9 +15053,9 @@ type MockGraphClient_CreatePlatform_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreatePlatformInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreatePlatform(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreatePlatform_Call {
+func (_e *MockGraphClient_Expecter) CreatePlatform(ctx any, input any, interceptors ...any) *MockGraphClient_CreatePlatform_Call {
 	return &MockGraphClient_CreatePlatform_Call{Call: _e.mock.On("CreatePlatform",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreatePlatform_Call) Run(run func(ctx context.Context, input graphclient.CreatePlatformInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreatePlatform_Call {
@@ -15136,9 +15136,9 @@ type MockGraphClient_CreateProcedure_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateProcedureInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateProcedure(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateProcedure_Call {
+func (_e *MockGraphClient_Expecter) CreateProcedure(ctx any, input any, interceptors ...any) *MockGraphClient_CreateProcedure_Call {
 	return &MockGraphClient_CreateProcedure_Call{Call: _e.mock.On("CreateProcedure",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateProcedure_Call) Run(run func(ctx context.Context, input graphclient.CreateProcedureInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateProcedure_Call {
@@ -15219,9 +15219,9 @@ type MockGraphClient_CreateProgram_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateProgramInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateProgram(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateProgram_Call {
+func (_e *MockGraphClient_Expecter) CreateProgram(ctx any, input any, interceptors ...any) *MockGraphClient_CreateProgram_Call {
 	return &MockGraphClient_CreateProgram_Call{Call: _e.mock.On("CreateProgram",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateProgram_Call) Run(run func(ctx context.Context, input graphclient.CreateProgramInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateProgram_Call {
@@ -15302,9 +15302,9 @@ type MockGraphClient_CreateProgramMembership_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateProgramMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateProgramMembership(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateProgramMembership_Call {
+func (_e *MockGraphClient_Expecter) CreateProgramMembership(ctx any, input any, interceptors ...any) *MockGraphClient_CreateProgramMembership_Call {
 	return &MockGraphClient_CreateProgramMembership_Call{Call: _e.mock.On("CreateProgramMembership",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateProgramMembership_Call) Run(run func(ctx context.Context, input graphclient.CreateProgramMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateProgramMembership_Call {
@@ -15385,9 +15385,9 @@ type MockGraphClient_CreateRemediation_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateRemediationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateRemediation(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateRemediation_Call {
+func (_e *MockGraphClient_Expecter) CreateRemediation(ctx any, input any, interceptors ...any) *MockGraphClient_CreateRemediation_Call {
 	return &MockGraphClient_CreateRemediation_Call{Call: _e.mock.On("CreateRemediation",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateRemediation_Call) Run(run func(ctx context.Context, input graphclient.CreateRemediationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateRemediation_Call {
@@ -15468,9 +15468,9 @@ type MockGraphClient_CreateReview_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateReviewInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateReview(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateReview_Call {
+func (_e *MockGraphClient_Expecter) CreateReview(ctx any, input any, interceptors ...any) *MockGraphClient_CreateReview_Call {
 	return &MockGraphClient_CreateReview_Call{Call: _e.mock.On("CreateReview",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateReview_Call) Run(run func(ctx context.Context, input graphclient.CreateReviewInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateReview_Call {
@@ -15551,9 +15551,9 @@ type MockGraphClient_CreateRisk_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateRiskInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateRisk(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateRisk_Call {
+func (_e *MockGraphClient_Expecter) CreateRisk(ctx any, input any, interceptors ...any) *MockGraphClient_CreateRisk_Call {
 	return &MockGraphClient_CreateRisk_Call{Call: _e.mock.On("CreateRisk",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateRisk_Call) Run(run func(ctx context.Context, input graphclient.CreateRiskInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateRisk_Call {
@@ -15634,9 +15634,9 @@ type MockGraphClient_CreateScan_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateScanInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateScan(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateScan_Call {
+func (_e *MockGraphClient_Expecter) CreateScan(ctx any, input any, interceptors ...any) *MockGraphClient_CreateScan_Call {
 	return &MockGraphClient_CreateScan_Call{Call: _e.mock.On("CreateScan",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateScan_Call) Run(run func(ctx context.Context, input graphclient.CreateScanInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateScan_Call {
@@ -15717,9 +15717,9 @@ type MockGraphClient_CreateScheduledJob_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateScheduledJobInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateScheduledJob(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateScheduledJob_Call {
+func (_e *MockGraphClient_Expecter) CreateScheduledJob(ctx any, input any, interceptors ...any) *MockGraphClient_CreateScheduledJob_Call {
 	return &MockGraphClient_CreateScheduledJob_Call{Call: _e.mock.On("CreateScheduledJob",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateScheduledJob_Call) Run(run func(ctx context.Context, input graphclient.CreateScheduledJobInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateScheduledJob_Call {
@@ -15800,9 +15800,9 @@ type MockGraphClient_CreateScheduledJobRun_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateScheduledJobRunInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateScheduledJobRun(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateScheduledJobRun_Call {
+func (_e *MockGraphClient_Expecter) CreateScheduledJobRun(ctx any, input any, interceptors ...any) *MockGraphClient_CreateScheduledJobRun_Call {
 	return &MockGraphClient_CreateScheduledJobRun_Call{Call: _e.mock.On("CreateScheduledJobRun",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateScheduledJobRun_Call) Run(run func(ctx context.Context, input graphclient.CreateScheduledJobRunInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateScheduledJobRun_Call {
@@ -15884,9 +15884,9 @@ type MockGraphClient_CreateStandard_Call struct {
 //   - input graphclient.CreateStandardInput
 //   - logoFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateStandard(ctx interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateStandard_Call {
+func (_e *MockGraphClient_Expecter) CreateStandard(ctx any, input any, logoFile any, interceptors ...any) *MockGraphClient_CreateStandard_Call {
 	return &MockGraphClient_CreateStandard_Call{Call: _e.mock.On("CreateStandard",
-		append([]interface{}{ctx, input, logoFile}, interceptors...)...)}
+		append([]any{ctx, input, logoFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateStandard_Call) Run(run func(ctx context.Context, input graphclient.CreateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateStandard_Call {
@@ -15972,9 +15972,9 @@ type MockGraphClient_CreateSubcontrol_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateSubcontrolInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateSubcontrol(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateSubcontrol_Call {
+func (_e *MockGraphClient_Expecter) CreateSubcontrol(ctx any, input any, interceptors ...any) *MockGraphClient_CreateSubcontrol_Call {
 	return &MockGraphClient_CreateSubcontrol_Call{Call: _e.mock.On("CreateSubcontrol",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateSubcontrol_Call) Run(run func(ctx context.Context, input graphclient.CreateSubcontrolInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateSubcontrol_Call {
@@ -16056,9 +16056,9 @@ type MockGraphClient_CreateSubprocessor_Call struct {
 //   - input graphclient.CreateSubprocessorInput
 //   - logoFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateSubprocessor(ctx interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) CreateSubprocessor(ctx any, input any, logoFile any, interceptors ...any) *MockGraphClient_CreateSubprocessor_Call {
 	return &MockGraphClient_CreateSubprocessor_Call{Call: _e.mock.On("CreateSubprocessor",
-		append([]interface{}{ctx, input, logoFile}, interceptors...)...)}
+		append([]any{ctx, input, logoFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateSubprocessor_Call) Run(run func(ctx context.Context, input graphclient.CreateSubprocessorInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateSubprocessor_Call {
@@ -16144,9 +16144,9 @@ type MockGraphClient_CreateSubscriber_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateSubscriberInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateSubscriber(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateSubscriber_Call {
+func (_e *MockGraphClient_Expecter) CreateSubscriber(ctx any, input any, interceptors ...any) *MockGraphClient_CreateSubscriber_Call {
 	return &MockGraphClient_CreateSubscriber_Call{Call: _e.mock.On("CreateSubscriber",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateSubscriber_Call) Run(run func(ctx context.Context, input graphclient.CreateSubscriberInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateSubscriber_Call {
@@ -16227,9 +16227,9 @@ type MockGraphClient_CreateSystemDetail_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateSystemDetailInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) CreateSystemDetail(ctx any, input any, interceptors ...any) *MockGraphClient_CreateSystemDetail_Call {
 	return &MockGraphClient_CreateSystemDetail_Call{Call: _e.mock.On("CreateSystemDetail",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateSystemDetail_Call) Run(run func(ctx context.Context, input graphclient.CreateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateSystemDetail_Call {
@@ -16310,9 +16310,9 @@ type MockGraphClient_CreateTFASetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTFASettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTFASetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTFASetting_Call {
+func (_e *MockGraphClient_Expecter) CreateTFASetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTFASetting_Call {
 	return &MockGraphClient_CreateTFASetting_Call{Call: _e.mock.On("CreateTFASetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTFASetting_Call) Run(run func(ctx context.Context, input graphclient.CreateTFASettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTFASetting_Call {
@@ -16393,9 +16393,9 @@ type MockGraphClient_CreateTagDefinition_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTagDefinitionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTagDefinition(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTagDefinition_Call {
+func (_e *MockGraphClient_Expecter) CreateTagDefinition(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTagDefinition_Call {
 	return &MockGraphClient_CreateTagDefinition_Call{Call: _e.mock.On("CreateTagDefinition",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTagDefinition_Call) Run(run func(ctx context.Context, input graphclient.CreateTagDefinitionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTagDefinition_Call {
@@ -16476,9 +16476,9 @@ type MockGraphClient_CreateTask_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTaskInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTask(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTask_Call {
+func (_e *MockGraphClient_Expecter) CreateTask(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTask_Call {
 	return &MockGraphClient_CreateTask_Call{Call: _e.mock.On("CreateTask",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTask_Call) Run(run func(ctx context.Context, input graphclient.CreateTaskInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTask_Call {
@@ -16560,9 +16560,9 @@ type MockGraphClient_CreateTemplate_Call struct {
 //   - input graphclient.CreateTemplateInput
 //   - templateFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTemplate(ctx interface{}, input interface{}, templateFiles interface{}, interceptors ...interface{}) *MockGraphClient_CreateTemplate_Call {
+func (_e *MockGraphClient_Expecter) CreateTemplate(ctx any, input any, templateFiles any, interceptors ...any) *MockGraphClient_CreateTemplate_Call {
 	return &MockGraphClient_CreateTemplate_Call{Call: _e.mock.On("CreateTemplate",
-		append([]interface{}{ctx, input, templateFiles}, interceptors...)...)}
+		append([]any{ctx, input, templateFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTemplate_Call) Run(run func(ctx context.Context, input graphclient.CreateTemplateInput, templateFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTemplate_Call {
@@ -16648,9 +16648,9 @@ type MockGraphClient_CreateTrustCenter_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenter(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenter_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenter(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenter_Call {
 	return &MockGraphClient_CreateTrustCenter_Call{Call: _e.mock.On("CreateTrustCenter",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenter_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenter_Call {
@@ -16731,9 +16731,9 @@ type MockGraphClient_CreateTrustCenterCompliance_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterComplianceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterCompliance(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterCompliance_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterCompliance(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenterCompliance_Call {
 	return &MockGraphClient_CreateTrustCenterCompliance_Call{Call: _e.mock.On("CreateTrustCenterCompliance",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterCompliance_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterComplianceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterCompliance_Call {
@@ -16815,9 +16815,9 @@ type MockGraphClient_CreateTrustCenterDoc_Call struct {
 //   - input graphclient.CreateTrustCenterDocInput
 //   - trustCenterDocFile graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterDoc(ctx interface{}, input interface{}, trustCenterDocFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterDoc_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterDoc(ctx any, input any, trustCenterDocFile any, interceptors ...any) *MockGraphClient_CreateTrustCenterDoc_Call {
 	return &MockGraphClient_CreateTrustCenterDoc_Call{Call: _e.mock.On("CreateTrustCenterDoc",
-		append([]interface{}{ctx, input, trustCenterDocFile}, interceptors...)...)}
+		append([]any{ctx, input, trustCenterDocFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterDoc_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterDocInput, trustCenterDocFile graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterDoc_Call {
@@ -16903,9 +16903,9 @@ type MockGraphClient_CreateTrustCenterDomain_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterDomain(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterDomain_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterDomain(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenterDomain_Call {
 	return &MockGraphClient_CreateTrustCenterDomain_Call{Call: _e.mock.On("CreateTrustCenterDomain",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterDomain_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterDomain_Call {
@@ -16986,9 +16986,9 @@ type MockGraphClient_CreateTrustCenterNDARequest_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterNDARequestInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterNDARequest(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterNDARequest_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterNDARequest(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenterNDARequest_Call {
 	return &MockGraphClient_CreateTrustCenterNDARequest_Call{Call: _e.mock.On("CreateTrustCenterNDARequest",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterNDARequest_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterNDARequest_Call {
@@ -17070,9 +17070,9 @@ type MockGraphClient_CreateTrustCenterNda_Call struct {
 //   - input graphclient.CreateTrustCenterNDAInput
 //   - templateFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterNda(ctx interface{}, input interface{}, templateFiles interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterNda_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterNda(ctx any, input any, templateFiles any, interceptors ...any) *MockGraphClient_CreateTrustCenterNda_Call {
 	return &MockGraphClient_CreateTrustCenterNda_Call{Call: _e.mock.On("CreateTrustCenterNda",
-		append([]interface{}{ctx, input, templateFiles}, interceptors...)...)}
+		append([]any{ctx, input, templateFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterNda_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterNDAInput, templateFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterNda_Call {
@@ -17158,9 +17158,9 @@ type MockGraphClient_CreateTrustCenterPreviewSetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterPreviewSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterPreviewSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterPreviewSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterPreviewSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenterPreviewSetting_Call {
 	return &MockGraphClient_CreateTrustCenterPreviewSetting_Call{Call: _e.mock.On("CreateTrustCenterPreviewSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterPreviewSetting_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterPreviewSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterPreviewSetting_Call {
@@ -17241,9 +17241,9 @@ type MockGraphClient_CreateTrustCenterSetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenterSetting_Call {
 	return &MockGraphClient_CreateTrustCenterSetting_Call{Call: _e.mock.On("CreateTrustCenterSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterSetting_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterSetting_Call {
@@ -17324,9 +17324,9 @@ type MockGraphClient_CreateTrustCenterSubprocessor_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateTrustCenterSubprocessorInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterSubprocessor(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterSubprocessor(ctx any, input any, interceptors ...any) *MockGraphClient_CreateTrustCenterSubprocessor_Call {
 	return &MockGraphClient_CreateTrustCenterSubprocessor_Call{Call: _e.mock.On("CreateTrustCenterSubprocessor",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterSubprocessor_Call {
@@ -17408,9 +17408,9 @@ type MockGraphClient_CreateTrustCenterWatermarkConfig_Call struct {
 //   - input graphclient.CreateTrustCenterWatermarkConfigInput
 //   - watermarkFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateTrustCenterWatermarkConfig(ctx interface{}, input interface{}, watermarkFile interface{}, interceptors ...interface{}) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
+func (_e *MockGraphClient_Expecter) CreateTrustCenterWatermarkConfig(ctx any, input any, watermarkFile any, interceptors ...any) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
 	return &MockGraphClient_CreateTrustCenterWatermarkConfig_Call{Call: _e.mock.On("CreateTrustCenterWatermarkConfig",
-		append([]interface{}{ctx, input, watermarkFile}, interceptors...)...)}
+		append([]any{ctx, input, watermarkFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, input graphclient.CreateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateTrustCenterWatermarkConfig_Call {
@@ -17497,9 +17497,9 @@ type MockGraphClient_CreateUploadInternalPolicy_Call struct {
 //   - internalPolicyFile graphql.Upload
 //   - ownerID *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateUploadInternalPolicy(ctx interface{}, internalPolicyFile interface{}, ownerID interface{}, interceptors ...interface{}) *MockGraphClient_CreateUploadInternalPolicy_Call {
+func (_e *MockGraphClient_Expecter) CreateUploadInternalPolicy(ctx any, internalPolicyFile any, ownerID any, interceptors ...any) *MockGraphClient_CreateUploadInternalPolicy_Call {
 	return &MockGraphClient_CreateUploadInternalPolicy_Call{Call: _e.mock.On("CreateUploadInternalPolicy",
-		append([]interface{}{ctx, internalPolicyFile, ownerID}, interceptors...)...)}
+		append([]any{ctx, internalPolicyFile, ownerID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateUploadInternalPolicy_Call) Run(run func(ctx context.Context, internalPolicyFile graphql.Upload, ownerID *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateUploadInternalPolicy_Call {
@@ -17586,9 +17586,9 @@ type MockGraphClient_CreateUploadProcedure_Call struct {
 //   - procedureFile graphql.Upload
 //   - ownerID *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateUploadProcedure(ctx interface{}, procedureFile interface{}, ownerID interface{}, interceptors ...interface{}) *MockGraphClient_CreateUploadProcedure_Call {
+func (_e *MockGraphClient_Expecter) CreateUploadProcedure(ctx any, procedureFile any, ownerID any, interceptors ...any) *MockGraphClient_CreateUploadProcedure_Call {
 	return &MockGraphClient_CreateUploadProcedure_Call{Call: _e.mock.On("CreateUploadProcedure",
-		append([]interface{}{ctx, procedureFile, ownerID}, interceptors...)...)}
+		append([]any{ctx, procedureFile, ownerID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateUploadProcedure_Call) Run(run func(ctx context.Context, procedureFile graphql.Upload, ownerID *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateUploadProcedure_Call {
@@ -17674,9 +17674,9 @@ type MockGraphClient_CreateUser_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateUserInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateUser(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateUser_Call {
+func (_e *MockGraphClient_Expecter) CreateUser(ctx any, input any, interceptors ...any) *MockGraphClient_CreateUser_Call {
 	return &MockGraphClient_CreateUser_Call{Call: _e.mock.On("CreateUser",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateUser_Call) Run(run func(ctx context.Context, input graphclient.CreateUserInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateUser_Call {
@@ -17757,9 +17757,9 @@ type MockGraphClient_CreateUserSetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateUserSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateUserSetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateUserSetting_Call {
+func (_e *MockGraphClient_Expecter) CreateUserSetting(ctx any, input any, interceptors ...any) *MockGraphClient_CreateUserSetting_Call {
 	return &MockGraphClient_CreateUserSetting_Call{Call: _e.mock.On("CreateUserSetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateUserSetting_Call) Run(run func(ctx context.Context, input graphclient.CreateUserSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateUserSetting_Call {
@@ -17840,9 +17840,9 @@ type MockGraphClient_CreateVulnerability_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateVulnerabilityInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateVulnerability(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateVulnerability_Call {
+func (_e *MockGraphClient_Expecter) CreateVulnerability(ctx any, input any, interceptors ...any) *MockGraphClient_CreateVulnerability_Call {
 	return &MockGraphClient_CreateVulnerability_Call{Call: _e.mock.On("CreateVulnerability",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateVulnerability_Call) Run(run func(ctx context.Context, input graphclient.CreateVulnerabilityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateVulnerability_Call {
@@ -17923,9 +17923,9 @@ type MockGraphClient_CreateWorkflowDefinition_Call struct {
 //   - ctx context.Context
 //   - input graphclient.CreateWorkflowDefinitionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) CreateWorkflowDefinition(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_CreateWorkflowDefinition_Call {
+func (_e *MockGraphClient_Expecter) CreateWorkflowDefinition(ctx any, input any, interceptors ...any) *MockGraphClient_CreateWorkflowDefinition_Call {
 	return &MockGraphClient_CreateWorkflowDefinition_Call{Call: _e.mock.On("CreateWorkflowDefinition",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_CreateWorkflowDefinition_Call) Run(run func(ctx context.Context, input graphclient.CreateWorkflowDefinitionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_CreateWorkflowDefinition_Call {
@@ -18006,9 +18006,9 @@ type MockGraphClient_DeleteAPIToken_Call struct {
 //   - ctx context.Context
 //   - deleteAPITokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteAPIToken(ctx interface{}, deleteAPITokenID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteAPIToken_Call {
+func (_e *MockGraphClient_Expecter) DeleteAPIToken(ctx any, deleteAPITokenID any, interceptors ...any) *MockGraphClient_DeleteAPIToken_Call {
 	return &MockGraphClient_DeleteAPIToken_Call{Call: _e.mock.On("DeleteAPIToken",
-		append([]interface{}{ctx, deleteAPITokenID}, interceptors...)...)}
+		append([]any{ctx, deleteAPITokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteAPIToken_Call) Run(run func(ctx context.Context, deleteAPITokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteAPIToken_Call {
@@ -18089,9 +18089,9 @@ type MockGraphClient_DeleteActionPlan_Call struct {
 //   - ctx context.Context
 //   - deleteActionPlanID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteActionPlan(ctx interface{}, deleteActionPlanID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteActionPlan_Call {
+func (_e *MockGraphClient_Expecter) DeleteActionPlan(ctx any, deleteActionPlanID any, interceptors ...any) *MockGraphClient_DeleteActionPlan_Call {
 	return &MockGraphClient_DeleteActionPlan_Call{Call: _e.mock.On("DeleteActionPlan",
-		append([]interface{}{ctx, deleteActionPlanID}, interceptors...)...)}
+		append([]any{ctx, deleteActionPlanID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteActionPlan_Call) Run(run func(ctx context.Context, deleteActionPlanID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteActionPlan_Call {
@@ -18172,9 +18172,9 @@ type MockGraphClient_DeleteAssessment_Call struct {
 //   - ctx context.Context
 //   - deleteAssessmentID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteAssessment(ctx interface{}, deleteAssessmentID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteAssessment_Call {
+func (_e *MockGraphClient_Expecter) DeleteAssessment(ctx any, deleteAssessmentID any, interceptors ...any) *MockGraphClient_DeleteAssessment_Call {
 	return &MockGraphClient_DeleteAssessment_Call{Call: _e.mock.On("DeleteAssessment",
-		append([]interface{}{ctx, deleteAssessmentID}, interceptors...)...)}
+		append([]any{ctx, deleteAssessmentID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteAssessment_Call) Run(run func(ctx context.Context, deleteAssessmentID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteAssessment_Call {
@@ -18255,9 +18255,9 @@ type MockGraphClient_DeleteAssessmentResponse_Call struct {
 //   - ctx context.Context
 //   - deleteAssessmentResponseID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteAssessmentResponse(ctx interface{}, deleteAssessmentResponseID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteAssessmentResponse_Call {
+func (_e *MockGraphClient_Expecter) DeleteAssessmentResponse(ctx any, deleteAssessmentResponseID any, interceptors ...any) *MockGraphClient_DeleteAssessmentResponse_Call {
 	return &MockGraphClient_DeleteAssessmentResponse_Call{Call: _e.mock.On("DeleteAssessmentResponse",
-		append([]interface{}{ctx, deleteAssessmentResponseID}, interceptors...)...)}
+		append([]any{ctx, deleteAssessmentResponseID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteAssessmentResponse_Call) Run(run func(ctx context.Context, deleteAssessmentResponseID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteAssessmentResponse_Call {
@@ -18338,9 +18338,9 @@ type MockGraphClient_DeleteAsset_Call struct {
 //   - ctx context.Context
 //   - deleteAssetID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteAsset(ctx interface{}, deleteAssetID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteAsset_Call {
+func (_e *MockGraphClient_Expecter) DeleteAsset(ctx any, deleteAssetID any, interceptors ...any) *MockGraphClient_DeleteAsset_Call {
 	return &MockGraphClient_DeleteAsset_Call{Call: _e.mock.On("DeleteAsset",
-		append([]interface{}{ctx, deleteAssetID}, interceptors...)...)}
+		append([]any{ctx, deleteAssetID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteAsset_Call) Run(run func(ctx context.Context, deleteAssetID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteAsset_Call {
@@ -18421,9 +18421,9 @@ type MockGraphClient_DeleteBulkAssessment_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkAssessment(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkAssessment_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkAssessment(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkAssessment_Call {
 	return &MockGraphClient_DeleteBulkAssessment_Call{Call: _e.mock.On("DeleteBulkAssessment",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkAssessment_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkAssessment_Call {
@@ -18504,9 +18504,9 @@ type MockGraphClient_DeleteBulkCheckResult_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkCheckResult(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkCheckResult_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkCheckResult(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkCheckResult_Call {
 	return &MockGraphClient_DeleteBulkCheckResult_Call{Call: _e.mock.On("DeleteBulkCheckResult",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkCheckResult_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkCheckResult_Call {
@@ -18587,9 +18587,9 @@ type MockGraphClient_DeleteBulkEmailTemplate_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkEmailTemplate(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkEmailTemplate(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkEmailTemplate_Call {
 	return &MockGraphClient_DeleteBulkEmailTemplate_Call{Call: _e.mock.On("DeleteBulkEmailTemplate",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkEmailTemplate_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkEmailTemplate_Call {
@@ -18670,9 +18670,9 @@ type MockGraphClient_DeleteBulkExport_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkExport(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkExport_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkExport(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkExport_Call {
 	return &MockGraphClient_DeleteBulkExport_Call{Call: _e.mock.On("DeleteBulkExport",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkExport_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkExport_Call {
@@ -18753,9 +18753,9 @@ type MockGraphClient_DeleteBulkNotificationPreference_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkNotificationPreference(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkNotificationPreference(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkNotificationPreference_Call {
 	return &MockGraphClient_DeleteBulkNotificationPreference_Call{Call: _e.mock.On("DeleteBulkNotificationPreference",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkNotificationPreference_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkNotificationPreference_Call {
@@ -18836,9 +18836,9 @@ type MockGraphClient_DeleteBulkNotificationTemplate_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkNotificationTemplate(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkNotificationTemplate(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
 	return &MockGraphClient_DeleteBulkNotificationTemplate_Call{Call: _e.mock.On("DeleteBulkNotificationTemplate",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkNotificationTemplate_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkNotificationTemplate_Call {
@@ -18919,9 +18919,9 @@ type MockGraphClient_DeleteBulkSubprocessor_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkSubprocessor(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkSubprocessor(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkSubprocessor_Call {
 	return &MockGraphClient_DeleteBulkSubprocessor_Call{Call: _e.mock.On("DeleteBulkSubprocessor",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkSubprocessor_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkSubprocessor_Call {
@@ -19002,9 +19002,9 @@ type MockGraphClient_DeleteBulkSystemDetail_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkSystemDetail(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkSystemDetail(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkSystemDetail_Call {
 	return &MockGraphClient_DeleteBulkSystemDetail_Call{Call: _e.mock.On("DeleteBulkSystemDetail",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkSystemDetail_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkSystemDetail_Call {
@@ -19085,9 +19085,9 @@ type MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call struct {
 //   - ctx context.Context
 //   - ids []string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteBulkTrustCenterSubprocessor(ctx interface{}, ids interface{}, interceptors ...interface{}) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) DeleteBulkTrustCenterSubprocessor(ctx any, ids any, interceptors ...any) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
 	return &MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call{Call: _e.mock.On("DeleteBulkTrustCenterSubprocessor",
-		append([]interface{}{ctx, ids}, interceptors...)...)}
+		append([]any{ctx, ids}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, ids []string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteBulkTrustCenterSubprocessor_Call {
@@ -19168,9 +19168,9 @@ type MockGraphClient_DeleteCampaign_Call struct {
 //   - ctx context.Context
 //   - deleteCampaignID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteCampaign(ctx interface{}, deleteCampaignID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteCampaign_Call {
+func (_e *MockGraphClient_Expecter) DeleteCampaign(ctx any, deleteCampaignID any, interceptors ...any) *MockGraphClient_DeleteCampaign_Call {
 	return &MockGraphClient_DeleteCampaign_Call{Call: _e.mock.On("DeleteCampaign",
-		append([]interface{}{ctx, deleteCampaignID}, interceptors...)...)}
+		append([]any{ctx, deleteCampaignID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteCampaign_Call) Run(run func(ctx context.Context, deleteCampaignID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteCampaign_Call {
@@ -19251,9 +19251,9 @@ type MockGraphClient_DeleteCampaignTarget_Call struct {
 //   - ctx context.Context
 //   - deleteCampaignTargetID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteCampaignTarget(ctx interface{}, deleteCampaignTargetID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteCampaignTarget_Call {
+func (_e *MockGraphClient_Expecter) DeleteCampaignTarget(ctx any, deleteCampaignTargetID any, interceptors ...any) *MockGraphClient_DeleteCampaignTarget_Call {
 	return &MockGraphClient_DeleteCampaignTarget_Call{Call: _e.mock.On("DeleteCampaignTarget",
-		append([]interface{}{ctx, deleteCampaignTargetID}, interceptors...)...)}
+		append([]any{ctx, deleteCampaignTargetID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteCampaignTarget_Call) Run(run func(ctx context.Context, deleteCampaignTargetID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteCampaignTarget_Call {
@@ -19334,9 +19334,9 @@ type MockGraphClient_DeleteCheckResult_Call struct {
 //   - ctx context.Context
 //   - deleteCheckResultID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteCheckResult(ctx interface{}, deleteCheckResultID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteCheckResult_Call {
+func (_e *MockGraphClient_Expecter) DeleteCheckResult(ctx any, deleteCheckResultID any, interceptors ...any) *MockGraphClient_DeleteCheckResult_Call {
 	return &MockGraphClient_DeleteCheckResult_Call{Call: _e.mock.On("DeleteCheckResult",
-		append([]interface{}{ctx, deleteCheckResultID}, interceptors...)...)}
+		append([]any{ctx, deleteCheckResultID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteCheckResult_Call) Run(run func(ctx context.Context, deleteCheckResultID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteCheckResult_Call {
@@ -19417,9 +19417,9 @@ type MockGraphClient_DeleteContact_Call struct {
 //   - ctx context.Context
 //   - deleteContactID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteContact(ctx interface{}, deleteContactID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteContact_Call {
+func (_e *MockGraphClient_Expecter) DeleteContact(ctx any, deleteContactID any, interceptors ...any) *MockGraphClient_DeleteContact_Call {
 	return &MockGraphClient_DeleteContact_Call{Call: _e.mock.On("DeleteContact",
-		append([]interface{}{ctx, deleteContactID}, interceptors...)...)}
+		append([]any{ctx, deleteContactID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteContact_Call) Run(run func(ctx context.Context, deleteContactID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteContact_Call {
@@ -19500,9 +19500,9 @@ type MockGraphClient_DeleteControl_Call struct {
 //   - ctx context.Context
 //   - deleteControlID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteControl(ctx interface{}, deleteControlID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteControl_Call {
+func (_e *MockGraphClient_Expecter) DeleteControl(ctx any, deleteControlID any, interceptors ...any) *MockGraphClient_DeleteControl_Call {
 	return &MockGraphClient_DeleteControl_Call{Call: _e.mock.On("DeleteControl",
-		append([]interface{}{ctx, deleteControlID}, interceptors...)...)}
+		append([]any{ctx, deleteControlID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteControl_Call) Run(run func(ctx context.Context, deleteControlID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteControl_Call {
@@ -19583,9 +19583,9 @@ type MockGraphClient_DeleteControlImplementation_Call struct {
 //   - ctx context.Context
 //   - deleteControlImplementationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteControlImplementation(ctx interface{}, deleteControlImplementationID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteControlImplementation_Call {
+func (_e *MockGraphClient_Expecter) DeleteControlImplementation(ctx any, deleteControlImplementationID any, interceptors ...any) *MockGraphClient_DeleteControlImplementation_Call {
 	return &MockGraphClient_DeleteControlImplementation_Call{Call: _e.mock.On("DeleteControlImplementation",
-		append([]interface{}{ctx, deleteControlImplementationID}, interceptors...)...)}
+		append([]any{ctx, deleteControlImplementationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteControlImplementation_Call) Run(run func(ctx context.Context, deleteControlImplementationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteControlImplementation_Call {
@@ -19666,9 +19666,9 @@ type MockGraphClient_DeleteControlObjective_Call struct {
 //   - ctx context.Context
 //   - deleteControlObjectiveID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteControlObjective(ctx interface{}, deleteControlObjectiveID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteControlObjective_Call {
+func (_e *MockGraphClient_Expecter) DeleteControlObjective(ctx any, deleteControlObjectiveID any, interceptors ...any) *MockGraphClient_DeleteControlObjective_Call {
 	return &MockGraphClient_DeleteControlObjective_Call{Call: _e.mock.On("DeleteControlObjective",
-		append([]interface{}{ctx, deleteControlObjectiveID}, interceptors...)...)}
+		append([]any{ctx, deleteControlObjectiveID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteControlObjective_Call) Run(run func(ctx context.Context, deleteControlObjectiveID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteControlObjective_Call {
@@ -19749,9 +19749,9 @@ type MockGraphClient_DeleteCustomDomain_Call struct {
 //   - ctx context.Context
 //   - deleteCustomDomainID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteCustomDomain(ctx interface{}, deleteCustomDomainID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteCustomDomain_Call {
+func (_e *MockGraphClient_Expecter) DeleteCustomDomain(ctx any, deleteCustomDomainID any, interceptors ...any) *MockGraphClient_DeleteCustomDomain_Call {
 	return &MockGraphClient_DeleteCustomDomain_Call{Call: _e.mock.On("DeleteCustomDomain",
-		append([]interface{}{ctx, deleteCustomDomainID}, interceptors...)...)}
+		append([]any{ctx, deleteCustomDomainID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteCustomDomain_Call) Run(run func(ctx context.Context, deleteCustomDomainID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteCustomDomain_Call {
@@ -19832,9 +19832,9 @@ type MockGraphClient_DeleteCustomTypeEnum_Call struct {
 //   - ctx context.Context
 //   - deleteCustomTypeEnumID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteCustomTypeEnum(ctx interface{}, deleteCustomTypeEnumID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteCustomTypeEnum_Call {
+func (_e *MockGraphClient_Expecter) DeleteCustomTypeEnum(ctx any, deleteCustomTypeEnumID any, interceptors ...any) *MockGraphClient_DeleteCustomTypeEnum_Call {
 	return &MockGraphClient_DeleteCustomTypeEnum_Call{Call: _e.mock.On("DeleteCustomTypeEnum",
-		append([]interface{}{ctx, deleteCustomTypeEnumID}, interceptors...)...)}
+		append([]any{ctx, deleteCustomTypeEnumID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteCustomTypeEnum_Call) Run(run func(ctx context.Context, deleteCustomTypeEnumID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteCustomTypeEnum_Call {
@@ -19915,9 +19915,9 @@ type MockGraphClient_DeleteDNSVerification_Call struct {
 //   - ctx context.Context
 //   - deleteDNSVerificationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDNSVerification(ctx interface{}, deleteDNSVerificationID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDNSVerification_Call {
+func (_e *MockGraphClient_Expecter) DeleteDNSVerification(ctx any, deleteDNSVerificationID any, interceptors ...any) *MockGraphClient_DeleteDNSVerification_Call {
 	return &MockGraphClient_DeleteDNSVerification_Call{Call: _e.mock.On("DeleteDNSVerification",
-		append([]interface{}{ctx, deleteDNSVerificationID}, interceptors...)...)}
+		append([]any{ctx, deleteDNSVerificationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDNSVerification_Call) Run(run func(ctx context.Context, deleteDNSVerificationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDNSVerification_Call {
@@ -19998,9 +19998,9 @@ type MockGraphClient_DeleteDirectoryAccount_Call struct {
 //   - ctx context.Context
 //   - deleteDirectoryAccountID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDirectoryAccount(ctx interface{}, deleteDirectoryAccountID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDirectoryAccount_Call {
+func (_e *MockGraphClient_Expecter) DeleteDirectoryAccount(ctx any, deleteDirectoryAccountID any, interceptors ...any) *MockGraphClient_DeleteDirectoryAccount_Call {
 	return &MockGraphClient_DeleteDirectoryAccount_Call{Call: _e.mock.On("DeleteDirectoryAccount",
-		append([]interface{}{ctx, deleteDirectoryAccountID}, interceptors...)...)}
+		append([]any{ctx, deleteDirectoryAccountID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDirectoryAccount_Call) Run(run func(ctx context.Context, deleteDirectoryAccountID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDirectoryAccount_Call {
@@ -20081,9 +20081,9 @@ type MockGraphClient_DeleteDirectoryGroup_Call struct {
 //   - ctx context.Context
 //   - deleteDirectoryGroupID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDirectoryGroup(ctx interface{}, deleteDirectoryGroupID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDirectoryGroup_Call {
+func (_e *MockGraphClient_Expecter) DeleteDirectoryGroup(ctx any, deleteDirectoryGroupID any, interceptors ...any) *MockGraphClient_DeleteDirectoryGroup_Call {
 	return &MockGraphClient_DeleteDirectoryGroup_Call{Call: _e.mock.On("DeleteDirectoryGroup",
-		append([]interface{}{ctx, deleteDirectoryGroupID}, interceptors...)...)}
+		append([]any{ctx, deleteDirectoryGroupID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDirectoryGroup_Call) Run(run func(ctx context.Context, deleteDirectoryGroupID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDirectoryGroup_Call {
@@ -20164,9 +20164,9 @@ type MockGraphClient_DeleteDirectoryMembership_Call struct {
 //   - ctx context.Context
 //   - deleteDirectoryMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDirectoryMembership(ctx interface{}, deleteDirectoryMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDirectoryMembership_Call {
+func (_e *MockGraphClient_Expecter) DeleteDirectoryMembership(ctx any, deleteDirectoryMembershipID any, interceptors ...any) *MockGraphClient_DeleteDirectoryMembership_Call {
 	return &MockGraphClient_DeleteDirectoryMembership_Call{Call: _e.mock.On("DeleteDirectoryMembership",
-		append([]interface{}{ctx, deleteDirectoryMembershipID}, interceptors...)...)}
+		append([]any{ctx, deleteDirectoryMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDirectoryMembership_Call) Run(run func(ctx context.Context, deleteDirectoryMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDirectoryMembership_Call {
@@ -20247,9 +20247,9 @@ type MockGraphClient_DeleteDirectorySyncRun_Call struct {
 //   - ctx context.Context
 //   - deleteDirectorySyncRunID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDirectorySyncRun(ctx interface{}, deleteDirectorySyncRunID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDirectorySyncRun_Call {
+func (_e *MockGraphClient_Expecter) DeleteDirectorySyncRun(ctx any, deleteDirectorySyncRunID any, interceptors ...any) *MockGraphClient_DeleteDirectorySyncRun_Call {
 	return &MockGraphClient_DeleteDirectorySyncRun_Call{Call: _e.mock.On("DeleteDirectorySyncRun",
-		append([]interface{}{ctx, deleteDirectorySyncRunID}, interceptors...)...)}
+		append([]any{ctx, deleteDirectorySyncRunID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDirectorySyncRun_Call) Run(run func(ctx context.Context, deleteDirectorySyncRunID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDirectorySyncRun_Call {
@@ -20330,9 +20330,9 @@ type MockGraphClient_DeleteDiscussion_Call struct {
 //   - ctx context.Context
 //   - deleteDiscussionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDiscussion(ctx interface{}, deleteDiscussionID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDiscussion_Call {
+func (_e *MockGraphClient_Expecter) DeleteDiscussion(ctx any, deleteDiscussionID any, interceptors ...any) *MockGraphClient_DeleteDiscussion_Call {
 	return &MockGraphClient_DeleteDiscussion_Call{Call: _e.mock.On("DeleteDiscussion",
-		append([]interface{}{ctx, deleteDiscussionID}, interceptors...)...)}
+		append([]any{ctx, deleteDiscussionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDiscussion_Call) Run(run func(ctx context.Context, deleteDiscussionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDiscussion_Call {
@@ -20413,9 +20413,9 @@ type MockGraphClient_DeleteDocumentData_Call struct {
 //   - ctx context.Context
 //   - deleteDocumentDataID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteDocumentData(ctx interface{}, deleteDocumentDataID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteDocumentData_Call {
+func (_e *MockGraphClient_Expecter) DeleteDocumentData(ctx any, deleteDocumentDataID any, interceptors ...any) *MockGraphClient_DeleteDocumentData_Call {
 	return &MockGraphClient_DeleteDocumentData_Call{Call: _e.mock.On("DeleteDocumentData",
-		append([]interface{}{ctx, deleteDocumentDataID}, interceptors...)...)}
+		append([]any{ctx, deleteDocumentDataID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteDocumentData_Call) Run(run func(ctx context.Context, deleteDocumentDataID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteDocumentData_Call {
@@ -20496,9 +20496,9 @@ type MockGraphClient_DeleteEmailTemplate_Call struct {
 //   - ctx context.Context
 //   - deleteEmailTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteEmailTemplate(ctx interface{}, deleteEmailTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) DeleteEmailTemplate(ctx any, deleteEmailTemplateID any, interceptors ...any) *MockGraphClient_DeleteEmailTemplate_Call {
 	return &MockGraphClient_DeleteEmailTemplate_Call{Call: _e.mock.On("DeleteEmailTemplate",
-		append([]interface{}{ctx, deleteEmailTemplateID}, interceptors...)...)}
+		append([]any{ctx, deleteEmailTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteEmailTemplate_Call) Run(run func(ctx context.Context, deleteEmailTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEmailTemplate_Call {
@@ -20579,9 +20579,9 @@ type MockGraphClient_DeleteEntity_Call struct {
 //   - ctx context.Context
 //   - deleteEntityID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteEntity(ctx interface{}, deleteEntityID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEntity_Call {
+func (_e *MockGraphClient_Expecter) DeleteEntity(ctx any, deleteEntityID any, interceptors ...any) *MockGraphClient_DeleteEntity_Call {
 	return &MockGraphClient_DeleteEntity_Call{Call: _e.mock.On("DeleteEntity",
-		append([]interface{}{ctx, deleteEntityID}, interceptors...)...)}
+		append([]any{ctx, deleteEntityID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteEntity_Call) Run(run func(ctx context.Context, deleteEntityID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEntity_Call {
@@ -20662,9 +20662,9 @@ type MockGraphClient_DeleteEntityType_Call struct {
 //   - ctx context.Context
 //   - deleteEntityTypeID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteEntityType(ctx interface{}, deleteEntityTypeID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEntityType_Call {
+func (_e *MockGraphClient_Expecter) DeleteEntityType(ctx any, deleteEntityTypeID any, interceptors ...any) *MockGraphClient_DeleteEntityType_Call {
 	return &MockGraphClient_DeleteEntityType_Call{Call: _e.mock.On("DeleteEntityType",
-		append([]interface{}{ctx, deleteEntityTypeID}, interceptors...)...)}
+		append([]any{ctx, deleteEntityTypeID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteEntityType_Call) Run(run func(ctx context.Context, deleteEntityTypeID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEntityType_Call {
@@ -20745,9 +20745,9 @@ type MockGraphClient_DeleteEvent_Call struct {
 //   - ctx context.Context
 //   - deleteEventID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteEvent(ctx interface{}, deleteEventID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEvent_Call {
+func (_e *MockGraphClient_Expecter) DeleteEvent(ctx any, deleteEventID any, interceptors ...any) *MockGraphClient_DeleteEvent_Call {
 	return &MockGraphClient_DeleteEvent_Call{Call: _e.mock.On("DeleteEvent",
-		append([]interface{}{ctx, deleteEventID}, interceptors...)...)}
+		append([]any{ctx, deleteEventID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteEvent_Call) Run(run func(ctx context.Context, deleteEventID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEvent_Call {
@@ -20828,9 +20828,9 @@ type MockGraphClient_DeleteEvidence_Call struct {
 //   - ctx context.Context
 //   - deleteEvidenceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteEvidence(ctx interface{}, deleteEvidenceID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteEvidence_Call {
+func (_e *MockGraphClient_Expecter) DeleteEvidence(ctx any, deleteEvidenceID any, interceptors ...any) *MockGraphClient_DeleteEvidence_Call {
 	return &MockGraphClient_DeleteEvidence_Call{Call: _e.mock.On("DeleteEvidence",
-		append([]interface{}{ctx, deleteEvidenceID}, interceptors...)...)}
+		append([]any{ctx, deleteEvidenceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteEvidence_Call) Run(run func(ctx context.Context, deleteEvidenceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteEvidence_Call {
@@ -20911,9 +20911,9 @@ type MockGraphClient_DeleteExport_Call struct {
 //   - ctx context.Context
 //   - deleteExportID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteExport(ctx interface{}, deleteExportID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteExport_Call {
+func (_e *MockGraphClient_Expecter) DeleteExport(ctx any, deleteExportID any, interceptors ...any) *MockGraphClient_DeleteExport_Call {
 	return &MockGraphClient_DeleteExport_Call{Call: _e.mock.On("DeleteExport",
-		append([]interface{}{ctx, deleteExportID}, interceptors...)...)}
+		append([]any{ctx, deleteExportID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteExport_Call) Run(run func(ctx context.Context, deleteExportID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteExport_Call {
@@ -20994,9 +20994,9 @@ type MockGraphClient_DeleteFile_Call struct {
 //   - ctx context.Context
 //   - deleteFileID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteFile(ctx interface{}, deleteFileID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteFile_Call {
+func (_e *MockGraphClient_Expecter) DeleteFile(ctx any, deleteFileID any, interceptors ...any) *MockGraphClient_DeleteFile_Call {
 	return &MockGraphClient_DeleteFile_Call{Call: _e.mock.On("DeleteFile",
-		append([]interface{}{ctx, deleteFileID}, interceptors...)...)}
+		append([]any{ctx, deleteFileID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteFile_Call) Run(run func(ctx context.Context, deleteFileID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteFile_Call {
@@ -21077,9 +21077,9 @@ type MockGraphClient_DeleteFinding_Call struct {
 //   - ctx context.Context
 //   - deleteFindingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteFinding(ctx interface{}, deleteFindingID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteFinding_Call {
+func (_e *MockGraphClient_Expecter) DeleteFinding(ctx any, deleteFindingID any, interceptors ...any) *MockGraphClient_DeleteFinding_Call {
 	return &MockGraphClient_DeleteFinding_Call{Call: _e.mock.On("DeleteFinding",
-		append([]interface{}{ctx, deleteFindingID}, interceptors...)...)}
+		append([]any{ctx, deleteFindingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteFinding_Call) Run(run func(ctx context.Context, deleteFindingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteFinding_Call {
@@ -21160,9 +21160,9 @@ type MockGraphClient_DeleteFindingControl_Call struct {
 //   - ctx context.Context
 //   - deleteFindingControlID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteFindingControl(ctx interface{}, deleteFindingControlID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteFindingControl_Call {
+func (_e *MockGraphClient_Expecter) DeleteFindingControl(ctx any, deleteFindingControlID any, interceptors ...any) *MockGraphClient_DeleteFindingControl_Call {
 	return &MockGraphClient_DeleteFindingControl_Call{Call: _e.mock.On("DeleteFindingControl",
-		append([]interface{}{ctx, deleteFindingControlID}, interceptors...)...)}
+		append([]any{ctx, deleteFindingControlID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteFindingControl_Call) Run(run func(ctx context.Context, deleteFindingControlID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteFindingControl_Call {
@@ -21243,9 +21243,9 @@ type MockGraphClient_DeleteGroup_Call struct {
 //   - ctx context.Context
 //   - deleteGroupID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteGroup(ctx interface{}, deleteGroupID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteGroup_Call {
+func (_e *MockGraphClient_Expecter) DeleteGroup(ctx any, deleteGroupID any, interceptors ...any) *MockGraphClient_DeleteGroup_Call {
 	return &MockGraphClient_DeleteGroup_Call{Call: _e.mock.On("DeleteGroup",
-		append([]interface{}{ctx, deleteGroupID}, interceptors...)...)}
+		append([]any{ctx, deleteGroupID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteGroup_Call) Run(run func(ctx context.Context, deleteGroupID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteGroup_Call {
@@ -21326,9 +21326,9 @@ type MockGraphClient_DeleteGroupMembership_Call struct {
 //   - ctx context.Context
 //   - deleteGroupMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteGroupMembership(ctx interface{}, deleteGroupMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteGroupMembership_Call {
+func (_e *MockGraphClient_Expecter) DeleteGroupMembership(ctx any, deleteGroupMembershipID any, interceptors ...any) *MockGraphClient_DeleteGroupMembership_Call {
 	return &MockGraphClient_DeleteGroupMembership_Call{Call: _e.mock.On("DeleteGroupMembership",
-		append([]interface{}{ctx, deleteGroupMembershipID}, interceptors...)...)}
+		append([]any{ctx, deleteGroupMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteGroupMembership_Call) Run(run func(ctx context.Context, deleteGroupMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteGroupMembership_Call {
@@ -21409,9 +21409,9 @@ type MockGraphClient_DeleteGroupSetting_Call struct {
 //   - ctx context.Context
 //   - deleteGroupSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteGroupSetting(ctx interface{}, deleteGroupSettingID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteGroupSetting_Call {
+func (_e *MockGraphClient_Expecter) DeleteGroupSetting(ctx any, deleteGroupSettingID any, interceptors ...any) *MockGraphClient_DeleteGroupSetting_Call {
 	return &MockGraphClient_DeleteGroupSetting_Call{Call: _e.mock.On("DeleteGroupSetting",
-		append([]interface{}{ctx, deleteGroupSettingID}, interceptors...)...)}
+		append([]any{ctx, deleteGroupSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteGroupSetting_Call) Run(run func(ctx context.Context, deleteGroupSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteGroupSetting_Call {
@@ -21492,9 +21492,9 @@ type MockGraphClient_DeleteHush_Call struct {
 //   - ctx context.Context
 //   - deleteHushID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteHush(ctx interface{}, deleteHushID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteHush_Call {
+func (_e *MockGraphClient_Expecter) DeleteHush(ctx any, deleteHushID any, interceptors ...any) *MockGraphClient_DeleteHush_Call {
 	return &MockGraphClient_DeleteHush_Call{Call: _e.mock.On("DeleteHush",
-		append([]interface{}{ctx, deleteHushID}, interceptors...)...)}
+		append([]any{ctx, deleteHushID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteHush_Call) Run(run func(ctx context.Context, deleteHushID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteHush_Call {
@@ -21575,9 +21575,9 @@ type MockGraphClient_DeleteIdentityHolder_Call struct {
 //   - ctx context.Context
 //   - deleteIdentityHolderID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteIdentityHolder(ctx interface{}, deleteIdentityHolderID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteIdentityHolder_Call {
+func (_e *MockGraphClient_Expecter) DeleteIdentityHolder(ctx any, deleteIdentityHolderID any, interceptors ...any) *MockGraphClient_DeleteIdentityHolder_Call {
 	return &MockGraphClient_DeleteIdentityHolder_Call{Call: _e.mock.On("DeleteIdentityHolder",
-		append([]interface{}{ctx, deleteIdentityHolderID}, interceptors...)...)}
+		append([]any{ctx, deleteIdentityHolderID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteIdentityHolder_Call) Run(run func(ctx context.Context, deleteIdentityHolderID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteIdentityHolder_Call {
@@ -21658,9 +21658,9 @@ type MockGraphClient_DeleteIntegration_Call struct {
 //   - ctx context.Context
 //   - deleteIntegrationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteIntegration(ctx interface{}, deleteIntegrationID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteIntegration_Call {
+func (_e *MockGraphClient_Expecter) DeleteIntegration(ctx any, deleteIntegrationID any, interceptors ...any) *MockGraphClient_DeleteIntegration_Call {
 	return &MockGraphClient_DeleteIntegration_Call{Call: _e.mock.On("DeleteIntegration",
-		append([]interface{}{ctx, deleteIntegrationID}, interceptors...)...)}
+		append([]any{ctx, deleteIntegrationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteIntegration_Call) Run(run func(ctx context.Context, deleteIntegrationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteIntegration_Call {
@@ -21741,9 +21741,9 @@ type MockGraphClient_DeleteInternalPolicy_Call struct {
 //   - ctx context.Context
 //   - deleteInternalPolicyID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteInternalPolicy(ctx interface{}, deleteInternalPolicyID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteInternalPolicy_Call {
+func (_e *MockGraphClient_Expecter) DeleteInternalPolicy(ctx any, deleteInternalPolicyID any, interceptors ...any) *MockGraphClient_DeleteInternalPolicy_Call {
 	return &MockGraphClient_DeleteInternalPolicy_Call{Call: _e.mock.On("DeleteInternalPolicy",
-		append([]interface{}{ctx, deleteInternalPolicyID}, interceptors...)...)}
+		append([]any{ctx, deleteInternalPolicyID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteInternalPolicy_Call) Run(run func(ctx context.Context, deleteInternalPolicyID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteInternalPolicy_Call {
@@ -21824,9 +21824,9 @@ type MockGraphClient_DeleteInvite_Call struct {
 //   - ctx context.Context
 //   - deleteInviteID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteInvite(ctx interface{}, deleteInviteID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteInvite_Call {
+func (_e *MockGraphClient_Expecter) DeleteInvite(ctx any, deleteInviteID any, interceptors ...any) *MockGraphClient_DeleteInvite_Call {
 	return &MockGraphClient_DeleteInvite_Call{Call: _e.mock.On("DeleteInvite",
-		append([]interface{}{ctx, deleteInviteID}, interceptors...)...)}
+		append([]any{ctx, deleteInviteID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteInvite_Call) Run(run func(ctx context.Context, deleteInviteID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteInvite_Call {
@@ -21907,9 +21907,9 @@ type MockGraphClient_DeleteJobResult_Call struct {
 //   - ctx context.Context
 //   - deleteJobResultID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteJobResult(ctx interface{}, deleteJobResultID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteJobResult_Call {
+func (_e *MockGraphClient_Expecter) DeleteJobResult(ctx any, deleteJobResultID any, interceptors ...any) *MockGraphClient_DeleteJobResult_Call {
 	return &MockGraphClient_DeleteJobResult_Call{Call: _e.mock.On("DeleteJobResult",
-		append([]interface{}{ctx, deleteJobResultID}, interceptors...)...)}
+		append([]any{ctx, deleteJobResultID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteJobResult_Call) Run(run func(ctx context.Context, deleteJobResultID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteJobResult_Call {
@@ -21990,9 +21990,9 @@ type MockGraphClient_DeleteJobRunner_Call struct {
 //   - ctx context.Context
 //   - deleteJobRunnerID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteJobRunner(ctx interface{}, deleteJobRunnerID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteJobRunner_Call {
+func (_e *MockGraphClient_Expecter) DeleteJobRunner(ctx any, deleteJobRunnerID any, interceptors ...any) *MockGraphClient_DeleteJobRunner_Call {
 	return &MockGraphClient_DeleteJobRunner_Call{Call: _e.mock.On("DeleteJobRunner",
-		append([]interface{}{ctx, deleteJobRunnerID}, interceptors...)...)}
+		append([]any{ctx, deleteJobRunnerID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteJobRunner_Call) Run(run func(ctx context.Context, deleteJobRunnerID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteJobRunner_Call {
@@ -22073,9 +22073,9 @@ type MockGraphClient_DeleteJobRunnerRegistrationToken_Call struct {
 //   - ctx context.Context
 //   - deleteJobRunnerRegistrationTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteJobRunnerRegistrationToken(ctx interface{}, deleteJobRunnerRegistrationTokenID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteJobRunnerRegistrationToken_Call {
+func (_e *MockGraphClient_Expecter) DeleteJobRunnerRegistrationToken(ctx any, deleteJobRunnerRegistrationTokenID any, interceptors ...any) *MockGraphClient_DeleteJobRunnerRegistrationToken_Call {
 	return &MockGraphClient_DeleteJobRunnerRegistrationToken_Call{Call: _e.mock.On("DeleteJobRunnerRegistrationToken",
-		append([]interface{}{ctx, deleteJobRunnerRegistrationTokenID}, interceptors...)...)}
+		append([]any{ctx, deleteJobRunnerRegistrationTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteJobRunnerRegistrationToken_Call) Run(run func(ctx context.Context, deleteJobRunnerRegistrationTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteJobRunnerRegistrationToken_Call {
@@ -22156,9 +22156,9 @@ type MockGraphClient_DeleteJobRunnerToken_Call struct {
 //   - ctx context.Context
 //   - deleteJobRunnerTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteJobRunnerToken(ctx interface{}, deleteJobRunnerTokenID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteJobRunnerToken_Call {
+func (_e *MockGraphClient_Expecter) DeleteJobRunnerToken(ctx any, deleteJobRunnerTokenID any, interceptors ...any) *MockGraphClient_DeleteJobRunnerToken_Call {
 	return &MockGraphClient_DeleteJobRunnerToken_Call{Call: _e.mock.On("DeleteJobRunnerToken",
-		append([]interface{}{ctx, deleteJobRunnerTokenID}, interceptors...)...)}
+		append([]any{ctx, deleteJobRunnerTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteJobRunnerToken_Call) Run(run func(ctx context.Context, deleteJobRunnerTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteJobRunnerToken_Call {
@@ -22239,9 +22239,9 @@ type MockGraphClient_DeleteJobTemplate_Call struct {
 //   - ctx context.Context
 //   - deleteJobTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteJobTemplate(ctx interface{}, deleteJobTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteJobTemplate_Call {
+func (_e *MockGraphClient_Expecter) DeleteJobTemplate(ctx any, deleteJobTemplateID any, interceptors ...any) *MockGraphClient_DeleteJobTemplate_Call {
 	return &MockGraphClient_DeleteJobTemplate_Call{Call: _e.mock.On("DeleteJobTemplate",
-		append([]interface{}{ctx, deleteJobTemplateID}, interceptors...)...)}
+		append([]any{ctx, deleteJobTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteJobTemplate_Call) Run(run func(ctx context.Context, deleteJobTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteJobTemplate_Call {
@@ -22322,9 +22322,9 @@ type MockGraphClient_DeleteMappableDomain_Call struct {
 //   - ctx context.Context
 //   - deleteMappableDomainID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteMappableDomain(ctx interface{}, deleteMappableDomainID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteMappableDomain_Call {
+func (_e *MockGraphClient_Expecter) DeleteMappableDomain(ctx any, deleteMappableDomainID any, interceptors ...any) *MockGraphClient_DeleteMappableDomain_Call {
 	return &MockGraphClient_DeleteMappableDomain_Call{Call: _e.mock.On("DeleteMappableDomain",
-		append([]interface{}{ctx, deleteMappableDomainID}, interceptors...)...)}
+		append([]any{ctx, deleteMappableDomainID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteMappableDomain_Call) Run(run func(ctx context.Context, deleteMappableDomainID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteMappableDomain_Call {
@@ -22405,9 +22405,9 @@ type MockGraphClient_DeleteMappedControl_Call struct {
 //   - ctx context.Context
 //   - deleteMappedControlID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteMappedControl(ctx interface{}, deleteMappedControlID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteMappedControl_Call {
+func (_e *MockGraphClient_Expecter) DeleteMappedControl(ctx any, deleteMappedControlID any, interceptors ...any) *MockGraphClient_DeleteMappedControl_Call {
 	return &MockGraphClient_DeleteMappedControl_Call{Call: _e.mock.On("DeleteMappedControl",
-		append([]interface{}{ctx, deleteMappedControlID}, interceptors...)...)}
+		append([]any{ctx, deleteMappedControlID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteMappedControl_Call) Run(run func(ctx context.Context, deleteMappedControlID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteMappedControl_Call {
@@ -22488,9 +22488,9 @@ type MockGraphClient_DeleteNarrative_Call struct {
 //   - ctx context.Context
 //   - deleteNarrativeID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteNarrative(ctx interface{}, deleteNarrativeID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteNarrative_Call {
+func (_e *MockGraphClient_Expecter) DeleteNarrative(ctx any, deleteNarrativeID any, interceptors ...any) *MockGraphClient_DeleteNarrative_Call {
 	return &MockGraphClient_DeleteNarrative_Call{Call: _e.mock.On("DeleteNarrative",
-		append([]interface{}{ctx, deleteNarrativeID}, interceptors...)...)}
+		append([]any{ctx, deleteNarrativeID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteNarrative_Call) Run(run func(ctx context.Context, deleteNarrativeID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteNarrative_Call {
@@ -22571,9 +22571,9 @@ type MockGraphClient_DeleteNote_Call struct {
 //   - ctx context.Context
 //   - noteID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteNote(ctx interface{}, noteID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteNote_Call {
+func (_e *MockGraphClient_Expecter) DeleteNote(ctx any, noteID any, interceptors ...any) *MockGraphClient_DeleteNote_Call {
 	return &MockGraphClient_DeleteNote_Call{Call: _e.mock.On("DeleteNote",
-		append([]interface{}{ctx, noteID}, interceptors...)...)}
+		append([]any{ctx, noteID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteNote_Call) Run(run func(ctx context.Context, noteID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteNote_Call {
@@ -22654,9 +22654,9 @@ type MockGraphClient_DeleteNotificationPreference_Call struct {
 //   - ctx context.Context
 //   - deleteNotificationPreferenceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteNotificationPreference(ctx interface{}, deleteNotificationPreferenceID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) DeleteNotificationPreference(ctx any, deleteNotificationPreferenceID any, interceptors ...any) *MockGraphClient_DeleteNotificationPreference_Call {
 	return &MockGraphClient_DeleteNotificationPreference_Call{Call: _e.mock.On("DeleteNotificationPreference",
-		append([]interface{}{ctx, deleteNotificationPreferenceID}, interceptors...)...)}
+		append([]any{ctx, deleteNotificationPreferenceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteNotificationPreference_Call) Run(run func(ctx context.Context, deleteNotificationPreferenceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteNotificationPreference_Call {
@@ -22737,9 +22737,9 @@ type MockGraphClient_DeleteNotificationTemplate_Call struct {
 //   - ctx context.Context
 //   - deleteNotificationTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteNotificationTemplate(ctx interface{}, deleteNotificationTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) DeleteNotificationTemplate(ctx any, deleteNotificationTemplateID any, interceptors ...any) *MockGraphClient_DeleteNotificationTemplate_Call {
 	return &MockGraphClient_DeleteNotificationTemplate_Call{Call: _e.mock.On("DeleteNotificationTemplate",
-		append([]interface{}{ctx, deleteNotificationTemplateID}, interceptors...)...)}
+		append([]any{ctx, deleteNotificationTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteNotificationTemplate_Call) Run(run func(ctx context.Context, deleteNotificationTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteNotificationTemplate_Call {
@@ -22820,9 +22820,9 @@ type MockGraphClient_DeleteOrgMembership_Call struct {
 //   - ctx context.Context
 //   - deleteOrgMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteOrgMembership(ctx interface{}, deleteOrgMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteOrgMembership_Call {
+func (_e *MockGraphClient_Expecter) DeleteOrgMembership(ctx any, deleteOrgMembershipID any, interceptors ...any) *MockGraphClient_DeleteOrgMembership_Call {
 	return &MockGraphClient_DeleteOrgMembership_Call{Call: _e.mock.On("DeleteOrgMembership",
-		append([]interface{}{ctx, deleteOrgMembershipID}, interceptors...)...)}
+		append([]any{ctx, deleteOrgMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteOrgMembership_Call) Run(run func(ctx context.Context, deleteOrgMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteOrgMembership_Call {
@@ -22903,9 +22903,9 @@ type MockGraphClient_DeleteOrganization_Call struct {
 //   - ctx context.Context
 //   - deleteOrganizationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteOrganization(ctx interface{}, deleteOrganizationID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteOrganization_Call {
+func (_e *MockGraphClient_Expecter) DeleteOrganization(ctx any, deleteOrganizationID any, interceptors ...any) *MockGraphClient_DeleteOrganization_Call {
 	return &MockGraphClient_DeleteOrganization_Call{Call: _e.mock.On("DeleteOrganization",
-		append([]interface{}{ctx, deleteOrganizationID}, interceptors...)...)}
+		append([]any{ctx, deleteOrganizationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteOrganization_Call) Run(run func(ctx context.Context, deleteOrganizationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteOrganization_Call {
@@ -22986,9 +22986,9 @@ type MockGraphClient_DeleteOrganizationSetting_Call struct {
 //   - ctx context.Context
 //   - deleteOrganizationSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteOrganizationSetting(ctx interface{}, deleteOrganizationSettingID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteOrganizationSetting_Call {
+func (_e *MockGraphClient_Expecter) DeleteOrganizationSetting(ctx any, deleteOrganizationSettingID any, interceptors ...any) *MockGraphClient_DeleteOrganizationSetting_Call {
 	return &MockGraphClient_DeleteOrganizationSetting_Call{Call: _e.mock.On("DeleteOrganizationSetting",
-		append([]interface{}{ctx, deleteOrganizationSettingID}, interceptors...)...)}
+		append([]any{ctx, deleteOrganizationSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteOrganizationSetting_Call) Run(run func(ctx context.Context, deleteOrganizationSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteOrganizationSetting_Call {
@@ -23069,9 +23069,9 @@ type MockGraphClient_DeletePersonalAccessToken_Call struct {
 //   - ctx context.Context
 //   - deletePersonalAccessTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeletePersonalAccessToken(ctx interface{}, deletePersonalAccessTokenID interface{}, interceptors ...interface{}) *MockGraphClient_DeletePersonalAccessToken_Call {
+func (_e *MockGraphClient_Expecter) DeletePersonalAccessToken(ctx any, deletePersonalAccessTokenID any, interceptors ...any) *MockGraphClient_DeletePersonalAccessToken_Call {
 	return &MockGraphClient_DeletePersonalAccessToken_Call{Call: _e.mock.On("DeletePersonalAccessToken",
-		append([]interface{}{ctx, deletePersonalAccessTokenID}, interceptors...)...)}
+		append([]any{ctx, deletePersonalAccessTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeletePersonalAccessToken_Call) Run(run func(ctx context.Context, deletePersonalAccessTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeletePersonalAccessToken_Call {
@@ -23152,9 +23152,9 @@ type MockGraphClient_DeletePlatform_Call struct {
 //   - ctx context.Context
 //   - deletePlatformID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeletePlatform(ctx interface{}, deletePlatformID interface{}, interceptors ...interface{}) *MockGraphClient_DeletePlatform_Call {
+func (_e *MockGraphClient_Expecter) DeletePlatform(ctx any, deletePlatformID any, interceptors ...any) *MockGraphClient_DeletePlatform_Call {
 	return &MockGraphClient_DeletePlatform_Call{Call: _e.mock.On("DeletePlatform",
-		append([]interface{}{ctx, deletePlatformID}, interceptors...)...)}
+		append([]any{ctx, deletePlatformID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeletePlatform_Call) Run(run func(ctx context.Context, deletePlatformID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeletePlatform_Call {
@@ -23235,9 +23235,9 @@ type MockGraphClient_DeleteProcedure_Call struct {
 //   - ctx context.Context
 //   - deleteProcedureID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteProcedure(ctx interface{}, deleteProcedureID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteProcedure_Call {
+func (_e *MockGraphClient_Expecter) DeleteProcedure(ctx any, deleteProcedureID any, interceptors ...any) *MockGraphClient_DeleteProcedure_Call {
 	return &MockGraphClient_DeleteProcedure_Call{Call: _e.mock.On("DeleteProcedure",
-		append([]interface{}{ctx, deleteProcedureID}, interceptors...)...)}
+		append([]any{ctx, deleteProcedureID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteProcedure_Call) Run(run func(ctx context.Context, deleteProcedureID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteProcedure_Call {
@@ -23318,9 +23318,9 @@ type MockGraphClient_DeleteProgram_Call struct {
 //   - ctx context.Context
 //   - deleteProgramID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteProgram(ctx interface{}, deleteProgramID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteProgram_Call {
+func (_e *MockGraphClient_Expecter) DeleteProgram(ctx any, deleteProgramID any, interceptors ...any) *MockGraphClient_DeleteProgram_Call {
 	return &MockGraphClient_DeleteProgram_Call{Call: _e.mock.On("DeleteProgram",
-		append([]interface{}{ctx, deleteProgramID}, interceptors...)...)}
+		append([]any{ctx, deleteProgramID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteProgram_Call) Run(run func(ctx context.Context, deleteProgramID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteProgram_Call {
@@ -23401,9 +23401,9 @@ type MockGraphClient_DeleteProgramMembership_Call struct {
 //   - ctx context.Context
 //   - deleteProgramMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteProgramMembership(ctx interface{}, deleteProgramMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteProgramMembership_Call {
+func (_e *MockGraphClient_Expecter) DeleteProgramMembership(ctx any, deleteProgramMembershipID any, interceptors ...any) *MockGraphClient_DeleteProgramMembership_Call {
 	return &MockGraphClient_DeleteProgramMembership_Call{Call: _e.mock.On("DeleteProgramMembership",
-		append([]interface{}{ctx, deleteProgramMembershipID}, interceptors...)...)}
+		append([]any{ctx, deleteProgramMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteProgramMembership_Call) Run(run func(ctx context.Context, deleteProgramMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteProgramMembership_Call {
@@ -23484,9 +23484,9 @@ type MockGraphClient_DeleteRemediation_Call struct {
 //   - ctx context.Context
 //   - deleteRemediationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteRemediation(ctx interface{}, deleteRemediationID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteRemediation_Call {
+func (_e *MockGraphClient_Expecter) DeleteRemediation(ctx any, deleteRemediationID any, interceptors ...any) *MockGraphClient_DeleteRemediation_Call {
 	return &MockGraphClient_DeleteRemediation_Call{Call: _e.mock.On("DeleteRemediation",
-		append([]interface{}{ctx, deleteRemediationID}, interceptors...)...)}
+		append([]any{ctx, deleteRemediationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteRemediation_Call) Run(run func(ctx context.Context, deleteRemediationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteRemediation_Call {
@@ -23567,9 +23567,9 @@ type MockGraphClient_DeleteReview_Call struct {
 //   - ctx context.Context
 //   - deleteReviewID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteReview(ctx interface{}, deleteReviewID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteReview_Call {
+func (_e *MockGraphClient_Expecter) DeleteReview(ctx any, deleteReviewID any, interceptors ...any) *MockGraphClient_DeleteReview_Call {
 	return &MockGraphClient_DeleteReview_Call{Call: _e.mock.On("DeleteReview",
-		append([]interface{}{ctx, deleteReviewID}, interceptors...)...)}
+		append([]any{ctx, deleteReviewID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteReview_Call) Run(run func(ctx context.Context, deleteReviewID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteReview_Call {
@@ -23650,9 +23650,9 @@ type MockGraphClient_DeleteRisk_Call struct {
 //   - ctx context.Context
 //   - deleteRiskID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteRisk(ctx interface{}, deleteRiskID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteRisk_Call {
+func (_e *MockGraphClient_Expecter) DeleteRisk(ctx any, deleteRiskID any, interceptors ...any) *MockGraphClient_DeleteRisk_Call {
 	return &MockGraphClient_DeleteRisk_Call{Call: _e.mock.On("DeleteRisk",
-		append([]interface{}{ctx, deleteRiskID}, interceptors...)...)}
+		append([]any{ctx, deleteRiskID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteRisk_Call) Run(run func(ctx context.Context, deleteRiskID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteRisk_Call {
@@ -23733,9 +23733,9 @@ type MockGraphClient_DeleteScan_Call struct {
 //   - ctx context.Context
 //   - deleteScanID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteScan(ctx interface{}, deleteScanID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteScan_Call {
+func (_e *MockGraphClient_Expecter) DeleteScan(ctx any, deleteScanID any, interceptors ...any) *MockGraphClient_DeleteScan_Call {
 	return &MockGraphClient_DeleteScan_Call{Call: _e.mock.On("DeleteScan",
-		append([]interface{}{ctx, deleteScanID}, interceptors...)...)}
+		append([]any{ctx, deleteScanID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteScan_Call) Run(run func(ctx context.Context, deleteScanID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteScan_Call {
@@ -23816,9 +23816,9 @@ type MockGraphClient_DeleteScheduledJob_Call struct {
 //   - ctx context.Context
 //   - deleteScheduledJobID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteScheduledJob(ctx interface{}, deleteScheduledJobID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteScheduledJob_Call {
+func (_e *MockGraphClient_Expecter) DeleteScheduledJob(ctx any, deleteScheduledJobID any, interceptors ...any) *MockGraphClient_DeleteScheduledJob_Call {
 	return &MockGraphClient_DeleteScheduledJob_Call{Call: _e.mock.On("DeleteScheduledJob",
-		append([]interface{}{ctx, deleteScheduledJobID}, interceptors...)...)}
+		append([]any{ctx, deleteScheduledJobID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteScheduledJob_Call) Run(run func(ctx context.Context, deleteScheduledJobID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteScheduledJob_Call {
@@ -23899,9 +23899,9 @@ type MockGraphClient_DeleteScheduledJobRun_Call struct {
 //   - ctx context.Context
 //   - deleteScheduledJobRunID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteScheduledJobRun(ctx interface{}, deleteScheduledJobRunID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteScheduledJobRun_Call {
+func (_e *MockGraphClient_Expecter) DeleteScheduledJobRun(ctx any, deleteScheduledJobRunID any, interceptors ...any) *MockGraphClient_DeleteScheduledJobRun_Call {
 	return &MockGraphClient_DeleteScheduledJobRun_Call{Call: _e.mock.On("DeleteScheduledJobRun",
-		append([]interface{}{ctx, deleteScheduledJobRunID}, interceptors...)...)}
+		append([]any{ctx, deleteScheduledJobRunID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteScheduledJobRun_Call) Run(run func(ctx context.Context, deleteScheduledJobRunID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteScheduledJobRun_Call {
@@ -23982,9 +23982,9 @@ type MockGraphClient_DeleteStandard_Call struct {
 //   - ctx context.Context
 //   - deleteStandardID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteStandard(ctx interface{}, deleteStandardID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteStandard_Call {
+func (_e *MockGraphClient_Expecter) DeleteStandard(ctx any, deleteStandardID any, interceptors ...any) *MockGraphClient_DeleteStandard_Call {
 	return &MockGraphClient_DeleteStandard_Call{Call: _e.mock.On("DeleteStandard",
-		append([]interface{}{ctx, deleteStandardID}, interceptors...)...)}
+		append([]any{ctx, deleteStandardID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteStandard_Call) Run(run func(ctx context.Context, deleteStandardID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteStandard_Call {
@@ -24065,9 +24065,9 @@ type MockGraphClient_DeleteSubcontrol_Call struct {
 //   - ctx context.Context
 //   - deleteSubcontrolID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteSubcontrol(ctx interface{}, deleteSubcontrolID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteSubcontrol_Call {
+func (_e *MockGraphClient_Expecter) DeleteSubcontrol(ctx any, deleteSubcontrolID any, interceptors ...any) *MockGraphClient_DeleteSubcontrol_Call {
 	return &MockGraphClient_DeleteSubcontrol_Call{Call: _e.mock.On("DeleteSubcontrol",
-		append([]interface{}{ctx, deleteSubcontrolID}, interceptors...)...)}
+		append([]any{ctx, deleteSubcontrolID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteSubcontrol_Call) Run(run func(ctx context.Context, deleteSubcontrolID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteSubcontrol_Call {
@@ -24148,9 +24148,9 @@ type MockGraphClient_DeleteSubprocessor_Call struct {
 //   - ctx context.Context
 //   - deleteSubprocessorID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteSubprocessor(ctx interface{}, deleteSubprocessorID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) DeleteSubprocessor(ctx any, deleteSubprocessorID any, interceptors ...any) *MockGraphClient_DeleteSubprocessor_Call {
 	return &MockGraphClient_DeleteSubprocessor_Call{Call: _e.mock.On("DeleteSubprocessor",
-		append([]interface{}{ctx, deleteSubprocessorID}, interceptors...)...)}
+		append([]any{ctx, deleteSubprocessorID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteSubprocessor_Call) Run(run func(ctx context.Context, deleteSubprocessorID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteSubprocessor_Call {
@@ -24232,9 +24232,9 @@ type MockGraphClient_DeleteSubscriber_Call struct {
 //   - deleteSubscriberEmail string
 //   - subscriberOrganization *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteSubscriber(ctx interface{}, deleteSubscriberEmail interface{}, subscriberOrganization interface{}, interceptors ...interface{}) *MockGraphClient_DeleteSubscriber_Call {
+func (_e *MockGraphClient_Expecter) DeleteSubscriber(ctx any, deleteSubscriberEmail any, subscriberOrganization any, interceptors ...any) *MockGraphClient_DeleteSubscriber_Call {
 	return &MockGraphClient_DeleteSubscriber_Call{Call: _e.mock.On("DeleteSubscriber",
-		append([]interface{}{ctx, deleteSubscriberEmail, subscriberOrganization}, interceptors...)...)}
+		append([]any{ctx, deleteSubscriberEmail, subscriberOrganization}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteSubscriber_Call) Run(run func(ctx context.Context, deleteSubscriberEmail string, subscriberOrganization *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteSubscriber_Call {
@@ -24320,9 +24320,9 @@ type MockGraphClient_DeleteSystemDetail_Call struct {
 //   - ctx context.Context
 //   - deleteSystemDetailID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteSystemDetail(ctx interface{}, deleteSystemDetailID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) DeleteSystemDetail(ctx any, deleteSystemDetailID any, interceptors ...any) *MockGraphClient_DeleteSystemDetail_Call {
 	return &MockGraphClient_DeleteSystemDetail_Call{Call: _e.mock.On("DeleteSystemDetail",
-		append([]interface{}{ctx, deleteSystemDetailID}, interceptors...)...)}
+		append([]any{ctx, deleteSystemDetailID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteSystemDetail_Call) Run(run func(ctx context.Context, deleteSystemDetailID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteSystemDetail_Call {
@@ -24403,9 +24403,9 @@ type MockGraphClient_DeleteTagDefinition_Call struct {
 //   - ctx context.Context
 //   - deleteTagDefinitionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTagDefinition(ctx interface{}, deleteTagDefinitionID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTagDefinition_Call {
+func (_e *MockGraphClient_Expecter) DeleteTagDefinition(ctx any, deleteTagDefinitionID any, interceptors ...any) *MockGraphClient_DeleteTagDefinition_Call {
 	return &MockGraphClient_DeleteTagDefinition_Call{Call: _e.mock.On("DeleteTagDefinition",
-		append([]interface{}{ctx, deleteTagDefinitionID}, interceptors...)...)}
+		append([]any{ctx, deleteTagDefinitionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTagDefinition_Call) Run(run func(ctx context.Context, deleteTagDefinitionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTagDefinition_Call {
@@ -24486,9 +24486,9 @@ type MockGraphClient_DeleteTask_Call struct {
 //   - ctx context.Context
 //   - deleteTaskID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTask(ctx interface{}, deleteTaskID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTask_Call {
+func (_e *MockGraphClient_Expecter) DeleteTask(ctx any, deleteTaskID any, interceptors ...any) *MockGraphClient_DeleteTask_Call {
 	return &MockGraphClient_DeleteTask_Call{Call: _e.mock.On("DeleteTask",
-		append([]interface{}{ctx, deleteTaskID}, interceptors...)...)}
+		append([]any{ctx, deleteTaskID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTask_Call) Run(run func(ctx context.Context, deleteTaskID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTask_Call {
@@ -24569,9 +24569,9 @@ type MockGraphClient_DeleteTemplate_Call struct {
 //   - ctx context.Context
 //   - deleteTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTemplate(ctx interface{}, deleteTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTemplate_Call {
+func (_e *MockGraphClient_Expecter) DeleteTemplate(ctx any, deleteTemplateID any, interceptors ...any) *MockGraphClient_DeleteTemplate_Call {
 	return &MockGraphClient_DeleteTemplate_Call{Call: _e.mock.On("DeleteTemplate",
-		append([]interface{}{ctx, deleteTemplateID}, interceptors...)...)}
+		append([]any{ctx, deleteTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTemplate_Call) Run(run func(ctx context.Context, deleteTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTemplate_Call {
@@ -24652,9 +24652,9 @@ type MockGraphClient_DeleteTrustCenter_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenter(ctx interface{}, deleteTrustCenterID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenter_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenter(ctx any, deleteTrustCenterID any, interceptors ...any) *MockGraphClient_DeleteTrustCenter_Call {
 	return &MockGraphClient_DeleteTrustCenter_Call{Call: _e.mock.On("DeleteTrustCenter",
-		append([]interface{}{ctx, deleteTrustCenterID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenter_Call) Run(run func(ctx context.Context, deleteTrustCenterID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenter_Call {
@@ -24735,9 +24735,9 @@ type MockGraphClient_DeleteTrustCenterCompliance_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterComplianceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenterCompliance(ctx interface{}, deleteTrustCenterComplianceID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterCompliance_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterCompliance(ctx any, deleteTrustCenterComplianceID any, interceptors ...any) *MockGraphClient_DeleteTrustCenterCompliance_Call {
 	return &MockGraphClient_DeleteTrustCenterCompliance_Call{Call: _e.mock.On("DeleteTrustCenterCompliance",
-		append([]interface{}{ctx, deleteTrustCenterComplianceID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterComplianceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterCompliance_Call) Run(run func(ctx context.Context, deleteTrustCenterComplianceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterCompliance_Call {
@@ -24818,9 +24818,9 @@ type MockGraphClient_DeleteTrustCenterDoc_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterDocID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenterDoc(ctx interface{}, deleteTrustCenterDocID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterDoc_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterDoc(ctx any, deleteTrustCenterDocID any, interceptors ...any) *MockGraphClient_DeleteTrustCenterDoc_Call {
 	return &MockGraphClient_DeleteTrustCenterDoc_Call{Call: _e.mock.On("DeleteTrustCenterDoc",
-		append([]interface{}{ctx, deleteTrustCenterDocID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterDocID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterDoc_Call) Run(run func(ctx context.Context, deleteTrustCenterDocID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterDoc_Call {
@@ -24901,9 +24901,9 @@ type MockGraphClient_DeleteTrustCenterNDARequest_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterNDARequestID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenterNDARequest(ctx interface{}, deleteTrustCenterNDARequestID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterNDARequest(ctx any, deleteTrustCenterNDARequestID any, interceptors ...any) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
 	return &MockGraphClient_DeleteTrustCenterNDARequest_Call{Call: _e.mock.On("DeleteTrustCenterNDARequest",
-		append([]interface{}{ctx, deleteTrustCenterNDARequestID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterNDARequestID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterNDARequest_Call) Run(run func(ctx context.Context, deleteTrustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterNDARequest_Call {
@@ -24984,9 +24984,9 @@ type MockGraphClient_DeleteTrustCenterSetting_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenterSetting(ctx interface{}, deleteTrustCenterSettingID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterSetting_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterSetting(ctx any, deleteTrustCenterSettingID any, interceptors ...any) *MockGraphClient_DeleteTrustCenterSetting_Call {
 	return &MockGraphClient_DeleteTrustCenterSetting_Call{Call: _e.mock.On("DeleteTrustCenterSetting",
-		append([]interface{}{ctx, deleteTrustCenterSettingID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterSetting_Call) Run(run func(ctx context.Context, deleteTrustCenterSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterSetting_Call {
@@ -25067,9 +25067,9 @@ type MockGraphClient_DeleteTrustCenterSubprocessor_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterSubprocessorID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenterSubprocessor(ctx interface{}, deleteTrustCenterSubprocessorID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterSubprocessor(ctx any, deleteTrustCenterSubprocessorID any, interceptors ...any) *MockGraphClient_DeleteTrustCenterSubprocessor_Call {
 	return &MockGraphClient_DeleteTrustCenterSubprocessor_Call{Call: _e.mock.On("DeleteTrustCenterSubprocessor",
-		append([]interface{}{ctx, deleteTrustCenterSubprocessorID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterSubprocessorID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, deleteTrustCenterSubprocessorID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterSubprocessor_Call {
@@ -25150,9 +25150,9 @@ type MockGraphClient_DeleteTrustCenterWatermarkConfig_Call struct {
 //   - ctx context.Context
 //   - deleteTrustCenterWatermarkConfigID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteTrustCenterWatermarkConfig(ctx interface{}, deleteTrustCenterWatermarkConfigID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteTrustCenterWatermarkConfig_Call {
+func (_e *MockGraphClient_Expecter) DeleteTrustCenterWatermarkConfig(ctx any, deleteTrustCenterWatermarkConfigID any, interceptors ...any) *MockGraphClient_DeleteTrustCenterWatermarkConfig_Call {
 	return &MockGraphClient_DeleteTrustCenterWatermarkConfig_Call{Call: _e.mock.On("DeleteTrustCenterWatermarkConfig",
-		append([]interface{}{ctx, deleteTrustCenterWatermarkConfigID}, interceptors...)...)}
+		append([]any{ctx, deleteTrustCenterWatermarkConfigID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, deleteTrustCenterWatermarkConfigID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteTrustCenterWatermarkConfig_Call {
@@ -25233,9 +25233,9 @@ type MockGraphClient_DeleteUser_Call struct {
 //   - ctx context.Context
 //   - deleteUserID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteUser(ctx interface{}, deleteUserID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteUser_Call {
+func (_e *MockGraphClient_Expecter) DeleteUser(ctx any, deleteUserID any, interceptors ...any) *MockGraphClient_DeleteUser_Call {
 	return &MockGraphClient_DeleteUser_Call{Call: _e.mock.On("DeleteUser",
-		append([]interface{}{ctx, deleteUserID}, interceptors...)...)}
+		append([]any{ctx, deleteUserID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteUser_Call) Run(run func(ctx context.Context, deleteUserID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteUser_Call {
@@ -25316,9 +25316,9 @@ type MockGraphClient_DeleteVulnerability_Call struct {
 //   - ctx context.Context
 //   - deleteVulnerabilityID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteVulnerability(ctx interface{}, deleteVulnerabilityID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteVulnerability_Call {
+func (_e *MockGraphClient_Expecter) DeleteVulnerability(ctx any, deleteVulnerabilityID any, interceptors ...any) *MockGraphClient_DeleteVulnerability_Call {
 	return &MockGraphClient_DeleteVulnerability_Call{Call: _e.mock.On("DeleteVulnerability",
-		append([]interface{}{ctx, deleteVulnerabilityID}, interceptors...)...)}
+		append([]any{ctx, deleteVulnerabilityID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteVulnerability_Call) Run(run func(ctx context.Context, deleteVulnerabilityID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteVulnerability_Call {
@@ -25399,9 +25399,9 @@ type MockGraphClient_DeleteWebauthn_Call struct {
 //   - ctx context.Context
 //   - deleteWebauthnID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteWebauthn(ctx interface{}, deleteWebauthnID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteWebauthn_Call {
+func (_e *MockGraphClient_Expecter) DeleteWebauthn(ctx any, deleteWebauthnID any, interceptors ...any) *MockGraphClient_DeleteWebauthn_Call {
 	return &MockGraphClient_DeleteWebauthn_Call{Call: _e.mock.On("DeleteWebauthn",
-		append([]interface{}{ctx, deleteWebauthnID}, interceptors...)...)}
+		append([]any{ctx, deleteWebauthnID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteWebauthn_Call) Run(run func(ctx context.Context, deleteWebauthnID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteWebauthn_Call {
@@ -25482,9 +25482,9 @@ type MockGraphClient_DeleteWorkflowDefinition_Call struct {
 //   - ctx context.Context
 //   - deleteWorkflowDefinitionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) DeleteWorkflowDefinition(ctx interface{}, deleteWorkflowDefinitionID interface{}, interceptors ...interface{}) *MockGraphClient_DeleteWorkflowDefinition_Call {
+func (_e *MockGraphClient_Expecter) DeleteWorkflowDefinition(ctx any, deleteWorkflowDefinitionID any, interceptors ...any) *MockGraphClient_DeleteWorkflowDefinition_Call {
 	return &MockGraphClient_DeleteWorkflowDefinition_Call{Call: _e.mock.On("DeleteWorkflowDefinition",
-		append([]interface{}{ctx, deleteWorkflowDefinitionID}, interceptors...)...)}
+		append([]any{ctx, deleteWorkflowDefinitionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_DeleteWorkflowDefinition_Call) Run(run func(ctx context.Context, deleteWorkflowDefinitionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_DeleteWorkflowDefinition_Call {
@@ -25565,9 +25565,9 @@ type MockGraphClient_GetAPITokenByID_Call struct {
 //   - ctx context.Context
 //   - apiTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAPITokenByID(ctx interface{}, apiTokenID interface{}, interceptors ...interface{}) *MockGraphClient_GetAPITokenByID_Call {
+func (_e *MockGraphClient_Expecter) GetAPITokenByID(ctx any, apiTokenID any, interceptors ...any) *MockGraphClient_GetAPITokenByID_Call {
 	return &MockGraphClient_GetAPITokenByID_Call{Call: _e.mock.On("GetAPITokenByID",
-		append([]interface{}{ctx, apiTokenID}, interceptors...)...)}
+		append([]any{ctx, apiTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAPITokenByID_Call) Run(run func(ctx context.Context, apiTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAPITokenByID_Call {
@@ -25650,9 +25650,9 @@ type MockGraphClient_GetAPITokens_Call struct {
 //   - last *int64
 //   - where *graphclient.APITokenWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAPITokens(ctx interface{}, first interface{}, last interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetAPITokens_Call {
+func (_e *MockGraphClient_Expecter) GetAPITokens(ctx any, first any, last any, where any, interceptors ...any) *MockGraphClient_GetAPITokens_Call {
 	return &MockGraphClient_GetAPITokens_Call{Call: _e.mock.On("GetAPITokens",
-		append([]interface{}{ctx, first, last, where}, interceptors...)...)}
+		append([]any{ctx, first, last, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAPITokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, where *graphclient.APITokenWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAPITokens_Call {
@@ -25743,9 +25743,9 @@ type MockGraphClient_GetActionPlanByID_Call struct {
 //   - ctx context.Context
 //   - actionPlanID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetActionPlanByID(ctx interface{}, actionPlanID interface{}, interceptors ...interface{}) *MockGraphClient_GetActionPlanByID_Call {
+func (_e *MockGraphClient_Expecter) GetActionPlanByID(ctx any, actionPlanID any, interceptors ...any) *MockGraphClient_GetActionPlanByID_Call {
 	return &MockGraphClient_GetActionPlanByID_Call{Call: _e.mock.On("GetActionPlanByID",
-		append([]interface{}{ctx, actionPlanID}, interceptors...)...)}
+		append([]any{ctx, actionPlanID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetActionPlanByID_Call) Run(run func(ctx context.Context, actionPlanID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetActionPlanByID_Call {
@@ -25831,9 +25831,9 @@ type MockGraphClient_GetActionPlans_Call struct {
 //   - where *graphclient.ActionPlanWhereInput
 //   - orderBy []*graphclient.ActionPlanOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetActionPlans(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetActionPlans_Call {
+func (_e *MockGraphClient_Expecter) GetActionPlans(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetActionPlans_Call {
 	return &MockGraphClient_GetActionPlans_Call{Call: _e.mock.On("GetActionPlans",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetActionPlans_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ActionPlanWhereInput, orderBy []*graphclient.ActionPlanOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetActionPlans_Call {
@@ -25943,9 +25943,9 @@ type MockGraphClient_GetAllAPITokens_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.APITokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllAPITokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllAPITokens_Call {
+func (_e *MockGraphClient_Expecter) GetAllAPITokens(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllAPITokens_Call {
 	return &MockGraphClient_GetAllAPITokens_Call{Call: _e.mock.On("GetAllAPITokens",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllAPITokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.APITokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllAPITokens_Call {
@@ -26050,9 +26050,9 @@ type MockGraphClient_GetAllActionPlans_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ActionPlanOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllActionPlans(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllActionPlans_Call {
+func (_e *MockGraphClient_Expecter) GetAllActionPlans(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllActionPlans_Call {
 	return &MockGraphClient_GetAllActionPlans_Call{Call: _e.mock.On("GetAllActionPlans",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllActionPlans_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ActionPlanOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllActionPlans_Call {
@@ -26157,9 +26157,9 @@ type MockGraphClient_GetAllAssessmentResponses_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.AssessmentResponseOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllAssessmentResponses(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllAssessmentResponses_Call {
+func (_e *MockGraphClient_Expecter) GetAllAssessmentResponses(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllAssessmentResponses_Call {
 	return &MockGraphClient_GetAllAssessmentResponses_Call{Call: _e.mock.On("GetAllAssessmentResponses",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllAssessmentResponses_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.AssessmentResponseOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllAssessmentResponses_Call {
@@ -26264,9 +26264,9 @@ type MockGraphClient_GetAllAssessments_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.AssessmentOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllAssessments(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllAssessments_Call {
+func (_e *MockGraphClient_Expecter) GetAllAssessments(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllAssessments_Call {
 	return &MockGraphClient_GetAllAssessments_Call{Call: _e.mock.On("GetAllAssessments",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllAssessments_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.AssessmentOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllAssessments_Call {
@@ -26371,9 +26371,9 @@ type MockGraphClient_GetAllAssets_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.AssetOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllAssets(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllAssets_Call {
+func (_e *MockGraphClient_Expecter) GetAllAssets(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllAssets_Call {
 	return &MockGraphClient_GetAllAssets_Call{Call: _e.mock.On("GetAllAssets",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllAssets_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.AssetOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllAssets_Call {
@@ -26478,9 +26478,9 @@ type MockGraphClient_GetAllCampaignTargets_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.CampaignTargetOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllCampaignTargets(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllCampaignTargets_Call {
+func (_e *MockGraphClient_Expecter) GetAllCampaignTargets(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllCampaignTargets_Call {
 	return &MockGraphClient_GetAllCampaignTargets_Call{Call: _e.mock.On("GetAllCampaignTargets",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllCampaignTargets_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CampaignTargetOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllCampaignTargets_Call {
@@ -26585,9 +26585,9 @@ type MockGraphClient_GetAllCampaigns_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.CampaignOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllCampaigns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllCampaigns_Call {
+func (_e *MockGraphClient_Expecter) GetAllCampaigns(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllCampaigns_Call {
 	return &MockGraphClient_GetAllCampaigns_Call{Call: _e.mock.On("GetAllCampaigns",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllCampaigns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CampaignOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllCampaigns_Call {
@@ -26692,9 +26692,9 @@ type MockGraphClient_GetAllCheckResults_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.CheckResultOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllCheckResults(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllCheckResults_Call {
+func (_e *MockGraphClient_Expecter) GetAllCheckResults(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllCheckResults_Call {
 	return &MockGraphClient_GetAllCheckResults_Call{Call: _e.mock.On("GetAllCheckResults",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllCheckResults_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CheckResultOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllCheckResults_Call {
@@ -26799,9 +26799,9 @@ type MockGraphClient_GetAllContacts_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ContactOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllContacts(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllContacts_Call {
+func (_e *MockGraphClient_Expecter) GetAllContacts(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllContacts_Call {
 	return &MockGraphClient_GetAllContacts_Call{Call: _e.mock.On("GetAllContacts",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllContacts_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ContactOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllContacts_Call {
@@ -26906,9 +26906,9 @@ type MockGraphClient_GetAllControlImplementations_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ControlImplementationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllControlImplementations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllControlImplementations_Call {
+func (_e *MockGraphClient_Expecter) GetAllControlImplementations(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllControlImplementations_Call {
 	return &MockGraphClient_GetAllControlImplementations_Call{Call: _e.mock.On("GetAllControlImplementations",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllControlImplementations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlImplementationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllControlImplementations_Call {
@@ -27013,9 +27013,9 @@ type MockGraphClient_GetAllControlObjectives_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ControlObjectiveOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllControlObjectives(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllControlObjectives_Call {
+func (_e *MockGraphClient_Expecter) GetAllControlObjectives(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllControlObjectives_Call {
 	return &MockGraphClient_GetAllControlObjectives_Call{Call: _e.mock.On("GetAllControlObjectives",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllControlObjectives_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlObjectiveOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllControlObjectives_Call {
@@ -27120,9 +27120,9 @@ type MockGraphClient_GetAllControls_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllControls(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllControls_Call {
+func (_e *MockGraphClient_Expecter) GetAllControls(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllControls_Call {
 	return &MockGraphClient_GetAllControls_Call{Call: _e.mock.On("GetAllControls",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllControls_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllControls_Call {
@@ -27227,9 +27227,9 @@ type MockGraphClient_GetAllCustomDomains_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.CustomDomainOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllCustomDomains(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllCustomDomains_Call {
+func (_e *MockGraphClient_Expecter) GetAllCustomDomains(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllCustomDomains_Call {
 	return &MockGraphClient_GetAllCustomDomains_Call{Call: _e.mock.On("GetAllCustomDomains",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllCustomDomains_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CustomDomainOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllCustomDomains_Call {
@@ -27334,9 +27334,9 @@ type MockGraphClient_GetAllCustomTypeEnums_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.CustomTypeEnumOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllCustomTypeEnums(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllCustomTypeEnums_Call {
+func (_e *MockGraphClient_Expecter) GetAllCustomTypeEnums(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllCustomTypeEnums_Call {
 	return &MockGraphClient_GetAllCustomTypeEnums_Call{Call: _e.mock.On("GetAllCustomTypeEnums",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllCustomTypeEnums_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CustomTypeEnumOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllCustomTypeEnums_Call {
@@ -27441,9 +27441,9 @@ type MockGraphClient_GetAllDNSVerifications_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.DNSVerificationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllDNSVerifications(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllDNSVerifications_Call {
+func (_e *MockGraphClient_Expecter) GetAllDNSVerifications(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllDNSVerifications_Call {
 	return &MockGraphClient_GetAllDNSVerifications_Call{Call: _e.mock.On("GetAllDNSVerifications",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllDNSVerifications_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DNSVerificationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllDNSVerifications_Call {
@@ -27548,9 +27548,9 @@ type MockGraphClient_GetAllDirectoryAccounts_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.DirectoryAccountOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllDirectoryAccounts(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllDirectoryAccounts_Call {
+func (_e *MockGraphClient_Expecter) GetAllDirectoryAccounts(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllDirectoryAccounts_Call {
 	return &MockGraphClient_GetAllDirectoryAccounts_Call{Call: _e.mock.On("GetAllDirectoryAccounts",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllDirectoryAccounts_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryAccountOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllDirectoryAccounts_Call {
@@ -27655,9 +27655,9 @@ type MockGraphClient_GetAllDirectoryGroups_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.DirectoryGroupOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllDirectoryGroups(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllDirectoryGroups_Call {
+func (_e *MockGraphClient_Expecter) GetAllDirectoryGroups(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllDirectoryGroups_Call {
 	return &MockGraphClient_GetAllDirectoryGroups_Call{Call: _e.mock.On("GetAllDirectoryGroups",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllDirectoryGroups_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryGroupOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllDirectoryGroups_Call {
@@ -27762,9 +27762,9 @@ type MockGraphClient_GetAllDirectoryMemberships_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.DirectoryMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllDirectoryMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllDirectoryMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetAllDirectoryMemberships(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllDirectoryMemberships_Call {
 	return &MockGraphClient_GetAllDirectoryMemberships_Call{Call: _e.mock.On("GetAllDirectoryMemberships",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllDirectoryMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllDirectoryMemberships_Call {
@@ -27869,9 +27869,9 @@ type MockGraphClient_GetAllDirectorySyncRuns_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.DirectorySyncRunOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllDirectorySyncRuns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllDirectorySyncRuns_Call {
+func (_e *MockGraphClient_Expecter) GetAllDirectorySyncRuns(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllDirectorySyncRuns_Call {
 	return &MockGraphClient_GetAllDirectorySyncRuns_Call{Call: _e.mock.On("GetAllDirectorySyncRuns",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllDirectorySyncRuns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectorySyncRunOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllDirectorySyncRuns_Call {
@@ -27976,9 +27976,9 @@ type MockGraphClient_GetAllDiscussions_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.DiscussionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllDiscussions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllDiscussions_Call {
+func (_e *MockGraphClient_Expecter) GetAllDiscussions(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllDiscussions_Call {
 	return &MockGraphClient_GetAllDiscussions_Call{Call: _e.mock.On("GetAllDiscussions",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllDiscussions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DiscussionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllDiscussions_Call {
@@ -28083,9 +28083,9 @@ type MockGraphClient_GetAllEmailTemplates_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.EmailTemplateOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllEmailTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEmailTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetAllEmailTemplates(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllEmailTemplates_Call {
 	return &MockGraphClient_GetAllEmailTemplates_Call{Call: _e.mock.On("GetAllEmailTemplates",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllEmailTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEmailTemplates_Call {
@@ -28190,9 +28190,9 @@ type MockGraphClient_GetAllEntities_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.EntityOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllEntities(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEntities_Call {
+func (_e *MockGraphClient_Expecter) GetAllEntities(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllEntities_Call {
 	return &MockGraphClient_GetAllEntities_Call{Call: _e.mock.On("GetAllEntities",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllEntities_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EntityOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEntities_Call {
@@ -28297,9 +28297,9 @@ type MockGraphClient_GetAllEntityTypes_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.EntityTypeOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllEntityTypes(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEntityTypes_Call {
+func (_e *MockGraphClient_Expecter) GetAllEntityTypes(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllEntityTypes_Call {
 	return &MockGraphClient_GetAllEntityTypes_Call{Call: _e.mock.On("GetAllEntityTypes",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllEntityTypes_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EntityTypeOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEntityTypes_Call {
@@ -28404,9 +28404,9 @@ type MockGraphClient_GetAllEvents_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.EventOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllEvents(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEvents_Call {
+func (_e *MockGraphClient_Expecter) GetAllEvents(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllEvents_Call {
 	return &MockGraphClient_GetAllEvents_Call{Call: _e.mock.On("GetAllEvents",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllEvents_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EventOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEvents_Call {
@@ -28511,9 +28511,9 @@ type MockGraphClient_GetAllEvidences_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.EvidenceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllEvidences(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllEvidences_Call {
+func (_e *MockGraphClient_Expecter) GetAllEvidences(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllEvidences_Call {
 	return &MockGraphClient_GetAllEvidences_Call{Call: _e.mock.On("GetAllEvidences",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllEvidences_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EvidenceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllEvidences_Call {
@@ -28618,9 +28618,9 @@ type MockGraphClient_GetAllExports_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ExportOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllExports(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllExports_Call {
+func (_e *MockGraphClient_Expecter) GetAllExports(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllExports_Call {
 	return &MockGraphClient_GetAllExports_Call{Call: _e.mock.On("GetAllExports",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllExports_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ExportOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllExports_Call {
@@ -28725,9 +28725,9 @@ type MockGraphClient_GetAllFiles_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.FileOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllFiles(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllFiles_Call {
+func (_e *MockGraphClient_Expecter) GetAllFiles(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllFiles_Call {
 	return &MockGraphClient_GetAllFiles_Call{Call: _e.mock.On("GetAllFiles",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllFiles_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.FileOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllFiles_Call {
@@ -28832,9 +28832,9 @@ type MockGraphClient_GetAllFindingControls_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.FindingControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllFindingControls(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllFindingControls_Call {
+func (_e *MockGraphClient_Expecter) GetAllFindingControls(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllFindingControls_Call {
 	return &MockGraphClient_GetAllFindingControls_Call{Call: _e.mock.On("GetAllFindingControls",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllFindingControls_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.FindingControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllFindingControls_Call {
@@ -28939,9 +28939,9 @@ type MockGraphClient_GetAllFindings_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.FindingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllFindings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllFindings_Call {
+func (_e *MockGraphClient_Expecter) GetAllFindings(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllFindings_Call {
 	return &MockGraphClient_GetAllFindings_Call{Call: _e.mock.On("GetAllFindings",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllFindings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.FindingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllFindings_Call {
@@ -29046,9 +29046,9 @@ type MockGraphClient_GetAllGroupMemberships_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.GroupMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllGroupMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllGroupMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetAllGroupMemberships(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllGroupMemberships_Call {
 	return &MockGraphClient_GetAllGroupMemberships_Call{Call: _e.mock.On("GetAllGroupMemberships",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllGroupMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.GroupMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllGroupMemberships_Call {
@@ -29153,9 +29153,9 @@ type MockGraphClient_GetAllGroupSettings_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.GroupSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllGroupSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllGroupSettings_Call {
+func (_e *MockGraphClient_Expecter) GetAllGroupSettings(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllGroupSettings_Call {
 	return &MockGraphClient_GetAllGroupSettings_Call{Call: _e.mock.On("GetAllGroupSettings",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllGroupSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.GroupSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllGroupSettings_Call {
@@ -29260,9 +29260,9 @@ type MockGraphClient_GetAllGroups_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.GroupOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllGroups(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllGroups_Call {
+func (_e *MockGraphClient_Expecter) GetAllGroups(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllGroups_Call {
 	return &MockGraphClient_GetAllGroups_Call{Call: _e.mock.On("GetAllGroups",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllGroups_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.GroupOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllGroups_Call {
@@ -29367,9 +29367,9 @@ type MockGraphClient_GetAllHushes_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.HushOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllHushes(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllHushes_Call {
+func (_e *MockGraphClient_Expecter) GetAllHushes(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllHushes_Call {
 	return &MockGraphClient_GetAllHushes_Call{Call: _e.mock.On("GetAllHushes",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllHushes_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.HushOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllHushes_Call {
@@ -29474,9 +29474,9 @@ type MockGraphClient_GetAllIdentityHolders_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.IdentityHolderOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllIdentityHolders(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllIdentityHolders_Call {
+func (_e *MockGraphClient_Expecter) GetAllIdentityHolders(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllIdentityHolders_Call {
 	return &MockGraphClient_GetAllIdentityHolders_Call{Call: _e.mock.On("GetAllIdentityHolders",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllIdentityHolders_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.IdentityHolderOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllIdentityHolders_Call {
@@ -29581,9 +29581,9 @@ type MockGraphClient_GetAllIntegrations_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.IntegrationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllIntegrations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllIntegrations_Call {
+func (_e *MockGraphClient_Expecter) GetAllIntegrations(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllIntegrations_Call {
 	return &MockGraphClient_GetAllIntegrations_Call{Call: _e.mock.On("GetAllIntegrations",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllIntegrations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.IntegrationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllIntegrations_Call {
@@ -29688,9 +29688,9 @@ type MockGraphClient_GetAllInternalPolicies_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.InternalPolicyOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllInternalPolicies(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllInternalPolicies_Call {
+func (_e *MockGraphClient_Expecter) GetAllInternalPolicies(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllInternalPolicies_Call {
 	return &MockGraphClient_GetAllInternalPolicies_Call{Call: _e.mock.On("GetAllInternalPolicies",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllInternalPolicies_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.InternalPolicyOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllInternalPolicies_Call {
@@ -29795,9 +29795,9 @@ type MockGraphClient_GetAllInvites_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.InviteOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllInvites(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllInvites_Call {
+func (_e *MockGraphClient_Expecter) GetAllInvites(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllInvites_Call {
 	return &MockGraphClient_GetAllInvites_Call{Call: _e.mock.On("GetAllInvites",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllInvites_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.InviteOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllInvites_Call {
@@ -29902,9 +29902,9 @@ type MockGraphClient_GetAllJobResults_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.JobResultOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllJobResults(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllJobResults_Call {
+func (_e *MockGraphClient_Expecter) GetAllJobResults(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllJobResults_Call {
 	return &MockGraphClient_GetAllJobResults_Call{Call: _e.mock.On("GetAllJobResults",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllJobResults_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.JobResultOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllJobResults_Call {
@@ -30009,9 +30009,9 @@ type MockGraphClient_GetAllJobRunnerRegistrationTokens_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.JobRunnerRegistrationTokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllJobRunnerRegistrationTokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllJobRunnerRegistrationTokens_Call {
+func (_e *MockGraphClient_Expecter) GetAllJobRunnerRegistrationTokens(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllJobRunnerRegistrationTokens_Call {
 	return &MockGraphClient_GetAllJobRunnerRegistrationTokens_Call{Call: _e.mock.On("GetAllJobRunnerRegistrationTokens",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllJobRunnerRegistrationTokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.JobRunnerRegistrationTokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllJobRunnerRegistrationTokens_Call {
@@ -30116,9 +30116,9 @@ type MockGraphClient_GetAllJobRunnerTokens_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.JobRunnerTokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllJobRunnerTokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllJobRunnerTokens_Call {
+func (_e *MockGraphClient_Expecter) GetAllJobRunnerTokens(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllJobRunnerTokens_Call {
 	return &MockGraphClient_GetAllJobRunnerTokens_Call{Call: _e.mock.On("GetAllJobRunnerTokens",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllJobRunnerTokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.JobRunnerTokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllJobRunnerTokens_Call {
@@ -30223,9 +30223,9 @@ type MockGraphClient_GetAllJobRunners_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.JobRunnerOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllJobRunners(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllJobRunners_Call {
+func (_e *MockGraphClient_Expecter) GetAllJobRunners(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllJobRunners_Call {
 	return &MockGraphClient_GetAllJobRunners_Call{Call: _e.mock.On("GetAllJobRunners",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllJobRunners_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.JobRunnerOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllJobRunners_Call {
@@ -30330,9 +30330,9 @@ type MockGraphClient_GetAllJobTemplates_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.JobTemplateOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllJobTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllJobTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetAllJobTemplates(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllJobTemplates_Call {
 	return &MockGraphClient_GetAllJobTemplates_Call{Call: _e.mock.On("GetAllJobTemplates",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllJobTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.JobTemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllJobTemplates_Call {
@@ -30437,9 +30437,9 @@ type MockGraphClient_GetAllMappableDomains_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.MappableDomainOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllMappableDomains(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllMappableDomains_Call {
+func (_e *MockGraphClient_Expecter) GetAllMappableDomains(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllMappableDomains_Call {
 	return &MockGraphClient_GetAllMappableDomains_Call{Call: _e.mock.On("GetAllMappableDomains",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllMappableDomains_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.MappableDomainOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllMappableDomains_Call {
@@ -30544,9 +30544,9 @@ type MockGraphClient_GetAllMappedControls_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.MappedControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllMappedControls(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllMappedControls_Call {
+func (_e *MockGraphClient_Expecter) GetAllMappedControls(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllMappedControls_Call {
 	return &MockGraphClient_GetAllMappedControls_Call{Call: _e.mock.On("GetAllMappedControls",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllMappedControls_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.MappedControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllMappedControls_Call {
@@ -30651,9 +30651,9 @@ type MockGraphClient_GetAllNarratives_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.NarrativeOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllNarratives(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllNarratives_Call {
+func (_e *MockGraphClient_Expecter) GetAllNarratives(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllNarratives_Call {
 	return &MockGraphClient_GetAllNarratives_Call{Call: _e.mock.On("GetAllNarratives",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllNarratives_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NarrativeOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllNarratives_Call {
@@ -30758,9 +30758,9 @@ type MockGraphClient_GetAllNotificationPreferences_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.NotificationPreferenceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllNotificationPreferences(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllNotificationPreferences_Call {
+func (_e *MockGraphClient_Expecter) GetAllNotificationPreferences(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllNotificationPreferences_Call {
 	return &MockGraphClient_GetAllNotificationPreferences_Call{Call: _e.mock.On("GetAllNotificationPreferences",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllNotificationPreferences_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllNotificationPreferences_Call {
@@ -30865,9 +30865,9 @@ type MockGraphClient_GetAllNotificationTemplates_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.NotificationTemplateOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllNotificationTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllNotificationTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetAllNotificationTemplates(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllNotificationTemplates_Call {
 	return &MockGraphClient_GetAllNotificationTemplates_Call{Call: _e.mock.On("GetAllNotificationTemplates",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllNotificationTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllNotificationTemplates_Call {
@@ -30972,9 +30972,9 @@ type MockGraphClient_GetAllOrgMemberships_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.OrgMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllOrgMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllOrgMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetAllOrgMemberships(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllOrgMemberships_Call {
 	return &MockGraphClient_GetAllOrgMemberships_Call{Call: _e.mock.On("GetAllOrgMemberships",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllOrgMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.OrgMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllOrgMemberships_Call {
@@ -31079,9 +31079,9 @@ type MockGraphClient_GetAllOrgSubscriptions_Call struct {
 //   - before *string
 //   - orderBy *graphclient.OrgSubscriptionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllOrgSubscriptions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllOrgSubscriptions_Call {
+func (_e *MockGraphClient_Expecter) GetAllOrgSubscriptions(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllOrgSubscriptions_Call {
 	return &MockGraphClient_GetAllOrgSubscriptions_Call{Call: _e.mock.On("GetAllOrgSubscriptions",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllOrgSubscriptions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy *graphclient.OrgSubscriptionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllOrgSubscriptions_Call {
@@ -31186,9 +31186,9 @@ type MockGraphClient_GetAllOrganizationSettings_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.OrganizationSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllOrganizationSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllOrganizationSettings_Call {
+func (_e *MockGraphClient_Expecter) GetAllOrganizationSettings(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllOrganizationSettings_Call {
 	return &MockGraphClient_GetAllOrganizationSettings_Call{Call: _e.mock.On("GetAllOrganizationSettings",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllOrganizationSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.OrganizationSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllOrganizationSettings_Call {
@@ -31293,9 +31293,9 @@ type MockGraphClient_GetAllOrganizations_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.OrganizationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllOrganizations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllOrganizations_Call {
+func (_e *MockGraphClient_Expecter) GetAllOrganizations(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllOrganizations_Call {
 	return &MockGraphClient_GetAllOrganizations_Call{Call: _e.mock.On("GetAllOrganizations",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllOrganizations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.OrganizationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllOrganizations_Call {
@@ -31400,9 +31400,9 @@ type MockGraphClient_GetAllPersonalAccessTokens_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.PersonalAccessTokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllPersonalAccessTokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllPersonalAccessTokens_Call {
+func (_e *MockGraphClient_Expecter) GetAllPersonalAccessTokens(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllPersonalAccessTokens_Call {
 	return &MockGraphClient_GetAllPersonalAccessTokens_Call{Call: _e.mock.On("GetAllPersonalAccessTokens",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllPersonalAccessTokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.PersonalAccessTokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllPersonalAccessTokens_Call {
@@ -31507,9 +31507,9 @@ type MockGraphClient_GetAllPlatforms_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.PlatformOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllPlatforms(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllPlatforms_Call {
+func (_e *MockGraphClient_Expecter) GetAllPlatforms(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllPlatforms_Call {
 	return &MockGraphClient_GetAllPlatforms_Call{Call: _e.mock.On("GetAllPlatforms",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllPlatforms_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.PlatformOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllPlatforms_Call {
@@ -31614,9 +31614,9 @@ type MockGraphClient_GetAllProcedures_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ProcedureOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllProcedures(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllProcedures_Call {
+func (_e *MockGraphClient_Expecter) GetAllProcedures(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllProcedures_Call {
 	return &MockGraphClient_GetAllProcedures_Call{Call: _e.mock.On("GetAllProcedures",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllProcedures_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ProcedureOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllProcedures_Call {
@@ -31721,9 +31721,9 @@ type MockGraphClient_GetAllProgramMemberships_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ProgramMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllProgramMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllProgramMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetAllProgramMemberships(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllProgramMemberships_Call {
 	return &MockGraphClient_GetAllProgramMemberships_Call{Call: _e.mock.On("GetAllProgramMemberships",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllProgramMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ProgramMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllProgramMemberships_Call {
@@ -31828,9 +31828,9 @@ type MockGraphClient_GetAllPrograms_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ProgramOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllPrograms(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllPrograms_Call {
+func (_e *MockGraphClient_Expecter) GetAllPrograms(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllPrograms_Call {
 	return &MockGraphClient_GetAllPrograms_Call{Call: _e.mock.On("GetAllPrograms",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllPrograms_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ProgramOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllPrograms_Call {
@@ -31935,9 +31935,9 @@ type MockGraphClient_GetAllRemediations_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.RemediationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllRemediations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllRemediations_Call {
+func (_e *MockGraphClient_Expecter) GetAllRemediations(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllRemediations_Call {
 	return &MockGraphClient_GetAllRemediations_Call{Call: _e.mock.On("GetAllRemediations",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllRemediations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.RemediationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllRemediations_Call {
@@ -32042,9 +32042,9 @@ type MockGraphClient_GetAllReviews_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ReviewOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllReviews(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllReviews_Call {
+func (_e *MockGraphClient_Expecter) GetAllReviews(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllReviews_Call {
 	return &MockGraphClient_GetAllReviews_Call{Call: _e.mock.On("GetAllReviews",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllReviews_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ReviewOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllReviews_Call {
@@ -32149,9 +32149,9 @@ type MockGraphClient_GetAllRisks_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.RiskOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllRisks(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllRisks_Call {
+func (_e *MockGraphClient_Expecter) GetAllRisks(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllRisks_Call {
 	return &MockGraphClient_GetAllRisks_Call{Call: _e.mock.On("GetAllRisks",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllRisks_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.RiskOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllRisks_Call {
@@ -32256,9 +32256,9 @@ type MockGraphClient_GetAllScans_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ScanOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllScans(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllScans_Call {
+func (_e *MockGraphClient_Expecter) GetAllScans(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllScans_Call {
 	return &MockGraphClient_GetAllScans_Call{Call: _e.mock.On("GetAllScans",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllScans_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ScanOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllScans_Call {
@@ -32363,9 +32363,9 @@ type MockGraphClient_GetAllScheduledJobRuns_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ScheduledJobRunOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllScheduledJobRuns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllScheduledJobRuns_Call {
+func (_e *MockGraphClient_Expecter) GetAllScheduledJobRuns(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllScheduledJobRuns_Call {
 	return &MockGraphClient_GetAllScheduledJobRuns_Call{Call: _e.mock.On("GetAllScheduledJobRuns",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllScheduledJobRuns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ScheduledJobRunOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllScheduledJobRuns_Call {
@@ -32470,9 +32470,9 @@ type MockGraphClient_GetAllScheduledJobs_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ScheduledJobOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllScheduledJobs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllScheduledJobs_Call {
+func (_e *MockGraphClient_Expecter) GetAllScheduledJobs(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllScheduledJobs_Call {
 	return &MockGraphClient_GetAllScheduledJobs_Call{Call: _e.mock.On("GetAllScheduledJobs",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllScheduledJobs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ScheduledJobOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllScheduledJobs_Call {
@@ -32577,9 +32577,9 @@ type MockGraphClient_GetAllStandards_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.StandardOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllStandards(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllStandards_Call {
+func (_e *MockGraphClient_Expecter) GetAllStandards(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllStandards_Call {
 	return &MockGraphClient_GetAllStandards_Call{Call: _e.mock.On("GetAllStandards",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllStandards_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.StandardOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllStandards_Call {
@@ -32684,9 +32684,9 @@ type MockGraphClient_GetAllSubcontrols_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.SubcontrolOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllSubcontrols(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllSubcontrols_Call {
+func (_e *MockGraphClient_Expecter) GetAllSubcontrols(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllSubcontrols_Call {
 	return &MockGraphClient_GetAllSubcontrols_Call{Call: _e.mock.On("GetAllSubcontrols",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllSubcontrols_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllSubcontrols_Call {
@@ -32791,9 +32791,9 @@ type MockGraphClient_GetAllSubprocessors_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.SubprocessorOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllSubprocessors(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllSubprocessors_Call {
+func (_e *MockGraphClient_Expecter) GetAllSubprocessors(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllSubprocessors_Call {
 	return &MockGraphClient_GetAllSubprocessors_Call{Call: _e.mock.On("GetAllSubprocessors",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllSubprocessors_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubprocessorOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllSubprocessors_Call {
@@ -32898,9 +32898,9 @@ type MockGraphClient_GetAllSubscribers_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.SubscriberOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllSubscribers(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllSubscribers_Call {
+func (_e *MockGraphClient_Expecter) GetAllSubscribers(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllSubscribers_Call {
 	return &MockGraphClient_GetAllSubscribers_Call{Call: _e.mock.On("GetAllSubscribers",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllSubscribers_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubscriberOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllSubscribers_Call {
@@ -33005,9 +33005,9 @@ type MockGraphClient_GetAllSystemDetails_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.SystemDetailOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllSystemDetails(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllSystemDetails_Call {
+func (_e *MockGraphClient_Expecter) GetAllSystemDetails(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllSystemDetails_Call {
 	return &MockGraphClient_GetAllSystemDetails_Call{Call: _e.mock.On("GetAllSystemDetails",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllSystemDetails_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllSystemDetails_Call {
@@ -33112,9 +33112,9 @@ type MockGraphClient_GetAllTFASettings_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TFASettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTFASettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTFASettings_Call {
+func (_e *MockGraphClient_Expecter) GetAllTFASettings(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTFASettings_Call {
 	return &MockGraphClient_GetAllTFASettings_Call{Call: _e.mock.On("GetAllTFASettings",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTFASettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TFASettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTFASettings_Call {
@@ -33219,9 +33219,9 @@ type MockGraphClient_GetAllTagDefinitions_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TagDefinitionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTagDefinitions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTagDefinitions_Call {
+func (_e *MockGraphClient_Expecter) GetAllTagDefinitions(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTagDefinitions_Call {
 	return &MockGraphClient_GetAllTagDefinitions_Call{Call: _e.mock.On("GetAllTagDefinitions",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTagDefinitions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TagDefinitionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTagDefinitions_Call {
@@ -33326,9 +33326,9 @@ type MockGraphClient_GetAllTasks_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TaskOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTasks(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTasks_Call {
+func (_e *MockGraphClient_Expecter) GetAllTasks(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTasks_Call {
 	return &MockGraphClient_GetAllTasks_Call{Call: _e.mock.On("GetAllTasks",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTasks_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TaskOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTasks_Call {
@@ -33433,9 +33433,9 @@ type MockGraphClient_GetAllTemplates_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TemplateOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetAllTemplates(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTemplates_Call {
 	return &MockGraphClient_GetAllTemplates_Call{Call: _e.mock.On("GetAllTemplates",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTemplates_Call {
@@ -33540,9 +33540,9 @@ type MockGraphClient_GetAllTrustCenterCompliances_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterComplianceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenterCompliances(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterCompliances_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterCompliances(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenterCompliances_Call {
 	return &MockGraphClient_GetAllTrustCenterCompliances_Call{Call: _e.mock.On("GetAllTrustCenterCompliances",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterCompliances_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterComplianceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterCompliances_Call {
@@ -33647,9 +33647,9 @@ type MockGraphClient_GetAllTrustCenterDocs_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterDocOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenterDocs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterDocs_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterDocs(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenterDocs_Call {
 	return &MockGraphClient_GetAllTrustCenterDocs_Call{Call: _e.mock.On("GetAllTrustCenterDocs",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterDocs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterDocOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterDocs_Call {
@@ -33754,9 +33754,9 @@ type MockGraphClient_GetAllTrustCenterNDARequests_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterNDARequestOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenterNDARequests(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterNDARequests(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
 	return &MockGraphClient_GetAllTrustCenterNDARequests_Call{Call: _e.mock.On("GetAllTrustCenterNDARequests",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterNDARequests_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterNDARequests_Call {
@@ -33861,9 +33861,9 @@ type MockGraphClient_GetAllTrustCenterSettings_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenterSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterSettings_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterSettings(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenterSettings_Call {
 	return &MockGraphClient_GetAllTrustCenterSettings_Call{Call: _e.mock.On("GetAllTrustCenterSettings",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterSettings_Call {
@@ -33968,9 +33968,9 @@ type MockGraphClient_GetAllTrustCenterSubprocessors_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterSubprocessorOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenterSubprocessors(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterSubprocessors_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterSubprocessors(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenterSubprocessors_Call {
 	return &MockGraphClient_GetAllTrustCenterSubprocessors_Call{Call: _e.mock.On("GetAllTrustCenterSubprocessors",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterSubprocessors_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterSubprocessorOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterSubprocessors_Call {
@@ -34075,9 +34075,9 @@ type MockGraphClient_GetAllTrustCenterWatermarkConfigs_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterWatermarkConfigOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenterWatermarkConfigs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenterWatermarkConfigs_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenterWatermarkConfigs(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenterWatermarkConfigs_Call {
 	return &MockGraphClient_GetAllTrustCenterWatermarkConfigs_Call{Call: _e.mock.On("GetAllTrustCenterWatermarkConfigs",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenterWatermarkConfigs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterWatermarkConfigOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenterWatermarkConfigs_Call {
@@ -34182,9 +34182,9 @@ type MockGraphClient_GetAllTrustCenters_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.TrustCenterOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllTrustCenters(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllTrustCenters_Call {
+func (_e *MockGraphClient_Expecter) GetAllTrustCenters(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllTrustCenters_Call {
 	return &MockGraphClient_GetAllTrustCenters_Call{Call: _e.mock.On("GetAllTrustCenters",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllTrustCenters_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllTrustCenters_Call {
@@ -34289,9 +34289,9 @@ type MockGraphClient_GetAllUserSettings_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.UserSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllUserSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllUserSettings_Call {
+func (_e *MockGraphClient_Expecter) GetAllUserSettings(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllUserSettings_Call {
 	return &MockGraphClient_GetAllUserSettings_Call{Call: _e.mock.On("GetAllUserSettings",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllUserSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.UserSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllUserSettings_Call {
@@ -34396,9 +34396,9 @@ type MockGraphClient_GetAllUsers_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.UserOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllUsers(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllUsers_Call {
+func (_e *MockGraphClient_Expecter) GetAllUsers(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllUsers_Call {
 	return &MockGraphClient_GetAllUsers_Call{Call: _e.mock.On("GetAllUsers",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllUsers_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.UserOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllUsers_Call {
@@ -34503,9 +34503,9 @@ type MockGraphClient_GetAllVulnerabilities_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.VulnerabilityOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllVulnerabilities(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllVulnerabilities_Call {
+func (_e *MockGraphClient_Expecter) GetAllVulnerabilities(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllVulnerabilities_Call {
 	return &MockGraphClient_GetAllVulnerabilities_Call{Call: _e.mock.On("GetAllVulnerabilities",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllVulnerabilities_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.VulnerabilityOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllVulnerabilities_Call {
@@ -34610,9 +34610,9 @@ type MockGraphClient_GetAllWebauthns_Call struct {
 //   - before *string
 //   - orderBy *graphclient.WebauthnOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWebauthns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWebauthns_Call {
+func (_e *MockGraphClient_Expecter) GetAllWebauthns(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWebauthns_Call {
 	return &MockGraphClient_GetAllWebauthns_Call{Call: _e.mock.On("GetAllWebauthns",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWebauthns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy *graphclient.WebauthnOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWebauthns_Call {
@@ -34717,9 +34717,9 @@ type MockGraphClient_GetAllWorkflowAssignmentTargets_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.WorkflowAssignmentTargetOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWorkflowAssignmentTargets(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWorkflowAssignmentTargets_Call {
+func (_e *MockGraphClient_Expecter) GetAllWorkflowAssignmentTargets(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWorkflowAssignmentTargets_Call {
 	return &MockGraphClient_GetAllWorkflowAssignmentTargets_Call{Call: _e.mock.On("GetAllWorkflowAssignmentTargets",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWorkflowAssignmentTargets_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowAssignmentTargetOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWorkflowAssignmentTargets_Call {
@@ -34824,9 +34824,9 @@ type MockGraphClient_GetAllWorkflowAssignments_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.WorkflowAssignmentOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWorkflowAssignments(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWorkflowAssignments_Call {
+func (_e *MockGraphClient_Expecter) GetAllWorkflowAssignments(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWorkflowAssignments_Call {
 	return &MockGraphClient_GetAllWorkflowAssignments_Call{Call: _e.mock.On("GetAllWorkflowAssignments",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWorkflowAssignments_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowAssignmentOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWorkflowAssignments_Call {
@@ -34931,9 +34931,9 @@ type MockGraphClient_GetAllWorkflowDefinitions_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.WorkflowDefinitionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWorkflowDefinitions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWorkflowDefinitions_Call {
+func (_e *MockGraphClient_Expecter) GetAllWorkflowDefinitions(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWorkflowDefinitions_Call {
 	return &MockGraphClient_GetAllWorkflowDefinitions_Call{Call: _e.mock.On("GetAllWorkflowDefinitions",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWorkflowDefinitions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowDefinitionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWorkflowDefinitions_Call {
@@ -35038,9 +35038,9 @@ type MockGraphClient_GetAllWorkflowEvents_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.WorkflowEventOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWorkflowEvents(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWorkflowEvents_Call {
+func (_e *MockGraphClient_Expecter) GetAllWorkflowEvents(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWorkflowEvents_Call {
 	return &MockGraphClient_GetAllWorkflowEvents_Call{Call: _e.mock.On("GetAllWorkflowEvents",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWorkflowEvents_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowEventOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWorkflowEvents_Call {
@@ -35145,9 +35145,9 @@ type MockGraphClient_GetAllWorkflowInstances_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.WorkflowInstanceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWorkflowInstances(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWorkflowInstances_Call {
+func (_e *MockGraphClient_Expecter) GetAllWorkflowInstances(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWorkflowInstances_Call {
 	return &MockGraphClient_GetAllWorkflowInstances_Call{Call: _e.mock.On("GetAllWorkflowInstances",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWorkflowInstances_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowInstanceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWorkflowInstances_Call {
@@ -35252,9 +35252,9 @@ type MockGraphClient_GetAllWorkflowObjectRefs_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.WorkflowObjectRefOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAllWorkflowObjectRefs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAllWorkflowObjectRefs_Call {
+func (_e *MockGraphClient_Expecter) GetAllWorkflowObjectRefs(ctx any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetAllWorkflowObjectRefs_Call {
 	return &MockGraphClient_GetAllWorkflowObjectRefs_Call{Call: _e.mock.On("GetAllWorkflowObjectRefs",
-		append([]interface{}{ctx, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAllWorkflowObjectRefs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowObjectRefOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAllWorkflowObjectRefs_Call {
@@ -35355,9 +35355,9 @@ type MockGraphClient_GetAssessmentByID_Call struct {
 //   - ctx context.Context
 //   - assessmentID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAssessmentByID(ctx interface{}, assessmentID interface{}, interceptors ...interface{}) *MockGraphClient_GetAssessmentByID_Call {
+func (_e *MockGraphClient_Expecter) GetAssessmentByID(ctx any, assessmentID any, interceptors ...any) *MockGraphClient_GetAssessmentByID_Call {
 	return &MockGraphClient_GetAssessmentByID_Call{Call: _e.mock.On("GetAssessmentByID",
-		append([]interface{}{ctx, assessmentID}, interceptors...)...)}
+		append([]any{ctx, assessmentID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAssessmentByID_Call) Run(run func(ctx context.Context, assessmentID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAssessmentByID_Call {
@@ -35438,9 +35438,9 @@ type MockGraphClient_GetAssessmentResponseByID_Call struct {
 //   - ctx context.Context
 //   - assessmentResponseID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAssessmentResponseByID(ctx interface{}, assessmentResponseID interface{}, interceptors ...interface{}) *MockGraphClient_GetAssessmentResponseByID_Call {
+func (_e *MockGraphClient_Expecter) GetAssessmentResponseByID(ctx any, assessmentResponseID any, interceptors ...any) *MockGraphClient_GetAssessmentResponseByID_Call {
 	return &MockGraphClient_GetAssessmentResponseByID_Call{Call: _e.mock.On("GetAssessmentResponseByID",
-		append([]interface{}{ctx, assessmentResponseID}, interceptors...)...)}
+		append([]any{ctx, assessmentResponseID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAssessmentResponseByID_Call) Run(run func(ctx context.Context, assessmentResponseID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAssessmentResponseByID_Call {
@@ -35526,9 +35526,9 @@ type MockGraphClient_GetAssessmentResponses_Call struct {
 //   - where *graphclient.AssessmentResponseWhereInput
 //   - orderBy []*graphclient.AssessmentResponseOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAssessmentResponses(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAssessmentResponses_Call {
+func (_e *MockGraphClient_Expecter) GetAssessmentResponses(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetAssessmentResponses_Call {
 	return &MockGraphClient_GetAssessmentResponses_Call{Call: _e.mock.On("GetAssessmentResponses",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAssessmentResponses_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.AssessmentResponseWhereInput, orderBy []*graphclient.AssessmentResponseOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAssessmentResponses_Call {
@@ -35639,9 +35639,9 @@ type MockGraphClient_GetAssessments_Call struct {
 //   - where *graphclient.AssessmentWhereInput
 //   - orderBy []*graphclient.AssessmentOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAssessments(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAssessments_Call {
+func (_e *MockGraphClient_Expecter) GetAssessments(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetAssessments_Call {
 	return &MockGraphClient_GetAssessments_Call{Call: _e.mock.On("GetAssessments",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAssessments_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.AssessmentWhereInput, orderBy []*graphclient.AssessmentOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAssessments_Call {
@@ -35747,9 +35747,9 @@ type MockGraphClient_GetAssetByID_Call struct {
 //   - ctx context.Context
 //   - assetID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAssetByID(ctx interface{}, assetID interface{}, interceptors ...interface{}) *MockGraphClient_GetAssetByID_Call {
+func (_e *MockGraphClient_Expecter) GetAssetByID(ctx any, assetID any, interceptors ...any) *MockGraphClient_GetAssetByID_Call {
 	return &MockGraphClient_GetAssetByID_Call{Call: _e.mock.On("GetAssetByID",
-		append([]interface{}{ctx, assetID}, interceptors...)...)}
+		append([]any{ctx, assetID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAssetByID_Call) Run(run func(ctx context.Context, assetID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAssetByID_Call {
@@ -35835,9 +35835,9 @@ type MockGraphClient_GetAssets_Call struct {
 //   - where *graphclient.AssetWhereInput
 //   - orderBy []*graphclient.AssetOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetAssets(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetAssets_Call {
+func (_e *MockGraphClient_Expecter) GetAssets(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetAssets_Call {
 	return &MockGraphClient_GetAssets_Call{Call: _e.mock.On("GetAssets",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetAssets_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.AssetWhereInput, orderBy []*graphclient.AssetOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetAssets_Call {
@@ -35943,9 +35943,9 @@ type MockGraphClient_GetCampaignByID_Call struct {
 //   - ctx context.Context
 //   - campaignID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCampaignByID(ctx interface{}, campaignID interface{}, interceptors ...interface{}) *MockGraphClient_GetCampaignByID_Call {
+func (_e *MockGraphClient_Expecter) GetCampaignByID(ctx any, campaignID any, interceptors ...any) *MockGraphClient_GetCampaignByID_Call {
 	return &MockGraphClient_GetCampaignByID_Call{Call: _e.mock.On("GetCampaignByID",
-		append([]interface{}{ctx, campaignID}, interceptors...)...)}
+		append([]any{ctx, campaignID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCampaignByID_Call) Run(run func(ctx context.Context, campaignID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCampaignByID_Call {
@@ -36026,9 +36026,9 @@ type MockGraphClient_GetCampaignTargetByID_Call struct {
 //   - ctx context.Context
 //   - campaignTargetID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCampaignTargetByID(ctx interface{}, campaignTargetID interface{}, interceptors ...interface{}) *MockGraphClient_GetCampaignTargetByID_Call {
+func (_e *MockGraphClient_Expecter) GetCampaignTargetByID(ctx any, campaignTargetID any, interceptors ...any) *MockGraphClient_GetCampaignTargetByID_Call {
 	return &MockGraphClient_GetCampaignTargetByID_Call{Call: _e.mock.On("GetCampaignTargetByID",
-		append([]interface{}{ctx, campaignTargetID}, interceptors...)...)}
+		append([]any{ctx, campaignTargetID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCampaignTargetByID_Call) Run(run func(ctx context.Context, campaignTargetID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCampaignTargetByID_Call {
@@ -36114,9 +36114,9 @@ type MockGraphClient_GetCampaignTargets_Call struct {
 //   - orderBy []*graphclient.CampaignTargetOrder
 //   - where *graphclient.CampaignTargetWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCampaignTargets(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetCampaignTargets_Call {
+func (_e *MockGraphClient_Expecter) GetCampaignTargets(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetCampaignTargets_Call {
 	return &MockGraphClient_GetCampaignTargets_Call{Call: _e.mock.On("GetCampaignTargets",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCampaignTargets_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CampaignTargetOrder, where *graphclient.CampaignTargetWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCampaignTargets_Call {
@@ -36227,9 +36227,9 @@ type MockGraphClient_GetCampaigns_Call struct {
 //   - orderBy []*graphclient.CampaignOrder
 //   - where *graphclient.CampaignWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCampaigns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetCampaigns_Call {
+func (_e *MockGraphClient_Expecter) GetCampaigns(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetCampaigns_Call {
 	return &MockGraphClient_GetCampaigns_Call{Call: _e.mock.On("GetCampaigns",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCampaigns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CampaignOrder, where *graphclient.CampaignWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCampaigns_Call {
@@ -36335,9 +36335,9 @@ type MockGraphClient_GetCheckResultByID_Call struct {
 //   - ctx context.Context
 //   - checkResultID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCheckResultByID(ctx interface{}, checkResultID interface{}, interceptors ...interface{}) *MockGraphClient_GetCheckResultByID_Call {
+func (_e *MockGraphClient_Expecter) GetCheckResultByID(ctx any, checkResultID any, interceptors ...any) *MockGraphClient_GetCheckResultByID_Call {
 	return &MockGraphClient_GetCheckResultByID_Call{Call: _e.mock.On("GetCheckResultByID",
-		append([]interface{}{ctx, checkResultID}, interceptors...)...)}
+		append([]any{ctx, checkResultID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCheckResultByID_Call) Run(run func(ctx context.Context, checkResultID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCheckResultByID_Call {
@@ -36423,9 +36423,9 @@ type MockGraphClient_GetCheckResults_Call struct {
 //   - orderBy []*graphclient.CheckResultOrder
 //   - where *graphclient.CheckResultWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCheckResults(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetCheckResults_Call {
+func (_e *MockGraphClient_Expecter) GetCheckResults(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetCheckResults_Call {
 	return &MockGraphClient_GetCheckResults_Call{Call: _e.mock.On("GetCheckResults",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCheckResults_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.CheckResultOrder, where *graphclient.CheckResultWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCheckResults_Call {
@@ -36531,9 +36531,9 @@ type MockGraphClient_GetContactByID_Call struct {
 //   - ctx context.Context
 //   - contactID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetContactByID(ctx interface{}, contactID interface{}, interceptors ...interface{}) *MockGraphClient_GetContactByID_Call {
+func (_e *MockGraphClient_Expecter) GetContactByID(ctx any, contactID any, interceptors ...any) *MockGraphClient_GetContactByID_Call {
 	return &MockGraphClient_GetContactByID_Call{Call: _e.mock.On("GetContactByID",
-		append([]interface{}{ctx, contactID}, interceptors...)...)}
+		append([]any{ctx, contactID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetContactByID_Call) Run(run func(ctx context.Context, contactID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetContactByID_Call {
@@ -36619,9 +36619,9 @@ type MockGraphClient_GetContacts_Call struct {
 //   - where *graphclient.ContactWhereInput
 //   - orderBy []*graphclient.ContactOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetContacts(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetContacts_Call {
+func (_e *MockGraphClient_Expecter) GetContacts(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetContacts_Call {
 	return &MockGraphClient_GetContacts_Call{Call: _e.mock.On("GetContacts",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetContacts_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ContactWhereInput, orderBy []*graphclient.ContactOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetContacts_Call {
@@ -36727,9 +36727,9 @@ type MockGraphClient_GetControlByID_Call struct {
 //   - ctx context.Context
 //   - controlID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlByID(ctx interface{}, controlID interface{}, interceptors ...interface{}) *MockGraphClient_GetControlByID_Call {
+func (_e *MockGraphClient_Expecter) GetControlByID(ctx any, controlID any, interceptors ...any) *MockGraphClient_GetControlByID_Call {
 	return &MockGraphClient_GetControlByID_Call{Call: _e.mock.On("GetControlByID",
-		append([]interface{}{ctx, controlID}, interceptors...)...)}
+		append([]any{ctx, controlID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlByID_Call) Run(run func(ctx context.Context, controlID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlByID_Call {
@@ -36809,9 +36809,9 @@ type MockGraphClient_GetControlCategories_Call struct {
 // GetControlCategories is a helper method to define mock.On call
 //   - ctx context.Context
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlCategories(ctx interface{}, interceptors ...interface{}) *MockGraphClient_GetControlCategories_Call {
+func (_e *MockGraphClient_Expecter) GetControlCategories(ctx any, interceptors ...any) *MockGraphClient_GetControlCategories_Call {
 	return &MockGraphClient_GetControlCategories_Call{Call: _e.mock.On("GetControlCategories",
-		append([]interface{}{ctx}, interceptors...)...)}
+		append([]any{ctx}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlCategories_Call) Run(run func(ctx context.Context, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlCategories_Call {
@@ -36887,9 +36887,9 @@ type MockGraphClient_GetControlCategoriesWithFramework_Call struct {
 //   - ctx context.Context
 //   - where *graphclient.ControlWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlCategoriesWithFramework(ctx interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetControlCategoriesWithFramework_Call {
+func (_e *MockGraphClient_Expecter) GetControlCategoriesWithFramework(ctx any, where any, interceptors ...any) *MockGraphClient_GetControlCategoriesWithFramework_Call {
 	return &MockGraphClient_GetControlCategoriesWithFramework_Call{Call: _e.mock.On("GetControlCategoriesWithFramework",
-		append([]interface{}{ctx, where}, interceptors...)...)}
+		append([]any{ctx, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlCategoriesWithFramework_Call) Run(run func(ctx context.Context, where *graphclient.ControlWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlCategoriesWithFramework_Call {
@@ -36970,9 +36970,9 @@ type MockGraphClient_GetControlImplementationByID_Call struct {
 //   - ctx context.Context
 //   - controlImplementationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlImplementationByID(ctx interface{}, controlImplementationID interface{}, interceptors ...interface{}) *MockGraphClient_GetControlImplementationByID_Call {
+func (_e *MockGraphClient_Expecter) GetControlImplementationByID(ctx any, controlImplementationID any, interceptors ...any) *MockGraphClient_GetControlImplementationByID_Call {
 	return &MockGraphClient_GetControlImplementationByID_Call{Call: _e.mock.On("GetControlImplementationByID",
-		append([]interface{}{ctx, controlImplementationID}, interceptors...)...)}
+		append([]any{ctx, controlImplementationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlImplementationByID_Call) Run(run func(ctx context.Context, controlImplementationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlImplementationByID_Call {
@@ -37058,9 +37058,9 @@ type MockGraphClient_GetControlImplementations_Call struct {
 //   - where *graphclient.ControlImplementationWhereInput
 //   - orderBy []*graphclient.ControlImplementationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlImplementations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetControlImplementations_Call {
+func (_e *MockGraphClient_Expecter) GetControlImplementations(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetControlImplementations_Call {
 	return &MockGraphClient_GetControlImplementations_Call{Call: _e.mock.On("GetControlImplementations",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlImplementations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ControlImplementationWhereInput, orderBy []*graphclient.ControlImplementationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlImplementations_Call {
@@ -37166,9 +37166,9 @@ type MockGraphClient_GetControlObjectiveByID_Call struct {
 //   - ctx context.Context
 //   - controlObjectiveID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlObjectiveByID(ctx interface{}, controlObjectiveID interface{}, interceptors ...interface{}) *MockGraphClient_GetControlObjectiveByID_Call {
+func (_e *MockGraphClient_Expecter) GetControlObjectiveByID(ctx any, controlObjectiveID any, interceptors ...any) *MockGraphClient_GetControlObjectiveByID_Call {
 	return &MockGraphClient_GetControlObjectiveByID_Call{Call: _e.mock.On("GetControlObjectiveByID",
-		append([]interface{}{ctx, controlObjectiveID}, interceptors...)...)}
+		append([]any{ctx, controlObjectiveID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlObjectiveByID_Call) Run(run func(ctx context.Context, controlObjectiveID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlObjectiveByID_Call {
@@ -37254,9 +37254,9 @@ type MockGraphClient_GetControlObjectives_Call struct {
 //   - where *graphclient.ControlObjectiveWhereInput
 //   - orderBy []*graphclient.ControlObjectiveOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlObjectives(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetControlObjectives_Call {
+func (_e *MockGraphClient_Expecter) GetControlObjectives(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetControlObjectives_Call {
 	return &MockGraphClient_GetControlObjectives_Call{Call: _e.mock.On("GetControlObjectives",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlObjectives_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ControlObjectiveWhereInput, orderBy []*graphclient.ControlObjectiveOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlObjectives_Call {
@@ -37361,9 +37361,9 @@ type MockGraphClient_GetControlSubcategories_Call struct {
 // GetControlSubcategories is a helper method to define mock.On call
 //   - ctx context.Context
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlSubcategories(ctx interface{}, interceptors ...interface{}) *MockGraphClient_GetControlSubcategories_Call {
+func (_e *MockGraphClient_Expecter) GetControlSubcategories(ctx any, interceptors ...any) *MockGraphClient_GetControlSubcategories_Call {
 	return &MockGraphClient_GetControlSubcategories_Call{Call: _e.mock.On("GetControlSubcategories",
-		append([]interface{}{ctx}, interceptors...)...)}
+		append([]any{ctx}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlSubcategories_Call) Run(run func(ctx context.Context, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlSubcategories_Call {
@@ -37439,9 +37439,9 @@ type MockGraphClient_GetControlSubcategoriesWithFramework_Call struct {
 //   - ctx context.Context
 //   - where *graphclient.ControlWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlSubcategoriesWithFramework(ctx interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetControlSubcategoriesWithFramework_Call {
+func (_e *MockGraphClient_Expecter) GetControlSubcategoriesWithFramework(ctx any, where any, interceptors ...any) *MockGraphClient_GetControlSubcategoriesWithFramework_Call {
 	return &MockGraphClient_GetControlSubcategoriesWithFramework_Call{Call: _e.mock.On("GetControlSubcategoriesWithFramework",
-		append([]interface{}{ctx, where}, interceptors...)...)}
+		append([]any{ctx, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlSubcategoriesWithFramework_Call) Run(run func(ctx context.Context, where *graphclient.ControlWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlSubcategoriesWithFramework_Call {
@@ -37527,9 +37527,9 @@ type MockGraphClient_GetControls_Call struct {
 //   - where *graphclient.ControlWhereInput
 //   - orderBy []*graphclient.ControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControls(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetControls_Call {
+func (_e *MockGraphClient_Expecter) GetControls(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetControls_Call {
 	return &MockGraphClient_GetControls_Call{Call: _e.mock.On("GetControls",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControls_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ControlWhereInput, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControls_Call {
@@ -37641,9 +37641,9 @@ type MockGraphClient_GetControlsGroupByCategory_Call struct {
 //   - orderBy []*graphclient.ControlOrder
 //   - category *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetControlsGroupByCategory(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, category interface{}, interceptors ...interface{}) *MockGraphClient_GetControlsGroupByCategory_Call {
+func (_e *MockGraphClient_Expecter) GetControlsGroupByCategory(ctx any, first any, last any, after any, before any, where any, orderBy any, category any, interceptors ...any) *MockGraphClient_GetControlsGroupByCategory_Call {
 	return &MockGraphClient_GetControlsGroupByCategory_Call{Call: _e.mock.On("GetControlsGroupByCategory",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy, category}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy, category}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetControlsGroupByCategory_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ControlWhereInput, orderBy []*graphclient.ControlOrder, category *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetControlsGroupByCategory_Call {
@@ -37754,9 +37754,9 @@ type MockGraphClient_GetCustomDomainByID_Call struct {
 //   - ctx context.Context
 //   - customDomainID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCustomDomainByID(ctx interface{}, customDomainID interface{}, interceptors ...interface{}) *MockGraphClient_GetCustomDomainByID_Call {
+func (_e *MockGraphClient_Expecter) GetCustomDomainByID(ctx any, customDomainID any, interceptors ...any) *MockGraphClient_GetCustomDomainByID_Call {
 	return &MockGraphClient_GetCustomDomainByID_Call{Call: _e.mock.On("GetCustomDomainByID",
-		append([]interface{}{ctx, customDomainID}, interceptors...)...)}
+		append([]any{ctx, customDomainID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCustomDomainByID_Call) Run(run func(ctx context.Context, customDomainID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCustomDomainByID_Call {
@@ -37842,9 +37842,9 @@ type MockGraphClient_GetCustomDomains_Call struct {
 //   - where *graphclient.CustomDomainWhereInput
 //   - orderBy []*graphclient.CustomDomainOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCustomDomains(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetCustomDomains_Call {
+func (_e *MockGraphClient_Expecter) GetCustomDomains(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetCustomDomains_Call {
 	return &MockGraphClient_GetCustomDomains_Call{Call: _e.mock.On("GetCustomDomains",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCustomDomains_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.CustomDomainWhereInput, orderBy []*graphclient.CustomDomainOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCustomDomains_Call {
@@ -37950,9 +37950,9 @@ type MockGraphClient_GetCustomTypeEnumByID_Call struct {
 //   - ctx context.Context
 //   - customTypeEnumID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCustomTypeEnumByID(ctx interface{}, customTypeEnumID interface{}, interceptors ...interface{}) *MockGraphClient_GetCustomTypeEnumByID_Call {
+func (_e *MockGraphClient_Expecter) GetCustomTypeEnumByID(ctx any, customTypeEnumID any, interceptors ...any) *MockGraphClient_GetCustomTypeEnumByID_Call {
 	return &MockGraphClient_GetCustomTypeEnumByID_Call{Call: _e.mock.On("GetCustomTypeEnumByID",
-		append([]interface{}{ctx, customTypeEnumID}, interceptors...)...)}
+		append([]any{ctx, customTypeEnumID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCustomTypeEnumByID_Call) Run(run func(ctx context.Context, customTypeEnumID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCustomTypeEnumByID_Call {
@@ -38038,9 +38038,9 @@ type MockGraphClient_GetCustomTypeEnums_Call struct {
 //   - where *graphclient.CustomTypeEnumWhereInput
 //   - orderBy []*graphclient.CustomTypeEnumOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetCustomTypeEnums(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetCustomTypeEnums_Call {
+func (_e *MockGraphClient_Expecter) GetCustomTypeEnums(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetCustomTypeEnums_Call {
 	return &MockGraphClient_GetCustomTypeEnums_Call{Call: _e.mock.On("GetCustomTypeEnums",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetCustomTypeEnums_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.CustomTypeEnumWhereInput, orderBy []*graphclient.CustomTypeEnumOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetCustomTypeEnums_Call {
@@ -38146,9 +38146,9 @@ type MockGraphClient_GetDNSVerificationByID_Call struct {
 //   - ctx context.Context
 //   - dnsVerificationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDNSVerificationByID(ctx interface{}, dnsVerificationID interface{}, interceptors ...interface{}) *MockGraphClient_GetDNSVerificationByID_Call {
+func (_e *MockGraphClient_Expecter) GetDNSVerificationByID(ctx any, dnsVerificationID any, interceptors ...any) *MockGraphClient_GetDNSVerificationByID_Call {
 	return &MockGraphClient_GetDNSVerificationByID_Call{Call: _e.mock.On("GetDNSVerificationByID",
-		append([]interface{}{ctx, dnsVerificationID}, interceptors...)...)}
+		append([]any{ctx, dnsVerificationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDNSVerificationByID_Call) Run(run func(ctx context.Context, dnsVerificationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDNSVerificationByID_Call {
@@ -38231,9 +38231,9 @@ type MockGraphClient_GetDNSVerifications_Call struct {
 //   - last *int64
 //   - where *graphclient.DNSVerificationWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDNSVerifications(ctx interface{}, first interface{}, last interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetDNSVerifications_Call {
+func (_e *MockGraphClient_Expecter) GetDNSVerifications(ctx any, first any, last any, where any, interceptors ...any) *MockGraphClient_GetDNSVerifications_Call {
 	return &MockGraphClient_GetDNSVerifications_Call{Call: _e.mock.On("GetDNSVerifications",
-		append([]interface{}{ctx, first, last, where}, interceptors...)...)}
+		append([]any{ctx, first, last, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDNSVerifications_Call) Run(run func(ctx context.Context, first *int64, last *int64, where *graphclient.DNSVerificationWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDNSVerifications_Call {
@@ -38324,9 +38324,9 @@ type MockGraphClient_GetDirectoryAccountByID_Call struct {
 //   - ctx context.Context
 //   - directoryAccountID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectoryAccountByID(ctx interface{}, directoryAccountID interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectoryAccountByID_Call {
+func (_e *MockGraphClient_Expecter) GetDirectoryAccountByID(ctx any, directoryAccountID any, interceptors ...any) *MockGraphClient_GetDirectoryAccountByID_Call {
 	return &MockGraphClient_GetDirectoryAccountByID_Call{Call: _e.mock.On("GetDirectoryAccountByID",
-		append([]interface{}{ctx, directoryAccountID}, interceptors...)...)}
+		append([]any{ctx, directoryAccountID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectoryAccountByID_Call) Run(run func(ctx context.Context, directoryAccountID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectoryAccountByID_Call {
@@ -38412,9 +38412,9 @@ type MockGraphClient_GetDirectoryAccounts_Call struct {
 //   - where *graphclient.DirectoryAccountWhereInput
 //   - orderBy []*graphclient.DirectoryAccountOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectoryAccounts(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectoryAccounts_Call {
+func (_e *MockGraphClient_Expecter) GetDirectoryAccounts(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetDirectoryAccounts_Call {
 	return &MockGraphClient_GetDirectoryAccounts_Call{Call: _e.mock.On("GetDirectoryAccounts",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectoryAccounts_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.DirectoryAccountWhereInput, orderBy []*graphclient.DirectoryAccountOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectoryAccounts_Call {
@@ -38520,9 +38520,9 @@ type MockGraphClient_GetDirectoryGroupByID_Call struct {
 //   - ctx context.Context
 //   - directoryGroupID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectoryGroupByID(ctx interface{}, directoryGroupID interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectoryGroupByID_Call {
+func (_e *MockGraphClient_Expecter) GetDirectoryGroupByID(ctx any, directoryGroupID any, interceptors ...any) *MockGraphClient_GetDirectoryGroupByID_Call {
 	return &MockGraphClient_GetDirectoryGroupByID_Call{Call: _e.mock.On("GetDirectoryGroupByID",
-		append([]interface{}{ctx, directoryGroupID}, interceptors...)...)}
+		append([]any{ctx, directoryGroupID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectoryGroupByID_Call) Run(run func(ctx context.Context, directoryGroupID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectoryGroupByID_Call {
@@ -38608,9 +38608,9 @@ type MockGraphClient_GetDirectoryGroups_Call struct {
 //   - where *graphclient.DirectoryGroupWhereInput
 //   - orderBy []*graphclient.DirectoryGroupOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectoryGroups(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectoryGroups_Call {
+func (_e *MockGraphClient_Expecter) GetDirectoryGroups(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetDirectoryGroups_Call {
 	return &MockGraphClient_GetDirectoryGroups_Call{Call: _e.mock.On("GetDirectoryGroups",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectoryGroups_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.DirectoryGroupWhereInput, orderBy []*graphclient.DirectoryGroupOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectoryGroups_Call {
@@ -38716,9 +38716,9 @@ type MockGraphClient_GetDirectoryMembershipByID_Call struct {
 //   - ctx context.Context
 //   - directoryMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectoryMembershipByID(ctx interface{}, directoryMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectoryMembershipByID_Call {
+func (_e *MockGraphClient_Expecter) GetDirectoryMembershipByID(ctx any, directoryMembershipID any, interceptors ...any) *MockGraphClient_GetDirectoryMembershipByID_Call {
 	return &MockGraphClient_GetDirectoryMembershipByID_Call{Call: _e.mock.On("GetDirectoryMembershipByID",
-		append([]interface{}{ctx, directoryMembershipID}, interceptors...)...)}
+		append([]any{ctx, directoryMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectoryMembershipByID_Call) Run(run func(ctx context.Context, directoryMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectoryMembershipByID_Call {
@@ -38804,9 +38804,9 @@ type MockGraphClient_GetDirectoryMemberships_Call struct {
 //   - where *graphclient.DirectoryMembershipWhereInput
 //   - orderBy []*graphclient.DirectoryMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectoryMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectoryMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetDirectoryMemberships(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetDirectoryMemberships_Call {
 	return &MockGraphClient_GetDirectoryMemberships_Call{Call: _e.mock.On("GetDirectoryMemberships",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectoryMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.DirectoryMembershipWhereInput, orderBy []*graphclient.DirectoryMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectoryMemberships_Call {
@@ -38912,9 +38912,9 @@ type MockGraphClient_GetDirectorySyncRunByID_Call struct {
 //   - ctx context.Context
 //   - directorySyncRunID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectorySyncRunByID(ctx interface{}, directorySyncRunID interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectorySyncRunByID_Call {
+func (_e *MockGraphClient_Expecter) GetDirectorySyncRunByID(ctx any, directorySyncRunID any, interceptors ...any) *MockGraphClient_GetDirectorySyncRunByID_Call {
 	return &MockGraphClient_GetDirectorySyncRunByID_Call{Call: _e.mock.On("GetDirectorySyncRunByID",
-		append([]interface{}{ctx, directorySyncRunID}, interceptors...)...)}
+		append([]any{ctx, directorySyncRunID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectorySyncRunByID_Call) Run(run func(ctx context.Context, directorySyncRunID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectorySyncRunByID_Call {
@@ -39000,9 +39000,9 @@ type MockGraphClient_GetDirectorySyncRuns_Call struct {
 //   - where *graphclient.DirectorySyncRunWhereInput
 //   - orderBy []*graphclient.DirectorySyncRunOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDirectorySyncRuns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetDirectorySyncRuns_Call {
+func (_e *MockGraphClient_Expecter) GetDirectorySyncRuns(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetDirectorySyncRuns_Call {
 	return &MockGraphClient_GetDirectorySyncRuns_Call{Call: _e.mock.On("GetDirectorySyncRuns",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDirectorySyncRuns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.DirectorySyncRunWhereInput, orderBy []*graphclient.DirectorySyncRunOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDirectorySyncRuns_Call {
@@ -39108,9 +39108,9 @@ type MockGraphClient_GetDiscussionByID_Call struct {
 //   - ctx context.Context
 //   - discussionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDiscussionByID(ctx interface{}, discussionID interface{}, interceptors ...interface{}) *MockGraphClient_GetDiscussionByID_Call {
+func (_e *MockGraphClient_Expecter) GetDiscussionByID(ctx any, discussionID any, interceptors ...any) *MockGraphClient_GetDiscussionByID_Call {
 	return &MockGraphClient_GetDiscussionByID_Call{Call: _e.mock.On("GetDiscussionByID",
-		append([]interface{}{ctx, discussionID}, interceptors...)...)}
+		append([]any{ctx, discussionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDiscussionByID_Call) Run(run func(ctx context.Context, discussionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDiscussionByID_Call {
@@ -39196,9 +39196,9 @@ type MockGraphClient_GetDiscussions_Call struct {
 //   - where *graphclient.DiscussionWhereInput
 //   - orderBy []*graphclient.DiscussionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDiscussions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetDiscussions_Call {
+func (_e *MockGraphClient_Expecter) GetDiscussions(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetDiscussions_Call {
 	return &MockGraphClient_GetDiscussions_Call{Call: _e.mock.On("GetDiscussions",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDiscussions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.DiscussionWhereInput, orderBy []*graphclient.DiscussionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDiscussions_Call {
@@ -39304,9 +39304,9 @@ type MockGraphClient_GetDocumentDataByID_Call struct {
 //   - ctx context.Context
 //   - documentDataID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetDocumentDataByID(ctx interface{}, documentDataID interface{}, interceptors ...interface{}) *MockGraphClient_GetDocumentDataByID_Call {
+func (_e *MockGraphClient_Expecter) GetDocumentDataByID(ctx any, documentDataID any, interceptors ...any) *MockGraphClient_GetDocumentDataByID_Call {
 	return &MockGraphClient_GetDocumentDataByID_Call{Call: _e.mock.On("GetDocumentDataByID",
-		append([]interface{}{ctx, documentDataID}, interceptors...)...)}
+		append([]any{ctx, documentDataID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetDocumentDataByID_Call) Run(run func(ctx context.Context, documentDataID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetDocumentDataByID_Call {
@@ -39387,9 +39387,9 @@ type MockGraphClient_GetEmailTemplateByID_Call struct {
 //   - ctx context.Context
 //   - emailTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEmailTemplateByID(ctx interface{}, emailTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_GetEmailTemplateByID_Call {
+func (_e *MockGraphClient_Expecter) GetEmailTemplateByID(ctx any, emailTemplateID any, interceptors ...any) *MockGraphClient_GetEmailTemplateByID_Call {
 	return &MockGraphClient_GetEmailTemplateByID_Call{Call: _e.mock.On("GetEmailTemplateByID",
-		append([]interface{}{ctx, emailTemplateID}, interceptors...)...)}
+		append([]any{ctx, emailTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEmailTemplateByID_Call) Run(run func(ctx context.Context, emailTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEmailTemplateByID_Call {
@@ -39475,9 +39475,9 @@ type MockGraphClient_GetEmailTemplates_Call struct {
 //   - orderBy []*graphclient.EmailTemplateOrder
 //   - where *graphclient.EmailTemplateWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEmailTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetEmailTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetEmailTemplates(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetEmailTemplates_Call {
 	return &MockGraphClient_GetEmailTemplates_Call{Call: _e.mock.On("GetEmailTemplates",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEmailTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.EmailTemplateOrder, where *graphclient.EmailTemplateWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEmailTemplates_Call {
@@ -39588,9 +39588,9 @@ type MockGraphClient_GetEntities_Call struct {
 //   - where *graphclient.EntityWhereInput
 //   - orderBy []*graphclient.EntityOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEntities(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetEntities_Call {
+func (_e *MockGraphClient_Expecter) GetEntities(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetEntities_Call {
 	return &MockGraphClient_GetEntities_Call{Call: _e.mock.On("GetEntities",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEntities_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.EntityWhereInput, orderBy []*graphclient.EntityOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEntities_Call {
@@ -39696,9 +39696,9 @@ type MockGraphClient_GetEntityByID_Call struct {
 //   - ctx context.Context
 //   - entityID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEntityByID(ctx interface{}, entityID interface{}, interceptors ...interface{}) *MockGraphClient_GetEntityByID_Call {
+func (_e *MockGraphClient_Expecter) GetEntityByID(ctx any, entityID any, interceptors ...any) *MockGraphClient_GetEntityByID_Call {
 	return &MockGraphClient_GetEntityByID_Call{Call: _e.mock.On("GetEntityByID",
-		append([]interface{}{ctx, entityID}, interceptors...)...)}
+		append([]any{ctx, entityID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEntityByID_Call) Run(run func(ctx context.Context, entityID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEntityByID_Call {
@@ -39779,9 +39779,9 @@ type MockGraphClient_GetEntityTypeByID_Call struct {
 //   - ctx context.Context
 //   - entityTypeID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEntityTypeByID(ctx interface{}, entityTypeID interface{}, interceptors ...interface{}) *MockGraphClient_GetEntityTypeByID_Call {
+func (_e *MockGraphClient_Expecter) GetEntityTypeByID(ctx any, entityTypeID any, interceptors ...any) *MockGraphClient_GetEntityTypeByID_Call {
 	return &MockGraphClient_GetEntityTypeByID_Call{Call: _e.mock.On("GetEntityTypeByID",
-		append([]interface{}{ctx, entityTypeID}, interceptors...)...)}
+		append([]any{ctx, entityTypeID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEntityTypeByID_Call) Run(run func(ctx context.Context, entityTypeID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEntityTypeByID_Call {
@@ -39867,9 +39867,9 @@ type MockGraphClient_GetEntityTypes_Call struct {
 //   - where *graphclient.EntityTypeWhereInput
 //   - orderBy []*graphclient.EntityTypeOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEntityTypes(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetEntityTypes_Call {
+func (_e *MockGraphClient_Expecter) GetEntityTypes(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetEntityTypes_Call {
 	return &MockGraphClient_GetEntityTypes_Call{Call: _e.mock.On("GetEntityTypes",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEntityTypes_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.EntityTypeWhereInput, orderBy []*graphclient.EntityTypeOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEntityTypes_Call {
@@ -39975,9 +39975,9 @@ type MockGraphClient_GetEventByID_Call struct {
 //   - ctx context.Context
 //   - eventID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEventByID(ctx interface{}, eventID interface{}, interceptors ...interface{}) *MockGraphClient_GetEventByID_Call {
+func (_e *MockGraphClient_Expecter) GetEventByID(ctx any, eventID any, interceptors ...any) *MockGraphClient_GetEventByID_Call {
 	return &MockGraphClient_GetEventByID_Call{Call: _e.mock.On("GetEventByID",
-		append([]interface{}{ctx, eventID}, interceptors...)...)}
+		append([]any{ctx, eventID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEventByID_Call) Run(run func(ctx context.Context, eventID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEventByID_Call {
@@ -40063,9 +40063,9 @@ type MockGraphClient_GetEvents_Call struct {
 //   - where *graphclient.EventWhereInput
 //   - orderBy []*graphclient.EventOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEvents(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetEvents_Call {
+func (_e *MockGraphClient_Expecter) GetEvents(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetEvents_Call {
 	return &MockGraphClient_GetEvents_Call{Call: _e.mock.On("GetEvents",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEvents_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.EventWhereInput, orderBy []*graphclient.EventOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEvents_Call {
@@ -40171,9 +40171,9 @@ type MockGraphClient_GetEvidenceByID_Call struct {
 //   - ctx context.Context
 //   - evidenceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEvidenceByID(ctx interface{}, evidenceID interface{}, interceptors ...interface{}) *MockGraphClient_GetEvidenceByID_Call {
+func (_e *MockGraphClient_Expecter) GetEvidenceByID(ctx any, evidenceID any, interceptors ...any) *MockGraphClient_GetEvidenceByID_Call {
 	return &MockGraphClient_GetEvidenceByID_Call{Call: _e.mock.On("GetEvidenceByID",
-		append([]interface{}{ctx, evidenceID}, interceptors...)...)}
+		append([]any{ctx, evidenceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEvidenceByID_Call) Run(run func(ctx context.Context, evidenceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEvidenceByID_Call {
@@ -40259,9 +40259,9 @@ type MockGraphClient_GetEvidences_Call struct {
 //   - where *graphclient.EvidenceWhereInput
 //   - orderBy []*graphclient.EvidenceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetEvidences(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetEvidences_Call {
+func (_e *MockGraphClient_Expecter) GetEvidences(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetEvidences_Call {
 	return &MockGraphClient_GetEvidences_Call{Call: _e.mock.On("GetEvidences",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetEvidences_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.EvidenceWhereInput, orderBy []*graphclient.EvidenceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetEvidences_Call {
@@ -40367,9 +40367,9 @@ type MockGraphClient_GetExportByID_Call struct {
 //   - ctx context.Context
 //   - exportID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetExportByID(ctx interface{}, exportID interface{}, interceptors ...interface{}) *MockGraphClient_GetExportByID_Call {
+func (_e *MockGraphClient_Expecter) GetExportByID(ctx any, exportID any, interceptors ...any) *MockGraphClient_GetExportByID_Call {
 	return &MockGraphClient_GetExportByID_Call{Call: _e.mock.On("GetExportByID",
-		append([]interface{}{ctx, exportID}, interceptors...)...)}
+		append([]any{ctx, exportID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetExportByID_Call) Run(run func(ctx context.Context, exportID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetExportByID_Call {
@@ -40455,9 +40455,9 @@ type MockGraphClient_GetExports_Call struct {
 //   - where *graphclient.ExportWhereInput
 //   - orderBy []*graphclient.ExportOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetExports(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetExports_Call {
+func (_e *MockGraphClient_Expecter) GetExports(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetExports_Call {
 	return &MockGraphClient_GetExports_Call{Call: _e.mock.On("GetExports",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetExports_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ExportWhereInput, orderBy []*graphclient.ExportOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetExports_Call {
@@ -40563,9 +40563,9 @@ type MockGraphClient_GetFileByID_Call struct {
 //   - ctx context.Context
 //   - fileID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetFileByID(ctx interface{}, fileID interface{}, interceptors ...interface{}) *MockGraphClient_GetFileByID_Call {
+func (_e *MockGraphClient_Expecter) GetFileByID(ctx any, fileID any, interceptors ...any) *MockGraphClient_GetFileByID_Call {
 	return &MockGraphClient_GetFileByID_Call{Call: _e.mock.On("GetFileByID",
-		append([]interface{}{ctx, fileID}, interceptors...)...)}
+		append([]any{ctx, fileID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetFileByID_Call) Run(run func(ctx context.Context, fileID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetFileByID_Call {
@@ -40651,9 +40651,9 @@ type MockGraphClient_GetFiles_Call struct {
 //   - where *graphclient.FileWhereInput
 //   - orderBy []*graphclient.FileOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetFiles(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetFiles_Call {
+func (_e *MockGraphClient_Expecter) GetFiles(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetFiles_Call {
 	return &MockGraphClient_GetFiles_Call{Call: _e.mock.On("GetFiles",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetFiles_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.FileWhereInput, orderBy []*graphclient.FileOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetFiles_Call {
@@ -40759,9 +40759,9 @@ type MockGraphClient_GetFindingByID_Call struct {
 //   - ctx context.Context
 //   - findingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetFindingByID(ctx interface{}, findingID interface{}, interceptors ...interface{}) *MockGraphClient_GetFindingByID_Call {
+func (_e *MockGraphClient_Expecter) GetFindingByID(ctx any, findingID any, interceptors ...any) *MockGraphClient_GetFindingByID_Call {
 	return &MockGraphClient_GetFindingByID_Call{Call: _e.mock.On("GetFindingByID",
-		append([]interface{}{ctx, findingID}, interceptors...)...)}
+		append([]any{ctx, findingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetFindingByID_Call) Run(run func(ctx context.Context, findingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetFindingByID_Call {
@@ -40842,9 +40842,9 @@ type MockGraphClient_GetFindingControlByID_Call struct {
 //   - ctx context.Context
 //   - findingControlID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetFindingControlByID(ctx interface{}, findingControlID interface{}, interceptors ...interface{}) *MockGraphClient_GetFindingControlByID_Call {
+func (_e *MockGraphClient_Expecter) GetFindingControlByID(ctx any, findingControlID any, interceptors ...any) *MockGraphClient_GetFindingControlByID_Call {
 	return &MockGraphClient_GetFindingControlByID_Call{Call: _e.mock.On("GetFindingControlByID",
-		append([]interface{}{ctx, findingControlID}, interceptors...)...)}
+		append([]any{ctx, findingControlID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetFindingControlByID_Call) Run(run func(ctx context.Context, findingControlID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetFindingControlByID_Call {
@@ -40930,9 +40930,9 @@ type MockGraphClient_GetFindingControls_Call struct {
 //   - where *graphclient.FindingControlWhereInput
 //   - orderBy []*graphclient.FindingControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetFindingControls(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetFindingControls_Call {
+func (_e *MockGraphClient_Expecter) GetFindingControls(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetFindingControls_Call {
 	return &MockGraphClient_GetFindingControls_Call{Call: _e.mock.On("GetFindingControls",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetFindingControls_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.FindingControlWhereInput, orderBy []*graphclient.FindingControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetFindingControls_Call {
@@ -41043,9 +41043,9 @@ type MockGraphClient_GetFindings_Call struct {
 //   - where *graphclient.FindingWhereInput
 //   - orderBy []*graphclient.FindingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetFindings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetFindings_Call {
+func (_e *MockGraphClient_Expecter) GetFindings(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetFindings_Call {
 	return &MockGraphClient_GetFindings_Call{Call: _e.mock.On("GetFindings",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetFindings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.FindingWhereInput, orderBy []*graphclient.FindingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetFindings_Call {
@@ -41151,9 +41151,9 @@ type MockGraphClient_GetGroupByID_Call struct {
 //   - ctx context.Context
 //   - groupID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetGroupByID(ctx interface{}, groupID interface{}, interceptors ...interface{}) *MockGraphClient_GetGroupByID_Call {
+func (_e *MockGraphClient_Expecter) GetGroupByID(ctx any, groupID any, interceptors ...any) *MockGraphClient_GetGroupByID_Call {
 	return &MockGraphClient_GetGroupByID_Call{Call: _e.mock.On("GetGroupByID",
-		append([]interface{}{ctx, groupID}, interceptors...)...)}
+		append([]any{ctx, groupID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetGroupByID_Call) Run(run func(ctx context.Context, groupID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetGroupByID_Call {
@@ -41234,9 +41234,9 @@ type MockGraphClient_GetGroupMembershipByID_Call struct {
 //   - ctx context.Context
 //   - groupMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetGroupMembershipByID(ctx interface{}, groupMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_GetGroupMembershipByID_Call {
+func (_e *MockGraphClient_Expecter) GetGroupMembershipByID(ctx any, groupMembershipID any, interceptors ...any) *MockGraphClient_GetGroupMembershipByID_Call {
 	return &MockGraphClient_GetGroupMembershipByID_Call{Call: _e.mock.On("GetGroupMembershipByID",
-		append([]interface{}{ctx, groupMembershipID}, interceptors...)...)}
+		append([]any{ctx, groupMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetGroupMembershipByID_Call) Run(run func(ctx context.Context, groupMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetGroupMembershipByID_Call {
@@ -41322,9 +41322,9 @@ type MockGraphClient_GetGroupMemberships_Call struct {
 //   - where *graphclient.GroupMembershipWhereInput
 //   - orderBy []*graphclient.GroupMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetGroupMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetGroupMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetGroupMemberships(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetGroupMemberships_Call {
 	return &MockGraphClient_GetGroupMemberships_Call{Call: _e.mock.On("GetGroupMemberships",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetGroupMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.GroupMembershipWhereInput, orderBy []*graphclient.GroupMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetGroupMemberships_Call {
@@ -41430,9 +41430,9 @@ type MockGraphClient_GetGroupSettingByID_Call struct {
 //   - ctx context.Context
 //   - groupSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetGroupSettingByID(ctx interface{}, groupSettingID interface{}, interceptors ...interface{}) *MockGraphClient_GetGroupSettingByID_Call {
+func (_e *MockGraphClient_Expecter) GetGroupSettingByID(ctx any, groupSettingID any, interceptors ...any) *MockGraphClient_GetGroupSettingByID_Call {
 	return &MockGraphClient_GetGroupSettingByID_Call{Call: _e.mock.On("GetGroupSettingByID",
-		append([]interface{}{ctx, groupSettingID}, interceptors...)...)}
+		append([]any{ctx, groupSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetGroupSettingByID_Call) Run(run func(ctx context.Context, groupSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetGroupSettingByID_Call {
@@ -41518,9 +41518,9 @@ type MockGraphClient_GetGroupSettings_Call struct {
 //   - where *graphclient.GroupSettingWhereInput
 //   - orderBy []*graphclient.GroupSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetGroupSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetGroupSettings_Call {
+func (_e *MockGraphClient_Expecter) GetGroupSettings(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetGroupSettings_Call {
 	return &MockGraphClient_GetGroupSettings_Call{Call: _e.mock.On("GetGroupSettings",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetGroupSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.GroupSettingWhereInput, orderBy []*graphclient.GroupSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetGroupSettings_Call {
@@ -41631,9 +41631,9 @@ type MockGraphClient_GetGroups_Call struct {
 //   - where *graphclient.GroupWhereInput
 //   - orderBy []*graphclient.GroupOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetGroups(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetGroups_Call {
+func (_e *MockGraphClient_Expecter) GetGroups(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetGroups_Call {
 	return &MockGraphClient_GetGroups_Call{Call: _e.mock.On("GetGroups",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetGroups_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.GroupWhereInput, orderBy []*graphclient.GroupOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetGroups_Call {
@@ -41739,9 +41739,9 @@ type MockGraphClient_GetHushByID_Call struct {
 //   - ctx context.Context
 //   - hushID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetHushByID(ctx interface{}, hushID interface{}, interceptors ...interface{}) *MockGraphClient_GetHushByID_Call {
+func (_e *MockGraphClient_Expecter) GetHushByID(ctx any, hushID any, interceptors ...any) *MockGraphClient_GetHushByID_Call {
 	return &MockGraphClient_GetHushByID_Call{Call: _e.mock.On("GetHushByID",
-		append([]interface{}{ctx, hushID}, interceptors...)...)}
+		append([]any{ctx, hushID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetHushByID_Call) Run(run func(ctx context.Context, hushID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetHushByID_Call {
@@ -41827,9 +41827,9 @@ type MockGraphClient_GetHushes_Call struct {
 //   - where *graphclient.HushWhereInput
 //   - orderBy []*graphclient.HushOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetHushes(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetHushes_Call {
+func (_e *MockGraphClient_Expecter) GetHushes(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetHushes_Call {
 	return &MockGraphClient_GetHushes_Call{Call: _e.mock.On("GetHushes",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetHushes_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.HushWhereInput, orderBy []*graphclient.HushOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetHushes_Call {
@@ -41935,9 +41935,9 @@ type MockGraphClient_GetIdentityHolderByID_Call struct {
 //   - ctx context.Context
 //   - identityHolderID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetIdentityHolderByID(ctx interface{}, identityHolderID interface{}, interceptors ...interface{}) *MockGraphClient_GetIdentityHolderByID_Call {
+func (_e *MockGraphClient_Expecter) GetIdentityHolderByID(ctx any, identityHolderID any, interceptors ...any) *MockGraphClient_GetIdentityHolderByID_Call {
 	return &MockGraphClient_GetIdentityHolderByID_Call{Call: _e.mock.On("GetIdentityHolderByID",
-		append([]interface{}{ctx, identityHolderID}, interceptors...)...)}
+		append([]any{ctx, identityHolderID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetIdentityHolderByID_Call) Run(run func(ctx context.Context, identityHolderID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetIdentityHolderByID_Call {
@@ -42024,9 +42024,9 @@ type MockGraphClient_GetIdentityHolderDirectoryAccounts_Call struct {
 //   - orderBy []*graphclient.DirectoryAccountOrder
 //   - where *graphclient.DirectoryAccountWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetIdentityHolderDirectoryAccounts(ctx interface{}, identityHolderID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
+func (_e *MockGraphClient_Expecter) GetIdentityHolderDirectoryAccounts(ctx any, identityHolderID any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
 	return &MockGraphClient_GetIdentityHolderDirectoryAccounts_Call{Call: _e.mock.On("GetIdentityHolderDirectoryAccounts",
-		append([]interface{}{ctx, identityHolderID, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, identityHolderID, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call) Run(run func(ctx context.Context, identityHolderID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.DirectoryAccountOrder, where *graphclient.DirectoryAccountWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetIdentityHolderDirectoryAccounts_Call {
@@ -42142,9 +42142,9 @@ type MockGraphClient_GetIdentityHolders_Call struct {
 //   - orderBy []*graphclient.IdentityHolderOrder
 //   - where *graphclient.IdentityHolderWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetIdentityHolders(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetIdentityHolders_Call {
+func (_e *MockGraphClient_Expecter) GetIdentityHolders(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetIdentityHolders_Call {
 	return &MockGraphClient_GetIdentityHolders_Call{Call: _e.mock.On("GetIdentityHolders",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetIdentityHolders_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.IdentityHolderOrder, where *graphclient.IdentityHolderWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetIdentityHolders_Call {
@@ -42250,9 +42250,9 @@ type MockGraphClient_GetIntegrationByID_Call struct {
 //   - ctx context.Context
 //   - integrationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetIntegrationByID(ctx interface{}, integrationID interface{}, interceptors ...interface{}) *MockGraphClient_GetIntegrationByID_Call {
+func (_e *MockGraphClient_Expecter) GetIntegrationByID(ctx any, integrationID any, interceptors ...any) *MockGraphClient_GetIntegrationByID_Call {
 	return &MockGraphClient_GetIntegrationByID_Call{Call: _e.mock.On("GetIntegrationByID",
-		append([]interface{}{ctx, integrationID}, interceptors...)...)}
+		append([]any{ctx, integrationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetIntegrationByID_Call) Run(run func(ctx context.Context, integrationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetIntegrationByID_Call {
@@ -42338,9 +42338,9 @@ type MockGraphClient_GetIntegrations_Call struct {
 //   - where *graphclient.IntegrationWhereInput
 //   - orderBy []*graphclient.IntegrationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetIntegrations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetIntegrations_Call {
+func (_e *MockGraphClient_Expecter) GetIntegrations(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetIntegrations_Call {
 	return &MockGraphClient_GetIntegrations_Call{Call: _e.mock.On("GetIntegrations",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetIntegrations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.IntegrationWhereInput, orderBy []*graphclient.IntegrationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetIntegrations_Call {
@@ -42451,9 +42451,9 @@ type MockGraphClient_GetInternalPolicies_Call struct {
 //   - where *graphclient.InternalPolicyWhereInput
 //   - orderBy []*graphclient.InternalPolicyOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetInternalPolicies(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetInternalPolicies_Call {
+func (_e *MockGraphClient_Expecter) GetInternalPolicies(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetInternalPolicies_Call {
 	return &MockGraphClient_GetInternalPolicies_Call{Call: _e.mock.On("GetInternalPolicies",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetInternalPolicies_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.InternalPolicyWhereInput, orderBy []*graphclient.InternalPolicyOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetInternalPolicies_Call {
@@ -42559,9 +42559,9 @@ type MockGraphClient_GetInternalPolicyByID_Call struct {
 //   - ctx context.Context
 //   - internalPolicyID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetInternalPolicyByID(ctx interface{}, internalPolicyID interface{}, interceptors ...interface{}) *MockGraphClient_GetInternalPolicyByID_Call {
+func (_e *MockGraphClient_Expecter) GetInternalPolicyByID(ctx any, internalPolicyID any, interceptors ...any) *MockGraphClient_GetInternalPolicyByID_Call {
 	return &MockGraphClient_GetInternalPolicyByID_Call{Call: _e.mock.On("GetInternalPolicyByID",
-		append([]interface{}{ctx, internalPolicyID}, interceptors...)...)}
+		append([]any{ctx, internalPolicyID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetInternalPolicyByID_Call) Run(run func(ctx context.Context, internalPolicyID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetInternalPolicyByID_Call {
@@ -42642,9 +42642,9 @@ type MockGraphClient_GetInviteByID_Call struct {
 //   - ctx context.Context
 //   - inviteID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetInviteByID(ctx interface{}, inviteID interface{}, interceptors ...interface{}) *MockGraphClient_GetInviteByID_Call {
+func (_e *MockGraphClient_Expecter) GetInviteByID(ctx any, inviteID any, interceptors ...any) *MockGraphClient_GetInviteByID_Call {
 	return &MockGraphClient_GetInviteByID_Call{Call: _e.mock.On("GetInviteByID",
-		append([]interface{}{ctx, inviteID}, interceptors...)...)}
+		append([]any{ctx, inviteID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetInviteByID_Call) Run(run func(ctx context.Context, inviteID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetInviteByID_Call {
@@ -42730,9 +42730,9 @@ type MockGraphClient_GetInvites_Call struct {
 //   - where *graphclient.InviteWhereInput
 //   - orderBy []*graphclient.InviteOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetInvites(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetInvites_Call {
+func (_e *MockGraphClient_Expecter) GetInvites(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetInvites_Call {
 	return &MockGraphClient_GetInvites_Call{Call: _e.mock.On("GetInvites",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetInvites_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.InviteWhereInput, orderBy []*graphclient.InviteOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetInvites_Call {
@@ -42838,9 +42838,9 @@ type MockGraphClient_GetJobResultByID_Call struct {
 //   - ctx context.Context
 //   - jobResultID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobResultByID(ctx interface{}, jobResultID interface{}, interceptors ...interface{}) *MockGraphClient_GetJobResultByID_Call {
+func (_e *MockGraphClient_Expecter) GetJobResultByID(ctx any, jobResultID any, interceptors ...any) *MockGraphClient_GetJobResultByID_Call {
 	return &MockGraphClient_GetJobResultByID_Call{Call: _e.mock.On("GetJobResultByID",
-		append([]interface{}{ctx, jobResultID}, interceptors...)...)}
+		append([]any{ctx, jobResultID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobResultByID_Call) Run(run func(ctx context.Context, jobResultID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobResultByID_Call {
@@ -42926,9 +42926,9 @@ type MockGraphClient_GetJobResults_Call struct {
 //   - where *graphclient.JobResultWhereInput
 //   - orderBy []*graphclient.JobResultOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobResults(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetJobResults_Call {
+func (_e *MockGraphClient_Expecter) GetJobResults(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetJobResults_Call {
 	return &MockGraphClient_GetJobResults_Call{Call: _e.mock.On("GetJobResults",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobResults_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.JobResultWhereInput, orderBy []*graphclient.JobResultOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobResults_Call {
@@ -43034,9 +43034,9 @@ type MockGraphClient_GetJobRunnerByID_Call struct {
 //   - ctx context.Context
 //   - jobRunnerID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobRunnerByID(ctx interface{}, jobRunnerID interface{}, interceptors ...interface{}) *MockGraphClient_GetJobRunnerByID_Call {
+func (_e *MockGraphClient_Expecter) GetJobRunnerByID(ctx any, jobRunnerID any, interceptors ...any) *MockGraphClient_GetJobRunnerByID_Call {
 	return &MockGraphClient_GetJobRunnerByID_Call{Call: _e.mock.On("GetJobRunnerByID",
-		append([]interface{}{ctx, jobRunnerID}, interceptors...)...)}
+		append([]any{ctx, jobRunnerID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobRunnerByID_Call) Run(run func(ctx context.Context, jobRunnerID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobRunnerByID_Call {
@@ -43117,9 +43117,9 @@ type MockGraphClient_GetJobRunnerRegistrationTokenByID_Call struct {
 //   - ctx context.Context
 //   - jobRunnerRegistrationTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobRunnerRegistrationTokenByID(ctx interface{}, jobRunnerRegistrationTokenID interface{}, interceptors ...interface{}) *MockGraphClient_GetJobRunnerRegistrationTokenByID_Call {
+func (_e *MockGraphClient_Expecter) GetJobRunnerRegistrationTokenByID(ctx any, jobRunnerRegistrationTokenID any, interceptors ...any) *MockGraphClient_GetJobRunnerRegistrationTokenByID_Call {
 	return &MockGraphClient_GetJobRunnerRegistrationTokenByID_Call{Call: _e.mock.On("GetJobRunnerRegistrationTokenByID",
-		append([]interface{}{ctx, jobRunnerRegistrationTokenID}, interceptors...)...)}
+		append([]any{ctx, jobRunnerRegistrationTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobRunnerRegistrationTokenByID_Call) Run(run func(ctx context.Context, jobRunnerRegistrationTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobRunnerRegistrationTokenByID_Call {
@@ -43205,9 +43205,9 @@ type MockGraphClient_GetJobRunnerRegistrationTokens_Call struct {
 //   - where *graphclient.JobRunnerRegistrationTokenWhereInput
 //   - orderBy []*graphclient.JobRunnerRegistrationTokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobRunnerRegistrationTokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetJobRunnerRegistrationTokens_Call {
+func (_e *MockGraphClient_Expecter) GetJobRunnerRegistrationTokens(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetJobRunnerRegistrationTokens_Call {
 	return &MockGraphClient_GetJobRunnerRegistrationTokens_Call{Call: _e.mock.On("GetJobRunnerRegistrationTokens",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobRunnerRegistrationTokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.JobRunnerRegistrationTokenWhereInput, orderBy []*graphclient.JobRunnerRegistrationTokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobRunnerRegistrationTokens_Call {
@@ -43313,9 +43313,9 @@ type MockGraphClient_GetJobRunnerTokenByID_Call struct {
 //   - ctx context.Context
 //   - jobRunnerTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobRunnerTokenByID(ctx interface{}, jobRunnerTokenID interface{}, interceptors ...interface{}) *MockGraphClient_GetJobRunnerTokenByID_Call {
+func (_e *MockGraphClient_Expecter) GetJobRunnerTokenByID(ctx any, jobRunnerTokenID any, interceptors ...any) *MockGraphClient_GetJobRunnerTokenByID_Call {
 	return &MockGraphClient_GetJobRunnerTokenByID_Call{Call: _e.mock.On("GetJobRunnerTokenByID",
-		append([]interface{}{ctx, jobRunnerTokenID}, interceptors...)...)}
+		append([]any{ctx, jobRunnerTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobRunnerTokenByID_Call) Run(run func(ctx context.Context, jobRunnerTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobRunnerTokenByID_Call {
@@ -43401,9 +43401,9 @@ type MockGraphClient_GetJobRunnerTokens_Call struct {
 //   - where *graphclient.JobRunnerTokenWhereInput
 //   - orderBy []*graphclient.JobRunnerTokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobRunnerTokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetJobRunnerTokens_Call {
+func (_e *MockGraphClient_Expecter) GetJobRunnerTokens(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetJobRunnerTokens_Call {
 	return &MockGraphClient_GetJobRunnerTokens_Call{Call: _e.mock.On("GetJobRunnerTokens",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobRunnerTokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.JobRunnerTokenWhereInput, orderBy []*graphclient.JobRunnerTokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobRunnerTokens_Call {
@@ -43514,9 +43514,9 @@ type MockGraphClient_GetJobRunners_Call struct {
 //   - where *graphclient.JobRunnerWhereInput
 //   - orderBy []*graphclient.JobRunnerOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobRunners(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetJobRunners_Call {
+func (_e *MockGraphClient_Expecter) GetJobRunners(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetJobRunners_Call {
 	return &MockGraphClient_GetJobRunners_Call{Call: _e.mock.On("GetJobRunners",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobRunners_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.JobRunnerWhereInput, orderBy []*graphclient.JobRunnerOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobRunners_Call {
@@ -43622,9 +43622,9 @@ type MockGraphClient_GetJobTemplateByID_Call struct {
 //   - ctx context.Context
 //   - jobTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobTemplateByID(ctx interface{}, jobTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_GetJobTemplateByID_Call {
+func (_e *MockGraphClient_Expecter) GetJobTemplateByID(ctx any, jobTemplateID any, interceptors ...any) *MockGraphClient_GetJobTemplateByID_Call {
 	return &MockGraphClient_GetJobTemplateByID_Call{Call: _e.mock.On("GetJobTemplateByID",
-		append([]interface{}{ctx, jobTemplateID}, interceptors...)...)}
+		append([]any{ctx, jobTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobTemplateByID_Call) Run(run func(ctx context.Context, jobTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobTemplateByID_Call {
@@ -43710,9 +43710,9 @@ type MockGraphClient_GetJobTemplates_Call struct {
 //   - where *graphclient.JobTemplateWhereInput
 //   - orderBy []*graphclient.JobTemplateOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetJobTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetJobTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetJobTemplates(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetJobTemplates_Call {
 	return &MockGraphClient_GetJobTemplates_Call{Call: _e.mock.On("GetJobTemplates",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetJobTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.JobTemplateWhereInput, orderBy []*graphclient.JobTemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetJobTemplates_Call {
@@ -43818,9 +43818,9 @@ type MockGraphClient_GetMappableDomainByID_Call struct {
 //   - ctx context.Context
 //   - mappableDomainID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappableDomainByID(ctx interface{}, mappableDomainID interface{}, interceptors ...interface{}) *MockGraphClient_GetMappableDomainByID_Call {
+func (_e *MockGraphClient_Expecter) GetMappableDomainByID(ctx any, mappableDomainID any, interceptors ...any) *MockGraphClient_GetMappableDomainByID_Call {
 	return &MockGraphClient_GetMappableDomainByID_Call{Call: _e.mock.On("GetMappableDomainByID",
-		append([]interface{}{ctx, mappableDomainID}, interceptors...)...)}
+		append([]any{ctx, mappableDomainID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappableDomainByID_Call) Run(run func(ctx context.Context, mappableDomainID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappableDomainByID_Call {
@@ -43906,9 +43906,9 @@ type MockGraphClient_GetMappableDomains_Call struct {
 //   - where *graphclient.MappableDomainWhereInput
 //   - orderBy []*graphclient.MappableDomainOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappableDomains(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappableDomains_Call {
+func (_e *MockGraphClient_Expecter) GetMappableDomains(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetMappableDomains_Call {
 	return &MockGraphClient_GetMappableDomains_Call{Call: _e.mock.On("GetMappableDomains",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappableDomains_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.MappableDomainWhereInput, orderBy []*graphclient.MappableDomainOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappableDomains_Call {
@@ -44019,9 +44019,9 @@ type MockGraphClient_GetMappedAllFromControlsForID_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappedAllFromControlsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllFromControlsForID_Call {
+func (_e *MockGraphClient_Expecter) GetMappedAllFromControlsForID(ctx any, mappedControlID any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetMappedAllFromControlsForID_Call {
 	return &MockGraphClient_GetMappedAllFromControlsForID_Call{Call: _e.mock.On("GetMappedAllFromControlsForID",
-		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappedAllFromControlsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllFromControlsForID_Call {
@@ -44132,9 +44132,9 @@ type MockGraphClient_GetMappedAllFromSubcontrolsForID_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.SubcontrolOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappedAllFromSubcontrolsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
+func (_e *MockGraphClient_Expecter) GetMappedAllFromSubcontrolsForID(ctx any, mappedControlID any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
 	return &MockGraphClient_GetMappedAllFromSubcontrolsForID_Call{Call: _e.mock.On("GetMappedAllFromSubcontrolsForID",
-		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllFromSubcontrolsForID_Call {
@@ -44245,9 +44245,9 @@ type MockGraphClient_GetMappedAllToControlsForID_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.ControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappedAllToControlsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllToControlsForID_Call {
+func (_e *MockGraphClient_Expecter) GetMappedAllToControlsForID(ctx any, mappedControlID any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetMappedAllToControlsForID_Call {
 	return &MockGraphClient_GetMappedAllToControlsForID_Call{Call: _e.mock.On("GetMappedAllToControlsForID",
-		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappedAllToControlsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.ControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllToControlsForID_Call {
@@ -44358,9 +44358,9 @@ type MockGraphClient_GetMappedAllToSubcontrolsForID_Call struct {
 //   - before *string
 //   - orderBy []*graphclient.SubcontrolOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappedAllToSubcontrolsForID(ctx interface{}, mappedControlID interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
+func (_e *MockGraphClient_Expecter) GetMappedAllToSubcontrolsForID(ctx any, mappedControlID any, first any, last any, after any, before any, orderBy any, interceptors ...any) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
 	return &MockGraphClient_GetMappedAllToSubcontrolsForID_Call{Call: _e.mock.On("GetMappedAllToSubcontrolsForID",
-		append([]interface{}{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
+		append([]any{ctx, mappedControlID, first, last, after, before, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappedAllToSubcontrolsForID_Call) Run(run func(ctx context.Context, mappedControlID string, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedAllToSubcontrolsForID_Call {
@@ -44466,9 +44466,9 @@ type MockGraphClient_GetMappedControlByID_Call struct {
 //   - ctx context.Context
 //   - mappedControlID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappedControlByID(ctx interface{}, mappedControlID interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedControlByID_Call {
+func (_e *MockGraphClient_Expecter) GetMappedControlByID(ctx any, mappedControlID any, interceptors ...any) *MockGraphClient_GetMappedControlByID_Call {
 	return &MockGraphClient_GetMappedControlByID_Call{Call: _e.mock.On("GetMappedControlByID",
-		append([]interface{}{ctx, mappedControlID}, interceptors...)...)}
+		append([]any{ctx, mappedControlID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappedControlByID_Call) Run(run func(ctx context.Context, mappedControlID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedControlByID_Call {
@@ -44554,9 +44554,9 @@ type MockGraphClient_GetMappedControls_Call struct {
 //   - where *graphclient.MappedControlWhereInput
 //   - orderBy []*graphclient.MappedControlOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMappedControls(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetMappedControls_Call {
+func (_e *MockGraphClient_Expecter) GetMappedControls(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetMappedControls_Call {
 	return &MockGraphClient_GetMappedControls_Call{Call: _e.mock.On("GetMappedControls",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMappedControls_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.MappedControlWhereInput, orderBy []*graphclient.MappedControlOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMappedControls_Call {
@@ -44667,9 +44667,9 @@ type MockGraphClient_GetMyWorkflowAssignments_Call struct {
 //   - orderBy []*graphclient.WorkflowAssignmentOrder
 //   - where *graphclient.WorkflowAssignmentWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetMyWorkflowAssignments(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetMyWorkflowAssignments_Call {
+func (_e *MockGraphClient_Expecter) GetMyWorkflowAssignments(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetMyWorkflowAssignments_Call {
 	return &MockGraphClient_GetMyWorkflowAssignments_Call{Call: _e.mock.On("GetMyWorkflowAssignments",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetMyWorkflowAssignments_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.WorkflowAssignmentOrder, where *graphclient.WorkflowAssignmentWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetMyWorkflowAssignments_Call {
@@ -44775,9 +44775,9 @@ type MockGraphClient_GetNarrativeByID_Call struct {
 //   - ctx context.Context
 //   - narrativeID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetNarrativeByID(ctx interface{}, narrativeID interface{}, interceptors ...interface{}) *MockGraphClient_GetNarrativeByID_Call {
+func (_e *MockGraphClient_Expecter) GetNarrativeByID(ctx any, narrativeID any, interceptors ...any) *MockGraphClient_GetNarrativeByID_Call {
 	return &MockGraphClient_GetNarrativeByID_Call{Call: _e.mock.On("GetNarrativeByID",
-		append([]interface{}{ctx, narrativeID}, interceptors...)...)}
+		append([]any{ctx, narrativeID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetNarrativeByID_Call) Run(run func(ctx context.Context, narrativeID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNarrativeByID_Call {
@@ -44863,9 +44863,9 @@ type MockGraphClient_GetNarratives_Call struct {
 //   - where *graphclient.NarrativeWhereInput
 //   - orderBy []*graphclient.NarrativeOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetNarratives(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetNarratives_Call {
+func (_e *MockGraphClient_Expecter) GetNarratives(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetNarratives_Call {
 	return &MockGraphClient_GetNarratives_Call{Call: _e.mock.On("GetNarratives",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetNarratives_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.NarrativeWhereInput, orderBy []*graphclient.NarrativeOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNarratives_Call {
@@ -44971,9 +44971,9 @@ type MockGraphClient_GetNotificationPreferenceByID_Call struct {
 //   - ctx context.Context
 //   - notificationPreferenceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetNotificationPreferenceByID(ctx interface{}, notificationPreferenceID interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationPreferenceByID_Call {
+func (_e *MockGraphClient_Expecter) GetNotificationPreferenceByID(ctx any, notificationPreferenceID any, interceptors ...any) *MockGraphClient_GetNotificationPreferenceByID_Call {
 	return &MockGraphClient_GetNotificationPreferenceByID_Call{Call: _e.mock.On("GetNotificationPreferenceByID",
-		append([]interface{}{ctx, notificationPreferenceID}, interceptors...)...)}
+		append([]any{ctx, notificationPreferenceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetNotificationPreferenceByID_Call) Run(run func(ctx context.Context, notificationPreferenceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationPreferenceByID_Call {
@@ -45059,9 +45059,9 @@ type MockGraphClient_GetNotificationPreferences_Call struct {
 //   - orderBy []*graphclient.NotificationPreferenceOrder
 //   - where *graphclient.NotificationPreferenceWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetNotificationPreferences(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationPreferences_Call {
+func (_e *MockGraphClient_Expecter) GetNotificationPreferences(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetNotificationPreferences_Call {
 	return &MockGraphClient_GetNotificationPreferences_Call{Call: _e.mock.On("GetNotificationPreferences",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetNotificationPreferences_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationPreferenceOrder, where *graphclient.NotificationPreferenceWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationPreferences_Call {
@@ -45167,9 +45167,9 @@ type MockGraphClient_GetNotificationTemplateByID_Call struct {
 //   - ctx context.Context
 //   - notificationTemplateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetNotificationTemplateByID(ctx interface{}, notificationTemplateID interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationTemplateByID_Call {
+func (_e *MockGraphClient_Expecter) GetNotificationTemplateByID(ctx any, notificationTemplateID any, interceptors ...any) *MockGraphClient_GetNotificationTemplateByID_Call {
 	return &MockGraphClient_GetNotificationTemplateByID_Call{Call: _e.mock.On("GetNotificationTemplateByID",
-		append([]interface{}{ctx, notificationTemplateID}, interceptors...)...)}
+		append([]any{ctx, notificationTemplateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetNotificationTemplateByID_Call) Run(run func(ctx context.Context, notificationTemplateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationTemplateByID_Call {
@@ -45255,9 +45255,9 @@ type MockGraphClient_GetNotificationTemplates_Call struct {
 //   - orderBy []*graphclient.NotificationTemplateOrder
 //   - where *graphclient.NotificationTemplateWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetNotificationTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetNotificationTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetNotificationTemplates(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetNotificationTemplates_Call {
 	return &MockGraphClient_GetNotificationTemplates_Call{Call: _e.mock.On("GetNotificationTemplates",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetNotificationTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.NotificationTemplateOrder, where *graphclient.NotificationTemplateWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetNotificationTemplates_Call {
@@ -45363,9 +45363,9 @@ type MockGraphClient_GetOrgMembersByOrgID_Call struct {
 //   - ctx context.Context
 //   - where *graphclient.OrgMembershipWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrgMembersByOrgID(ctx interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetOrgMembersByOrgID_Call {
+func (_e *MockGraphClient_Expecter) GetOrgMembersByOrgID(ctx any, where any, interceptors ...any) *MockGraphClient_GetOrgMembersByOrgID_Call {
 	return &MockGraphClient_GetOrgMembersByOrgID_Call{Call: _e.mock.On("GetOrgMembersByOrgID",
-		append([]interface{}{ctx, where}, interceptors...)...)}
+		append([]any{ctx, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrgMembersByOrgID_Call) Run(run func(ctx context.Context, where *graphclient.OrgMembershipWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrgMembersByOrgID_Call {
@@ -45446,9 +45446,9 @@ type MockGraphClient_GetOrgMembershipByID_Call struct {
 //   - ctx context.Context
 //   - orgMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrgMembershipByID(ctx interface{}, orgMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_GetOrgMembershipByID_Call {
+func (_e *MockGraphClient_Expecter) GetOrgMembershipByID(ctx any, orgMembershipID any, interceptors ...any) *MockGraphClient_GetOrgMembershipByID_Call {
 	return &MockGraphClient_GetOrgMembershipByID_Call{Call: _e.mock.On("GetOrgMembershipByID",
-		append([]interface{}{ctx, orgMembershipID}, interceptors...)...)}
+		append([]any{ctx, orgMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrgMembershipByID_Call) Run(run func(ctx context.Context, orgMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrgMembershipByID_Call {
@@ -45534,9 +45534,9 @@ type MockGraphClient_GetOrgMemberships_Call struct {
 //   - where *graphclient.OrgMembershipWhereInput
 //   - orderBy []*graphclient.OrgMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrgMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetOrgMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetOrgMemberships(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetOrgMemberships_Call {
 	return &MockGraphClient_GetOrgMemberships_Call{Call: _e.mock.On("GetOrgMemberships",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrgMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.OrgMembershipWhereInput, orderBy []*graphclient.OrgMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrgMemberships_Call {
@@ -45642,9 +45642,9 @@ type MockGraphClient_GetOrgSubscriptionByID_Call struct {
 //   - ctx context.Context
 //   - orgSubscriptionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrgSubscriptionByID(ctx interface{}, orgSubscriptionID interface{}, interceptors ...interface{}) *MockGraphClient_GetOrgSubscriptionByID_Call {
+func (_e *MockGraphClient_Expecter) GetOrgSubscriptionByID(ctx any, orgSubscriptionID any, interceptors ...any) *MockGraphClient_GetOrgSubscriptionByID_Call {
 	return &MockGraphClient_GetOrgSubscriptionByID_Call{Call: _e.mock.On("GetOrgSubscriptionByID",
-		append([]interface{}{ctx, orgSubscriptionID}, interceptors...)...)}
+		append([]any{ctx, orgSubscriptionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrgSubscriptionByID_Call) Run(run func(ctx context.Context, orgSubscriptionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrgSubscriptionByID_Call {
@@ -45730,9 +45730,9 @@ type MockGraphClient_GetOrgSubscriptions_Call struct {
 //   - where *graphclient.OrgSubscriptionWhereInput
 //   - orderBy *graphclient.OrgSubscriptionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrgSubscriptions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetOrgSubscriptions_Call {
+func (_e *MockGraphClient_Expecter) GetOrgSubscriptions(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetOrgSubscriptions_Call {
 	return &MockGraphClient_GetOrgSubscriptions_Call{Call: _e.mock.On("GetOrgSubscriptions",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrgSubscriptions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.OrgSubscriptionWhereInput, orderBy *graphclient.OrgSubscriptionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrgSubscriptions_Call {
@@ -45838,9 +45838,9 @@ type MockGraphClient_GetOrganizationByID_Call struct {
 //   - ctx context.Context
 //   - organizationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrganizationByID(ctx interface{}, organizationID interface{}, interceptors ...interface{}) *MockGraphClient_GetOrganizationByID_Call {
+func (_e *MockGraphClient_Expecter) GetOrganizationByID(ctx any, organizationID any, interceptors ...any) *MockGraphClient_GetOrganizationByID_Call {
 	return &MockGraphClient_GetOrganizationByID_Call{Call: _e.mock.On("GetOrganizationByID",
-		append([]interface{}{ctx, organizationID}, interceptors...)...)}
+		append([]any{ctx, organizationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrganizationByID_Call) Run(run func(ctx context.Context, organizationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrganizationByID_Call {
@@ -45921,9 +45921,9 @@ type MockGraphClient_GetOrganizationSettingByID_Call struct {
 //   - ctx context.Context
 //   - organizationSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrganizationSettingByID(ctx interface{}, organizationSettingID interface{}, interceptors ...interface{}) *MockGraphClient_GetOrganizationSettingByID_Call {
+func (_e *MockGraphClient_Expecter) GetOrganizationSettingByID(ctx any, organizationSettingID any, interceptors ...any) *MockGraphClient_GetOrganizationSettingByID_Call {
 	return &MockGraphClient_GetOrganizationSettingByID_Call{Call: _e.mock.On("GetOrganizationSettingByID",
-		append([]interface{}{ctx, organizationSettingID}, interceptors...)...)}
+		append([]any{ctx, organizationSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrganizationSettingByID_Call) Run(run func(ctx context.Context, organizationSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrganizationSettingByID_Call {
@@ -46009,9 +46009,9 @@ type MockGraphClient_GetOrganizationSettings_Call struct {
 //   - where *graphclient.OrganizationSettingWhereInput
 //   - orderBy []*graphclient.OrganizationSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrganizationSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetOrganizationSettings_Call {
+func (_e *MockGraphClient_Expecter) GetOrganizationSettings(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetOrganizationSettings_Call {
 	return &MockGraphClient_GetOrganizationSettings_Call{Call: _e.mock.On("GetOrganizationSettings",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrganizationSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.OrganizationSettingWhereInput, orderBy []*graphclient.OrganizationSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrganizationSettings_Call {
@@ -46122,9 +46122,9 @@ type MockGraphClient_GetOrganizations_Call struct {
 //   - where *graphclient.OrganizationWhereInput
 //   - orderBy []*graphclient.OrganizationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetOrganizations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetOrganizations_Call {
+func (_e *MockGraphClient_Expecter) GetOrganizations(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetOrganizations_Call {
 	return &MockGraphClient_GetOrganizations_Call{Call: _e.mock.On("GetOrganizations",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetOrganizations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.OrganizationWhereInput, orderBy []*graphclient.OrganizationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetOrganizations_Call {
@@ -46230,9 +46230,9 @@ type MockGraphClient_GetPersonalAccessTokenByID_Call struct {
 //   - ctx context.Context
 //   - personalAccessTokenID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetPersonalAccessTokenByID(ctx interface{}, personalAccessTokenID interface{}, interceptors ...interface{}) *MockGraphClient_GetPersonalAccessTokenByID_Call {
+func (_e *MockGraphClient_Expecter) GetPersonalAccessTokenByID(ctx any, personalAccessTokenID any, interceptors ...any) *MockGraphClient_GetPersonalAccessTokenByID_Call {
 	return &MockGraphClient_GetPersonalAccessTokenByID_Call{Call: _e.mock.On("GetPersonalAccessTokenByID",
-		append([]interface{}{ctx, personalAccessTokenID}, interceptors...)...)}
+		append([]any{ctx, personalAccessTokenID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetPersonalAccessTokenByID_Call) Run(run func(ctx context.Context, personalAccessTokenID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetPersonalAccessTokenByID_Call {
@@ -46318,9 +46318,9 @@ type MockGraphClient_GetPersonalAccessTokens_Call struct {
 //   - where *graphclient.PersonalAccessTokenWhereInput
 //   - orderBy []*graphclient.PersonalAccessTokenOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetPersonalAccessTokens(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetPersonalAccessTokens_Call {
+func (_e *MockGraphClient_Expecter) GetPersonalAccessTokens(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetPersonalAccessTokens_Call {
 	return &MockGraphClient_GetPersonalAccessTokens_Call{Call: _e.mock.On("GetPersonalAccessTokens",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetPersonalAccessTokens_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.PersonalAccessTokenWhereInput, orderBy []*graphclient.PersonalAccessTokenOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetPersonalAccessTokens_Call {
@@ -46426,9 +46426,9 @@ type MockGraphClient_GetPlatformByID_Call struct {
 //   - ctx context.Context
 //   - platformID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetPlatformByID(ctx interface{}, platformID interface{}, interceptors ...interface{}) *MockGraphClient_GetPlatformByID_Call {
+func (_e *MockGraphClient_Expecter) GetPlatformByID(ctx any, platformID any, interceptors ...any) *MockGraphClient_GetPlatformByID_Call {
 	return &MockGraphClient_GetPlatformByID_Call{Call: _e.mock.On("GetPlatformByID",
-		append([]interface{}{ctx, platformID}, interceptors...)...)}
+		append([]any{ctx, platformID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetPlatformByID_Call) Run(run func(ctx context.Context, platformID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetPlatformByID_Call {
@@ -46514,9 +46514,9 @@ type MockGraphClient_GetPlatforms_Call struct {
 //   - orderBy []*graphclient.PlatformOrder
 //   - where *graphclient.PlatformWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetPlatforms(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetPlatforms_Call {
+func (_e *MockGraphClient_Expecter) GetPlatforms(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetPlatforms_Call {
 	return &MockGraphClient_GetPlatforms_Call{Call: _e.mock.On("GetPlatforms",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetPlatforms_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.PlatformOrder, where *graphclient.PlatformWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetPlatforms_Call {
@@ -46622,9 +46622,9 @@ type MockGraphClient_GetProcedureByID_Call struct {
 //   - ctx context.Context
 //   - procedureID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetProcedureByID(ctx interface{}, procedureID interface{}, interceptors ...interface{}) *MockGraphClient_GetProcedureByID_Call {
+func (_e *MockGraphClient_Expecter) GetProcedureByID(ctx any, procedureID any, interceptors ...any) *MockGraphClient_GetProcedureByID_Call {
 	return &MockGraphClient_GetProcedureByID_Call{Call: _e.mock.On("GetProcedureByID",
-		append([]interface{}{ctx, procedureID}, interceptors...)...)}
+		append([]any{ctx, procedureID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetProcedureByID_Call) Run(run func(ctx context.Context, procedureID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetProcedureByID_Call {
@@ -46710,9 +46710,9 @@ type MockGraphClient_GetProcedures_Call struct {
 //   - where *graphclient.ProcedureWhereInput
 //   - orderBy []*graphclient.ProcedureOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetProcedures(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetProcedures_Call {
+func (_e *MockGraphClient_Expecter) GetProcedures(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetProcedures_Call {
 	return &MockGraphClient_GetProcedures_Call{Call: _e.mock.On("GetProcedures",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetProcedures_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ProcedureWhereInput, orderBy []*graphclient.ProcedureOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetProcedures_Call {
@@ -46818,9 +46818,9 @@ type MockGraphClient_GetProgramByID_Call struct {
 //   - ctx context.Context
 //   - programID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetProgramByID(ctx interface{}, programID interface{}, interceptors ...interface{}) *MockGraphClient_GetProgramByID_Call {
+func (_e *MockGraphClient_Expecter) GetProgramByID(ctx any, programID any, interceptors ...any) *MockGraphClient_GetProgramByID_Call {
 	return &MockGraphClient_GetProgramByID_Call{Call: _e.mock.On("GetProgramByID",
-		append([]interface{}{ctx, programID}, interceptors...)...)}
+		append([]any{ctx, programID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetProgramByID_Call) Run(run func(ctx context.Context, programID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetProgramByID_Call {
@@ -46901,9 +46901,9 @@ type MockGraphClient_GetProgramMembershipByID_Call struct {
 //   - ctx context.Context
 //   - programMembershipID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetProgramMembershipByID(ctx interface{}, programMembershipID interface{}, interceptors ...interface{}) *MockGraphClient_GetProgramMembershipByID_Call {
+func (_e *MockGraphClient_Expecter) GetProgramMembershipByID(ctx any, programMembershipID any, interceptors ...any) *MockGraphClient_GetProgramMembershipByID_Call {
 	return &MockGraphClient_GetProgramMembershipByID_Call{Call: _e.mock.On("GetProgramMembershipByID",
-		append([]interface{}{ctx, programMembershipID}, interceptors...)...)}
+		append([]any{ctx, programMembershipID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetProgramMembershipByID_Call) Run(run func(ctx context.Context, programMembershipID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetProgramMembershipByID_Call {
@@ -46989,9 +46989,9 @@ type MockGraphClient_GetProgramMemberships_Call struct {
 //   - where *graphclient.ProgramMembershipWhereInput
 //   - orderBy []*graphclient.ProgramMembershipOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetProgramMemberships(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetProgramMemberships_Call {
+func (_e *MockGraphClient_Expecter) GetProgramMemberships(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetProgramMemberships_Call {
 	return &MockGraphClient_GetProgramMemberships_Call{Call: _e.mock.On("GetProgramMemberships",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetProgramMemberships_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ProgramMembershipWhereInput, orderBy []*graphclient.ProgramMembershipOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetProgramMemberships_Call {
@@ -47102,9 +47102,9 @@ type MockGraphClient_GetPrograms_Call struct {
 //   - where *graphclient.ProgramWhereInput
 //   - orderBy []*graphclient.ProgramOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetPrograms(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetPrograms_Call {
+func (_e *MockGraphClient_Expecter) GetPrograms(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetPrograms_Call {
 	return &MockGraphClient_GetPrograms_Call{Call: _e.mock.On("GetPrograms",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetPrograms_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ProgramWhereInput, orderBy []*graphclient.ProgramOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetPrograms_Call {
@@ -47210,9 +47210,9 @@ type MockGraphClient_GetRemediationByID_Call struct {
 //   - ctx context.Context
 //   - remediationID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetRemediationByID(ctx interface{}, remediationID interface{}, interceptors ...interface{}) *MockGraphClient_GetRemediationByID_Call {
+func (_e *MockGraphClient_Expecter) GetRemediationByID(ctx any, remediationID any, interceptors ...any) *MockGraphClient_GetRemediationByID_Call {
 	return &MockGraphClient_GetRemediationByID_Call{Call: _e.mock.On("GetRemediationByID",
-		append([]interface{}{ctx, remediationID}, interceptors...)...)}
+		append([]any{ctx, remediationID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetRemediationByID_Call) Run(run func(ctx context.Context, remediationID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetRemediationByID_Call {
@@ -47298,9 +47298,9 @@ type MockGraphClient_GetRemediations_Call struct {
 //   - where *graphclient.RemediationWhereInput
 //   - orderBy []*graphclient.RemediationOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetRemediations(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetRemediations_Call {
+func (_e *MockGraphClient_Expecter) GetRemediations(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetRemediations_Call {
 	return &MockGraphClient_GetRemediations_Call{Call: _e.mock.On("GetRemediations",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetRemediations_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.RemediationWhereInput, orderBy []*graphclient.RemediationOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetRemediations_Call {
@@ -47406,9 +47406,9 @@ type MockGraphClient_GetReviewByID_Call struct {
 //   - ctx context.Context
 //   - reviewID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetReviewByID(ctx interface{}, reviewID interface{}, interceptors ...interface{}) *MockGraphClient_GetReviewByID_Call {
+func (_e *MockGraphClient_Expecter) GetReviewByID(ctx any, reviewID any, interceptors ...any) *MockGraphClient_GetReviewByID_Call {
 	return &MockGraphClient_GetReviewByID_Call{Call: _e.mock.On("GetReviewByID",
-		append([]interface{}{ctx, reviewID}, interceptors...)...)}
+		append([]any{ctx, reviewID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetReviewByID_Call) Run(run func(ctx context.Context, reviewID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetReviewByID_Call {
@@ -47494,9 +47494,9 @@ type MockGraphClient_GetReviews_Call struct {
 //   - where *graphclient.ReviewWhereInput
 //   - orderBy []*graphclient.ReviewOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetReviews(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetReviews_Call {
+func (_e *MockGraphClient_Expecter) GetReviews(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetReviews_Call {
 	return &MockGraphClient_GetReviews_Call{Call: _e.mock.On("GetReviews",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetReviews_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ReviewWhereInput, orderBy []*graphclient.ReviewOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetReviews_Call {
@@ -47602,9 +47602,9 @@ type MockGraphClient_GetRiskByID_Call struct {
 //   - ctx context.Context
 //   - riskID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetRiskByID(ctx interface{}, riskID interface{}, interceptors ...interface{}) *MockGraphClient_GetRiskByID_Call {
+func (_e *MockGraphClient_Expecter) GetRiskByID(ctx any, riskID any, interceptors ...any) *MockGraphClient_GetRiskByID_Call {
 	return &MockGraphClient_GetRiskByID_Call{Call: _e.mock.On("GetRiskByID",
-		append([]interface{}{ctx, riskID}, interceptors...)...)}
+		append([]any{ctx, riskID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetRiskByID_Call) Run(run func(ctx context.Context, riskID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetRiskByID_Call {
@@ -47690,9 +47690,9 @@ type MockGraphClient_GetRisks_Call struct {
 //   - where *graphclient.RiskWhereInput
 //   - orderBy []*graphclient.RiskOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetRisks(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetRisks_Call {
+func (_e *MockGraphClient_Expecter) GetRisks(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetRisks_Call {
 	return &MockGraphClient_GetRisks_Call{Call: _e.mock.On("GetRisks",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetRisks_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.RiskWhereInput, orderBy []*graphclient.RiskOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetRisks_Call {
@@ -47798,9 +47798,9 @@ type MockGraphClient_GetScanByID_Call struct {
 //   - ctx context.Context
 //   - scanID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetScanByID(ctx interface{}, scanID interface{}, interceptors ...interface{}) *MockGraphClient_GetScanByID_Call {
+func (_e *MockGraphClient_Expecter) GetScanByID(ctx any, scanID any, interceptors ...any) *MockGraphClient_GetScanByID_Call {
 	return &MockGraphClient_GetScanByID_Call{Call: _e.mock.On("GetScanByID",
-		append([]interface{}{ctx, scanID}, interceptors...)...)}
+		append([]any{ctx, scanID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetScanByID_Call) Run(run func(ctx context.Context, scanID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetScanByID_Call {
@@ -47886,9 +47886,9 @@ type MockGraphClient_GetScans_Call struct {
 //   - where *graphclient.ScanWhereInput
 //   - orderBy []*graphclient.ScanOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetScans(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetScans_Call {
+func (_e *MockGraphClient_Expecter) GetScans(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetScans_Call {
 	return &MockGraphClient_GetScans_Call{Call: _e.mock.On("GetScans",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetScans_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ScanWhereInput, orderBy []*graphclient.ScanOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetScans_Call {
@@ -47994,9 +47994,9 @@ type MockGraphClient_GetScheduledJobByID_Call struct {
 //   - ctx context.Context
 //   - scheduledJobID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetScheduledJobByID(ctx interface{}, scheduledJobID interface{}, interceptors ...interface{}) *MockGraphClient_GetScheduledJobByID_Call {
+func (_e *MockGraphClient_Expecter) GetScheduledJobByID(ctx any, scheduledJobID any, interceptors ...any) *MockGraphClient_GetScheduledJobByID_Call {
 	return &MockGraphClient_GetScheduledJobByID_Call{Call: _e.mock.On("GetScheduledJobByID",
-		append([]interface{}{ctx, scheduledJobID}, interceptors...)...)}
+		append([]any{ctx, scheduledJobID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetScheduledJobByID_Call) Run(run func(ctx context.Context, scheduledJobID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetScheduledJobByID_Call {
@@ -48077,9 +48077,9 @@ type MockGraphClient_GetScheduledJobRunByID_Call struct {
 //   - ctx context.Context
 //   - scheduledJobRunID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetScheduledJobRunByID(ctx interface{}, scheduledJobRunID interface{}, interceptors ...interface{}) *MockGraphClient_GetScheduledJobRunByID_Call {
+func (_e *MockGraphClient_Expecter) GetScheduledJobRunByID(ctx any, scheduledJobRunID any, interceptors ...any) *MockGraphClient_GetScheduledJobRunByID_Call {
 	return &MockGraphClient_GetScheduledJobRunByID_Call{Call: _e.mock.On("GetScheduledJobRunByID",
-		append([]interface{}{ctx, scheduledJobRunID}, interceptors...)...)}
+		append([]any{ctx, scheduledJobRunID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetScheduledJobRunByID_Call) Run(run func(ctx context.Context, scheduledJobRunID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetScheduledJobRunByID_Call {
@@ -48165,9 +48165,9 @@ type MockGraphClient_GetScheduledJobRuns_Call struct {
 //   - where *graphclient.ScheduledJobRunWhereInput
 //   - orderBy []*graphclient.ScheduledJobRunOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetScheduledJobRuns(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetScheduledJobRuns_Call {
+func (_e *MockGraphClient_Expecter) GetScheduledJobRuns(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetScheduledJobRuns_Call {
 	return &MockGraphClient_GetScheduledJobRuns_Call{Call: _e.mock.On("GetScheduledJobRuns",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetScheduledJobRuns_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ScheduledJobRunWhereInput, orderBy []*graphclient.ScheduledJobRunOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetScheduledJobRuns_Call {
@@ -48278,9 +48278,9 @@ type MockGraphClient_GetScheduledJobs_Call struct {
 //   - where *graphclient.ScheduledJobWhereInput
 //   - orderBy []*graphclient.ScheduledJobOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetScheduledJobs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetScheduledJobs_Call {
+func (_e *MockGraphClient_Expecter) GetScheduledJobs(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetScheduledJobs_Call {
 	return &MockGraphClient_GetScheduledJobs_Call{Call: _e.mock.On("GetScheduledJobs",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetScheduledJobs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.ScheduledJobWhereInput, orderBy []*graphclient.ScheduledJobOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetScheduledJobs_Call {
@@ -48385,9 +48385,9 @@ type MockGraphClient_GetSelf_Call struct {
 // GetSelf is a helper method to define mock.On call
 //   - ctx context.Context
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSelf(ctx interface{}, interceptors ...interface{}) *MockGraphClient_GetSelf_Call {
+func (_e *MockGraphClient_Expecter) GetSelf(ctx any, interceptors ...any) *MockGraphClient_GetSelf_Call {
 	return &MockGraphClient_GetSelf_Call{Call: _e.mock.On("GetSelf",
-		append([]interface{}{ctx}, interceptors...)...)}
+		append([]any{ctx}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSelf_Call) Run(run func(ctx context.Context, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSelf_Call {
@@ -48463,9 +48463,9 @@ type MockGraphClient_GetStandardByID_Call struct {
 //   - ctx context.Context
 //   - standardID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetStandardByID(ctx interface{}, standardID interface{}, interceptors ...interface{}) *MockGraphClient_GetStandardByID_Call {
+func (_e *MockGraphClient_Expecter) GetStandardByID(ctx any, standardID any, interceptors ...any) *MockGraphClient_GetStandardByID_Call {
 	return &MockGraphClient_GetStandardByID_Call{Call: _e.mock.On("GetStandardByID",
-		append([]interface{}{ctx, standardID}, interceptors...)...)}
+		append([]any{ctx, standardID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetStandardByID_Call) Run(run func(ctx context.Context, standardID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetStandardByID_Call {
@@ -48551,9 +48551,9 @@ type MockGraphClient_GetStandards_Call struct {
 //   - where *graphclient.StandardWhereInput
 //   - orderBy []*graphclient.StandardOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetStandards(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetStandards_Call {
+func (_e *MockGraphClient_Expecter) GetStandards(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetStandards_Call {
 	return &MockGraphClient_GetStandards_Call{Call: _e.mock.On("GetStandards",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetStandards_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.StandardWhereInput, orderBy []*graphclient.StandardOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetStandards_Call {
@@ -48659,9 +48659,9 @@ type MockGraphClient_GetSubcontrolByID_Call struct {
 //   - ctx context.Context
 //   - subcontrolID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSubcontrolByID(ctx interface{}, subcontrolID interface{}, interceptors ...interface{}) *MockGraphClient_GetSubcontrolByID_Call {
+func (_e *MockGraphClient_Expecter) GetSubcontrolByID(ctx any, subcontrolID any, interceptors ...any) *MockGraphClient_GetSubcontrolByID_Call {
 	return &MockGraphClient_GetSubcontrolByID_Call{Call: _e.mock.On("GetSubcontrolByID",
-		append([]interface{}{ctx, subcontrolID}, interceptors...)...)}
+		append([]any{ctx, subcontrolID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSubcontrolByID_Call) Run(run func(ctx context.Context, subcontrolID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSubcontrolByID_Call {
@@ -48747,9 +48747,9 @@ type MockGraphClient_GetSubcontrols_Call struct {
 //   - where *graphclient.SubcontrolWhereInput
 //   - orderBy []*graphclient.SubcontrolOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSubcontrols(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetSubcontrols_Call {
+func (_e *MockGraphClient_Expecter) GetSubcontrols(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetSubcontrols_Call {
 	return &MockGraphClient_GetSubcontrols_Call{Call: _e.mock.On("GetSubcontrols",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSubcontrols_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.SubcontrolWhereInput, orderBy []*graphclient.SubcontrolOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSubcontrols_Call {
@@ -48855,9 +48855,9 @@ type MockGraphClient_GetSubprocessorByID_Call struct {
 //   - ctx context.Context
 //   - subprocessorID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSubprocessorByID(ctx interface{}, subprocessorID interface{}, interceptors ...interface{}) *MockGraphClient_GetSubprocessorByID_Call {
+func (_e *MockGraphClient_Expecter) GetSubprocessorByID(ctx any, subprocessorID any, interceptors ...any) *MockGraphClient_GetSubprocessorByID_Call {
 	return &MockGraphClient_GetSubprocessorByID_Call{Call: _e.mock.On("GetSubprocessorByID",
-		append([]interface{}{ctx, subprocessorID}, interceptors...)...)}
+		append([]any{ctx, subprocessorID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSubprocessorByID_Call) Run(run func(ctx context.Context, subprocessorID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSubprocessorByID_Call {
@@ -48943,9 +48943,9 @@ type MockGraphClient_GetSubprocessors_Call struct {
 //   - where *graphclient.SubprocessorWhereInput
 //   - orderBy []*graphclient.SubprocessorOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSubprocessors(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetSubprocessors_Call {
+func (_e *MockGraphClient_Expecter) GetSubprocessors(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetSubprocessors_Call {
 	return &MockGraphClient_GetSubprocessors_Call{Call: _e.mock.On("GetSubprocessors",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSubprocessors_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.SubprocessorWhereInput, orderBy []*graphclient.SubprocessorOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSubprocessors_Call {
@@ -49051,9 +49051,9 @@ type MockGraphClient_GetSubscriberByEmail_Call struct {
 //   - ctx context.Context
 //   - email string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSubscriberByEmail(ctx interface{}, email interface{}, interceptors ...interface{}) *MockGraphClient_GetSubscriberByEmail_Call {
+func (_e *MockGraphClient_Expecter) GetSubscriberByEmail(ctx any, email any, interceptors ...any) *MockGraphClient_GetSubscriberByEmail_Call {
 	return &MockGraphClient_GetSubscriberByEmail_Call{Call: _e.mock.On("GetSubscriberByEmail",
-		append([]interface{}{ctx, email}, interceptors...)...)}
+		append([]any{ctx, email}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSubscriberByEmail_Call) Run(run func(ctx context.Context, email string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSubscriberByEmail_Call {
@@ -49139,9 +49139,9 @@ type MockGraphClient_GetSubscribers_Call struct {
 //   - where *graphclient.SubscriberWhereInput
 //   - orderBy []*graphclient.SubscriberOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSubscribers(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetSubscribers_Call {
+func (_e *MockGraphClient_Expecter) GetSubscribers(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetSubscribers_Call {
 	return &MockGraphClient_GetSubscribers_Call{Call: _e.mock.On("GetSubscribers",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSubscribers_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.SubscriberWhereInput, orderBy []*graphclient.SubscriberOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSubscribers_Call {
@@ -49247,9 +49247,9 @@ type MockGraphClient_GetSystemDetailByID_Call struct {
 //   - ctx context.Context
 //   - systemDetailID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSystemDetailByID(ctx interface{}, systemDetailID interface{}, interceptors ...interface{}) *MockGraphClient_GetSystemDetailByID_Call {
+func (_e *MockGraphClient_Expecter) GetSystemDetailByID(ctx any, systemDetailID any, interceptors ...any) *MockGraphClient_GetSystemDetailByID_Call {
 	return &MockGraphClient_GetSystemDetailByID_Call{Call: _e.mock.On("GetSystemDetailByID",
-		append([]interface{}{ctx, systemDetailID}, interceptors...)...)}
+		append([]any{ctx, systemDetailID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSystemDetailByID_Call) Run(run func(ctx context.Context, systemDetailID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSystemDetailByID_Call {
@@ -49335,9 +49335,9 @@ type MockGraphClient_GetSystemDetails_Call struct {
 //   - orderBy []*graphclient.SystemDetailOrder
 //   - where *graphclient.SystemDetailWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetSystemDetails(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetSystemDetails_Call {
+func (_e *MockGraphClient_Expecter) GetSystemDetails(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetSystemDetails_Call {
 	return &MockGraphClient_GetSystemDetails_Call{Call: _e.mock.On("GetSystemDetails",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetSystemDetails_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.SystemDetailOrder, where *graphclient.SystemDetailWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetSystemDetails_Call {
@@ -49443,9 +49443,9 @@ type MockGraphClient_GetTFASettingByID_Call struct {
 //   - ctx context.Context
 //   - tFASettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTFASettingByID(ctx interface{}, tFASettingID interface{}, interceptors ...interface{}) *MockGraphClient_GetTFASettingByID_Call {
+func (_e *MockGraphClient_Expecter) GetTFASettingByID(ctx any, tFASettingID any, interceptors ...any) *MockGraphClient_GetTFASettingByID_Call {
 	return &MockGraphClient_GetTFASettingByID_Call{Call: _e.mock.On("GetTFASettingByID",
-		append([]interface{}{ctx, tFASettingID}, interceptors...)...)}
+		append([]any{ctx, tFASettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTFASettingByID_Call) Run(run func(ctx context.Context, tFASettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTFASettingByID_Call {
@@ -49528,9 +49528,9 @@ type MockGraphClient_GetTFASettings_Call struct {
 //   - last *int64
 //   - where *graphclient.TFASettingWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTFASettings(ctx interface{}, first interface{}, last interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetTFASettings_Call {
+func (_e *MockGraphClient_Expecter) GetTFASettings(ctx any, first any, last any, where any, interceptors ...any) *MockGraphClient_GetTFASettings_Call {
 	return &MockGraphClient_GetTFASettings_Call{Call: _e.mock.On("GetTFASettings",
-		append([]interface{}{ctx, first, last, where}, interceptors...)...)}
+		append([]any{ctx, first, last, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTFASettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, where *graphclient.TFASettingWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTFASettings_Call {
@@ -49621,9 +49621,9 @@ type MockGraphClient_GetTagDefinitionByID_Call struct {
 //   - ctx context.Context
 //   - tagDefinitionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTagDefinitionByID(ctx interface{}, tagDefinitionID interface{}, interceptors ...interface{}) *MockGraphClient_GetTagDefinitionByID_Call {
+func (_e *MockGraphClient_Expecter) GetTagDefinitionByID(ctx any, tagDefinitionID any, interceptors ...any) *MockGraphClient_GetTagDefinitionByID_Call {
 	return &MockGraphClient_GetTagDefinitionByID_Call{Call: _e.mock.On("GetTagDefinitionByID",
-		append([]interface{}{ctx, tagDefinitionID}, interceptors...)...)}
+		append([]any{ctx, tagDefinitionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTagDefinitionByID_Call) Run(run func(ctx context.Context, tagDefinitionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTagDefinitionByID_Call {
@@ -49709,9 +49709,9 @@ type MockGraphClient_GetTagDefinitions_Call struct {
 //   - where *graphclient.TagDefinitionWhereInput
 //   - orderBy []*graphclient.TagDefinitionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTagDefinitions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTagDefinitions_Call {
+func (_e *MockGraphClient_Expecter) GetTagDefinitions(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTagDefinitions_Call {
 	return &MockGraphClient_GetTagDefinitions_Call{Call: _e.mock.On("GetTagDefinitions",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTagDefinitions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TagDefinitionWhereInput, orderBy []*graphclient.TagDefinitionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTagDefinitions_Call {
@@ -49817,9 +49817,9 @@ type MockGraphClient_GetTaskByID_Call struct {
 //   - ctx context.Context
 //   - taskID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTaskByID(ctx interface{}, taskID interface{}, interceptors ...interface{}) *MockGraphClient_GetTaskByID_Call {
+func (_e *MockGraphClient_Expecter) GetTaskByID(ctx any, taskID any, interceptors ...any) *MockGraphClient_GetTaskByID_Call {
 	return &MockGraphClient_GetTaskByID_Call{Call: _e.mock.On("GetTaskByID",
-		append([]interface{}{ctx, taskID}, interceptors...)...)}
+		append([]any{ctx, taskID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTaskByID_Call) Run(run func(ctx context.Context, taskID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTaskByID_Call {
@@ -49905,9 +49905,9 @@ type MockGraphClient_GetTasks_Call struct {
 //   - where *graphclient.TaskWhereInput
 //   - orderBy []*graphclient.TaskOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTasks(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTasks_Call {
+func (_e *MockGraphClient_Expecter) GetTasks(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTasks_Call {
 	return &MockGraphClient_GetTasks_Call{Call: _e.mock.On("GetTasks",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTasks_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TaskWhereInput, orderBy []*graphclient.TaskOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTasks_Call {
@@ -50013,9 +50013,9 @@ type MockGraphClient_GetTemplateByID_Call struct {
 //   - ctx context.Context
 //   - templateID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTemplateByID(ctx interface{}, templateID interface{}, interceptors ...interface{}) *MockGraphClient_GetTemplateByID_Call {
+func (_e *MockGraphClient_Expecter) GetTemplateByID(ctx any, templateID any, interceptors ...any) *MockGraphClient_GetTemplateByID_Call {
 	return &MockGraphClient_GetTemplateByID_Call{Call: _e.mock.On("GetTemplateByID",
-		append([]interface{}{ctx, templateID}, interceptors...)...)}
+		append([]any{ctx, templateID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTemplateByID_Call) Run(run func(ctx context.Context, templateID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTemplateByID_Call {
@@ -50101,9 +50101,9 @@ type MockGraphClient_GetTemplates_Call struct {
 //   - where *graphclient.TemplateWhereInput
 //   - orderBy []*graphclient.TemplateOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTemplates(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTemplates_Call {
+func (_e *MockGraphClient_Expecter) GetTemplates(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTemplates_Call {
 	return &MockGraphClient_GetTemplates_Call{Call: _e.mock.On("GetTemplates",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTemplates_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TemplateWhereInput, orderBy []*graphclient.TemplateOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTemplates_Call {
@@ -50209,9 +50209,9 @@ type MockGraphClient_GetTrustCenterByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterByID(ctx interface{}, trustCenterID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterByID(ctx any, trustCenterID any, interceptors ...any) *MockGraphClient_GetTrustCenterByID_Call {
 	return &MockGraphClient_GetTrustCenterByID_Call{Call: _e.mock.On("GetTrustCenterByID",
-		append([]interface{}{ctx, trustCenterID}, interceptors...)...)}
+		append([]any{ctx, trustCenterID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterByID_Call) Run(run func(ctx context.Context, trustCenterID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterByID_Call {
@@ -50292,9 +50292,9 @@ type MockGraphClient_GetTrustCenterComplianceByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterComplianceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterComplianceByID(ctx interface{}, trustCenterComplianceID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterComplianceByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterComplianceByID(ctx any, trustCenterComplianceID any, interceptors ...any) *MockGraphClient_GetTrustCenterComplianceByID_Call {
 	return &MockGraphClient_GetTrustCenterComplianceByID_Call{Call: _e.mock.On("GetTrustCenterComplianceByID",
-		append([]interface{}{ctx, trustCenterComplianceID}, interceptors...)...)}
+		append([]any{ctx, trustCenterComplianceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterComplianceByID_Call) Run(run func(ctx context.Context, trustCenterComplianceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterComplianceByID_Call {
@@ -50380,9 +50380,9 @@ type MockGraphClient_GetTrustCenterCompliances_Call struct {
 //   - where *graphclient.TrustCenterComplianceWhereInput
 //   - orderBy []*graphclient.TrustCenterComplianceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterCompliances(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterCompliances_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterCompliances(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTrustCenterCompliances_Call {
 	return &MockGraphClient_GetTrustCenterCompliances_Call{Call: _e.mock.On("GetTrustCenterCompliances",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterCompliances_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TrustCenterComplianceWhereInput, orderBy []*graphclient.TrustCenterComplianceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterCompliances_Call {
@@ -50488,9 +50488,9 @@ type MockGraphClient_GetTrustCenterDocByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterDocID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterDocByID(ctx interface{}, trustCenterDocID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterDocByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterDocByID(ctx any, trustCenterDocID any, interceptors ...any) *MockGraphClient_GetTrustCenterDocByID_Call {
 	return &MockGraphClient_GetTrustCenterDocByID_Call{Call: _e.mock.On("GetTrustCenterDocByID",
-		append([]interface{}{ctx, trustCenterDocID}, interceptors...)...)}
+		append([]any{ctx, trustCenterDocID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterDocByID_Call) Run(run func(ctx context.Context, trustCenterDocID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterDocByID_Call {
@@ -50576,9 +50576,9 @@ type MockGraphClient_GetTrustCenterDocs_Call struct {
 //   - where *graphclient.TrustCenterDocWhereInput
 //   - orderBy []*graphclient.TrustCenterDocOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterDocs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterDocs_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterDocs(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTrustCenterDocs_Call {
 	return &MockGraphClient_GetTrustCenterDocs_Call{Call: _e.mock.On("GetTrustCenterDocs",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterDocs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TrustCenterDocWhereInput, orderBy []*graphclient.TrustCenterDocOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterDocs_Call {
@@ -50684,9 +50684,9 @@ type MockGraphClient_GetTrustCenterNDARequestByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterNDARequestID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterNDARequestByID(ctx interface{}, trustCenterNDARequestID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterNDARequestByID(ctx any, trustCenterNDARequestID any, interceptors ...any) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
 	return &MockGraphClient_GetTrustCenterNDARequestByID_Call{Call: _e.mock.On("GetTrustCenterNDARequestByID",
-		append([]interface{}{ctx, trustCenterNDARequestID}, interceptors...)...)}
+		append([]any{ctx, trustCenterNDARequestID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterNDARequestByID_Call) Run(run func(ctx context.Context, trustCenterNDARequestID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterNDARequestByID_Call {
@@ -50772,9 +50772,9 @@ type MockGraphClient_GetTrustCenterNDARequests_Call struct {
 //   - orderBy []*graphclient.TrustCenterNDARequestOrder
 //   - where *graphclient.TrustCenterNDARequestWhereInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterNDARequests(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, orderBy interface{}, where interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterNDARequests_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterNDARequests(ctx any, first any, last any, after any, before any, orderBy any, where any, interceptors ...any) *MockGraphClient_GetTrustCenterNDARequests_Call {
 	return &MockGraphClient_GetTrustCenterNDARequests_Call{Call: _e.mock.On("GetTrustCenterNDARequests",
-		append([]interface{}{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, orderBy, where}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterNDARequests_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, orderBy []*graphclient.TrustCenterNDARequestOrder, where *graphclient.TrustCenterNDARequestWhereInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterNDARequests_Call {
@@ -50880,9 +50880,9 @@ type MockGraphClient_GetTrustCenterSettingByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterSettingByID(ctx interface{}, trustCenterSettingID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterSettingByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterSettingByID(ctx any, trustCenterSettingID any, interceptors ...any) *MockGraphClient_GetTrustCenterSettingByID_Call {
 	return &MockGraphClient_GetTrustCenterSettingByID_Call{Call: _e.mock.On("GetTrustCenterSettingByID",
-		append([]interface{}{ctx, trustCenterSettingID}, interceptors...)...)}
+		append([]any{ctx, trustCenterSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterSettingByID_Call) Run(run func(ctx context.Context, trustCenterSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterSettingByID_Call {
@@ -50968,9 +50968,9 @@ type MockGraphClient_GetTrustCenterSettings_Call struct {
 //   - where *graphclient.TrustCenterSettingWhereInput
 //   - orderBy []*graphclient.TrustCenterSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterSettings_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterSettings(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTrustCenterSettings_Call {
 	return &MockGraphClient_GetTrustCenterSettings_Call{Call: _e.mock.On("GetTrustCenterSettings",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TrustCenterSettingWhereInput, orderBy []*graphclient.TrustCenterSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterSettings_Call {
@@ -51076,9 +51076,9 @@ type MockGraphClient_GetTrustCenterSubprocessorByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterSubprocessorID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterSubprocessorByID(ctx interface{}, trustCenterSubprocessorID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterSubprocessorByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterSubprocessorByID(ctx any, trustCenterSubprocessorID any, interceptors ...any) *MockGraphClient_GetTrustCenterSubprocessorByID_Call {
 	return &MockGraphClient_GetTrustCenterSubprocessorByID_Call{Call: _e.mock.On("GetTrustCenterSubprocessorByID",
-		append([]interface{}{ctx, trustCenterSubprocessorID}, interceptors...)...)}
+		append([]any{ctx, trustCenterSubprocessorID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterSubprocessorByID_Call) Run(run func(ctx context.Context, trustCenterSubprocessorID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterSubprocessorByID_Call {
@@ -51164,9 +51164,9 @@ type MockGraphClient_GetTrustCenterSubprocessors_Call struct {
 //   - where *graphclient.TrustCenterSubprocessorWhereInput
 //   - orderBy []*graphclient.TrustCenterSubprocessorOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterSubprocessors(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterSubprocessors_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterSubprocessors(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTrustCenterSubprocessors_Call {
 	return &MockGraphClient_GetTrustCenterSubprocessors_Call{Call: _e.mock.On("GetTrustCenterSubprocessors",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterSubprocessors_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TrustCenterSubprocessorWhereInput, orderBy []*graphclient.TrustCenterSubprocessorOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterSubprocessors_Call {
@@ -51272,9 +51272,9 @@ type MockGraphClient_GetTrustCenterWatermarkConfigByID_Call struct {
 //   - ctx context.Context
 //   - trustCenterWatermarkConfigID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterWatermarkConfigByID(ctx interface{}, trustCenterWatermarkConfigID interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterWatermarkConfigByID_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterWatermarkConfigByID(ctx any, trustCenterWatermarkConfigID any, interceptors ...any) *MockGraphClient_GetTrustCenterWatermarkConfigByID_Call {
 	return &MockGraphClient_GetTrustCenterWatermarkConfigByID_Call{Call: _e.mock.On("GetTrustCenterWatermarkConfigByID",
-		append([]interface{}{ctx, trustCenterWatermarkConfigID}, interceptors...)...)}
+		append([]any{ctx, trustCenterWatermarkConfigID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterWatermarkConfigByID_Call) Run(run func(ctx context.Context, trustCenterWatermarkConfigID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterWatermarkConfigByID_Call {
@@ -51360,9 +51360,9 @@ type MockGraphClient_GetTrustCenterWatermarkConfigs_Call struct {
 //   - where *graphclient.TrustCenterWatermarkConfigWhereInput
 //   - orderBy []*graphclient.TrustCenterWatermarkConfigOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenterWatermarkConfigs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenterWatermarkConfigs_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenterWatermarkConfigs(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTrustCenterWatermarkConfigs_Call {
 	return &MockGraphClient_GetTrustCenterWatermarkConfigs_Call{Call: _e.mock.On("GetTrustCenterWatermarkConfigs",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenterWatermarkConfigs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TrustCenterWatermarkConfigWhereInput, orderBy []*graphclient.TrustCenterWatermarkConfigOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenterWatermarkConfigs_Call {
@@ -51473,9 +51473,9 @@ type MockGraphClient_GetTrustCenters_Call struct {
 //   - where *graphclient.TrustCenterWhereInput
 //   - orderBy []*graphclient.TrustCenterOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetTrustCenters(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetTrustCenters_Call {
+func (_e *MockGraphClient_Expecter) GetTrustCenters(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetTrustCenters_Call {
 	return &MockGraphClient_GetTrustCenters_Call{Call: _e.mock.On("GetTrustCenters",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetTrustCenters_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.TrustCenterWhereInput, orderBy []*graphclient.TrustCenterOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetTrustCenters_Call {
@@ -51581,9 +51581,9 @@ type MockGraphClient_GetUserByID_Call struct {
 //   - ctx context.Context
 //   - userID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetUserByID(ctx interface{}, userID interface{}, interceptors ...interface{}) *MockGraphClient_GetUserByID_Call {
+func (_e *MockGraphClient_Expecter) GetUserByID(ctx any, userID any, interceptors ...any) *MockGraphClient_GetUserByID_Call {
 	return &MockGraphClient_GetUserByID_Call{Call: _e.mock.On("GetUserByID",
-		append([]interface{}{ctx, userID}, interceptors...)...)}
+		append([]any{ctx, userID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetUserByID_Call) Run(run func(ctx context.Context, userID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetUserByID_Call {
@@ -51664,9 +51664,9 @@ type MockGraphClient_GetUserSettingByID_Call struct {
 //   - ctx context.Context
 //   - userSettingID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetUserSettingByID(ctx interface{}, userSettingID interface{}, interceptors ...interface{}) *MockGraphClient_GetUserSettingByID_Call {
+func (_e *MockGraphClient_Expecter) GetUserSettingByID(ctx any, userSettingID any, interceptors ...any) *MockGraphClient_GetUserSettingByID_Call {
 	return &MockGraphClient_GetUserSettingByID_Call{Call: _e.mock.On("GetUserSettingByID",
-		append([]interface{}{ctx, userSettingID}, interceptors...)...)}
+		append([]any{ctx, userSettingID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetUserSettingByID_Call) Run(run func(ctx context.Context, userSettingID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetUserSettingByID_Call {
@@ -51752,9 +51752,9 @@ type MockGraphClient_GetUserSettings_Call struct {
 //   - where *graphclient.UserSettingWhereInput
 //   - orderBy []*graphclient.UserSettingOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetUserSettings(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetUserSettings_Call {
+func (_e *MockGraphClient_Expecter) GetUserSettings(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetUserSettings_Call {
 	return &MockGraphClient_GetUserSettings_Call{Call: _e.mock.On("GetUserSettings",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetUserSettings_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.UserSettingWhereInput, orderBy []*graphclient.UserSettingOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetUserSettings_Call {
@@ -51865,9 +51865,9 @@ type MockGraphClient_GetUsers_Call struct {
 //   - where *graphclient.UserWhereInput
 //   - orderBy []*graphclient.UserOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetUsers(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetUsers_Call {
+func (_e *MockGraphClient_Expecter) GetUsers(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetUsers_Call {
 	return &MockGraphClient_GetUsers_Call{Call: _e.mock.On("GetUsers",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetUsers_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.UserWhereInput, orderBy []*graphclient.UserOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetUsers_Call {
@@ -51978,9 +51978,9 @@ type MockGraphClient_GetVulnerabilities_Call struct {
 //   - where *graphclient.VulnerabilityWhereInput
 //   - orderBy []*graphclient.VulnerabilityOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetVulnerabilities(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetVulnerabilities_Call {
+func (_e *MockGraphClient_Expecter) GetVulnerabilities(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetVulnerabilities_Call {
 	return &MockGraphClient_GetVulnerabilities_Call{Call: _e.mock.On("GetVulnerabilities",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetVulnerabilities_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.VulnerabilityWhereInput, orderBy []*graphclient.VulnerabilityOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetVulnerabilities_Call {
@@ -52086,9 +52086,9 @@ type MockGraphClient_GetVulnerabilityByID_Call struct {
 //   - ctx context.Context
 //   - vulnerabilityID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetVulnerabilityByID(ctx interface{}, vulnerabilityID interface{}, interceptors ...interface{}) *MockGraphClient_GetVulnerabilityByID_Call {
+func (_e *MockGraphClient_Expecter) GetVulnerabilityByID(ctx any, vulnerabilityID any, interceptors ...any) *MockGraphClient_GetVulnerabilityByID_Call {
 	return &MockGraphClient_GetVulnerabilityByID_Call{Call: _e.mock.On("GetVulnerabilityByID",
-		append([]interface{}{ctx, vulnerabilityID}, interceptors...)...)}
+		append([]any{ctx, vulnerabilityID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetVulnerabilityByID_Call) Run(run func(ctx context.Context, vulnerabilityID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetVulnerabilityByID_Call {
@@ -52169,9 +52169,9 @@ type MockGraphClient_GetWorkflowAssignmentByID_Call struct {
 //   - ctx context.Context
 //   - workflowAssignmentID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowAssignmentByID(ctx interface{}, workflowAssignmentID interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowAssignmentByID_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowAssignmentByID(ctx any, workflowAssignmentID any, interceptors ...any) *MockGraphClient_GetWorkflowAssignmentByID_Call {
 	return &MockGraphClient_GetWorkflowAssignmentByID_Call{Call: _e.mock.On("GetWorkflowAssignmentByID",
-		append([]interface{}{ctx, workflowAssignmentID}, interceptors...)...)}
+		append([]any{ctx, workflowAssignmentID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowAssignmentByID_Call) Run(run func(ctx context.Context, workflowAssignmentID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowAssignmentByID_Call {
@@ -52252,9 +52252,9 @@ type MockGraphClient_GetWorkflowAssignmentTargetByID_Call struct {
 //   - ctx context.Context
 //   - workflowAssignmentTargetID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowAssignmentTargetByID(ctx interface{}, workflowAssignmentTargetID interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowAssignmentTargetByID_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowAssignmentTargetByID(ctx any, workflowAssignmentTargetID any, interceptors ...any) *MockGraphClient_GetWorkflowAssignmentTargetByID_Call {
 	return &MockGraphClient_GetWorkflowAssignmentTargetByID_Call{Call: _e.mock.On("GetWorkflowAssignmentTargetByID",
-		append([]interface{}{ctx, workflowAssignmentTargetID}, interceptors...)...)}
+		append([]any{ctx, workflowAssignmentTargetID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowAssignmentTargetByID_Call) Run(run func(ctx context.Context, workflowAssignmentTargetID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowAssignmentTargetByID_Call {
@@ -52340,9 +52340,9 @@ type MockGraphClient_GetWorkflowAssignmentTargets_Call struct {
 //   - where *graphclient.WorkflowAssignmentTargetWhereInput
 //   - orderBy []*graphclient.WorkflowAssignmentTargetOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowAssignmentTargets(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowAssignmentTargets_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowAssignmentTargets(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetWorkflowAssignmentTargets_Call {
 	return &MockGraphClient_GetWorkflowAssignmentTargets_Call{Call: _e.mock.On("GetWorkflowAssignmentTargets",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowAssignmentTargets_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.WorkflowAssignmentTargetWhereInput, orderBy []*graphclient.WorkflowAssignmentTargetOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowAssignmentTargets_Call {
@@ -52453,9 +52453,9 @@ type MockGraphClient_GetWorkflowAssignments_Call struct {
 //   - where *graphclient.WorkflowAssignmentWhereInput
 //   - orderBy []*graphclient.WorkflowAssignmentOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowAssignments(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowAssignments_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowAssignments(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetWorkflowAssignments_Call {
 	return &MockGraphClient_GetWorkflowAssignments_Call{Call: _e.mock.On("GetWorkflowAssignments",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowAssignments_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.WorkflowAssignmentWhereInput, orderBy []*graphclient.WorkflowAssignmentOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowAssignments_Call {
@@ -52561,9 +52561,9 @@ type MockGraphClient_GetWorkflowDefinitionByID_Call struct {
 //   - ctx context.Context
 //   - workflowDefinitionID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowDefinitionByID(ctx interface{}, workflowDefinitionID interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowDefinitionByID_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowDefinitionByID(ctx any, workflowDefinitionID any, interceptors ...any) *MockGraphClient_GetWorkflowDefinitionByID_Call {
 	return &MockGraphClient_GetWorkflowDefinitionByID_Call{Call: _e.mock.On("GetWorkflowDefinitionByID",
-		append([]interface{}{ctx, workflowDefinitionID}, interceptors...)...)}
+		append([]any{ctx, workflowDefinitionID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowDefinitionByID_Call) Run(run func(ctx context.Context, workflowDefinitionID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowDefinitionByID_Call {
@@ -52649,9 +52649,9 @@ type MockGraphClient_GetWorkflowDefinitions_Call struct {
 //   - where *graphclient.WorkflowDefinitionWhereInput
 //   - orderBy []*graphclient.WorkflowDefinitionOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowDefinitions(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowDefinitions_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowDefinitions(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetWorkflowDefinitions_Call {
 	return &MockGraphClient_GetWorkflowDefinitions_Call{Call: _e.mock.On("GetWorkflowDefinitions",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowDefinitions_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.WorkflowDefinitionWhereInput, orderBy []*graphclient.WorkflowDefinitionOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowDefinitions_Call {
@@ -52757,9 +52757,9 @@ type MockGraphClient_GetWorkflowEventByID_Call struct {
 //   - ctx context.Context
 //   - workflowEventID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowEventByID(ctx interface{}, workflowEventID interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowEventByID_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowEventByID(ctx any, workflowEventID any, interceptors ...any) *MockGraphClient_GetWorkflowEventByID_Call {
 	return &MockGraphClient_GetWorkflowEventByID_Call{Call: _e.mock.On("GetWorkflowEventByID",
-		append([]interface{}{ctx, workflowEventID}, interceptors...)...)}
+		append([]any{ctx, workflowEventID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowEventByID_Call) Run(run func(ctx context.Context, workflowEventID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowEventByID_Call {
@@ -52845,9 +52845,9 @@ type MockGraphClient_GetWorkflowEvents_Call struct {
 //   - where *graphclient.WorkflowEventWhereInput
 //   - orderBy []*graphclient.WorkflowEventOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowEvents(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowEvents_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowEvents(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetWorkflowEvents_Call {
 	return &MockGraphClient_GetWorkflowEvents_Call{Call: _e.mock.On("GetWorkflowEvents",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowEvents_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.WorkflowEventWhereInput, orderBy []*graphclient.WorkflowEventOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowEvents_Call {
@@ -52953,9 +52953,9 @@ type MockGraphClient_GetWorkflowInstanceByID_Call struct {
 //   - ctx context.Context
 //   - workflowInstanceID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowInstanceByID(ctx interface{}, workflowInstanceID interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowInstanceByID_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowInstanceByID(ctx any, workflowInstanceID any, interceptors ...any) *MockGraphClient_GetWorkflowInstanceByID_Call {
 	return &MockGraphClient_GetWorkflowInstanceByID_Call{Call: _e.mock.On("GetWorkflowInstanceByID",
-		append([]interface{}{ctx, workflowInstanceID}, interceptors...)...)}
+		append([]any{ctx, workflowInstanceID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowInstanceByID_Call) Run(run func(ctx context.Context, workflowInstanceID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowInstanceByID_Call {
@@ -53041,9 +53041,9 @@ type MockGraphClient_GetWorkflowInstances_Call struct {
 //   - where *graphclient.WorkflowInstanceWhereInput
 //   - orderBy []*graphclient.WorkflowInstanceOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowInstances(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowInstances_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowInstances(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetWorkflowInstances_Call {
 	return &MockGraphClient_GetWorkflowInstances_Call{Call: _e.mock.On("GetWorkflowInstances",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowInstances_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.WorkflowInstanceWhereInput, orderBy []*graphclient.WorkflowInstanceOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowInstances_Call {
@@ -53149,9 +53149,9 @@ type MockGraphClient_GetWorkflowObjectRefByID_Call struct {
 //   - ctx context.Context
 //   - workflowObjectRefID string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowObjectRefByID(ctx interface{}, workflowObjectRefID interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowObjectRefByID_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowObjectRefByID(ctx any, workflowObjectRefID any, interceptors ...any) *MockGraphClient_GetWorkflowObjectRefByID_Call {
 	return &MockGraphClient_GetWorkflowObjectRefByID_Call{Call: _e.mock.On("GetWorkflowObjectRefByID",
-		append([]interface{}{ctx, workflowObjectRefID}, interceptors...)...)}
+		append([]any{ctx, workflowObjectRefID}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowObjectRefByID_Call) Run(run func(ctx context.Context, workflowObjectRefID string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowObjectRefByID_Call {
@@ -53237,9 +53237,9 @@ type MockGraphClient_GetWorkflowObjectRefs_Call struct {
 //   - where *graphclient.WorkflowObjectRefWhereInput
 //   - orderBy []*graphclient.WorkflowObjectRefOrder
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GetWorkflowObjectRefs(ctx interface{}, first interface{}, last interface{}, after interface{}, before interface{}, where interface{}, orderBy interface{}, interceptors ...interface{}) *MockGraphClient_GetWorkflowObjectRefs_Call {
+func (_e *MockGraphClient_Expecter) GetWorkflowObjectRefs(ctx any, first any, last any, after any, before any, where any, orderBy any, interceptors ...any) *MockGraphClient_GetWorkflowObjectRefs_Call {
 	return &MockGraphClient_GetWorkflowObjectRefs_Call{Call: _e.mock.On("GetWorkflowObjectRefs",
-		append([]interface{}{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
+		append([]any{ctx, first, last, after, before, where, orderBy}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GetWorkflowObjectRefs_Call) Run(run func(ctx context.Context, first *int64, last *int64, after *string, before *string, where *graphclient.WorkflowObjectRefWhereInput, orderBy []*graphclient.WorkflowObjectRefOrder, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GetWorkflowObjectRefs_Call {
@@ -53345,9 +53345,9 @@ type MockGraphClient_GlobalSearch_Call struct {
 //   - ctx context.Context
 //   - query string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) GlobalSearch(ctx interface{}, query interface{}, interceptors ...interface{}) *MockGraphClient_GlobalSearch_Call {
+func (_e *MockGraphClient_Expecter) GlobalSearch(ctx any, query any, interceptors ...any) *MockGraphClient_GlobalSearch_Call {
 	return &MockGraphClient_GlobalSearch_Call{Call: _e.mock.On("GlobalSearch",
-		append([]interface{}{ctx, query}, interceptors...)...)}
+		append([]any{ctx, query}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_GlobalSearch_Call) Run(run func(ctx context.Context, query string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_GlobalSearch_Call {
@@ -53428,9 +53428,9 @@ type MockGraphClient_LaunchCampaign_Call struct {
 //   - ctx context.Context
 //   - input graphclient.LaunchCampaignInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) LaunchCampaign(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_LaunchCampaign_Call {
+func (_e *MockGraphClient_Expecter) LaunchCampaign(ctx any, input any, interceptors ...any) *MockGraphClient_LaunchCampaign_Call {
 	return &MockGraphClient_LaunchCampaign_Call{Call: _e.mock.On("LaunchCampaign",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_LaunchCampaign_Call) Run(run func(ctx context.Context, input graphclient.LaunchCampaignInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_LaunchCampaign_Call {
@@ -53512,9 +53512,9 @@ type MockGraphClient_RejectWorkflowAssignment_Call struct {
 //   - id string
 //   - reason *string
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) RejectWorkflowAssignment(ctx interface{}, id interface{}, reason interface{}, interceptors ...interface{}) *MockGraphClient_RejectWorkflowAssignment_Call {
+func (_e *MockGraphClient_Expecter) RejectWorkflowAssignment(ctx any, id any, reason any, interceptors ...any) *MockGraphClient_RejectWorkflowAssignment_Call {
 	return &MockGraphClient_RejectWorkflowAssignment_Call{Call: _e.mock.On("RejectWorkflowAssignment",
-		append([]interface{}{ctx, id, reason}, interceptors...)...)}
+		append([]any{ctx, id, reason}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_RejectWorkflowAssignment_Call) Run(run func(ctx context.Context, id string, reason *string, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_RejectWorkflowAssignment_Call {
@@ -53600,9 +53600,9 @@ type MockGraphClient_ResendCampaignIncompleteTargets_Call struct {
 //   - ctx context.Context
 //   - input graphclient.ResendCampaignIncompleteInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) ResendCampaignIncompleteTargets(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_ResendCampaignIncompleteTargets_Call {
+func (_e *MockGraphClient_Expecter) ResendCampaignIncompleteTargets(ctx any, input any, interceptors ...any) *MockGraphClient_ResendCampaignIncompleteTargets_Call {
 	return &MockGraphClient_ResendCampaignIncompleteTargets_Call{Call: _e.mock.On("ResendCampaignIncompleteTargets",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_ResendCampaignIncompleteTargets_Call) Run(run func(ctx context.Context, input graphclient.ResendCampaignIncompleteInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_ResendCampaignIncompleteTargets_Call {
@@ -53683,9 +53683,9 @@ type MockGraphClient_SendCampaignTestEmail_Call struct {
 //   - ctx context.Context
 //   - input graphclient.SendCampaignTestEmailInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) SendCampaignTestEmail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_SendCampaignTestEmail_Call {
+func (_e *MockGraphClient_Expecter) SendCampaignTestEmail(ctx any, input any, interceptors ...any) *MockGraphClient_SendCampaignTestEmail_Call {
 	return &MockGraphClient_SendCampaignTestEmail_Call{Call: _e.mock.On("SendCampaignTestEmail",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_SendCampaignTestEmail_Call) Run(run func(ctx context.Context, input graphclient.SendCampaignTestEmailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_SendCampaignTestEmail_Call {
@@ -53766,9 +53766,9 @@ type MockGraphClient_SubmitTrustCenterNDAResponse_Call struct {
 //   - ctx context.Context
 //   - input graphclient.SubmitTrustCenterNDAResponseInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) SubmitTrustCenterNDAResponse(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_SubmitTrustCenterNDAResponse_Call {
+func (_e *MockGraphClient_Expecter) SubmitTrustCenterNDAResponse(ctx any, input any, interceptors ...any) *MockGraphClient_SubmitTrustCenterNDAResponse_Call {
 	return &MockGraphClient_SubmitTrustCenterNDAResponse_Call{Call: _e.mock.On("SubmitTrustCenterNDAResponse",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_SubmitTrustCenterNDAResponse_Call) Run(run func(ctx context.Context, input graphclient.SubmitTrustCenterNDAResponseInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_SubmitTrustCenterNDAResponse_Call {
@@ -53850,9 +53850,9 @@ type MockGraphClient_UpdateAPIToken_Call struct {
 //   - updateAPITokenID string
 //   - input graphclient.UpdateAPITokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateAPIToken(ctx interface{}, updateAPITokenID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateAPIToken_Call {
+func (_e *MockGraphClient_Expecter) UpdateAPIToken(ctx any, updateAPITokenID any, input any, interceptors ...any) *MockGraphClient_UpdateAPIToken_Call {
 	return &MockGraphClient_UpdateAPIToken_Call{Call: _e.mock.On("UpdateAPIToken",
-		append([]interface{}{ctx, updateAPITokenID, input}, interceptors...)...)}
+		append([]any{ctx, updateAPITokenID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateAPIToken_Call) Run(run func(ctx context.Context, updateAPITokenID string, input graphclient.UpdateAPITokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateAPIToken_Call {
@@ -53939,9 +53939,9 @@ type MockGraphClient_UpdateActionPlan_Call struct {
 //   - updateActionPlanID string
 //   - input graphclient.UpdateActionPlanInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateActionPlan(ctx interface{}, updateActionPlanID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateActionPlan_Call {
+func (_e *MockGraphClient_Expecter) UpdateActionPlan(ctx any, updateActionPlanID any, input any, interceptors ...any) *MockGraphClient_UpdateActionPlan_Call {
 	return &MockGraphClient_UpdateActionPlan_Call{Call: _e.mock.On("UpdateActionPlan",
-		append([]interface{}{ctx, updateActionPlanID, input}, interceptors...)...)}
+		append([]any{ctx, updateActionPlanID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateActionPlan_Call) Run(run func(ctx context.Context, updateActionPlanID string, input graphclient.UpdateActionPlanInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateActionPlan_Call {
@@ -54028,9 +54028,9 @@ type MockGraphClient_UpdateAssessment_Call struct {
 //   - updateAssessmentID string
 //   - input graphclient.UpdateAssessmentInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateAssessment(ctx interface{}, updateAssessmentID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateAssessment_Call {
+func (_e *MockGraphClient_Expecter) UpdateAssessment(ctx any, updateAssessmentID any, input any, interceptors ...any) *MockGraphClient_UpdateAssessment_Call {
 	return &MockGraphClient_UpdateAssessment_Call{Call: _e.mock.On("UpdateAssessment",
-		append([]interface{}{ctx, updateAssessmentID, input}, interceptors...)...)}
+		append([]any{ctx, updateAssessmentID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateAssessment_Call) Run(run func(ctx context.Context, updateAssessmentID string, input graphclient.UpdateAssessmentInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateAssessment_Call {
@@ -54117,9 +54117,9 @@ type MockGraphClient_UpdateAsset_Call struct {
 //   - updateAssetID string
 //   - input graphclient.UpdateAssetInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateAsset(ctx interface{}, updateAssetID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateAsset_Call {
+func (_e *MockGraphClient_Expecter) UpdateAsset(ctx any, updateAssetID any, input any, interceptors ...any) *MockGraphClient_UpdateAsset_Call {
 	return &MockGraphClient_UpdateAsset_Call{Call: _e.mock.On("UpdateAsset",
-		append([]interface{}{ctx, updateAssetID, input}, interceptors...)...)}
+		append([]any{ctx, updateAssetID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateAsset_Call) Run(run func(ctx context.Context, updateAssetID string, input graphclient.UpdateAssetInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateAsset_Call {
@@ -54205,9 +54205,9 @@ type MockGraphClient_UpdateBulkCSVCheckResult_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkCSVCheckResult(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVCheckResult_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVCheckResult(ctx any, input any, interceptors ...any) *MockGraphClient_UpdateBulkCSVCheckResult_Call {
 	return &MockGraphClient_UpdateBulkCSVCheckResult_Call{Call: _e.mock.On("UpdateBulkCSVCheckResult",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkCSVCheckResult_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVCheckResult_Call {
@@ -54288,9 +54288,9 @@ type MockGraphClient_UpdateBulkCSVEmailTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkCSVEmailTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVEmailTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
 	return &MockGraphClient_UpdateBulkCSVEmailTemplate_Call{Call: _e.mock.On("UpdateBulkCSVEmailTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkCSVEmailTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVEmailTemplate_Call {
@@ -54371,9 +54371,9 @@ type MockGraphClient_UpdateBulkCSVNotificationPreference_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkCSVNotificationPreference(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVNotificationPreference(ctx any, input any, interceptors ...any) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
 	return &MockGraphClient_UpdateBulkCSVNotificationPreference_Call{Call: _e.mock.On("UpdateBulkCSVNotificationPreference",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkCSVNotificationPreference_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVNotificationPreference_Call {
@@ -54454,9 +54454,9 @@ type MockGraphClient_UpdateBulkCSVNotificationTemplate_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkCSVNotificationTemplate(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVNotificationTemplate(ctx any, input any, interceptors ...any) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
 	return &MockGraphClient_UpdateBulkCSVNotificationTemplate_Call{Call: _e.mock.On("UpdateBulkCSVNotificationTemplate",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVNotificationTemplate_Call {
@@ -54537,9 +54537,9 @@ type MockGraphClient_UpdateBulkCSVSystemDetail_Call struct {
 //   - ctx context.Context
 //   - input graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkCSVSystemDetail(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkCSVSystemDetail(ctx any, input any, interceptors ...any) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
 	return &MockGraphClient_UpdateBulkCSVSystemDetail_Call{Call: _e.mock.On("UpdateBulkCSVSystemDetail",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkCSVSystemDetail_Call) Run(run func(ctx context.Context, input graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCSVSystemDetail_Call {
@@ -54621,9 +54621,9 @@ type MockGraphClient_UpdateBulkCheckResult_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateCheckResultInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkCheckResult(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkCheckResult_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkCheckResult(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkCheckResult_Call {
 	return &MockGraphClient_UpdateBulkCheckResult_Call{Call: _e.mock.On("UpdateBulkCheckResult",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkCheckResult_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateCheckResultInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkCheckResult_Call {
@@ -54710,9 +54710,9 @@ type MockGraphClient_UpdateBulkEmailTemplate_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateEmailTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkEmailTemplate(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkEmailTemplate(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkEmailTemplate_Call {
 	return &MockGraphClient_UpdateBulkEmailTemplate_Call{Call: _e.mock.On("UpdateBulkEmailTemplate",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkEmailTemplate_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkEmailTemplate_Call {
@@ -54799,9 +54799,9 @@ type MockGraphClient_UpdateBulkNotificationPreference_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateNotificationPreferenceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkNotificationPreference(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkNotificationPreference(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkNotificationPreference_Call {
 	return &MockGraphClient_UpdateBulkNotificationPreference_Call{Call: _e.mock.On("UpdateBulkNotificationPreference",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkNotificationPreference_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkNotificationPreference_Call {
@@ -54888,9 +54888,9 @@ type MockGraphClient_UpdateBulkNotificationTemplate_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateNotificationTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkNotificationTemplate(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkNotificationTemplate(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
 	return &MockGraphClient_UpdateBulkNotificationTemplate_Call{Call: _e.mock.On("UpdateBulkNotificationTemplate",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkNotificationTemplate_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkNotificationTemplate_Call {
@@ -54977,9 +54977,9 @@ type MockGraphClient_UpdateBulkSubprocessor_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateSubprocessorInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkSubprocessor(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkSubprocessor(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkSubprocessor_Call {
 	return &MockGraphClient_UpdateBulkSubprocessor_Call{Call: _e.mock.On("UpdateBulkSubprocessor",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkSubprocessor_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkSubprocessor_Call {
@@ -55066,9 +55066,9 @@ type MockGraphClient_UpdateBulkSystemDetail_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateSystemDetailInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkSystemDetail(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkSystemDetail(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkSystemDetail_Call {
 	return &MockGraphClient_UpdateBulkSystemDetail_Call{Call: _e.mock.On("UpdateBulkSystemDetail",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkSystemDetail_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkSystemDetail_Call {
@@ -55155,9 +55155,9 @@ type MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call struct {
 //   - ids []string
 //   - input graphclient.UpdateTrustCenterSubprocessorInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateBulkTrustCenterSubprocessor(ctx interface{}, ids interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) UpdateBulkTrustCenterSubprocessor(ctx any, ids any, input any, interceptors ...any) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
 	return &MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call{Call: _e.mock.On("UpdateBulkTrustCenterSubprocessor",
-		append([]interface{}{ctx, ids, input}, interceptors...)...)}
+		append([]any{ctx, ids, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, ids []string, input graphclient.UpdateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateBulkTrustCenterSubprocessor_Call {
@@ -55244,9 +55244,9 @@ type MockGraphClient_UpdateCampaign_Call struct {
 //   - updateCampaignID string
 //   - input graphclient.UpdateCampaignInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateCampaign(ctx interface{}, updateCampaignID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateCampaign_Call {
+func (_e *MockGraphClient_Expecter) UpdateCampaign(ctx any, updateCampaignID any, input any, interceptors ...any) *MockGraphClient_UpdateCampaign_Call {
 	return &MockGraphClient_UpdateCampaign_Call{Call: _e.mock.On("UpdateCampaign",
-		append([]interface{}{ctx, updateCampaignID, input}, interceptors...)...)}
+		append([]any{ctx, updateCampaignID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateCampaign_Call) Run(run func(ctx context.Context, updateCampaignID string, input graphclient.UpdateCampaignInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateCampaign_Call {
@@ -55333,9 +55333,9 @@ type MockGraphClient_UpdateCampaignTarget_Call struct {
 //   - updateCampaignTargetID string
 //   - input graphclient.UpdateCampaignTargetInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateCampaignTarget(ctx interface{}, updateCampaignTargetID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateCampaignTarget_Call {
+func (_e *MockGraphClient_Expecter) UpdateCampaignTarget(ctx any, updateCampaignTargetID any, input any, interceptors ...any) *MockGraphClient_UpdateCampaignTarget_Call {
 	return &MockGraphClient_UpdateCampaignTarget_Call{Call: _e.mock.On("UpdateCampaignTarget",
-		append([]interface{}{ctx, updateCampaignTargetID, input}, interceptors...)...)}
+		append([]any{ctx, updateCampaignTargetID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateCampaignTarget_Call) Run(run func(ctx context.Context, updateCampaignTargetID string, input graphclient.UpdateCampaignTargetInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateCampaignTarget_Call {
@@ -55422,9 +55422,9 @@ type MockGraphClient_UpdateCheckResult_Call struct {
 //   - updateCheckResultID string
 //   - input graphclient.UpdateCheckResultInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateCheckResult(ctx interface{}, updateCheckResultID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateCheckResult_Call {
+func (_e *MockGraphClient_Expecter) UpdateCheckResult(ctx any, updateCheckResultID any, input any, interceptors ...any) *MockGraphClient_UpdateCheckResult_Call {
 	return &MockGraphClient_UpdateCheckResult_Call{Call: _e.mock.On("UpdateCheckResult",
-		append([]interface{}{ctx, updateCheckResultID, input}, interceptors...)...)}
+		append([]any{ctx, updateCheckResultID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateCheckResult_Call) Run(run func(ctx context.Context, updateCheckResultID string, input graphclient.UpdateCheckResultInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateCheckResult_Call {
@@ -55511,9 +55511,9 @@ type MockGraphClient_UpdateContact_Call struct {
 //   - updateContactID string
 //   - input graphclient.UpdateContactInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateContact(ctx interface{}, updateContactID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateContact_Call {
+func (_e *MockGraphClient_Expecter) UpdateContact(ctx any, updateContactID any, input any, interceptors ...any) *MockGraphClient_UpdateContact_Call {
 	return &MockGraphClient_UpdateContact_Call{Call: _e.mock.On("UpdateContact",
-		append([]interface{}{ctx, updateContactID, input}, interceptors...)...)}
+		append([]any{ctx, updateContactID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateContact_Call) Run(run func(ctx context.Context, updateContactID string, input graphclient.UpdateContactInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateContact_Call {
@@ -55600,9 +55600,9 @@ type MockGraphClient_UpdateControl_Call struct {
 //   - updateControlID string
 //   - input graphclient.UpdateControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateControl(ctx interface{}, updateControlID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateControl_Call {
+func (_e *MockGraphClient_Expecter) UpdateControl(ctx any, updateControlID any, input any, interceptors ...any) *MockGraphClient_UpdateControl_Call {
 	return &MockGraphClient_UpdateControl_Call{Call: _e.mock.On("UpdateControl",
-		append([]interface{}{ctx, updateControlID, input}, interceptors...)...)}
+		append([]any{ctx, updateControlID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateControl_Call) Run(run func(ctx context.Context, updateControlID string, input graphclient.UpdateControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateControl_Call {
@@ -55689,9 +55689,9 @@ type MockGraphClient_UpdateControlImplementation_Call struct {
 //   - updateControlImplementationID string
 //   - input graphclient.UpdateControlImplementationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateControlImplementation(ctx interface{}, updateControlImplementationID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateControlImplementation_Call {
+func (_e *MockGraphClient_Expecter) UpdateControlImplementation(ctx any, updateControlImplementationID any, input any, interceptors ...any) *MockGraphClient_UpdateControlImplementation_Call {
 	return &MockGraphClient_UpdateControlImplementation_Call{Call: _e.mock.On("UpdateControlImplementation",
-		append([]interface{}{ctx, updateControlImplementationID, input}, interceptors...)...)}
+		append([]any{ctx, updateControlImplementationID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateControlImplementation_Call) Run(run func(ctx context.Context, updateControlImplementationID string, input graphclient.UpdateControlImplementationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateControlImplementation_Call {
@@ -55778,9 +55778,9 @@ type MockGraphClient_UpdateControlObjective_Call struct {
 //   - updateControlObjectiveID string
 //   - input graphclient.UpdateControlObjectiveInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateControlObjective(ctx interface{}, updateControlObjectiveID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateControlObjective_Call {
+func (_e *MockGraphClient_Expecter) UpdateControlObjective(ctx any, updateControlObjectiveID any, input any, interceptors ...any) *MockGraphClient_UpdateControlObjective_Call {
 	return &MockGraphClient_UpdateControlObjective_Call{Call: _e.mock.On("UpdateControlObjective",
-		append([]interface{}{ctx, updateControlObjectiveID, input}, interceptors...)...)}
+		append([]any{ctx, updateControlObjectiveID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateControlObjective_Call) Run(run func(ctx context.Context, updateControlObjectiveID string, input graphclient.UpdateControlObjectiveInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateControlObjective_Call {
@@ -55867,9 +55867,9 @@ type MockGraphClient_UpdateCustomDomain_Call struct {
 //   - updateCustomDomainID string
 //   - input graphclient.UpdateCustomDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateCustomDomain(ctx interface{}, updateCustomDomainID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateCustomDomain_Call {
+func (_e *MockGraphClient_Expecter) UpdateCustomDomain(ctx any, updateCustomDomainID any, input any, interceptors ...any) *MockGraphClient_UpdateCustomDomain_Call {
 	return &MockGraphClient_UpdateCustomDomain_Call{Call: _e.mock.On("UpdateCustomDomain",
-		append([]interface{}{ctx, updateCustomDomainID, input}, interceptors...)...)}
+		append([]any{ctx, updateCustomDomainID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateCustomDomain_Call) Run(run func(ctx context.Context, updateCustomDomainID string, input graphclient.UpdateCustomDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateCustomDomain_Call {
@@ -55956,9 +55956,9 @@ type MockGraphClient_UpdateCustomTypeEnum_Call struct {
 //   - updateCustomTypeEnumID string
 //   - input graphclient.UpdateCustomTypeEnumInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateCustomTypeEnum(ctx interface{}, updateCustomTypeEnumID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateCustomTypeEnum_Call {
+func (_e *MockGraphClient_Expecter) UpdateCustomTypeEnum(ctx any, updateCustomTypeEnumID any, input any, interceptors ...any) *MockGraphClient_UpdateCustomTypeEnum_Call {
 	return &MockGraphClient_UpdateCustomTypeEnum_Call{Call: _e.mock.On("UpdateCustomTypeEnum",
-		append([]interface{}{ctx, updateCustomTypeEnumID, input}, interceptors...)...)}
+		append([]any{ctx, updateCustomTypeEnumID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateCustomTypeEnum_Call) Run(run func(ctx context.Context, updateCustomTypeEnumID string, input graphclient.UpdateCustomTypeEnumInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateCustomTypeEnum_Call {
@@ -56045,9 +56045,9 @@ type MockGraphClient_UpdateDNSVerification_Call struct {
 //   - updateDNSVerificationID string
 //   - input graphclient.UpdateDNSVerificationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDNSVerification(ctx interface{}, updateDNSVerificationID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDNSVerification_Call {
+func (_e *MockGraphClient_Expecter) UpdateDNSVerification(ctx any, updateDNSVerificationID any, input any, interceptors ...any) *MockGraphClient_UpdateDNSVerification_Call {
 	return &MockGraphClient_UpdateDNSVerification_Call{Call: _e.mock.On("UpdateDNSVerification",
-		append([]interface{}{ctx, updateDNSVerificationID, input}, interceptors...)...)}
+		append([]any{ctx, updateDNSVerificationID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDNSVerification_Call) Run(run func(ctx context.Context, updateDNSVerificationID string, input graphclient.UpdateDNSVerificationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDNSVerification_Call {
@@ -56134,9 +56134,9 @@ type MockGraphClient_UpdateDirectoryAccount_Call struct {
 //   - updateDirectoryAccountID string
 //   - input graphclient.UpdateDirectoryAccountInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDirectoryAccount(ctx interface{}, updateDirectoryAccountID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDirectoryAccount_Call {
+func (_e *MockGraphClient_Expecter) UpdateDirectoryAccount(ctx any, updateDirectoryAccountID any, input any, interceptors ...any) *MockGraphClient_UpdateDirectoryAccount_Call {
 	return &MockGraphClient_UpdateDirectoryAccount_Call{Call: _e.mock.On("UpdateDirectoryAccount",
-		append([]interface{}{ctx, updateDirectoryAccountID, input}, interceptors...)...)}
+		append([]any{ctx, updateDirectoryAccountID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDirectoryAccount_Call) Run(run func(ctx context.Context, updateDirectoryAccountID string, input graphclient.UpdateDirectoryAccountInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDirectoryAccount_Call {
@@ -56223,9 +56223,9 @@ type MockGraphClient_UpdateDirectoryGroup_Call struct {
 //   - updateDirectoryGroupID string
 //   - input graphclient.UpdateDirectoryGroupInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDirectoryGroup(ctx interface{}, updateDirectoryGroupID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDirectoryGroup_Call {
+func (_e *MockGraphClient_Expecter) UpdateDirectoryGroup(ctx any, updateDirectoryGroupID any, input any, interceptors ...any) *MockGraphClient_UpdateDirectoryGroup_Call {
 	return &MockGraphClient_UpdateDirectoryGroup_Call{Call: _e.mock.On("UpdateDirectoryGroup",
-		append([]interface{}{ctx, updateDirectoryGroupID, input}, interceptors...)...)}
+		append([]any{ctx, updateDirectoryGroupID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDirectoryGroup_Call) Run(run func(ctx context.Context, updateDirectoryGroupID string, input graphclient.UpdateDirectoryGroupInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDirectoryGroup_Call {
@@ -56312,9 +56312,9 @@ type MockGraphClient_UpdateDirectoryMembership_Call struct {
 //   - updateDirectoryMembershipID string
 //   - input graphclient.UpdateDirectoryMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDirectoryMembership(ctx interface{}, updateDirectoryMembershipID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDirectoryMembership_Call {
+func (_e *MockGraphClient_Expecter) UpdateDirectoryMembership(ctx any, updateDirectoryMembershipID any, input any, interceptors ...any) *MockGraphClient_UpdateDirectoryMembership_Call {
 	return &MockGraphClient_UpdateDirectoryMembership_Call{Call: _e.mock.On("UpdateDirectoryMembership",
-		append([]interface{}{ctx, updateDirectoryMembershipID, input}, interceptors...)...)}
+		append([]any{ctx, updateDirectoryMembershipID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDirectoryMembership_Call) Run(run func(ctx context.Context, updateDirectoryMembershipID string, input graphclient.UpdateDirectoryMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDirectoryMembership_Call {
@@ -56401,9 +56401,9 @@ type MockGraphClient_UpdateDirectorySyncRun_Call struct {
 //   - updateDirectorySyncRunID string
 //   - input graphclient.UpdateDirectorySyncRunInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDirectorySyncRun(ctx interface{}, updateDirectorySyncRunID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDirectorySyncRun_Call {
+func (_e *MockGraphClient_Expecter) UpdateDirectorySyncRun(ctx any, updateDirectorySyncRunID any, input any, interceptors ...any) *MockGraphClient_UpdateDirectorySyncRun_Call {
 	return &MockGraphClient_UpdateDirectorySyncRun_Call{Call: _e.mock.On("UpdateDirectorySyncRun",
-		append([]interface{}{ctx, updateDirectorySyncRunID, input}, interceptors...)...)}
+		append([]any{ctx, updateDirectorySyncRunID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDirectorySyncRun_Call) Run(run func(ctx context.Context, updateDirectorySyncRunID string, input graphclient.UpdateDirectorySyncRunInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDirectorySyncRun_Call {
@@ -56490,9 +56490,9 @@ type MockGraphClient_UpdateDiscussion_Call struct {
 //   - updateDiscussionID string
 //   - input graphclient.UpdateDiscussionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDiscussion(ctx interface{}, updateDiscussionID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDiscussion_Call {
+func (_e *MockGraphClient_Expecter) UpdateDiscussion(ctx any, updateDiscussionID any, input any, interceptors ...any) *MockGraphClient_UpdateDiscussion_Call {
 	return &MockGraphClient_UpdateDiscussion_Call{Call: _e.mock.On("UpdateDiscussion",
-		append([]interface{}{ctx, updateDiscussionID, input}, interceptors...)...)}
+		append([]any{ctx, updateDiscussionID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDiscussion_Call) Run(run func(ctx context.Context, updateDiscussionID string, input graphclient.UpdateDiscussionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDiscussion_Call {
@@ -56580,9 +56580,9 @@ type MockGraphClient_UpdateDocumentData_Call struct {
 //   - input graphclient.UpdateDocumentDataInput
 //   - documentDataFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateDocumentData(ctx interface{}, updateDocumentDataID interface{}, input interface{}, documentDataFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateDocumentData_Call {
+func (_e *MockGraphClient_Expecter) UpdateDocumentData(ctx any, updateDocumentDataID any, input any, documentDataFile any, interceptors ...any) *MockGraphClient_UpdateDocumentData_Call {
 	return &MockGraphClient_UpdateDocumentData_Call{Call: _e.mock.On("UpdateDocumentData",
-		append([]interface{}{ctx, updateDocumentDataID, input, documentDataFile}, interceptors...)...)}
+		append([]any{ctx, updateDocumentDataID, input, documentDataFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateDocumentData_Call) Run(run func(ctx context.Context, updateDocumentDataID string, input graphclient.UpdateDocumentDataInput, documentDataFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateDocumentData_Call {
@@ -56674,9 +56674,9 @@ type MockGraphClient_UpdateEmailTemplate_Call struct {
 //   - updateEmailTemplateID string
 //   - input graphclient.UpdateEmailTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateEmailTemplate(ctx interface{}, updateEmailTemplateID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEmailTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateEmailTemplate(ctx any, updateEmailTemplateID any, input any, interceptors ...any) *MockGraphClient_UpdateEmailTemplate_Call {
 	return &MockGraphClient_UpdateEmailTemplate_Call{Call: _e.mock.On("UpdateEmailTemplate",
-		append([]interface{}{ctx, updateEmailTemplateID, input}, interceptors...)...)}
+		append([]any{ctx, updateEmailTemplateID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateEmailTemplate_Call) Run(run func(ctx context.Context, updateEmailTemplateID string, input graphclient.UpdateEmailTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEmailTemplate_Call {
@@ -56763,9 +56763,9 @@ type MockGraphClient_UpdateEntity_Call struct {
 //   - updateEntityID string
 //   - input graphclient.UpdateEntityInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateEntity(ctx interface{}, updateEntityID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEntity_Call {
+func (_e *MockGraphClient_Expecter) UpdateEntity(ctx any, updateEntityID any, input any, interceptors ...any) *MockGraphClient_UpdateEntity_Call {
 	return &MockGraphClient_UpdateEntity_Call{Call: _e.mock.On("UpdateEntity",
-		append([]interface{}{ctx, updateEntityID, input}, interceptors...)...)}
+		append([]any{ctx, updateEntityID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateEntity_Call) Run(run func(ctx context.Context, updateEntityID string, input graphclient.UpdateEntityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEntity_Call {
@@ -56852,9 +56852,9 @@ type MockGraphClient_UpdateEntityType_Call struct {
 //   - updateEntityTypeID string
 //   - input graphclient.UpdateEntityTypeInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateEntityType(ctx interface{}, updateEntityTypeID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEntityType_Call {
+func (_e *MockGraphClient_Expecter) UpdateEntityType(ctx any, updateEntityTypeID any, input any, interceptors ...any) *MockGraphClient_UpdateEntityType_Call {
 	return &MockGraphClient_UpdateEntityType_Call{Call: _e.mock.On("UpdateEntityType",
-		append([]interface{}{ctx, updateEntityTypeID, input}, interceptors...)...)}
+		append([]any{ctx, updateEntityTypeID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateEntityType_Call) Run(run func(ctx context.Context, updateEntityTypeID string, input graphclient.UpdateEntityTypeInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEntityType_Call {
@@ -56941,9 +56941,9 @@ type MockGraphClient_UpdateEvent_Call struct {
 //   - updateEventID string
 //   - input graphclient.UpdateEventInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateEvent(ctx interface{}, updateEventID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEvent_Call {
+func (_e *MockGraphClient_Expecter) UpdateEvent(ctx any, updateEventID any, input any, interceptors ...any) *MockGraphClient_UpdateEvent_Call {
 	return &MockGraphClient_UpdateEvent_Call{Call: _e.mock.On("UpdateEvent",
-		append([]interface{}{ctx, updateEventID, input}, interceptors...)...)}
+		append([]any{ctx, updateEventID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateEvent_Call) Run(run func(ctx context.Context, updateEventID string, input graphclient.UpdateEventInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEvent_Call {
@@ -57031,9 +57031,9 @@ type MockGraphClient_UpdateEvidence_Call struct {
 //   - input graphclient.UpdateEvidenceInput
 //   - evidenceFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateEvidence(ctx interface{}, updateEvidenceID interface{}, input interface{}, evidenceFiles interface{}, interceptors ...interface{}) *MockGraphClient_UpdateEvidence_Call {
+func (_e *MockGraphClient_Expecter) UpdateEvidence(ctx any, updateEvidenceID any, input any, evidenceFiles any, interceptors ...any) *MockGraphClient_UpdateEvidence_Call {
 	return &MockGraphClient_UpdateEvidence_Call{Call: _e.mock.On("UpdateEvidence",
-		append([]interface{}{ctx, updateEvidenceID, input, evidenceFiles}, interceptors...)...)}
+		append([]any{ctx, updateEvidenceID, input, evidenceFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateEvidence_Call) Run(run func(ctx context.Context, updateEvidenceID string, input graphclient.UpdateEvidenceInput, evidenceFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateEvidence_Call {
@@ -57126,9 +57126,9 @@ type MockGraphClient_UpdateExport_Call struct {
 //   - input graphclient.UpdateExportInput
 //   - exportFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateExport(ctx interface{}, id interface{}, input interface{}, exportFiles interface{}, interceptors ...interface{}) *MockGraphClient_UpdateExport_Call {
+func (_e *MockGraphClient_Expecter) UpdateExport(ctx any, id any, input any, exportFiles any, interceptors ...any) *MockGraphClient_UpdateExport_Call {
 	return &MockGraphClient_UpdateExport_Call{Call: _e.mock.On("UpdateExport",
-		append([]interface{}{ctx, id, input, exportFiles}, interceptors...)...)}
+		append([]any{ctx, id, input, exportFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateExport_Call) Run(run func(ctx context.Context, id string, input graphclient.UpdateExportInput, exportFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateExport_Call {
@@ -57220,9 +57220,9 @@ type MockGraphClient_UpdateFinding_Call struct {
 //   - updateFindingID string
 //   - input graphclient.UpdateFindingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateFinding(ctx interface{}, updateFindingID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateFinding_Call {
+func (_e *MockGraphClient_Expecter) UpdateFinding(ctx any, updateFindingID any, input any, interceptors ...any) *MockGraphClient_UpdateFinding_Call {
 	return &MockGraphClient_UpdateFinding_Call{Call: _e.mock.On("UpdateFinding",
-		append([]interface{}{ctx, updateFindingID, input}, interceptors...)...)}
+		append([]any{ctx, updateFindingID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateFinding_Call) Run(run func(ctx context.Context, updateFindingID string, input graphclient.UpdateFindingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateFinding_Call {
@@ -57309,9 +57309,9 @@ type MockGraphClient_UpdateFindingControl_Call struct {
 //   - updateFindingControlID string
 //   - input graphclient.UpdateFindingControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateFindingControl(ctx interface{}, updateFindingControlID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateFindingControl_Call {
+func (_e *MockGraphClient_Expecter) UpdateFindingControl(ctx any, updateFindingControlID any, input any, interceptors ...any) *MockGraphClient_UpdateFindingControl_Call {
 	return &MockGraphClient_UpdateFindingControl_Call{Call: _e.mock.On("UpdateFindingControl",
-		append([]interface{}{ctx, updateFindingControlID, input}, interceptors...)...)}
+		append([]any{ctx, updateFindingControlID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateFindingControl_Call) Run(run func(ctx context.Context, updateFindingControlID string, input graphclient.UpdateFindingControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateFindingControl_Call {
@@ -57398,9 +57398,9 @@ type MockGraphClient_UpdateGroup_Call struct {
 //   - updateGroupID string
 //   - input graphclient.UpdateGroupInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateGroup(ctx interface{}, updateGroupID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateGroup_Call {
+func (_e *MockGraphClient_Expecter) UpdateGroup(ctx any, updateGroupID any, input any, interceptors ...any) *MockGraphClient_UpdateGroup_Call {
 	return &MockGraphClient_UpdateGroup_Call{Call: _e.mock.On("UpdateGroup",
-		append([]interface{}{ctx, updateGroupID, input}, interceptors...)...)}
+		append([]any{ctx, updateGroupID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateGroup_Call) Run(run func(ctx context.Context, updateGroupID string, input graphclient.UpdateGroupInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateGroup_Call {
@@ -57487,9 +57487,9 @@ type MockGraphClient_UpdateGroupMembership_Call struct {
 //   - updateGroupMembershipID string
 //   - input graphclient.UpdateGroupMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateGroupMembership(ctx interface{}, updateGroupMembershipID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateGroupMembership_Call {
+func (_e *MockGraphClient_Expecter) UpdateGroupMembership(ctx any, updateGroupMembershipID any, input any, interceptors ...any) *MockGraphClient_UpdateGroupMembership_Call {
 	return &MockGraphClient_UpdateGroupMembership_Call{Call: _e.mock.On("UpdateGroupMembership",
-		append([]interface{}{ctx, updateGroupMembershipID, input}, interceptors...)...)}
+		append([]any{ctx, updateGroupMembershipID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateGroupMembership_Call) Run(run func(ctx context.Context, updateGroupMembershipID string, input graphclient.UpdateGroupMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateGroupMembership_Call {
@@ -57576,9 +57576,9 @@ type MockGraphClient_UpdateGroupSetting_Call struct {
 //   - updateGroupSettingID string
 //   - input graphclient.UpdateGroupSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateGroupSetting(ctx interface{}, updateGroupSettingID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateGroupSetting_Call {
+func (_e *MockGraphClient_Expecter) UpdateGroupSetting(ctx any, updateGroupSettingID any, input any, interceptors ...any) *MockGraphClient_UpdateGroupSetting_Call {
 	return &MockGraphClient_UpdateGroupSetting_Call{Call: _e.mock.On("UpdateGroupSetting",
-		append([]interface{}{ctx, updateGroupSettingID, input}, interceptors...)...)}
+		append([]any{ctx, updateGroupSettingID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateGroupSetting_Call) Run(run func(ctx context.Context, updateGroupSettingID string, input graphclient.UpdateGroupSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateGroupSetting_Call {
@@ -57665,9 +57665,9 @@ type MockGraphClient_UpdateHush_Call struct {
 //   - updateHushID string
 //   - input graphclient.UpdateHushInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateHush(ctx interface{}, updateHushID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateHush_Call {
+func (_e *MockGraphClient_Expecter) UpdateHush(ctx any, updateHushID any, input any, interceptors ...any) *MockGraphClient_UpdateHush_Call {
 	return &MockGraphClient_UpdateHush_Call{Call: _e.mock.On("UpdateHush",
-		append([]interface{}{ctx, updateHushID, input}, interceptors...)...)}
+		append([]any{ctx, updateHushID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateHush_Call) Run(run func(ctx context.Context, updateHushID string, input graphclient.UpdateHushInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateHush_Call {
@@ -57754,9 +57754,9 @@ type MockGraphClient_UpdateIdentityHolder_Call struct {
 //   - updateIdentityHolderID string
 //   - input graphclient.UpdateIdentityHolderInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateIdentityHolder(ctx interface{}, updateIdentityHolderID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateIdentityHolder_Call {
+func (_e *MockGraphClient_Expecter) UpdateIdentityHolder(ctx any, updateIdentityHolderID any, input any, interceptors ...any) *MockGraphClient_UpdateIdentityHolder_Call {
 	return &MockGraphClient_UpdateIdentityHolder_Call{Call: _e.mock.On("UpdateIdentityHolder",
-		append([]interface{}{ctx, updateIdentityHolderID, input}, interceptors...)...)}
+		append([]any{ctx, updateIdentityHolderID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateIdentityHolder_Call) Run(run func(ctx context.Context, updateIdentityHolderID string, input graphclient.UpdateIdentityHolderInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateIdentityHolder_Call {
@@ -57843,9 +57843,9 @@ type MockGraphClient_UpdateInternalPolicy_Call struct {
 //   - updateInternalPolicyID string
 //   - input graphclient.UpdateInternalPolicyInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateInternalPolicy(ctx interface{}, updateInternalPolicyID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateInternalPolicy_Call {
+func (_e *MockGraphClient_Expecter) UpdateInternalPolicy(ctx any, updateInternalPolicyID any, input any, interceptors ...any) *MockGraphClient_UpdateInternalPolicy_Call {
 	return &MockGraphClient_UpdateInternalPolicy_Call{Call: _e.mock.On("UpdateInternalPolicy",
-		append([]interface{}{ctx, updateInternalPolicyID, input}, interceptors...)...)}
+		append([]any{ctx, updateInternalPolicyID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateInternalPolicy_Call) Run(run func(ctx context.Context, updateInternalPolicyID string, input graphclient.UpdateInternalPolicyInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateInternalPolicy_Call {
@@ -57933,9 +57933,9 @@ type MockGraphClient_UpdateInternalPolicyWithFile_Call struct {
 //   - internalPolicyFile graphql.Upload
 //   - input graphclient.UpdateInternalPolicyInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateInternalPolicyWithFile(ctx interface{}, updateInternalPolicyID interface{}, internalPolicyFile interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateInternalPolicyWithFile_Call {
+func (_e *MockGraphClient_Expecter) UpdateInternalPolicyWithFile(ctx any, updateInternalPolicyID any, internalPolicyFile any, input any, interceptors ...any) *MockGraphClient_UpdateInternalPolicyWithFile_Call {
 	return &MockGraphClient_UpdateInternalPolicyWithFile_Call{Call: _e.mock.On("UpdateInternalPolicyWithFile",
-		append([]interface{}{ctx, updateInternalPolicyID, internalPolicyFile, input}, interceptors...)...)}
+		append([]any{ctx, updateInternalPolicyID, internalPolicyFile, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateInternalPolicyWithFile_Call) Run(run func(ctx context.Context, updateInternalPolicyID string, internalPolicyFile graphql.Upload, input graphclient.UpdateInternalPolicyInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateInternalPolicyWithFile_Call {
@@ -58027,9 +58027,9 @@ type MockGraphClient_UpdateInvite_Call struct {
 //   - updateInviteID string
 //   - input graphclient.UpdateInviteInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateInvite(ctx interface{}, updateInviteID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateInvite_Call {
+func (_e *MockGraphClient_Expecter) UpdateInvite(ctx any, updateInviteID any, input any, interceptors ...any) *MockGraphClient_UpdateInvite_Call {
 	return &MockGraphClient_UpdateInvite_Call{Call: _e.mock.On("UpdateInvite",
-		append([]interface{}{ctx, updateInviteID, input}, interceptors...)...)}
+		append([]any{ctx, updateInviteID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateInvite_Call) Run(run func(ctx context.Context, updateInviteID string, input graphclient.UpdateInviteInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateInvite_Call {
@@ -58117,9 +58117,9 @@ type MockGraphClient_UpdateJobResult_Call struct {
 //   - input graphclient.UpdateJobResultInput
 //   - jobResultFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateJobResult(ctx interface{}, updateJobResultID interface{}, input interface{}, jobResultFiles interface{}, interceptors ...interface{}) *MockGraphClient_UpdateJobResult_Call {
+func (_e *MockGraphClient_Expecter) UpdateJobResult(ctx any, updateJobResultID any, input any, jobResultFiles any, interceptors ...any) *MockGraphClient_UpdateJobResult_Call {
 	return &MockGraphClient_UpdateJobResult_Call{Call: _e.mock.On("UpdateJobResult",
-		append([]interface{}{ctx, updateJobResultID, input, jobResultFiles}, interceptors...)...)}
+		append([]any{ctx, updateJobResultID, input, jobResultFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateJobResult_Call) Run(run func(ctx context.Context, updateJobResultID string, input graphclient.UpdateJobResultInput, jobResultFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateJobResult_Call {
@@ -58211,9 +58211,9 @@ type MockGraphClient_UpdateJobRunner_Call struct {
 //   - updateJobRunnerID string
 //   - input graphclient.UpdateJobRunnerInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateJobRunner(ctx interface{}, updateJobRunnerID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateJobRunner_Call {
+func (_e *MockGraphClient_Expecter) UpdateJobRunner(ctx any, updateJobRunnerID any, input any, interceptors ...any) *MockGraphClient_UpdateJobRunner_Call {
 	return &MockGraphClient_UpdateJobRunner_Call{Call: _e.mock.On("UpdateJobRunner",
-		append([]interface{}{ctx, updateJobRunnerID, input}, interceptors...)...)}
+		append([]any{ctx, updateJobRunnerID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateJobRunner_Call) Run(run func(ctx context.Context, updateJobRunnerID string, input graphclient.UpdateJobRunnerInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateJobRunner_Call {
@@ -58300,9 +58300,9 @@ type MockGraphClient_UpdateJobTemplate_Call struct {
 //   - updateJobTemplateID string
 //   - input graphclient.UpdateJobTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateJobTemplate(ctx interface{}, updateJobTemplateID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateJobTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateJobTemplate(ctx any, updateJobTemplateID any, input any, interceptors ...any) *MockGraphClient_UpdateJobTemplate_Call {
 	return &MockGraphClient_UpdateJobTemplate_Call{Call: _e.mock.On("UpdateJobTemplate",
-		append([]interface{}{ctx, updateJobTemplateID, input}, interceptors...)...)}
+		append([]any{ctx, updateJobTemplateID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateJobTemplate_Call) Run(run func(ctx context.Context, updateJobTemplateID string, input graphclient.UpdateJobTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateJobTemplate_Call {
@@ -58389,9 +58389,9 @@ type MockGraphClient_UpdateMappableDomain_Call struct {
 //   - updateMappableDomainID string
 //   - input graphclient.UpdateMappableDomainInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateMappableDomain(ctx interface{}, updateMappableDomainID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateMappableDomain_Call {
+func (_e *MockGraphClient_Expecter) UpdateMappableDomain(ctx any, updateMappableDomainID any, input any, interceptors ...any) *MockGraphClient_UpdateMappableDomain_Call {
 	return &MockGraphClient_UpdateMappableDomain_Call{Call: _e.mock.On("UpdateMappableDomain",
-		append([]interface{}{ctx, updateMappableDomainID, input}, interceptors...)...)}
+		append([]any{ctx, updateMappableDomainID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateMappableDomain_Call) Run(run func(ctx context.Context, updateMappableDomainID string, input graphclient.UpdateMappableDomainInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateMappableDomain_Call {
@@ -58478,9 +58478,9 @@ type MockGraphClient_UpdateMappedControl_Call struct {
 //   - updateMappedControlID string
 //   - input graphclient.UpdateMappedControlInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateMappedControl(ctx interface{}, updateMappedControlID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateMappedControl_Call {
+func (_e *MockGraphClient_Expecter) UpdateMappedControl(ctx any, updateMappedControlID any, input any, interceptors ...any) *MockGraphClient_UpdateMappedControl_Call {
 	return &MockGraphClient_UpdateMappedControl_Call{Call: _e.mock.On("UpdateMappedControl",
-		append([]interface{}{ctx, updateMappedControlID, input}, interceptors...)...)}
+		append([]any{ctx, updateMappedControlID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateMappedControl_Call) Run(run func(ctx context.Context, updateMappedControlID string, input graphclient.UpdateMappedControlInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateMappedControl_Call {
@@ -58567,9 +58567,9 @@ type MockGraphClient_UpdateNarrative_Call struct {
 //   - updateNarrativeID string
 //   - input graphclient.UpdateNarrativeInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateNarrative(ctx interface{}, updateNarrativeID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateNarrative_Call {
+func (_e *MockGraphClient_Expecter) UpdateNarrative(ctx any, updateNarrativeID any, input any, interceptors ...any) *MockGraphClient_UpdateNarrative_Call {
 	return &MockGraphClient_UpdateNarrative_Call{Call: _e.mock.On("UpdateNarrative",
-		append([]interface{}{ctx, updateNarrativeID, input}, interceptors...)...)}
+		append([]any{ctx, updateNarrativeID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateNarrative_Call) Run(run func(ctx context.Context, updateNarrativeID string, input graphclient.UpdateNarrativeInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateNarrative_Call {
@@ -58656,9 +58656,9 @@ type MockGraphClient_UpdateNotificationPreference_Call struct {
 //   - updateNotificationPreferenceID string
 //   - input graphclient.UpdateNotificationPreferenceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateNotificationPreference(ctx interface{}, updateNotificationPreferenceID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateNotificationPreference_Call {
+func (_e *MockGraphClient_Expecter) UpdateNotificationPreference(ctx any, updateNotificationPreferenceID any, input any, interceptors ...any) *MockGraphClient_UpdateNotificationPreference_Call {
 	return &MockGraphClient_UpdateNotificationPreference_Call{Call: _e.mock.On("UpdateNotificationPreference",
-		append([]interface{}{ctx, updateNotificationPreferenceID, input}, interceptors...)...)}
+		append([]any{ctx, updateNotificationPreferenceID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateNotificationPreference_Call) Run(run func(ctx context.Context, updateNotificationPreferenceID string, input graphclient.UpdateNotificationPreferenceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateNotificationPreference_Call {
@@ -58745,9 +58745,9 @@ type MockGraphClient_UpdateNotificationTemplate_Call struct {
 //   - updateNotificationTemplateID string
 //   - input graphclient.UpdateNotificationTemplateInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateNotificationTemplate(ctx interface{}, updateNotificationTemplateID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateNotificationTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateNotificationTemplate(ctx any, updateNotificationTemplateID any, input any, interceptors ...any) *MockGraphClient_UpdateNotificationTemplate_Call {
 	return &MockGraphClient_UpdateNotificationTemplate_Call{Call: _e.mock.On("UpdateNotificationTemplate",
-		append([]interface{}{ctx, updateNotificationTemplateID, input}, interceptors...)...)}
+		append([]any{ctx, updateNotificationTemplateID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateNotificationTemplate_Call) Run(run func(ctx context.Context, updateNotificationTemplateID string, input graphclient.UpdateNotificationTemplateInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateNotificationTemplate_Call {
@@ -58834,9 +58834,9 @@ type MockGraphClient_UpdateOrgMembership_Call struct {
 //   - updateOrgMembershipID string
 //   - input graphclient.UpdateOrgMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateOrgMembership(ctx interface{}, updateOrgMembershipID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateOrgMembership_Call {
+func (_e *MockGraphClient_Expecter) UpdateOrgMembership(ctx any, updateOrgMembershipID any, input any, interceptors ...any) *MockGraphClient_UpdateOrgMembership_Call {
 	return &MockGraphClient_UpdateOrgMembership_Call{Call: _e.mock.On("UpdateOrgMembership",
-		append([]interface{}{ctx, updateOrgMembershipID, input}, interceptors...)...)}
+		append([]any{ctx, updateOrgMembershipID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateOrgMembership_Call) Run(run func(ctx context.Context, updateOrgMembershipID string, input graphclient.UpdateOrgMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateOrgMembership_Call {
@@ -58924,9 +58924,9 @@ type MockGraphClient_UpdateOrganization_Call struct {
 //   - input graphclient.UpdateOrganizationInput
 //   - avatarFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateOrganization(ctx interface{}, updateOrganizationID interface{}, input interface{}, avatarFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateOrganization_Call {
+func (_e *MockGraphClient_Expecter) UpdateOrganization(ctx any, updateOrganizationID any, input any, avatarFile any, interceptors ...any) *MockGraphClient_UpdateOrganization_Call {
 	return &MockGraphClient_UpdateOrganization_Call{Call: _e.mock.On("UpdateOrganization",
-		append([]interface{}{ctx, updateOrganizationID, input, avatarFile}, interceptors...)...)}
+		append([]any{ctx, updateOrganizationID, input, avatarFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateOrganization_Call) Run(run func(ctx context.Context, updateOrganizationID string, input graphclient.UpdateOrganizationInput, avatarFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateOrganization_Call {
@@ -59018,9 +59018,9 @@ type MockGraphClient_UpdateOrganizationSetting_Call struct {
 //   - updateOrganizationSettingID string
 //   - input graphclient.UpdateOrganizationSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateOrganizationSetting(ctx interface{}, updateOrganizationSettingID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateOrganizationSetting_Call {
+func (_e *MockGraphClient_Expecter) UpdateOrganizationSetting(ctx any, updateOrganizationSettingID any, input any, interceptors ...any) *MockGraphClient_UpdateOrganizationSetting_Call {
 	return &MockGraphClient_UpdateOrganizationSetting_Call{Call: _e.mock.On("UpdateOrganizationSetting",
-		append([]interface{}{ctx, updateOrganizationSettingID, input}, interceptors...)...)}
+		append([]any{ctx, updateOrganizationSettingID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateOrganizationSetting_Call) Run(run func(ctx context.Context, updateOrganizationSettingID string, input graphclient.UpdateOrganizationSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateOrganizationSetting_Call {
@@ -59107,9 +59107,9 @@ type MockGraphClient_UpdatePersonalAccessToken_Call struct {
 //   - updatePersonalAccessTokenID string
 //   - input graphclient.UpdatePersonalAccessTokenInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdatePersonalAccessToken(ctx interface{}, updatePersonalAccessTokenID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdatePersonalAccessToken_Call {
+func (_e *MockGraphClient_Expecter) UpdatePersonalAccessToken(ctx any, updatePersonalAccessTokenID any, input any, interceptors ...any) *MockGraphClient_UpdatePersonalAccessToken_Call {
 	return &MockGraphClient_UpdatePersonalAccessToken_Call{Call: _e.mock.On("UpdatePersonalAccessToken",
-		append([]interface{}{ctx, updatePersonalAccessTokenID, input}, interceptors...)...)}
+		append([]any{ctx, updatePersonalAccessTokenID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdatePersonalAccessToken_Call) Run(run func(ctx context.Context, updatePersonalAccessTokenID string, input graphclient.UpdatePersonalAccessTokenInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdatePersonalAccessToken_Call {
@@ -59196,9 +59196,9 @@ type MockGraphClient_UpdatePlatform_Call struct {
 //   - updatePlatformID string
 //   - input graphclient.UpdatePlatformInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdatePlatform(ctx interface{}, updatePlatformID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdatePlatform_Call {
+func (_e *MockGraphClient_Expecter) UpdatePlatform(ctx any, updatePlatformID any, input any, interceptors ...any) *MockGraphClient_UpdatePlatform_Call {
 	return &MockGraphClient_UpdatePlatform_Call{Call: _e.mock.On("UpdatePlatform",
-		append([]interface{}{ctx, updatePlatformID, input}, interceptors...)...)}
+		append([]any{ctx, updatePlatformID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdatePlatform_Call) Run(run func(ctx context.Context, updatePlatformID string, input graphclient.UpdatePlatformInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdatePlatform_Call {
@@ -59285,9 +59285,9 @@ type MockGraphClient_UpdateProcedure_Call struct {
 //   - updateProcedureID string
 //   - input graphclient.UpdateProcedureInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateProcedure(ctx interface{}, updateProcedureID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateProcedure_Call {
+func (_e *MockGraphClient_Expecter) UpdateProcedure(ctx any, updateProcedureID any, input any, interceptors ...any) *MockGraphClient_UpdateProcedure_Call {
 	return &MockGraphClient_UpdateProcedure_Call{Call: _e.mock.On("UpdateProcedure",
-		append([]interface{}{ctx, updateProcedureID, input}, interceptors...)...)}
+		append([]any{ctx, updateProcedureID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateProcedure_Call) Run(run func(ctx context.Context, updateProcedureID string, input graphclient.UpdateProcedureInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateProcedure_Call {
@@ -59375,9 +59375,9 @@ type MockGraphClient_UpdateProcedureWithFile_Call struct {
 //   - procedureFile graphql.Upload
 //   - input graphclient.UpdateProcedureInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateProcedureWithFile(ctx interface{}, updateProcedureID interface{}, procedureFile interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateProcedureWithFile_Call {
+func (_e *MockGraphClient_Expecter) UpdateProcedureWithFile(ctx any, updateProcedureID any, procedureFile any, input any, interceptors ...any) *MockGraphClient_UpdateProcedureWithFile_Call {
 	return &MockGraphClient_UpdateProcedureWithFile_Call{Call: _e.mock.On("UpdateProcedureWithFile",
-		append([]interface{}{ctx, updateProcedureID, procedureFile, input}, interceptors...)...)}
+		append([]any{ctx, updateProcedureID, procedureFile, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateProcedureWithFile_Call) Run(run func(ctx context.Context, updateProcedureID string, procedureFile graphql.Upload, input graphclient.UpdateProcedureInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateProcedureWithFile_Call {
@@ -59469,9 +59469,9 @@ type MockGraphClient_UpdateProgram_Call struct {
 //   - updateProgramID string
 //   - input graphclient.UpdateProgramInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateProgram(ctx interface{}, updateProgramID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateProgram_Call {
+func (_e *MockGraphClient_Expecter) UpdateProgram(ctx any, updateProgramID any, input any, interceptors ...any) *MockGraphClient_UpdateProgram_Call {
 	return &MockGraphClient_UpdateProgram_Call{Call: _e.mock.On("UpdateProgram",
-		append([]interface{}{ctx, updateProgramID, input}, interceptors...)...)}
+		append([]any{ctx, updateProgramID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateProgram_Call) Run(run func(ctx context.Context, updateProgramID string, input graphclient.UpdateProgramInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateProgram_Call {
@@ -59558,9 +59558,9 @@ type MockGraphClient_UpdateProgramMembership_Call struct {
 //   - updateProgramMembershipID string
 //   - input graphclient.UpdateProgramMembershipInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateProgramMembership(ctx interface{}, updateProgramMembershipID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateProgramMembership_Call {
+func (_e *MockGraphClient_Expecter) UpdateProgramMembership(ctx any, updateProgramMembershipID any, input any, interceptors ...any) *MockGraphClient_UpdateProgramMembership_Call {
 	return &MockGraphClient_UpdateProgramMembership_Call{Call: _e.mock.On("UpdateProgramMembership",
-		append([]interface{}{ctx, updateProgramMembershipID, input}, interceptors...)...)}
+		append([]any{ctx, updateProgramMembershipID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateProgramMembership_Call) Run(run func(ctx context.Context, updateProgramMembershipID string, input graphclient.UpdateProgramMembershipInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateProgramMembership_Call {
@@ -59647,9 +59647,9 @@ type MockGraphClient_UpdateRemediation_Call struct {
 //   - updateRemediationID string
 //   - input graphclient.UpdateRemediationInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateRemediation(ctx interface{}, updateRemediationID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateRemediation_Call {
+func (_e *MockGraphClient_Expecter) UpdateRemediation(ctx any, updateRemediationID any, input any, interceptors ...any) *MockGraphClient_UpdateRemediation_Call {
 	return &MockGraphClient_UpdateRemediation_Call{Call: _e.mock.On("UpdateRemediation",
-		append([]interface{}{ctx, updateRemediationID, input}, interceptors...)...)}
+		append([]any{ctx, updateRemediationID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateRemediation_Call) Run(run func(ctx context.Context, updateRemediationID string, input graphclient.UpdateRemediationInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateRemediation_Call {
@@ -59736,9 +59736,9 @@ type MockGraphClient_UpdateReview_Call struct {
 //   - updateReviewID string
 //   - input graphclient.UpdateReviewInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateReview(ctx interface{}, updateReviewID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateReview_Call {
+func (_e *MockGraphClient_Expecter) UpdateReview(ctx any, updateReviewID any, input any, interceptors ...any) *MockGraphClient_UpdateReview_Call {
 	return &MockGraphClient_UpdateReview_Call{Call: _e.mock.On("UpdateReview",
-		append([]interface{}{ctx, updateReviewID, input}, interceptors...)...)}
+		append([]any{ctx, updateReviewID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateReview_Call) Run(run func(ctx context.Context, updateReviewID string, input graphclient.UpdateReviewInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateReview_Call {
@@ -59825,9 +59825,9 @@ type MockGraphClient_UpdateRisk_Call struct {
 //   - updateRiskID string
 //   - input graphclient.UpdateRiskInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateRisk(ctx interface{}, updateRiskID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateRisk_Call {
+func (_e *MockGraphClient_Expecter) UpdateRisk(ctx any, updateRiskID any, input any, interceptors ...any) *MockGraphClient_UpdateRisk_Call {
 	return &MockGraphClient_UpdateRisk_Call{Call: _e.mock.On("UpdateRisk",
-		append([]interface{}{ctx, updateRiskID, input}, interceptors...)...)}
+		append([]any{ctx, updateRiskID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateRisk_Call) Run(run func(ctx context.Context, updateRiskID string, input graphclient.UpdateRiskInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateRisk_Call {
@@ -59914,9 +59914,9 @@ type MockGraphClient_UpdateScan_Call struct {
 //   - updateScanID string
 //   - input graphclient.UpdateScanInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateScan(ctx interface{}, updateScanID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateScan_Call {
+func (_e *MockGraphClient_Expecter) UpdateScan(ctx any, updateScanID any, input any, interceptors ...any) *MockGraphClient_UpdateScan_Call {
 	return &MockGraphClient_UpdateScan_Call{Call: _e.mock.On("UpdateScan",
-		append([]interface{}{ctx, updateScanID, input}, interceptors...)...)}
+		append([]any{ctx, updateScanID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateScan_Call) Run(run func(ctx context.Context, updateScanID string, input graphclient.UpdateScanInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateScan_Call {
@@ -60003,9 +60003,9 @@ type MockGraphClient_UpdateScheduledJob_Call struct {
 //   - updateScheduledJobID string
 //   - input graphclient.UpdateScheduledJobInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateScheduledJob(ctx interface{}, updateScheduledJobID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateScheduledJob_Call {
+func (_e *MockGraphClient_Expecter) UpdateScheduledJob(ctx any, updateScheduledJobID any, input any, interceptors ...any) *MockGraphClient_UpdateScheduledJob_Call {
 	return &MockGraphClient_UpdateScheduledJob_Call{Call: _e.mock.On("UpdateScheduledJob",
-		append([]interface{}{ctx, updateScheduledJobID, input}, interceptors...)...)}
+		append([]any{ctx, updateScheduledJobID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateScheduledJob_Call) Run(run func(ctx context.Context, updateScheduledJobID string, input graphclient.UpdateScheduledJobInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateScheduledJob_Call {
@@ -60092,9 +60092,9 @@ type MockGraphClient_UpdateScheduledJobRun_Call struct {
 //   - updateScheduledJobRunID string
 //   - input graphclient.UpdateScheduledJobRunInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateScheduledJobRun(ctx interface{}, updateScheduledJobRunID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateScheduledJobRun_Call {
+func (_e *MockGraphClient_Expecter) UpdateScheduledJobRun(ctx any, updateScheduledJobRunID any, input any, interceptors ...any) *MockGraphClient_UpdateScheduledJobRun_Call {
 	return &MockGraphClient_UpdateScheduledJobRun_Call{Call: _e.mock.On("UpdateScheduledJobRun",
-		append([]interface{}{ctx, updateScheduledJobRunID, input}, interceptors...)...)}
+		append([]any{ctx, updateScheduledJobRunID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateScheduledJobRun_Call) Run(run func(ctx context.Context, updateScheduledJobRunID string, input graphclient.UpdateScheduledJobRunInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateScheduledJobRun_Call {
@@ -60182,9 +60182,9 @@ type MockGraphClient_UpdateStandard_Call struct {
 //   - input graphclient.UpdateStandardInput
 //   - logoFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateStandard(ctx interface{}, updateStandardID interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateStandard_Call {
+func (_e *MockGraphClient_Expecter) UpdateStandard(ctx any, updateStandardID any, input any, logoFile any, interceptors ...any) *MockGraphClient_UpdateStandard_Call {
 	return &MockGraphClient_UpdateStandard_Call{Call: _e.mock.On("UpdateStandard",
-		append([]interface{}{ctx, updateStandardID, input, logoFile}, interceptors...)...)}
+		append([]any{ctx, updateStandardID, input, logoFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateStandard_Call) Run(run func(ctx context.Context, updateStandardID string, input graphclient.UpdateStandardInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateStandard_Call {
@@ -60276,9 +60276,9 @@ type MockGraphClient_UpdateSubcontrol_Call struct {
 //   - updateSubcontrolID string
 //   - input graphclient.UpdateSubcontrolInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateSubcontrol(ctx interface{}, updateSubcontrolID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateSubcontrol_Call {
+func (_e *MockGraphClient_Expecter) UpdateSubcontrol(ctx any, updateSubcontrolID any, input any, interceptors ...any) *MockGraphClient_UpdateSubcontrol_Call {
 	return &MockGraphClient_UpdateSubcontrol_Call{Call: _e.mock.On("UpdateSubcontrol",
-		append([]interface{}{ctx, updateSubcontrolID, input}, interceptors...)...)}
+		append([]any{ctx, updateSubcontrolID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateSubcontrol_Call) Run(run func(ctx context.Context, updateSubcontrolID string, input graphclient.UpdateSubcontrolInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateSubcontrol_Call {
@@ -60366,9 +60366,9 @@ type MockGraphClient_UpdateSubprocessor_Call struct {
 //   - input graphclient.UpdateSubprocessorInput
 //   - logoFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateSubprocessor(ctx interface{}, updateSubprocessorID interface{}, input interface{}, logoFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) UpdateSubprocessor(ctx any, updateSubprocessorID any, input any, logoFile any, interceptors ...any) *MockGraphClient_UpdateSubprocessor_Call {
 	return &MockGraphClient_UpdateSubprocessor_Call{Call: _e.mock.On("UpdateSubprocessor",
-		append([]interface{}{ctx, updateSubprocessorID, input, logoFile}, interceptors...)...)}
+		append([]any{ctx, updateSubprocessorID, input, logoFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateSubprocessor_Call) Run(run func(ctx context.Context, updateSubprocessorID string, input graphclient.UpdateSubprocessorInput, logoFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateSubprocessor_Call {
@@ -60460,9 +60460,9 @@ type MockGraphClient_UpdateSubscriber_Call struct {
 //   - email string
 //   - input graphclient.UpdateSubscriberInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateSubscriber(ctx interface{}, email interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateSubscriber_Call {
+func (_e *MockGraphClient_Expecter) UpdateSubscriber(ctx any, email any, input any, interceptors ...any) *MockGraphClient_UpdateSubscriber_Call {
 	return &MockGraphClient_UpdateSubscriber_Call{Call: _e.mock.On("UpdateSubscriber",
-		append([]interface{}{ctx, email, input}, interceptors...)...)}
+		append([]any{ctx, email, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateSubscriber_Call) Run(run func(ctx context.Context, email string, input graphclient.UpdateSubscriberInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateSubscriber_Call {
@@ -60549,9 +60549,9 @@ type MockGraphClient_UpdateSystemDetail_Call struct {
 //   - updateSystemDetailID string
 //   - input graphclient.UpdateSystemDetailInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateSystemDetail(ctx interface{}, updateSystemDetailID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateSystemDetail_Call {
+func (_e *MockGraphClient_Expecter) UpdateSystemDetail(ctx any, updateSystemDetailID any, input any, interceptors ...any) *MockGraphClient_UpdateSystemDetail_Call {
 	return &MockGraphClient_UpdateSystemDetail_Call{Call: _e.mock.On("UpdateSystemDetail",
-		append([]interface{}{ctx, updateSystemDetailID, input}, interceptors...)...)}
+		append([]any{ctx, updateSystemDetailID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateSystemDetail_Call) Run(run func(ctx context.Context, updateSystemDetailID string, input graphclient.UpdateSystemDetailInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateSystemDetail_Call {
@@ -60637,9 +60637,9 @@ type MockGraphClient_UpdateTFASetting_Call struct {
 //   - ctx context.Context
 //   - input graphclient.UpdateTFASettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTFASetting(ctx interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTFASetting_Call {
+func (_e *MockGraphClient_Expecter) UpdateTFASetting(ctx any, input any, interceptors ...any) *MockGraphClient_UpdateTFASetting_Call {
 	return &MockGraphClient_UpdateTFASetting_Call{Call: _e.mock.On("UpdateTFASetting",
-		append([]interface{}{ctx, input}, interceptors...)...)}
+		append([]any{ctx, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTFASetting_Call) Run(run func(ctx context.Context, input graphclient.UpdateTFASettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTFASetting_Call {
@@ -60721,9 +60721,9 @@ type MockGraphClient_UpdateTagDefinition_Call struct {
 //   - updateTagDefinitionID string
 //   - input graphclient.UpdateTagDefinitionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTagDefinition(ctx interface{}, updateTagDefinitionID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTagDefinition_Call {
+func (_e *MockGraphClient_Expecter) UpdateTagDefinition(ctx any, updateTagDefinitionID any, input any, interceptors ...any) *MockGraphClient_UpdateTagDefinition_Call {
 	return &MockGraphClient_UpdateTagDefinition_Call{Call: _e.mock.On("UpdateTagDefinition",
-		append([]interface{}{ctx, updateTagDefinitionID, input}, interceptors...)...)}
+		append([]any{ctx, updateTagDefinitionID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTagDefinition_Call) Run(run func(ctx context.Context, updateTagDefinitionID string, input graphclient.UpdateTagDefinitionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTagDefinition_Call {
@@ -60810,9 +60810,9 @@ type MockGraphClient_UpdateTask_Call struct {
 //   - updateTaskID string
 //   - input graphclient.UpdateTaskInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTask(ctx interface{}, updateTaskID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTask_Call {
+func (_e *MockGraphClient_Expecter) UpdateTask(ctx any, updateTaskID any, input any, interceptors ...any) *MockGraphClient_UpdateTask_Call {
 	return &MockGraphClient_UpdateTask_Call{Call: _e.mock.On("UpdateTask",
-		append([]interface{}{ctx, updateTaskID, input}, interceptors...)...)}
+		append([]any{ctx, updateTaskID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTask_Call) Run(run func(ctx context.Context, updateTaskID string, input graphclient.UpdateTaskInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTask_Call {
@@ -60900,9 +60900,9 @@ type MockGraphClient_UpdateTemplate_Call struct {
 //   - input graphclient.UpdateTemplateInput
 //   - templateFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTemplate(ctx interface{}, updateTemplateID interface{}, input interface{}, templateFiles interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTemplate_Call {
+func (_e *MockGraphClient_Expecter) UpdateTemplate(ctx any, updateTemplateID any, input any, templateFiles any, interceptors ...any) *MockGraphClient_UpdateTemplate_Call {
 	return &MockGraphClient_UpdateTemplate_Call{Call: _e.mock.On("UpdateTemplate",
-		append([]interface{}{ctx, updateTemplateID, input, templateFiles}, interceptors...)...)}
+		append([]any{ctx, updateTemplateID, input, templateFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTemplate_Call) Run(run func(ctx context.Context, updateTemplateID string, input graphclient.UpdateTemplateInput, templateFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTemplate_Call {
@@ -60994,9 +60994,9 @@ type MockGraphClient_UpdateTrustCenter_Call struct {
 //   - updateTrustCenterID string
 //   - input graphclient.UpdateTrustCenterInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenter(ctx interface{}, updateTrustCenterID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenter_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenter(ctx any, updateTrustCenterID any, input any, interceptors ...any) *MockGraphClient_UpdateTrustCenter_Call {
 	return &MockGraphClient_UpdateTrustCenter_Call{Call: _e.mock.On("UpdateTrustCenter",
-		append([]interface{}{ctx, updateTrustCenterID, input}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenter_Call) Run(run func(ctx context.Context, updateTrustCenterID string, input graphclient.UpdateTrustCenterInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenter_Call {
@@ -61083,9 +61083,9 @@ type MockGraphClient_UpdateTrustCenterCompliance_Call struct {
 //   - updateTrustCenterComplianceID string
 //   - input graphclient.UpdateTrustCenterComplianceInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterCompliance(ctx interface{}, updateTrustCenterComplianceID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterCompliance_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterCompliance(ctx any, updateTrustCenterComplianceID any, input any, interceptors ...any) *MockGraphClient_UpdateTrustCenterCompliance_Call {
 	return &MockGraphClient_UpdateTrustCenterCompliance_Call{Call: _e.mock.On("UpdateTrustCenterCompliance",
-		append([]interface{}{ctx, updateTrustCenterComplianceID, input}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterComplianceID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterCompliance_Call) Run(run func(ctx context.Context, updateTrustCenterComplianceID string, input graphclient.UpdateTrustCenterComplianceInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterCompliance_Call {
@@ -61174,9 +61174,9 @@ type MockGraphClient_UpdateTrustCenterDoc_Call struct {
 //   - trustCenterDocFile *graphql.Upload
 //   - watermarkedTrustCenterDocFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterDoc(ctx interface{}, updateTrustCenterDocID interface{}, input interface{}, trustCenterDocFile interface{}, watermarkedTrustCenterDocFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterDoc_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterDoc(ctx any, updateTrustCenterDocID any, input any, trustCenterDocFile any, watermarkedTrustCenterDocFile any, interceptors ...any) *MockGraphClient_UpdateTrustCenterDoc_Call {
 	return &MockGraphClient_UpdateTrustCenterDoc_Call{Call: _e.mock.On("UpdateTrustCenterDoc",
-		append([]interface{}{ctx, updateTrustCenterDocID, input, trustCenterDocFile, watermarkedTrustCenterDocFile}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterDocID, input, trustCenterDocFile, watermarkedTrustCenterDocFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterDoc_Call) Run(run func(ctx context.Context, updateTrustCenterDocID string, input graphclient.UpdateTrustCenterDocInput, trustCenterDocFile *graphql.Upload, watermarkedTrustCenterDocFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterDoc_Call {
@@ -61273,9 +61273,9 @@ type MockGraphClient_UpdateTrustCenterNDARequest_Call struct {
 //   - updateTrustCenterNDARequestID string
 //   - input graphclient.UpdateTrustCenterNDARequestInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterNDARequest(ctx interface{}, updateTrustCenterNDARequestID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterNDARequest(ctx any, updateTrustCenterNDARequestID any, input any, interceptors ...any) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
 	return &MockGraphClient_UpdateTrustCenterNDARequest_Call{Call: _e.mock.On("UpdateTrustCenterNDARequest",
-		append([]interface{}{ctx, updateTrustCenterNDARequestID, input}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterNDARequestID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterNDARequest_Call) Run(run func(ctx context.Context, updateTrustCenterNDARequestID string, input graphclient.UpdateTrustCenterNDARequestInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterNDARequest_Call {
@@ -61362,9 +61362,9 @@ type MockGraphClient_UpdateTrustCenterNda_Call struct {
 //   - id string
 //   - templateFiles []*graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterNda(ctx interface{}, id interface{}, templateFiles interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterNda_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterNda(ctx any, id any, templateFiles any, interceptors ...any) *MockGraphClient_UpdateTrustCenterNda_Call {
 	return &MockGraphClient_UpdateTrustCenterNda_Call{Call: _e.mock.On("UpdateTrustCenterNda",
-		append([]interface{}{ctx, id, templateFiles}, interceptors...)...)}
+		append([]any{ctx, id, templateFiles}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterNda_Call) Run(run func(ctx context.Context, id string, templateFiles []*graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterNda_Call {
@@ -61453,9 +61453,9 @@ type MockGraphClient_UpdateTrustCenterSetting_Call struct {
 //   - logoFile *graphql.Upload
 //   - faviconFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterSetting(ctx interface{}, updateTrustCenterSettingID interface{}, input interface{}, logoFile interface{}, faviconFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterSetting_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterSetting(ctx any, updateTrustCenterSettingID any, input any, logoFile any, faviconFile any, interceptors ...any) *MockGraphClient_UpdateTrustCenterSetting_Call {
 	return &MockGraphClient_UpdateTrustCenterSetting_Call{Call: _e.mock.On("UpdateTrustCenterSetting",
-		append([]interface{}{ctx, updateTrustCenterSettingID, input, logoFile, faviconFile}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterSettingID, input, logoFile, faviconFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterSetting_Call) Run(run func(ctx context.Context, updateTrustCenterSettingID string, input graphclient.UpdateTrustCenterSettingInput, logoFile *graphql.Upload, faviconFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterSetting_Call {
@@ -61552,9 +61552,9 @@ type MockGraphClient_UpdateTrustCenterSubprocessor_Call struct {
 //   - updateTrustCenterSubprocessorID string
 //   - input graphclient.UpdateTrustCenterSubprocessorInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterSubprocessor(ctx interface{}, updateTrustCenterSubprocessorID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterSubprocessor_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterSubprocessor(ctx any, updateTrustCenterSubprocessorID any, input any, interceptors ...any) *MockGraphClient_UpdateTrustCenterSubprocessor_Call {
 	return &MockGraphClient_UpdateTrustCenterSubprocessor_Call{Call: _e.mock.On("UpdateTrustCenterSubprocessor",
-		append([]interface{}{ctx, updateTrustCenterSubprocessorID, input}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterSubprocessorID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterSubprocessor_Call) Run(run func(ctx context.Context, updateTrustCenterSubprocessorID string, input graphclient.UpdateTrustCenterSubprocessorInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterSubprocessor_Call {
@@ -61642,9 +61642,9 @@ type MockGraphClient_UpdateTrustCenterWatermarkConfig_Call struct {
 //   - input graphclient.UpdateTrustCenterWatermarkConfigInput
 //   - watermarkFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateTrustCenterWatermarkConfig(ctx interface{}, updateTrustCenterWatermarkConfigID interface{}, input interface{}, watermarkFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
+func (_e *MockGraphClient_Expecter) UpdateTrustCenterWatermarkConfig(ctx any, updateTrustCenterWatermarkConfigID any, input any, watermarkFile any, interceptors ...any) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
 	return &MockGraphClient_UpdateTrustCenterWatermarkConfig_Call{Call: _e.mock.On("UpdateTrustCenterWatermarkConfig",
-		append([]interface{}{ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile}, interceptors...)...)}
+		append([]any{ctx, updateTrustCenterWatermarkConfigID, input, watermarkFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call) Run(run func(ctx context.Context, updateTrustCenterWatermarkConfigID string, input graphclient.UpdateTrustCenterWatermarkConfigInput, watermarkFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateTrustCenterWatermarkConfig_Call {
@@ -61737,9 +61737,9 @@ type MockGraphClient_UpdateUser_Call struct {
 //   - input graphclient.UpdateUserInput
 //   - avatarFile *graphql.Upload
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateUser(ctx interface{}, updateUserID interface{}, input interface{}, avatarFile interface{}, interceptors ...interface{}) *MockGraphClient_UpdateUser_Call {
+func (_e *MockGraphClient_Expecter) UpdateUser(ctx any, updateUserID any, input any, avatarFile any, interceptors ...any) *MockGraphClient_UpdateUser_Call {
 	return &MockGraphClient_UpdateUser_Call{Call: _e.mock.On("UpdateUser",
-		append([]interface{}{ctx, updateUserID, input, avatarFile}, interceptors...)...)}
+		append([]any{ctx, updateUserID, input, avatarFile}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateUser_Call) Run(run func(ctx context.Context, updateUserID string, input graphclient.UpdateUserInput, avatarFile *graphql.Upload, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateUser_Call {
@@ -61831,9 +61831,9 @@ type MockGraphClient_UpdateUserSetting_Call struct {
 //   - updateUserSettingID string
 //   - input graphclient.UpdateUserSettingInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateUserSetting(ctx interface{}, updateUserSettingID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateUserSetting_Call {
+func (_e *MockGraphClient_Expecter) UpdateUserSetting(ctx any, updateUserSettingID any, input any, interceptors ...any) *MockGraphClient_UpdateUserSetting_Call {
 	return &MockGraphClient_UpdateUserSetting_Call{Call: _e.mock.On("UpdateUserSetting",
-		append([]interface{}{ctx, updateUserSettingID, input}, interceptors...)...)}
+		append([]any{ctx, updateUserSettingID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateUserSetting_Call) Run(run func(ctx context.Context, updateUserSettingID string, input graphclient.UpdateUserSettingInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateUserSetting_Call {
@@ -61920,9 +61920,9 @@ type MockGraphClient_UpdateVulnerability_Call struct {
 //   - updateVulnerabilityID string
 //   - input graphclient.UpdateVulnerabilityInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateVulnerability(ctx interface{}, updateVulnerabilityID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateVulnerability_Call {
+func (_e *MockGraphClient_Expecter) UpdateVulnerability(ctx any, updateVulnerabilityID any, input any, interceptors ...any) *MockGraphClient_UpdateVulnerability_Call {
 	return &MockGraphClient_UpdateVulnerability_Call{Call: _e.mock.On("UpdateVulnerability",
-		append([]interface{}{ctx, updateVulnerabilityID, input}, interceptors...)...)}
+		append([]any{ctx, updateVulnerabilityID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateVulnerability_Call) Run(run func(ctx context.Context, updateVulnerabilityID string, input graphclient.UpdateVulnerabilityInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateVulnerability_Call {
@@ -62009,9 +62009,9 @@ type MockGraphClient_UpdateWorkflowDefinition_Call struct {
 //   - updateWorkflowDefinitionID string
 //   - input graphclient.UpdateWorkflowDefinitionInput
 //   - interceptors ...clientv2.RequestInterceptor
-func (_e *MockGraphClient_Expecter) UpdateWorkflowDefinition(ctx interface{}, updateWorkflowDefinitionID interface{}, input interface{}, interceptors ...interface{}) *MockGraphClient_UpdateWorkflowDefinition_Call {
+func (_e *MockGraphClient_Expecter) UpdateWorkflowDefinition(ctx any, updateWorkflowDefinitionID any, input any, interceptors ...any) *MockGraphClient_UpdateWorkflowDefinition_Call {
 	return &MockGraphClient_UpdateWorkflowDefinition_Call{Call: _e.mock.On("UpdateWorkflowDefinition",
-		append([]interface{}{ctx, updateWorkflowDefinitionID, input}, interceptors...)...)}
+		append([]any{ctx, updateWorkflowDefinitionID, input}, interceptors...)...)}
 }
 
 func (_c *MockGraphClient_UpdateWorkflowDefinition_Call) Run(run func(ctx context.Context, updateWorkflowDefinitionID string, input graphclient.UpdateWorkflowDefinitionInput, interceptors ...clientv2.RequestInterceptor)) *MockGraphClient_UpdateWorkflowDefinition_Call {

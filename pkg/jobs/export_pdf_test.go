@@ -4,12 +4,19 @@ import (
 	"archive/zip"
 	"bytes"
 	"context"
+	"fmt"
 	"io"
+	"net/http"
+	"net/url"
 	"testing"
+	"time"
 
 	"github.com/99designs/gqlgen/graphql"
+	"github.com/cloudflare/cloudflare-go/v7"
+	"github.com/cloudflare/cloudflare-go/v7/shared"
 	"github.com/gqlgo/gqlgenc/clientv2"
 	"github.com/riverqueue/river"
+	"github.com/riverqueue/river/rivertype"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -114,6 +121,55 @@ func TestExportContentWorkerPDF(t *testing.T) {
 		err := worker.Work(context.Background(), &river.Job[jobspec.ExportContentArgs]{Args: input})
 		require.ErrorIs(t, err, jobs.ErrUnsupportedExportType)
 	})
+
+	t.Run("cloudflare 422 error snoozes for retries", func(t *testing.T) {
+		srv := mockGraphQLServer(t, controlsResponse(
+			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
+		))
+		defer srv.Close()
+
+		olMock := olmocks.NewMockGraphClient(t)
+		olMock.EXPECT().GetExportByID(mock.Anything, exportID).Return(newPDFExport(exportID, ownerID), nil)
+
+		cfErr := cloudflareRenderUnprocessableError(t)
+		renderer := pdfmocks.NewMockPDFRenderer(t)
+		renderer.EXPECT().HTMLToPDF(mock.Anything, mock.Anything).Return(nil, cfErr)
+
+		worker := newPDFWorker(srv.URL, renderer).WithOpenlaneClient(olMock)
+
+		err := worker.Work(context.Background(), &river.Job[jobspec.ExportContentArgs]{
+			JobRow: &rivertype.JobRow{
+				Metadata: []byte(`{"Snoozes":0}`),
+			},
+			Args: input,
+		})
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "JobSnoozeError")
+	})
+
+	t.Run("cloudflare 422 returns max snoozes error when retries are exhausted", func(t *testing.T) {
+		srv := mockGraphQLServer(t, controlsResponse(
+			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
+		))
+		defer srv.Close()
+
+		olMock := olmocks.NewMockGraphClient(t)
+		olMock.EXPECT().GetExportByID(mock.Anything, exportID).Return(newPDFExport(exportID, ownerID), nil)
+
+		cfErr := cloudflareRenderUnprocessableError(t)
+		renderer := pdfmocks.NewMockPDFRenderer(t)
+		renderer.EXPECT().HTMLToPDF(mock.Anything, mock.Anything).Return(nil, cfErr)
+
+		worker := newPDFWorker(srv.URL, renderer).WithOpenlaneClient(olMock)
+
+		err := worker.Work(context.Background(), &river.Job[jobspec.ExportContentArgs]{
+			JobRow: &rivertype.JobRow{
+				Metadata: []byte(`{"Snoozes":30}`),
+			},
+			Args: input,
+		})
+		require.ErrorIs(t, err, jobs.ErrMaxSnoozesReached)
+	})
 }
 
 // fakePDFRenderer returns a mock renderer that produces deterministic fake PDF bytes
@@ -134,6 +190,30 @@ func newPDFExport(exportID, ownerID string) *graphclient.GetExportByID {
 			Fields:     []string{"id", "name", "details"},
 		},
 	}
+}
+
+func cloudflareRenderUnprocessableError(t *testing.T) error {
+	t.Helper()
+
+	reqURL, err := url.Parse("https://api.cloudflare.com/client/v4/accounts/cf-account/browser-rendering/pdf")
+	require.NoError(t, err)
+
+	return fmt.Errorf("failed to call cloudflare browser rendering: %w", &cloudflare.Error{
+		StatusCode: http.StatusUnprocessableEntity,
+		Errors: []shared.ErrorData{
+			{
+				Code:    1000,
+				Message: "unprocessable browser rendering request",
+			},
+		},
+		Request: &http.Request{
+			Method: http.MethodPost,
+			URL:    reqURL,
+		},
+		Response: &http.Response{
+			StatusCode: http.StatusUnprocessableEntity,
+		},
+	})
 }
 
 func controlsResponse(nodes ...map[string]interface{}) map[string]interface{} {
@@ -163,6 +243,8 @@ func newPDFWorker(graphURL string, renderer jobs.PDFRenderer) *jobs.ExportConten
 			MaxZipSize:          52428800,
 			CloudflareAccountID: "cf-account",
 			CloudflareAPIKey:    "cf-test-key",
+			MaxSnoozes:          30,
+			SnoozeDuration:      10 * time.Second,
 		},
 	}
 

@@ -533,6 +533,14 @@
         "cloudflareapikey": {
           "type": "string",
           "description": "the cloudflare api key used for browser rendering pdf generation"
+        },
+        "maxsnoozes": {
+          "type": "integer",
+          "description": "MaxSnoozes is the maximum number of times to snooze the job before giving up"
+        },
+        "snoozeduration": {
+          "type": "integer",
+          "description": "SnoozeDuration is the duration to snooze between PDF render retries"
         }
       },
       "additionalProperties": false,

@@ -368,6 +368,8 @@ ExportWorkerConfig configuration for the export content worker
 |**maxzipsize**|`integer`|the maximum allowed size in bytes for a zip archive export<br/>||
 |**cloudflareaccountid**|`string`|the cloudflare account id used for browser rendering pdf generation<br/>||
 |**cloudflareapikey**|`string`|the cloudflare api key used for browser rendering pdf generation<br/>||
+|**maxsnoozes**|`integer`|MaxSnoozes is the maximum number of times to snooze the job before giving up<br/>||
+|**snoozeduration**|`integer`|SnoozeDuration is the duration to snooze between PDF render retries<br/>||
 
 **Additional Properties:** not allowed  
 <a name="riverworkersdeleteexportcontentworker"></a>

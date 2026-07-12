@@ -52,9 +52,11 @@ river:
                 cloudflareaccountid: ""
                 cloudflareapikey: ""
                 enabled: false
+                maxsnoozes: 0
                 maxzipsize: 500000000
                 openlaneapihost: ""
                 openlaneapitoken: ""
+                snoozeduration: 0
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""

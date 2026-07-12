@@ -73,7 +73,7 @@ type MockPDFRenderer_HTMLToPDF_Call struct {
 // HTMLToPDF is a helper method to define mock.On call
 //   - ctx context.Context
 //   - html string
-func (_e *MockPDFRenderer_Expecter) HTMLToPDF(ctx interface{}, html interface{}) *MockPDFRenderer_HTMLToPDF_Call {
+func (_e *MockPDFRenderer_Expecter) HTMLToPDF(ctx any, html any) *MockPDFRenderer_HTMLToPDF_Call {
 	return &MockPDFRenderer_HTMLToPDF_Call{Call: _e.mock.On("HTMLToPDF", ctx, html)}
 }
 

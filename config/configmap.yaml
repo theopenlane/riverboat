@@ -45,6 +45,8 @@ data:
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_MAXZIPSIZE: {{ .Values.riverboat.river.workers.exportcontentworker.config.maxzipsize | default "500000000" }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_CLOUDFLAREACCOUNTID: {{ .Values.riverboat.river.workers.exportcontentworker.config.cloudflareaccountid }}
   RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_CLOUDFLAREAPIKEY: {{ .Values.riverboat.river.workers.exportcontentworker.config.cloudflareapikey }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_MAXSNOOZES: {{ .Values.riverboat.river.workers.exportcontentworker.config.maxsnoozes }}
+  RIVERBOAT_RIVER_WORKERS_EXPORTCONTENTWORKER_CONFIG_SNOOZEDURATION: {{ .Values.riverboat.river.workers.exportcontentworker.config.snoozeduration }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPIHOST: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapihost }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_OPENLANEAPITOKEN: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.openlaneapitoken }}
   RIVERBOAT_RIVER_WORKERS_DELETEEXPORTCONTENTWORKER_CONFIG_ENABLED: {{ .Values.riverboat.river.workers.deleteexportcontentworker.config.enabled }}

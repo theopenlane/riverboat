@@ -214,7 +214,7 @@ type MockJobClient_Insert_Call struct {
 //   - ctx context.Context
 //   - args river.JobArgs
 //   - opts *river.InsertOpts
-func (_e *MockJobClient_Expecter) Insert(ctx interface{}, args interface{}, opts interface{}) *MockJobClient_Insert_Call {
+func (_e *MockJobClient_Expecter) Insert(ctx any, args any, opts any) *MockJobClient_Insert_Call {
 	return &MockJobClient_Insert_Call{Call: _e.mock.On("Insert", ctx, args, opts)}
 }
 
@@ -287,7 +287,7 @@ type MockJobClient_InsertMany_Call struct {
 // InsertMany is a helper method to define mock.On call
 //   - ctx context.Context
 //   - params []river.InsertManyParams
-func (_e *MockJobClient_Expecter) InsertMany(ctx interface{}, params interface{}) *MockJobClient_InsertMany_Call {
+func (_e *MockJobClient_Expecter) InsertMany(ctx any, params any) *MockJobClient_InsertMany_Call {
 	return &MockJobClient_InsertMany_Call{Call: _e.mock.On("InsertMany", ctx, params)}
 }
 
@@ -353,7 +353,7 @@ type MockJobClient_InsertManyFast_Call struct {
 // InsertManyFast is a helper method to define mock.On call
 //   - ctx context.Context
 //   - params []river.InsertManyParams
-func (_e *MockJobClient_Expecter) InsertManyFast(ctx interface{}, params interface{}) *MockJobClient_InsertManyFast_Call {
+func (_e *MockJobClient_Expecter) InsertManyFast(ctx any, params any) *MockJobClient_InsertManyFast_Call {
 	return &MockJobClient_InsertManyFast_Call{Call: _e.mock.On("InsertManyFast", ctx, params)}
 }
 
@@ -420,7 +420,7 @@ type MockJobClient_InsertManyFastTx_Call struct {
 //   - ctx context.Context
 //   - tx pgx.Tx
 //   - params []river.InsertManyParams
-func (_e *MockJobClient_Expecter) InsertManyFastTx(ctx interface{}, tx interface{}, params interface{}) *MockJobClient_InsertManyFastTx_Call {
+func (_e *MockJobClient_Expecter) InsertManyFastTx(ctx any, tx any, params any) *MockJobClient_InsertManyFastTx_Call {
 	return &MockJobClient_InsertManyFastTx_Call{Call: _e.mock.On("InsertManyFastTx", ctx, tx, params)}
 }
 
@@ -494,7 +494,7 @@ type MockJobClient_InsertManyTx_Call struct {
 //   - ctx context.Context
 //   - tx pgx.Tx
 //   - params []river.InsertManyParams
-func (_e *MockJobClient_Expecter) InsertManyTx(ctx interface{}, tx interface{}, params interface{}) *MockJobClient_InsertManyTx_Call {
+func (_e *MockJobClient_Expecter) InsertManyTx(ctx any, tx any, params any) *MockJobClient_InsertManyTx_Call {
 	return &MockJobClient_InsertManyTx_Call{Call: _e.mock.On("InsertManyTx", ctx, tx, params)}
 }
 
@@ -569,7 +569,7 @@ type MockJobClient_InsertTx_Call struct {
 //   - tx pgx.Tx
 //   - args river.JobArgs
 //   - opts *river.InsertOpts
-func (_e *MockJobClient_Expecter) InsertTx(ctx interface{}, tx interface{}, args interface{}, opts interface{}) *MockJobClient_InsertTx_Call {
+func (_e *MockJobClient_Expecter) InsertTx(ctx any, tx any, args any, opts any) *MockJobClient_InsertTx_Call {
 	return &MockJobClient_InsertTx_Call{Call: _e.mock.On("InsertTx", ctx, tx, args, opts)}
 }
 
@@ -647,7 +647,7 @@ type MockJobClient_JobCancel_Call struct {
 // JobCancel is a helper method to define mock.On call
 //   - ctx context.Context
 //   - jobID int64
-func (_e *MockJobClient_Expecter) JobCancel(ctx interface{}, jobID interface{}) *MockJobClient_JobCancel_Call {
+func (_e *MockJobClient_Expecter) JobCancel(ctx any, jobID any) *MockJobClient_JobCancel_Call {
 	return &MockJobClient_JobCancel_Call{Call: _e.mock.On("JobCancel", ctx, jobID)}
 }
 
@@ -716,7 +716,7 @@ type MockJobClient_JobCancelTx_Call struct {
 //   - ctx context.Context
 //   - tx pgx.Tx
 //   - jobID int64
-func (_e *MockJobClient_Expecter) JobCancelTx(ctx interface{}, tx interface{}, jobID interface{}) *MockJobClient_JobCancelTx_Call {
+func (_e *MockJobClient_Expecter) JobCancelTx(ctx any, tx any, jobID any) *MockJobClient_JobCancelTx_Call {
 	return &MockJobClient_JobCancelTx_Call{Call: _e.mock.On("JobCancelTx", ctx, tx, jobID)}
 }
 
@@ -777,7 +777,7 @@ type MockJobClient_TruncateRiverTables_Call struct {
 
 // TruncateRiverTables is a helper method to define mock.On call
 //   - ctx context.Context
-func (_e *MockJobClient_Expecter) TruncateRiverTables(ctx interface{}) *MockJobClient_TruncateRiverTables_Call {
+func (_e *MockJobClient_Expecter) TruncateRiverTables(ctx any) *MockJobClient_TruncateRiverTables_Call {
 	return &MockJobClient_TruncateRiverTables_Call{Call: _e.mock.On("TruncateRiverTables", ctx)}
 }
 

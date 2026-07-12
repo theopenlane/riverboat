@@ -9,11 +9,13 @@ import (
 	"errors"
 	"fmt"
 	"maps"
+	"net/http"
 	"sort"
 	"strings"
 	"time"
 
 	"github.com/99designs/gqlgen/graphql"
+	"github.com/cloudflare/cloudflare-go/v7"
 	"github.com/gertd/go-pluralize"
 	"github.com/gocarina/gocsv"
 	"github.com/riverqueue/river"
@@ -31,6 +33,11 @@ import (
 )
 
 var defaultPageSize int64 = 100
+
+const (
+	defaultExportMaxSnoozes     = 5
+	defaultExportSnoozeDuration = 10 * time.Second
+)
 
 // pdfFieldsWanted include the fields used in the PDF export we need to make sure we have in the graphql request
 var (
@@ -69,6 +76,10 @@ type ExportWorkerConfig struct {
 	CloudflareAccountID string `koanf:"cloudflareaccountid" json:"cloudflareaccountid" jsonschema:"description=the cloudflare account id used for browser rendering pdf generation"`
 	// CloudflareAPIKey is the cloudflare api key used for browser rendering PDF generation
 	CloudflareAPIKey string `koanf:"cloudflareapikey" json:"cloudflareapikey" jsonschema:"description=the cloudflare api key used for browser rendering pdf generation" sensitive:"true"`
+	// MaxSnoozes is the maximum number of times to snooze the job before giving up
+	MaxSnoozes int `koanf:"maxsnoozes" json:"maxsnoozes" jsonschema:"default=30 description=maximum number of snoozes before giving up"`
+	// SnoozeDuration is the duration to snooze between PDF render retries
+	SnoozeDuration time.Duration `koanf:"snoozeduration" json:"snoozeduration" jsonschema:"default=10s description=duration to snooze between pdf render retries"`
 }
 
 // ExportContentWorker exports the content into csv and makes it downloadable
@@ -80,6 +91,19 @@ type ExportContentWorker struct {
 	olClient    openlane.GraphClient
 	requester   *httpsling.Requester
 	pdfRenderer PDFRenderer
+}
+
+// SetDefaultsIfUnset sets default values for export worker config fields if they are not already set
+func (c *ExportWorkerConfig) SetDefaultsIfUnset(input OpenlaneConfig) error {
+	if c.MaxSnoozes == 0 {
+		c.MaxSnoozes = defaultExportMaxSnoozes
+	}
+
+	if c.SnoozeDuration == 0 {
+		c.SnoozeDuration = defaultExportSnoozeDuration
+	}
+
+	return c.OpenlaneConfig.SetDefaultsIfUnset(input)
 }
 
 // PDFRenderer renders a complete HTML document into PDF bytes
@@ -238,6 +262,27 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 
 		pdfs, err := w.generatePolicyPDFs(ctx, allNodes, rootQuery)
 		if err != nil {
+			var errCheck *cloudflare.Error
+
+			// 422 could be for a plethora of reasons from timeouts to browser/page crashes
+			if errors.As(err, &errCheck) && errCheck.StatusCode == http.StatusUnprocessableEntity {
+				snoozes := struct{ Snoozes int }{}
+				if err := json.Unmarshal(job.Metadata, &snoozes); err != nil {
+					snoozes.Snoozes = 0
+				}
+
+				if snoozes.Snoozes >= w.Config.MaxSnoozes {
+					log.Warn().Msg("max snoozes reached, giving up")
+					return ErrMaxSnoozesReached
+				}
+
+				log.Info().
+					Int("snoozes", snoozes.Snoozes).
+					Msg("cloudflare browser rendering returned 422, snoozing")
+
+				return river.JobSnooze(w.Config.SnoozeDuration)
+			}
+
 			log.Error().Err(err).Msg("failed to generate PDFs")
 
 			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
