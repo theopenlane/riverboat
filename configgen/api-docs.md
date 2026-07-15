@@ -71,12 +71,6 @@
             },
             "createpreviewdomainacmeworker": {
                 "config": {}
-            },
-            "createdomainscanworker": {
-                "config": {}
-            },
-            "retrievedomainscanworker": {
-                "config": {}
             }
         },
         "metrics": {}
@@ -163,12 +157,6 @@ Config is the configuration for the river server
             "config": {}
         },
         "createpreviewdomainacmeworker": {
-            "config": {}
-        },
-        "createdomainscanworker": {
-            "config": {}
-        },
-        "retrievedomainscanworker": {
             "config": {}
         }
     },
@@ -466,8 +454,6 @@ SlackConfig configures the Slack worker.
 |[**deletepreviewdomainworker**](#rivertrustcenterworkersdeletepreviewdomainworker)|`object`|||
 |[**validatepreviewdomainworker**](#rivertrustcenterworkersvalidatepreviewdomainworker)|`object`|||
 |[**createpreviewdomainacmeworker**](#rivertrustcenterworkerscreatepreviewdomainacmeworker)|`object`|||
-|[**createdomainscanworker**](#rivertrustcenterworkerscreatedomainscanworker)|`object`|||
-|[**retrievedomainscanworker**](#rivertrustcenterworkersretrievedomainscanworker)|`object`|||
 
 **Additional Properties:** not allowed  
 **Example**
@@ -509,12 +495,6 @@ SlackConfig configures the Slack worker.
         "config": {}
     },
     "createpreviewdomainacmeworker": {
-        "config": {}
-    },
-    "createdomainscanworker": {
-        "config": {}
-    },
-    "retrievedomainscanworker": {
         "config": {}
     }
 }
@@ -937,72 +917,6 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 |**cloudflareapikey**|`string`||no|
 |**maxsnoozes**|`integer`||yes|
 |**snoozeduration**|`integer`||yes|
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkerscreatedomainscanworker"></a>
-#### river\.trustcenterworkers\.createdomainscanworker: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkerscreatedomainscanworkerconfig)|`object`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {}
-}
-```
-
-<a name="rivertrustcenterworkerscreatedomainscanworkerconfig"></a>
-##### river\.trustcenterworkers\.createdomainscanworker\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`|||
-|**openlaneapitoken**|`string`|||
-|**enabled**|`boolean`|||
-|**cloudflareaccountid**|`string`|||
-|**cloudflareapikey**|`string`|||
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkersretrievedomainscanworker"></a>
-#### river\.trustcenterworkers\.retrievedomainscanworker: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#rivertrustcenterworkersretrievedomainscanworkerconfig)|`object`|||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {}
-}
-```
-
-<a name="rivertrustcenterworkersretrievedomainscanworkerconfig"></a>
-##### river\.trustcenterworkers\.retrievedomainscanworker\.config: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`|||
-|**openlaneapitoken**|`string`|||
-|**enabled**|`boolean`|||
-|**cloudflareaccountid**|`string`|||
-|**cloudflareapikey**|`string`|||
-|**maxsnoozes**|`integer`|||
-|**snoozeduration**|`integer`|||
 
 **Additional Properties:** not allowed  
 <a name="rivermetrics"></a>

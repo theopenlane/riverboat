@@ -50,11 +50,5 @@ type Workers struct {
 	// CreatePreviewDomainAcmeWorker for storing the acme content from cloudflare so we can serve it when request
 	CreatePreviewDomainAcmeWorker corejobs.CreatePreviewDomainAcmeWorker `koanf:"createpreviewdomainacmeworker" json:"createpreviewdomainacmeworker"`
 
-	// CreateDomainScanWorker for pinging cloudflare to start the scanning
-	CreateDomainScanWorker corejobs.CreateDomainScanWorker `koanf:"createdomainscanworker" json:"createdomainscanworker"`
-
-	// RetrieveDomainScanWorker for fetching the scan data from cloudflare and creating a notification
-	RetrieveDomainScanWorker corejobs.RetrieveDomainScanWorker `koanf:"retrievedomainscanworker" json:"retrievedomainscanworker"`
-
 	// add more trust center specific workers here
 }
