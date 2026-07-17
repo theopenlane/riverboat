@@ -163,7 +163,7 @@ func Flatten(prefix string, v any, out map[string]any) {
 // ExtractDetailsStrings extracts string content from nodes and formats them into HTML
 // strings for document generation. It includes common headers (name, status,
 // timestamps) followed by the details content
-func ExtractDetailsStrings(nodes []map[string]any) []string {
+func ExtractDetailsStrings(nodes []map[string]any, excludeMetadata bool) []string {
 	if len(nodes) == 0 {
 		return nil
 	}
@@ -176,27 +176,30 @@ func ExtractDetailsStrings(nodes []map[string]any) []string {
 
 		var buf strings.Builder
 
-		// Add metadata to top for export to pdf
-		headerKeys := []struct {
-			key   string
-			label string
-		}{
-			{"name", "Name"},
-			{"status", "Status"},
-			{"revision", "Version"},
-			{"createdAt", "Created At"},
-			{"updatedAt", "Updated At"},
-		}
-
-		addedKeys := make(map[string]bool)
-		for _, hk := range headerKeys {
-			if val, ok := flat[hk.key]; ok && val != nil && !addedKeys[hk.label] {
-				fmt.Fprintf(&buf, "<p><strong>%s:</strong> %v</p>\n", hk.label, val)
-				addedKeys[hk.label] = true
+		// include header data unless explicitly set to not include
+		if !excludeMetadata {
+			// Add metadata to top for export to pdf
+			headerKeys := []struct {
+				key   string
+				label string
+			}{
+				{"name", "Name"},
+				{"status", "Status"},
+				{"revision", "Version"},
+				{"createdAt", "Created At"},
+				{"updatedAt", "Updated At"},
 			}
-		}
 
-		buf.WriteString("<hr/>\n")
+			addedKeys := make(map[string]bool)
+			for _, hk := range headerKeys {
+				if val, ok := flat[hk.key]; ok && val != nil && !addedKeys[hk.label] {
+					fmt.Fprintf(&buf, "<p><strong>%s:</strong> %v</p>\n", hk.label, val)
+					addedKeys[hk.label] = true
+				}
+			}
+
+			buf.WriteString("<hr/>\n")
+		}
 
 		var details string
 

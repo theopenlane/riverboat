@@ -20,6 +20,7 @@ import (
 	"github.com/gocarina/gocsv"
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
+	"github.com/samber/lo"
 	"github.com/stoewer/go-strcase"
 	"github.com/theopenlane/core/common/enums"
 	"github.com/theopenlane/core/common/jobspec"
@@ -260,7 +261,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 			return ErrUnsupportedExportType
 		}
 
-		pdfs, err := w.generatePolicyPDFs(ctx, allNodes, rootQuery)
+		pdfs, err := w.generatePolicyPDFs(ctx, allNodes, rootQuery, lo.FromPtr(job.Args.ExportMetadata).ExcludePDFMetadata)
 		if err != nil {
 			if ok, newErr := w.isRetryable(job, err); ok {
 				return newErr
@@ -706,7 +707,7 @@ type pdfFile struct {
 }
 
 // generatePolicyPDFs renders each node into its own PDF document, named after the document's name field
-func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []map[string]any, rootQuery string) ([]pdfFile, error) {
+func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []map[string]any, rootQuery string, excludeMetadata bool) ([]pdfFile, error) {
 	renderer := w.pdfRenderer
 	if renderer == nil {
 		renderer = &render.PDFClient{
@@ -719,7 +720,7 @@ func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []ma
 	pdfs := make([]pdfFile, 0, len(nodes))
 
 	for _, node := range nodes {
-		doc := render.WrapDocument(strings.Join(render.ExtractDetailsStrings([]map[string]any{node}), "\n"))
+		doc := render.WrapDocument(strings.Join(render.ExtractDetailsStrings([]map[string]any{node}, excludeMetadata), "\n"))
 
 		data, err := renderer.HTMLToPDF(ctx, doc)
 		if err != nil {
