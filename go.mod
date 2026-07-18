@@ -10,7 +10,7 @@ require (
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.2.5
 	github.com/gocarina/gocsv v0.0.0-20260607070740-0735908c6461
-	github.com/gqlgo/gqlgenc v0.37.0
+	github.com/gqlgo/gqlgenc v0.38.0
 	github.com/invopop/jsonschema v0.14.0
 	github.com/invopop/yaml v0.3.1
 	github.com/jackc/pgx/v5 v5.10.0
