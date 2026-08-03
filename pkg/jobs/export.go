@@ -10,6 +10,8 @@ import (
 	"fmt"
 	"maps"
 	"net/http"
+	"reflect"
+	"slices"
 	"sort"
 	"strings"
 	"time"
@@ -38,13 +40,45 @@ var defaultPageSize int64 = 100
 const (
 	defaultExportMaxSnoozes     = 5
 	defaultExportSnoozeDuration = 10 * time.Second
+	subcontrolsField            = "subcontrols"
+	// we always fetch this because of summarization of subcontrols. this does not mean it
+	// gets into the csv, it will only be there if the query fields include it
+	refCodeField = "refCode"
 )
 
 // pdfFieldsWanted include the fields used in the PDF export we need to make sure we have in the graphql request
 var (
 	pdfFieldsWanted        = []string{"details", "externalContents", "revision", "name", "createdAt", "updatedAt", "status"}
 	additionalPolicyFields = []string{"liveExternalContents"}
+
+	// subcontrolExportFieldSet is used to filter subcontrol row queries while inheriting and using the
+	// selected control fields.
+	// As an example if controls export contain controlKindName, we cannot blindly apply that
+	// node value to the subcontrol export else the query will fail as subcontrols don't have that so
+	// we have to skip that.
+	//
+	// So we have to dynamically build and maintain this list
+	subcontrolExportFieldSet = parseAvailableQueryFields(graphclient.GetSubcontrols_Subcontrols_Edges_Node{})
 )
+
+func parseAvailableQueryFields(model any) map[string]struct{} {
+	t := reflect.TypeOf(model)
+	for t.Kind() == reflect.Pointer {
+		t = t.Elem()
+	}
+
+	fields := make(map[string]struct{}, t.NumField())
+	for field := range t.Fields() {
+		name := field.Tag.Get("graphql")
+		if name == "" || name == "-" {
+			continue
+		}
+
+		fields[name] = struct{}{}
+	}
+
+	return fields
+}
 
 var (
 	// ErrUnexpectedStatus is returned when an HTTP request returns a status code other than 200
@@ -240,6 +274,10 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusNodata, nil)
 	}
 
+	if export.Export.ExportType == enums.ExportTypeControl && slices.ContainsFunc(fields, isSubcontrolsField) {
+		allNodes = expandSubcontrolRow(allNodes, fields)
+	}
+
 	// Determine the output format from the export record
 	exportFormat := export.Export.Format
 	timestamp := time.Now().Format("20060102_150405")
@@ -389,7 +427,7 @@ func (w *ExportContentWorker) isRetryable(job *river.Job[jobspec.ExportContentAr
 //	  }
 //	}
 func (w *ExportContentWorker) buildGraphQLQuery(root, singular string, fields []string, hasWhere bool) string {
-	fieldStr := CreateFieldsStr(fields)
+	fieldStr := createFieldsStr(fields, singular == "control")
 
 	var (
 		varStr string
@@ -418,7 +456,7 @@ func (w *ExportContentWorker) buildGraphQLQuery(root, singular string, fields []
 }`, varStr, root, argStr, fieldStr)
 }
 
-// CreateFieldsStr creates a graphql fields string from a list of fields
+// createFieldsStr creates a graphql fields string from a list of fields
 // supporting nested fields using dot notation
 //
 // e.g:
@@ -431,14 +469,26 @@ func (w *ExportContentWorker) buildGraphQLQuery(root, singular string, fields []
 //	name
 //	owner { name }
 //	tasks { edges { node { title } }
-func CreateFieldsStr(fields []string) string {
+func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 	if len(fields) == 0 {
 		fields = []string{"id"}
 	}
 
 	fieldStr := ""
+	addedSubcontrols := false
 
 	for _, f := range fields {
+		if shouldExpandSubControl && isSubcontrolsField(f) {
+			if addedSubcontrols {
+				continue
+			}
+
+			addedSubcontrols = true
+			fieldStr += subcontrolsField + "\n        { edges { node { " +
+				createFieldsStr(filterSubcontrolFieldsToQuery(fields), false) + " } } }\n        "
+			continue
+		}
+
 		if strings.Contains(f, ".") {
 			// split and create nested fields
 			parts := strings.Split(f, ".")
@@ -475,6 +525,98 @@ func CreateFieldsStr(fields []string) string {
 	}
 
 	return fieldStr
+}
+
+func isSubcontrolsField(field string) bool {
+	return field == subcontrolsField || strings.HasPrefix(field, subcontrolsField+".")
+}
+
+// filterSubcontrolFieldsToQuery makes sure the values requested by the user for the control node
+// is available for use in the subcontrol query too
+func filterSubcontrolFieldsToQuery(fields []string) []string {
+
+	queryCandidates := lo.Filter(fields, func(field string, _ int) bool {
+		if isSubcontrolsField(field) {
+			return false
+		}
+
+		root, _, _ := strings.Cut(field, ".")
+
+		_, ok := subcontrolExportFieldSet[root]
+		return ok
+	})
+
+	return lo.Uniq(append([]string{refCodeField}, queryCandidates...))
+}
+
+func expandSubcontrolRow(nodes []map[string]any, fields []string) []map[string]any {
+	expanded := make([]map[string]any, 0, len(nodes))
+	includeRefCode := slices.Contains(fields, refCodeField)
+
+	for _, node := range nodes {
+		subNode := buildSubcontrolNodes(node[subcontrolsField])
+
+		row := maps.Clone(node)
+		row[subcontrolsField] = formatSubcontrolRefCode(subNode)
+
+		expanded = append(expanded, row)
+
+		for _, subcontrolNode := range subNode {
+			subcontrolRow := maps.Clone(subcontrolNode)
+			if !includeRefCode {
+				delete(subcontrolRow, refCodeField)
+			}
+
+			expanded = append(expanded, subcontrolRow)
+		}
+	}
+
+	return expanded
+}
+
+func buildSubcontrolNodes(value any) []map[string]any {
+	connection, ok := value.(map[string]any)
+	if !ok {
+		return nil
+	}
+
+	edges, ok := connection["edges"].([]any)
+	if !ok {
+		return nil
+	}
+
+	nodes := make([]map[string]any, 0, len(edges))
+	for _, edge := range edges {
+		edgeMap, ok := edge.(map[string]any)
+		if !ok {
+			continue
+		}
+
+		node, ok := edgeMap["node"].(map[string]any)
+		if !ok {
+			continue
+		}
+
+		nodes = append(nodes, node)
+	}
+
+	return nodes
+}
+
+// formatSubcontrolRefCode formats the ref code identifier for the subcontrol
+// such as CC1.2-POF1 e.t.c
+func formatSubcontrolRefCode(nodes []map[string]any) string {
+	refCodes := make([]string, 0, len(nodes))
+	for _, node := range nodes {
+		refCode, ok := node[refCodeField].(string)
+		if !ok || refCode == "" {
+			continue
+		}
+
+		refCodes = append(refCodes, refCode)
+	}
+
+	return strings.Join(refCodes, ", ")
 }
 
 // extractErrors converts a slice of errors from the request into one
