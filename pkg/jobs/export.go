@@ -168,17 +168,8 @@ func (w *ExportContentWorker) WithPDFRenderer(renderer PDFRenderer) *ExportConte
 // Work satisfies the river.Worker interface for the export content worker
 // it creates a csv, uploads it and associates it with the export
 func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.ExportContentArgs]) error {
-	if job.Args.ExportID == "" {
-		return newMissingRequiredArg("export_id", jobspec.ExportContentArgs{}.Kind())
-	}
-
-	// Exports must be done on behalf of a user in an organization
-	if job.Args.OrganizationID == "" {
-		return newMissingRequiredArg("organization_id", jobspec.ExportContentArgs{}.Kind())
-	}
-
-	if job.Args.UserID == "" {
-		return newMissingRequiredArg("user_id", jobspec.ExportContentArgs{}.Kind())
+	if err := validateExportArgs(job.Args); err != nil {
+		return err
 	}
 
 	if w.olClient == nil {
@@ -274,7 +265,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusNodata, nil)
 	}
 
-	if export.Export.ExportType == enums.ExportTypeControl && slices.ContainsFunc(fields, isSubcontrolsField) {
+	if shouldQuerySubcontrols(export.Export.ExportType, fields) {
 		allNodes = expandSubcontrolRow(allNodes, fields)
 	}
 
@@ -361,6 +352,23 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 	if err != nil {
 		log.Error().Err(err).Msg("failed to update export with file")
 		return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+	}
+
+	return nil
+}
+
+func validateExportArgs(args jobspec.ExportContentArgs) error {
+	if args.ExportID == "" {
+		return newMissingRequiredArg("export_id", jobspec.ExportContentArgs{}.Kind())
+	}
+
+	// Exports must be done on behalf of a user in an organization
+	if args.OrganizationID == "" {
+		return newMissingRequiredArg("organization_id", jobspec.ExportContentArgs{}.Kind())
+	}
+
+	if args.UserID == "" {
+		return newMissingRequiredArg("user_id", jobspec.ExportContentArgs{}.Kind())
 	}
 
 	return nil
@@ -486,6 +494,7 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 			addedSubcontrols = true
 			fieldStr += subcontrolsField + "\n        { edges { node { " +
 				createFieldsStr(filterSubcontrolFieldsToQuery(fields), false) + " } } }\n        "
+
 			continue
 		}
 
@@ -531,10 +540,13 @@ func isSubcontrolsField(field string) bool {
 	return field == subcontrolsField || strings.HasPrefix(field, subcontrolsField+".")
 }
 
+func shouldQuerySubcontrols(exportType enums.ExportType, fields []string) bool {
+	return exportType == enums.ExportTypeControl && slices.ContainsFunc(fields, isSubcontrolsField)
+}
+
 // filterSubcontrolFieldsToQuery makes sure the values requested by the user for the control node
 // is available for use in the subcontrol query too
 func filterSubcontrolFieldsToQuery(fields []string) []string {
-
 	queryCandidates := lo.Filter(fields, func(field string, _ int) bool {
 		if isSubcontrolsField(field) {
 			return false
@@ -543,6 +555,7 @@ func filterSubcontrolFieldsToQuery(fields []string) []string {
 		root, _, _ := strings.Cut(field, ".")
 
 		_, ok := subcontrolExportFieldSet[root]
+
 		return ok
 	})
 
