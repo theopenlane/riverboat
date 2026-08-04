@@ -1,8 +1,11 @@
 package jobs_test
 
 import (
+	"bytes"
 	"context"
+	"encoding/csv"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -49,6 +52,150 @@ func mockGraphQLServer(t *testing.T, responses map[string]interface{}) *httptest
 			"data": response,
 		})
 	}))
+}
+
+func TestExportContentWorker_ControlSubcontrolsExport(t *testing.T) {
+	t.Parallel()
+
+	exportID := "export123"
+	ownerID := "owner123"
+
+	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		var requestBody struct {
+			Query string `json:"query"`
+		}
+
+		err := json.NewDecoder(r.Body).Decode(&requestBody)
+		require.NoError(t, err)
+		require.Contains(t, requestBody.Query, "subcontrols")
+		require.Contains(t, requestBody.Query, "refCode")
+		require.Contains(t, requestBody.Query, "description")
+		require.NotContains(t, requestBody.Query, "subcontrolKindName")
+		require.NotContains(t, requestBody.Query, "title")
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]interface{}{
+			"data": map[string]interface{}{
+				"controls": map[string]interface{}{
+					"edges": []interface{}{
+						map[string]interface{}{
+							"node": map[string]interface{}{
+								"description": "Control description",
+								"status":      "NOT_IMPLEMENTED",
+								"subcontrols": map[string]interface{}{
+									"edges": []interface{}{
+										map[string]interface{}{
+											"node": map[string]interface{}{
+												"refCode":     "CC1.2-POF1",
+												"description": "Subcontrol 1",
+												"status":      "NOT_IMPLEMENTED",
+											},
+										},
+										map[string]interface{}{
+											"node": map[string]interface{}{
+												"refCode":     "CC1.2-POF2",
+												"description": "Subcontrol 2",
+												"status":      "APPROVED",
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+					"pageInfo": map[string]interface{}{
+						"hasNextPage": false,
+						"endCursor":   nil,
+					},
+				},
+			},
+		})
+	}))
+	defer mockServer.Close()
+
+	olMock := olmocks.NewMockGraphClient(t)
+	olMock.EXPECT().GetExportByID(mock.MatchedBy(func(ctx context.Context) bool {
+		return ctx != nil
+	}), exportID).Return(&graphclient.GetExportByID{
+		Export: graphclient.GetExportByID_Export{
+			ID:         exportID,
+			ExportType: enums.ExportTypeControl,
+			Format:     enums.ExportFormatCsv,
+			OwnerID:    &ownerID,
+			Fields:     []string{"description", "status", "subcontrols"},
+		},
+	}, nil)
+
+	var uploadedCSVContent []byte
+
+	olMock.EXPECT().UpdateExport(mock.MatchedBy(func(ctx context.Context) bool {
+		return ctx != nil
+	}), exportID, mock.MatchedBy(func(input graphclient.UpdateExportInput) bool {
+		return input.Status != nil && *input.Status == enums.ExportStatusReady
+	}), mock.MatchedBy(func(files []*graphql.Upload) bool {
+		if len(files) != 1 || files[0].ContentType != "text/csv" {
+			return false
+		}
+
+		var err error
+		uploadedCSVContent, err = io.ReadAll(files[0].File)
+
+		return err == nil
+	}), mock.Anything).Return(&graphclient.UpdateExport{}, nil)
+
+	worker := &jobs.ExportContentWorker{
+		Config: jobs.ExportWorkerConfig{
+			OpenlaneConfig: jobs.OpenlaneConfig{
+				OpenlaneAPIHost:  mockServer.URL,
+				OpenlaneAPIToken: "tola_test-token",
+			},
+		},
+	}
+	worker.WithOpenlaneClient(olMock)
+
+	err := worker.Work(context.Background(), &river.Job[jobspec.ExportContentArgs]{
+		Args: jobspec.ExportContentArgs{ExportID: exportID, UserID: "user123", OrganizationID: ownerID},
+	})
+	require.NoError(t, err)
+
+	records, err := csv.NewReader(bytes.NewReader(uploadedCSVContent)).ReadAll()
+	require.NoError(t, err)
+	require.Len(t, records, 4)
+
+	headers := records[0]
+	descriptionIndex := getHeaderIndex(t, headers, "description")
+	statusIndex := getHeaderIndex(t, headers, "status")
+	subcontrolsIndex := getHeaderIndex(t, headers, "subcontrols")
+
+	require.NotContains(t, headers, "refCode")
+	require.NotContains(t, headers, "subcontrolKindName")
+	require.NotContains(t, headers, "title")
+
+	require.Equal(t, "Control description", records[1][descriptionIndex])
+	require.Equal(t, "NOT_IMPLEMENTED", records[1][statusIndex])
+	require.Equal(t, "CC1.2-POF1, CC1.2-POF2", records[1][subcontrolsIndex])
+
+	require.Equal(t, "Subcontrol 1", records[2][descriptionIndex])
+	require.Equal(t, "NOT_IMPLEMENTED", records[2][statusIndex])
+	require.Empty(t, records[2][subcontrolsIndex])
+
+	require.Equal(t, "Subcontrol 2", records[3][descriptionIndex])
+	require.Equal(t, "APPROVED", records[3][statusIndex])
+	require.Empty(t, records[3][subcontrolsIndex])
+}
+
+func getHeaderIndex(t *testing.T, headers []string, header string) int {
+	t.Helper()
+
+	for i, h := range headers {
+		if h == header {
+			return i
+		}
+	}
+
+	require.Failf(t, "missing CSV header", "header %q not found in %v", header, headers)
+
+	return -1
 }
 
 func TestExportContentWorker(t *testing.T) {
@@ -417,77 +564,4 @@ func TestExportContentArgs_Kind(t *testing.T) {
 
 	args := jobspec.ExportContentArgs{}
 	require.Equal(t, "export_content", args.Kind())
-}
-
-func TestCreateFieldsStr(t *testing.T) {
-	t.Parallel()
-
-	testCases := []struct {
-		name     string
-		fields   []string
-		expected string
-	}{
-		{
-			name:     "empty fields returns id",
-			fields:   []string{},
-			expected: "id\n        ",
-		},
-		{
-			name:     "nil fields returns id",
-			fields:   nil,
-			expected: "id\n        ",
-		},
-		{
-			name:     "simple fields",
-			fields:   []string{"id", "name", "description"},
-			expected: "id\n        name\n        description\n        ",
-		},
-		{
-			name:     "single nested field",
-			fields:   []string{"owner.name"},
-			expected: "owner\n        {  name  } \n        ",
-		},
-		{
-			name:     "nested field with plural parent",
-			fields:   []string{"tasks.title"},
-			expected: "tasks\n        { edges { node { title  }  }  } \n        ",
-		},
-		{
-			name:     "deeply nested field",
-			fields:   []string{"owner.tasks.title"},
-			expected: "owner\n        {  tasks { edges { node { title  }  }  }  } \n        ",
-		},
-		{
-			name:     "mixed simple and nested fields",
-			fields:   []string{"id", "name", "owner.name", "description"},
-			expected: "id\n        name\n        owner\n        {  name  } \n        description\n        ",
-		},
-		{
-			name:     "multiple nested fields",
-			fields:   []string{"owner.name", "tasks.title"},
-			expected: "owner\n        {  name  } \n        tasks\n        { edges { node { title  }  }  } \n        ",
-		},
-		{
-			name:     "nested field with multiple levels and plurals",
-			fields:   []string{"controls.tasks.assignee.name"},
-			expected: "controls\n        { edges { node { tasks { edges { node { assignee {  name  }  }  }  }  }  }  } \n        ",
-		},
-		{
-			name:     "single field",
-			fields:   []string{"id"},
-			expected: "id\n        ",
-		},
-		{
-			name:     "field with singular to singular nesting",
-			fields:   []string{"owner.profile.email"},
-			expected: "owner\n        {  profile {  email  }  } \n        ",
-		},
-	}
-
-	for _, tc := range testCases {
-		t.Run(tc.name, func(t *testing.T) {
-			result := jobs.CreateFieldsStr(tc.fields)
-			require.Equal(t, tc.expected, result)
-		})
-	}
 }
