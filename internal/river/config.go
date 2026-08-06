@@ -61,8 +61,5 @@ type Workers struct {
 	// DeleteExportContentWorker configuration for batch deleting exports and clogging object storage
 	DeleteExportContentWorker jobs.DeleteExportContentWorker `koanf:"deleteexportcontentworker" json:"deleteexportcontentworker"`
 
-	// SlackWorker configuration for sending Slack messages
-	SlackWorker jobs.SlackWorker `koanf:"slackworker" json:"slackworker"`
-
 	// add more workers here
 }
