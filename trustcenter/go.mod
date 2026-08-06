@@ -11,7 +11,7 @@ require (
 )
 
 require (
-	github.com/99designs/gqlgen v0.17.90 // indirect
+	github.com/99designs/gqlgen v0.17.93 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect

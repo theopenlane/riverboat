@@ -23,16 +23,6 @@ func createWorkers(w Workers) (*river.Workers, error) {
 		log.Info().Msg("worker enabled: email")
 	}
 
-	if w.SlackWorker.Config.Enabled {
-		if err := river.AddWorkerSafely(workers, &jobs.SlackWorker{
-			Config: w.SlackWorker.Config,
-		}); err != nil {
-			return nil, err
-		}
-
-		log.Info().Msg("worker enabled: slack")
-	}
-
 	if err := createExportWorkers(w, workers); err != nil {
 		return nil, err
 	}
