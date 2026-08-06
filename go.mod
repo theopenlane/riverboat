@@ -32,7 +32,7 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core/common v1.0.25
 	github.com/theopenlane/emailtemplates v0.3.7
-	github.com/theopenlane/go-client v0.12.2
+	github.com/theopenlane/go-client v0.13.0
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.35.7
 	github.com/theopenlane/newman v0.4.2
