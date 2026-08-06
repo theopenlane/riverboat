@@ -19,7 +19,7 @@ steps:
         cancel_on_build_failing: true
         command: "task go:tidy > /dev/null 2>&1 && task go:lint:ci"
         plugins:
-          - docker#v5.13.0:
+          - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
       - label: ":golang: go test"
@@ -32,7 +32,7 @@ steps:
           task go:tidy > /dev/null 2>&1
           task go:test:cover
         plugins:
-          - docker#v5.13.0:
+          - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
         artifact_paths: ["coverage.out"]
@@ -50,7 +50,7 @@ steps:
           - artifacts#v1.9.4:
               download: "coverage.out"
               step: "go_test"
-          - docker#v5.13.0:
+          - docker#v5.14.0:
               image: "sonarsource/sonar-scanner-cli:11.2"
               environment:
                 - "SONAR_TOKEN"
@@ -70,7 +70,7 @@ steps:
           - artifacts#v1.9.4:
               download: coverage.out
               step: "go_test"
-          - docker#v5.13.0:
+          - docker#v5.14.0:
               image: "sonarsource/sonar-scanner-cli:11.2"
               environment:
                 - "SONAR_TOKEN"
@@ -85,7 +85,7 @@ steps:
           task go:build:ci
         artifact_paths: "bin/${APP_NAME}"
         plugins:
-          - docker#v5.13.0:
+          - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
               environment:
