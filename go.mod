@@ -8,7 +8,7 @@ require (
 	github.com/99designs/gqlgen v0.17.94
 	github.com/cloudflare/cloudflare-go/v7 v7.5.0
 	github.com/gertd/go-pluralize v0.2.1
-	github.com/go-chi/chi/v5 v5.2.5
+	github.com/go-chi/chi/v5 v5.3.1
 	github.com/gocarina/gocsv v0.0.0-20260607070740-0735908c6461
 	github.com/gqlgo/gqlgenc v0.38.0
 	github.com/invopop/jsonschema v0.14.0
@@ -32,7 +32,7 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/theopenlane/core/common v1.0.25
 	github.com/theopenlane/emailtemplates v0.3.7
-	github.com/theopenlane/go-client v0.12.2
+	github.com/theopenlane/go-client v0.13.0
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.35.7
 	github.com/theopenlane/newman v0.4.2

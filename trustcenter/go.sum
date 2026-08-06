@@ -180,8 +180,7 @@ github.com/theopenlane/echox v0.3.0 h1:uwOKEw+r1utGQoOR6dZQqAVuY5j8TcasqnTwO5+rM
 github.com/theopenlane/echox v0.3.0/go.mod h1:yTrXnj7s3VNIg0FCvB7Dut2Elr+LqJKU/nruxx1E1cM=
 github.com/theopenlane/emailtemplates v0.3.7 h1:yJLfsCIZ8zAeZ2QvmZ8qYyVZKzXkMyjlYsImFti/J9k=
 github.com/theopenlane/emailtemplates v0.3.7/go.mod h1:VmTIBAJ9XQ+QOi7ZcaOjoEv0NxsuPKcR7Pz0N3EQeJE=
-github.com/theopenlane/go-client v0.12.2 h1:6D7vp8hmA7RJsdWG0xlipjkySypOm1mLO36Ld7Mtcco=
-github.com/theopenlane/go-client v0.12.2/go.mod h1:F+s557MiWmXv9MJB8f7mwuSyxhvDMMV1ZqEhvgKcVBc=
+github.com/theopenlane/go-client v0.13.0 h1:/jSEZLu1urijrmM1skYo9kf0MsVJwe3DNpuyYGv6Pj4=
 github.com/theopenlane/httpsling v0.3.0 h1:Bad0dGdqCqAB8UVDyVo+YCevzRvGHhmkK22F7T3pXtY=
 github.com/theopenlane/httpsling v0.3.0/go.mod h1:iJc3XRLYTFIpfCnPpLZVMBP0xsWIPAb7ozARtQoclAE=
 github.com/theopenlane/iam v0.35.7 h1:avxRd4HSzjoG056Kd7LcZ4qC7xPIsbEcJw80nHGOCBc=

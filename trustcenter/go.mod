@@ -70,7 +70,7 @@ require (
 	github.com/theopenlane/core v1.26.1 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/emailtemplates v0.3.7 // indirect
-	github.com/theopenlane/go-client v0.12.2 // indirect
+	github.com/theopenlane/go-client v0.13.0 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.35.7 // indirect
 	github.com/theopenlane/newman v0.4.2 // indirect
