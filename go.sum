@@ -230,8 +230,8 @@ github.com/theopenlane/core v1.26.1 h1:uwoPRm5TcSl1o3yz1YWR+CuCjw0sA8is+sZZliWM6
 github.com/theopenlane/core v1.26.1/go.mod h1:LzdjL3NoioJPgnqpP+AynOzBejryeTp4ZtYS0C38eSw=
 github.com/theopenlane/core/common v1.0.25 h1:HTsiNLJeCBPudPliSqALWz/BEuCrRhg5kr601pyYvOs=
 github.com/theopenlane/core/common v1.0.25/go.mod h1:HYQjD+iqJdxdM5x3kpD9lk7q/cs6KAnNv5U23KEYn+A=
-github.com/theopenlane/corejobs v0.2.1 h1:kFTk3zLvq0uEcFwL4G5o/FZsKJoxmfHGYXA9KzYmevA=
-github.com/theopenlane/corejobs v0.2.1/go.mod h1:GpC/6gX1DEwczrBo6NcviAFphG54em8HuThgzKFczOU=
+github.com/theopenlane/corejobs v0.3.0 h1:5joTNLZFScT2dScPAV4hDcfhbg/tmz+Iq55Vubm/l3E=
+github.com/theopenlane/corejobs v0.3.0/go.mod h1:DbU5sq7KWiLpOXr2qToccM1UTMvFeqnAWfkBUBoQOS8=
 github.com/theopenlane/echox v0.3.0 h1:uwOKEw+r1utGQoOR6dZQqAVuY5j8TcasqnTwO5+rMsA=
 github.com/theopenlane/echox v0.3.0/go.mod h1:yTrXnj7s3VNIg0FCvB7Dut2Elr+LqJKU/nruxx1E1cM=
 github.com/theopenlane/emailtemplates v0.3.7 h1:yJLfsCIZ8zAeZ2QvmZ8qYyVZKzXkMyjlYsImFti/J9k=
