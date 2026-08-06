@@ -162,8 +162,3 @@ river:
         openlaneconfig:
             openlaneapihost: ""
             openlaneapitoken: ""
-        slackworker:
-            config:
-                devmode: true
-                enabled: false
-                token: ""
