@@ -18,7 +18,7 @@ require (
 	github.com/knadh/koanf/providers/posflag v1.0.2
 	github.com/knadh/koanf/v2 v2.3.6
 	github.com/mcuadros/go-defaults v1.2.0
-	github.com/prometheus/client_golang v1.23.2
+	github.com/prometheus/client_golang v1.24.1
 	github.com/riverqueue/river v0.43.0
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.43.0
 	github.com/riverqueue/river/rivertype v0.43.0
