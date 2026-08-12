@@ -114,7 +114,7 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-          - docker-login#v3.0.0:
+          - docker-login#v3.1.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
@@ -158,7 +158,7 @@ steps:
               variables:
                 GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-          - docker-login#v3.0.0:
+          - docker-login#v3.1.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
@@ -198,7 +198,7 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-          - docker-login#v3.0.0:
+          - docker-login#v3.1.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
@@ -239,7 +239,7 @@ steps:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
                 GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
-          - docker-login#v3.0.0:
+          - docker-login#v3.1.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
@@ -278,7 +278,7 @@ steps:
           - cluster-secrets#v1.0.0:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
-          - docker-login#v3.0.0:
+          - docker-login#v3.1.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
@@ -310,7 +310,7 @@ steps:
               variables:
                 SECRET_GHCR_PUBLISH_TOKEN: SECRET_GHCR_PUBLISH_TOKEN
                 GITHUB_SSH_PRIVATE_KEY: GITHUB_SSH_PRIVATE_KEY
-          - docker-login#v3.0.0:
+          - docker-login#v3.1.0:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
