@@ -1,6 +1,6 @@
 module github.com/theopenlane/riverboat/trustcenter
 
-go 1.26.5
+go 1.26.6
 
 require (
 	github.com/riverqueue/river v0.43.0
@@ -55,7 +55,7 @@ require (
 	github.com/philhofer/fwd v1.2.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/redis/go-redis/v9 v9.21.0 // indirect
-	github.com/resend/resend-go/v3 v3.10.1 // indirect
+	github.com/resend/resend-go/v3 v3.12.0 // indirect
 	github.com/riverqueue/river/riverdriver v0.43.0 // indirect
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.43.0 // indirect
 	github.com/riverqueue/river/rivershared v0.43.0 // indirect
@@ -71,7 +71,7 @@ require (
 	github.com/theopenlane/go-client v0.13.0 // indirect
 	github.com/theopenlane/httpsling v0.3.0 // indirect
 	github.com/theopenlane/iam v0.35.7 // indirect
-	github.com/theopenlane/newman v0.4.2 // indirect
+	github.com/theopenlane/newman v0.4.3 // indirect
 	github.com/theopenlane/utils v0.7.1 // indirect
 	github.com/tidwall/gjson v1.19.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect

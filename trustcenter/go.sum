@@ -126,8 +126,8 @@ github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 h1:Jamvg5psRI
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/redis/go-redis/v9 v9.21.0 h1:FPBE4hhbAke+TLmcY3WkpbDffJEomdqPn3HYiqAtL9E=
 github.com/redis/go-redis/v9 v9.21.0/go.mod h1:v/M13XI1PVCDcm01VtPFOADfZtHf8YW3baQf57KlIkA=
-github.com/resend/resend-go/v3 v3.10.1 h1:3AGd2czmYBJBUl8i9UegLeF/dE/ht2DRxQXBcGyozUA=
-github.com/resend/resend-go/v3 v3.10.1/go.mod h1:iI7VA0NoGjWvsNii5iNC5Dy0llsI3HncXPejhniYzwE=
+github.com/resend/resend-go/v3 v3.12.0 h1:fzoMd76NShVv1vzjym5owBYrnpA/U1GfyqvUN43Brks=
+github.com/resend/resend-go/v3 v3.12.0/go.mod h1:iI7VA0NoGjWvsNii5iNC5Dy0llsI3HncXPejhniYzwE=
 github.com/riverqueue/river v0.43.0 h1:3Dx6D3s6x+LM64UXRNJ79LvHxbE7XHywQUbMJOKEkbg=
 github.com/riverqueue/river v0.43.0/go.mod h1:cj0PdXI8jFTyNSAuVsItUhceQPYgRKdWLzBH5COLN4g=
 github.com/riverqueue/river/riverdriver v0.43.0 h1:gZOXFrUO4eoltx1aS389qBcMnYu0/vHjwUiLRjhKAd0=
@@ -180,8 +180,8 @@ github.com/theopenlane/httpsling v0.3.0 h1:Bad0dGdqCqAB8UVDyVo+YCevzRvGHhmkK22F7
 github.com/theopenlane/httpsling v0.3.0/go.mod h1:iJc3XRLYTFIpfCnPpLZVMBP0xsWIPAb7ozARtQoclAE=
 github.com/theopenlane/iam v0.35.7 h1:avxRd4HSzjoG056Kd7LcZ4qC7xPIsbEcJw80nHGOCBc=
 github.com/theopenlane/iam v0.35.7/go.mod h1:KqpLIxEhMsow3q2wGHFn7q7OH4JoN5GcBUrZpd3yVfk=
-github.com/theopenlane/newman v0.4.2 h1:8hcZkPBZgPrROB9UXZSQv4xDUP7KDya2o8WfYokXCl0=
-github.com/theopenlane/newman v0.4.2/go.mod h1:tCDhl2yzEFNg387YdQK5ztgwgH0dYgDnTB8SPqPNRbY=
+github.com/theopenlane/newman v0.4.3 h1:66rRueSzSU98zpe7AvNotNh0iP64u/9w91f3GJaq8wA=
+github.com/theopenlane/newman v0.4.3/go.mod h1:6fOga0Iit//SrUL4ywj5HKv1ir69ZCq0P30xG+0QOIA=
 github.com/theopenlane/riverboat v0.13.0 h1:uiqiT7n5rhAwJsZAmuG1oeLTBKN1myswtcUv0geQKmQ=
 github.com/theopenlane/riverboat v0.13.0/go.mod h1:oVpnTm9MuWiC928FERBxGRPnY6Ct86KVWzHHq0bAl1Q=
 github.com/theopenlane/utils v0.7.1 h1:x+9kVMgOALYqAH6GaLaDb9tj16nzasoGM8X0v0XNTn8=
