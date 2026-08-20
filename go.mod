@@ -4,7 +4,7 @@ go 1.26.6
 
 require (
 	github.com/99designs/gqlgen v0.17.94
-	github.com/cloudflare/cloudflare-go/v7 v7.5.0
+	github.com/cloudflare/cloudflare-go/v7 v7.9.0
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.3.1
 	github.com/gocarina/gocsv v0.0.0-20260628180327-50907998929c
