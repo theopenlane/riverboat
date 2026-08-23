@@ -60,22 +60,20 @@ func (c *PDFClient) HTMLToPDF(ctx context.Context, html string) ([]byte, error) 
 
 	resp, err := client.BrowserRendering.PDF.New(ctx, browser_rendering.PDFNewParams{
 		AccountID: cloudflare.F(c.AccountID),
-		Body: browser_rendering.PDFNewParamsBodyObject{
-			HTML: cloudflare.F(html),
-			PDFOptions: cloudflare.F(browser_rendering.PDFNewParamsBodyObjectPDFOptions{
-				Format:              cloudflare.F(browser_rendering.PDFNewParamsBodyObjectPDFOptionsFormatLetter),
-				PrintBackground:     cloudflare.F(true),
-				DisplayHeaderFooter: cloudflare.F(true),
-				HeaderTemplate:      cloudflare.F("<span></span>"),
-				FooterTemplate:      cloudflare.F(footerHTML()),
-				Margin: cloudflare.F(browser_rendering.PDFNewParamsBodyObjectPDFOptionsMargin{
-					Top:    cloudflare.F[browser_rendering.PDFNewParamsBodyObjectPDFOptionsMarginTopUnion](shared.UnionString(pdfMargin)),
-					Bottom: cloudflare.F[browser_rendering.PDFNewParamsBodyObjectPDFOptionsMarginBottomUnion](shared.UnionString(pdfFooterMargin)),
-					Left:   cloudflare.F[browser_rendering.PDFNewParamsBodyObjectPDFOptionsMarginLeftUnion](shared.UnionString(pdfMargin)),
-					Right:  cloudflare.F[browser_rendering.PDFNewParamsBodyObjectPDFOptionsMarginRightUnion](shared.UnionString(pdfMargin)),
-				}),
+		HTML:      cloudflare.F(html),
+		PDFOptions: cloudflare.F(browser_rendering.PDFNewParamsPDFOptions{
+			Format:              cloudflare.F(browser_rendering.PDFNewParamsPDFOptionsFormatLetter),
+			PrintBackground:     cloudflare.F(true),
+			DisplayHeaderFooter: cloudflare.F(true),
+			HeaderTemplate:      cloudflare.F("<span></span>"),
+			FooterTemplate:      cloudflare.F(footerHTML()),
+			Margin: cloudflare.F(browser_rendering.PDFNewParamsPDFOptionsMargin{
+				Top:    cloudflare.F[browser_rendering.PDFNewParamsPDFOptionsMarginTopUnion](shared.UnionString(pdfMargin)),
+				Bottom: cloudflare.F[browser_rendering.PDFNewParamsPDFOptionsMarginBottomUnion](shared.UnionString(pdfFooterMargin)),
+				Left:   cloudflare.F[browser_rendering.PDFNewParamsPDFOptionsMarginLeftUnion](shared.UnionString(pdfMargin)),
+				Right:  cloudflare.F[browser_rendering.PDFNewParamsPDFOptionsMarginRightUnion](shared.UnionString(pdfMargin)),
 			}),
-		},
+		}),
 	})
 	if err != nil {
 		return nil, fmt.Errorf("failed to call cloudflare browser rendering: %w", err)
