@@ -1,6 +1,6 @@
 module github.com/theopenlane/riverboat
 
-go 1.26.7
+go 1.26.6
 
 require (
 	github.com/99designs/gqlgen v0.17.94
