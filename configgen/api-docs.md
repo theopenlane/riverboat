@@ -5,9 +5,9 @@
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**refreshinterval**|`integer`|||
-|[**river**](#river)|`object`|Config is the configuration for the river server<br/>||
+|[**river**](#defsriverconfig)|`object`|Config is the configuration for the river server<br/>||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
 **Example**
 
 ```json
@@ -39,8 +39,9 @@
 }
 ```
 
-<a name="river"></a>
-## river: object
+   
+<a name="defsriverconfig"></a>
+## $defs/river\.Config: object
 
 Config is the configuration for the river server
 
@@ -50,13 +51,13 @@ Config is the configuration for the river server
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
 |**databasehost**|`string`|DatabaseHost for connecting to the postgres database<br/>||
-|[**queues**](#riverqueues)|`array`|||
-|[**workers**](#riverworkers)|`object`|Workers that will be enabled on the server<br/>||
-|[**trustcenterworkers**](#rivertrustcenterworkers)|`object`|||
+|[**queues**](#defsriverqueue)|`array`|||
+|[**workers**](#defsriverworkers)|`object`|Workers that will be enabled on the server<br/>||
+|[**trustcenterworkers**](#defstrustcenterworkers)|`object`|||
 |**defaultmaxretries**|`integer`|DefaultMaxRetries is the maximum number of retries for failed jobs, this can be set differently per job<br/>||
-|[**metrics**](#rivermetrics)|`object`|MetricsConfig is the configuration for metrics<br/>||
+|[**metrics**](#defsriverqueuemetricsconfig)|`object`|MetricsConfig is the configuration for metrics<br/>||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
 **Example**
 
 ```json
@@ -86,8 +87,9 @@ Config is the configuration for the river server
 }
 ```
 
-<a name="riverqueues"></a>
-### river\.queues: array
+   
+<a name="defsriverqueue"></a>
+### $defs/\[\]river\.Queue: array
 
 **Items**
 
@@ -99,8 +101,9 @@ Config is the configuration for the river server
 ]
 ```
 
-<a name="riverworkers"></a>
-### river\.workers: object
+   
+<a name="defsriverworkers"></a>
+### $defs/river\.Workers: object
 
 Workers that will be enabled on the server
 
@@ -109,13 +112,13 @@ Workers that will be enabled on the server
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**openlaneconfig**](#riverworkersopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
-|[**emailconfig**](#riverworkersemailconfig)|`object`|EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.<br/>||
-|[**emailworker**](#riverworkersemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
-|[**exportcontentworker**](#riverworkersexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
-|[**deleteexportcontentworker**](#riverworkersdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
+|[**openlaneconfig**](#defsjobsopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
+|[**emailconfig**](#defsjobsemailtemplateconfig)|`object`|EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.<br/>||
+|[**emailworker**](#defsjobsemailworker)|`object`|EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider<br/>||
+|[**exportcontentworker**](#defsjobsexportcontentworker)|`object`|ExportContentWorker exports the content into csv and makes it downloadable<br/>||
+|[**deleteexportcontentworker**](#defsjobsdeleteexportcontentworker)|`object`|DeleteExportContentWorker deletes exports that are older than the configured cutoff duration<br/>||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
 **Example**
 
 ```json
@@ -136,22 +139,49 @@ Workers that will be enabled on the server
 }
 ```
 
-<a name="riverworkersopenlaneconfig"></a>
-#### river\.workers\.openlaneconfig: object
+   
+<a name="defsjobsdeleteexportcontentworker"></a>
+#### $defs/jobs\.DeleteExportContentWorker: object
 
-OpenlaneConfig contains the configuration for connecting to the Openlane API.
+DeleteExportContentWorker deletes exports that are older than the configured cutoff duration
 
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
-|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+|[**config**](#defsjobsdeleteexportworkerconfig)|`object`|DeleteExportWorkerConfig holds the configuration for the delete export worker<br/>|yes|
 
-**Additional Properties:** not allowed  
-<a name="riverworkersemailconfig"></a>
-#### river\.workers\.emailconfig: object
+**Additional Properties:** not allowed   
+**Example**
+
+```json
+{
+    "config": {}
+}
+```
+
+   
+<a name="defsjobsdeleteexportworkerconfig"></a>
+##### $defs/jobs\.DeleteExportWorkerConfig: object
+
+DeleteExportWorkerConfig holds the configuration for the delete export worker
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
+|**enabled**|`boolean`||no|
+|**interval**|`integer`||yes|
+|**cutoffduration**|`integer`|CutoffDuration defines the tolerance for exports. If you set 30 minutes, all exports older than 30 minutes<br/>at the time of job execution will be deleted<br/>|yes|
+
+**Additional Properties:** not allowed   
+   
+<a name="defsjobsemailtemplateconfig"></a>
+#### $defs/jobs\.EmailTemplateConfig: object
 
 EmailTemplateConfig contains configuration that can be shared across workers instead of each worker redefining theirs.
 
@@ -168,10 +198,10 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 |**supportemail**|`string`|||
 |**questionnaireemail**|`string`|||
 |**logourl**|`string`|||
-|[**urls**](#riverworkersemailconfigurls)|`object`|||
+|[**urls**](#defsemailtemplatesurlconfig)|`object`|||
 |**templatespath**|`string`|||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
 **Example**
 
 ```json
@@ -180,8 +210,9 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 }
 ```
 
-<a name="riverworkersemailconfigurls"></a>
-##### river\.workers\.emailconfig\.urls: object
+   
+<a name="defsemailtemplatesurlconfig"></a>
+##### $defs/emailtemplates\.URLConfig: object
 
 **Properties**
 
@@ -198,9 +229,10 @@ EmailTemplateConfig contains configuration that can be shared across workers ins
 |**billing**|`string`|||
 |**questionnaire**|`string`|||
 
-**Additional Properties:** not allowed  
-<a name="riverworkersemailworker"></a>
-#### river\.workers\.emailworker: object
+**Additional Properties:** not allowed   
+   
+<a name="defsjobsemailworker"></a>
+#### $defs/jobs\.EmailWorker: object
 
 EmailWorker is a worker to send emails using the resend email provider the config defaults to dev mode, which will write the email to a file using the mock provider a token is required to send emails using the actual resend provider
 
@@ -209,9 +241,9 @@ EmailWorker is a worker to send emails using the resend email provider the confi
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkersemailworkerconfig)|`object`|EmailConfig contains the configuration for the email worker<br/>||
+|[**config**](#defsjobsemailconfig)|`object`|EmailConfig contains the configuration for the email worker<br/>||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
 **Example**
 
 ```json
@@ -220,8 +252,9 @@ EmailWorker is a worker to send emails using the resend email provider the confi
 }
 ```
 
-<a name="riverworkersemailworkerconfig"></a>
-##### river\.workers\.emailworker\.config: object
+   
+<a name="defsjobsemailconfig"></a>
+##### $defs/jobs\.EmailConfig: object
 
 EmailConfig contains the configuration for the email worker
 
@@ -236,9 +269,10 @@ EmailConfig contains the configuration for the email worker
 |**token**|`string`|the token to use for the email provider<br/>||
 |**fromemail**|`string`|FromEmail is the email address to use as the sender<br/>||
 
-**Additional Properties:** not allowed  
-<a name="riverworkersexportcontentworker"></a>
-#### river\.workers\.exportcontentworker: object
+**Additional Properties:** not allowed   
+   
+<a name="defsjobsexportcontentworker"></a>
+#### $defs/jobs\.ExportContentWorker: object
 
 ExportContentWorker exports the content into csv and makes it downloadable
 
@@ -247,9 +281,9 @@ ExportContentWorker exports the content into csv and makes it downloadable
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|[**config**](#riverworkersexportcontentworkerconfig)|`object`|ExportWorkerConfig configuration for the export content worker<br/>||
+|[**config**](#defsjobsexportworkerconfig)|`object`|ExportWorkerConfig configuration for the export content worker<br/>||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
 **Example**
 
 ```json
@@ -258,8 +292,9 @@ ExportContentWorker exports the content into csv and makes it downloadable
 }
 ```
 
-<a name="riverworkersexportcontentworkerconfig"></a>
-##### river\.workers\.exportcontentworker\.config: object
+   
+<a name="defsjobsexportworkerconfig"></a>
+##### $defs/jobs\.ExportWorkerConfig: object
 
 ExportWorkerConfig configuration for the export content worker
 
@@ -277,65 +312,10 @@ ExportWorkerConfig configuration for the export content worker
 |**maxsnoozes**|`integer`|MaxSnoozes is the maximum number of times to snooze the job before giving up<br/>||
 |**snoozeduration**|`integer`|SnoozeDuration is the duration to snooze between PDF render retries<br/>||
 
-**Additional Properties:** not allowed  
-<a name="riverworkersdeleteexportcontentworker"></a>
-#### river\.workers\.deleteexportcontentworker: object
-
-DeleteExportContentWorker deletes exports that are older than the configured cutoff duration
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#riverworkersdeleteexportcontentworkerconfig)|`object`|DeleteExportWorkerConfig holds the configuration for the delete export worker<br/>|yes|
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "config": {}
-}
-```
-
-<a name="riverworkersdeleteexportcontentworkerconfig"></a>
-##### river\.workers\.deleteexportcontentworker\.config: object
-
-DeleteExportWorkerConfig holds the configuration for the delete export worker
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
-|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
-|**enabled**|`boolean`||no|
-|**interval**|`integer`||yes|
-|**cutoffduration**|`integer`|CutoffDuration defines the tolerance for exports. If you set 30 minutes, all exports older than 30 minutes<br/>at the time of job execution will be deleted<br/>|yes|
-
-**Additional Properties:** not allowed  
-<a name="rivertrustcenterworkers"></a>
-### river\.trustcenterworkers: object
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**openlaneconfig**](#rivertrustcenterworkersopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
-
-**Additional Properties:** not allowed  
-**Example**
-
-```json
-{
-    "openlaneconfig": {}
-}
-```
-
-<a name="rivertrustcenterworkersopenlaneconfig"></a>
-#### river\.trustcenterworkers\.openlaneconfig: object
+**Additional Properties:** not allowed   
+   
+<a name="defsjobsopenlaneconfig"></a>
+#### $defs/jobs\.OpenlaneConfig: object
 
 OpenlaneConfig contains the configuration for connecting to the Openlane API.
 
@@ -347,9 +327,10 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
 
-**Additional Properties:** not allowed  
-<a name="rivermetrics"></a>
-### river\.metrics: object
+**Additional Properties:** not allowed   
+   
+<a name="defsriverqueuemetricsconfig"></a>
+### $defs/riverqueue\.MetricsConfig: object
 
 MetricsConfig is the configuration for metrics
 
@@ -362,5 +343,39 @@ MetricsConfig is the configuration for metrics
 |**metricsdurationunit**|`string`|DurationUnit sets the duration unit for metrics<br/>||
 |**enablesemanticmetrics**|`boolean`|EnableSemanticMetrics toggles semantic metrics<br/>||
 
-**Additional Properties:** not allowed  
+**Additional Properties:** not allowed   
+   
+<a name="defstrustcenterworkers"></a>
+### $defs/trustcenter\.Workers: object
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|[**openlaneconfig**](#defsjobsopenlaneconfig)|`object`|OpenlaneConfig contains the configuration for connecting to the Openlane API.<br/>||
+
+**Additional Properties:** not allowed   
+**Example**
+
+```json
+{
+    "openlaneconfig": {}
+}
+```
+
+   
+<a name="defsjobsopenlaneconfig"></a>
+#### $defs/jobs\.OpenlaneConfig: object
+
+OpenlaneConfig contains the configuration for connecting to the Openlane API.
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+
+**Additional Properties:** not allowed   
 
