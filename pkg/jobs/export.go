@@ -509,9 +509,7 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 			for i, p := range parts[1:] {
 				// check the parent to see if it is plural, which will be the same index as the loop
 				// because we are looping over parts[1:]
-				isParentPlural := pluralize.NewClient().IsPlural(parts[i])
-
-				if isParentPlural {
+				if shouldUseEdges(parts[i]) {
 					fieldStr += "{ edges { node { " + p + " "
 					numClosingBraces += 3
 				} else {
@@ -534,6 +532,22 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 	}
 
 	return fieldStr
+}
+
+// noEdgeException are edges that are plural but do not follow
+// the edges pattern
+var noEdgeException = map[string]bool{
+	"relatedControls": true,
+}
+
+// shouldUseEdges returns true if the parent is plural
+// with the execptiions that do not use edges
+func shouldUseEdges(parent string) bool {
+	if noEdgeException[parent] {
+		return false
+	}
+
+	return pluralize.NewClient().IsPlural(parent)
 }
 
 func isSubcontrolsField(field string) bool {
