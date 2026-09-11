@@ -118,6 +118,12 @@ steps:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
+          - equinixmetal-buildkite/trivy#v1.19.0:
+              severity: CRITICAL,HIGH
+              ignore-unfixed: true
+              security-checks: config,secret,vuln
+              skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.74.0"
           - theopenlane/docker-metadata#v1.0.1:
               images:
                 - "${IMAGE_REPO}"
@@ -132,12 +138,6 @@ steps:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=""
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
-              severity: CRITICAL,HIGH
-              ignore-unfixed: true
-              security-checks: config,secret,vuln
-              skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.69.2"
       - label: ":docker: docker pr build with trust center"
         key: "docker-pr-build-tc"
         cancel_on_build_failing: true
@@ -162,6 +162,12 @@ steps:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
+          - equinixmetal-buildkite/trivy#v1.19.0:
+              severity: CRITICAL,HIGH
+              ignore-unfixed: true
+              security-checks: config,secret,vuln
+              skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.74.0"
           - theopenlane/docker-metadata#v1.0.1:
               images:
                 - "${IMAGE_REPO_TC}"
@@ -176,12 +182,6 @@ steps:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
-              severity: CRITICAL,HIGH
-              ignore-unfixed: true
-              security-checks: config,secret,vuln
-              skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.69.2"
       - label: ":docker: docker build and publish with tags"
         key: "docker-build"
         cancel_on_build_failing: true
@@ -202,6 +202,12 @@ steps:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
+          - equinixmetal-buildkite/trivy#v1.19.0:
+              severity: CRITICAL,HIGH
+              ignore-unfixed: true
+              security-checks: config,secret,vuln
+              skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.74.0"
           - theopenlane/docker-metadata#v1.0.1:
               images:
                 - "${IMAGE_REPO}"
@@ -216,12 +222,6 @@ steps:
               build-args:
                 - NAME=${APP_NAME}
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
-              severity: CRITICAL,HIGH
-              ignore-unfixed: true
-              security-checks: config,secret,vuln
-              skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.69.2"
       - label: ":docker: docker build and publish with tags includes trust center"
         key: "docker-build-tc"
         cancel_on_build_failing: true
@@ -243,6 +243,12 @@ steps:
               username: openlane-bender
               password-env: SECRET_GHCR_PUBLISH_TOKEN
               server: ghcr.io
+          - equinixmetal-buildkite/trivy#v1.19.0:
+              severity: CRITICAL,HIGH
+              ignore-unfixed: true
+              security-checks: config,secret,vuln
+              skip-files: "cosign.key,Dockerfile.dev"
+              trivy-version: "0.74.0"
           - theopenlane/docker-metadata#v1.0.1:
               images:
                 - "${IMAGE_REPO_TC}"
@@ -258,12 +264,6 @@ steps:
                 - NAME=${APP_NAME}
                 - BUILDTAGS=trustcenter
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
-          - equinixmetal-buildkite/trivy#v1.19.0:
-              severity: CRITICAL,HIGH
-              ignore-unfixed: true
-              security-checks: config,secret,vuln
-              skip-files: "cosign.key,Dockerfile.dev"
-              trivy-version: "0.69.2"
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
         if: build.tag != null && build.tag !~ /trustcenter\//
