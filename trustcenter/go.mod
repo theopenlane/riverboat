@@ -6,7 +6,7 @@ require (
 	github.com/riverqueue/river v0.44.1
 	github.com/rs/zerolog v1.35.1
 	github.com/theopenlane/core/common v1.0.25
-	github.com/theopenlane/corejobs v0.3.2
+	github.com/theopenlane/corejobs v0.3.3
 	github.com/theopenlane/riverboat v0.13.3
 )
 
@@ -98,7 +98,7 @@ require (
 	golang.org/x/time v0.15.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260819154853-08b0e4226688 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260819154853-08b0e4226688 // indirect
-	google.golang.org/grpc v1.83.1 // indirect
+	google.golang.org/grpc v1.83.2 // indirect
 	google.golang.org/protobuf v1.36.12 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
