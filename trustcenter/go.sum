@@ -164,8 +164,8 @@ github.com/theopenlane/core v1.34.0 h1:2tJN64ppo3LQlky4q/5jy1JxCIbdWms23v6AGuoXM
 github.com/theopenlane/core v1.34.0/go.mod h1:cSpWnPDweResm75+snMKsJRx7j1hDa1QLOWqbTQWzy8=
 github.com/theopenlane/core/common v1.0.25 h1:HTsiNLJeCBPudPliSqALWz/BEuCrRhg5kr601pyYvOs=
 github.com/theopenlane/core/common v1.0.25/go.mod h1:HYQjD+iqJdxdM5x3kpD9lk7q/cs6KAnNv5U23KEYn+A=
-github.com/theopenlane/corejobs v0.3.2 h1:1AOJu6tenseVmYJZNUzQfGotFP6Dl/dOt9vkXma1yCw=
-github.com/theopenlane/corejobs v0.3.2/go.mod h1:MrYiJB3OUO83SNGhQfmXv3wZFsqrSpxC/L2cVEWLrRE=
+github.com/theopenlane/corejobs v0.3.3 h1:bDqcP9MWv4CGaFHyeU7PDsSIPeTBqcrqeoYNE4CfHuA=
+github.com/theopenlane/corejobs v0.3.3/go.mod h1:MrYiJB3OUO83SNGhQfmXv3wZFsqrSpxC/L2cVEWLrRE=
 github.com/theopenlane/echox v0.3.0 h1:uwOKEw+r1utGQoOR6dZQqAVuY5j8TcasqnTwO5+rMsA=
 github.com/theopenlane/echox v0.3.0/go.mod h1:yTrXnj7s3VNIg0FCvB7Dut2Elr+LqJKU/nruxx1E1cM=
 github.com/theopenlane/emailtemplates v0.3.7 h1:yJLfsCIZ8zAeZ2QvmZ8qYyVZKzXkMyjlYsImFti/J9k=
@@ -253,8 +253,8 @@ google.golang.org/genproto/googleapis/api v0.0.0-20260819154853-08b0e4226688 h1:
 google.golang.org/genproto/googleapis/api v0.0.0-20260819154853-08b0e4226688/go.mod h1:1RJ9BQGyNdZwkGc1eTqkErfRZ6RJyYPHZo73BZ1vQqI=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20260819154853-08b0e4226688 h1:cYNAzI2sUwhmCcoj9TxvihSrqsxt6uIkj3rDRhSDmW4=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20260819154853-08b0e4226688/go.mod h1:DjtHYE8FKJLivXcBEjGwndXfIC23G0VpXiXKqG179uA=
-google.golang.org/grpc v1.83.1 h1:HIO0+BEtBP6soyqvqC8sNUjZ7bTs+0hFQuFF+RAy++Y=
-google.golang.org/grpc v1.83.1/go.mod h1:kDyl6SKsiHKt0uylY5gtn5cEjkrIOhQOGDgIc4JGwzQ=
+google.golang.org/grpc v1.83.2 h1:EManeRomTObA0BU7I8vXgg/78uE5MJ9M8B39EX2WscU=
+google.golang.org/grpc v1.83.2/go.mod h1:YPI1hK3kDked6iHvgX3tR0y+nX/qpMFKhPgFsokw1S8=
 google.golang.org/protobuf v1.36.12 h1:pJOKDDOyeXErUroCihFAd5LQuwXBSpVnKGrj5o/fwxc=
 google.golang.org/protobuf v1.36.12/go.mod h1:HTf+CrKn2C3g5S8VImy6tdcUvCska2kB7j23XfzDpco=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
