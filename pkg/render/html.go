@@ -176,6 +176,11 @@ func ExtractDetailsStrings(nodes []map[string]any, excludeMetadata bool) []strin
 
 		var buf strings.Builder
 
+		// include title when metadata is not requested
+		if name := flat["name"]; excludeMetadata && name != nil {
+			fmt.Fprintf(&buf, "<h1>%v</h1>\n", name)
+		}
+
 		// include header data unless explicitly set to not include
 		if !excludeMetadata {
 			// Add metadata to top for export to pdf
