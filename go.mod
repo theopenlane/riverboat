@@ -18,6 +18,7 @@ require (
 	github.com/knadh/koanf/providers/posflag v1.0.2
 	github.com/knadh/koanf/v2 v2.3.6
 	github.com/mcuadros/go-defaults v1.2.0
+	github.com/microcosm-cc/bluemonday v1.0.27
 	github.com/prometheus/client_golang v1.24.1
 	github.com/riverqueue/river v0.44.1
 	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.44.1
@@ -76,7 +77,6 @@ require (
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/mattn/go-runewidth v0.0.28 // indirect
-	github.com/microcosm-cc/bluemonday v1.0.27 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect

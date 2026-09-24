@@ -80,14 +80,14 @@ func TestExportContentWorker_ControlSubcontrolsExport(t *testing.T) {
 					"edges": []interface{}{
 						map[string]interface{}{
 							"node": map[string]interface{}{
-								"description": "Control description",
+								"description": "<p>Control <strong>description</strong></p>",
 								"status":      "NOT_IMPLEMENTED",
 								"subcontrols": map[string]interface{}{
 									"edges": []interface{}{
 										map[string]interface{}{
 											"node": map[string]interface{}{
 												"refCode":     "CC1.2-POF1",
-												"description": "Subcontrol 1",
+												"description": "<div>Subcontrol <em>1</em></div>",
 												"status":      "NOT_IMPLEMENTED",
 											},
 										},
