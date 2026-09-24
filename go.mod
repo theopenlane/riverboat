@@ -3,7 +3,7 @@ module github.com/theopenlane/riverboat
 go 1.26.6
 
 require (
-	github.com/99designs/gqlgen v0.17.94
+	github.com/99designs/gqlgen v0.17.95
 	github.com/cloudflare/cloudflare-go/v7 v7.9.0
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.3.2
@@ -16,7 +16,7 @@ require (
 	github.com/knadh/koanf/providers/env/v2 v2.0.1
 	github.com/knadh/koanf/providers/file v1.2.1
 	github.com/knadh/koanf/providers/posflag v1.0.2
-	github.com/knadh/koanf/v2 v2.3.6
+	github.com/knadh/koanf/v2 v2.3.7
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/microcosm-cc/bluemonday v1.0.27
 	github.com/prometheus/client_golang v1.24.1
@@ -31,13 +31,13 @@ require (
 	github.com/stretchr/testify v1.12.1
 	github.com/theopenlane/core/common v1.1.0
 	github.com/theopenlane/emailtemplates v0.3.7
-	github.com/theopenlane/go-client v0.14.0
+	github.com/theopenlane/go-client v0.14.1
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.37.0
-	github.com/theopenlane/newman v0.4.3
+	github.com/theopenlane/newman v0.4.4
 	github.com/theopenlane/riverboat/trustcenter v0.1.3
-	github.com/theopenlane/utils v0.7.1
-	github.com/yuin/goldmark v1.8.5
+	github.com/theopenlane/utils v0.7.2
+	github.com/yuin/goldmark v1.8.6
 	go.opentelemetry.io/otel v1.46.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.68.0
 	go.opentelemetry.io/otel/sdk/metric v1.46.0
