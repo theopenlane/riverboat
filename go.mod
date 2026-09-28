@@ -34,7 +34,7 @@ require (
 	github.com/theopenlane/go-client v0.14.0
 	github.com/theopenlane/httpsling v0.3.0
 	github.com/theopenlane/iam v0.37.0
-	github.com/theopenlane/newman v0.4.3
+	github.com/theopenlane/newman v0.5.0
 	github.com/theopenlane/riverboat/trustcenter v0.1.3
 	github.com/theopenlane/utils v0.7.1
 	github.com/yuin/goldmark v1.8.5
