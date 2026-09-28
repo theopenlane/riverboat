@@ -20,6 +20,7 @@ import (
 	"github.com/cloudflare/cloudflare-go/v7"
 	"github.com/gertd/go-pluralize"
 	"github.com/gocarina/gocsv"
+	"github.com/microcosm-cc/bluemonday"
 	"github.com/riverqueue/river"
 	"github.com/rs/zerolog/log"
 	"github.com/samber/lo"
@@ -752,6 +753,8 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 		return nil, err
 	}
 
+	sanitizer := bluemonday.StrictPolicy()
+
 	for _, node := range flatNodes {
 		row := make([]string, len(headers))
 		for i, h := range headers {
@@ -761,7 +764,7 @@ func (w *ExportContentWorker) marshalToCSV(nodes []map[string]any) ([]byte, erro
 				continue
 			}
 
-			row[i] = render.CleanHTML(val)
+			row[i] = sanitizer.Sanitize(fmt.Sprint(val))
 		}
 
 		if err := writer.Write(row); err != nil {
