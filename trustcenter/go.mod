@@ -3,7 +3,7 @@ module github.com/theopenlane/riverboat/trustcenter
 go 1.27.1
 
 require (
-	github.com/riverqueue/river v0.47.0
+	github.com/riverqueue/river v0.48.0
 	github.com/rs/zerolog v1.35.1
 	github.com/theopenlane/core/common v1.1.0
 	github.com/theopenlane/corejobs v0.3.3

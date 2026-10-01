@@ -20,9 +20,9 @@ require (
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/microcosm-cc/bluemonday v1.0.27
 	github.com/prometheus/client_golang v1.24.1
-	github.com/riverqueue/river v0.47.0
-	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.47.0
-	github.com/riverqueue/river/rivertype v0.47.0
+	github.com/riverqueue/river v0.48.0
+	github.com/riverqueue/river/riverdriver/riverpgxv5 v0.48.0
+	github.com/riverqueue/river/rivertype v0.48.0
 	github.com/riverqueue/rivercontrib/otelriver v0.12.0
 	github.com/rs/zerolog v1.35.1
 	github.com/samber/lo v1.53.0
