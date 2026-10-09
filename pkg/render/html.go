@@ -25,7 +25,7 @@ var scrub = scrubber.NewPolicyScrubber(
 	scrubber.WithNoRelativeURLs(),
 	scrubber.WithTargetBlankOnLinks(),
 	func(p *bluemonday.Policy) {
-		p.AllowAttrs("start").OnElements("ol", "li")
+		p.AllowAttrs("start").OnElements("ol")
 	},
 )
 
