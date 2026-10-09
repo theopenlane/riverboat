@@ -6,6 +6,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/microcosm-cc/bluemonday"
 	"github.com/rs/zerolog/log"
 	"github.com/theopenlane/newman/scrubber"
 	"github.com/yuin/goldmark"
@@ -23,6 +24,9 @@ var scrub = scrubber.NewPolicyScrubber(
 	scrubber.WithURLSchemes("http", "https", "mailto", "tel"),
 	scrubber.WithNoRelativeURLs(),
 	scrubber.WithTargetBlankOnLinks(),
+	func(p *bluemonday.Policy) {
+		p.AllowAttrs("start").OnElements("ol")
+	},
 )
 
 // markdownConverter renders markdown content into HTML, supporting GitHub flavored

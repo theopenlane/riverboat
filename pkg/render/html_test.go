@@ -97,3 +97,15 @@ func TestDetailsToHTML(t *testing.T) {
 		})
 	}
 }
+
+func TestRenderingPreservesOrderedListing(t *testing.T) {
+	t.Parallel()
+
+	content := `<ol start="1"><li>First item<ol><li>Standard index</li></ol> 
+
+	<ol start="2"><li>Custom start index for some reason</li></ol>`
+
+	doc := render.WrapDocument(render.DetailsToHTML(content))
+	assert.Contains(t, doc, `<ol start="1">`)
+	assert.Contains(t, doc, `<ol start="2">`)
+}
