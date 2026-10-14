@@ -6,7 +6,7 @@ require (
 	github.com/99designs/gqlgen v0.17.95
 	github.com/cloudflare/cloudflare-go/v7 v7.13.0
 	github.com/gertd/go-pluralize v0.2.1
-	github.com/go-chi/chi/v5 v5.3.2
+	github.com/go-chi/chi/v5 v5.5.0
 	github.com/gocarina/gocsv v0.0.0-20260926200228-b2c6eb8fefab
 	github.com/gqlgo/gqlgenc v0.44.0
 	github.com/invopop/jsonschema v0.14.0
