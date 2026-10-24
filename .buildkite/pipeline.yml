@@ -157,7 +157,6 @@ steps:
               volumes:
                 - $GOCACHE:$GOCACHE
                 - $GOMODCACHE:$GOMODCACHE
-                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
               environment:
                 - CGO_ENABLED=0
                 - GOOS=linux
