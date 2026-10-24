@@ -7,12 +7,6 @@ env:
   INCLUDE_TRUST_CENTER: "false"
   GOPRIVATE: github.com/theopenlane/corejobs
 
-  # build settings
-  BK_HOME: /var/lib/buildkite-agent
-  GOCACHE: $BK_HOME/.cache/go-build
-  GOMODCACHE: $BK_HOME/.cache/go/pkg/mod
-  GOLANGCI_LINT_CACHE: $BK_HOME/.cache/golangci-lint
-
   # runner vars
   LARGE_RUNNER_QUEUE: ${LARGE_RUNNER_QUEUE:-self-hosted-garage-vms}
   SMALL_RUNNER_QUEUE: ${SMALL_RUNNER_QUEUE:-self-hosted-garage-vms}
@@ -23,15 +17,6 @@ env:
 agents:
   queue: $SMALL_RUNNER_QUEUE
   workload: $RUNNER_WORKLOAD_LIGHTWEIGHT
-
-# cache for hosted runners
-cache:
-  name: go-cache
-  size: 100g
-  paths:
-    - $GOCACHE
-    - $GOMODCACHE
-    - $GOLANGCI_LINT_CACHE
 
 steps:
   - group: ":test_tube: Tests"
@@ -52,10 +37,6 @@ steps:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
               propagate-uid-gid: true
-              volumes:
-                - $GOCACHE:$GOCACHE
-                - $GOMODCACHE:$GOMODCACHE
-                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
       - label: ":golang: go test"
         key: "go_test"
         agents:
@@ -73,9 +54,6 @@ steps:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
               propagate-uid-gid: true
-              volumes:
-                - $GOCACHE:$GOCACHE
-                - $GOMODCACHE:$GOMODCACHE
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
@@ -139,9 +117,6 @@ steps:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
               propagate-uid-gid: true
-              volumes:
-                - $GOCACHE:$GOCACHE
-                - $GOMODCACHE:$GOMODCACHE
               environment:
                 - CGO_ENABLED=0
                 - GOOS=linux
