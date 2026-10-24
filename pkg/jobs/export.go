@@ -483,7 +483,8 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 		fields = []string{"id"}
 	}
 
-	fieldStr := ""
+	var fieldStr strings.Builder
+
 	addedSubcontrols := false
 
 	for _, f := range fields {
@@ -493,8 +494,9 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 			}
 
 			addedSubcontrols = true
-			fieldStr += subcontrolsField + "\n        { edges { node { " +
-				createFieldsStr(filterSubcontrolFieldsToQuery(fields), false) + " } } }\n        "
+
+			fieldStr.WriteString(subcontrolsField + "\n        { edges { node { " +
+				createFieldsStr(filterSubcontrolFieldsToQuery(fields), false) + " } } }\n        ")
 
 			continue
 		}
@@ -503,7 +505,7 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 			// split and create nested fields
 			parts := strings.Split(f, ".")
 
-			fieldStr += parts[0] + "\n        "
+			fieldStr.WriteString(parts[0] + "\n        ")
 
 			numClosingBraces := 0
 
@@ -511,28 +513,30 @@ func createFieldsStr(fields []string, shouldExpandSubControl bool) string {
 				// check the parent to see if it is plural, which will be the same index as the loop
 				// because we are looping over parts[1:]
 				if shouldUseEdges(parts[i]) {
-					fieldStr += "{ edges { node { " + p + " "
+					fieldStr.WriteString("{ edges { node { " + p + " ")
+
 					numClosingBraces += 3
 				} else {
-					fieldStr += "{  " + p + " "
+					fieldStr.WriteString("{  " + p + " ")
+
 					numClosingBraces++
 				}
 
 				if i == len(parts[1:])-1 {
 					for range numClosingBraces {
-						fieldStr += " } "
+						fieldStr.WriteString(" } ")
 					}
 				}
 			}
 
 			// Add a newline after the closing braces
-			fieldStr += "\n        "
+			fieldStr.WriteString("\n        ")
 		} else {
-			fieldStr += f + "\n        "
+			fieldStr.WriteString(f + "\n        ")
 		}
 	}
 
-	return fieldStr
+	return fieldStr.String()
 }
 
 // noEdgeException are edges that are plural but do not follow

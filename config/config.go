@@ -73,7 +73,7 @@ func Load(cfgFile *string) (*Config, error) {
 	// load env vars
 	if err := k.Load(env.Provider(".", env.Opt{
 		Prefix: envPrefix,
-		TransformFunc: func(key, v string) (string, interface{}) {
+		TransformFunc: func(key, v string) (string, any) {
 			key = strings.ToLower(strings.TrimPrefix(key, envPrefix))
 			key = strings.ReplaceAll(key, "_", ".")
 

@@ -62,7 +62,7 @@ func (c *PDFClient) HTMLToPDF(ctx context.Context, html string) ([]byte, error) 
 		AccountID: cloudflare.F(c.AccountID),
 		Body: browser_rendering.PDFNewParamsBody{
 			HTML: cloudflare.F(html),
-			PDFOptions: cloudflare.F[interface{}](browser_rendering.PDFNewParamsBodyObjectPDFOptions{
+			PDFOptions: cloudflare.F[any](browser_rendering.PDFNewParamsBodyObjectPDFOptions{
 				Format:              cloudflare.F(browser_rendering.PDFNewParamsBodyObjectPDFOptionsFormatLetter),
 				PrintBackground:     cloudflare.F(true),
 				DisplayHeaderFooter: cloudflare.F(true),

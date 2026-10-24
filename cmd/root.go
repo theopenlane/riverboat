@@ -92,7 +92,7 @@ func setupLogging() {
 		log.Logger = log.Output(zerolog.ConsoleWriter{
 			Out:        os.Stderr,
 			TimeFormat: time.RFC3339,
-			FormatCaller: func(i interface{}) string {
+			FormatCaller: func(i any) string {
 				return filepath.Base(fmt.Sprintf("%s", i))
 			},
 		})
