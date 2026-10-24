@@ -76,7 +76,6 @@ steps:
               volumes:
                 - $GOCACHE:$GOCACHE
                 - $GOMODCACHE:$GOMODCACHE
-                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
