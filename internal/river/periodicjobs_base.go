@@ -16,10 +16,7 @@ func createPeriodicJobs(c Workers) ([]*river.PeriodicJob, error) {
 	j := []*river.PeriodicJob{}
 
 	if c.DeleteExportContentWorker.Config.Enabled {
-		interval := c.DeleteExportContentWorker.Config.Interval
-		if interval < minInterval {
-			interval = minInterval
-		}
+		interval := max(c.DeleteExportContentWorker.Config.Interval, minInterval)
 
 		deleteExportJobs := river.NewPeriodicJob(
 			river.PeriodicInterval(interval),

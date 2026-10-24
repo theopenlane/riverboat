@@ -25,8 +25,9 @@ import (
 	olmocks "github.com/theopenlane/riverboat/pkg/jobs/openlane/mocks"
 )
 
+//go:fix inline
 func ptr[T any](v T) *T {
-	return &v
+	return new(v)
 }
 
 func newTestEvidenceNode(id, name string, fileIDs []string, controlRefCodes []string) *graphclient.GetEvidences_Evidences_Edges_Node {
@@ -35,7 +36,7 @@ func newTestEvidenceNode(id, name string, fileIDs []string, controlRefCodes []st
 		fileEdges = append(fileEdges, &graphclient.GetEvidences_Evidences_Edges_Node_Files_Edges{
 			Node: &graphclient.GetEvidences_Evidences_Edges_Node_Files_Edges_Node{
 				ID:           fid,
-				PresignedURL: ptr("PLACEHOLDER_URL"),
+				PresignedURL: new("PLACEHOLDER_URL"),
 			},
 		})
 	}
@@ -143,8 +144,8 @@ func TestExportEvidenceFiles_HappyPathFlat(t *testing.T) {
 	defer dlServer.Close()
 
 	ev1 := newTestEvidenceNode("ev1", "Quarterly Access Review", []string{"f1", "f2"}, []string{"SOC2::CC1.1"})
-	ev1.Files.Edges[0].Node.PresignedURL = ptr(dlServer.URL + "/file1")
-	ev1.Files.Edges[1].Node.PresignedURL = ptr(dlServer.URL + "/file2")
+	ev1.Files.Edges[0].Node.PresignedURL = new(dlServer.URL + "/file1")
+	ev1.Files.Edges[1].Node.PresignedURL = new(dlServer.URL + "/file2")
 
 	olMock := olmocks.NewMockGraphClient(t)
 
@@ -248,7 +249,7 @@ func TestExportEvidenceFiles_HappyPathFolder(t *testing.T) {
 	defer dlServer.Close()
 
 	ev1 := newTestEvidenceNode("ev1", "Quarterly Access Review", []string{"f1"}, []string{"SOC2::CC1.1"})
-	ev1.Files.Edges[0].Node.PresignedURL = ptr(dlServer.URL + "/file1")
+	ev1.Files.Edges[0].Node.PresignedURL = new(dlServer.URL + "/file1")
 
 	olMock := olmocks.NewMockGraphClient(t)
 
@@ -302,9 +303,9 @@ func TestExportEvidenceFiles_HappyPathFolder(t *testing.T) {
 				{
 					Node: &graphclient.GetControls_Controls_Edges_Node{
 						RefCode:            "SOC2::CC1.1",
-						ReferenceFramework: ptr("SOC 2"),
-						ReferenceID:        ptr("CC1.1"),
-						AuditorReferenceID: ptr("AUD-001"),
+						ReferenceFramework: new("SOC 2"),
+						ReferenceID:        new("CC1.1"),
+						AuditorReferenceID: new("AUD-001"),
 					},
 				},
 			},
@@ -369,7 +370,7 @@ func TestExportEvidenceFiles_FolderWithUncategorized(t *testing.T) {
 	defer dlServer.Close()
 
 	ev1 := newTestEvidenceNode("ev1", "Orphan Evidence", []string{"f1"}, nil)
-	ev1.Files.Edges[0].Node.PresignedURL = ptr(dlServer.URL + "/file1")
+	ev1.Files.Edges[0].Node.PresignedURL = new(dlServer.URL + "/file1")
 
 	olMock := olmocks.NewMockGraphClient(t)
 
@@ -463,7 +464,7 @@ func TestExportEvidenceFiles_FolderMultipleControls(t *testing.T) {
 	defer dlServer.Close()
 
 	ev1 := newTestEvidenceNode("ev1", "Quarterly Access Review", []string{"f1"}, []string{"SOC2::CC1.1", "ISO27001::A.5.1"})
-	ev1.Files.Edges[0].Node.PresignedURL = ptr(dlServer.URL + "/file1")
+	ev1.Files.Edges[0].Node.PresignedURL = new(dlServer.URL + "/file1")
 
 	olMock := olmocks.NewMockGraphClient(t)
 
@@ -517,7 +518,7 @@ func TestExportEvidenceFiles_FolderMultipleControls(t *testing.T) {
 				{
 					Node: &graphclient.GetControls_Controls_Edges_Node{
 						RefCode:            "SOC2::CC1.1",
-						ReferenceFramework: ptr("SOC 2"),
+						ReferenceFramework: new("SOC 2"),
 					},
 				},
 			},
@@ -535,7 +536,7 @@ func TestExportEvidenceFiles_FolderMultipleControls(t *testing.T) {
 				{
 					Node: &graphclient.GetControls_Controls_Edges_Node{
 						RefCode:            "ISO27001::A.5.1",
-						ReferenceFramework: ptr("ISO 27001"),
+						ReferenceFramework: new("ISO 27001"),
 					},
 				},
 			},
@@ -705,7 +706,7 @@ func TestExportEvidenceFiles_ErrorDownloadingFile(t *testing.T) {
 	defer dlServer.Close()
 
 	ev1 := newTestEvidenceNode("ev1", "Bad Evidence", []string{"f1"}, nil)
-	ev1.Files.Edges[0].Node.PresignedURL = ptr(dlServer.URL + "/file1")
+	ev1.Files.Edges[0].Node.PresignedURL = new(dlServer.URL + "/file1")
 
 	olMock := olmocks.NewMockGraphClient(t)
 
@@ -774,7 +775,7 @@ func TestExportEvidenceFiles_KeepFileOriginalName(t *testing.T) {
 	defer dlServer.Close()
 
 	ev1 := newTestEvidenceNode("ev1", "Quarterly Access Review", []string{"f1"}, nil)
-	ev1.Files.Edges[0].Node.PresignedURL = ptr(dlServer.URL + "/file1")
+	ev1.Files.Edges[0].Node.PresignedURL = new(dlServer.URL + "/file1")
 
 	olMock := olmocks.NewMockGraphClient(t)
 
@@ -869,18 +870,18 @@ func TestExportEvidenceFiles_DefaultModeCSVExport(t *testing.T) {
 	// mock graphQL server for CSV export
 	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]interface{}{ //nolint:errcheck
-			"data": map[string]interface{}{
-				"controls": map[string]interface{}{
-					"edges": []interface{}{
-						map[string]interface{}{
-							"node": map[string]interface{}{
+		json.NewEncoder(w).Encode(map[string]any{ //nolint:errcheck
+			"data": map[string]any{
+				"controls": map[string]any{
+					"edges": []any{
+						map[string]any{
+							"node": map[string]any{
 								"id":   "ctrl-1",
 								"name": "Control 1",
 							},
 						},
 					},
-					"pageInfo": map[string]interface{}{
+					"pageInfo": map[string]any{
 						"hasNextPage": false,
 						"endCursor":   nil,
 					},

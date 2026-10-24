@@ -80,7 +80,7 @@ func main() {
 }
 
 // generateSchema generates a JSON schema and a YAML schema based on the provided schemaConfig and structure
-func generateSchema(appName string, c schemaConfig, structure interface{}) {
+func generateSchema(appName string, c schemaConfig, structure any) {
 	// override the default name to using the prefixed pkg name
 	r := jsonschema.Reflector{
 		Namer:                      namePkg,
@@ -115,7 +115,7 @@ func namePkg(r reflect.Type) string {
 	return r.String()
 }
 
-func genJSONSchema(s interface{}, c schemaConfig) {
+func genJSONSchema(s any, c schemaConfig) {
 	// generate the json schema
 	data, err := json.MarshalIndent(s, "", "  ")
 	if err != nil {
@@ -154,17 +154,20 @@ func genEnvVarSchema(c schemaConfig) string {
 	}
 
 	// generate the environment variables from the config
-	envSchema := ""
-	configMapSchema := "\n"
+	var (
+		envSchema       strings.Builder
+		configMapSchema strings.Builder
+	)
+	configMapSchema.WriteString("\n")
 
 	for _, k := range out {
 		defaultVal := k.Tags.Get(defaultTag)
 
-		envSchema += fmt.Sprintf("%s=\"%s\"\n", k.Key, defaultVal)
+		fmt.Fprintf(&envSchema, "%s=\"%s\"\n", k.Key, defaultVal)
 
 		// if the default value is empty, use the value from the values.yaml
 		if defaultVal == "" {
-			configMapSchema += fmt.Sprintf("  %s: {{ .Values.%s }}\n", k.Key, k.FullPath)
+			fmt.Fprintf(&configMapSchema, "  %s: {{ .Values.%s }}\n", k.Key, k.FullPath)
 		} else {
 			switch k.Type.Kind() {
 			case reflect.String, reflect.Int64:
@@ -175,16 +178,16 @@ func genEnvVarSchema(c schemaConfig) string {
 				defaultVal = "\"" + defaultVal + "\"" // add quotes to the string
 			}
 
-			configMapSchema += fmt.Sprintf("  %s: {{ .Values.%s | default %s }}\n", k.Key, k.FullPath, defaultVal)
+			fmt.Fprintf(&configMapSchema, "  %s: {{ .Values.%s | default %s }}\n", k.Key, k.FullPath, defaultVal)
 		}
 	}
 
 	// write the environment variables to a file
-	if err = os.WriteFile(c.envConfigPath, []byte(envSchema), ownerReadWrite); err != nil {
+	if err = os.WriteFile(c.envConfigPath, []byte(envSchema.String()), ownerReadWrite); err != nil {
 		log.Panic().Err(err).Msg("error writing environment variables to file")
 	}
 
-	return configMapSchema
+	return configMapSchema.String()
 }
 
 func genConfigMapSchema(configMapSchema string, c schemaConfig) {

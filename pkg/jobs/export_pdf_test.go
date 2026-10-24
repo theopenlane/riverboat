@@ -46,7 +46,7 @@ func TestExportContentWorkerPDF(t *testing.T) {
 
 	t.Run("single document uploads a standalone pdf", func(t *testing.T) {
 		graphServer := mockGraphQLServer(t, controlsResponse(
-			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>body</p>"},
+			map[string]any{"id": "c1", "name": "Access Control Policy", "details": "<p>body</p>"},
 		))
 		defer graphServer.Close()
 
@@ -72,8 +72,8 @@ func TestExportContentWorkerPDF(t *testing.T) {
 
 	t.Run("multiple documents are bundled into a zip", func(t *testing.T) {
 		graphServer := mockGraphQLServer(t, controlsResponse(
-			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
-			map[string]interface{}{"id": "c2", "name": "Data Retention Policy", "details": "<p>b</p>"},
+			map[string]any{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
+			map[string]any{"id": "c2", "name": "Data Retention Policy", "details": "<p>b</p>"},
 		))
 		defer graphServer.Close()
 
@@ -101,7 +101,7 @@ func TestExportContentWorkerPDF(t *testing.T) {
 
 	t.Run("unconfigured cloudflare reports unsupported export type", func(t *testing.T) {
 		graphServer := mockGraphQLServer(t, controlsResponse(
-			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
+			map[string]any{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
 		))
 		defer graphServer.Close()
 
@@ -124,7 +124,7 @@ func TestExportContentWorkerPDF(t *testing.T) {
 
 	t.Run("cloudflare 422 error snoozes for retries", func(t *testing.T) {
 		srv := mockGraphQLServer(t, controlsResponse(
-			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
+			map[string]any{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
 		))
 		defer srv.Close()
 
@@ -149,7 +149,7 @@ func TestExportContentWorkerPDF(t *testing.T) {
 
 	t.Run("cloudflare 422 returns max snoozes error when retries are exhausted", func(t *testing.T) {
 		srv := mockGraphQLServer(t, controlsResponse(
-			map[string]interface{}{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
+			map[string]any{"id": "c1", "name": "Access Control Policy", "details": "<p>a</p>"},
 		))
 		defer srv.Close()
 
@@ -216,16 +216,16 @@ func cloudflareRenderUnprocessableError(t *testing.T) error {
 	})
 }
 
-func controlsResponse(nodes ...map[string]interface{}) map[string]interface{} {
-	edges := make([]interface{}, 0, len(nodes))
+func controlsResponse(nodes ...map[string]any) map[string]any {
+	edges := make([]any, 0, len(nodes))
 	for _, n := range nodes {
-		edges = append(edges, map[string]interface{}{"node": n})
+		edges = append(edges, map[string]any{"node": n})
 	}
 
-	return map[string]interface{}{
-		"controls": map[string]interface{}{
+	return map[string]any{
+		"controls": map[string]any{
 			"edges": edges,
-			"pageInfo": map[string]interface{}{
+			"pageInfo": map[string]any{
 				"hasNextPage": false,
 				"endCursor":   nil,
 			},

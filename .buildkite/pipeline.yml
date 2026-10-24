@@ -7,12 +7,46 @@ env:
   INCLUDE_TRUST_CENTER: "false"
   GOPRIVATE: github.com/theopenlane/corejobs
 
+  # build settings
+  BK_HOME: /var/lib/buildkite-agent
+  GOCACHE: $BK_HOME/.cache/go-build
+  GOMODCACHE: $BK_HOME/.cache/go/pkg/mod
+  GOLANGCI_LINT_CACHE: $BK_HOME/.cache/golangci-lint
+  HOME: /tmp
+  GIT_CONFIG_GLOBAL: $HOME/.gitconfig
+  APOLLO_CONFIG_HOME: $HOME
+  SONAR_USER_HOME: $HOME/.sonar"
+  SCANNER_WORKDIR_PATH: $HOME/sonar-scanner-work
+
+  # runner vars
+  LARGE_RUNNER_QUEUE: ${LARGE_RUNNER_QUEUE:-self-hosted-garage-vms}
+  SMALL_RUNNER_QUEUE: ${SMALL_RUNNER_QUEUE:-self-hosted-garage-vms}
+  RUNNER_WORKLOAD_LIGHTWEIGHT: "lightweight"
+  RUNNER_WORKLOAD_STANDARD: "standard"
+
+# defaults
+agents:
+  queue: $SMALL_RUNNER_QUEUE
+  workload: $RUNNER_WORKLOAD_LIGHTWEIGHT
+
+# cache for hosted runners
+cache:
+  name: go-cache
+  size: 100g
+  paths:
+    - $GOCACHE
+    - $GOMODCACHE
+    - $GOLANGCI_LINT_CACHE
+
 steps:
   - group: ":test_tube: Tests"
     key: "tests"
     steps:
       - label: ":golangci-lint: lint :lint-roller:"
         key: "lint"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         if_changed:
           - "**.go"
           - .golangci.yaml
@@ -22,8 +56,17 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
+              propagate-environment: true
+              propagate-uid-gid: true
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
+                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
       - label: ":golang: go test"
         key: "go_test"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         if_changed:
           - go.{mod,sum}
           - "**.go"
@@ -35,6 +78,12 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
+              propagate-environment: true
+              propagate-uid-gid: true
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
+                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
@@ -51,7 +100,13 @@ steps:
               download: "coverage.out"
               step: "go_test"
           - docker#v5.14.0:
-              image: "sonarsource/sonar-scanner-cli:11.2"
+              image: "sonarsource/sonar-scanner-cli:12.3"
+              propagate-environment: true
+              propagate-uid-gid: true
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
+                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
               environment:
                 - "SONAR_TOKEN"
                 - "SONAR_HOST_URL=$SONAR_HOST"
@@ -71,7 +126,13 @@ steps:
               download: coverage.out
               step: "go_test"
           - docker#v5.14.0:
-              image: "sonarsource/sonar-scanner-cli:11.2"
+              image: "sonarsource/sonar-scanner-cli:12.3"
+              propagate-environment: true
+              propagate-uid-gid: true
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
+                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
               environment:
                 - "SONAR_TOKEN"
                 - "SONAR_HOST_URL=$SONAR_HOST"
@@ -80,6 +141,9 @@ steps:
     steps:
       - label: ":golang: build"
         key: "gobuild-server"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         command: |
           task go:tidy > /dev/null 2>&1
           task go:build:ci
@@ -88,6 +152,12 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
+              propagate-environment: true
+              propagate-uid-gid: true
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
+                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
               environment:
                 - CGO_ENABLED=0
                 - GOOS=linux
@@ -97,6 +167,9 @@ steps:
     steps:
       - label: ":docker: docker pr build"
         key: "docker-pr-build"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
         if_changed:
@@ -140,6 +213,9 @@ steps:
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
       - label: ":docker: docker pr build with trust center"
         key: "docker-pr-build-tc"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         cancel_on_build_failing: true
         if: build.branch != "main" && build.tag == null
         if_changed:
@@ -184,6 +260,9 @@ steps:
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
       - label: ":docker: docker build and publish with tags"
         key: "docker-build"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         cancel_on_build_failing: true
         matrix:
           setup:
@@ -224,6 +303,9 @@ steps:
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
       - label: ":docker: docker build and publish with tags includes trust center"
         key: "docker-build-tc"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         cancel_on_build_failing: true
         matrix:
           setup:
@@ -266,6 +348,9 @@ steps:
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
       - label: ":docker: docker build and publish"
         key: "docker-build-and-tag"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         if: build.tag != null && build.tag !~ /trustcenter\//
         matrix:
           setup:
@@ -297,6 +382,9 @@ steps:
               secret-file: 'id=id_ed25519,src=$HOME/.ssh/id_ed25519'
       - label: ":docker: docker build and publish with trust center"
         key: "docker-build-and-tag-tc"
+        agents:
+          queue: $LARGE_RUNNER_QUEUE
+          workload: $RUNNER_WORKLOAD_STANDARD
         if: build.tag != null && build.tag !~ /trustcenter\//
         matrix:
           setup:

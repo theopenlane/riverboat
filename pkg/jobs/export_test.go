@@ -25,7 +25,7 @@ import (
 	olmocks "github.com/theopenlane/riverboat/pkg/jobs/openlane/mocks"
 )
 
-func mockGraphQLServer(t *testing.T, responses map[string]interface{}) *httptest.Server {
+func mockGraphQLServer(t *testing.T, responses map[string]any) *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var requestBody struct {
 			Query string `json:"query"`
@@ -34,13 +34,13 @@ func mockGraphQLServer(t *testing.T, responses map[string]interface{}) *httptest
 		err := json.NewDecoder(r.Body).Decode(&requestBody)
 		require.NoError(t, err)
 
-		var response map[string]interface{}
+		var response map[string]any
 		if strings.Contains(requestBody.Query, "controls") {
-			response = map[string]interface{}{
+			response = map[string]any{
 				"controls": responses["controls"],
 			}
 		} else if strings.Contains(requestBody.Query, "evidences") {
-			response = map[string]interface{}{
+			response = map[string]any{
 				"evidences": responses["evidences"],
 			}
 		} else {
@@ -48,7 +48,7 @@ func mockGraphQLServer(t *testing.T, responses map[string]interface{}) *httptest
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]interface{}{
+		json.NewEncoder(w).Encode(map[string]any{
 			"data": response,
 		})
 	}))
@@ -74,25 +74,25 @@ func TestExportContentWorker_ControlSubcontrolsExport(t *testing.T) {
 		require.NotContains(t, requestBody.Query, "title")
 
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]interface{}{
-			"data": map[string]interface{}{
-				"controls": map[string]interface{}{
-					"edges": []interface{}{
-						map[string]interface{}{
-							"node": map[string]interface{}{
+		json.NewEncoder(w).Encode(map[string]any{
+			"data": map[string]any{
+				"controls": map[string]any{
+					"edges": []any{
+						map[string]any{
+							"node": map[string]any{
 								"description": "<p>Control <strong>description</strong></p>",
 								"status":      "NOT_IMPLEMENTED",
-								"subcontrols": map[string]interface{}{
-									"edges": []interface{}{
-										map[string]interface{}{
-											"node": map[string]interface{}{
+								"subcontrols": map[string]any{
+									"edges": []any{
+										map[string]any{
+											"node": map[string]any{
 												"refCode":     "CC1.2-POF1",
 												"description": "<div>Subcontrol <em>1</em></div>",
 												"status":      "NOT_IMPLEMENTED",
 											},
 										},
-										map[string]interface{}{
-											"node": map[string]interface{}{
+										map[string]any{
+											"node": map[string]any{
 												"refCode":     "CC1.2-POF2",
 												"description": "Subcontrol 2",
 												"status":      "APPROVED",
@@ -103,7 +103,7 @@ func TestExportContentWorker_ControlSubcontrolsExport(t *testing.T) {
 							},
 						},
 					},
-					"pageInfo": map[string]interface{}{
+					"pageInfo": map[string]any{
 						"hasNextPage": false,
 						"endCursor":   nil,
 					},
@@ -211,7 +211,7 @@ func TestExportContentWorker(t *testing.T) {
 		input                    jobspec.ExportContentArgs
 		getExportByIDResponse    *graphclient.GetExportByID
 		getExportByIDError       error
-		graphQLResponses         map[string]interface{}
+		graphQLResponses         map[string]any
 		updateExportError        error
 		updateExportErrorSecond  error
 		expectedError            string
@@ -236,25 +236,25 @@ func TestExportContentWorker(t *testing.T) {
 					Fields:     []string{"id", "name", "description"},
 				},
 			},
-			graphQLResponses: map[string]interface{}{
-				"controls": map[string]interface{}{
-					"edges": []interface{}{
-						map[string]interface{}{
-							"node": map[string]interface{}{
+			graphQLResponses: map[string]any{
+				"controls": map[string]any{
+					"edges": []any{
+						map[string]any{
+							"node": map[string]any{
 								"id":          controlID1,
 								"name":        "Control 1",
 								"description": "First control",
 							},
 						},
-						map[string]interface{}{
-							"node": map[string]interface{}{
+						map[string]any{
+							"node": map[string]any{
 								"id":          controlID2,
 								"name":        "Control 2",
 								"description": "Second control",
 							},
 						},
 					},
-					"pageInfo": map[string]interface{}{
+					"pageInfo": map[string]any{
 						"hasNextPage": false,
 						"endCursor":   nil,
 					},
@@ -322,10 +322,10 @@ func TestExportContentWorker(t *testing.T) {
 					Fields:     []string{"id", "name"},
 				},
 			},
-			graphQLResponses: map[string]interface{}{
-				"controls": map[string]interface{}{
-					"edges": []interface{}{},
-					"pageInfo": map[string]interface{}{
+			graphQLResponses: map[string]any{
+				"controls": map[string]any{
+					"edges": []any{},
+					"pageInfo": map[string]any{
 						"hasNextPage": false,
 						"endCursor":   nil,
 					},
@@ -350,17 +350,17 @@ func TestExportContentWorker(t *testing.T) {
 					Fields:     []string{"id", "name"},
 				},
 			},
-			graphQLResponses: map[string]interface{}{
-				"controls": map[string]interface{}{
-					"edges": []interface{}{
-						map[string]interface{}{
-							"node": map[string]interface{}{
+			graphQLResponses: map[string]any{
+				"controls": map[string]any{
+					"edges": []any{
+						map[string]any{
+							"node": map[string]any{
 								"id":   controlID1,
 								"name": "Control 1",
 							},
 						},
 					},
-					"pageInfo": map[string]interface{}{
+					"pageInfo": map[string]any{
 						"hasNextPage": false,
 						"endCursor":   nil,
 					},
@@ -388,18 +388,18 @@ func TestExportContentWorker(t *testing.T) {
 					Fields:     []string{"id", "name", "type"},
 				},
 			},
-			graphQLResponses: map[string]interface{}{
-				"evidences": map[string]interface{}{
-					"edges": []interface{}{
-						map[string]interface{}{
-							"node": map[string]interface{}{
+			graphQLResponses: map[string]any{
+				"evidences": map[string]any{
+					"edges": []any{
+						map[string]any{
+							"node": map[string]any{
 								"id":   "evidence123",
 								"name": "Evidence 1",
 								"type": "Document",
 							},
 						},
 					},
-					"pageInfo": map[string]interface{}{
+					"pageInfo": map[string]any{
 						"hasNextPage": false,
 						"endCursor":   nil,
 					},
@@ -461,10 +461,8 @@ func TestExportContentWorker(t *testing.T) {
 			}
 
 			config := jobs.ExportWorkerConfig{
-				OpenlaneConfig: jobs.OpenlaneConfig{
-					OpenlaneAPIHost:  "https://api.example.com",
-					OpenlaneAPIToken: "tola_test-token",
-				},
+				OpenlaneAPIHost:  "https://api.example.com",
+				OpenlaneAPIToken: "tola_test-token",
 			}
 			if mockServer != nil {
 				config.OpenlaneAPIHost = mockServer.URL
@@ -498,9 +496,9 @@ func TestExportContentWorker_GraphQLErrorResponse(t *testing.T) {
 	// mock server that returns GraphQL errors
 	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]interface{}{
-			"errors": []interface{}{
-				map[string]interface{}{
+		json.NewEncoder(w).Encode(map[string]any{
+			"errors": []any{
+				map[string]any{
 					"message": "Field 'controls' not found",
 				},
 			},
