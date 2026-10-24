@@ -140,43 +140,18 @@ Workers that will be enabled on the server
 ```
 
    
-<a name="defsjobsdeleteexportcontentworker"></a>
-#### $defs/jobs\.DeleteExportContentWorker: object
+<a name="defsjobsopenlaneconfig"></a>
+#### $defs/jobs\.OpenlaneConfig: object
 
-DeleteExportContentWorker deletes exports that are older than the configured cutoff duration
-
-
-**Properties**
-
-|Name|Type|Description|Required|
-|----|----|-----------|--------|
-|[**config**](#defsjobsdeleteexportworkerconfig)|`object`|DeleteExportWorkerConfig holds the configuration for the delete export worker<br/>|yes|
-
-**Additional Properties:** not allowed   
-**Example**
-
-```json
-{
-    "config": {}
-}
-```
-
-   
-<a name="defsjobsdeleteexportworkerconfig"></a>
-##### $defs/jobs\.DeleteExportWorkerConfig: object
-
-DeleteExportWorkerConfig holds the configuration for the delete export worker
+OpenlaneConfig contains the configuration for connecting to the Openlane API.
 
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
-|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
-|**enabled**|`boolean`||no|
-|**interval**|`integer`||yes|
-|**cutoffduration**|`integer`|CutoffDuration defines the tolerance for exports. If you set 30 minutes, all exports older than 30 minutes<br/>at the time of job execution will be deleted<br/>|yes|
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
 
 **Additional Properties:** not allowed   
    
@@ -314,34 +289,43 @@ ExportWorkerConfig configuration for the export content worker
 
 **Additional Properties:** not allowed   
    
-<a name="defsjobsopenlaneconfig"></a>
-#### $defs/jobs\.OpenlaneConfig: object
+<a name="defsjobsdeleteexportcontentworker"></a>
+#### $defs/jobs\.DeleteExportContentWorker: object
 
-OpenlaneConfig contains the configuration for connecting to the Openlane API.
+DeleteExportContentWorker deletes exports that are older than the configured cutoff duration
 
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
-|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+|[**config**](#defsjobsdeleteexportworkerconfig)|`object`|DeleteExportWorkerConfig holds the configuration for the delete export worker<br/>|yes|
 
 **Additional Properties:** not allowed   
-   
-<a name="defsriverqueuemetricsconfig"></a>
-### $defs/riverqueue\.MetricsConfig: object
+**Example**
 
-MetricsConfig is the configuration for metrics
+```json
+{
+    "config": {}
+}
+```
+
+   
+<a name="defsjobsdeleteexportworkerconfig"></a>
+##### $defs/jobs\.DeleteExportWorkerConfig: object
+
+DeleteExportWorkerConfig holds the configuration for the delete export worker
 
 
 **Properties**
 
 |Name|Type|Description|Required|
 |----|----|-----------|--------|
-|**enablemetrics**|`boolean`|Enable toggles otel metrics middleware<br/>||
-|**metricsdurationunit**|`string`|DurationUnit sets the duration unit for metrics<br/>||
-|**enablesemanticmetrics**|`boolean`|EnableSemanticMetrics toggles semantic metrics<br/>||
+|**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>|no|
+|**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>|no|
+|**enabled**|`boolean`||no|
+|**interval**|`integer`||yes|
+|**cutoffduration**|`integer`|CutoffDuration defines the tolerance for exports. If you set 30 minutes, all exports older than 30 minutes<br/>at the time of job execution will be deleted<br/>|yes|
 
 **Additional Properties:** not allowed   
    
@@ -376,6 +360,22 @@ OpenlaneConfig contains the configuration for connecting to the Openlane API.
 |----|----|-----------|--------|
 |**openlaneapihost**|`string`|OpenlaneAPIHost is the host URL for the Openlane API<br/>||
 |**openlaneapitoken**|`string`|OpenlaneAPIToken is the API token for authenticating with the Openlane API<br/>||
+
+**Additional Properties:** not allowed   
+   
+<a name="defsriverqueuemetricsconfig"></a>
+### $defs/riverqueue\.MetricsConfig: object
+
+MetricsConfig is the configuration for metrics
+
+
+**Properties**
+
+|Name|Type|Description|Required|
+|----|----|-----------|--------|
+|**enablemetrics**|`boolean`|Enable toggles otel metrics middleware<br/>||
+|**metricsdurationunit**|`string`|DurationUnit sets the duration unit for metrics<br/>||
+|**enablesemanticmetrics**|`boolean`|EnableSemanticMetrics toggles semantic metrics<br/>||
 
 **Additional Properties:** not allowed   
 
