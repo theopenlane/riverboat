@@ -13,6 +13,12 @@ env:
   RUNNER_WORKLOAD_LIGHTWEIGHT: "lightweight"
   RUNNER_WORKLOAD_STANDARD: "standard"
 
+  # build settings
+  BK_HOME: /var/lib/buildkite-agent
+  GOCACHE: $BK_HOME/.cache/go-build
+  GOMODCACHE: $BK_HOME/.cache/go/pkg/mod
+  GOLANGCI_LINT_CACHE: $BK_HOME/.cache/golangci-lint
+
 # defaults
 agents:
   queue: $SMALL_RUNNER_QUEUE
@@ -36,6 +42,15 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
+              propagate-uid-gid: true
+              environment:
+                - GOCACHE
+                - GOMODCACHE
+                - GOLANGCI_LINT_CACHE
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
+                - $GOLANGCI_LINT_CACHE:$GOLANGCI_LINT_CACHE
       - label: ":golang: go test"
         key: "go_test"
         agents:
@@ -52,6 +67,13 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
+              propagate-uid-gid: true
+              environment:
+                - GOCACHE
+                - GOMODCACHE
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
@@ -108,9 +130,15 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
+              propagate-uid-gid: true
               environment:
+                - GOCACHE
+                - GOMODCACHE
                 - CGO_ENABLED=0
                 - GOOS=linux
+              volumes:
+                - $GOCACHE:$GOCACHE
+                - $GOMODCACHE:$GOMODCACHE
   - group: ":docker: Image Build"
     depends_on: "go-builds"
     key: "image-build"
