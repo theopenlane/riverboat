@@ -104,7 +104,7 @@ require (
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.8.0 // indirect
 	github.com/theopenlane/core/v2 v2.9.6 // indirect
-	github.com/theopenlane/corejobs v0.3.4 // indirect
+	github.com/theopenlane/corejobs v0.3.5 // indirect
 	github.com/theopenlane/echox v0.3.0 // indirect
 	github.com/theopenlane/logx v0.1.1 // indirect
 	github.com/tidwall/gjson v1.20.0 // indirect
