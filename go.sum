@@ -231,6 +231,7 @@ github.com/theopenlane/core/common v1.2.1/go.mod h1:ni3OVlm5lJ35qLxKknYz36M849Tf
 github.com/theopenlane/core/v2 v2.9.6 h1:9J2096e7JDa6/T/bwCEOn8JfEhUg2mtUCh7MwttTFW8=
 github.com/theopenlane/core/v2 v2.9.6/go.mod h1:0Nc+MVzFgL14wR0MepfsbBE2JieJcmMtvNO/SRvIdtQ=
 github.com/theopenlane/corejobs v0.3.5 h1:kZx3m9SLBdSpDMv2kqVIebmuEBYymhMYCCibztBkCRM=
+github.com/theopenlane/corejobs v0.3.5/go.mod h1:vNl3Xc8ETLhJPr7vzB8jpB+U8Zv9Lt3R253tfCpPeOc=
 github.com/theopenlane/echox v0.3.0 h1:uwOKEw+r1utGQoOR6dZQqAVuY5j8TcasqnTwO5+rMsA=
 github.com/theopenlane/echox v0.3.0/go.mod h1:yTrXnj7s3VNIg0FCvB7Dut2Elr+LqJKU/nruxx1E1cM=
 github.com/theopenlane/emailtemplates v0.3.7 h1:yJLfsCIZ8zAeZ2QvmZ8qYyVZKzXkMyjlYsImFti/J9k=
@@ -245,8 +246,8 @@ github.com/theopenlane/logx v0.1.1 h1:V9pYUKuWdsi3ejcZ83f29h8KJbVqnZqmKhThsWU5+p
 github.com/theopenlane/logx v0.1.1/go.mod h1:xhSn1p6b0XUcXKv7q6NC+I5neBAgrT9G2YDJ93WrzgA=
 github.com/theopenlane/newman v0.5.0 h1:r/aiqk4RpjwphpRgY9BXXT6AxyHXfoYGyjyv9E3VMMk=
 github.com/theopenlane/newman v0.5.0/go.mod h1:LmWeLO9H3ajIEQlNP9otcSpMCXB15dCu/WXjyYOs0i0=
-github.com/theopenlane/riverboat/trustcenter v0.1.3 h1:dMyrazNLng2Al7xx/FNW+/Vkw7RqcHle8jymLNCDLKI=
-github.com/theopenlane/riverboat/trustcenter v0.1.3/go.mod h1:nuRaCrDXdw70cDiDZHrXiTanaz23AIN3e33PHNP6tf8=
+github.com/theopenlane/riverboat/trustcenter v0.1.4 h1:XnOz1Iex+Nk80G+zn8y/vqCphsGAXo3LMoj96+XKf18=
+github.com/theopenlane/riverboat/trustcenter v0.1.4/go.mod h1:s8/WuRe1n9c6V1prPLmJIfRBalLu+rcL7R6Yl7xhs+8=
 github.com/theopenlane/utils v0.7.4 h1:3R+Mg8rh6xwZ/2itWPOdEn0kW9ZyUygJ0pB1xWxffO0=
 github.com/theopenlane/utils v0.7.4/go.mod h1:MThjVD/86ERwVyCu5g7yZqfz+r7AO9fRvsPZUh9xpl0=
 github.com/tidwall/gjson v1.14.2/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=

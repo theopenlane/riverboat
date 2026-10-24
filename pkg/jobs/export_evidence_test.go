@@ -25,11 +25,6 @@ import (
 	olmocks "github.com/theopenlane/riverboat/pkg/jobs/openlane/mocks"
 )
 
-//go:fix inline
-func ptr[T any](v T) *T {
-	return new(v)
-}
-
 func newTestEvidenceNode(id, name string, fileIDs []string, controlRefCodes []string) *graphclient.GetEvidences_Evidences_Edges_Node {
 	var fileEdges []*graphclient.GetEvidences_Evidences_Edges_Node_Files_Edges
 	for _, fid := range fileIDs {
