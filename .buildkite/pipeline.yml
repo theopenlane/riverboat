@@ -36,7 +36,6 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
-              propagate-uid-gid: true
       - label: ":golang: go test"
         key: "go_test"
         agents:
@@ -53,7 +52,6 @@ steps:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always-pull: true
-              propagate-uid-gid: true
         artifact_paths: ["coverage.out"]
       - label: ":github: upload PR reports"
         key: "scan-upload-pr"
@@ -71,7 +69,6 @@ steps:
               step: "go_test"
           - docker#v5.14.0:
               image: "sonarsource/sonar-scanner-cli:12.3"
-              propagate-uid-gid: true
               environment:
                 - "SONAR_USER_HOME"
                 - "SCANNER_WORKDIR_PATH"
@@ -94,7 +91,6 @@ steps:
               step: "go_test"
           - docker#v5.14.0:
               image: "sonarsource/sonar-scanner-cli:12.3"
-              propagate-uid-gid: true
               environment:
                 - "SONAR_USER_HOME"
                 - "SCANNER_WORKDIR_PATH"
