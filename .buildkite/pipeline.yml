@@ -31,7 +31,7 @@ steps:
           - "**.go"
           - .golangci.yaml
         cancel_on_build_failing: true
-        command: "task go:tidy > /dev/null 2>&1 && task go:lint:ci"
+        command: "task go:tidy && task go:lint:ci"
         plugins:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
@@ -46,7 +46,7 @@ steps:
           - "**.go"
         cancel_on_build_failing: true
         command: |
-          task go:tidy > /dev/null 2>&1
+          task go:tidy
           task go:test:cover
         plugins:
           - docker#v5.14.0:
@@ -105,14 +105,13 @@ steps:
           queue: $LARGE_RUNNER_QUEUE
           workload: $RUNNER_WORKLOAD_STANDARD
         command: |
-          task go:tidy > /dev/null 2>&1
+          task go:tidy
           task go:build:ci
         artifact_paths: "bin/${APP_NAME}"
         plugins:
           - docker#v5.14.0:
               image: "ghcr.io/theopenlane/build-image:latest"
               always_pull: true
-              propagate-uid-gid: true
               environment:
                 - CGO_ENABLED=0
                 - GOOS=linux
