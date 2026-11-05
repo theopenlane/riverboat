@@ -33,7 +33,7 @@ require (
 	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.15.0
 	github.com/theopenlane/httpsling v0.3.0
-	github.com/theopenlane/iam v0.40.1
+	github.com/theopenlane/iam v0.42.0
 	github.com/theopenlane/newman v0.5.0
 	github.com/theopenlane/riverboat/trustcenter v0.1.4
 	github.com/theopenlane/utils v0.7.4
