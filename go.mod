@@ -29,7 +29,7 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.12.1
-	github.com/theopenlane/core/common v1.2.1
+	github.com/theopenlane/core/common v1.2.3
 	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.15.0
 	github.com/theopenlane/httpsling v0.3.0
@@ -37,7 +37,7 @@ require (
 	github.com/theopenlane/newman v0.5.0
 	github.com/theopenlane/riverboat/trustcenter v0.1.4
 	github.com/theopenlane/utils v0.7.4
-	github.com/yuin/goldmark v1.8.6
+	github.com/yuin/goldmark v1.8.7
 	go.opentelemetry.io/otel v1.47.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.69.0
 	go.opentelemetry.io/otel/sdk/metric v1.47.0
