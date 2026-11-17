@@ -45,6 +45,13 @@ const (
 	// we always fetch this because of summarization of subcontrols. this does not mean it
 	// gets into the csv, it will only be there if the query fields include it
 	refCodeField = "refCode"
+
+	extensionPDF        = ".pdf"
+	extensionMarkdown   = ".md"
+	extensionHTML       = ".html"
+	contentTypePDF      = "application/pdf"
+	contentTypeMarkdown = "text/markdown"
+	contentTypeHTML     = "text/html"
 )
 
 // pdfFieldsWanted include the fields used in the PDF export we need to make sure we have in the graphql request
@@ -282,8 +289,32 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 
 	switch exportFormat {
 	// TODO: determine support for implementation, for now leaving off implementation
-	case enums.ExportFormatDocx, enums.ExportFormatMarkDown:
+	case enums.ExportFormatDocx:
 		return ErrUnsupportedExportType
+	case enums.ExportFormatMarkDown, enums.ExportFormatHTML:
+		extension := extensionMarkdown
+		contentType = contentTypeMarkdown
+		if exportFormat == enums.ExportFormatHTML {
+			extension = extensionHTML
+			contentType = contentTypeHTML
+		}
+
+		documents, err := w.generatePolicyDocuments(allNodes, rootQuery, extension, exportFormat, lo.FromPtr(job.Args.ExportMetadata).ExcludePDFMetadata)
+		if err != nil {
+			return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+		}
+
+		fileData = documents[0].data
+		filename = documents[0].name
+		if len(documents) > 1 {
+			fileData, err = w.buildExportZip(documents)
+			if err != nil {
+				return w.updateExportStatus(ctx, job.Args.ExportID, enums.ExportStatusFailed, err)
+			}
+
+			filename = fmt.Sprintf("%s_export_%s.zip", strcase.SnakeCase(rootQuery), timestamp)
+			contentType = "application/zip"
+		}
 	case enums.ExportFormatPdf:
 		// PDF generation relies on the Cloudflare browser rendering API, when it is
 		// not configured the PDF format is effectively unsupported
@@ -307,9 +338,9 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		if len(pdfs) == 1 {
 			fileData = pdfs[0].data
 			filename = pdfs[0].name
-			contentType = "application/pdf"
+			contentType = contentTypePDF
 		} else {
-			fileData, err = w.buildPDFZip(pdfs)
+			fileData, err = w.buildExportZip(pdfs)
 			if err != nil {
 				log.Error().Err(err).Msg("failed to build PDF zip archive")
 
@@ -875,15 +906,15 @@ func (w *ExportContentWorker) fetchPage(ctx context.Context, query, rootQuery st
 	return nodes, hasNext, endCursor, nil
 }
 
-// pdfFile holds a single rendered PDF document along with the filename it should
+// exportedFile holds a single document along with the filename it should
 // take inside the export (or the zip archive when multiple documents are exported)
-type pdfFile struct {
+type exportedFile struct {
 	name string
 	data []byte
 }
 
 // generatePolicyPDFs renders each node into its own PDF document, named after the document's name field
-func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []map[string]any, rootQuery string, excludeMetadata bool) ([]pdfFile, error) {
+func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []map[string]any, rootQuery string, excludeMetadata bool) ([]exportedFile, error) {
 	renderer := w.pdfRenderer
 	if renderer == nil {
 		renderer = &render.PDFClient{
@@ -893,28 +924,49 @@ func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []ma
 	}
 
 	usedNames := make(map[string]int)
-	pdfs := make([]pdfFile, 0, len(nodes))
+	pdfs := make([]exportedFile, 0, len(nodes))
 
 	for _, node := range nodes {
-		doc := render.WrapDocument(strings.Join(render.ExtractDetailsStrings([]map[string]any{node}, excludeMetadata), "\n"))
+		doc, err := render.RenderDocument(node, enums.ExportFormatPdf, excludeMetadata)
+		if err != nil {
+			return nil, err
+		}
 
 		data, err := renderer.HTMLToPDF(ctx, doc)
 		if err != nil {
 			return nil, err
 		}
 
-		name := resolveCollision(usedNames, pdfFileName(node, rootQuery))
+		name := resolveCollision(usedNames, exportFileName(node, rootQuery, extensionPDF))
 		usedNames[name]++
 
-		pdfs = append(pdfs, pdfFile{name: name, data: data})
+		pdfs = append(pdfs, exportedFile{name: name, data: data})
 	}
 
 	return pdfs, nil
 }
 
-// pdfFileName derives a safe pdf filename from a node's name field, falling back to
+func (w *ExportContentWorker) generatePolicyDocuments(nodes []map[string]any, rootQuery, extension string, format enums.ExportFormat, excludeMetadata bool) ([]exportedFile, error) {
+	usedNames := make(map[string]int)
+	documents := make([]exportedFile, 0, len(nodes))
+
+	for _, node := range nodes {
+		doc, err := render.RenderDocument(node, format, excludeMetadata)
+		if err != nil {
+			return nil, err
+		}
+
+		name := resolveCollision(usedNames, exportFileName(node, rootQuery, extension))
+		usedNames[name]++
+		documents = append(documents, exportedFile{name: name, data: []byte(doc)})
+	}
+
+	return documents, nil
+}
+
+// exportFileName derives a safe filename from a node's name field, falling back to
 // the rootQuery when the node has no usable name
-func pdfFileName(node map[string]any, fallback string) string {
+func exportFileName(node map[string]any, fallback, extension string) string {
 	name := fallback
 
 	if raw, ok := node["name"]; ok && raw != nil {
@@ -923,12 +975,12 @@ func pdfFileName(node map[string]any, fallback string) string {
 		}
 	}
 
-	return strcase.SnakeCase(name) + ".pdf"
+	return strcase.SnakeCase(name) + extension
 }
 
-// buildPDFZip bundles the rendered PDFs into a single zip archive, enforcing the
+// buildExportZip bundles documents into a single zip archive, enforcing the
 // configured maximum archive size
-func (w *ExportContentWorker) buildPDFZip(pdfs []pdfFile) ([]byte, error) {
+func (w *ExportContentWorker) buildExportZip(pdfs []exportedFile) ([]byte, error) {
 	var buf bytes.Buffer
 
 	zw := zip.NewWriter(&buf)

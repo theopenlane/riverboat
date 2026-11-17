@@ -8,11 +8,38 @@ import (
 
 	"github.com/microcosm-cc/bluemonday"
 	"github.com/rs/zerolog/log"
+	"github.com/theopenlane/core/common/enums"
 	"github.com/theopenlane/newman/scrubber"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/renderer/html"
 )
+
+var documentMetadataKV = []struct {
+	key   string
+	label string
+}{
+	{
+		key:   "name",
+		label: "Name",
+	},
+	{
+		key:   "status",
+		label: "Status",
+	},
+	{
+		key:   "revision",
+		label: "Version",
+	},
+	{
+		key:   "createdAt",
+		label: "Created At",
+	},
+	{
+		key:   "updatedAt",
+		label: "Updated At",
+	},
+}
 
 // stripHTML removes all HTML tags from a value
 var scrub = scrubber.NewPolicyScrubber(
@@ -164,76 +191,55 @@ func Flatten(prefix string, v any, out map[string]any) {
 	}
 }
 
-// ExtractDetailsStrings extracts string content from nodes and formats them into HTML
-// strings for document generation. It includes common headers (name, status,
+// RenderDocument extracts string content from a node and formats it into HTML or Markdown
+// for document generation. It includes common headers (name, status,
 // timestamps) followed by the details content
-func ExtractDetailsStrings(nodes []map[string]any, excludeMetadata bool) []string {
-	if len(nodes) == 0 {
-		return nil
+func RenderDocument(node map[string]any, format enums.ExportFormat, excludeMetadata bool) (string, error) {
+	flat := make(map[string]any)
+	Flatten("", node, flat)
+	details := getDocumentDetail(flat)
+
+	switch format {
+	case enums.ExportFormatMarkDown:
+		return renderMarkdown(flat, details, excludeMetadata)
+	case enums.ExportFormatHTML, enums.ExportFormatPdf:
+		return WrapDocument(renderHTML(flat, details, excludeMetadata)), nil
+	default:
+		return "", fmt.Errorf("unsupported document format: %s", format)
+	}
+}
+
+func renderHTML(flat map[string]any, details string, excludeMetadata bool) string {
+	var buf strings.Builder
+
+	if name := flat["name"]; excludeMetadata && name != nil {
+		fmt.Fprintf(&buf, "<h1>%v</h1>\n", name)
 	}
 
-	var results []string
-
-	for _, n := range nodes {
-		flat := make(map[string]any)
-		Flatten("", n, flat)
-
-		var buf strings.Builder
-
-		// include title when metadata is not requested
-		if name := flat["name"]; excludeMetadata && name != nil {
-			fmt.Fprintf(&buf, "<h1>%v</h1>\n", name)
-		}
-
-		// include header data unless explicitly set to not include
-		if !excludeMetadata {
-			// Add metadata to top for export to pdf
-			headerKeys := []struct {
-				key   string
-				label string
-			}{
-				{"name", "Name"},
-				{"status", "Status"},
-				{"revision", "Version"},
-				{"createdAt", "Created At"},
-				{"updatedAt", "Updated At"},
-			}
-
-			addedKeys := make(map[string]bool)
-			for _, hk := range headerKeys {
-				if val, ok := flat[hk.key]; ok && val != nil && !addedKeys[hk.label] {
-					fmt.Fprintf(&buf, "<p><strong>%s:</strong> %v</p>\n", hk.label, val)
-					addedKeys[hk.label] = true
-				}
-			}
-
-			buf.WriteString("<hr/>\n")
-		}
-
-		var details string
-
-		// Add the main content (details), or externalContents if an integration, or fallback to placeholder
-		for _, key := range []string{
-			"details",
-			"externalContents",
-			"liveExternalContents",
-		} {
-			if text, ok := flat[key]; ok && text != nil && text != "" {
-				details = fmt.Sprint(text)
-				break
+	// include header data unless explicitly set to not include
+	if !excludeMetadata {
+		addedKeys := make(map[string]bool)
+		for _, field := range documentMetadataKV {
+			if val, ok := flat[field.key]; ok && val != nil && !addedKeys[field.label] {
+				fmt.Fprintf(&buf, "<p><strong>%s:</strong> %v</p>\n", field.label, val)
+				addedKeys[field.label] = true
 			}
 		}
 
-		if details == "" {
-			details = "Empty Policy Document"
-		}
+		buf.WriteString("<hr/>\n")
+	}
 
-		buf.WriteString(DetailsToHTML(details))
+	buf.WriteString(DetailsToHTML(details))
 
-		if buf.Len() > 0 {
-			results = append(results, buf.String())
+	return buf.String()
+}
+
+func getDocumentDetail(flat map[string]any) string {
+	for _, key := range []string{"details", "externalContents", "liveExternalContents"} {
+		if text := flat[key]; text != nil && text != "" {
+			return fmt.Sprint(text)
 		}
 	}
 
-	return results
+	return "Empty Policy Document"
 }
