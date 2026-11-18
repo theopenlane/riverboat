@@ -241,5 +241,5 @@ func getDocumentDetail(flat map[string]any) string {
 		}
 	}
 
-	return "Empty Policy Document"
+	return "Empty Document"
 }
