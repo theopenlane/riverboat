@@ -8,7 +8,7 @@ require (
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-chi/chi/v5 v5.5.0
 	github.com/gocarina/gocsv v0.0.0-20261012193826-401c25af6907
-	github.com/gqlgo/gqlgenc v0.44.0
+	github.com/gqlgo/gqlgenc v0.44.1
 	github.com/invopop/jsonschema v0.14.0
 	github.com/invopop/yaml v0.3.1
 	github.com/jackc/pgx/v5 v5.11.0
@@ -29,7 +29,7 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stoewer/go-strcase v1.3.1
 	github.com/stretchr/testify v1.12.1
-	github.com/theopenlane/core/common v1.2.1
+	github.com/theopenlane/core/common v1.2.4
 	github.com/theopenlane/emailtemplates v0.3.7
 	github.com/theopenlane/go-client v0.15.0
 	github.com/theopenlane/httpsling v0.3.0
@@ -37,7 +37,7 @@ require (
 	github.com/theopenlane/newman v0.5.0
 	github.com/theopenlane/riverboat/trustcenter v0.1.4
 	github.com/theopenlane/utils v0.7.4
-	github.com/yuin/goldmark v1.8.6
+	github.com/yuin/goldmark v1.8.7
 	go.opentelemetry.io/otel v1.47.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.69.0
 	go.opentelemetry.io/otel/sdk/metric v1.47.0
