@@ -228,18 +228,18 @@ func (_e *MockJobClient_Expecter) Insert(ctx any, args any, opts any) *MockJobCl
 }
 
 func (_c *MockJobClient_Insert_Call) Run(run func(ctx context.Context, args river.JobArgs, opts *river.InsertOpts)) *MockJobClient_Insert_Call {
-	_c.Call.Run(func(args mock.Arguments) {
+	_c.Call.Run(func(args1 mock.Arguments) {
 		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
+		if args1[0] != nil {
+			arg0 = args1[0].(context.Context)
 		}
 		var arg1 river.JobArgs
-		if args[1] != nil {
-			arg1 = args[1].(river.JobArgs)
+		if args1[1] != nil {
+			arg1 = args1[1].(river.JobArgs)
 		}
 		var arg2 *river.InsertOpts
-		if args[2] != nil {
-			arg2 = args[2].(*river.InsertOpts)
+		if args1[2] != nil {
+			arg2 = args1[2].(*river.InsertOpts)
 		}
 		run(
 			arg0,
@@ -583,22 +583,22 @@ func (_e *MockJobClient_Expecter) InsertTx(ctx any, tx any, args any, opts any) 
 }
 
 func (_c *MockJobClient_InsertTx_Call) Run(run func(ctx context.Context, tx pgx.Tx, args river.JobArgs, opts *river.InsertOpts)) *MockJobClient_InsertTx_Call {
-	_c.Call.Run(func(args mock.Arguments) {
+	_c.Call.Run(func(args1 mock.Arguments) {
 		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
+		if args1[0] != nil {
+			arg0 = args1[0].(context.Context)
 		}
 		var arg1 pgx.Tx
-		if args[1] != nil {
-			arg1 = args[1].(pgx.Tx)
+		if args1[1] != nil {
+			arg1 = args1[1].(pgx.Tx)
 		}
 		var arg2 river.JobArgs
-		if args[2] != nil {
-			arg2 = args[2].(river.JobArgs)
+		if args1[2] != nil {
+			arg2 = args1[2].(river.JobArgs)
 		}
 		var arg3 *river.InsertOpts
-		if args[3] != nil {
-			arg3 = args[3].(*river.InsertOpts)
+		if args1[3] != nil {
+			arg3 = args1[3].(*river.InsertOpts)
 		}
 		run(
 			arg0,
