@@ -33,6 +33,7 @@ func renderMarkdown(flat map[string]any, details string, excludeMetadata bool) (
 
 	if !excludeMetadata {
 		metadata := make(map[string]any)
+
 		for _, field := range documentMetadataKV {
 			if value := flat[field.key]; value != nil {
 				metadata[field.key] = value

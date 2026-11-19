@@ -2,6 +2,7 @@ package render
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"regexp"
 	"strings"
@@ -14,6 +15,9 @@ import (
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/renderer/html"
 )
+
+// ErrUnsupportedDocumentFormat indicates that a format cannot be rendered as a document.
+var ErrUnsupportedDocumentFormat = errors.New("unsupported document format")
 
 var documentMetadataKV = []struct {
 	key   string
@@ -191,10 +195,10 @@ func Flatten(prefix string, v any, out map[string]any) {
 	}
 }
 
-// RenderDocument extracts string content from a node and formats it into HTML or Markdown
+// Document extracts string content from a node and formats it into HTML or Markdown
 // for document generation. It includes common headers (name, status,
 // timestamps) followed by the details content
-func RenderDocument(node map[string]any, format enums.ExportFormat, excludeMetadata bool) (string, error) {
+func Document(node map[string]any, format enums.ExportFormat, excludeMetadata bool) (string, error) {
 	flat := make(map[string]any)
 	Flatten("", node, flat)
 	details := getDocumentDetail(flat)
@@ -205,7 +209,7 @@ func RenderDocument(node map[string]any, format enums.ExportFormat, excludeMetad
 	case enums.ExportFormatHTML, enums.ExportFormatPdf:
 		return WrapDocument(renderHTML(flat, details, excludeMetadata)), nil
 	default:
-		return "", fmt.Errorf("unsupported document format: %s", format)
+		return "", fmt.Errorf("%w: %s", ErrUnsupportedDocumentFormat, format)
 	}
 }
 

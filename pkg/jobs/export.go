@@ -279,12 +279,19 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 
 	// Determine the output format from the export record
 	exportFormat := export.Export.Format
+
+	return w.upload(ctx, job, allNodes, rootQuery, exportFormat)
+}
+
+// upload creates the export file and uploads it alongside the export
+func (w *ExportContentWorker) upload(ctx context.Context, job *river.Job[jobspec.ExportContentArgs], allNodes []map[string]any, rootQuery string, exportFormat enums.ExportFormat) error {
 	timestamp := time.Now().Format("20060102_150405")
 
 	var (
 		fileData    []byte
 		filename    string
 		contentType string
+		err         error
 	)
 
 	switch exportFormat {
@@ -294,6 +301,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 	case enums.ExportFormatMarkDown, enums.ExportFormatHTML:
 		extension := extensionMarkdown
 		contentType = contentTypeMarkdown
+
 		if exportFormat == enums.ExportFormatHTML {
 			extension = extensionHTML
 			contentType = contentTypeHTML
@@ -305,6 +313,7 @@ func (w *ExportContentWorker) Work(ctx context.Context, job *river.Job[jobspec.E
 		}
 
 		fileData = documents[0].data
+
 		filename = documents[0].name
 		if len(documents) > 1 {
 			fileData, err = w.buildExportZip(documents)
@@ -927,7 +936,7 @@ func (w *ExportContentWorker) generatePolicyPDFs(ctx context.Context, nodes []ma
 	pdfs := make([]exportedFile, 0, len(nodes))
 
 	for _, node := range nodes {
-		doc, err := render.RenderDocument(node, enums.ExportFormatPdf, excludeMetadata)
+		doc, err := render.Document(node, enums.ExportFormatPdf, excludeMetadata)
 		if err != nil {
 			return nil, err
 		}
@@ -951,7 +960,7 @@ func (w *ExportContentWorker) generatePolicyDocuments(nodes []map[string]any, ro
 	documents := make([]exportedFile, 0, len(nodes))
 
 	for _, node := range nodes {
-		doc, err := render.RenderDocument(node, format, excludeMetadata)
+		doc, err := render.Document(node, format, excludeMetadata)
 		if err != nil {
 			return nil, err
 		}
